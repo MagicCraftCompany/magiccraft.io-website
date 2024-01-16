@@ -19,6 +19,18 @@
     local("Futura PT"), url("./assets/fonts/futura-pt/FuturaPTLight.otf") format("opentype");
 }
 
-.hero-bg-gradient {
-  background: linear-gradient(180deg, rgba(3, 8, 47, 0.00) 36.62%, rgba(3, 8, 47, 0.62) 102.13%), linear-gradient(270deg, rgba(12, 2, 24, 0.00) 81.51%, rgba(12, 2, 24, 0.00) 81.51%, rgba(12, 2, 24, 0.90) 100%), linear-gradient(90deg, rgba(12, 2, 24, 0.00) 81.04%, rgba(12, 2, 24, 0.90) 100%), linear-gradient(180deg, rgba(12, 2, 24, 0.00) 44.4%, #0C0218 89.86%);
+
+
+@layer utilities {
+  .hero-bg-gradient {
+    background: linear-gradient(180deg, rgba(3, 8, 47, 0.00) 36.62%, rgba(3, 8, 47, 0.62) 102.13%), linear-gradient(270deg, rgba(12, 2, 24, 0.00) 81.51%, rgba(12, 2, 24, 0.00) 81.51%, rgba(12, 2, 24, 0.90) 100%), linear-gradient(90deg, rgba(12, 2, 24, 0.00) 81.04%, rgba(12, 2, 24, 0.90) 100%), linear-gradient(180deg, rgba(12, 2, 24, 0.00) 44.4%, #0C0218 89.86%);
+  }
+
+  .font-outline {
+    -webkit-text-stroke: 2px transparent;
+  }
+
+  .game-chips-bg {
+    background: linear-gradient(98deg, #3F107A 10.09%, #740FB1 100.25%), linear-gradient(255deg, rgba(87, 24, 109, 0.62) 4.37%, rgba(42, 13, 78, 0.62) 99.01%), rgba(45, 44, 134, 0.80);
+  }
 }
