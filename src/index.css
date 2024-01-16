@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  background-color: #03082F;
+}
+
+@font-face {
+  font-family: "Colus";
+  src: local("Colus"), url("./assets/fonts/colus/Colus-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Futura PT";
+  src: local("Futura PT"), url("./assets/fonts/futura-pt/FuturaPTBook.otf") format("opentype"),
+    local("Futura PT"), url("./assets/fonts/futura-pt/FuturaPTBold.otf") format("opentype"),
+    local("Futura PT"), url("./assets/fonts/futura-pt/FuturaPTMedium.otf") format("opentype"),
+    local("Futura PT"), url("./assets/fonts/futura-pt/FuturaPTLight.otf") format("opentype");
+}
+
+.hero-bg-gradient {
+  background: linear-gradient(180deg, rgba(3, 8, 47, 0.00) 36.62%, rgba(3, 8, 47, 0.62) 102.13%), linear-gradient(270deg, rgba(12, 2, 24, 0.00) 81.51%, rgba(12, 2, 24, 0.00) 81.51%, rgba(12, 2, 24, 0.90) 100%), linear-gradient(90deg, rgba(12, 2, 24, 0.00) 81.04%, rgba(12, 2, 24, 0.90) 100%), linear-gradient(180deg, rgba(12, 2, 24, 0.00) 44.4%, #0C0218 89.86%);
+}
