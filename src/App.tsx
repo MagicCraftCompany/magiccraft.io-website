@@ -8,10 +8,24 @@ import magic8ballCard from '@/assets/images/magic-8-ball-card.webp'
 import magicRunnerCard from '@/assets/images/magic-runner-card.webp'
 import magiccraftText from '@/assets/images/magiccraft-text.png'
 import bulletIcon from '@/assets/icons/bullet.svg'
+import Footer from '@/components/Footer/Footer'
 
 import strength1 from '@/assets/images/strength1.png'
 import strength2 from '@/assets/images/strength2.png'
 import strength3 from '@/assets/images/strength3.png'
+
+// import bybit from '@/assets/icons/bybit.svg'
+// import huobi from '@/assets/icons/huobi.svg'
+// import gatio from '@/assets/icons/gatio.svg'
+// import bitget from '@/assets/icons/bitget.svg'
+// import bitmart from '@/assets/icons/bitmart.svg'
+// import pancakeswap from '@/assets/icons/pancakeswap.svg'
+// import mexc from '@/assets/icons/mexc.svg'
+// import uniswap from '@/assets/icons/uniswap.svg'
+// import wingswap from '@/assets/icons/wingswap.svg'
+// import bitrue from '@/assets/icons/bitrue.svg'
+// import raydium from '@/assets/icons/raydium.svg'
+// import spookyswap from '@/assets/icons/spookyswap.svg'
 
 import {
   ShoppingBag,
@@ -89,6 +103,57 @@ const strengths = [
     image: strength3,
   },
 ]
+
+// const partners = [
+//   {
+//     name: 'Bybit',
+//     icon: bybit,
+//   },
+//   {
+//     name: 'Huobi',
+//     icon: huobi,
+//   },
+//   {
+//     name: 'Gate.io',
+//     icon: gatio,
+//   },
+//   {
+//     name: 'Bitget',
+//     icon: bitget,
+//   },
+//   {
+//     name: 'Bitmart',
+//     icon: bitmart,
+//   },
+//   {
+//     name: 'Pancakeswap',
+//     icon: pancakeswap,
+//   },
+//   {
+//     name: 'Mexc Global',
+//     icon: mexc,
+//   },
+//   {
+//     name: 'Uniswap',
+//     icon: uniswap,
+//   },
+//   {
+//     name: 'Wingswap',
+//     icon: wingswap,
+//   },
+//   {
+//     name: 'Bitrue',
+//     icon: bitrue,
+//   },
+//   {
+//     name: 'Raydium',
+//     icon: raydium,
+//   },
+//   {
+//     name: 'Spookyswap',
+//     icon: spookyswap,
+//   },
+// ]
 
 function App() {
   return (
@@ -493,7 +558,31 @@ function App() {
               })}
             </div>
           </section>
+
+          {/* <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
+            <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-[54px] text-transparent drop-shadow-xl">
+              Global Horizons
+            </h2>
+
+            <div className="space-y-8">
+              <div className="grid grid-cols-2">
+                <div className="rounded-4xl bg-gradient-to-b  from-[#3F3F7A] to-transparent p-px ">
+                  <div className="rounded-4xl relative gap-8 overflow-hidden bg-[#11113A] px-10 pb-10 pt-52 shadow-xl"></div>
+                </div>
+              </div>
+
+              <div className="space-y-5">
+                <h3 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
+                  Join them
+                </h3>
+                <div className="grid grid-cols-4 place-items-center gap-5">
+                  <div className="grid h-36 place-items-center bg-[#161E4A]"></div>
+                </div>
+              </div>
+            </div>
+          </section> */}
         </main>
+        <Footer />
       </div>
     </>
   )
