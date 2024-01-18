@@ -1,5 +1,4 @@
 import './App.css'
-import mcLogo from '@/assets/images/magiccraft-logo.webp'
 import heroImg from '@/assets/images/hero.webp'
 import mcrtIcon from '@/assets/images/mcrt-icon.webp'
 import mcEcosystem from '@/assets/images/ecosystem.webp'
@@ -9,6 +8,7 @@ import magicRunnerCard from '@/assets/images/magic-runner-card.webp'
 import magiccraftText from '@/assets/images/magiccraft-text.png'
 import bulletIcon from '@/assets/icons/bullet.svg'
 import Footer from '@/components/Footer/Footer'
+import Header from '@/components/Header/Header'
 
 import strength1 from '@/assets/images/strength1.png'
 import strength2 from '@/assets/images/strength2.png'
@@ -27,15 +27,7 @@ import bitrue from '@/assets/icons/bitrue.svg'
 import raydium from '@/assets/icons/raydium.svg'
 import spookyswap from '@/assets/icons/spookyswap.svg'
 
-import {
-  ShoppingBag,
-  Gamepad2,
-  Coins,
-  ArrowUpLeft,
-  Wallet,
-  Play,
-  ArrowUpRight,
-} from 'lucide-react'
+import { Play, ArrowUpRight } from 'lucide-react'
 import {
   Accordion,
   AccordionContent,
@@ -160,57 +152,16 @@ function App() {
   return (
     <>
       <div className="min-h-dvh w-full text-white">
-        <header className="w-full bg-[#0A091799] p-5 backdrop-blur-md">
-          <nav className="flex items-center gap-12 rounded-xl bg-[#431269B2]">
-            <div className="grid place-items-center self-stretch  bg-black/20 px-8 ">
-              <a href="https://magiccraft.io/" rel="noreferrer noopener">
-                <img className="w-44" src={mcLogo} alt="MagicCraft" />
-              </a>
-            </div>
-
-            <div className="flex w-full items-center justify-between gap-12 py-4 pr-5">
-              <div className="flex items-center gap-12">
-                <a href="#" rel="noreferrer noopener">
-                  <div className="flex cursor-pointer items-center gap-2">
-                    <ShoppingBag size={18} />
-                    <p className="text-base">NFT Marketplace</p>
-                  </div>
-                </a>
-                <a href="#" rel="noreferrer noopener">
-                  <div className="flex cursor-pointer items-center gap-2">
-                    <Gamepad2 size={18} />
-                    <p className="text-base">MagicPortal</p>
-                  </div>
-                </a>
-                <a href="#" rel="noreferrer noopener">
-                  <div className="flex cursor-pointer items-center gap-2">
-                    <Coins size={18} />
-                    <p className="text-base">$MCRT</p>
-                  </div>
-                </a>
-              </div>
-              <div className="flex items-center gap-5">
-                <div className="flex cursor-pointer items-center gap-2 ">
-                  <ArrowUpLeft size={18} />
-                  <p>Back to Standard Mode</p>
-                </div>
-                <button>
-                  <div className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#98FFF9] px-5 py-3 text-[#03082F]">
-                    <Wallet size={18} />
-                    <p>Connect Wallet</p>
-                  </div>
-                </button>
-              </div>
-            </div>
-          </nav>
-          <div className="py-3"></div>
-        </header>
-
+        <Header />
         <main className="pb-32">
           {/* hero section */}
           <section className="relative ">
-            <div className=" hero-bg-gradient absolute -top-8 left-0 -z-10 h-fit  w-full ">
-              <img src={heroImg} alt="Magiccraft Characters - Hero Image" />
+            <div className=" hero-bg-gradient absolute -top-8 -z-10 h-fit w-full ">
+              <img
+                className="object-cover"
+                src={heroImg}
+                alt="Magiccraft Characters - Hero Image"
+              />
               <div className="hero-bg-gradient absolute left-0 top-0 z-10 h-full w-full"></div>
             </div>
 
@@ -219,20 +170,23 @@ function App() {
                 <div className="max-w-28">
                   <img src={mcrtIcon} alt="MCRT Token" />
                 </div>
-                <h1 className="text-balance text-center font-serif text-6xl text-white  drop-shadow-lg">
-                  MagicCraft Vision 2024: <br />
+                <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
+                  <span className="text-xl md:text-4xl">
+                    MagicCraft Vision 2024:
+                  </span>{' '}
+                  <br />
                   MCRT is The Future of Gaming
                 </h1>
               </div>
 
-              <div className="rounded-4xl relative -top-20 w-full bg-[#0C0218] ">
-                <div className="space-y-5 px-10 pb-10 pt-5">
-                  <h2 className="text-balance text-center font-serif text-2xl">
+              <div className="rounded-4xl relative bottom-32 w-full bg-[#0C0218] ">
+                <div className="space-y-5 px-8 pb-10 pt-5 md:px-10">
+                  <h2 className="text-balance text-center font-serif text-sm md:text-2xl">
                     Join us in shaping the future of gaming with MCRT, the
                     cornerstone currency of the gaming world.
                   </h2>
-                  <div className="grid grid-cols-3 gap-[30px]">
-                    <div className="min-w-80 rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
+                  <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2 xl:grid-cols-3">
+                    <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
                       <div className="relative rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% p-10 ">
                         <h4 className="font-serif text-[22px]">
                           <span className="text-[#8EFF49]">
@@ -246,7 +200,7 @@ function App() {
                         </div>
                       </div>
                     </div>
-                    <div className="min-w-80 rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
+                    <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
                       <div className="relative rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% p-10 ">
                         <h4 className="font-serif text-[22px]">
                           <span className="text-[#C09AFF]">
@@ -261,8 +215,8 @@ function App() {
                         </div>
                       </div>
                     </div>
-                    <div className="min-w-80 rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                      <div className="relative rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% p-10 ">
+                    <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
+                      <div className="relative rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10  ">
                         <h4 className="font-serif text-[22px]">
                           <span className="text-[#98FFF9]">Portfolio:</span>{' '}
                           <br />
@@ -282,8 +236,8 @@ function App() {
 
           <div className="space-y-28 ">
             <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl">
-              <div className="flex items-start gap-8">
-                <div className="w-1/2 space-y-8 self-end">
+              <div className="flex flex-col-reverse items-start gap-8 md:flex-row">
+                <div className="w-full space-y-8 self-end md:w-1/2">
                   <div>
                     <div className="flex items-center gap-1">
                       <p className="rotate-180 whitespace-nowrap text-lg leading-none tracking-widest text-[#bd6ae182] [writing-mode:vertical-lr]">
@@ -307,7 +261,7 @@ function App() {
                     Our strategic moves and innovations are bridging virtual
                     realms and shaping a unified global gaming economy.
                   </h4>
-                  <div className="flex items-center gap-[10px]">
+                  <div className="flex flex-wrap items-center gap-[10px]">
                     {['MagicCraft', 'Magic 8Ball', 'Magic Runner'].map(
                       (val) => {
                         return (
@@ -335,12 +289,12 @@ function App() {
                     </div>
                   </div>
                 </div>
-                <div className="w-1/2">
+                <div className="w-full md:w-1/2">
                   <img src={mcEcosystem} alt="MagicCraft Ecosystem" />
                 </div>
               </div>
 
-              <div className="grid w-2/3 grid-cols-3 gap-6 pt-12">
+              <div className="grid w-full grid-cols-1 gap-6 pt-12 md:w-2/3 md:grid-cols-3">
                 <div className="min-w-56 select-none">
                   <img className="select-none" src={magiccraftCard} alt="" />
                 </div>
@@ -361,10 +315,10 @@ function App() {
 
             <section className="relative mx-auto w-11/12 max-w-screen-xl">
               <div className="space-y-20">
-                <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-[54px] text-transparent drop-shadow-xl">
+                <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px]">
                   Full Launch of the MagicCraft Game
                 </h2>
-                <div className="flex items-center">
+                <div className="flex flex-col items-center md:flex-row">
                   <div className="w-2/5">
                     <div className="rounded-l-4xl grid grid-cols-1 place-items-center border-y border-l  border-[#3F3F7A] bg-[#11113A] p-10 shadow-lg ">
                       <div className="max-w-20">
@@ -376,7 +330,7 @@ function App() {
                       </div>
                     </div>
                   </div>
-                  <div className="w-3/5">
+                  <div className="w-full md:w-3/5">
                     <div className="rounded-4xl bg-gradient-to-b from-[#B591F2] to-transparent p-px">
                       <div className="rounded-4xl bg-gradient-to-r  from-[#2A0D4E] to-[#57186D] to-90%">
                         <div className="bg-black/20 px-12 py-8">
@@ -445,7 +399,7 @@ function App() {
 
             <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
               <div className="space-y-8">
-                <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-[54px] text-transparent drop-shadow-xl">
+                <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px]">
                   Strengthening Our Foundation
                 </h2>
 
@@ -472,7 +426,7 @@ function App() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 items-start gap-8">
+              <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-3">
                 {foundation.map((item, i) => {
                   return (
                     <div
@@ -507,7 +461,7 @@ function App() {
             </section>
 
             <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
-              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-[54px] text-transparent drop-shadow-xl">
+              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px]">
                 Frequently Asked Questions
               </h2>
 
@@ -534,7 +488,7 @@ function App() {
                 our strengths
               </h2>
 
-              <div className="grid grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
                 {strengths.map((item, i) => {
                   return (
                     <div
@@ -563,12 +517,12 @@ function App() {
             </section>
 
             <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
-              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-[54px] text-transparent drop-shadow-xl">
+              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px]">
                 Global Horizons
               </h2>
 
               <div className="space-y-8">
-                <div className="grid grid-cols-2 items-start gap-8">
+                <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
                   <div className="rounded-4xl bg-gradient-to-b  from-[#3F3F7A] to-transparent p-px ">
                     <div className="rounded-4xl relative gap-8 overflow-hidden bg-[#11113A] px-10 pb-10 pt-20 shadow-xl">
                       <div className="absolute left-5 top-5 z-10 rounded-full bg-black/60 px-4 py-[5px] text-[#98FFF9]">
@@ -619,14 +573,18 @@ function App() {
                   <h3 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
                     Join them
                   </h3>
-                  <div className="grid grid-cols-4 gap-5">
+                  <div className="grid grid-cols-3 gap-5 md:grid-cols-4">
                     {partners.map((item) => {
                       return (
                         <div
                           key={item.name}
-                          className="grid h-36 place-items-center bg-[#161E4A]"
+                          className="grid h-16 place-items-center bg-[#161E4A] p-3 md:h-36"
                         >
-                          <img src={item.icon} alt={item.name} />
+                          <img
+                            className="max-w-24"
+                            src={item.icon}
+                            alt={item.name}
+                          />
                         </div>
                       )
                     })}
