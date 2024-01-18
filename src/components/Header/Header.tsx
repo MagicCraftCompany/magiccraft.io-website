@@ -139,7 +139,7 @@ const Header = () => {
   return (
     <header className="w-full bg-[#0A091799] p-5 backdrop-blur-md">
       <nav className="flex items-center justify-between gap-12 rounded-xl bg-[#431269B2]">
-        <div className="grid place-items-center self-stretch  bg-black/20 px-8 ">
+        <div className="grid shrink-0 place-items-center self-stretch  bg-black/20 px-8 ">
           <a href="https://magiccraft.io/" rel="noreferrer noopener">
             <img className="w-44" src={mcLogo} alt="MagicCraft" />
           </a>
