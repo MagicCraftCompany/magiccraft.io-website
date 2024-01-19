@@ -27,13 +27,14 @@ import bitrue from '@/assets/icons/bitrue.svg'
 import raydium from '@/assets/icons/raydium.svg'
 import spookyswap from '@/assets/icons/spookyswap.svg'
 
-import { Play, ArrowUpRight } from 'lucide-react'
+import { Play, ArrowUpRight, Minus } from 'lucide-react'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from './components/ui/accordion'
+import { roadmapData } from './roadmapData'
 
 const foundation = [
   {
@@ -155,19 +156,15 @@ function App() {
         <Header />
         <main className="pb-32">
           {/* hero section */}
-          <section className="relative ">
+          <section className="relative">
             <div className=" hero-bg-gradient absolute -top-8 -z-10 h-fit w-full ">
-              <img
-                className="object-cover"
-                src={heroImg}
-                alt="Magiccraft Characters - Hero Image"
-              />
+              <img src={heroImg} alt="Magiccraft Characters" />
               <div className="hero-bg-gradient absolute left-0 top-0 z-10 h-full w-full"></div>
             </div>
 
-            <div className="relative mx-auto w-11/12 max-w-screen-xl ">
-              <div className="grid w-full grid-cols-1 place-items-center gap-8 pb-52 pt-28">
-                <div className="max-w-28">
+            <div className="relative mx-auto w-11/12 max-w-screen-xl">
+              <div className="grid w-full grid-cols-1 place-items-center gap-2 pb-52 pt-28 md:gap-4">
+                <div className="w-14 max-w-28 md:w-full">
                   <img src={mcrtIcon} alt="MCRT Token" />
                 </div>
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
@@ -181,28 +178,28 @@ function App() {
 
               <div className="rounded-4xl relative bottom-32 w-full bg-[#0C0218] ">
                 <div className="space-y-5 px-8 pb-10 pt-5 md:px-10">
-                  <h2 className="text-balance text-center font-serif text-sm md:text-2xl">
+                  <h5 className="text-balance text-center font-serif text-base md:text-2xl">
                     Join us in shaping the future of gaming with MCRT, the
                     cornerstone currency of the gaming world.
-                  </h2>
-                  <div className="grid grid-cols-1 gap-[30px] md:grid-cols-2 xl:grid-cols-3">
-                    <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
-                      <div className="relative rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% p-10 ">
-                        <h4 className="font-serif text-[22px]">
+                  </h5>
+                  <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-3">
+                    <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
+                      <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10 ">
+                        <h4 className="font-serif  text-lg md:text-[22px]">
                           <span className="text-[#8EFF49]">
                             MCRT Integration:
                           </span>{' '}
                           <br /> Enhance your gaming with MCRT.
                         </h4>
 
-                        <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[230px] leading-none text-transparent">
+                        <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
                           1
                         </div>
                       </div>
                     </div>
                     <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                      <div className="relative rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% p-10 ">
-                        <h4 className="font-serif text-[22px]">
+                      <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% px-8 py-4 md:p-10  ">
+                        <h4 className="font-serif text-lg md:text-[22px]">
                           <span className="text-[#C09AFF]">
                             Monthly Surprises:
                           </span>{' '}
@@ -210,20 +207,20 @@ function App() {
                           New games every two months.
                         </h4>
 
-                        <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[230px] leading-none text-transparent">
+                        <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
                           2
                         </div>
                       </div>
                     </div>
                     <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                      <div className="relative rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10  ">
-                        <h4 className="font-serif text-[22px]">
+                      <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10  ">
+                        <h4 className="font-serif  text-lg md:text-[22px]">
                           <span className="text-[#98FFF9]">Portfolio:</span>{' '}
                           <br />
                           indie and AA games onboarded.
                         </h4>
 
-                        <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[230px] leading-none text-transparent">
+                        <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
                           3
                         </div>
                       </div>
@@ -236,7 +233,7 @@ function App() {
 
           <div className="space-y-28 ">
             <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl">
-              <div className="flex flex-col-reverse items-start gap-8 md:flex-row">
+              <div className="flex flex-col-reverse items-start gap-0 md:flex-row md:gap-8">
                 <div className="w-full space-y-8 self-end md:w-1/2">
                   <div>
                     <div className="flex items-center gap-1">
@@ -289,40 +286,47 @@ function App() {
                     </div>
                   </div>
                 </div>
-                <div className="w-full md:w-1/2">
+                <div className="relative w-full md:w-1/2">
                   <img src={mcEcosystem} alt="MagicCraft Ecosystem" />
+                  <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b from-transparent to-[#03082F] to-85% md:hidden" />
                 </div>
               </div>
 
-              <div className="grid w-full grid-cols-1 gap-6 pt-12 md:w-2/3 md:grid-cols-3">
-                <div className="min-w-56 select-none">
-                  <img className="select-none" src={magiccraftCard} alt="" />
+              <div className="grid snap-x snap-mandatory auto-cols-min grid-flow-col gap-6 overflow-x-auto overscroll-contain overscroll-x-contain pt-12">
+                <div className="w-56 select-none snap-start">
+                  <img
+                    className="pointer-events-none select-none"
+                    src={magiccraftCard}
+                    alt=""
+                  />
                 </div>
-                <div className="min-w-56 select-none">
-                  <a href="/here">
-                    <img
-                      className="pointer-events-none select-none"
-                      src={magic8ballCard}
-                      alt=""
-                    />
-                  </a>
+                <div className="w-56 select-none snap-start ">
+                  <img
+                    className="pointer-events-noneselect-none"
+                    src={magic8ballCard}
+                    alt=""
+                  />
                 </div>
-                <div className="min-w-56 select-none">
-                  <img src={magicRunnerCard} alt="" />
+                <div className="w-56 select-none snap-start">
+                  <img
+                    className="pointer-events-none select-none"
+                    src={magicRunnerCard}
+                    alt=""
+                  />
                 </div>
               </div>
             </section>
 
             <section className="relative mx-auto w-11/12 max-w-screen-xl">
               <div className="space-y-20">
-                <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px]">
+                <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
                   Full Launch of the MagicCraft Game
                 </h2>
                 <div className="flex flex-col items-center md:flex-row">
-                  <div className="w-2/5">
-                    <div className="rounded-l-4xl grid grid-cols-1 place-items-center border-y border-l  border-[#3F3F7A] bg-[#11113A] p-10 shadow-lg ">
-                      <div className="max-w-20">
-                        <img src={mcrtIcon} alt="" />
+                  <div className="w-4/5 md:w-2/5">
+                    <div className=" rounded-t-4xl md:rounded-l-4xl grid grid-cols-1 place-items-center gap-2 border-x border-t border-[#3F3F7A] bg-[#11113A] p-10 shadow-lg md:rounded-r-none md:border-y md:border-l md:border-r-0 ">
+                      <div className="max-w-10 md:max-w-20">
+                        <img src={mcrtIcon} alt="MCRT" />
                       </div>
 
                       <div className="max-w-[350px]">
@@ -347,7 +351,7 @@ function App() {
 
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#C09AFF] to-transparent" />
 
-                          <div className="grid grid-cols-2 gap-x-3 gap-y-6">
+                          <div className="grid grid-cols-1 gap-x-3 gap-y-6 md:grid-cols-2">
                             <div className="flex items-center gap-2">
                               <img src={bulletIcon} alt="List item" />
                               <p className="text-[22px] text-[#C09AFF]">
@@ -399,11 +403,11 @@ function App() {
 
             <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
               <div className="space-y-8">
-                <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px]">
+                <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
                   Strengthening Our Foundation
                 </h2>
 
-                <div className="flex flex-wrap items-center justify-center gap-6">
+                <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
                   {[
                     'Industry-leading minds',
                     'Comprehensive game development studio',
@@ -420,7 +424,7 @@ function App() {
                         src={bulletIcon}
                         alt="List item "
                       />
-                      <p className="text-2xl">{val}</p>
+                      <p className="text-lg md:text-2xl">{val}</p>
                     </div>
                   ))}
                 </div>
@@ -433,12 +437,12 @@ function App() {
                       key={i}
                       className="rounded-4xl bg-gradient-to-b  from-[#3F3F7A] to-transparent p-px"
                     >
-                      <div className="rounded-4xl flex items-start gap-8 bg-[#11113A] p-10">
-                        <div>
+                      <div className="rounded-4xl  bg-[#11113A] p-10">
+                        {/* <div>
                           <p className="rotate-180 whitespace-nowrap text-lg uppercase leading-none tracking-widest text-[#bd6ae182] [writing-mode:vertical-lr]">
                             Approach
                           </p>
-                        </div>
+                        </div> */}
                         <div className="space-y-4">
                           <h4 className="font-serif text-[21px] text-[#C09AFF]">
                             {item.title}
@@ -461,7 +465,7 @@ function App() {
             </section>
 
             <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
-              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px]">
+              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
                 Frequently Asked Questions
               </h2>
 
@@ -484,30 +488,32 @@ function App() {
             </section>
 
             <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
-              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-[54px] text-transparent drop-shadow-xl">
+              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
                 our strengths
               </h2>
 
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              <div className="grid snap-x snap-mandatory auto-cols-auto grid-flow-col items-stretch gap-6 overflow-x-auto overscroll-x-contain md:gap-8">
                 {strengths.map((item, i) => {
                   return (
                     <div
                       key={i}
-                      className="rounded-4xl bg-gradient-to-b  from-[#3F3F7A] to-transparent p-px "
+                      className="rounded-4xl min-w-80 snap-start bg-gradient-to-b from-[#3F3F7A]  to-transparent p-px md:w-full "
                     >
-                      <div className="rounded-4xl relative gap-8 overflow-hidden bg-[#11113A] px-10 pb-10 pt-52 shadow-xl">
+                      <div className="rounded-4xl relative gap-8 overflow-y-auto bg-[#11113A] px-8 pb-8 pt-36 shadow-xl lg:px-10 lg:pb-10 lg:pt-52">
                         <div className="absolute left-0 top-0 -z-0">
                           <img src={item.image} alt={item.title} />
                         </div>
                         <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-b from-transparent to-[#11113A] to-55%"></div>
-                        <div className="relative z-10 space-y-8">
-                          <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text font-serif text-[32px] text-transparent">
+                        <div className="relative z-10 space-y-6 lg:space-y-8">
+                          <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text font-serif text-[25px] text-transparent lg:text-[32px]">
                             {item.title}
                           </h3>
 
                           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent" />
 
-                          <p className="text-balance text-3xl">{item.desc}</p>
+                          <p className="text-balance text-2xl lg:text-3xl">
+                            {item.desc}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -516,23 +522,23 @@ function App() {
               </div>
             </section>
 
-            <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
-              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px]">
+            <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 md:space-y-20">
+              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
                 Global Horizons
               </h2>
 
-              <div className="space-y-8">
+              <div className="space-y-20 md:space-y-8">
                 <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
                   <div className="rounded-4xl bg-gradient-to-b  from-[#3F3F7A] to-transparent p-px ">
                     <div className="rounded-4xl relative gap-8 overflow-hidden bg-[#11113A] px-10 pb-10 pt-20 shadow-xl">
                       <div className="absolute left-5 top-5 z-10 rounded-full bg-black/60 px-4 py-[5px] text-[#98FFF9]">
                         Step #1
                       </div>
-                      <div className="space-y-[18px]">
-                        <h3 className="font-serif text-[32px] text-[#C09AFF]">
+                      <div className="space-y-4 md:space-y-[18px]">
+                        <h3 className="font-serif text-3xl text-[#C09AFF] md:text-[32px]">
                           Strategic Partnerships
                         </h3>
-                        <p className="text-lg">
+                        <p className="text-base md:text-lg">
                           We aim to forge alliances with regional influencers,
                           gaming communities, and distribution platforms to
                           amplify our presence.
@@ -546,15 +552,15 @@ function App() {
                     </div>
                   </div>
                   <div className="rounded-4xl bg-gradient-to-b  from-[#3F3F7A] to-transparent p-px ">
-                    <div className="rounded-4xl relative gap-8 overflow-hidden bg-[#11113A] px-10 pb-10 pt-16 shadow-xl">
+                    <div className="rounded-4xl relative gap-8 overflow-hidden bg-[#11113A] px-10 pb-10 pt-20 shadow-xl">
                       <div className="absolute left-5 top-5 z-10 rounded-full bg-black/60 px-4 py-[5px] text-[#98FFF9]">
                         Step #2
                       </div>
-                      <div className="space-y-[18px]">
-                        <h3 className="font-serif text-[32px] text-[#C09AFF]">
+                      <div className="space-y-4 md:space-y-[18px]">
+                        <h3 className="font-serif text-3xl text-[#C09AFF] md:text-[32px]">
                           Focus on High-Growth Regions
                         </h3>
-                        <p className="text-lg">
+                        <p className="text-base md:text-lg">
                           Our primary attention is on promising markets in Asia,
                           South Asia, and South East Asia, aligning with our
                           expansion strategy.
@@ -569,7 +575,7 @@ function App() {
                   </div>
                 </div>
 
-                <div className="space-y-5">
+                <div className="space-y-8">
                   <h3 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
                     Join them
                   </h3>
@@ -578,10 +584,10 @@ function App() {
                       return (
                         <div
                           key={item.name}
-                          className="grid h-16 place-items-center bg-[#161E4A] p-3 md:h-36"
+                          className="grid h-20 place-items-center bg-[#161E4A]  md:h-36"
                         >
                           <img
-                            className="max-w-24"
+                            className="px-2 "
                             src={item.icon}
                             alt={item.name}
                           />
@@ -589,6 +595,103 @@ function App() {
                       )
                     })}
                   </div>
+
+                  <div className="block h-px w-full bg-gradient-to-r from-transparent via-[#9255E0] to-transparent md:hidden" />
+                </div>
+              </div>
+            </section>
+
+            <section className="relative">
+              <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px]  rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
+
+              <div className="space-y-20">
+                <div className="space-y-8">
+                  <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
+                    Roadmap
+                  </h2>
+                  <div className="mx-auto w-fit rounded-full bg-[#4457B84D] p-2 backdrop-blur">
+                    <div className="rounded-full bg-[#98FFF9] px-5 py-3 text-lg text-[#03082F]">
+                      2024
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mx-auto grid snap-x snap-mandatory scroll-p-4 auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
+                  {roadmapData.map((data) => {
+                    return (
+                      <div
+                        key={data.quarter}
+                        className="min-w-72 snap-center space-y-6 "
+                      >
+                        <h3 className=" bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
+                          Q{data.quarter} 24
+                        </h3>
+
+                        <div className="grid grid-cols-1 gap-8">
+                          {data.goals.map((goal, i) => {
+                            return (
+                              <div
+                                key={i}
+                                className="rounded-4xl bg-gradient-to-b from-[#B591F2] to-transparent p-px"
+                              >
+                                <div className="rounded-4xl space-y-5 bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
+                                  <div className="bg-black/20 px-7 py-5">
+                                    <h3 className="text-center font-serif text-3xl">
+                                      Features
+                                    </h3>
+                                  </div>
+                                  <div className="space-y-2 px-5 pb-6">
+                                    {goal.features.map((feature, i) => {
+                                      return (
+                                        <div
+                                          key={i}
+                                          className="flex items-start gap-[10px]"
+                                        >
+                                          <div className="shrink-0 py-1">
+                                            <Minus
+                                              size={20}
+                                              className="text-white/50"
+                                            />
+                                          </div>
+                                          <div className="text-2xl">
+                                            {feature}
+                                          </div>
+                                        </div>
+                                      )
+                                    })}
+
+                                    {/* <div className="flex items-start gap-[10px]">
+                                    <div className="shrink-0 py-1">
+                                      <Minus
+                                        size={20}
+                                        className="text-white/50"
+                                      />
+                                    </div>
+                                    <div className="text-2xl">
+                                      Full UI/UX overhaul of the MagicCraft game
+                                    </div>
+                                  </div>{' '}
+                                  <div className="flex items-start gap-[10px]">
+                                    <div className="shrink-0 py-1">
+                                      <Minus
+                                        size={20}
+                                        className="text-white/50"
+                                      />
+                                    </div>
+                                    <div className="text-2xl">
+                                      Releasing a league system for ranked
+                                      progression.
+                                    </div>
+                                  </div> */}
+                                  </div>
+                                </div>
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    )
+                  })}
                 </div>
               </div>
             </section>

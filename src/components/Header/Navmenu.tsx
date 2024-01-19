@@ -6,7 +6,7 @@ const NavMenu = ({ item }: NavMenuProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
   return (
-    <div className="relative">
+    <div className="relative z-50">
       <div
         className="flex cursor-pointer select-none items-center gap-2 py-2 text-white"
         onMouseOver={() => setIsMenuOpen(true)}
@@ -23,20 +23,20 @@ const NavMenu = ({ item }: NavMenuProps) => {
       </div>
 
       <div
-        className={`absolute left-1/2 top-8 z-10 h-0 w-0 translate-x-1/2 border-8 border-x-transparent border-b-blue-400 border-l-transparent border-t-transparent  transition-all duration-300 ${
+        className={`absolute left-1/2 top-8 z-50 h-0 w-0 translate-x-1/2 border-8 border-x-transparent border-b-blue-400 border-l-transparent border-t-transparent  transition-all duration-300 ${
           isMenuOpen
-            ? 'pointer-events-auto translate-y-0 opacity-100'
-            : 'pointer-events-none -translate-y-2 opacity-0'
+            ? 'pointer-events-auto opacity-100'
+            : 'pointer-events-none  opacity-0'
         }`}
         onMouseOver={() => setIsMenuOpen(true)}
         onMouseOut={() => setIsMenuOpen(false)}
       ></div>
 
       <div
-        className={`absolute left-0 top-11 z-10 rounded-md border border-blue-400 bg-blue-900 text-white backdrop-blur-md backdrop-filter  transition-all duration-300 ${
+        className={`absolute left-0 top-11 z-50 rounded-md border border-blue-400 bg-blue-900 text-white backdrop-blur-md backdrop-filter  transition-all duration-300 ${
           isMenuOpen
-            ? 'pointer-events-auto translate-y-0 opacity-100'
-            : 'pointer-events-none -translate-y-2 opacity-0'
+            ? 'pointer-events-auto  opacity-100'
+            : 'pointer-events-none  opacity-0'
         }`}
         onMouseOver={() => setIsMenuOpen(true)}
         onMouseOut={() => setIsMenuOpen(false)}

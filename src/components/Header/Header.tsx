@@ -138,10 +138,10 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
 const Header = () => {
   return (
     <header className="w-full bg-[#0A091799] p-5 backdrop-blur-md">
-      <nav className="flex items-center justify-between gap-12 rounded-xl bg-[#431269B2]">
-        <div className="grid shrink-0 place-items-center self-stretch  bg-black/20 px-8 ">
+      <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
+        <div className="grid shrink-0 place-items-center self-stretch  bg-black/20 px-2 md:px-8 ">
           <a href="https://magiccraft.io/" rel="noreferrer noopener">
-            <img className="w-44" src={mcLogo} alt="MagicCraft" />
+            <img className="w-24 md:w-36" src={mcLogo} alt="MagicCraft" />
           </a>
         </div>
 
@@ -184,16 +184,17 @@ const Header = () => {
             )}
           </div>
           <div className="flex items-center gap-5">
-            <div className="flex cursor-pointer items-center gap-2 ">
-              <PlayCircle size={18} />
-              <p>MagicCraft Ecosystem</p>
+            <div className="flex cursor-pointer items-center gap-2 whitespace-nowrap">
+              <PlayCircle size={16} />
+              <p className="text-sm md:text-base">MagicCraft Ecosystem</p>
             </div>
-            <button>
+            <button className="hidden md:block">
               <div className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#98FFF9] px-5 py-3 text-[#03082F]">
                 <ArrowUpRight size={18} />
                 <p>Go to Lobby</p>
               </div>
             </button>
+            <button>Menu</button>
           </div>
         </div>
       </nav>
