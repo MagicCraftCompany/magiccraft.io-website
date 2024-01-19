@@ -207,7 +207,7 @@ function App() {
                         Meet
                       </p>
                       <h2 className="text-[64px] font-semibold leading-none">
-                        Magiccraft&apos;s
+                        MagicCraft&apos;s
                       </h2>
                     </div>
 
