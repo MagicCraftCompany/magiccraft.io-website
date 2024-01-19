@@ -260,7 +260,7 @@ function App() {
                     </a>
                   </div>
                 </div>
-                <div className="relative mx-auto w-full max-w-lg md:w-1/2">
+                <div className="relative mx-auto w-full max-w-lg pt-32 md:w-1/2 md:pt-0">
                   <img src={mcEcosystem} alt="MagicCraft Ecosystem" />
                   <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b from-transparent to-[#03082F] to-85% md:hidden" />
                 </div>
