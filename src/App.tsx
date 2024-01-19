@@ -206,14 +206,14 @@ function App() {
                       <p className="rotate-180 whitespace-nowrap text-lg leading-none tracking-widest text-[#bd6ae182] [writing-mode:vertical-lr]">
                         Meet
                       </p>
-                      <h2 className="text-[64px] font-semibold leading-none">
+                      <h2 className="text-5xl font-semibold leading-none md:text-[64px]">
                         MagicCraft&apos;s
                       </h2>
                     </div>
 
                     <p
                       // className="font-outline text-7xl font-bold outline outline-red-500"#B591F299, #B591F278
-                      className="font-outline bg-gradient-to-b from-[#B591F299] to-[#B591F278] bg-clip-text py-1 text-7xl font-bold tracking-wider text-[#03082F]"
+                      className="font-outline bg-gradient-to-b from-[#B591F299] to-[#B591F278] bg-clip-text py-1 text-6xl font-bold tracking-wider text-[#03082F] md:text-7xl"
                     >
                       Ecosystem
                     </p>
