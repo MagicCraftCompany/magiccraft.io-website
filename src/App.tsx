@@ -1,5 +1,4 @@
 import './App.css'
-import heroImg from '@/assets/images/hero.webp'
 import mcrtIcon from '@/assets/images/mcrt-icon.webp'
 import mcEcosystem from '@/assets/images/ecosystem.webp'
 import magiccraftCard from '@/assets/images/magiccraft-card.webp'
@@ -28,13 +27,8 @@ import raydium from '@/assets/icons/raydium.svg'
 import spookyswap from '@/assets/icons/spookyswap.svg'
 
 import { Play, ArrowUpRight, Minus } from 'lucide-react'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from './components/ui/accordion'
-import { roadmapData } from './roadmapData'
+import { roadmapData } from './data/roadmapData'
+import FaqAccordion from './components/Accordion/FaqAccordion'
 
 const foundation = [
   {
@@ -48,34 +42,6 @@ const foundation = [
   {
     title: 'Harnessing In-House Innovation:',
     desc: "With a robust in-house team, we'll iterate quickly, test new concepts, and bring groundbreaking games to market faster than ever before.",
-  },
-]
-
-const faqData = [
-  {
-    question: 'What is MCRT, and how does it work?',
-    answer:
-      'MCRT is the currency of the MagicCraft gaming world. It s used for in-game purchases, enhancing your gaming experience, and participating in the MagicCraft ecosystem. You can earn MCRT through gameplay or purchase it.',
-  },
-  {
-    question: 'How long is each lesson?',
-    answer:
-      'Each lesson in the course is designed to be concise yet comprehensive, lasting between 12 to 20 minutes. The total duration of the course is approximately 3.2 hours, allowing for an in-depth exploration of the topics without overwhelming time commitment.',
-  },
-  {
-    question: 'Do I need prior investing experience?',
-    answer:
-      'No prior investing experience is required to benefit from this course. It is structured to cater to both beginners who are just starting out and experienced investors looking to enhance their skills and knowledge.',
-  },
-  {
-    question: 'Can I access the course material at any time?',
-    answer:
-      'Yes, once enrolled, students have full 24/7 access to all course materials. This allows you to learn at your own pace and revisit any section as often as needed for deeper understanding or reinforcement.',
-  },
-  {
-    question: 'Is there a community or forum for discussion?',
-    answer:
-      'Absolutely, students of this course gain access to an exclusive community. This platform is ideal for discussions, networking, sharing experiences, and seeking advice, making your learning journey collaborative and supported.',
   },
 ]
 
@@ -154,16 +120,16 @@ function App() {
     <>
       <div className="min-h-dvh w-full text-white">
         <Header />
-        <main className="pb-32">
+        <main className="scroll-smooth pb-32">
           {/* hero section */}
-          <section className="relative">
-            <div className=" hero-bg-gradient absolute -top-8 -z-10 h-fit w-full ">
-              <img src={heroImg} alt="Magiccraft Characters" />
-              <div className="hero-bg-gradient absolute left-0 top-0 z-10 h-full w-full"></div>
-            </div>
+          <section className="bg-hero relative h-[700px] bg-cover bg-center">
+            {/* <div className=" hero-bg-gradient absolute -top-8 -z-10 h-fit w-full "> */}
+            {/* <img src={heroImg} alt="Magiccraft Characters" /> */}
+            <div className="hero-bg-gradient absolute inset-0  h-full w-full"></div>
+            {/* </div> */}
 
             <div className="relative mx-auto w-11/12 max-w-screen-xl">
-              <div className="grid w-full grid-cols-1 place-items-center gap-2 pb-52 pt-28 md:gap-4">
+              <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
                 <div className="w-14 max-w-28 md:w-full">
                   <img src={mcrtIcon} alt="MCRT Token" />
                 </div>
@@ -176,20 +142,20 @@ function App() {
                 </h1>
               </div>
 
-              <div className="rounded-4xl relative bottom-32 w-full bg-[#0C0218] ">
+              <div className="rounded-4xl relative w-full bg-[#0C0218]">
                 <div className="space-y-5 px-8 pb-10 pt-5 md:px-10">
-                  <h5 className="text-balance text-center font-serif text-base md:text-2xl">
+                  <h5 className="mx-auto max-w-xl text-balance text-center font-serif text-base md:text-2xl">
                     Join us in shaping the future of gaming with MCRT, the
-                    cornerstone currency of the gaming world.
+                    currency of gaming.
                   </h5>
                   <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-3">
                     <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
                       <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10 ">
                         <h4 className="font-serif  text-lg md:text-[22px]">
                           <span className="text-[#8EFF49]">
-                            MCRT Integration:
+                            MagicCraft Ecosystem:
                           </span>{' '}
-                          <br /> Enhance your gaming with MCRT.
+                          <br /> A new gaming universe.
                         </h4>
 
                         <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
@@ -201,10 +167,10 @@ function App() {
                       <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% px-8 py-4 md:p-10  ">
                         <h4 className="font-serif text-lg md:text-[22px]">
                           <span className="text-[#C09AFF]">
-                            Monthly Surprises:
+                            Monthly Additions:
                           </span>{' '}
                           <br />
-                          New games every two months.
+                          New games every month.
                         </h4>
 
                         <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
@@ -214,10 +180,10 @@ function App() {
                     </div>
                     <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
                       <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10  ">
-                        <h4 className="font-serif  text-lg md:text-[22px]">
-                          <span className="text-[#98FFF9]">Portfolio:</span>{' '}
+                        <h4 className="font-serif text-lg md:text-[22px]">
+                          <span className="text-[#98FFF9]">League System:</span>{' '}
                           <br />
-                          indie and AA games onboarded.
+                          Enabling ranked progression.
                         </h4>
 
                         <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
@@ -231,7 +197,7 @@ function App() {
             </div>
           </section>
 
-          <div className="space-y-28 ">
+          <div className="space-y-28 pt-60 md:pt-96 lg:pt-48">
             <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl">
               <div className="flex flex-col-reverse items-start gap-0 md:flex-row md:gap-8">
                 <div className="w-full space-y-8 self-end md:w-1/2">
@@ -252,11 +218,12 @@ function App() {
                       Ecosystem
                     </p>
                   </div>
-                  <h4 className="text-2xl leading-9">
-                    In 2024, MagicCraft is set to redefine the gaming landscape
-                    by positioning MCRT at the heart of every gamer's journey.
-                    Our strategic moves and innovations are bridging virtual
-                    realms and shaping a unified global gaming economy.
+                  <h4 className="text-balance text-2xl leading-9">
+                    In 2024, MagicCraft is set to redefine the Web3 gaming
+                    landscape by positioning MCRT at the heart of every
+                    gamer&apos;s journey. Our commitment to developing new
+                    gaming experiences will shape a unified global gaming
+                    economy.
                   </h4>
                   <div className="flex flex-wrap items-center gap-[10px]">
                     {['MagicCraft', 'Magic 8Ball', 'Magic Runner'].map(
@@ -274,44 +241,53 @@ function App() {
                   </div>
 
                   <div className="flex items-center gap-8 pt-10">
-                    <button>
+                    <a href="#faq">
                       <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]">
                         FAQ
                       </div>
-                    </button>
+                    </a>
                     <div className="w-px self-stretch bg-gradient-to-b from-transparent via-[#98FFF9] to-transparent" />
-                    <div className="flex flex-col items-center justify-center gap-1">
-                      <Play size={18} />
-                      <p>Watch Intro</p>
-                    </div>
+                    <a
+                      className="flex flex-col items-center justify-center gap-1"
+                      href="https://youtu.be/YAp7k3NsKpg?si=PKWHUbWH86j4iC2f"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <div className="flex flex-col items-center justify-center gap-1">
+                        <Play size={18} />
+                        <p>Watch Intro</p>
+                      </div>
+                    </a>
                   </div>
                 </div>
-                <div className="relative w-full md:w-1/2">
+                <div className="relative mx-auto w-full max-w-lg md:w-1/2">
                   <img src={mcEcosystem} alt="MagicCraft Ecosystem" />
                   <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b from-transparent to-[#03082F] to-85% md:hidden" />
                 </div>
               </div>
 
               <div className="grid snap-x snap-mandatory auto-cols-min grid-flow-col gap-6 overflow-x-auto overscroll-contain overscroll-x-contain pt-12">
-                <div className="w-56 select-none snap-start">
-                  <img
-                    className="pointer-events-none select-none"
-                    src={magiccraftCard}
-                    alt=""
-                  />
-                </div>
+                <a href="https://magiccraft.io" rel="noreferrer noopener">
+                  <div className="w-56 select-none snap-start">
+                    <img
+                      className="pointer-events-none select-none"
+                      src={magiccraftCard}
+                      alt="MagicCraft Game"
+                    />
+                  </div>
+                </a>
                 <div className="w-56 select-none snap-start ">
                   <img
                     className="pointer-events-noneselect-none"
                     src={magic8ballCard}
-                    alt=""
+                    alt="Magic 8 Ball game"
                   />
                 </div>
                 <div className="w-56 select-none snap-start">
                   <img
                     className="pointer-events-none select-none"
                     src={magicRunnerCard}
-                    alt=""
+                    alt="Magic Runner game"
                   />
                 </div>
               </div>
@@ -320,7 +296,7 @@ function App() {
             <section className="relative mx-auto w-11/12 max-w-screen-xl">
               <div className="space-y-20">
                 <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
-                  Full Launch of the MagicCraft Game
+                  COMPLETE OVERHAUL OF THE MAGICCRAFT GAME
                 </h2>
                 <div className="flex flex-col items-center md:flex-row">
                   <div className="w-4/5 md:w-2/5">
@@ -344,8 +320,8 @@ function App() {
                         <div className="space-y-6 px-12 py-10">
                           <div>
                             <p className="text-xl">
-                              Let's dive into the exciting features that make
-                              MagicCraft a truly exceptional gaming experience:
+                              Let&apos;s dive into the exciting changes and new
+                              features coming to the MagicCraft game:
                             </p>
                           </div>
 
@@ -356,40 +332,40 @@ function App() {
                               <img src={bulletIcon} alt="List item" />
                               <p className="text-[22px] text-[#C09AFF]">
                                 <span className="font-bold text-[#ECE0FF]">
-                                  Elevated UI/UX:{' '}
+                                  Elevated UI/UX:&nbsp;
                                 </span>
-                                Immerse in excellence with enhanced interface
-                                for a seamless journey.
+                                Immerse yourself in an enhanced interface for a
+                                seamless gaming experience.
                               </p>
                             </div>
                             <div className="flex items-center gap-2">
                               <img src={bulletIcon} alt="List item" />
                               <p className="text-[22px] text-[#C09AFF]">
                                 <span className="font-bold text-[#ECE0FF]">
-                                  Battle Pass Progression:{' '}
+                                  Multiplayer System:&nbsp;
                                 </span>
-                                Engage dynamically with structured milestones
-                                and rewards.
+                                A 5v5 quick play mode with automated matchmaking
+                                is coming to MagicCraft.
                               </p>
                             </div>{' '}
                             <div className="flex items-center gap-2">
                               <img src={bulletIcon} alt="List item" />
                               <p className="text-[22px] text-[#C09AFF]">
                                 <span className="font-bold text-[#ECE0FF]">
-                                  Robust Multiplayer:{' '}
+                                  Seasonal Progression:&nbsp;
                                 </span>
-                                Connect effortlessly with full matchmaking and
-                                Web3 lobbies.
+                                New league system, daily tasks, and ranked play
+                                to enable progression.
                               </p>
                             </div>{' '}
                             <div className="flex items-center gap-2">
                               <img src={bulletIcon} alt="List item" />
                               <p className="text-[22px] text-[#C09AFF]">
                                 <span className="font-bold text-[#ECE0FF]">
-                                  Dynamic In-Game Market:{' '}
+                                  Dynamic In-game Market:&nbsp;
                                 </span>
-                                Explore a diverse in-game store, fostering a
-                                dynamic economy.
+                                A new in-game store packed with utilities for
+                                MCRT.
                               </p>
                             </div>
                           </div>
@@ -457,34 +433,27 @@ function App() {
 
               <div className="text-center">
                 <button>
-                  <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]">
-                    Contact us
-                  </div>
+                  <a
+                    rel="noreferrer noopener"
+                    href="https://magiccraft.io/contact-us"
+                  >
+                    <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]">
+                      Contact us
+                    </div>
+                  </a>
                 </button>
               </div>
             </section>
 
-            <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
+            <section
+              id="faq"
+              className="relative mx-auto w-11/12 max-w-screen-xl space-y-20"
+            >
               <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
                 Frequently Asked Questions
               </h2>
 
-              <Accordion type="single" collapsible className="w-full">
-                {faqData.map((item, index) => (
-                  <AccordionItem
-                    className="mb-[10px] gap-[30px] rounded-[20px] bg-[#11113A] data-[state=open]:mb-[30px] data-[state=open]:bg-gradient-to-l data-[state=open]:from-[#3D186D] data-[state=open]:to-[#2A0D4E]"
-                    key={item?.question}
-                    value={`item-${index + 1}`}
-                  >
-                    <AccordionTrigger className="p-[30px] text-left font-serif text-3xl font-bold text-[#C09AFF] data-[state=open]:text-white">
-                      {item?.question}
-                    </AccordionTrigger>
-                    <AccordionContent className="px-[30px] pb-[30px] text-lg">
-                      {item?.answer}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              <FaqAccordion />
             </section>
 
             <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
@@ -544,10 +513,14 @@ function App() {
                           amplify our presence.
                         </p>
 
-                        <div className="flex cursor-pointer items-center gap-2 text-[#98FFF9]">
+                        <a
+                          className="flex cursor-pointer items-center gap-2 text-[#98FFF9]"
+                          rel="noreferrer noopener"
+                          href="https://magiccraft.io/partnership"
+                        >
                           <span>Become a partner</span>
                           <ArrowUpRight size={18} />
-                        </div>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -566,10 +539,14 @@ function App() {
                           expansion strategy.
                         </p>
 
-                        <div className="flex cursor-pointer items-center gap-2 text-[#98FFF9]">
+                        <a
+                          className="flex cursor-pointer items-center gap-2 text-[#98FFF9]"
+                          rel="noreferrer noopener"
+                          href="https://magiccraft.io/partnership"
+                        >
                           <span>Collaborate</span>
                           <ArrowUpRight size={18} />
-                        </div>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -609,10 +586,8 @@ function App() {
                   <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
                     Roadmap
                   </h2>
-                  <div className="mx-auto w-fit rounded-full bg-[#4457B84D] p-2 backdrop-blur">
-                    <div className="rounded-full bg-[#98FFF9] px-5 py-3 text-lg text-[#03082F]">
-                      2024
-                    </div>
+                  <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
+                    2024
                   </div>
                 </div>
 
@@ -634,7 +609,7 @@ function App() {
                                 key={i}
                                 className="rounded-4xl bg-gradient-to-b from-[#B591F2] to-transparent p-px"
                               >
-                                <div className="rounded-4xl space-y-5 bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
+                                <div className="rounded-4xl space-y-5 bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%">
                                   <div className="bg-black/20 px-7 py-5">
                                     <h3 className="text-center font-serif text-3xl">
                                       Features
@@ -659,30 +634,6 @@ function App() {
                                         </div>
                                       )
                                     })}
-
-                                    {/* <div className="flex items-start gap-[10px]">
-                                    <div className="shrink-0 py-1">
-                                      <Minus
-                                        size={20}
-                                        className="text-white/50"
-                                      />
-                                    </div>
-                                    <div className="text-2xl">
-                                      Full UI/UX overhaul of the MagicCraft game
-                                    </div>
-                                  </div>{' '}
-                                  <div className="flex items-start gap-[10px]">
-                                    <div className="shrink-0 py-1">
-                                      <Minus
-                                        size={20}
-                                        className="text-white/50"
-                                      />
-                                    </div>
-                                    <div className="text-2xl">
-                                      Releasing a league system for ranked
-                                      progression.
-                                    </div>
-                                  </div> */}
                                   </div>
                                 </div>
                               </div>

@@ -1,6 +1,10 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
-import { ArrowUpRight, PlayCircle } from 'lucide-react'
+import { ArrowUpRight, PlayCircle, X } from 'lucide-react'
 import NavMenu from './Navmenu'
+import menuIcon from '@/assets/icons/menu-icon.svg'
+import { useState } from 'react'
+import NavMenuMobile from './NavMenuMobile'
+import { AnimatePresence, motion } from 'framer-motion'
 
 export type NavMenuItemProps = {
   path?: string
@@ -136,70 +140,143 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
 ]
 
 const Header = () => {
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
+
+  function closeSidebar() {
+    setIsSideMenuOpen(false)
+    document.body.style.overflow = 'unset'
+  }
+
+  function openSidebar() {
+    setIsSideMenuOpen(true)
+    if (typeof window != 'undefined' && window.document) {
+      document.body.style.overflow = 'hidden'
+    }
+  }
+
   return (
-    <header className="w-full bg-[#0A091799] p-5 backdrop-blur-md">
-      <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
-        <div className="grid shrink-0 place-items-center self-stretch  bg-black/20 px-2 md:px-8 ">
-          <a href="https://magiccraft.io/" rel="noreferrer noopener">
-            <img className="w-24 md:w-36" src={mcLogo} alt="MagicCraft" />
-          </a>
-        </div>
+    <>
+      <header className="relative z-50 w-full bg-[#0A091799] p-5 backdrop-blur-md">
+        <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
+          <div className="grid shrink-0 place-items-center self-stretch  bg-black/20 px-2 md:px-8 ">
+            <a href="https://magiccraft.io/" rel="noreferrer noopener">
+              <img className="w-24 md:w-36" src={mcLogo} alt="MagicCraft" />
+            </a>
+          </div>
 
-        <div className="flex w-full items-center justify-end gap-12 py-4 pr-5 xl:justify-between">
-          {/* <div className="flex items-center gap-12">
-            <a href="#" rel="noreferrer noopener">
-              <div className="flex cursor-pointer items-center gap-2">
-                <ShoppingBag size={18} />
-                <p className="text-base">NFT Marketplace</p>
-              </div>
-            </a>
-            <a href="#" rel="noreferrer noopener">
-              <div className="flex cursor-pointer items-center gap-2">
-                <Gamepad2 size={18} />
-                <p className="text-base">MagicPortal</p>
-              </div>
-            </a>
-            <a href="#" rel="noreferrer noopener">
-              <div className="flex cursor-pointer items-center gap-2">
-                <Coins size={18} />
-                <p className="text-base">$MCRT</p>
-              </div>
-            </a>
-          </div> */}
-
-          <div className="hidden items-center gap-6 xl:flex">
-            {commonMenuItemsNew.map((item) =>
-              item?.submenu?.length > 0 ? (
-                <NavMenu key={item.title} item={item} />
-              ) : (
-                <a key={item.title} href={item.path || '/'}>
-                  <div className="flex items-center justify-center gap-2">
-                    <div className="hidden shrink-0 2xl:block">
-                      <img src={item.icon} alt={item.title} />
+          <div className="flex w-full items-center justify-end gap-12 py-4 pr-5 xl:justify-between">
+            <div className="hidden items-center gap-6 xl:flex">
+              {commonMenuItemsNew.map((item) =>
+                item?.submenu?.length > 0 ? (
+                  <NavMenu key={item.title} item={item} />
+                ) : (
+                  <a key={item.title} href={item.path || '/'}>
+                    <div className="flex items-center justify-center gap-2">
+                      <div className="hidden shrink-0 2xl:block">
+                        <img src={item.icon} alt={item.title} />
+                      </div>
+                      <p className="text-lg text-white">{item.title}</p>
                     </div>
-                    <p className="text-lg text-white">{item.title}</p>
+                  </a>
+                )
+              )}
+            </div>
+            <div className="flex items-center gap-5">
+              <a
+                href="https://youtu.be/YAp7k3NsKpg?si=PKWHUbWH86j4iC2f"
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <div className="flex cursor-pointer items-center gap-2 whitespace-nowrap">
+                  <PlayCircle size={16} />
+                  <p className="text-sm md:text-base">MagicCraft Ecosystem</p>
+                </div>
+              </a>
+
+              <button className="hidden md:block">
+                <a
+                  href="https://lobby.magiccraft.io/"
+                  rel="noreferrer noopener"
+                >
+                  <div className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#98FFF9] px-5 py-3 text-[#03082F]">
+                    <ArrowUpRight size={18} />
+                    <p>Go to Lobby</p>
                   </div>
                 </a>
-              )
-            )}
-          </div>
-          <div className="flex items-center gap-5">
-            <div className="flex cursor-pointer items-center gap-2 whitespace-nowrap">
-              <PlayCircle size={16} />
-              <p className="text-sm md:text-base">MagicCraft Ecosystem</p>
+              </button>
+              <button onClick={openSidebar} className="block xl:hidden">
+                <span className="sr-only">Open Menu</span>
+                <img src={menuIcon} alt="Open Menu" />
+              </button>
             </div>
-            <button className="hidden md:block">
-              <div className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#98FFF9] px-5 py-3 text-[#03082F]">
-                <ArrowUpRight size={18} />
-                <p>Go to Lobby</p>
-              </div>
-            </button>
-            <button>Menu</button>
           </div>
-        </div>
-      </nav>
-      {/* <div className="py-3"></div> */}
-    </header>
+        </nav>
+      </header>
+      <AnimatePresence>
+        {isSideMenuOpen ? (
+          <>
+            <div className="fixed inset-0 z-[999] h-full w-full bg-black/20 backdrop-blur" />
+            <motion.nav
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'keyframes' }}
+              className="fixed right-0 top-0 z-[999] h-full w-[90%] max-w-lg overflow-auto rounded-bl-xl border-l border-[#9AD4FD] bg-gradient-to-b from-[#161242] to-[#060b31] py-6 pl-10 pr-10 text-white"
+            >
+              <div className="flex h-full flex-col gap-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-serif text-[22px]">Menu</span>
+                  <X
+                    className="cursor-pointer"
+                    size={35}
+                    onClick={closeSidebar}
+                  />
+                </div>
+                <div className="h-[2px] w-full shrink-0 bg-gradient-to-r from-transparent via-[#5377BD] to-transparent" />
+
+                <div className="flex flex-col gap-y-8 pt-8">
+                  {commonMenuItemsNew.map((item) =>
+                    item?.submenu?.length > 0 ? (
+                      <NavMenuMobile
+                        key={item.title}
+                        item={item}
+                        closeSidebar={closeSidebar}
+                      />
+                    ) : (
+                      <a
+                        key={item.title}
+                        onClick={closeSidebar}
+                        href={item.path || '/'}
+                        rel="noreferrer noopener"
+                      >
+                        <div className="flex items-center gap-2">
+                          <div className="grid h-auto w-6 shrink-0 place-items-center">
+                            <img
+                              className="w-full"
+                              src={item.icon}
+                              alt={item.title}
+                            />
+                          </div>
+                          <p className="text-[22px] font-normal">
+                            {item.title}
+                          </p>
+                        </div>
+                      </a>
+                    )
+                  )}
+                </div>
+
+                <div className="pt-16">
+                  <div className="py-8 text-sm font-bold">
+                    &copy; Copyright MagicCraft 2024
+                  </div>
+                </div>
+              </div>
+            </motion.nav>
+          </>
+        ) : null}
+      </AnimatePresence>
+    </>
   )
 }
 

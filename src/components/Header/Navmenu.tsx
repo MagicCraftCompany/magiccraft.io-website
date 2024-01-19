@@ -18,12 +18,12 @@ const NavMenu = ({ item }: NavMenuProps) => {
         <span className="text-lg font-medium">{item.title}</span>
         <LuChevronDown
           size={18}
-          className={`transition-all ${isMenuOpen && 'rotate-180'}`}
+          // className={`transition-all ${isMenuOpen && 'rotate-180'}`}
         />
       </div>
 
       <div
-        className={`absolute left-1/2 top-8 z-50 h-0 w-0 translate-x-1/2 border-8 border-x-transparent border-b-blue-400 border-l-transparent border-t-transparent  transition-all duration-300 ${
+        className={`absolute left-1/2 top-8 z-50 h-0 w-0 translate-x-1/2 border-8 border-x-transparent border-b-blue-950 border-l-transparent border-t-transparent  transition-all duration-300 ${
           isMenuOpen
             ? 'pointer-events-auto opacity-100'
             : 'pointer-events-none  opacity-0'
@@ -33,7 +33,7 @@ const NavMenu = ({ item }: NavMenuProps) => {
       ></div>
 
       <div
-        className={`absolute left-0 top-11 z-50 rounded-md border border-blue-400 bg-blue-900 text-white backdrop-blur-md backdrop-filter  transition-all duration-300 ${
+        className={`absolute left-0 top-11 z-50 rounded-2xl border border-blue-950 bg-[#11113A] text-white backdrop-blur-md backdrop-filter  transition-all duration-300 ${
           isMenuOpen
             ? 'pointer-events-auto  opacity-100'
             : 'pointer-events-none  opacity-0'
