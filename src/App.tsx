@@ -26,9 +26,10 @@ import bitrue from '@/assets/icons/bitrue.svg'
 import raydium from '@/assets/icons/raydium.svg'
 import spookyswap from '@/assets/icons/spookyswap.svg'
 
-import { Play, ArrowUpRight, Minus } from 'lucide-react'
+import { Play, ArrowUpRight } from 'lucide-react'
 import { roadmapData } from './data/roadmapData'
 import FaqAccordion from './components/Accordion/FaqAccordion'
+import RoadmapCard from './components/Cards/RoadmapCard'
 
 const foundation = [
   {
@@ -592,57 +593,9 @@ function App() {
                 </div>
 
                 <div className="mx-auto grid snap-x snap-mandatory scroll-p-4 auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
-                  {roadmapData.map((data) => {
-                    return (
-                      <div
-                        key={data.quarter}
-                        className="min-w-72 snap-center space-y-6 "
-                      >
-                        <h3 className=" bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
-                          Q{data.quarter} 24
-                        </h3>
-
-                        <div className="grid grid-cols-1 gap-8">
-                          {data.goals.map((goal, i) => {
-                            return (
-                              <div
-                                key={i}
-                                className="rounded-4xl bg-gradient-to-b from-[#B591F2] to-transparent p-px"
-                              >
-                                <div className="rounded-4xl space-y-5 bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%">
-                                  <div className="bg-black/20 px-7 py-5">
-                                    <h3 className="text-center font-serif text-3xl">
-                                      Features
-                                    </h3>
-                                  </div>
-                                  <div className="space-y-2 px-5 pb-6">
-                                    {goal.features.map((feature, i) => {
-                                      return (
-                                        <div
-                                          key={i}
-                                          className="flex items-start gap-[10px]"
-                                        >
-                                          <div className="shrink-0 py-1">
-                                            <Minus
-                                              size={20}
-                                              className="text-white/50"
-                                            />
-                                          </div>
-                                          <div className="text-2xl">
-                                            {feature}
-                                          </div>
-                                        </div>
-                                      )
-                                    })}
-                                  </div>
-                                </div>
-                              </div>
-                            )
-                          })}
-                        </div>
-                      </div>
-                    )
-                  })}
+                  {roadmapData.map((data) => (
+                    <RoadmapCard data={data} key={data.quarter} />
+                  ))}
                 </div>
               </div>
             </section>

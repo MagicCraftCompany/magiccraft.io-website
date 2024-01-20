@@ -1,6 +1,15 @@
-export const roadmapData = [
+type RoadmapDataType = {
+  quarter: number
+  variant: 'default' | 'purple'
+  goals: {
+    features: string[]
+  }[]
+}[]
+
+export const roadmapData: RoadmapDataType = [
   {
     quarter: 1,
+    variant: 'default',
     goals: [
       {
         features: [
@@ -25,6 +34,7 @@ export const roadmapData = [
   },
   {
     quarter: 2,
+    variant: 'purple',
     goals: [
       {
         features: [
@@ -48,6 +58,7 @@ export const roadmapData = [
   },
   {
     quarter: 3,
+    variant: 'default',
     goals: [
       {
         features: [
@@ -71,6 +82,8 @@ export const roadmapData = [
   },
   {
     quarter: 4,
+    variant: 'purple',
+
     goals: [
       {
         features: [

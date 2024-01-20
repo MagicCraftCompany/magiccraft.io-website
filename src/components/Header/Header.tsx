@@ -128,12 +128,12 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       {
         title: 'Leaderboard',
         icon: './icons/icon-leaderboard.svg',
-        path: '/leaderboard',
+        path: 'https://lobby.magiccraft.io/leaderboard',
       },
       {
         title: 'Game stats',
         icon: './icons/icon-gamestats.svg',
-        path: '/stats',
+        path: 'https://lobby.magiccraft.io/stats',
       },
     ],
   },
@@ -156,15 +156,15 @@ const Header = () => {
 
   return (
     <>
-      <header className="relative z-50 w-full bg-[#0A091799] p-5 backdrop-blur-md">
+      <header className="relative z-50 w-full bg-[#0A091799] px-3 py-4 backdrop-blur-md md:px-4 md:py-5">
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
-          <div className="grid shrink-0 place-items-center self-stretch  bg-black/20 px-2 md:px-8 ">
+          <div className="grid shrink-0 place-items-center self-stretch  bg-black/20 px-4  md:px-8 ">
             <a href="https://magiccraft.io/" rel="noreferrer noopener">
-              <img className="w-24 md:w-36" src={mcLogo} alt="MagicCraft" />
+              <img className="w-28 md:w-36" src={mcLogo} alt="MagicCraft" />
             </a>
           </div>
 
-          <div className="flex w-full items-center justify-end gap-12 py-4 pr-5 xl:justify-between">
+          <div className="flex w-full items-center justify-end gap-12 py-4 pr-3 xl:justify-between">
             <div className="hidden items-center gap-6 xl:flex">
               {commonMenuItemsNew.map((item) =>
                 item?.submenu?.length > 0 ? (
@@ -187,7 +187,7 @@ const Header = () => {
                 target="_blank"
                 rel="noreferrer noopener"
               >
-                <div className="flex cursor-pointer items-center gap-2 whitespace-nowrap">
+                <div className="flex cursor-pointer items-center gap-2 whitespace-nowrap ">
                   <PlayCircle size={16} />
                   <p className="text-sm md:text-base">MagicCraft Ecosystem</p>
                 </div>
@@ -204,7 +204,10 @@ const Header = () => {
                   </div>
                 </a>
               </button>
-              <button onClick={openSidebar} className="block xl:hidden">
+              <button
+                onClick={openSidebar}
+                className="block shrink-0 xl:hidden"
+              >
                 <span className="sr-only">Open Menu</span>
                 <img src={menuIcon} alt="Open Menu" />
               </button>
@@ -214,8 +217,13 @@ const Header = () => {
       </header>
       <AnimatePresence>
         {isSideMenuOpen ? (
-          <>
-            <div className="fixed inset-0 z-[999] h-full w-full bg-black/20 backdrop-blur" />
+          <header>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[999] h-full w-full bg-black/20 backdrop-blur"
+            />
             <motion.nav
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
@@ -273,7 +281,7 @@ const Header = () => {
                 </div>
               </div>
             </motion.nav>
-          </>
+          </header>
         ) : null}
       </AnimatePresence>
     </>
