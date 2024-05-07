@@ -1,100 +1,123 @@
-import spookyswap from '@/assets/icons/spookyswap.svg'
+import cointelegraph from '@/assets/icons/cointelegraph.svg'
+import devoted from '@/assets/icons/devoted.svg'
+import whimsy from '@/assets/icons/whimsy.svg'
+import safepal from '@/assets/icons/safepal.svg'
+import okse from '@/assets/icons/okse.svg'
+import hafen from '@/assets/icons/hafen.svg'
+import wingswap from '@/assets/icons/wingswap_black.svg'
+import balena from '@/assets/icons/balena.svg'
+import oig from '@/assets/icons/oig.svg'
+import gateio from '@/assets/icons/gateio_black.svg'
+import chainplay from '@/assets/icons/chainplay.svg'
+import castrum from '@/assets/icons/castrum.svg'
+import gaming from '@/assets/icons/gaming.svg'
+import zr from '@/assets/icons/zr.svg'
+import bull from '@/assets/icons/bull.svg'
+import flame from '@/assets/icons/flame.svg'
+import ex from '@/assets/icons/ex.svg'
+import dct from '@/assets/icons/dct.svg'
+import master from '@/assets/icons/master_venture.svg'
+import seedthrift from '@/assets/icons/seed_thrift.svg'
+import fantom from '@/assets/icons/fantomstarter.svg'
+import deltahub from '@/assets/icons/deltahub.svg'
+import pack from '@/assets/icons/pack_capital.svg'
+import spooky from '@/assets/icons/spookyswap_black.svg'
  
  export const otherpartners = [
     {
       name: 'Spookyswap',
-      icon: spookyswap,
+      icon: spooky,
     },
     {
       name: 'cointelegraph',
-      icon: spookyswap,
+      icon: cointelegraph,
     },
     {
       name: 'devoted',
-      icon: spookyswap,
+      icon: devoted,
     },
     {
       name: 'whimsy games',
-      icon: spookyswap,
+      icon: whimsy,
     },
     {
       name: 'safepal',
-      icon: spookyswap,
+      icon: safepal,
     },
     {
       name: 'okse',
-      icon: spookyswap,
+      icon: okse,
     },
     {
       name: 'hafen',
-      icon: spookyswap,
+      icon: hafen,
     },
     {
       name: 'wingswap',
-      icon: spookyswap,
+      icon: wingswap,
     },
     {
       name: 'balena',
-      icon: spookyswap,
+      icon: balena,
     },
     {
       name: 'oig',
-      icon: spookyswap,
+      icon: oig,
     },
     {
       name: 'dct capital',
-      icon: spookyswap,
+      icon: dct,
     },
     {
       name: 'master ventures',
-      icon: spookyswap,
+      icon: master,
     },
     {
       name: 'seedthrift',
-      icon: spookyswap,
+      icon: seedthrift,
     },
     {
       name: 'ex',
-      icon: spookyswap,
+      icon: ex,
     },
     {
       name: 'fantomstarter',
-      icon: spookyswap,
+      icon: fantom,
     },
     {
       name: 'pack capital',
-      icon: spookyswap,
+      icon: pack,
     },
     {
       name: 'deltahub',
-      icon: spookyswap,
+      icon: deltahub,
     },
     {
       name: 'gate.io',
-      icon: spookyswap,
+      icon: gateio,
     },
     {
       name: 'chainplay',
-      icon: spookyswap,
+      icon: chainplay,
     },
     {
       name: 'castrum',
-      icon: spookyswap,
+      icon: castrum,
     },
     {
       name: 'gaming',
-      icon: spookyswap,
+      icon: gaming,
     },
     {
       name: 'zr',
-      icon: spookyswap,
+      icon: zr,
     },
     {
       name: 'bull',
-      icon: spookyswap,
+      icon: bull,
     },
     {
       name: 'flame',
-      icon: spookyswap,
+      icon: flame,
     },
   ]

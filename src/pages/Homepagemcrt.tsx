@@ -198,7 +198,7 @@ function Homepagemcrt() {
                   our team
                 </h3>
                 <div className="grid grid-cols-2 gap-8 md:grid-cols-4 ">
-                  {ourteam.map((item, index) => {
+                  {ourteam.map((item) => {
                     return (
                       <div
                         key={item.name}
@@ -216,7 +216,7 @@ function Homepagemcrt() {
                       </div>
                     )
                   })}
-                  {ourteam.map((item, index) => {
+                  {ourteam.map((_, index) => {
                     return (
                       index % 2 === 1 &&
                       index !== ourteam.length - 1 && (
