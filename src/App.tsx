@@ -1,14 +1,19 @@
 import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Homepagemcrt from './pages/Homepagemcrt'
 import Homepagegames from './pages/HomePageGames'
 
 function App() {
   return (
-    <>
-      <Homepagegames />
-      <Homepagemcrt />
-    </>
+    <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Homepagegames />}>
+      </Route>
+      <Route path="/mcrt" element={<Homepagemcrt />}>
+      </Route>
+    </Routes>
+  </BrowserRouter>
   )
 }
 
