@@ -24,6 +24,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         hero: "url('/img/hero.webp')",
+        video: "url('/img/video.png')",
       },
       keyframes: {
         'accordion-down': {
