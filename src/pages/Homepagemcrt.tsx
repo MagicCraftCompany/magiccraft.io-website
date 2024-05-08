@@ -1,7 +1,13 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 
+
+
 import mcrtIcon from '@/assets/images/mcrt-icon.webp'
+
+import buttonIcon from '@/assets/images/Vector (Stroke).png'
+
+import backgroundimage from '@/assets/images/bg-1.png'
 
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
@@ -23,7 +29,7 @@ function Homepagemcrt() {
         <Header />
         <main className="scroll-smooth pb-32">
           {/*header*/}
-          <section className="relative h-[700px] bg-hero bg-cover bg-center">
+          <section className="relative h-[700px] bg-video bg-cover bg-center">
             <div className="relative mx-auto w-11/12 max-w-screen-xl">
               <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
                 <div className="w-14 max-w-28 md:w-full">
@@ -34,7 +40,7 @@ function Homepagemcrt() {
                   WHERE PLAY MEANS PROSPERITY
                 </h1>
               </div>
-              <div className="mx-auto w-5/12">
+              <div className="mx-auto my-1 w-5/12 p-2">
                 <div className="rounded-[20px]  bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
                   <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10  ">
                     <h4 className="text-balance text-center font-serif text-lg md:text-[22px] ">
@@ -62,6 +68,44 @@ function Homepagemcrt() {
               </div>
             </div>
           </section>
+
+          {/*register now */}
+          <section className="relative h-[500px] bg-[#020418] bg-center items-center flex flex-wrap">
+          
+           
+          <div className="rounded-lg  p-4 md:w-8/12 ">
+              <div className=" p-4 text-left ">
+                <h3 className=" bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
+                  <span className='text-4xl font-bold'>A NEW ERA IN GAMING</span><br/>
+                  <span className='text-2xl font-bold'>WITH MAGICCRAFT</span>
+                  </h3>
+                  <p > MagicCraft is a Play-to-Earn blockchain game featuring fast-paced <br/> 
+                  multiplayer battles. Every day, thousands of players earn our utility<br/>
+                   token, MCRT, by showcasing their skills. Join them to step into a <br/> 
+                   new era of gaming where your prowess can pave the path to <br/> 
+                    prosperity.</p>
+               
+                <div className="m-2 block  h-px w-5/12 bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                <button className=" p-2 border-2 rounded-lg border-[#98FFF9] text-[#98FFF9] flex flex-wrap">
+                <img src={buttonIcon} alt="Button Image" className="w-6 h-6 mr-2" />
+                  Register Now</button>
+              </div>
+            </div>
+            <div className="w-4/12 rounded-lg p-4">
+   
+</div>
+
+            
+          </section>
+
+          {/*unlimited ways to earn */}
+          <section className="relative h-[700px] bg-center">
+            <img src={backgroundimage} />
+            <h2 className="absolute left-1/2 top-0 mt-8 -translate-x-1/2 transform text-balance font-serif text-white">
+              UNLIMITED WAYS TO EARN MCRT
+            </h2>
+          </section>
+
           {/*JOIN THE ACTION */}
           <section className=" bg-center p-4">
             <div className="relative w-full rounded-4xl bg-[#0C0218]">
