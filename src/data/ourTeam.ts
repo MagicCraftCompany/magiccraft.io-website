@@ -6,6 +6,15 @@ import Nikita from '@/assets/images/Nikita.png'
 import David from '@/assets/images/david.png'
 import Viet from '@/assets/images/viet.png'
 import Adam from '@/assets/images/Adam patroff.png'
+import {
+  FaXTwitter,
+  FaYoutube,
+  FaLinkedin,
+  FaInstagram,
+} from 'react-icons/fa6';
+
+
+
 
 
  export const ourteam = [
@@ -13,6 +22,20 @@ import Adam from '@/assets/images/Adam patroff.png'
       name: 'James Crypto Guru',
       icon: James,
       work: 'Advisor',
+      socialicons:[{
+        icons:<FaXTwitter/>,
+        socialIcon:'',
+          },
+          {
+          icons:<FaLinkedin/>,
+          socialIcon:'',
+          },
+          {
+            icons:< FaYoutube,/>
+            socialIcon:'',
+            },
+    ]
+      
     },
     {
       name: 'Davinci Jeremi',
