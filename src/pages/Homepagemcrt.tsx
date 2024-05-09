@@ -3,6 +3,9 @@ import Header from '@/components/Header/Header'
 
 
 
+
+
+
 import mcrtIcon from '@/assets/images/mcrt-icon.webp'
 
 import buttonIcon from '@/assets/images/Vector (Stroke).png'
@@ -92,6 +95,8 @@ function Homepagemcrt() {
               </div>
             </div>
             <div className="w-4/12 rounded-lg p-4">
+            
+           
    
 </div>
 
