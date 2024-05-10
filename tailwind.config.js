@@ -24,7 +24,8 @@ module.exports = {
     extend: {
       backgroundImage: {
         hero: "url('/img/hero.webp')",
-        video: "url('/img/video.png')",
+        video: "url('/src/assets/images/video.png')",
+        mrback: "url('/src/assets/images/Frigard foreground1 1.png')",
       },
       keyframes: {
         'accordion-down': {
