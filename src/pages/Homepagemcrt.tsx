@@ -1,11 +1,6 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 
-
-
-
-
-
 import mcrtIcon from '@/assets/images/mcrt-icon.webp'
 
 import buttonIcon from '@/assets/images/Vector (Stroke).png'
@@ -15,6 +10,9 @@ import backgroundimage from '@/assets/images/bg-1.png'
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
 import pc from '@/assets/icons/icon-pc.svg'
+import directory from '@/assets/images/contact.png'
+import googleicon from '@/assets/images/logo (1).png'
+import vs from '@/assets/images/Group 7072.png'
 
 import { roadmapData } from '../data/roadmapData'
 import RoadmapCard from '../components/Cards/RoadmapCard'
@@ -23,7 +21,7 @@ import Character from '@/assets/images/character.png'
 
 import { otherpartners } from '@/data/otherpartners'
 import partners from '@/data/partners'
-import { ourteam } from '@/data/ourTeam'
+import { ourteam } from '@/components/Team/ourTeam'
 
 function Homepagemcrt() {
   return (
@@ -33,7 +31,8 @@ function Homepagemcrt() {
         <main className="scroll-smooth pb-32">
           {/*header*/}
           <section className="relative h-[700px] bg-video bg-cover bg-center">
-            <div className="relative mx-auto w-11/12 max-w-screen-xl">
+          <div className="video-bg-gradient absolute inset-0  h-full w-full"></div>
+            <div className="relative z-10 mx-auto w-11/12 max-w-screen-xl">
               <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
                 <div className="w-14 max-w-28 md:w-full">
                   <img src={mcrtIcon} alt="MCRT Token" />
@@ -43,28 +42,45 @@ function Homepagemcrt() {
                   WHERE PLAY MEANS PROSPERITY
                 </h1>
               </div>
-              <div className="mx-auto my-1 w-5/12 p-2">
+              <div className="mx-auto  mb-20  w-5/12 ">
                 <div className="rounded-[20px]  bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                  <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10  ">
+                  <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-10  md:p-10  ">
                     <h4 className="text-balance text-center font-serif text-lg md:text-[22px] ">
                       <span className="text-[#FFB649]">PLAY </span> MAGICCRAFT
                       NOW!
                       <br />
                     </h4>
                     <div className="flex flex-wrap items-center">
-                      <img src={steam}></img>
-                      <span className=" p-4"> Steam</span>
-
-                      <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
-                      <img src={AppleIcon}></img>
-                      <span className=" p-4"> App Store</span>
-                      <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
-                      <img src={pc}></img>
-                      <span className=" p-4">PC</span>
+                      <span className=" p-5">
+                        <img src={pc}></img>
+                        Download
+                        <br />
+                        <p className="font-bold">PC</p>
+                      </span>
 
                       <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
 
-                      <span className=" p-4">Google play</span>
+                      <span className=" p-5">
+                        <img src={AppleIcon}></img>
+                        Get it on <br />
+                        <p className="font-bold">App Store</p>
+                      </span>
+                      <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
+
+                      <span className=" p-5">
+                        <img src={steam}></img>
+                        Get it on
+                        <br />
+                        <p className="font-bold">Steam</p>
+                      </span>
+                      <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
+
+                      <span className=" p-5">
+                        <img src={googleicon}></img>
+                        Get it on
+                        <br />
+                        <p className="font-bold"> Google play</p>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -73,42 +89,59 @@ function Homepagemcrt() {
           </section>
 
           {/*register now */}
-          <section className="relative h-[500px] bg-[#020418] bg-center items-center flex flex-wrap">
-          
-           
-          <div className="rounded-lg  p-4 md:w-8/12 ">
+          <section className="relative flex h-[500px] flex-wrap items-center bg-[#020418] bg-center  ">
+            <div className="mx-10 flex rounded-lg pl-52  ">
               <div className=" p-4 text-left ">
                 <h3 className=" bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
-                  <span className='text-4xl font-bold'>A NEW ERA IN GAMING</span><br/>
-                  <span className='text-2xl font-bold'>WITH MAGICCRAFT</span>
-                  </h3>
-                  <p > MagicCraft is a Play-to-Earn blockchain game featuring fast-paced <br/> 
-                  multiplayer battles. Every day, thousands of players earn our utility<br/>
-                   token, MCRT, by showcasing their skills. Join them to step into a <br/> 
-                   new era of gaming where your prowess can pave the path to <br/> 
-                    prosperity.</p>
-               
+                  <span className="text-4xl font-bold">
+                    A NEW ERA IN GAMING
+                  </span>
+                  <br />
+                  <span className="text-2xl font-bold">WITH MAGICCRAFT</span>
+                </h3>
+                <p>
+                  {' '}
+                  MagicCraft is a Play-to-Earn blockchain game featuring
+                  fast-paced <br />
+                  multiplayer battles. Every day, thousands of players earn our
+                  utility
+                  <br />
+                  token, MCRT, by showcasing their skills. Join them to step
+                  into a <br />
+                  new era of gaming where your prowess can pave the path to{' '}
+                  <br />
+                  prosperity.
+                </p>
+
                 <div className="m-2 block  h-px w-5/12 bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
-                <button className=" p-2 border-2 rounded-lg border-[#98FFF9] text-[#98FFF9] flex flex-wrap">
-                <img src={buttonIcon} alt="Button Image" className="w-6 h-6 mr-2" />
-                  Register Now</button>
+                <button className=" flex flex-wrap rounded-lg border-2 border-[#98FFF9] p-2 text-[#98FFF9]">
+                  <img
+                    src={buttonIcon}
+                    alt="Button Image"
+                    className="mr-2 h-6 w-6"
+                  />
+                  Register Now
+                </button>
               </div>
             </div>
-            <div className="w-4/12 rounded-lg p-4">
-            
-           
-   
-</div>
-
-            
+            <div className="w-4/12 rounded-lg p-4"></div>
           </section>
 
           {/*unlimited ways to earn */}
           <section className="relative h-[700px] bg-center">
             <img src={backgroundimage} />
-            <h2 className="absolute left-1/2 top-0 mt-8 -translate-x-1/2 transform text-balance font-serif text-white">
-              UNLIMITED WAYS TO EARN MCRT
-            </h2>
+            <div className="absolute left-0 top-0 m-4 flex h-full w-full  flex-col  text-center">
+              <h2 className="text-balance font-serif text-4xl text-white">
+                UNLIMITED WAYS TO EARN MCRT
+              </h2>
+              <p className="mt-4 font-serif text-base text-white">
+                Explore Unlimited Ways to Earn MCRT through our dynamic
+                portfolio of games within the MagicCraft
+                <br /> Ecosystem. Each game offers unique opportunities to earn
+                more MCRT and enhance your overall <br /> gaming experience.
+                Dive into MagicRunner and Magic8Ball today and start earning!
+              </p>
+            </div>
           </section>
 
           {/*JOIN THE ACTION */}
@@ -127,11 +160,23 @@ function Homepagemcrt() {
                 <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-3">
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
                     <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10 ">
-                      <h4 className="font-serif  text-lg md:text-[22px]">
-                        <span className="text-[#8EFF49]">REGISTER</span>
-                        <br /> AN $MCRT <br /> ACCOUNT
-                      </h4>
+                      <div className="flex flex-wrap">
+                        <div>
+                          <img
+                            src={directory}
+                            style={{ width: '150px', height: '150px' }}
+                            className="p-4"
+                            alt="Directory"
+                          />
+                        </div>
 
+                        <div className="my-4 p-4">
+                          <h4 className="font-serif  text-lg md:text-[22px]">
+                            <span className="text-[#8EFF49]">REGISTER</span>
+                            <br /> AN $MCRT <br /> ACCOUNT
+                          </h4>
+                        </div>
+                      </div>
                       <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
                         1
                       </div>
@@ -144,21 +189,26 @@ function Homepagemcrt() {
                         GAME
                       </h4>
                       <div className="flex flex-wrap items-center ">
-                        <span className="w-1/4 p-4">
+                        <span className=" p-4">
+                          <img src={steam} className=" p-4"></img>
                           Get it on
-                          <br /> Steam
+                          <br />
+                          <p className="text-2xl font-bold">Steam</p>
                         </span>
 
                         <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
-                        <span className="w-1/4 p-4">
-                          Get it on
-                          <br /> App Store
-                        </span>
-                        <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
-                        <span className="w-1/4 p-4">
+                        <span className=" p-4">
+                          <img src={AppleIcon} className=" p-4"></img>
                           Get it on
                           <br />
-                          Google Play
+                          <p className="text-2xl font-bold">App store</p>
+                        </span>
+                        <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
+                        <span className=" p-4">
+                          <img src={googleicon} className=" p-4"></img>
+                          Get it on
+                          <br />
+                          <p className="text-2xl font-bold">Google Play</p>
                         </span>
                       </div>
                       <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
@@ -168,14 +218,24 @@ function Homepagemcrt() {
                   </div>
                   <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
                     <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10  ">
-                      <h4 className="font-serif text-lg md:text-[22px]">
-                        <span className="text-[#FF49ED]">JUMP</span> INTO
-                        <br />
-                        A WEB3
-                        <br />
-                        LOBBY
-                      </h4>
-
+                      <div className="flex flex-wrap">
+                        <div>
+                          <img
+                            src={vs}
+                            style={{ width: '150px', height: '150px' }}
+                            className="p-4"
+                            alt="Directory"
+                          />
+                        </div>
+                        <div className="my-4 p-4">
+                          <h4 className="font-serif text-lg md:text-[22px]">
+                            <span className="text-[#FF49ED]">JUMP</span> INTO
+                            <br />
+                            A WEB3 <br />
+                            LOBBY
+                          </h4>
+                        </div>
+                      </div>
                       <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
                         3
                       </div>
@@ -236,17 +296,39 @@ function Homepagemcrt() {
                 strategies, and receive exclusive updates and support. Be part
                 of a community that plays, earns, and grows together.
               </p>
+              <div className="flex flex-wrap items-center">
+                <img src={pc}></img>
+                <span className=" p-4">
+                  Join MagicCraft's
+                  <br />
+                  <p className="text-2xl font-bold"> Discord</p>
+                </span>
+
+                <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                <img src={AppleIcon} className=" pl-4"></img>
+                <span className=" p-4">
+                  Join MagicCraft's
+                  <br />
+                  <p className="text-2xl font-bold"> Telegram</p>
+                </span>
+              </div>
             </div>
           </section>
 
           {/*our team */}
-          <div className="h-auto bg-[#020418]  ">
-            <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 p-4 md:space-y-20  ">
+          <div className=" m-10 h-auto bg-[#020418] p-10">
+            <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 p-4 md:space-y-20">
+              <h3 className="mb-10 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl">
+                our team
+              </h3>
+              <div
+                className="mx-auto mb-10 w-fit rounded-full bg-[#4457B84D] px-5 py-3  text-lg text-[#98FFF9] backdrop-blur"
+                style={{ marginTop: '-3rem' }}
+              >
+                All
+              </div>
               <div className="space-y-4">
-                <h3 className="m-8 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl ">
-                  our team
-                </h3>
-                <div className="grid grid-cols-2 gap-8 md:grid-cols-4 ">
+                <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                   {ourteam.map((item) => {
                     return (
                       <div
@@ -254,13 +336,28 @@ function Homepagemcrt() {
                         className="flex flex-col items-center justify-center bg-[#020418] md:h-80"
                       >
                         <img
-                          className="w-16 px-2 md:w-full"
+                          className="mt-4 w-16 px-2 md:w-full"
                           src={item.icon}
                           alt={item.name}
                         />
                         <p className="mt-2 text-white">{item.name}</p>
                         {item.work && (
-                          <p className="mt-1 text-[#98FFF9]">{item.work}</p>
+                          <>
+                            <p className="mt-1 text-[#98FFF9]">{item.work}</p>
+                            <div className="mt-2 flex">
+                              {item.socialicons.map((social, index) => (
+                                <a
+                                  key={index}
+                                  href={social.socialmedia}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="mx-2 text-[#FFFFFF]"
+                                >
+                                  {social.icons}
+                                </a>
+                              ))}
+                            </div>
+                          </>
                         )}
                       </div>
                     )
@@ -290,6 +387,7 @@ function Homepagemcrt() {
               </div>
             </section>
           </div>
+
           {/*our team ended */}
 
           <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 md:space-y-20">
