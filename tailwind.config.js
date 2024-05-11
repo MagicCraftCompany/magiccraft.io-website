@@ -43,6 +43,7 @@ module.exports = {
       fontFamily: {
         sans: ['"Futura PT"', ...defaultTheme.fontFamily.sans],
         serif: ["'Colus'", ...defaultTheme.fontFamily.serif],
+        ancient: ['"Font-The Ancient"', ...defaultTheme.fontFamily.serif],
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
