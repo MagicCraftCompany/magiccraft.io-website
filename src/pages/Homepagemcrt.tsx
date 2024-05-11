@@ -22,6 +22,7 @@ import Character from '@/assets/images/character.png'
 import { otherpartners } from '@/data/otherpartners'
 import partners from '@/data/partners'
 import { ourteam } from '@/components/Team/ourTeam'
+import magiccraft from '@/assets/images/MagicCraft (1).png'
 
 function Homepagemcrt() {
   return (
@@ -31,20 +32,22 @@ function Homepagemcrt() {
         <main className="scroll-smooth pb-32">
           {/*header*/}
           <section className="relative h-[700px] bg-video bg-cover bg-center">
-          <div className="video-bg-gradient absolute inset-0  h-full w-full"></div>
+            <div className="video-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className="relative z-10 mx-auto w-11/12 max-w-screen-xl">
               <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
                 <div className="w-14 max-w-28 md:w-full">
                   <img src={mcrtIcon} alt="MCRT Token" />
                 </div>
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
-                  <span className="text-xl md:text-4xl">MagicCraft</span> <br />
-                  WHERE PLAY MEANS PROSPERITY
+                  <div className=" flex justify-center ">
+                    <img src={magiccraft}></img>
+                  </div>
+                  <span className="text-3xl">WHERE PLAY MEANS PROSPERITY</span>
                 </h1>
               </div>
               <div className="mx-auto  mb-20  w-5/12 ">
-                <div className="rounded-[20px]  bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                  <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-10  md:p-10  ">
+                <div className="rounded-[20px]   bg-gradient-to-b from-[#B591F2]  to-transparent ">
+                  <div className="relative  w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  md:p-10  ">
                     <h4 className="text-balance text-center font-serif text-lg md:text-[22px] ">
                       <span className="text-[#FFB649]">PLAY </span> MAGICCRAFT
                       NOW!
@@ -81,6 +84,10 @@ function Homepagemcrt() {
                         <br />
                         <p className="font-bold"> Google play</p>
                       </span>
+                    </div>
+
+                    <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
+                      !
                     </div>
                   </div>
                 </div>
