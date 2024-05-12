@@ -2,11 +2,11 @@ import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 
 import mcrtIcon from '@/assets/images/mcrt-icon.webp'
-
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import buttonIcon from '@/assets/images/Vector (Stroke).png'
 
 import backgroundimage from '@/assets/images/bg-1.png'
-
+import 'swiper/css';
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
 import pc from '@/assets/icons/icon-pc.svg'
@@ -23,6 +23,7 @@ import { otherpartners } from '@/data/otherpartners'
 import partners from '@/data/partners'
 import { ourteam } from '@/components/Team/ourTeam'
 import magiccraft from '@/assets/images/MagicCraft (1).png'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 function Homepagemcrt() {
   return (
@@ -47,7 +48,7 @@ function Homepagemcrt() {
               </div>
               <div className="mx-auto  mb-20  w-5/12 ">
                 <div className="rounded-[20px]   bg-gradient-to-b from-[#B591F2]  to-transparent ">
-                  <div className="relative  w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  md:p-10  ">
+                  <div className="relative  w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  md:py-3 md:px-8">
                     <h4 className="text-balance text-center font-serif text-lg md:text-[22px] ">
                       <span className="text-[#FFB649]">PLAY </span> MAGICCRAFT
                       NOW!
@@ -58,7 +59,7 @@ function Homepagemcrt() {
                         <img src={pc}></img>
                         Download
                         <br />
-                        <p className="font-bold">PC</p>
+                        <p className="font-bold text-xl">PC</p>
                       </span>
 
                       <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
@@ -66,7 +67,7 @@ function Homepagemcrt() {
                       <span className=" p-5">
                         <img src={AppleIcon}></img>
                         Get it on <br />
-                        <p className="font-bold">App Store</p>
+                        <p className="font-bold text-xl">App Store</p>
                       </span>
                       <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
 
@@ -74,7 +75,7 @@ function Homepagemcrt() {
                         <img src={steam}></img>
                         Get it on
                         <br />
-                        <p className="font-bold">Steam</p>
+                        <p className="font-bold text-xl">Steam</p>
                       </span>
                       <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
 
@@ -82,11 +83,11 @@ function Homepagemcrt() {
                         <img src={googleicon}></img>
                         Get it on
                         <br />
-                        <p className="font-bold"> Google play</p>
+                        <p className="font-bold text-xl"> Google play</p>
                       </span>
                     </div>
 
-                    <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
+                    <div style={{right:'25px'}} className="absolute -bottom-10 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
                       !
                     </div>
                   </div>
@@ -96,6 +97,23 @@ function Homepagemcrt() {
           </section>
 
           {/*register now */}
+    <Swiper
+      modules={[Navigation, Pagination, Scrollbar, A11y]}
+      spaceBetween={50}
+      slidesPerView={1}
+      onSlideChange={() => console.log('slide change')}
+      onSwiper={(swiper) => console.log(swiper)}
+      navigation={{ nextEl: ".arrow-left", prevEl: ".arrow-right" }}
+      autoHeight={true}
+      pagination={{ clickable: true, dynamicBullets: true }}
+    >
+      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>Slide 2</SwiperSlide>
+      <SwiperSlide>Slide 3</SwiperSlide>
+      <SwiperSlide>Slide 4</SwiperSlide>
+    </Swiper>
+    <button className="arrow-left arrow">Prev</button>
+    <button className="arrow-right arrow">next</button>
           <section className="relative flex h-[500px] flex-wrap items-center bg-[#020418] bg-center  ">
             <div className="mx-10 flex rounded-lg pl-52  ">
               <div className=" p-4 text-left ">
@@ -190,7 +208,7 @@ function Homepagemcrt() {
                     </div>
                   </div>
                   <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                    <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% px-8 py-4 md:p-10  ">
+                    <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% px-8 py-4 md:px-10  ">
                       <h4 className="font-serif text-lg md:text-[22px]">
                         <span className="text-[#FFB649]">DOWNLOAD</span> THE
                         GAME
