@@ -107,7 +107,7 @@ function Homepagemcrt() {
       autoHeight={true}
       pagination={{ clickable: true, dynamicBullets: true }}
     >
-      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>slide 1</SwiperSlide>
       <SwiperSlide>Slide 2</SwiperSlide>
       <SwiperSlide>Slide 3</SwiperSlide>
       <SwiperSlide>Slide 4</SwiperSlide>
@@ -170,9 +170,9 @@ function Homepagemcrt() {
           </section>
 
           {/*JOIN THE ACTION */}
-          <section className=" bg-center p-4">
-            <div className="relative w-full rounded-4xl bg-[#0C0218]">
-              <div className="space-y-5 px-8 pb-10 pt-5 md:px-10">
+          <section className=" bg-center p-4 ">
+            <div className="relative w-full p-4 rounded-4xl bg-[#0C0218]">
+              <div className="space-y-5 m-4 h-[300px] md:px-10">
                 <h5 className="mx-auto max-w-xl text-balance text-center font-serif text-base md:text-2xl">
                   JOIN THE ACTION ,EARN MCRT
                 </h5>
@@ -183,9 +183,9 @@ function Homepagemcrt() {
                   glory now!
                 </p>
                 <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-3">
-                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
-                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10 ">
-                      <div className="flex flex-wrap">
+                <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent  h-[100px]   ">
+                    <div className="relative   rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% py-4 md:px-10   ">
+                      <div className="flex flex-wrap ">
                         <div>
                           <img
                             src={directory}
@@ -207,13 +207,13 @@ function Homepagemcrt() {
                       </div>
                     </div>
                   </div>
-                  <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                    <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% px-8 py-4 md:px-10  ">
-                      <h4 className="font-serif text-lg md:text-[22px]">
-                        <span className="text-[#FFB649]">DOWNLOAD</span> THE
+                  <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent h-[100px]  ">
+                    <div className="relative   rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%  md:px-10    ">
+                      <h4 className="font-serif text-lg md:text-[22px] pt-2">
+                        <span className="text-[#FFB649] py-4">DOWNLOAD</span> THE
                         GAME
                       </h4>
-                      <div className="flex flex-wrap items-center ">
+                      <div className="flex flex-wrap items-center mb-4">
                         <span className=" p-4">
                           <img src={steam} className=" p-4"></img>
                           Get it on
@@ -241,8 +241,8 @@ function Homepagemcrt() {
                       </div>
                     </div>
                   </div>
-                  <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                    <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10  ">
+                  <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent  h-[100px]   ">
+                    <div className="relative   rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% py-4 md:px-10   ">
                       <div className="flex flex-wrap">
                         <div>
                           <img
