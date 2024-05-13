@@ -4,26 +4,27 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from '../components/ui/accordion'
-import { useState } from 'react'
+// import { useState } from 'react'
 import { TypographyH1 } from '../components/Typography'
 import { cn } from '@/lib/utils'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
+import { Tabs, Tab } from '@/components/tabs';
+ 
 import web3 from '@/assets/icons/li_help-circle (1).svg'
-import web from '@/assets/icons/li_help-circle.svg'
-import web2 from '@/assets/icons/li_file-text.svg'
-import web22 from '@/assets/icons/li_file-text (1).svg'
+ import web from '@/assets/icons/li_help-circle.svg'
+ import web2 from '@/assets/icons/li_file-text.svg'
+ import web22 from '@/assets/icons/li_file-text (1).svg'
 import Mcrt from '@/assets/icons/li_coins.svg'
 import Mcrt2 from '@/assets/icons/li_coins (1).svg'
 import contacticon from '@/assets/icons/li_users.svg'
-import contacticon2 from '@/assets/icons/li_coins (1).svg'
+ import contacticon2 from '@/assets/icons/li_coins (1).svg'
+
+
 
 
 export default function FAQ() {
-  const [isHovering, setIsHovered] = useState(true)
-  const onMouseEnter = () => setIsHovered(false)
-  const onMouseLeave = () => setIsHovered(true)
-
+ 
   return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -47,82 +48,32 @@ export default function FAQ() {
                 </div>
               </TypographyH1>
 
-              <section className=" items-center justify-center">
-                <div
-                  className="  flex 
-                 items-center
-                 justify-center "
-                 onMouseEnter={onMouseEnter} 
-                 onMouseLeave={onMouseLeave}
-                >
-                  <ul className="flex flex-wrap rounded-3xl bg-[#03082F] p-1 text-center text-sm font-medium text-gray-500 dark:text-gray-400">
-                    <li className="me-2">
-                      <a
-                        href="#"
-                        className=" flex flex-wrap rounded-3xl px-4 py-3 text-[#98FFF9] hover:bg-[#98FFF9] hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white  "
-                      >
-                        {isHovering ? (
-                          <img src={web3} alt="Web3 Image" className="px-2  " />
-                        ) : (
-                          <img src={web} alt="Web3 Image" className="px-2  " />
-                        )}
-                        Web3 Slay-to-Earn Mode
-                      </a>
-                    </li>
-                    <li className="me-2">
-                      <a
-                        href="#"
-                        className=" flex flex-wrap rounded-3xl px-4 py-3 text-[#98FFF9] hover:bg-[#98FFF9] hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
-                      >
-                         {isHovering ? (
-                          <img src={web2} alt="Web3 Image" className="px-2  " />
-                        ) : (
-                          <img src={web22} alt="Web3 Image" className="px-2  " />
-                        )}
-                        Web 2 Mode
-                      </a>
-                    </li>
-                    <li className="me-2">
-                      <a
-                        href="#"
-                        className=" flex flex-wrap rounded-3xl px-4 py-3 text-[#98FFF9] hover:bg-[#98FFF9] hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
-                      >
-                         {isHovering ? (
-                          <img src={Mcrt} alt="Web3 Image" className="px-2  " />
-                        ) : (
-                          <img src={Mcrt2} alt="Web3 Image" className="px-2  " />
-                        )}
-                        $MCRT & Pledging
-                      </a>
-                    </li>
-                    <li className="me-2">
-                      <a
-                        href="#"
-                        className=" flex flex-wrap rounded-3xl px-4 py-3 text-[#98FFF9] hover:bg-[#98FFF9] hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
-                      >
-                        {isHovering ? (
-                          <img src={Mcrt} alt="Web3 Image" className="px-2  " />
-                        ) : (
-                          <img src={Mcrt2} alt="Web3 Image" className="px-2  " />
-                        )}
-                        Partner with MagicCraft
-                      </a>
-                    </li>
-                    <li className="me-2">
-                      <a
-                        href="#"
-                        className=" flex flex-wrap rounded-3xl px-4 py-3 text-[#98FFF9] hover:bg-[#98FFF9] hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white"
-                      >
-                        {isHovering ? (
-                          <img src={contacticon} alt="Web3 Image" className="px-2  " />
-                        ) : (
-                          <img src={contacticon2} alt="Web3 Image" className="px-2  " />
-                        )}
-                        Contact Team
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+              <section className=" flex items-center justify-center">
+              
+              
+              <Tabs>
+          <Tab label="Web3 Slay-to-Earn Mode" icon={web3} iconActive={web} children={undefined}>
+            {/* Content for Web3 Slay-to-Earn Mode */}
+          </Tab>
+          <Tab label="Web 2 Mode" icon={web2} iconActive={web22} children={undefined}>
+            {/* Content for Web 2 Mode */}
+          </Tab>
+          <Tab label="$ MCRT & pledging" icon={Mcrt} iconActive={Mcrt2} children={undefined}>
+            {/* Content for $ MCRT & pledging */}
+          </Tab>
+          <Tab label="Partner with MagicCraft" icon={Mcrt} iconActive={Mcrt2} children={undefined}>
+            {/* Content for $ MCRT & pledging */}
+          </Tab>
+          <Tab label="Contact Team" icon={contacticon} iconActive={contacticon2} children={undefined}>
+            {/* Content for Partner with MagicCraft */}
+          </Tab>
+          
+        </Tabs>
+
+               
+               
+               
+                
               </section>
 
               <Accordion
