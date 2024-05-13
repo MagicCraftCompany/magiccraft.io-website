@@ -1,12 +1,13 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
-
+import left from '@/assets/icons/left-preview.svg'
+import right from '@/assets/icons/right-preview.svg'
 import mcrtIcon from '@/assets/images/mcrt-icon.webp'
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 import buttonIcon from '@/assets/images/Vector (Stroke).png'
 
 import backgroundimage from '@/assets/images/bg-1.png'
-import 'swiper/css';
+import 'swiper/css'
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
 import pc from '@/assets/icons/icon-pc.svg'
@@ -48,7 +49,7 @@ function Homepagemcrt() {
               </div>
               <div className="mx-auto  mb-20  w-5/12 ">
                 <div className="rounded-[20px]   bg-gradient-to-b from-[#B591F2]  to-transparent ">
-                  <div className="relative  w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  md:py-3 md:px-8">
+                  <div className="relative  w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  md:px-8 md:py-3">
                     <h4 className="text-balance text-center font-serif text-lg md:text-[22px] ">
                       <span className="text-[#FFB649]">PLAY </span> MAGICCRAFT
                       NOW!
@@ -59,7 +60,7 @@ function Homepagemcrt() {
                         <img src={pc}></img>
                         Download
                         <br />
-                        <p className="font-bold text-xl">PC</p>
+                        <p className="text-xl font-bold">PC</p>
                       </span>
 
                       <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
@@ -67,7 +68,7 @@ function Homepagemcrt() {
                       <span className=" p-5">
                         <img src={AppleIcon}></img>
                         Get it on <br />
-                        <p className="font-bold text-xl">App Store</p>
+                        <p className="text-xl font-bold">App Store</p>
                       </span>
                       <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
 
@@ -75,7 +76,7 @@ function Homepagemcrt() {
                         <img src={steam}></img>
                         Get it on
                         <br />
-                        <p className="font-bold text-xl">Steam</p>
+                        <p className="text-xl font-bold">Steam</p>
                       </span>
                       <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
 
@@ -83,11 +84,14 @@ function Homepagemcrt() {
                         <img src={googleicon}></img>
                         Get it on
                         <br />
-                        <p className="font-bold text-xl"> Google play</p>
+                        <p className="text-xl font-bold"> Google play</p>
                       </span>
                     </div>
 
-                    <div style={{right:'25px'}} className="absolute -bottom-10 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
+                    <div
+                      style={{ right: '25px' }}
+                      className="absolute -bottom-10 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]"
+                    >
                       !
                     </div>
                   </div>
@@ -97,27 +101,11 @@ function Homepagemcrt() {
           </section>
 
           {/*register now */}
-    <Swiper
-      modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={50}
-      slidesPerView={1}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}
-      navigation={{ nextEl: ".arrow-left", prevEl: ".arrow-right" }}
-      autoHeight={true}
-      pagination={{ clickable: true, dynamicBullets: true }}
-    >
-      <SwiperSlide>slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-    </Swiper>
-    <button className="arrow-left arrow">Prev</button>
-    <button className="arrow-right arrow">next</button>
+
           <section className="relative flex h-[500px] flex-wrap items-center bg-[#020418] bg-center  ">
-            <div className="mx-10 flex rounded-lg pl-52  ">
-              <div className=" p-4 text-left ">
-                <h3 className=" bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
+            <div className="ml-10 flex w-6/12 rounded-lg pl-52  ">
+              <div className="p-4 text-left ">
+                <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
                   <span className="text-4xl font-bold">
                     A NEW ERA IN GAMING
                   </span>
@@ -138,7 +126,7 @@ function Homepagemcrt() {
                   prosperity.
                 </p>
 
-                <div className="m-2 block  h-px w-5/12 bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                <div className="m-2 block  h-px w-6/12 bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
                 <button className=" flex flex-wrap rounded-lg border-2 border-[#98FFF9] p-2 text-[#98FFF9]">
                   <img
                     src={buttonIcon}
@@ -149,7 +137,75 @@ function Homepagemcrt() {
                 </button>
               </div>
             </div>
-            <div className="w-4/12 rounded-lg p-4"></div>
+            <div className="relative w-4/12 rounded-lg  mt-4">
+              <Swiper
+                className='w-10/12'
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={50}
+                slidesPerView={1}
+                onSwiper={(swiper) => console.log(swiper)}
+                navigation={{ prevEl: '.arrow-left', nextEl: '.arrow-right' }}
+                autoHeight={true}
+                pagination={{ clickable: true, dynamicBullets: true }}
+              >
+                <SwiperSlide style={{marginRight: '0 !important'}} className="h-full w-10/12">
+                  <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl">
+                    <div className="testimonials-first rounded-3xl">
+                      <div className="testimonials-second p-4">
+                        <button className="border-ffffff z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
+                          <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Testimonials`}</div>
+                        </button>
+                        <div className="bg-gainsboro relative z-[3] h-[21px] w-5" />
+                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)]">
+                          <div className="relative inline-block max-w-full flex-1 !bg-clip-text font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">
+                            I'm holding my coins and will keep holding them for
+                            a long time, so I have no fancy items to show here
+                            (hopefully I'll show a new pc soon since mine is
+                            almost 7 years old 😂) but the amount I earn by
+                            playing the game I can say is a lot more than my
+                            monthly salary here in Cuba. I'm glad I found this
+                            game and I'm glad @Sinerv0 helped me with and nft,
+                            always grateful. The game is a lot of fun too when
+                            played with good friends 👏😄
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{marginRight: '0 !important'}} className='h-full w-10/12'>
+                  <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl">
+                    <div className="testimonials-first rounded-3xl">
+                      <div className="testimonials-second p-4">
+                        <button className="border-ffffff z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
+                          <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Testimonials`}</div>
+                        </button>
+                        <div className="bg-gainsboro relative z-[3] h-[21px] w-5" />
+                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)]">
+                          <div className="relative inline-block max-w-full flex-1 !bg-clip-text font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">
+                            I'm holding my coins and will keep holding them for
+                            a long time, so I have no fancy items to show here
+                            (hopefully I'll show a new pc soon since mine is
+                            almost 7 years old 😂) but the amount I earn by
+                            playing the game I can say is a lot more than my
+                            monthly salary here in Cuba. I'm glad I found this
+                            game and I'm glad @Sinerv0 helped me with and nft,
+                            always grateful. The game is a lot of fun too when
+                            played with good friends 👏😄
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+              <button className="arrow-left arrow absolute top-[50%] cursor-pointer">
+              <img src={left} alt="MCRT Token" />
+              </button>
+              <button className="arrow-right arrow absolute top-[50%] right-0 cursor-pointer">
+              <img src={right} alt="MCRT Token" />
+              </button>
+            </div>
           </section>
 
           {/*unlimited ways to earn */}
@@ -171,8 +227,8 @@ function Homepagemcrt() {
 
           {/*JOIN THE ACTION */}
           <section className=" bg-center p-4 ">
-            <div className="relative w-full p-4 rounded-4xl bg-[#0C0218]">
-              <div className="space-y-5 m-4 h-[300px] md:px-10">
+            <div className="relative w-full rounded-4xl bg-[#0C0218] p-4">
+              <div className="m-4 h-[300px] space-y-5 md:px-10">
                 <h5 className="mx-auto max-w-xl text-balance text-center font-serif text-base md:text-2xl">
                   JOIN THE ACTION ,EARN MCRT
                 </h5>
@@ -183,7 +239,7 @@ function Homepagemcrt() {
                   glory now!
                 </p>
                 <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-3">
-                <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent  h-[100px]   ">
+                  <div className="h-[100px] rounded-[20px] bg-gradient-to-b  from-[#B591F2]  to-transparent   ">
                     <div className="relative   rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% py-4 md:px-10   ">
                       <div className="flex flex-wrap ">
                         <div>
@@ -207,33 +263,33 @@ function Homepagemcrt() {
                       </div>
                     </div>
                   </div>
-                  <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent h-[100px]  ">
+                  <div className="h-[100px] rounded-[20px] bg-gradient-to-b  from-[#B591F2] to-transparent  ">
                     <div className="relative   rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%  md:px-10    ">
-                      <h4 className="font-serif text-lg md:text-[22px] pt-2">
-                        <span className="text-[#FFB649] py-4">DOWNLOAD</span> THE
-                        GAME
+                      <h4 className="pt-2 font-serif text-lg md:text-[22px]">
+                        <span className="py-4 text-[#FFB649]">DOWNLOAD</span>{' '}
+                        THE GAME
                       </h4>
-                      <div className="flex flex-wrap items-center mb-4">
-                        <span className=" p-4">
+                      <div className="mb-4 flex flex-wrap items-center">
+                        <span className="py-4 px-3">
                           <img src={steam} className=" p-4"></img>
                           Get it on
                           <br />
-                          <p className="text-2xl font-bold">Steam</p>
+                          <p className="text-xl font-bold">Steam</p>
                         </span>
 
                         <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
-                        <span className=" p-4">
+                        <span className="py-4 px-3">
                           <img src={AppleIcon} className=" p-4"></img>
                           Get it on
                           <br />
-                          <p className="text-2xl font-bold">App store</p>
+                          <p className="text-xl font-bold">App store</p>
                         </span>
                         <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
-                        <span className=" p-4">
+                        <span className=" py-4 px-3">
                           <img src={googleicon} className=" p-4"></img>
                           Get it on
                           <br />
-                          <p className="text-2xl font-bold">Google Play</p>
+                          <p className="text-xl font-bold">Google Play</p>
                         </span>
                       </div>
                       <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
@@ -241,7 +297,7 @@ function Homepagemcrt() {
                       </div>
                     </div>
                   </div>
-                  <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent  h-[100px]   ">
+                  <div className="h-[100px] rounded-[20px] bg-gradient-to-b  from-[#B591F2]  to-transparent   ">
                     <div className="relative   rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% py-4 md:px-10   ">
                       <div className="flex flex-wrap">
                         <div>
@@ -302,9 +358,9 @@ function Homepagemcrt() {
               className="  md:h-3/12 absolute  inset-0 z-10 ml-96 rounded-lg object-cover p-10 md:w-3/12 "
             />
 
-            <div className="rounded-lg bg-[#98FFF9] bg-opacity-50 p-4 md:w-8/12 ">
+            <div className="rounded-lg bg-[#98FFF9] bg-opacity-50 p-4 md:w-7/12 ">
               <div className=" p-4 text-left ">
-                <h3 className=" bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
+                <h3 className=" bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-3xl text-transparent drop-shadow-xl ">
                   <p>CONNECT,</p>
                   <p>COLLABORATE,</p>
                   <p>CONQUER</p>
@@ -314,7 +370,7 @@ function Homepagemcrt() {
               </div>
             </div>
 
-            <div className="w-4/12 rounded-lg bg-black p-4">
+            <div className="w-5/12 rounded-lg bg-black p-4">
               <p>
                 Step into a world where gamers thrive together! Join our Discord
                 and Telegram channels to connect with players worldwide, share

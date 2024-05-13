@@ -143,4 +143,14 @@
       ),
       rgba(45, 44, 134, 0.8);
   }
+   
+  .testimonials-first{
+    background: linear-gradient(175deg, rgba(144, 55, 166, 0.00) 42.93%, rgba(144, 55, 166, 0.32) 70.97%, rgba(144, 55, 166, 0.36) 96.35%);
+  }
+ .testimonials{
+  background: linear-gradient(180deg, rgba(23, 19, 82, 0.96) 0%, #0A0917 100%), url(<path-to-image>) lightgray 50% / cover no-repeat;
+ }
+ .testimonials-second{
+  background: rgba(2, 4, 24, 0.11);
+ }
 }
