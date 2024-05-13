@@ -44,20 +44,21 @@ export default function FAQ() {
 
         <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
             <li className="me-2">
-                <a href="#" className="inline-block px-4 py-3 text-[#98FFF9] bg-blue-600 rounded-lg active" aria-current="page">Tab 1</a>
+                <a href="#" className="inline-block px-4 py-3 text-[#98FFF9] rounded-3xl hover:text-gray-900 hover:bg-[#98FFF9] dark:hover:bg-gray-800 dark:hover:text-white ">Web3 Slay-to-Earn Mode</a>
             </li>
             <li className="me-2">
-                <a href="#" className="inline-block px-4 py-3 text-[#98FFF9] rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Tab 2</a>
+                <a href="#" className="inline-block px-4 py-3 text-[#98FFF9] rounded-3xl hover:text-gray-900 hover:bg-[#98FFF9] dark:hover:bg-gray-800 dark:hover:text-white">Web 2 Mode</a>
             </li>
             <li className="me-2">
-                <a href="#" className="inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Tab 3</a>
+                <a href="#" className="inline-block px-4 py-3 text-[#98FFF9] rounded-3xl hover:text-gray-900 hover:bg-[#98FFF9] dark:hover:bg-gray-800 dark:hover:text-white">$MCRT & Pledging</a>
             </li>
             <li className="me-2">
-                <a href="#" className="inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Tab 4</a>
+                <a href="#" className="inline-block px-4 py-3 text-[#98FFF9] rounded-3xl hover:text-gray-900 hover:bg-[#98FFF9] dark:hover:bg-gray-800 dark:hover:text-white">Partner with MagicCraft</a>
             </li>
-            <li>
-                <a className="inline-block px-4 py-3 text-gray-400 cursor-not-allowed dark:text-gray-500">Tab 5</a>
+            <li className="me-2">
+                <a href="#" className="inline-block px-4 py-3 text-[#98FFF9] rounded-3xl hover:text-gray-900 hover:bg-[#98FFF9] dark:hover:bg-gray-800 dark:hover:text-white">Contact Team</a>
             </li>
+           
         </ul>
 
     </div>
