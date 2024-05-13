@@ -30,12 +30,39 @@ export default function FAQ() {
         className="relative m-8 mb-8 text-center text-6xl font-bold text-white"
       >
         SUPPORT
-        <div className="absolute bottom-0 left-1/2 h-1 w-full -translate-x-1/2 transform border-b">
-          <div className="mt-6 text-center text-sm font-bold text-white">
+        <div className="block h-px w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+        <div>
+          <div className="mt-6 text-2xl text-center  font-bold text-white">
             if you have any questions
           </div>
         </div>
       </TypographyH1>
+
+
+      <section className='flex justify-center items-center'>
+    <div className='bg-[#03082F] w-3/4 flex justify-center items-center rounded-3xl'>
+
+        <ul className="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
+            <li className="me-2">
+                <a href="#" className="inline-block px-4 py-3 text-[#98FFF9] bg-blue-600 rounded-lg active" aria-current="page">Tab 1</a>
+            </li>
+            <li className="me-2">
+                <a href="#" className="inline-block px-4 py-3 text-[#98FFF9] rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Tab 2</a>
+            </li>
+            <li className="me-2">
+                <a href="#" className="inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Tab 3</a>
+            </li>
+            <li className="me-2">
+                <a href="#" className="inline-block px-4 py-3 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Tab 4</a>
+            </li>
+            <li>
+                <a className="inline-block px-4 py-3 text-gray-400 cursor-not-allowed dark:text-gray-500">Tab 5</a>
+            </li>
+        </ul>
+
+    </div>
+</section>
+
 
             <Accordion
               type="single"
