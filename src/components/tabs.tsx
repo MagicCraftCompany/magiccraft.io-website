@@ -8,18 +8,20 @@ type TabProps = {
   iconActive: string;
 };
 
-const Tab = ({ label ,icon}: TabProps) => {
+const Tab = ({ label ,icon,children}: TabProps) => {
   return (
     <div className="hidden" role="tabpanel" aria-labelledby={label}>
       <img src={icon} alt={`${label} icon`} />
       {label}
+      {children}
     </div>
   );
 };
 
 type TabsProps = {
   children: ReactNode[];
-  className?: string; 
+  className?: string;
+  
 };
 
 const Tabs = ({ children }: TabsProps) => {
@@ -46,7 +48,7 @@ const Tabs = ({ children }: TabsProps) => {
            
               <img src={activeTab === tab.props.label ? tab.props.iconActive : tab.props.icon} alt={`${tab.props.label} icon`}  />
              
-              <span className='p-4'>{tab.props.label}</span>
+              <span className='px-4 py-2'>{tab.props.label}</span>
             </div>
             </button>
           );
