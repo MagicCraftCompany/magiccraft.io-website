@@ -237,9 +237,20 @@ function Homepagemcrt() {
                     <div className='h-full w-full'>
                     <img src={crousel_first} className='h-full'/>
                     </div>
-                    <div className='crousel-first -ml-[20px]'>
-                       <p>MagicRunner</p>
-                       <p>Web3 games utilize the blockchain to provide players with a unique gaming experience that is markedly different from traditional games.</p>
+                    <div className='crousel-first -ml-[20px] relative w-full flex flex-col items-start '>
+                    <div className="flex justify-center  items-center  absolute left-[23.488px] top-[23.49px] rounded-[68.117px] bg-[rgba(10,9,23,0.60)] backdrop-blur-custom px-4 py-1.5 text-[#98FFF9]">Patch update</div>
+                       <label className='self-auto text-left justify-center item-center mt-16  ml-4'>
+                       <span  className='text-4xl font-bold p-2 m-2'>MagicRunner</span>
+                       <p className='p-2 text-xl m-2'>Web3 games utilize the blockchain to provide players with a unique gaming experience that is markedly different from traditional games.</p>
+                       </label>
+                       <button className=" flex flex-wrap rounded-lg border-2 border-[#98FFF9] p-2 ml-6 my-4 text-[#98FFF9]  ">
+                  <img
+                    src={buttonIcon}
+                    alt="Button Image"
+                    className="mr-2 h-6 w-6"
+                  />
+                  Download MagicRunner Now
+                </button>
                     </div>
                   </div>
                 </SwiperSlide>
