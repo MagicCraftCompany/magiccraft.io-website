@@ -27,6 +27,7 @@ module.exports = {
         video: "url('/src/assets/images/video.png')",
         mrback: "url('/src/assets/images/Frigard foreground1 1.png')",
         supportbg: "url('/src/assets/images/image.png')",
+        bgpatch: "url('/src/assets/images/bgpatch.png')",
       },
       keyframes: {
         'accordion-down': {
