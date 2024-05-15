@@ -5,7 +5,7 @@ import right from '@/assets/icons/right-preview.svg'
 import mcrtIcon from '@/assets/images/mcrt-icon.webp'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 import buttonIcon from '@/assets/images/Vector (Stroke).png'
-
+import crousel_first from '@/assets/images/crouserl_first.png'
 import backgroundimage from '@/assets/images/bg-1.png'
 import 'swiper/css'
 import steam from '@/assets/icons/icon-steam.svg'
@@ -209,9 +209,9 @@ function Homepagemcrt() {
           </section>
 
           {/*unlimited ways to earn */}
-          <section className="relative h-[700px] bg-center">
+          <section className="relative h-[700px] bg-center w-full">
             <img src={backgroundimage} />
-            <div className="absolute left-0 top-0 m-4 flex h-full w-full  flex-col  text-center">
+            <div className="absolute left-0 top-0 right-0 m-4 flex h-full flex-col  text-center">
               <h2 className="text-balance font-serif text-4xl text-white">
                 UNLIMITED WAYS TO EARN MCRT
               </h2>
@@ -222,6 +222,59 @@ function Homepagemcrt() {
                 more MCRT and enhance your overall <br /> gaming experience.
                 Dive into MagicRunner and Magic8Ball today and start earning!
               </p>
+            <Swiper
+                className='w-5/12'
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={50}
+                slidesPerView={1}
+                onSwiper={(swiper) => console.log(swiper)}
+                navigation={{ prevEl: '.arrow-left', nextEl: '.arrow-right' }}
+                autoHeight={true}
+                pagination={{ clickable: true, dynamicBullets: true }}
+              >
+                <SwiperSlide style={{marginRight: '0 !important'}} className="h-full w-5/12">
+                  <div className="flex h-full w-full flex-row items-start justify-start self-stretch rounded-3xl">
+                    <div className='h-full w-full'>
+                    <img src={crousel_first} className='h-full'/>
+                    </div>
+                    <div className='crousel-first -ml-[20px]'>
+                       <p>MagicRunner</p>
+                       <p>Web3 games utilize the blockchain to provide players with a unique gaming experience that is markedly different from traditional games.</p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide style={{marginRight: '0 !important'}} className='h-full w-6/12'>
+                  <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl">
+                    <div className="testimonials-first rounded-3xl">
+                      <div className="testimonials-second p-4">
+                        <button className="border-ffffff z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
+                          <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Testimonials`}</div>
+                        </button>
+                        <div className="bg-gainsboro relative z-[3] h-[21px] w-5" />
+                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)]">
+                          <div className="relative inline-block max-w-full flex-1 !bg-clip-text font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">
+                            I'm holding my coins and will keep holding them for
+                            a long time, so I have no fancy items to show here
+                            (hopefully I'll show a new pc soon since mine is
+                            almost 7 years old 😂) but the amount I earn by
+                            playing the game I can say is a lot more than my
+                            monthly salary here in Cuba. I'm glad I found this
+                            game and I'm glad @Sinerv0 helped me with and nft,
+                            always grateful. The game is a lot of fun too when
+                            played with good friends 👏😄
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+              <button className="arrow-left arrow absolute top-[50%] cursor-pointer">
+              <img src={left} alt="MCRT Token" />
+              </button>
+              <button className="arrow-right arrow absolute top-[50%] right-0 cursor-pointer">
+              <img src={right} alt="MCRT Token" />
+              </button>
             </div>
           </section>
 

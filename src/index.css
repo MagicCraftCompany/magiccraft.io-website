@@ -153,4 +153,10 @@
  .testimonials-second{
   background: rgba(2, 4, 24, 0.11);
  }
+ .crousel-first{
+  border-radius: 35.233px;
+  border: 1.174px solid #3F3F7A;
+  background: #11113A;
+  box-shadow: 0px 4.698px 46.978px 0px rgba(10, 9, 23, 0.60);
+ }
 }
