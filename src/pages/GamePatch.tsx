@@ -6,7 +6,6 @@ import icon1 from '@/assets/images/image 139 (1).png'
 import image1 from '@/assets/images/Characters (1).png'
 import image2 from '@/assets/images/Characters.png'
 
-import buttonIcon from '@/assets/icons/li_sword.svg'
 
 function GamePatch() {
 
