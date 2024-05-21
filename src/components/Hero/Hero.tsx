@@ -4,13 +4,12 @@ import { LuArrowUpRight } from "react-icons/lu";
 import dailyTaskIcon from "../../assets/icons/daily-task-large.svg";
 import mcrtIcon from "../../assets/mcrt.png";
 
-import { useAppSelector } from "../../state/store";
 import magicrunnerBanner from "../../assets/magicRunnerBannerNew.webp";
 import magicballBanner from "../../assets/magicball-banner.webp";
 import magiccraftCard from "../../assets/magiccraft-card.webp";
 import magicrunnerCard from "../../assets/magicrunner-card.webp";
 import magic8ballCard from "../../assets/magic8ball-card.webp";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function CurrentGameCards() {
   const location = useLocation();
@@ -113,10 +112,10 @@ const getCurrentBanner = () => {
 };
 
 export default function Home() {
-  const user = useAppSelector((state: { currentUser: { user: any; }; }) => state.currentUser.user);
+  // const user = useAppSelector((state: { currentUser: { user: any; }; }) => state.currentUser.user);
   const location = useLocation();
-  const navigate = useNavigate();
-  const dailyTasks = useAppSelector((state: { dailyTasks: any; }) => state.dailyTasks);
+  // const navigate = useNavigate();
+  // const dailyTasks = useAppSelector((state: { dailyTasks: any; }) => state.dailyTasks);
 
   const currentBanner = getCurrentBanner();
 
@@ -168,7 +167,7 @@ export default function Home() {
                       Daily Tasks
                     </p>
                     <h4 className="py-2 font-serif text-lg uppercase md:text-2xl ">
-                      {dailyTasks?.tasksCompleted.length} out of 5
+                      {5} out of 5
                     </h4>
 
                     <Link
