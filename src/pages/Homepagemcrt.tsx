@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import left from '@/assets/icons/left-preview.svg'
@@ -11,6 +12,7 @@ import 'swiper/css'
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
 import pc from '@/assets/icons/icon-pc.svg'
+import down from '@/assets/icons/li_chevron-down.svg'
 import directory from '@/assets/images/contact.png'
 import googleicon from '@/assets/images/logo (1).png'
 import vs from '@/assets/images/Group 7072.png'
@@ -26,8 +28,17 @@ import partners from '@/data/partners'
 import { ourteam } from '@/components/Team/ourTeam'
 import magiccraft from '@/assets/images/MagicCraft (1).png'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Tabs, Tab } from '@/components/tabs'
 
 function Homepagemcrt() {
+  const [visibleCount, setVisibleCount] = useState(8)
+
+  const loadMore = () => {
+    setVisibleCount((prevCount) => prevCount + 4)
+  }
+
+  const kolTeam = ourteam.filter((member) => member.category === 'KOL')
+  const teamMembers = ourteam.filter((member) => member.category === 'Team')
   return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -38,7 +49,7 @@ function Homepagemcrt() {
             <div className="video-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className="relative z-10 mx-auto  max-w-screen-xl">
               <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
-                <div className="w-full  max-w-[20%] md:max-w-28 md:w-full">
+                <div className="w-full  max-w-[20%] md:w-full md:max-w-28">
                   <img src={mcrtIcon} alt="MCRT Token" />
                 </div>
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
@@ -105,9 +116,9 @@ function Homepagemcrt() {
 
           {/*register now */}
 
-          <section className="relative flex flex-col items-center gap-4 bg-[#020418] bg-center lg:h-[500px] lg:flex-wrap  ">
+          <section className="relative flex flex-col items-center gap-4 bg-[#020418] bg-center lg:h-[400px] lg:flex-wrap  ">
             <div className="ml-10 flex rounded-lg lg:w-6/12 lg:pl-52  ">
-              <div className=" flex flex-col items-center justify-center p-4 text-center md:p-4 md:text-left ">
+              <div className=" flex flex-col items-center justify-center p-4 text-center md:p-4 md:text-left lg:mt-10 ">
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
                   <span className="text-4xl font-bold ">
                     A NEW ERA IN GAMING
@@ -157,7 +168,7 @@ function Homepagemcrt() {
                 </div>
               </div>
             </div>
-            <div className="relative md:mb-10 w-full  md:w-[537.735px] rounded-lg  lg:w-4/12">
+            <div className="relative w-full rounded-lg  md:mb-10 md:w-[537.735px]  lg:w-4/12">
               <Swiper
                 className="w-full p-10"
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -235,19 +246,23 @@ function Homepagemcrt() {
           </section>
 
           {/*unlimited ways to earn */}
-          <section className=" hidden md:block relative h-auto lg:h-full w-full bg-center">
-            <img src={backgroundimage} 
-            />
+          <section className=" relative hidden h-auto w-full bg-center md:block lg:h-full">
+            <img src={backgroundimage} />
             <div className="absolute left-0 right-0 top-0 m-4 flex h-full flex-col  text-center">
-              <h2 className="text-balance font-serif text-lg lg:text-4xl text-white">
+              <h2 className="text-balance font-serif text-lg text-white lg:text-4xl">
                 UNLIMITED WAYS TO EARN MCRT
               </h2>
-              <p className="lg:mt-4 text-xs lg:text-xl   text-white">
-                Explore Unlimited Ways to Earn MCRT through our dynamic<br className='block lg:hidden'/>
+              <p className="text-xs text-white lg:mt-4   lg:text-xl">
+                Explore Unlimited Ways to Earn MCRT through our dynamic
+                <br className="block lg:hidden" />
                 portfolio of games within the MagicCraft
-                <br  className='hidden lg:block'/> Ecosystem. Each <br className='block lg:hidden'/> game offers unique opportunities to earn
-                more MCRT and <br className='block lg:hidden'/>enhance your overall <br className='hidden lg:block'/> gaming experience.
-                Dive into <br className='block lg:hidden'/> MagicRunner and Magic8Ball today and start earning!
+                <br className="hidden lg:block" /> Ecosystem. Each{' '}
+                <br className="block lg:hidden" /> game offers unique
+                opportunities to earn more MCRT and{' '}
+                <br className="block lg:hidden" />
+                enhance your overall <br className="hidden lg:block" /> gaming
+                experience. Dive into <br className="block lg:hidden" />{' '}
+                MagicRunner and Magic8Ball today and start earning!
               </p>
               <Swiper
                 className="w-5/12 pt-4"
@@ -263,16 +278,16 @@ function Homepagemcrt() {
                   style={{ marginRight: '0 !important' }}
                   className="h-full w-5/12"
                 >
-                  <div className="flex flex-col justify-center items-center text-center  lg:flex-row lg:items-start item-center lg:justify-start self-stretch rounded-3xl">
-                    <div className=" lg:w-full lg:h-full md:h-[120px] md:w-[150px]">
-                      <img src={crousel_first}   />
+                  <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
+                    <div className=" md:h-[120px] md:w-[150px] lg:h-full lg:w-full">
+                      <img src={crousel_first} />
                     </div>
-                    <div className="crousel-first relative lg:-ml-[20px] flex w-full h-full flex-col items-start ">
-                      <div className="backdrop-blur-custom   flex items-center justify-center rounded-[68.117px] bg-[rgba(10,9,23,0.60)] md:text-sm px-2 py-1  lg:px-4 lg:py-2 mt-2 ml-4 text-[#98FFF9]">
+                    <div className="crousel-first relative flex h-full w-full flex-col items-start lg:-ml-[20px] ">
+                      <div className="backdrop-blur-custom   ml-4 mt-2 flex items-center justify-center rounded-[68.117px] bg-[rgba(10,9,23,0.60)] px-2  py-1 text-[#98FFF9] md:text-sm lg:px-4 lg:py-2">
                         Patch update
                       </div>
                       <label className=" text-left">
-                        <span className="  text-sm  px-3  ml-4 lg:text-2xl font-bold">
+                        <span className="  ml-4  px-3  text-sm font-bold lg:text-2xl">
                           MagicRunner
                         </span>
                         <p className="ml-6 p-1 text-xs lg:text-lg">
@@ -281,7 +296,7 @@ function Homepagemcrt() {
                           different from traditional games.
                         </p>
                       </label>
-                      <button className="  flex flex-wrap lg:w-[270px] rounded-lg border-2 border-[#98FFF9]  text-[#98FFF9] ml-6 mb-2 lg:px-0.5 lg:py-0.5 md:px-1">
+                      <button className="  mb-2 ml-6 flex flex-wrap rounded-lg border-2  border-[#98FFF9] text-[#98FFF9] md:px-1 lg:w-[270px] lg:px-0.5 lg:py-0.5">
                         <img
                           src={buttonIcon}
                           alt="Button Image"
@@ -340,13 +355,12 @@ function Homepagemcrt() {
                 <p className="text-center">
                   Jump into MagicCraft matches and compete to win MCRT.Showcase
                   your skills,claim your rewards,
-                  <br className='hidden lg:block' /> and rise through the ranks.Start your journey to gaming
-                  glory now!
+                  <br className="hidden lg:block" /> and rise through the
+                  ranks.Start your journey to gaming glory now!
                 </p>
-                <div className="grid grid-cols-1 lg:place-items-stretch  gap-[30px] md:grid-cols-2  lg:grid-cols-3 ">
-                <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:w-[400px] lg:h-[170px]">
-                      <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  ">
-
+                <div className="grid grid-cols-1 gap-[30px]  md:grid-cols-2 lg:grid-cols-3  lg:place-items-stretch ">
+                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
+                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  ">
                       <div className="flex flex-wrap ">
                         <div>
                           <img
@@ -369,19 +383,20 @@ function Homepagemcrt() {
                       </div>
                     </div>
                   </div>
-                      <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:w-[400px] lg:h-[170px]">
-                      <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% ">
-
-                      <h4 className="pt-2  pl-2  font-serif text-lg md:text-[22px]">
-                        <span className="py-4 lg:pl-6 text-[#FFB649]">DOWNLOAD</span>{' '}
+                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
+                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% ">
+                      <h4 className="pl-2  pt-2  font-serif text-lg md:text-[22px]">
+                        <span className="py-4 text-[#FFB649] lg:pl-6">
+                          DOWNLOAD
+                        </span>{' '}
                         THE GAME
                       </h4>
-                      <div className="lg:mb-4 lg:pl-10 flex flex-wrap items-center">
-                        <span className="px-3 lg:py-4">
+                      <div className="flex flex-wrap items-center lg:mb-4 lg:pl-10">
+                        <span className="px-3 lg:py-4 ">
                           <img src={steam} className=" pb-4"></img>
                           Get it on
                           <br />
-                          <p className="text-xl font-bold">Steam</p>
+                          <p className="text-sm font-bold lg:text-xl">Steam</p>
                         </span>
 
                         <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
@@ -389,14 +404,18 @@ function Homepagemcrt() {
                           <img src={AppleIcon} className=" pb-4"></img>
                           Get it on
                           <br />
-                          <p className="text-xl font-bold">App store</p>
+                          <p className="text-sm font-bold lg:text-xl">
+                            App store
+                          </p>
                         </span>
                         <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
                         <span className=" px-3 py-4">
                           <img src={googleicon} className=" pb-4"></img>
                           Get it on
                           <br />
-                          <p className="text-xl font-bold">Google Play</p>
+                          <p className="text-sm font-bold lg:text-xl">
+                            Google Play
+                          </p>
                         </span>
                       </div>
                       <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
@@ -404,15 +423,13 @@ function Homepagemcrt() {
                       </div>
                     </div>
                   </div>
-                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:w-[400px] lg:h-[170px]">
-                      <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  ">
-
+                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
+                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  ">
                       <div className="flex flex-wrap">
                         <div>
                           <img
                             src={vs}
-                            style={{ width: '150px', height: '150px' }}
-                            className="p-4"
+                            className="h-[120px] w-[120px] p-4 lg:h-[150px] lg:w-[150px]"
                             alt="Directory"
                           />
                         </div>
@@ -459,55 +476,56 @@ function Homepagemcrt() {
           {/*roadmap */}
 
           {/*connect */}
-          <section className="relative mx-auto flex w-11/12 max-w-screen-xl flex-wrap items-center space-y-10 md:space-y-20  ">
-            <img
-              src={Character}
-              alt="character"
-              className=" hidden md:block lg:h-3/12 absolute  inset-0 z-10 md:ml-96  rounded-lg object-cover p-10 lg:w-3/12 md:w-7/12 "
-            />
-             <img 
-             src={ch}
-             className='block md:hidden absolute  h-[500px]   rounded-lg object-cover -top-20 left-[90px] p-6 mt-10 ml-4 '/>
+          <section className="relative mx-auto my-10 flex w-11/12 max-w-screen-xl flex-wrap items-center space-y-10 md:space-y-20 lg:space-y-0 ">
+            <div className=" relative rounded-lg bg-[#98FFF9] bg-opacity-50 p-4 lg:h-[280px] lg:w-7/12 ">
+              <img
+                src={ch}
+                className="absolute -top-10 right-0     block h-[400px] rounded-lg object-cover  md:hidden "
+              />
 
-            <div className="rounded-lg bg-[#98FFF9] bg-opacity-50 p-4 lg:w-7/12 ">
+              <img
+                src={Character}
+                alt="character"
+                className="  absolute  inset-0 -top-20  left-[300px] hidden rounded-lg  object-cover p-10 md:block  md:w-7/12 lg:w-[350px]  "
+              />
               <div className=" p-4 text-left ">
-                <h3 className=" bg-gradient-to-b from-white to-white/75 bg-clip-text  text-4xl font-serif lg:text-3xl md:text-5xl text-transparent drop-shadow-xl mt-40  md:mt-10 lg:mt-0 ">
+                <h3 className=" mt-40 bg-gradient-to-b from-white to-white/75  bg-clip-text font-serif text-4xl text-transparent drop-shadow-xl md:mt-10 md:text-5xl  lg:mt-0 lg:text-3xl ">
                   <p>CONNECT,</p>
-                  <p >COLLABORATE,</p>
+                  <p>COLLABORATE,</p>
                   <p>CONQUER</p>
                 </h3>
                 <div className="m-2 block  h-px w-5/12 bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent " />
                 <p className="p-2 text-[#98FFF9] md:text-2xl">join us!</p>
-                <p className='block lg:hidden md:mt-40 '>
-                Step into a world where gamers thrive together! Join our Discord
-                and Telegram channels to connect with players worldwide, share
-                strategies, and receive exclusive updates and support. Be part
-                of a community that plays, earns, and grows together.
-              </p>
-              <div className=" block lg:hidden flex-wrap items-center ">
-              <div className='flex flex-wrap  '>
-              <img src={pc} className='m-4'></img>
-                <span  className='text-2xl mt-4 '>
-               
-                  Join MagicCraft's
-                  <br />
-                  <p className="text-2xl font-bold"> Discord</p>
-                </span>
+                <p className="block md:mt-40  lg:hidden ">
+                  Step into a world where gamers thrive together! Join our
+                  Discord and Telegram channels to connect with players
+                  worldwide, share strategies, and receive exclusive updates and
+                  support. Be part of a community that plays, earns, and grows
+                  together.
+                </p>
+                <div className=" block flex-row flex-wrap items-center lg:hidden ">
+                  <div className="flex flex-wrap  ">
+                    <img src={pc} className="m-4"></img>
+                    <span className="mt-4 text-2xl ">
+                      Join MagicCraft's
+                      <br />
+                      <p className="text-2xl font-bold"> Discord</p>
+                    </span>
+                  </div>
+                  <div className="hidden h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent md:block " />
+                  <div className="flex flex-wrap ">
+                    <img src={AppleIcon} className=" m-4"></img>
+                    <span className="mt-4 text-2xl ">
+                      Join MagicCraft's
+                      <br />
+                      <p className="text-2xl font-bold"> Telegram</p>
+                    </span>
+                  </div>
                 </div>
-                <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
-                <div className='flex flex-wrap '>
-                <img src={AppleIcon} className=" m-4"></img>
-                <span >
-                  Join MagicCraft's
-                  <br />
-                  <p className="text-2xl font-bold"> Telegram</p>
-                </span>
-                </div>
-              </div>
               </div>
             </div>
 
-            <div className=" hidden lg:block w-5/12 rounded-lg bg-black p-4">
+            <div className=" hidden w-5/12  rounded-lg bg-black px-10 pt-10  lg:block">
               <p>
                 Step into a world where gamers thrive together! Join our Discord
                 and Telegram channels to connect with players worldwide, share
@@ -534,74 +552,161 @@ function Homepagemcrt() {
           </section>
 
           {/*our team */}
-          <div className=" m-10 h-auto bg-[#020418] p-10">
-            <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 p-4 md:space-y-20">
+          <div className="  h-auto  bg-[#020418] p-10">
+            <section className="relative mx-auto  max-w-screen-xl space-y-10 p-4 md:space-y-20">
               <h3 className="mb-10 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl">
                 our team
               </h3>
-              <div
-                className="mx-auto mb-10 w-fit rounded-full bg-[#4457B84D] px-5 py-3  text-lg text-[#98FFF9] backdrop-blur"
-                style={{ marginTop: '-3rem' }}
-              >
-                All
-              </div>
-              <div className="space-y-4">
-                <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
-                  {ourteam.map((item) => {
-                    return (
-                      <div
-                        key={item.name}
-                        className="flex flex-col items-center justify-center bg-[#020418] md:h-80"
-                      >
-                        <img
-                          className="mt-4 w-16 px-2 md:w-full"
-                          src={item.icon}
-                          alt={item.name}
-                        />
-                        <p className="mt-2 text-white">{item.name}</p>
-                        {item.work && (
-                          <>
-                            <p className="mt-1 text-[#98FFF9]">{item.work}</p>
-                            <div className="mt-2 flex">
-                              {item.socialicons.map((social, index) => (
-                                <a
-                                  key={index}
-                                  href={social.socialmedia}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="mx-2 text-[#FFFFFF]"
-                                >
-                                  {social.icons}
-                                </a>
-                              ))}
-                            </div>
-                          </>
-                        )}
+              <div className="flex items-center justify-center">
+                <Tabs type="team">
+                  <Tab label="ALL">
+                    <div className="space-y-4">
+                      <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                        {ourteam.slice(0, visibleCount).map((item) => (
+                          <div
+                            key={item.name}
+                            className="flex flex-col items-center justify-center bg-[#020418] md:h-80"
+                          >
+                            <img
+                              className="mt-4 w-16 px-2 md:w-full"
+                              src={item.icon}
+                              alt={item.name}
+                            />
+                            <p className="mt-2 text-white">{item.name}</p>
+                            {item.work && (
+                              <>
+                                <p className="mt-1 text-[#98FFF9]">
+                                  {item.work}
+                                </p>
+                                <div className="mt-2 flex">
+                                  {item.socialicons.map((social, index) => (
+                                    <a
+                                      key={index}
+                                      href={social.socialmedia}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="mx-2 text-[#FFFFFF]"
+                                    >
+                                      {social.icons}
+                                    </a>
+                                  ))}
+                                </div>
+                              </>
+                            )}
+                          </div>
+                        ))}
                       </div>
-                    )
-                  })}
-                  {ourteam.map((_, index) => {
-                    return (
-                      index % 2 === 1 &&
-                      index !== ourteam.length - 1 && (
-                        <div
-                          key={index}
-                          className="absolute top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-[#556DE0] to-transparent md:block"
-                          style={{
-                            left: `${((index - 1) / 2 + 1) * (100 / (ourteam.length / 2))}%`,
-                          }}
-                        ></div>
-                      )
-                    )
-                  })}
-                  {/* Vertical line before the first column */}
-                  <div className="absolute top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-[#556DE0] to-transparent md:block"></div>
-                  {/* Vertical line after the last column */}
-                  <div
-                    className="absolute top-0 hidden h-full w-px bg-gradient-to-b from-transparent via-[#556DE0] to-transparent md:block"
-                    style={{ right: `calc(0% + 0px)` }}
-                  ></div>
-                </div>
+                      {visibleCount < ourteam.length && (
+                        <div className="mt-4 flex  justify-center text-center">
+                          <button
+                            onClick={loadMore}
+                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur  "
+                          >
+                            <img src={down} className="m-1" /> Load More
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </Tab>
+                  <Tab label="Advisors and KOL's">
+                    <div className="space-y-4">
+                      <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                        {kolTeam.slice(0, visibleCount).map((item) => (
+                          <div
+                            key={item.name}
+                            className="flex flex-col items-center justify-center bg-[#020418] md:h-80"
+                          >
+                            <img
+                              className="mt-4 w-16 px-2 md:w-full"
+                              src={item.icon}
+                              alt={item.name}
+                            />
+                            <p className="mt-2 text-white">{item.name}</p>
+                            {item.work && (
+                              <>
+                                <p className="mt-1 text-[#98FFF9]">
+                                  {item.work}
+                                </p>
+                                <div className="mt-2 flex">
+                                  {item.socialicons.map((social, index) => (
+                                    <a
+                                      key={index}
+                                      href={social.socialmedia}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="mx-2 text-[#FFFFFF]"
+                                    >
+                                      {social.icons}
+                                    </a>
+                                  ))}
+                                </div>
+                              </>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                      {visibleCount < kolTeam.length && (
+                        <div className="mt-4 flex  justify-center text-center">
+                          <button
+                            onClick={loadMore}
+                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur  "
+                          >
+                            <img src={down} className="m-1" /> Load More
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </Tab>
+                  <Tab label="Team">
+                    <div className="space-y-4">
+                      <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                        {teamMembers.slice(0, visibleCount).map((item) => (
+                          <div
+                            key={item.name}
+                            className="flex flex-col items-center justify-center bg-[#020418] md:h-80"
+                          >
+                            <img
+                              className="mt-4 w-16 px-2 md:w-full"
+                              src={item.icon}
+                              alt={item.name}
+                            />
+                            <p className="mt-2 text-white">{item.name}</p>
+                            {item.work && (
+                              <>
+                                <p className="mt-1 text-[#98FFF9]">
+                                  {item.work}
+                                </p>
+                                <div className="mt-2 flex">
+                                  {item.socialicons.map((social, index) => (
+                                    <a
+                                      key={index}
+                                      href={social.socialmedia}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="mx-2 text-[#FFFFFF]"
+                                    >
+                                      {social.icons}
+                                    </a>
+                                  ))}
+                                </div>
+                              </>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                      {visibleCount < teamMembers.length && (
+                        <div className="mt-4 flex  justify-center text-center">
+                          <button
+                            onClick={loadMore}
+                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur  "
+                          >
+                            <img src={down} className="m-1" /> Load More
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </Tab>
+                </Tabs>
               </div>
             </section>
           </div>
