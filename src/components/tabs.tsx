@@ -4,14 +4,15 @@ type TabProps = {
   label: string;
   children: ReactNode;
   className?: string; 
-  icon: string;
-  iconActive: string;
+  icon?: string;
+  iconActive?: string;
+  type?: string;
 };
 
-const Tab = ({ label ,icon,children}: TabProps) => {
+const Tab = ({ label, icon, children, type }: TabProps) => {
   return (
     <div className="hidden" role="tabpanel" aria-labelledby={label}>
-      <img src={icon} alt={`${label} icon`} />
+      {!type && <img src={icon} alt={`${label} icon`} />}
       {label}
       {children}
     </div>
@@ -21,10 +22,10 @@ const Tab = ({ label ,icon,children}: TabProps) => {
 type TabsProps = {
   children: ReactNode[];
   className?: string;
-  
+  type?: string;
 };
 
-const Tabs = ({ children }: TabsProps) => {
+const Tabs = ({ children, type }: TabsProps) => {
   const [activeTab, setActiveTab] = useState<string>((children[0] as React.ReactElement<TabProps>).props.label);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>, newActiveTab: string) => {
@@ -33,29 +34,27 @@ const Tabs = ({ children }: TabsProps) => {
   };
 
   return (
-    <div className=" mx-auto">
-      <div className="flex flex-wrap p-1 bg-[#03082F] rounded-3xl ">
-        {children.map(child => {
+    <div className=" flex flex-wrap justify-center mx-auto">
+      <div className="  inline-flex  p-1 bg-[#03082F] rounded-3xl">
+        {children.map((child) => {
           const tab = child as React.ReactElement<TabProps>;
           return (
             <button
               key={tab.props.label}
-              className={` md:w-auto ${activeTab === tab.props.label ? 'rounded-3xl  bg-[#98FFF9] text-[#03082F] mx-2 px-4 ' : ''} flex-1 text-[#98FFF9]-700 font-medium  mx-2 px-4 whitespace-nowrap`}
-              onClick={e => handleClick(e, tab.props.label)}
+              className={`md:w-auto ${activeTab === tab.props.label ? 'rounded-3xl bg-[#98FFF9] text-[#03082F] mx-1 px-1 md:mx-2 md:px-4' : 'text-[#98FFF9] mx-1 px-1 md:mx-2 md:px-4'}  font-medium whitespace-nowrap`}
+              onClick={(e) => handleClick(e, tab.props.label)}
               aria-selected={activeTab === tab.props.label}
             >
-               <div className="flex items-center">
-           
-              <img src={activeTab === tab.props.label ? tab.props.iconActive : tab.props.icon} alt={`${tab.props.label} icon`}  />
-             
-              <span className='px-4 py-2'>{tab.props.label}</span>
-            </div>
+              <div className="flex items-center">
+                {!type && <img src={activeTab === tab.props.label ? tab.props.iconActive : tab.props.icon} alt={`${tab.props.label} icon`} />}
+                <span className="px-4 py-2">{tab.props.label}</span>
+              </div>
             </button>
           );
         })}
       </div>
       <div className="py-4">
-        {children.map(child => {
+        {children.map((child) => {
           const tab = child as React.ReactElement<TabProps>;
           if (tab.props.label === activeTab) {
             return (

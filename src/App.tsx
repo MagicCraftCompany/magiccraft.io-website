@@ -5,7 +5,8 @@ import Homepagemcrt from './pages/Homepagemcrt'
 import Homepagegames from './pages/HomePageGames'
 import Support from './pages/Support';
 import GamePatch from './pages/GamePatch';
-// import Homepagemagicrunner from './pages/HomePageMagicRunner';
+import Homepagemagicrunner from './pages/HomePageMagicRunner';
+
 
 function App() {
   return (
@@ -14,8 +15,8 @@ function App() {
       <Route path="/" element={<Homepagegames />}>
       </Route>
       <Route path="/mcrt" element={<Homepagemcrt />}>
-      {/* </Route> */}
-      {/* <Route path="/magicrunner" element={<Homepagemagicrunner />}> */}
+       </Route> 
+       <Route path="/magicrunner" element={<Homepagemagicrunner />}>
       </Route>
       <Route path="/faq" element={<Support />}>
       </Route> 
