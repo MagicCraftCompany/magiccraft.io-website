@@ -554,13 +554,13 @@ function Homepagemcrt() {
           {/*our team */}
           <div className="  h-auto  bg-[#020418] p-10">
             <section className="relative mx-auto  max-w-screen-xl space-y-10 p-4 md:space-y-20">
-              <h3 className="mb-10 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl">
-                our team
+              <h3 className="-mb-10 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl">
+                Our team
               </h3>
               <div className="flex items-center justify-center">
                 <Tabs type="team">
-                  <Tab label="ALL">
-                    <div className="space-y-4">
+                  <Tab label="ALL" className='w-[80vw]'>
+                    <div className="space-y-4 w-[80vw]">
                       <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {ourteam.slice(0, visibleCount).map((item) => (
                           <div
@@ -568,7 +568,7 @@ function Homepagemcrt() {
                             className="flex flex-col items-center justify-center bg-[#020418] md:h-80"
                           >
                             <img
-                              className="mt-4 w-16 px-2 md:w-full"
+                              className="mt-4  px-2 md:w-full"
                               src={item.icon}
                               alt={item.name}
                             />
@@ -608,8 +608,8 @@ function Homepagemcrt() {
                       )}
                     </div>
                   </Tab>
-                  <Tab label="Advisors and KOL's">
-                    <div className="space-y-4">
+                  <Tab label="Advisors and KOL's" className='w-[80vw]'>
+                    <div className="space-y-4 w-[80vw]">
                       <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {kolTeam.slice(0, visibleCount).map((item) => (
                           <div
@@ -617,7 +617,7 @@ function Homepagemcrt() {
                             className="flex flex-col items-center justify-center bg-[#020418] md:h-80"
                           >
                             <img
-                              className="mt-4 w-16 px-2 md:w-full"
+                              className="mt-4 px-2 md:w-full"
                               src={item.icon}
                               alt={item.name}
                             />
@@ -657,8 +657,8 @@ function Homepagemcrt() {
                       )}
                     </div>
                   </Tab>
-                  <Tab label="Team">
-                    <div className="space-y-4">
+                  <Tab label="Team" className='w-[80vw]'>
+                    <div className="space-y-4 w-[80vw]">
                       <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {teamMembers.slice(0, visibleCount).map((item) => (
                           <div
@@ -666,7 +666,7 @@ function Homepagemcrt() {
                             className="flex flex-col items-center justify-center bg-[#020418] md:h-80"
                           >
                             <img
-                              className="mt-4 w-16 px-2 md:w-full"
+                              className="mt-4 px-2 md:w-full"
                               src={item.icon}
                               alt={item.name}
                             />
