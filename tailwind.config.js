@@ -42,6 +42,9 @@ module.exports = {
       borderRadius: {
         '4xl': '30px',
       },
+      colors: {
+        'custom-dark': '#0A0917',
+      },
       fontFamily: {
         sans: ['"Futura PT"', ...defaultTheme.fontFamily.sans],
         serif: ["'Colus'", ...defaultTheme.fontFamily.serif],
