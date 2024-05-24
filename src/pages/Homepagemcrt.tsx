@@ -247,8 +247,8 @@ function Homepagemcrt() {
 
           {/*unlimited ways to earn */}
           <section className=" relative hidden h-auto w-full bg-center md:block lg:h-full">
-            <img src={backgroundimage} />
-            <div className="absolute left-0 right-0 top-0 m-4 flex h-full flex-col  text-center">
+            <img src={backgroundimage}  />
+            <div className="absolute left-0 right-0 top-0 lg:m-4 flex h-full flex-col  text-center">
               <h2 className="text-balance font-serif text-lg text-white lg:text-4xl">
                 UNLIMITED WAYS TO EARN MCRT
               </h2>
@@ -265,7 +265,7 @@ function Homepagemcrt() {
                 MagicRunner and Magic8Ball today and start earning!
               </p>
               <Swiper
-                className="w-5/12 pt-4"
+                className="w-5/12 pt-4 lg:mt-6 md:mt-0"
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={50}
                 slidesPerView={1}
@@ -280,27 +280,27 @@ function Homepagemcrt() {
                 >
                   <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
                     <div className=" md:h-[120px] md:w-[150px] lg:h-full lg:w-full">
-                      <img src={crousel_first} />
+                      <img src={crousel_first}  />
                     </div>
-                    <div className="crousel-first relative flex h-full w-full flex-col items-start lg:-ml-[20px] ">
-                      <div className="backdrop-blur-custom   ml-4 mt-2 flex items-center justify-center rounded-[68.117px] bg-[rgba(10,9,23,0.60)] px-2  py-1 text-[#98FFF9] md:text-sm lg:px-4 lg:py-2">
+                    <div className="crousel-first relative  flex h-full   flex-col items-start  ">
+                      <div className="backdrop-blur-custom   ml-4 mt-2 flex items-center justify-center rounded-[68.117px] bg-[rgba(10,9,23,0.60)] px-2  py-1 text-[#98FFF9] md:text-xs lg:px-4 lg:py-2">
                         Patch update
                       </div>
                       <label className=" text-left">
-                        <span className="  ml-4  px-3  text-sm font-bold lg:text-2xl">
+                        <span className="  ml-4 px-3  text-sm font-bold lg:text-2xl">
                           MagicRunner
                         </span>
-                        <p className="ml-6 p-1 text-xs lg:text-lg">
-                          Web3 games utilize the blockchain to provide players
-                          with a unique gaming experience that is markedly
-                          different from traditional games.
+                        <p className="ml-5 p-2  text-xs lg:text-lg">
+                          Web3 games utilize the blockchain to<br/> provide players
+                          with a unique gaming<br/> experience that is markedly
+                          different <br/>from traditional games.
                         </p>
                       </label>
-                      <button className="  mb-2 ml-6 flex flex-wrap rounded-lg border-2  border-[#98FFF9] text-[#98FFF9] md:px-1 lg:w-[270px] lg:px-0.5 lg:py-0.5">
+                      <button className=" lg:m-5 ml-5 mb-2 mt-1 p-0.5 lg:text-lg  md:text-xs  inline-flex flex-wrap rounded-lg border-2 border-[#98FFF9] text-[#98FFF9] md:px-1  lg:w-[260px] lg:pl-0.5 lg:py-0.5">
                         <img
                           src={buttonIcon}
                           alt="Button Image"
-                          className="mr-2 h-6 w-6 p-1"
+                          className= "lg:mr-2 lg:h-6 lg:w-6 p-1 md:w-4 md:h-4 md:mr-1 "
                         />
                         Download MagicRunner Now
                       </button>
@@ -560,12 +560,12 @@ function Homepagemcrt() {
               <div className="flex items-center justify-center">
                 <Tabs type="team">
                   <Tab label="ALL" className='w-[80vw]'>
-                    <div className="space-y-4 w-[80vw]">
+                    <div className="space-y-4 lg:w-[60vw] w-[80vw]">
                       <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {ourteam.slice(0, visibleCount).map((item) => (
                           <div
                             key={item.name}
-                            className="flex flex-col items-center justify-center bg-[#020418] md:h-80"
+                            className="flex flex-col items-center text-center justify-center bg-[#020418] md:h-80"
                           >
                             <img
                               className="mt-4  px-2 md:w-full"
@@ -609,12 +609,12 @@ function Homepagemcrt() {
                     </div>
                   </Tab>
                   <Tab label="Advisors and KOL's" className='w-[80vw]'>
-                    <div className="space-y-4 w-[80vw]">
+                    <div className="space-y-4 lg:w-[60vw] w-[80vw]">
                       <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {kolTeam.slice(0, visibleCount).map((item) => (
                           <div
                             key={item.name}
-                            className="flex flex-col items-center justify-center bg-[#020418] md:h-80"
+                            className="flex flex-col items-center text-center justify-center bg-[#020418] md:h-80"
                           >
                             <img
                               className="mt-4 px-2 md:w-full"
@@ -658,12 +658,12 @@ function Homepagemcrt() {
                     </div>
                   </Tab>
                   <Tab label="Team" className='w-[80vw]'>
-                    <div className="space-y-4 w-[80vw]">
+                    <div className="space-y-4 lg:w-[60vw] w-[80vw]">
                       <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {teamMembers.slice(0, visibleCount).map((item) => (
                           <div
                             key={item.name}
-                            className="flex flex-col items-center justify-center bg-[#020418] md:h-80"
+                            className="flex flex-col items-center justify-center text-center bg-[#020418] md:h-80"
                           >
                             <img
                               className="mt-4 px-2 md:w-full"
@@ -706,6 +706,7 @@ function Homepagemcrt() {
                       )}
                     </div>
                   </Tab>
+                 
                 </Tabs>
               </div>
             </section>
@@ -723,7 +724,7 @@ function Homepagemcrt() {
                   return (
                     <div
                       key={item.name}
-                      className="grid h-20 place-items-center bg-[#161E4A]  md:h-36"
+                      className="grid h-20 place-items-center bg-[#161E4A]   md:h-36"
                     >
                       <img className="px-2 " src={item.icon} alt={item.name} />
                     </div>

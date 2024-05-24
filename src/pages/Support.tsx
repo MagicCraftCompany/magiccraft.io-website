@@ -306,11 +306,11 @@ export default function FAQ() {
                     iconActive={contacticon2}
                   >
 
-                    <div className=" flex flex-col sm:flex-row  h-[520px] w-full max-w-[934px] flex-shrink-0 items-start justify-between rounded-[25.4px] border border-[#9AD4FD] bg-[#03082F] bg-gradient-to-b from-[#161242] to-[rgba(6,11,49,0.95)] shadow-[0px_0px_20.32px_#22068F] backdrop-blur-[5.128px] ">
-                      <form className="flex-1 p-8 sm:w-1/2 sm:flex sm:flex-col  ">
+                    <div className=" flex flex-col md:flex-row md:max-w-[934px]  flex-shrink-0 items-start justify-between rounded-[25.4px] border border-[#9AD4FD] bg-[#03082F] bg-gradient-to-b from-[#161242] to-[rgba(6,11,49,0.95)] shadow-[0px_0px_20.32px_#22068F] backdrop-blur-[5.128px] ">
+                      <form className=" w-full p-4  ">
                         <div className="mb-4">
                           <input
-                            className="flex w-full max-w-[443.23px] items-start rounded-[6.001px] border  border-[#9AD4FD] bg-[rgba(0,0,0,0.16)] px-[16.51px] py-[10.16px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] sm:max-w-[340px] "
+                            className="flex w-full items-start p-2 md:w-[443.23px]    rounded-[6.001px] border  border-[#9AD4FD] bg-[rgba(0,0,0,0.16)]  shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)]  "
                             id="name"
                             type="text"
                             placeholder="Your Email"
@@ -319,35 +319,36 @@ export default function FAQ() {
 
                         <div className="mb-4">
                           <textarea
-                            className=" flex w-full max-w-[443.23px] items-start rounded-[6.001px] border border-[#9AD4FD] bg-[rgba(0,0,0,0.16)] px-[16.51px] py-[10.16px] shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] sm:max-w-[340px]] sm:h-[141px]"
+                            className=" flex w-full items-start p-2 md:w-[443.23px] md:h-[141px] rounded-[6.001px] border border-[#9AD4FD] bg-[rgba(0,0,0,0.16)]  shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] "
                             id="message"
                             placeholder="Your question/problem"
                           />
                         </div>
-                        <div className="mb-4">
-                          <label className="inline-flex items-center ">
-                            <input
+                        <div className=" flex flex-wrap ">
+                          <label className=" inline-flex items-center  z-10">
+                          <input
                               type="checkbox"
-                              className=" rounded-[3.81px] border border-solid border-[#9AD4FD] bg-[rgba(36,92,176,0.20)]"
+                              className="form-checkbox  text-[#03082F]-500"
                             />
-                            <span className="ml-2 text-white sm:flex">
-                              I agree to receive game updates events, contests
-                              and other
-                               marketing materials
+                             <span  className="m-2 z-10 text-white md:flex-shrink-0 ">
+                             I agree to receive game updates events, contests
+                              and other<br className=" md:block hidden"/>
+                             marketing materials
                             </span>
+                           
                           </label>
                         </div>
 
-                        <div className="mb-4 flex flex-wrap">
+                        <div className=" flex flex-wrap">
                           <label className="inline-flex items-center">
                             <input
                               type="checkbox"
                               className="form-checkbox  text-[#03082F]-500"
                             />
-                            <span  className="ml-2 text-white flex-shrink-0 ">
+                            <span  className="m-2 text-white flex-shrink-0 ">
                               I agree to the
                             </span>
-                            <span className="m-1 text-[#71749f] underline flex-shrink-0">
+                            <span className=" z-10 text-[#71749f] underline flex-shrink-0">
                               Terms and Conditions
                             </span>
                           </label>
@@ -355,23 +356,21 @@ export default function FAQ() {
 
                         <div className="flex items-center justify-between">
                           <button
-                            className="flex flex-wrap  items-center justify-center gap-[10px] rounded-[6px] bg-[#98FFF9] px-[38px] py-[16px] text-[#03082F]"
+                            className="flex flex-wrap  items-center justify-center rounded-[6px] bg-[#98FFF9] p-4 m-4 text-[#03082F]"
                             type="button"
                           >
-                            <img src={vector} />
+                            <img src={vector}  className='pr-1 m-1'/>
                             Send
                           </button>
                         </div>
                       </form>
 
-                      <div
-                        className=" hidden md:block   h-full flex-shrink-0  w-full  max-w-[452.23px] rounded-[27px] bg-no-repeat lg:block  "
-                        style={{
-                          background: ` url(${character2D})  no-repeat`,
-                        }}
+                      <img src={character2D}
+                        className=" hidden md:block  max-w-[400.23px] -ml-40 rounded-[27px] bg-no-repeat lg:block  "
+                       
                       >
                        
-                      </div>
+                      </img>
                     </div>
                   </Tab>
                 </Tabs>
