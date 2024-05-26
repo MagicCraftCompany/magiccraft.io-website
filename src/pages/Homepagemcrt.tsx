@@ -33,6 +33,10 @@ import { Tabs, Tab } from '@/components/tabs'
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(8)
 
+  const registerHandler = ()=> {
+    window.location.href='https://lobby.magiccraft.io/register'
+  }
+
   const loadMore = () => {
     setVisibleCount((prevCount) => prevCount + 4)
   }
@@ -160,7 +164,7 @@ function Homepagemcrt() {
                 <div className="m-2  hidden h-px w-6/12 bg-gradient-to-r from-transparent via-[#556DE0] to-transparent md:block " />
                 <div className="m-4 block  h-px w-full bg-gradient-to-r  from-transparent via-[#556DE0] to-transparent md:hidden " />
                 <div className="flex w-full justify-center lg:justify-start">
-                  <button className=" flex flex-wrap rounded-lg border-2 border-[#98FFF9] p-2 text-[#98FFF9] md:mx-0">
+                  <button onClick={registerHandler} className=" flex flex-wrap rounded-lg border-2 border-[#98FFF9] p-2 text-[#98FFF9] md:mx-0">
                     <img
                       src={buttonIcon}
                       alt="Button Image"
@@ -310,34 +314,6 @@ function Homepagemcrt() {
                         />
                         Download MagicRunner Now
                       </button>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide
-                  style={{ marginRight: '0 !important' }}
-                  className="h-full w-6/12"
-                >
-                  <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl">
-                    <div className="testimonials-first rounded-3xl">
-                      <div className="testimonials-second p-4">
-                        <button className="border-ffffff z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                          <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Testimonials`}</div>
-                        </button>
-                        <div className="bg-gainsboro relative z-[3] h-[21px] w-5" />
-                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)]">
-                          <div className="relative inline-block max-w-full flex-1 !bg-clip-text font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">
-                            I'm holding my coins and will keep holding them for
-                            a long time, so I have no fancy items to show here
-                            (hopefully I'll show a new pc soon since mine is
-                            almost 7 years old 😂) but the amount I earn by
-                            playing the game I can say is a lot more than my
-                            monthly salary here in Cuba. I'm glad I found this
-                            game and I'm glad @Sinerv0 helped me with and nft,
-                            always grateful. The game is a lot of fun too when
-                            played with good friends 👏😄
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </SwiperSlide>
