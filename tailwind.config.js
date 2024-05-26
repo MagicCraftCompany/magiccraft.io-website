@@ -24,7 +24,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         hero: "url('/img/hero.webp')",
-        video: "url('/src/assets/images/video.png')",
+        video:"url('/src/assets/images/video.mp4')",
         mrback: "url('/src/assets/images/Frigard foreground1 1.png')",
         supportbg: "url('/src/assets/images/image.png')",
         bgpatch: "url('/src/assets/images/bgpatch.png')",

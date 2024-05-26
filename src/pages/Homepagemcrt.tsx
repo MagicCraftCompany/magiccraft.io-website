@@ -20,7 +20,7 @@ import ch from '@/assets/images/blahbla.png'
 
 import { roadmapData } from '../data/roadmapData'
 import RoadmapCard from '../components/Cards/RoadmapCard'
-
+import Video from '@/assets/images/video.mp4'
 import Character from '@/assets/images/character.png'
 
 import { otherpartners } from '@/data/otherpartners'
@@ -45,7 +45,10 @@ function Homepagemcrt() {
         <Header />
         <main className="scroll-smooth pb-32">
           {/*header*/}
-          <section className="relative h-[700px] bg-video bg-cover bg-center">
+          <section className="relative h-[700px]  bg-cover bg-center">
+            <video className="absolute  inset-0 h-full w-full object-cover" autoPlay loop muted>
+            <source src={Video} type="video/mp4"/>
+            </video>
             <div className="video-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className="relative z-10 mx-auto  max-w-screen-xl">
               <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
@@ -59,9 +62,9 @@ function Homepagemcrt() {
                   <span className="text-3xl">WHERE PLAY MEANS PROSPERITY</span>
                 </h1>
               </div>
-              <div className="mx-auto  mb-20   md:w-[566px]  ">
-                <div className="rounded-[20px]   bg-gradient-to-b from-[#B591F2]  to-transparent ">
-                  <div className="relative  flex max-w-[409px] flex-col items-start  justify-center overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  md:max-w-full md:px-8 md:py-3">
+              <div className="mx-auto  md:mb-20  mt-20  md:mt-0 md:w-[566px]  ">
+                <div className="rounded-[20px]   bg-gradient-to-b from-[#B591F2]   to-transparent ">
+                  <div className="relative  flex max-w-full flex-col items-start   justify-center overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  md:max-w-full md:px-8 md:py-3">
                     <h4 className="  px-10 py-2 text-center font-serif text-lg md:text-[22px] ">
                       <span className="text-[#FFB649]  ">PLAY </span> MAGICCRAFT
                       NOW!
@@ -117,7 +120,7 @@ function Homepagemcrt() {
           {/*register now */}
 
           <section className="relative flex flex-col items-center gap-4 bg-[#020418] bg-center lg:h-[400px] lg:flex-wrap  ">
-            <div className="ml-10 flex rounded-lg lg:w-6/12 lg:pl-52  ">
+            <div className="flex rounded-lg lg:w-6/12 lg:pl-52  ">
               <div className=" flex flex-col items-center justify-center p-4 text-center md:p-4 md:text-left lg:mt-10 ">
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
                   <span className="text-4xl font-bold ">
@@ -168,14 +171,16 @@ function Homepagemcrt() {
                 </div>
               </div>
             </div>
-            <div className="relative w-full rounded-lg  md:mb-10 md:w-[537.735px]  lg:w-4/12">
+            <div className="relative w-full rounded-lg lg:-ml-40 md:mb-10 md:w-[537.735px]  lg:w-4/12">
               <Swiper
-                className="w-full p-10"
+              id="1"
+                className="w-full p-10 "
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={50}
                 slidesPerView={1}
                 onSwiper={(swiper) => console.log(swiper)}
                 navigation={{ prevEl: '.arrow-left', nextEl: '.arrow-right' }}
+
                 autoHeight={true}
                 pagination={{ clickable: true, dynamicBullets: true }}
               >
@@ -235,11 +240,11 @@ function Homepagemcrt() {
                     </div>
                   </div>
                 </SwiperSlide>
-              </Swiper>
-              <button className="arrow-left arrow absolute top-[50%] cursor-pointer">
+                 </Swiper>
+              <button className="arrow-left arrow absolute lg:-left-4  top-[50%] cursor-pointer  ">
                 <img src={left} alt="MCRT Token" />
               </button>
-              <button className="arrow-right arrow absolute right-0 top-[50%] cursor-pointer">
+              <button className="arrow-right arrow absolute lg:-right-4 right-0 top-[50%] cursor-pointer ">
                 <img src={right} alt="MCRT Token" />
               </button>
             </div>
@@ -265,12 +270,13 @@ function Homepagemcrt() {
                 MagicRunner and Magic8Ball today and start earning!
               </p>
               <Swiper
+               id="swiper-section-two"
                 className="w-5/12 pt-4 lg:mt-6 md:mt-0"
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={50}
                 slidesPerView={1}
                 onSwiper={(swiper) => console.log(swiper)}
-                navigation={{ prevEl: '.arrow-left', nextEl: '.arrow-right' }}
+                navigation={{ prevEl: '.arrow-left-first', nextEl: '.arrow-right-first' }}
                 autoHeight={true}
                 pagination={{ clickable: true, dynamicBullets: true }}
               >
@@ -282,8 +288,8 @@ function Homepagemcrt() {
                     <div className=" md:h-[120px] md:w-[150px] lg:h-full lg:w-full">
                       <img src={crousel_first}  />
                     </div>
-                    <div className="crousel-first relative  flex h-full   flex-col items-start  ">
-                      <div className="backdrop-blur-custom   ml-4 mt-2 flex items-center justify-center rounded-[68.117px] bg-[rgba(10,9,23,0.60)] px-2  py-1 text-[#98FFF9] md:text-xs lg:px-4 lg:py-2">
+                    <div className="crousel-first relative lg:w-[40em] flex h-full lg:-ml-10  flex-col items-start  ">
+                      <div className="backdrop-blur-custom   ml-4 mt-2 flex items-center justify-center rounded-[68.117px] bg-[rgba(10,9,23,0.60)] px-2  py-1 text-[#98FFF9] md:text-xs lg:text-lg lg:px-4 lg:py-2">
                         Patch update
                       </div>
                       <label className=" text-left">
@@ -296,7 +302,7 @@ function Homepagemcrt() {
                           different <br/>from traditional games.
                         </p>
                       </label>
-                      <button className=" lg:m-5 ml-5 mb-2 mt-1 p-0.5 lg:text-lg  md:text-xs  inline-flex flex-wrap rounded-lg border-2 border-[#98FFF9] text-[#98FFF9] md:px-1  lg:w-[260px] lg:pl-0.5 lg:py-0.5">
+                      <button className=" lg:m-5 md:ml-5 mb-2 mt-1 p-0.5 lg:text-lg  md:text-xs  inline-flex flex-wrap rounded-lg border-2 border-[#98FFF9] text-[#98FFF9] md:px-1  lg:w-[260px] lg:pl-0.5 lg:py-0.5">
                         <img
                           src={buttonIcon}
                           alt="Button Image"
@@ -336,10 +342,10 @@ function Homepagemcrt() {
                   </div>
                 </SwiperSlide>
               </Swiper>
-              <button className="arrow-left arrow absolute top-[50%] cursor-pointer">
+              <button className="arrow-left-first arrow absolute  top-[50%] cursor-pointer ">
                 <img src={left} alt="MCRT Token" />
               </button>
-              <button className="arrow-right arrow absolute right-0 top-[50%] cursor-pointer">
+              <button className="arrow-right-first arrow absolute right-0 top-[50%] cursor-pointer">
                 <img src={right} alt="MCRT Token" />
               </button>
             </div>

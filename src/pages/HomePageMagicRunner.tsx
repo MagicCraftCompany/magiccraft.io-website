@@ -3,7 +3,6 @@ import Header from '@/components/Header/Header'
 
 import magiccraftCard from '@/assets/images/magiccraft-card.webp'
 import magic8ballCard from '@/assets/images/magic-8-ball-card.webp'
-import bg from '@/assets/images/Frigard foreground1 1.png'
 import left from '@/assets/icons/left-preview.svg'
 import right from '@/assets/icons/right-preview.svg'
 import { Swiper, SwiperSlide } from 'swiper/react'

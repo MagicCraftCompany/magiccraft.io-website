@@ -34,10 +34,10 @@ export default function FAQ() {
                 className="m-auto h-full w-3/4"
               >
                 <AccordionItem
-                  className="mb-[10px] gap-[30px] rounded-[20px] border-0 bg-[#11113A] data-[state=open]:mb-[30px] data-[state=open]:bg-gradient-to-l data-[state=open]:from-[#3D186D] data-[state=open]:to-[#2A0D4E] "
+                  className=" mb-[10px] md:gap-[30px]  md:w-full rounded-[20px] border-0 bg-[#11113A] data-[state=open]:mb-[30px] data-[state=open]:bg-gradient-to-l data-[state=open]:from-[#3D186D] data-[state=open]:to-[#2A0D4E] "
                   value="1"
                 >
-                  <AccordionTrigger className="p-[30px] text-left font-serif text-lg font-bold text-[#C09AFF] data-[state=open]:text-white md:text-3xl md:hover:no-underline ">
+                  <AccordionTrigger className="p-[30px] text-left font-serif  font-bold text-[#C09AFF] data-[state=open]:text-white md:text-3xl md:hover:no-underline ">
                     What are the prerequisites for playing the game using the
                     web3 Lobby?
                   </AccordionTrigger>
