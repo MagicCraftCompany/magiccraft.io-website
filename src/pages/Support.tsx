@@ -212,7 +212,7 @@ export default function FAQ() {
                     icon={contacticon}
                     iconActive={contacticon2}
                   >
-                    <div className="flex flex-col md:flex-row md:max-w-[934px] flex-shrink-0 items-start justify-between rounded-[25.4px] border border-[#9AD4FD] bg-[#03082F] bg-gradient-to-b from-[#161242] to-[rgba(6,11,49,0.95)] shadow-[0px_0px_20.32px_#22068F] backdrop-blur-[5.128px] md:w-3/4">
+                    <div className="flex flex-col md:flex-row md:max-w-[934px] flex-shrink-0 items-start justify-between rounded-[25.4px] border border-[#9AD4FD] bg-[#03082F] bg-gradient-to-b from-[#161242] to-[rgba(6,11,49,0.95)] shadow-[0px_0px_20.32px_#22068F] backdrop-blur-[5.128px] ">
                       <form className="w-full p-4">
                         <div className="mb-4">
                           <input
