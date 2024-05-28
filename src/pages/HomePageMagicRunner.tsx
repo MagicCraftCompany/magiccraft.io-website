@@ -45,8 +45,13 @@ function Homepagemagicrunner() {
             </div>
             <div className="mrback-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className=" flex w-full  rounded-lg   ">
+
               <div className="absolute inset-0  -mb-20 mt-40  lg:ml-[20em]  flex  flex-col  justify-center text-center lg:-top-[30em] lg:p-4 lg:text-left    ">
+              <span className="hidden lg:block rounded-[2em] bg-[#4457B8] text-[#98FFF9] w-[15em] h-[3em] m-4 py-2 pl-4 justify-center ">
+                    MagicCraft Ecosystem Game
+                  </span>
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text font-serif text-2xl text-transparent drop-shadow-xl">
+               
                   <span className="text-4xl font-bold lg:p-5 lg:text-6xl">
                     MAGIC RUNNER
                   </span>
@@ -295,7 +300,7 @@ function Homepagemagicrunner() {
             </div>
           </section>
           {/* {/* daily mission*/}
-          <section className=" relative mt-60 h-full w-full md:mt-40 lg:-mt-40">
+          <section className=" relative mt-60 h-full w-full md:mt-40 lg:-mt-[9em]">
             <div className=" flex flex-col items-center justify-center  lg:flex-row">
               <h1 className="p-4 text-4xl font-bold">DAILY MISSIONS</h1>
               <div className="m-2   flex flex-wrap items-center justify-center rounded-[3.125em] bg-[#4457B8] pr-2 text-[#98FFF9]">
@@ -479,11 +484,11 @@ function Homepagemagicrunner() {
                 <div className="relative flex h-[9.890063em]  w-full  flex-shrink-0 items-center justify-center lg:w-[10.944563em] ">
                   <img
                     src={back}
-                    className=" lg:absolute lg:mx-4 lg:-mt-10  "
+                    className="  mt-2   "
                   />
                   <img
                     src={box}
-                    className="  absolute mt-5 lg:mx-[3.9em] lg:-mt-2 "
+                    className="  absolute mt-6  "
                   />
                 </div>
                 <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
