@@ -35,18 +35,21 @@ function Homepagemagicrunner() {
         <Header />
         <main className="scroll-smooth pb-32">
           <section className="relative flex flex-wrap ">
-            <div className="relative hidden h-[700px]  w-full bg-mrback bg-cover bg-center  lg:block ">
-              <div className="   mrback-bg-gradient absolute inset-0  h-full w-full"></div>
+            <div className="relative hidden lg:block  h-[700px] w-full bg-mrback bg-cover  bg-center ">
+              <div className="   mrback-bg-gradient absolute inset-0  w-full"></div>
+             
             </div>
-            <div className="bg-mrback1 relative block  h-[700px] w-full bg-cover bg-center  lg:hidden ">
-              <div className="   mrback1-bg-gradient absolute inset-0  h-full w-full"></div>
+            <div className="relative block lg:hidden  h-[700px] w-full bg-mrback1 bg-cover  bg-center ">
+              <div className="   mrback1-bg-gradient absolute inset-0   w-full"></div>
+             
             </div>
             <div className="mrback-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className=" flex w-full  rounded-lg   ">
-              <div className="absolute inset-0  -mb-20 mt-40  flex  flex-col  justify-center  text-center lg:-top-[30em] lg:ml-[20em] lg:p-4 lg:text-left    ">
-                <span className="m-4 hidden h-[3em] w-[15em] justify-center rounded-[2em] bg-[#4457B8] py-2 pl-4 text-[#98FFF9] lg:block ">
-                  MagicCraft Ecosystem Game
-                </span>
+
+              <div className="w-full absolute inset-0  -mb-20 mt-40  lg:ml-[15em]  flex  flex-col  justify-center text-center lg:-top-[30em] lg:p-4 lg:text-left">
+              <span className="hidden lg:block rounded-[2em] bg-[#4457B8] text-[#98FFF9] w-fit m-4 py-2 px-4 justify-center ">
+                    MagicCraft Ecosystem Game
+                  </span>
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text font-serif text-2xl text-transparent drop-shadow-xl">
                   <span className="text-4xl font-bold lg:p-5 lg:text-6xl">
                     MAGIC RUNNER
@@ -56,7 +59,7 @@ function Homepagemagicrunner() {
                     RISE, RUN, REDEEM
                   </span>
                 </h3>
-                <div className=" m-2 block h-px  w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:hidden" />
+                <div className="w-max m-2 block h-px  w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:hidden" />
 
                 <p className="p-4">
                   Haunted by tragedy, Frigard races against fate, the lone
@@ -76,10 +79,8 @@ function Homepagemagicrunner() {
               </div>
             </div>
 
-            {/*mid screen */}
             <div className="relative mx-auto -mt-5 mb-20 block md:-mt-10  md:w-[566px]   lg:hidden  ">
               <div className="rounded-[20px]    bg-[#271565]  ">
-                {/* <div className="relative  flex max-w-[409px] flex-col items-start  justify-center overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  md:max-w-full md:px-8 md:py-3"> */}
                 <h4 className="  px-10 py-2 text-center font-serif text-lg md:text-[22px] ">
                   <span className="text-[#FFB649]  ">PLAY </span> MAGICRUNNER
                   NOW!
@@ -119,8 +120,6 @@ function Homepagemagicrunner() {
                 </div>
               </div>
             </div>
-
-            {/** */}
 
             <div className="z-10  m-10 -mt-10  hidden w-full rounded-4xl  bg-custom-dark bg-opacity-70  lg:block">
               <div className="flex flex-wrap ">
@@ -180,7 +179,7 @@ function Homepagemagicrunner() {
                 <div className="h-30 my-10 block w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
                 <div className="mx-4 grid snap-x snap-mandatory auto-cols-min grid-flow-col gap-6 overflow-x-auto overscroll-contain overscroll-x-contain px-4 pt-12">
                   <a href="https://magiccraft.io" rel="noreferrer noopener">
-                    <div className="w-56 select-none snap-start">
+                    <div className="w-[13em] select-none snap-start">
                       <img
                         className="pointer-events-none select-none"
                         src={magiccraftCard}
@@ -188,7 +187,7 @@ function Homepagemagicrunner() {
                       />
                     </div>
                   </a>
-                  <div className="w-56 select-none snap-start ">
+                  <div className="w-[13em] select-none snap-start ">
                     <img
                       className="pointer-events-noneselect-none"
                       src={magic8ballCard}
@@ -207,7 +206,6 @@ function Homepagemagicrunner() {
                 $ MCRT REWARDS
               </h2>
               <div className="flex flex-col   items-center justify-center  lg:flex-row">
-                {/*carousel */}
                 <div className=" lg:-mt-30 w-full   lg:relative  lg:w-1/2">
                   <Swiper
                     className="w-5/12 pt-4"
@@ -250,7 +248,6 @@ function Homepagemagicrunner() {
                     <img src={right} alt="MCRT Token" />
                   </button>
                 </div>
-                {/*carousel */}
                 <div className="my-4 h-full w-full rounded-lg bg-custom-dark bg-opacity-70 p-4 lg:h-[520px]  lg:w-[500px]">
                   <div className="flex flex-wrap">
                     <img
@@ -307,7 +304,6 @@ function Homepagemagicrunner() {
                 <p className="p-2">08h 21m 11s</p>
               </div>
             </div>
-            {/*cards*/}
 
             <div className="m-4 flex space-x-4 overflow-auto lg:items-center lg:justify-center">
               <div className=" h-[35.25em] w-[18.375em] flex-shrink-0 rounded-[20px] border-2 border-solid border-[#5856E0] bg-[#12142A]">
@@ -397,7 +393,7 @@ function Homepagemagicrunner() {
                   </div>
                 </div>
               </div>
-              {/*second card*/}
+              
               <div className="h-[35.25em] w-[18.375em] rounded-[20px] border-2 border-solid border-[#5856E0] bg-[#12142A]">
                 <div className="flex flex-wrap">
                   <div className="  my-4 ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em]">
@@ -465,8 +461,6 @@ function Homepagemagicrunner() {
                   </div>
                 </div>
               </div>
-              {/** */}
-              {/*3rd card */}
               <div className="h-[35.25em] w-[18.375em] rounded-[20px] border-2 border-solid border-[#5856E0] bg-[#12142A]">
                 <div className="flex flex-wrap">
                   <div className="  my-4 ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em]">
@@ -538,8 +532,6 @@ function Homepagemagicrunner() {
                   </div>
                 </div>
               </div>
-              {/** */}
-              {/*4th card*/}
               <div className="h-[35.25em] w-[18.375em] rounded-[20px] border-2 border-solid border-[#5856E0] bg-[#12142A]">
                 <div className="flex flex-wrap">
                   <div className="  my-4 ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em]">
@@ -611,7 +603,6 @@ function Homepagemagicrunner() {
                   </div>
                 </div>
               </div>
-              {/** */}
             </div>
             <div className="m-6 flex items-center justify-center lg:m-10">
               <button className="rounded-lg bg-[#98FFF9] p-2 font-bold text-[#0E0E2E] md:w-[12.625em] md:text-2xl ">
