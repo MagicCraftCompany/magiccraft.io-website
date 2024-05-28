@@ -35,23 +35,19 @@ function Homepagemagicrunner() {
         <Header />
         <main className="scroll-smooth pb-32">
           <section className="relative flex flex-wrap ">
-            <div className="relative hidden lg:block  h-[700px] w-full bg-mrback bg-cover  bg-center ">
+            <div className="relative hidden h-[700px]  w-full bg-mrback bg-cover bg-center  lg:block ">
               <div className="   mrback-bg-gradient absolute inset-0  h-full w-full"></div>
-             
             </div>
-            <div className="relative block lg:hidden  h-[700px] w-full bg-mrback1 bg-cover  bg-center ">
+            <div className="bg-mrback1 relative block  h-[700px] w-full bg-cover bg-center  lg:hidden ">
               <div className="   mrback1-bg-gradient absolute inset-0  h-full w-full"></div>
-             
             </div>
             <div className="mrback-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className=" flex w-full  rounded-lg   ">
-
-              <div className="absolute inset-0  -mb-20 mt-40  lg:ml-[20em]  flex  flex-col  justify-center text-center lg:-top-[30em] lg:p-4 lg:text-left    ">
-              <span className="hidden lg:block rounded-[2em] bg-[#4457B8] text-[#98FFF9] w-[15em] h-[3em] m-4 py-2 pl-4 justify-center ">
-                    MagicCraft Ecosystem Game
-                  </span>
+              <div className="absolute inset-0  -mb-20 mt-40  flex  flex-col  justify-center  text-center lg:-top-[30em] lg:ml-[20em] lg:p-4 lg:text-left    ">
+                <span className="m-4 hidden h-[3em] w-[15em] justify-center rounded-[2em] bg-[#4457B8] py-2 pl-4 text-[#98FFF9] lg:block ">
+                  MagicCraft Ecosystem Game
+                </span>
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text font-serif text-2xl text-transparent drop-shadow-xl">
-               
                   <span className="text-4xl font-bold lg:p-5 lg:text-6xl">
                     MAGIC RUNNER
                   </span>
@@ -481,15 +477,12 @@ function Homepagemagicrunner() {
                     Ready
                   </div>
                 </div>
-                <div className="relative flex h-[9.890063em]  w-full  flex-shrink-0 items-center justify-center lg:w-[10.944563em] ">
+                <div className="relative flex h-[9.890063em] w-full flex-shrink-0 items-center justify-center lg:w-full">
                   <img
                     src={back}
-                    className="  mt-2   "
+                    className="absolute inset-0 h-full w-full object-cover  lg:mt-0"
                   />
-                  <img
-                    src={box}
-                    className="  absolute mt-6  "
-                  />
+                  <img src={box} className="absolute mt-6 " />
                 </div>
                 <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
                   <div className="h-[0.4em] w-full rounded-lg bg-[#98FFF9] "></div>
@@ -557,15 +550,12 @@ function Homepagemagicrunner() {
                     Ready
                   </div>
                 </div>
-                <div className="relative flex h-[9.890063em]  w-full  flex-shrink-0 items-center justify-center lg:w-[10.944563em] ">
+                <div className="relative flex h-[9.890063em] w-full flex-shrink-0 items-center justify-center lg:w-full">
                   <img
                     src={back}
-                    className=" lg:absolute lg:mx-4 lg:-mt-10  "
+                    className="absolute inset-0 h-full w-full object-cover  lg:mt-0"
                   />
-                  <img
-                    src={box}
-                    className="  absolute mt-5 lg:mx-[3.9em] lg:-mt-2 "
-                  />
+                  <img src={box} className="absolute mt-6 " />
                 </div>
                 <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
                   <div className="h-[0.4em] w-full rounded-lg bg-[#98FFF9] "></div>
@@ -623,8 +613,8 @@ function Homepagemagicrunner() {
               </div>
               {/** */}
             </div>
-            <div className="m-6 lg:m-10 flex items-center justify-center">
-              <button className="rounded-lg bg-[#98FFF9] p-2 font-bold md:text-2xl text-[#0E0E2E] md:w-[12.625em] ">
+            <div className="m-6 flex items-center justify-center lg:m-10">
+              <button className="rounded-lg bg-[#98FFF9] p-2 font-bold text-[#0E0E2E] md:w-[12.625em] md:text-2xl ">
                 {' '}
                 Join a Mission
               </button>
@@ -640,8 +630,8 @@ function Homepagemagicrunner() {
                 CHEST TYPES AND <br /> UNLOCKING MECHANISMS
               </h1>
             </div>
-            <div className="flex flex-col lg:flex-row  items-start justify-center gap-5">
-              <div className="flex lg:w-[405.059px] w-full mb-4 flex-shrink-0  flex-col items-center  justify-center rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)]  ">
+            <div className="flex flex-col items-start  justify-center gap-5 lg:flex-row">
+              <div className="mb-4 flex w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[405.059px]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
                   <img src={box2} className="h-10 w-10" />
                 </div>
@@ -654,7 +644,7 @@ function Homepagemagicrunner() {
                   engagement.
                 </p>
               </div>
-              <div className="flex lg:w-[405.059px]  w-full mb-4 flex-shrink-0  flex-col items-center  justify-center rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)]  ">
+              <div className="mb-4 flex  w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[405.059px]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
                   <img src={box} className="h-14 w-14" />
                 </div>
@@ -662,16 +652,17 @@ function Homepagemagicrunner() {
 
                 <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#34125A] to-transparent " />
                 <p className="flex flex-wrap p-4 text-center">
-                 Including Masterful, Mythic, Eternal,<br/> 
-                and Legendary tiers, these chests <br/>
-                necessitate gems for unlocking. Gems  <br/>
-                 represent a versatile in-game currency,  <br/>
-                 obtainable either through direct <br/>
-                  purchase or as rewards from previously <br/>
-                   unlocked chests.
+                   Including Masterful, Mythic, Eternal,
+                  <br />
+                  and Legendary tiers, these chests <br />
+                  necessitate gems for unlocking. Gems <br />
+                  represent a versatile in-game currency, <br />
+                  obtainable either through direct <br />
+                  purchase or as rewards from previously <br />
+                  unlocked chests.
                 </p>
               </div>
-              <div className="flex lg:w-[405.059px] w-full mb-4 flex-shrink-0  flex-col items-center  justify-center rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)]  ">
+              <div className="mb-4 flex w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[405.059px]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
                   <img src={watch} className="h-12 w-12" />
                 </div>
@@ -679,17 +670,19 @@ function Homepagemagicrunner() {
 
                 <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#34125A] to-transparent " />
                 <p className="flex flex-wrap p-4 text-center">
-                To maintain a dynamic and engaging<br/> 
-                gameplay experience, all chests <br/> 
-                earned must be unlocked on the same<br/> 
-                 day of acquisition; otherwise, they <br/> 
-                 expire at day's end, adding a strategic <br/> 
-                 element to resource management.
+                  To maintain a dynamic and engaging
+                  <br />
+                  gameplay experience, all chests <br />
+                  earned must be unlocked on the same
+                  <br />
+                  day of acquisition; otherwise, they <br />
+                  expire at day's end, adding a strategic <br />
+                  element to resource management.
                 </p>
               </div>
             </div>
             <div className="m-6 flex items-center justify-center">
-              <button className="rounded-lg bg-[#98FFF9] p-2 font-bold md:text-2xl text-[#0E0E2E] md:w-[12.625em] ">
+              <button className="rounded-lg bg-[#98FFF9] p-2 font-bold text-[#0E0E2E] md:w-[12.625em] md:text-2xl ">
                 {' '}
                 Join a Mission
               </button>
