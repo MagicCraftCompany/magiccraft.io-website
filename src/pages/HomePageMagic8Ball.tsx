@@ -249,10 +249,10 @@ function Homepagemagic8ball() {
                       </div>
                     </SwiperSlide>
                   </Swiper>
-                  <button className=" arrow-left arrow absolute left-0 top-[25%] z-10 m-1  hidden -translate-y-1/2 cursor-pointer md:block lg:top-1/2  lg:transform">
+                  <button className=" arrow-left arrow absolute left-0 top-[15em] z-10 m-1  hidden -translate-y-1/2 cursor-pointer md:block lg:top-1/2  lg:transform">
                     <img src={left} alt="MCRT Token" />
                   </button>
-                  <button className="arrow-right arrow   absolute right-0 top-[25%] z-10 m-1 hidden  -translate-y-1/2 cursor-pointer  md:block lg:right-40 lg:top-1/2  lg:transform">
+                  <button className="arrow-right arrow   absolute right-0 top-[15em] z-10 m-1 hidden  -translate-y-1/2 cursor-pointer  md:block lg:right-40 lg:top-1/2  lg:transform">
                     <img src={right} alt="MCRT Token" />
                   </button>
                 </div>
