@@ -50,7 +50,7 @@ function Homepagemagic8ball() {
             />
 
             <div className=" flex w-full  rounded-lg   ">
-              <div className="absolute inset-0 -mb-20  mt-40 flex  w-full  flex-col  justify-center  text-center lg:-top-[30em] lg:ml-[15em] lg:p-4 lg:text-left">
+              <div className="absolute inset-0 -mb-20  mt-40 flex  w-fit  flex-col  justify-center  text-center lg:-top-[30em] lg:ml-[15em] lg:p-4 lg:text-left">
                 <span className="m-4 hidden w-fit justify-center rounded-[2em] bg-[#4457B8] px-4 py-2 text-[#98FFF9] lg:block ">
                   MagicCraft Ecosystem Game
                 </span>
@@ -63,7 +63,7 @@ function Homepagemagic8ball() {
                     RISE, RUN, REDEEM
                   </span>
                 </h3>
-                <div className=" m-2 block h-px  w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:hidden" />
+                <div className="w-max m-2 block h-px  w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:hidden" />
 
                 <p className="p-4">
                   Within the enchanting realms of MagicCraft, the game of
@@ -252,7 +252,7 @@ function Homepagemagic8ball() {
                   <button className=" arrow-left arrow absolute left-0 top-[15em] z-10 m-1  hidden -translate-y-1/2 cursor-pointer md:block lg:left-[2em] lg:top-1/2  lg:transform">
                     <img src={left} alt="MCRT Token" />
                   </button>
-                  <button className="arrow-right arrow   absolute right-0 top-[15em] z-10 m-1 hidden  -translate-y-1/2 cursor-pointer  md:block lg:right-[10em] lg:top-1/2  lg:transform">
+                  <button className="arrow-right arrow   absolute right-0 top-[15em] z-10 m-1 hidden  -translate-y-1/2 cursor-pointer  md:block lg:right-[5em] lg:top-1/2  lg:transform">
                     <img src={right} alt="MCRT Token" />
                   </button>
                 </div>
