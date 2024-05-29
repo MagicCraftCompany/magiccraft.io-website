@@ -256,7 +256,7 @@ function Homepagemagic8ball() {
                     <img src={right} alt="MCRT Token" />
                   </button>
                 </div>
-                <div className="my-4 h-full w-full rounded-lg bg-custom-dark bg-opacity-70 p-4 lg:-ml-20 lg:h-fit  lg:w-[500px]">
+                <div className="my-4 h-full w-full rounded-lg bg-custom-dark bg-opacity-70 p-4 lg:-ml-[1em] lg:h-fit  lg:w-[500px]">
                   <div className="flex flex-wrap">
                     <img
                       src={runnericon}
