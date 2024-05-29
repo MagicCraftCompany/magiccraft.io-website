@@ -46,7 +46,7 @@ function Homepagemagicrunner() {
             <div className="mrback-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className=" flex w-full  rounded-lg   ">
 
-              <div className="w-full absolute inset-0  -mb-20 mt-40  lg:ml-[15em]  flex  flex-col  justify-center text-center lg:-top-[30em] lg:p-4 lg:text-left">
+              <div className="w-fit absolute inset-0  -mb-20 mt-40  lg:ml-[15em]  flex  flex-col  justify-center text-center lg:-top-[30em] lg:p-4 lg:text-left">
               <span className="hidden lg:block rounded-[2em] bg-[#4457B8] text-[#98FFF9] w-fit m-4 py-2 px-4 justify-center ">
                     MagicCraft Ecosystem Game
                   </span>
@@ -59,7 +59,7 @@ function Homepagemagicrunner() {
                     RISE, RUN, REDEEM
                   </span>
                 </h3>
-                <div className="w-max m-2 block h-px  w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:hidden" />
+                <div className="w-max m-2 block h-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:hidden" />
 
                 <p className="p-4">
                   Haunted by tragedy, Frigard races against fate, the lone
