@@ -63,7 +63,7 @@ function Homepagemagic8ball() {
                     RISE, RUN, REDEEM
                   </span>
                 </h3>
-                <div className="w-max m-2 block h-px  w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:hidden" />
+                <div className="m-2 block h-px w-full  w-max bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:hidden" />
 
                 <p className="p-4">
                   Within the enchanting realms of MagicCraft, the game of
@@ -214,7 +214,7 @@ function Homepagemagic8ball() {
                 $ MCRT REWARDS
               </h2>
               <div className="flex flex-col   items-center justify-center  lg:flex-row">
-                <div className=" lg:-mt-30 w-full lg:relative  lg:-mr-20  lg:w-1/2">
+                <div className=" lg:-mt-30 w-full lg:relative lg:-mr-10   lg:w-[40em]">
                   <Swiper
                     className="w-full pt-4"
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -256,7 +256,7 @@ function Homepagemagic8ball() {
                     <img src={right} alt="MCRT Token" />
                   </button>
                 </div>
-                <div className="my-4 h-full w-full rounded-lg bg-custom-dark bg-opacity-70 p-4 lg:-ml-[1em] lg:h-fit  lg:w-[500px]">
+                <div className="my-4 h-full w-full rounded-lg bg-custom-dark bg-opacity-70 p-4 lg:h-fit  lg:w-[500px]">
                   <div className="flex flex-wrap">
                     <img
                       src={runnericon}
