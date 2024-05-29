@@ -9,10 +9,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 
 import 'swiper/css'
-import crousel_first from '@/assets/images/crouserl_first.png'
+
 import clock from '@/assets/images/clock.png'
 
-import screenshot from '@/assets/images/Screenshot.png'
 import backgroundimage from '@/assets/images/bg-1.png'
 import runnericon from '@/assets/images/runner.png'
 
@@ -33,29 +32,28 @@ import backimage2 from '@/assets/images/covertab.png'
 
 import slide from '@/assets/images/magic8ballswiper.png'
 
-
-function  Homepagemagic8ball() {
+function Homepagemagic8ball() {
   return (
     <>
       <div className="min-h-dvh w-full text-white">
         <Header />
         <main className="scroll-smooth pb-32">
           <section className="relative flex flex-wrap ">
-            <img src={backimage} className=" relative hidden lg:block  h-[700px] w-full  bg-cover  bg-center "/>
-              
-             
-           
-            <img src={backimage2} className="relative block lg:hidden  h-[700px] w-full  bg-cover  bg-center "/>
-             
-             
-           
-            
-            <div className=" flex w-full  rounded-lg   ">
+            <img
+              src={backimage}
+              className=" relative hidden h-[700px]  w-full bg-cover  bg-center  lg:block "
+            />
 
-              <div className="w-full absolute inset-0  -mb-20 mt-40  lg:ml-[15em]  flex  flex-col  justify-center text-center lg:-top-[30em] lg:p-4 lg:text-left">
-              <span className="hidden lg:block rounded-[2em] bg-[#4457B8] text-[#98FFF9] w-fit m-4 py-2 px-4 justify-center ">
-                    MagicCraft Ecosystem Game
-                  </span>
+            <img
+              src={backimage2}
+              className="relative block h-[700px]  w-full bg-cover  bg-center  lg:hidden "
+            />
+
+            <div className=" flex w-full  rounded-lg   ">
+              <div className="absolute inset-0 -mb-20  mt-40 flex  w-full  flex-col  justify-center  text-center lg:-top-[30em] lg:ml-[15em] lg:p-4 lg:text-left">
+                <span className="m-4 hidden w-fit justify-center rounded-[2em] bg-[#4457B8] px-4 py-2 text-[#98FFF9] lg:block ">
+                  MagicCraft Ecosystem Game
+                </span>
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text font-serif text-2xl text-transparent drop-shadow-xl">
                   <span className="text-4xl font-bold lg:p-5 lg:text-6xl">
                     MAGIC 8BALL
@@ -68,11 +66,18 @@ function  Homepagemagic8ball() {
                 <div className=" m-2 block h-px  w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:hidden" />
 
                 <p className="p-4">
-                Within the enchanting realms of MagicCraft, the game of Magic8Ball<br className='hidden lg:block'/>
-                 is revered as a ritual of foresight and strategy, deeply ingrained in the<br className='hidden lg:block'/>
-                  culture of its inhabitants. Each 1v1 match is a dance with destiny,<br className='hidden lg:block'/>
-                   where players channel their focus and cunning to outmaneuver their <br className='hidden lg:block'/>
-                   opponents
+                  Within the enchanting realms of MagicCraft, the game of
+                  Magic8Ball
+                  <br className="hidden lg:block" />
+                  is revered as a ritual of foresight and strategy, deeply
+                  ingrained in the
+                  <br className="hidden lg:block" />
+                  culture of its inhabitants. Each 1v1 match is a dance with
+                  destiny,
+                  <br className="hidden lg:block" />
+                  where players channel their focus and cunning to outmaneuver
+                  their <br className="hidden lg:block" />
+                  opponents
                 </p>
 
                 <div className=" m-2 hidden h-px  w-5/12 bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:block" />
@@ -209,7 +214,7 @@ function  Homepagemagic8ball() {
                 $ MCRT REWARDS
               </h2>
               <div className="flex flex-col   items-center justify-center  lg:flex-row">
-                <div className=" lg:-mt-30 w-full lg:-mr-20  lg:relative  lg:w-1/2">
+                <div className=" lg:-mt-30 w-full lg:relative  lg:-mr-20  lg:w-1/2">
                   <Swiper
                     className="w-full pt-4"
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
@@ -228,7 +233,7 @@ function  Homepagemagic8ball() {
                       className="h-full w-5/12"
                     >
                       <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
-                        <div className="  lg:h-full lg:w-full w-fit p-2">
+                        <div className="  w-fit p-2 lg:h-full lg:w-full">
                           <img src={slide} />
                         </div>
                       </div>
@@ -238,20 +243,20 @@ function  Homepagemagic8ball() {
                       className="h-full w-6/12"
                     >
                       <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
-                        <div className="  lg:h-full lg:w-full w-fit p-2">
+                        <div className="  w-fit p-2 lg:h-full lg:w-full">
                           <img src={slide} />
                         </div>
                       </div>
                     </SwiperSlide>
                   </Swiper>
-                  <button className=" hidden md:block arrow-left arrow absolute z-10 left-0  top-[25%] m-1 -translate-y-1/2 cursor-pointer lg:top-1/2  lg:transform">
+                  <button className=" arrow-left arrow absolute left-0 top-[25%] z-10 m-1  hidden -translate-y-1/2 cursor-pointer md:block lg:top-1/2  lg:transform">
                     <img src={left} alt="MCRT Token" />
                   </button>
-                  <button className="hidden md:block   arrow-right arrow absolute z-10 lg:right-40 right-0  top-[25%] m-1  -translate-y-1/2 cursor-pointer lg:top-1/2  lg:transform">
+                  <button className="arrow-right arrow   absolute right-0 top-[25%] z-10 m-1 hidden  -translate-y-1/2 cursor-pointer  md:block lg:right-40 lg:top-1/2  lg:transform">
                     <img src={right} alt="MCRT Token" />
                   </button>
                 </div>
-                <div className="my-4 h-full w-full rounded-lg lg:-ml-20 bg-custom-dark bg-opacity-70 p-4 lg:h-fit  lg:w-[500px]">
+                <div className="my-4 h-full w-full rounded-lg bg-custom-dark bg-opacity-70 p-4 lg:-ml-20 lg:h-fit  lg:w-[500px]">
                   <div className="flex flex-wrap">
                     <img
                       src={runnericon}
@@ -263,12 +268,17 @@ function  Homepagemagic8ball() {
 
                   <div className="p-1 text-left lg:p-4 ">
                     <p className="lg:p-5 ">
-                    Completing daily tasks and emerging victorious in these <br className='hidden lg:block'/>
-                    mystical matches earns players these sacred tokens, <br className='hidden lg:block'/>
-                    believed to carry the wisdom and power of the oracles <br className='hidden lg:block'/>
-                    themselves. Thus, in Magic 8Ball, every match is a step <br className='hidden lg:block'/>
-                    closer to mastering not just the game, but also the<br className='hidden lg:block'/>
-                    deeper mysteries of MagicCraft
+                      Completing daily tasks and emerging victorious in these{' '}
+                      <br className="hidden lg:block" />
+                      mystical matches earns players these sacred tokens,{' '}
+                      <br className="hidden lg:block" />
+                      believed to carry the wisdom and power of the oracles{' '}
+                      <br className="hidden lg:block" />
+                      themselves. Thus, in Magic 8Ball, every match is a step{' '}
+                      <br className="hidden lg:block" />
+                      closer to mastering not just the game, but also the
+                      <br className="hidden lg:block" />
+                      deeper mysteries of MagicCraft
                     </p>
 
                     <button className="m-5 rounded-lg  border-2 border-solid border-[#98FFF9] p-2 text-[#98FFF9] ">
@@ -380,7 +390,7 @@ function  Homepagemagic8ball() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="h-[35.25em] w-[18.375em] rounded-[20px] border-2 border-solid border-[#5856E0] bg-[#12142A]">
                 <div className="flex flex-wrap">
                   <div className="  my-4 ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em]">
