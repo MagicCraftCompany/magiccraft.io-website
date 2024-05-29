@@ -29,6 +29,7 @@ import watch from '@/assets/icons/Frame.svg'
 
 import backimage from '@/assets/images/magic8ball.png'
 import backimage2 from '@/assets/images/covertab.png'
+import backimage3 from '@/assets/images/coverphone.png'
 
 import slide from '@/assets/images/magic8ballswiper.png'
 
@@ -46,7 +47,11 @@ function Homepagemagic8ball() {
 
             <img
               src={backimage2}
-              className="relative block h-[700px]  w-full bg-cover  bg-center  lg:hidden "
+              className="relative hidden h-[700px] w-full bg-cover bg-center md:block lg:hidden sm:hidden "
+            />
+             <img
+              src={backimage3}
+              className="relative block h-[700px]  w-full bg-cover top-[-70px] bg-center   md:hidden "
             />
 
             <div className=" flex w-full  rounded-lg   ">
@@ -290,7 +295,7 @@ function Homepagemagic8ball() {
             </div>
           </section>
           {/* {/* daily mission*/}
-          <section className=" relative mt-60 h-full w-full md:mt-40 lg:-mt-[9em]">
+          <section className=" relative mt-10 h-full w-full md:mt-40 lg:-mt-[9em]">
             <div className=" flex flex-col items-center justify-center  lg:flex-row">
               <h1 className="p-4 text-4xl font-bold">DAILY MISSIONS</h1>
               <div className="m-2   flex flex-wrap items-center justify-center rounded-[3.125em] bg-[#4457B8] pr-2 text-[#98FFF9]">
