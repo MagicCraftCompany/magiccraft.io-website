@@ -24,7 +24,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         hero: "url('/img/hero.webp')",
-        video:"url('/src/assets/images/video.mp4')",
+        video:"url('https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto:video,q_auto/m2qegasybx2ts0picyhh')",
         mrback: "url('/src/assets/images/Hero (1).png')",
         mrback1: "url('/src/assets/images/hero2.png')",
         supportbg: "url('/src/assets/images/image.png')",
@@ -45,6 +45,7 @@ module.exports = {
       },
       colors: {
         'custom-dark': '#0A0917',
+        'custom-light': 'rgba(68, 87, 184, 0.30)',
       },
       fontFamily: {
         sans: ['"Futura PT"', ...defaultTheme.fontFamily.sans],
