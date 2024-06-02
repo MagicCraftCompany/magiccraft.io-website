@@ -23,12 +23,12 @@ module.exports = {
 
     extend: {
       backgroundImage: {
-        hero: "url('/img/hero.webp')",
+        hero: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717180584/hero_w75tmm.webp')",
         video:"url('https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto:video,q_auto/m2qegasybx2ts0picyhh')",
-        mrback: "url('/src/assets/images/Hero (1).png')",
-        mrback1: "url('/src/assets/images/hero2.png')",
-        supportbg: "url('/src/assets/images/image.png')",
-        bgpatch: "url('/src/assets/images/bgpatch.png')",
+        mrback: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173137/Hero_1_v7qidt.webp')",
+        mrback1: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173132/hero2_olqlpn.webp')",
+        supportbg: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173117/Image_w7qty5.webp')",
+        bgpatch: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173211/bgpatch_nvhjfc.webp')",
       },
       keyframes: {
         'accordion-down': {
