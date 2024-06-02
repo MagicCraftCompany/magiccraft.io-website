@@ -1,12 +1,14 @@
-import mcrtIcon from '@/assets/images/mcrt-icon.webp'
-import mcEcosystem from '@/assets/images/ecosystem.webp'
-import magiccraftCard from '@/assets/images/magiccraft-card.webp'
-import magic8ballCard from '@/assets/images/magic-8-ball-card.webp'
-import magicRunnerCard from '@/assets/images/magic-runner-card.webp'
-import magiccraftText from '@/assets/images/magiccraft-text.png'
+
+import { Suspense, lazy } from 'react';
+
+
+
+
+const Header = lazy(() => import('@/components/Header/Header'));
+const Footer = lazy(() => import('@/components/Footer/Footer'));
+
 import bulletIcon from '@/assets/icons/bullet.svg'
-import Footer from '@/components/Footer/Footer'
-import Header from '@/components/Header/Header'
+
 
 import { Play, ArrowUpRight } from 'lucide-react'
 import { roadmapData } from '../data/roadmapData'
@@ -21,7 +23,9 @@ function Homepagegames() {
   return (
     <>
       <div className="min-h-dvh w-full text-white">
+      <Suspense fallback={<div>Loading...</div>}>
         <Header />
+      </Suspense>
         <main className="scroll-smooth pb-32">
           {/* hero section */}
           <section className="relative h-[700px] bg-hero bg-cover bg-center">
@@ -33,7 +37,7 @@ function Homepagegames() {
             <div className="relative mx-auto w-11/12 max-w-screen-xl">
               <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
                 <div className="w-14 max-w-28 md:w-full">
-                  <img src={mcrtIcon} alt="MCRT Token" />
+                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" alt="MCRT Token" />
                 </div>
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
                   <span className="text-xl md:text-4xl">
@@ -163,7 +167,7 @@ function Homepagegames() {
                   </div>
                 </div>
                 <div className="relative mx-auto w-full max-w-lg pt-32 md:w-1/2 md:pt-0">
-                  <img src={mcEcosystem} alt="MagicCraft Ecosystem" />
+                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717330280/ecosystem_y5ixdr.webp" alt="MagicCraft Ecosystem" />
                   <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b from-transparent to-[#03082F] to-85% md:hidden" />
                 </div>
               </div>
@@ -173,7 +177,7 @@ function Homepagegames() {
                   <div className="w-56 select-none snap-start">
                     <img
                       className="pointer-events-none select-none"
-                      src={magiccraftCard}
+                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magiccraft-card_dfthct.webp"
                       alt="MagicCraft Game"
                     />
                   </div>
@@ -181,14 +185,14 @@ function Homepagegames() {
                 <div className="w-56 select-none snap-start ">
                   <img
                     className="pointer-events-noneselect-none"
-                    src={magic8ballCard}
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magic-8-ball-card_wsmmg4.webp"
                     alt="Magic 8 Ball game"
                   />
                 </div>
                 <div className="w-56 select-none snap-start">
                   <img
                     className="pointer-events-none select-none"
-                    src={magicRunnerCard}
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717330559/magic-runner-card_rl7lcj.webp"
                     alt="Magic Runner game"
                   />
                 </div>
@@ -204,11 +208,11 @@ function Homepagegames() {
                   <div className="w-4/5 md:w-2/5">
                     <div className=" grid grid-cols-1 place-items-center gap-2 rounded-t-4xl border-x border-t border-[#3F3F7A] bg-[#11113A] p-10 shadow-lg md:rounded-l-4xl md:rounded-r-none md:border-y md:border-l md:border-r-0 ">
                       <div className="max-w-10 md:max-w-20">
-                        <img src={mcrtIcon} alt="MCRT" />
+                        <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" alt="MCRT" />
                       </div>
 
                       <div className="max-w-[350px]">
-                        <img src={magiccraftText} alt="" />
+                        <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173067/magiccraft-text_yzqlug.webp" alt="" />
                       </div>
                     </div>
                   </div>
@@ -502,7 +506,9 @@ function Homepagegames() {
             </section>
           </div>
         </main>
+        <Suspense fallback={<div>Loading...</div>}>
         <Footer />
+      </Suspense>
       </div>
     </>
   )

@@ -3,30 +3,22 @@ import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import left from '@/assets/icons/left-preview.svg'
 import right from '@/assets/icons/right-preview.svg'
-import mcrtIcon from '@/assets/images/mcrt-icon.webp'
+
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
-import buttonIcon from '@/assets/images/Vector (Stroke).png'
-import crousel_first from '@/assets/images/crouserl_first.png'
-import backgroundimage from '@/assets/images/bg-1.png'
 import 'swiper/css'
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
 import pc from '@/assets/icons/icon-pc.svg'
 import down from '@/assets/icons/li_chevron-down.svg'
-import directory from '@/assets/images/contact.png'
-import googleicon from '@/assets/images/logo (1).png'
-import vs from '@/assets/images/Group 7072.png'
-import ch from '@/assets/images/blahbla.png'
 
 import { roadmapData } from '../data/roadmapData'
 import RoadmapCard from '../components/Cards/RoadmapCard'
 import Video from '@/assets/images/video.mp4'
-import Character from '@/assets/images/character.png'
 
 import { otherpartners } from '@/data/otherpartners'
 import partners from '@/data/partners'
 import { ourteam } from '@/components/Team/ourTeam'
-import magiccraft from '@/assets/images/MagicCraft (1).png'
+
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Tabs, Tab } from '@/components/tabs'
 
@@ -57,11 +49,11 @@ function Homepagemcrt() {
             <div className="relative z-10 mx-auto  max-w-screen-xl">
               <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
                 <div className="w-full  max-w-[20%] md:w-full md:max-w-28">
-                  <img src={mcrtIcon} alt="MCRT Token" />
+                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" alt="MCRT Token" />
                 </div>
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
                   <div className=" flex justify-center ">
-                    <img src={magiccraft}></img>
+                    <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173072/MagicCraft_1_txz7ga.webp"></img>
                   </div>
                   <span className="text-3xl">WHERE PLAY MEANS PROSPERITY</span>
                 </h1>
@@ -102,7 +94,7 @@ function Homepagemcrt() {
                       <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
 
                       <span className=" p-2  md:p-5">
-                        <img src={googleicon}></img>
+                        <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
                         Get it on
                         <br />
                         <p className="text-xl font-bold"> Google play</p>
@@ -166,7 +158,7 @@ function Homepagemcrt() {
                 <div className="flex w-full justify-center lg:justify-start">
                   <button onClick={registerHandler} className=" flex flex-wrap rounded-lg border-2 border-[#98FFF9] p-2 text-[#98FFF9] md:mx-0">
                     <img
-                      src={buttonIcon}
+                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
                       alt="Button Image"
                       className="mr-2 h-6 w-6"
                     />
@@ -256,7 +248,7 @@ function Homepagemcrt() {
 
           {/*unlimited ways to earn */}
           <section className=" relative hidden h-auto w-full bg-center md:block lg:h-full">
-            <img src={backgroundimage}  />
+            <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp" />
             <div className="absolute left-0 right-0 top-0 lg:m-4 flex h-full flex-col  text-center">
               <h2 className="text-balance font-serif text-lg text-white lg:text-4xl">
                 UNLIMITED WAYS TO EARN MCRT
@@ -290,7 +282,7 @@ function Homepagemcrt() {
                 >
                   <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
                     <div className=" md:h-[120px] md:w-[150px] lg:h-full lg:w-full">
-                      <img src={crousel_first}  />
+                      <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717353441/crouserl_first_1_pehlcf.webp" />
                     </div>
                     <div className="crousel-first relative lg:w-[40em] flex h-full lg:-ml-10  flex-col items-start  ">
                       <div className="backdrop-blur-custom   ml-4 mt-2 flex items-center justify-center rounded-[68.117px] bg-[rgba(10,9,23,0.60)] px-2  py-1 text-[#98FFF9] md:text-xs lg:text-lg lg:px-4 lg:py-2">
@@ -308,7 +300,7 @@ function Homepagemcrt() {
                       </label>
                       <button className=" lg:m-5 md:ml-5 mb-2 mt-1 p-0.5 lg:text-lg  md:text-xs  inline-flex flex-wrap rounded-lg border-2 border-[#98FFF9] text-[#98FFF9] md:px-1  lg:w-[260px] lg:pl-0.5 lg:py-0.5">
                         <img
-                          src={buttonIcon}
+                          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
                           alt="Button Image"
                           className= "lg:mr-2 lg:h-6 lg:w-6 p-1 md:w-4 md:h-4 md:mr-1 "
                         />
@@ -346,7 +338,7 @@ function Homepagemcrt() {
                       <div className="flex flex-wrap ">
                         <div>
                           <img
-                            src={directory}
+                            src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173182/contact_ylmg83.webp"
                             style={{ width: '150px', height: '150px' }}
                             className="p-4"
                             alt="Directory"
@@ -392,7 +384,7 @@ function Homepagemcrt() {
                         </span>
                         <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
                         <span className=" px-3 py-4">
-                          <img src={googleicon} className=" pb-4"></img>
+                          <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp" className=" pb-4"></img>
                           Get it on
                           <br />
                           <p className="text-sm font-bold lg:text-xl">
@@ -410,7 +402,7 @@ function Homepagemcrt() {
                       <div className="flex flex-wrap">
                         <div>
                           <img
-                            src={vs}
+                            src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173149/Group_7072_cgsuti.webp"
                             className="h-[120px] w-[120px] p-4 lg:h-[150px] lg:w-[150px]"
                             alt="Directory"
                           />
@@ -461,12 +453,12 @@ function Homepagemcrt() {
           <section className="relative mx-auto my-10 flex w-11/12 max-w-screen-xl flex-wrap items-center space-y-10 md:space-y-20 lg:space-y-0 ">
             <div className=" relative rounded-lg bg-[#98FFF9] bg-opacity-50 p-4 lg:h-[280px] lg:w-7/12 ">
               <img
-                src={ch}
+                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/blahbla_wvvyzg.webp"
                 className="absolute -top-10 right-0     block h-[400px] rounded-lg object-cover  md:hidden "
               />
 
               <img
-                src={Character}
+                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/character_imeoab.webp"
                 alt="character"
                 className="  absolute  inset-0 -top-20  left-[300px] hidden rounded-lg  object-cover p-10 md:block  md:w-7/12 lg:w-[350px]  "
               />

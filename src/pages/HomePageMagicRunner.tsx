@@ -1,31 +1,25 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 
-import magiccraftCard from '@/assets/images/magiccraft-card.webp'
-import magic8ballCard from '@/assets/images/magic-8-ball-card.webp'
+
 import left from '@/assets/icons/left-preview.svg'
 import right from '@/assets/icons/right-preview.svg'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 
 import 'swiper/css'
-import crousel_first from '@/assets/images/crouserl_first.png'
-import clock from '@/assets/images/clock.png'
 
-import screenshot from '@/assets/images/Screenshot.png'
-import backgroundimage from '@/assets/images/bg-1.png'
-import runnericon from '@/assets/images/runner.png'
+
+
 
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
-import googleicon from '@/assets/images/logo (1).png'
 import pc from '@/assets/icons/icon-pc.svg'
 
 import lock from '@/assets/icons/Union.svg'
 import diamond from '@/assets/icons/Group.svg'
-import box from '@/assets/images/Layer 0 copy.png'
-import back from '@/assets/images/Ellipse 410.png'
-import box2 from '@/assets/images/magicrunner/novice-chest.png'
+
+
 import watch from '@/assets/icons/Frame.svg'
 
 function Homepagemagicrunner() {
@@ -112,7 +106,7 @@ function Homepagemagicrunner() {
                   <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
 
                   <span className=" p-2  md:p-5">
-                    <img src={googleicon}></img>
+                    <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
                     Get it on
                     <br />
                     <p className="text-xl font-bold"> Google play</p>
@@ -145,7 +139,7 @@ function Homepagemagicrunner() {
                       </span>
                       <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
                       <span className=" p-4">
-                        <img src={googleicon} className=" p-4"></img>
+                        <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp" className=" p-4"></img>
                         Get it on
                         <br />
                         <p className="text-2xl font-bold">Google Play</p>
@@ -182,7 +176,7 @@ function Homepagemagicrunner() {
                     <div className="w-[13em] select-none snap-start">
                       <img
                         className="pointer-events-none select-none"
-                        src={magiccraftCard}
+                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magiccraft-card_dfthct.webp"
                         alt="MagicCraft Game"
                       />
                     </div>
@@ -190,7 +184,7 @@ function Homepagemagicrunner() {
                   <div className="w-[13em] select-none snap-start ">
                     <img
                       className="pointer-events-noneselect-none"
-                      src={magic8ballCard}
+                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magic-8-ball-card_wsmmg4.webp"
                       alt="Magic 8 Ball game"
                     />
                   </div>
@@ -200,7 +194,7 @@ function Homepagemagicrunner() {
           </section>
 
           <section className="relative h-[700px] bg-center md:h-[900px] lg:h-full">
-            <img src={backgroundimage} className="h-full w-full object-cover" />
+            <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp" className="h-full w-full object-cover" />
             <div className="absolute left-0 top-0  flex h-full w-full  flex-col  text-center">
               <h2 className="text-balance  p-2 font-serif text-4xl text-white">
                 $ MCRT REWARDS
@@ -226,7 +220,7 @@ function Homepagemagicrunner() {
                     >
                       <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
                         <div className="  lg:h-full lg:w-full">
-                          <img src={screenshot} />
+                          <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173021/Screenshot_tr30jv.webp"/>
                         </div>
                       </div>
                     </SwiperSlide>
@@ -236,7 +230,7 @@ function Homepagemagicrunner() {
                     >
                       <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
                         <div className="  lg:h-full lg:w-full">
-                          <img src={crousel_first} />
+                          <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173129/Home_rn9oex.webp" />
                         </div>
                       </div>
                     </SwiperSlide>
@@ -251,7 +245,7 @@ function Homepagemagicrunner() {
                 <div className="my-4 h-full w-full rounded-lg bg-custom-dark bg-opacity-70 p-4 lg:h-[520px]  lg:w-[500px]">
                   <div className="flex flex-wrap">
                     <img
-                      src={runnericon}
+                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173040/runner_mowa8q.webp"
                       className="hidden px-4 lg:block"
                     ></img>
                     <span className="p-5 text-4xl font-bold">How it works</span>
@@ -298,7 +292,7 @@ function Homepagemagicrunner() {
               <h1 className="p-4 text-4xl font-bold">DAILY MISSIONS</h1>
               <div className="m-2   flex flex-wrap items-center justify-center rounded-[3.125em] bg-[#4457B8] pr-2 text-[#98FFF9]">
                 <div className="flex flex-wrap items-center justify-center rounded-[3.125em] bg-[#98FFF9] p-2 text-black">
-                  <img src={clock} className="m-1 h-10 w-10" />
+                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173184/clock_evbzyy.webp" className="m-1 h-10 w-10" />
                   <p>Ends in:</p>
                 </div>
                 <p className="p-2">08h 21m 11s</p>
@@ -318,7 +312,7 @@ function Homepagemagicrunner() {
                 </div>
                 <div className="  h-[9.890063em] w-[10.944563em] flex-shrink-0 opacity-[0.2] [backdrop-filter:blur(23px)]">
                   <img
-                    src={box}
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp"
                     className="absolute left-1/2 top-1/2 mx-[3.9em] mt-3 -translate-x-1/2 -translate-y-1/2 transform"
                   />
                   <img
@@ -405,7 +399,7 @@ function Homepagemagicrunner() {
                   </div>
                 </div>
                 <div className="bg-lightgray h-[9.890063em] w-[10.944563em]  flex-shrink-0 ">
-                  <img src={box} className="mx-[3.9em]" />
+                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="mx-[3.9em]" />
                 </div>
                 <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
                   <div className="h-[0.4em] w-[6.7em] rounded-lg bg-[#98FFF9] "></div>
@@ -473,10 +467,10 @@ function Homepagemagicrunner() {
                 </div>
                 <div className="relative flex h-[9.890063em] w-full flex-shrink-0 items-center justify-center lg:w-full">
                   <img
-                    src={back}
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173158/Ellipse_410_h2fzj4.webp"
                     className="absolute inset-0 h-full w-full object-cover  lg:mt-0"
                   />
-                  <img src={box} className="absolute mt-6 " />
+                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="absolute mt-6 " />
                 </div>
                 <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
                   <div className="h-[0.4em] w-full rounded-lg bg-[#98FFF9] "></div>
@@ -544,10 +538,10 @@ function Homepagemagicrunner() {
                 </div>
                 <div className="relative flex h-[9.890063em] w-full flex-shrink-0 items-center justify-center lg:w-full">
                   <img
-                    src={back}
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173158/Ellipse_410_h2fzj4.webp"
                     className="absolute inset-0 h-full w-full object-cover  lg:mt-0"
                   />
-                  <img src={box} className="absolute mt-6 " />
+                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="absolute mt-6 " />
                 </div>
                 <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
                   <div className="h-[0.4em] w-full rounded-lg bg-[#98FFF9] "></div>
@@ -624,7 +618,7 @@ function Homepagemagicrunner() {
             <div className="flex flex-col items-start  justify-center gap-5 lg:flex-row">
               <div className="mb-4 flex w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[405.059px]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
-                  <img src={box2} className="h-10 w-10" />
+                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191355/novice-chest_rlk14i.webp" className="h-10 w-10" />
                 </div>
                 <h3 className="mt-4 font-bold">NOVICE CHEST</h3>
 
@@ -637,7 +631,7 @@ function Homepagemagicrunner() {
               </div>
               <div className="mb-4 flex  w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[405.059px]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
-                  <img src={box} className="h-14 w-14" />
+                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="h-14 w-14" />
                 </div>
                 <h3 className="mt-4 font-bold">PREMIUM CHESTS</h3>
 

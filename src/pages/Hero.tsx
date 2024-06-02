@@ -2,15 +2,10 @@ import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 
 
-import hero1 from '@/assets/images/Mobilebg (1).png'
-import hero2 from '@/assets/images/tabbg.png'
-import hero3 from '@/assets/images/Hero (3).png'
 import one from '@/assets/icons/1.svg'
 import heart from '@/assets/icons/li_heart.svg'
 import arrow from '@/assets/icons/game-icons_fast-arrow.svg'
-import thunder from '@/assets/images/image 139 (1).png'
-import road from '@/assets/images/image 139.png'
-import wall from '@/assets/images/image 139.png'
+
 
 function Hero() {
   return (
@@ -20,16 +15,16 @@ function Hero() {
         <main className="scroll-smooth pb-32">
           <section className="relative flex flex-wrap ">
             <img
-              src={hero3}
+              src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173134/Hero_3_dkigsu.webp"
               className=" relative hidden h-[700px]  w-full bg-cover  bg-center  lg:block "
             />
 
             <img
-              src={hero2}
+              src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173002/tabbg_jp3lgy.webp"
               className="relative hidden h-[700px] w-full bg-cover bg-center md:block lg:hidden sm:hidden "
             />
              <img
-              src={hero1}
+              src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173057/Mobilebg_1_lwk6tx.webp"
               className="relative block h-[700px]  w-full bg-cover top-[-70px] bg-center   md:hidden "
             />
 
@@ -111,7 +106,7 @@ function Hero() {
                 <div className="flex flex-wrap items-center justify-center p-2">
                   Abilities:
                   <div className="flex flex-wrap px-4 ">
-                    <img src={road} className="px-2" />
+                    <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173120/image_139_upbgkg.webp" className="px-2" />
                     <div className="flex flex-col">
                       <p className="text-[#98FFF9]"> Reflective Shield</p>
                       <p> Damage:90</p>
@@ -119,7 +114,7 @@ function Hero() {
                   </div>
                 
                 <div className="flex flex-wrap px-4 ">
-                  <img src={thunder} className="px-2" />
+                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173123/image_139_1_ojcjhs.webp" className="px-2" />
                   <div className="flex flex-col">
                     <p className="text-[#98FFF9]">Ice Peaks</p>
                     <p> Damage:260</p>
@@ -127,7 +122,7 @@ function Hero() {
                   
                 </div>
                 <div className="flex flex-wrap px-4 ">
-                  <img src={wall} className="px-2" />
+                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173114/image1393_uyesc3.webp" className="px-2" />
                   <div className="flex flex-col">
                     <p className="text-[#98FFF9]">Ice Storm</p>
                     <p> Damage:270</p>

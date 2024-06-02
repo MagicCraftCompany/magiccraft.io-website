@@ -20,7 +20,6 @@ import contacticon from '@/assets/icons/li_users.svg';
 import contacticon2 from '@/assets/icons/li_coins (1).svg';
 import vector from '@/assets/icons/contact-vector.svg';
 
-import character2D from '@/assets/images/character2D.png';
 
 export default function FAQ() {
   function Question() {
@@ -159,26 +158,26 @@ export default function FAQ() {
       <div className="min-h-screen w-full text-white">
         <Header />
         <main className="scroll-smooth">
-          <section className="relative h-full bg-supportbg bg-cover bg-center">
+            <section className="relative h-full bg-supportbg bg-cover bg-center">
             <div
               className={cn(
                 'mx-auto max-w-[100rem] px-4 md:px-24 lg:px-8 lg:py-8',
                 'hero-bg-gradient relative flex flex-col gap-12'
               )}
             >
-              <TypographyH1
-                style={{ fontFamily: 'Colus' }}
-                className="relative m-8 mb-8 text-center text-4xl md:text-6xl font-bold text-white"
+              <div
+                
+                className="relative m-8 mb-8 text-center text-4xl md:text-6xl font-Colus  font-bold text-white"
               >
                 SUPPORT
                 <div className="m-4 block h-px w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
                 <div className="mt-6 text-center text-xl md:text-2xl font-bold text-white">
                   If you have any questions
                 </div>
-              </TypographyH1>
+              </div>
 
-              <section className="items-center justify-center">
-                <Tabs>
+              <section className="items-center justify-center ">
+                <Tabs  >
                   <Tab
                     label="Web3 Slay-to-Earn Mode"
                     icon={web3}
@@ -269,7 +268,7 @@ export default function FAQ() {
                       </form>
 
                       <img
-                        src={character2D}
+                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp"
                         className="hidden md:block max-w-[400.23px] rounded-[27px] bg-no-repeat"
                         alt="Character"
                       />

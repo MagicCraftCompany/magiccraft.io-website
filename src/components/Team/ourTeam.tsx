@@ -1,34 +1,3 @@
-import James from '@/assets/images/James .png'
-import Davinci from '@/assets/images/Davinci.png'
-import MoonCarl from '@/assets/images/Mooncarl.png'
-import Chris from '@/assets/images/Chris.png'
-import Slavik from '@/assets/images/Slavik.png'
-import Cripto from '@/assets/images/Cripto.png'
-import tu from '@/assets/images/tuNNCay.png'
-import Hristo from '@/assets/images/Hristo.png'
-import Dusty from '@/assets/images/DustyBC.png'
-
-import Muqsit from '@/assets/images/Muqsit.png'
-import Mat from '@/assets/images/Matt.png'
-import Harsh from '@/assets/images/Harsh .png'
-import Harsh2 from '@/assets/images/Harsh2.png'
-import Adam from '@/assets/images/Adam.png'
-import Aless from '@/assets/images/Alessandro.png'
-import Dari from '@/assets/images/Dori.png'
-import Chetan from '@/assets/images/Chetan.png'
-import Mario from '@/assets/images/Mario.png'
-import Alex from '@/assets/images/Alex.png'
-import Ivan from '@/assets/images/Ivan.png'
-import Oleh from '@/assets/images/Oleh.png'
-import ke from '@/assets/images/kenneth.png'
-
-import Admir from '@/assets/images/Admir Aganovic.png'
-import Adrian from '@/assets/images/Adrian_.png'
-import Akhil from '@/assets/images/Akhil Iyengar.png'
-import Tarik from '@/assets/images/Tarik Yacizi.png'
-import Rainier from '@/assets/images/Rainier Raymundo.png'
-import Zander from '@/assets/images/Zander Garcia.png'
-
 import {
   FaXTwitter,
   FaYoutube,
@@ -40,7 +9,7 @@ import {
 export const ourteam = [
   {
     name: 'James CryptoGuru',
-    icon: James,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173109/James_bww2be.webp',
     work: 'Advisor',
     category: 'KOL',
     socialicons: [
@@ -61,7 +30,7 @@ export const ourteam = [
   },
   {
     name: 'Davinci Jeremi',
-    icon: Davinci,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173167/Davinci_qef5tv.webp',
     work: 'Media Advisor',
     category: 'KOL',
     socialicons: [
@@ -77,7 +46,7 @@ export const ourteam = [
   },
   {
     name: 'The Moon Carl',
-    icon: MoonCarl,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173055/Mooncarl_e89xkz.webp',
     work: ' Advisor',
     category: 'KOL',
     socialicons: [
@@ -93,7 +62,7 @@ export const ourteam = [
   },
   {
     name: 'ChrisMMCrypto',
-    icon: Chris,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173187/Chris_crhibl.webp',
     work: ' Advisor',
     category: 'KOL',
     socialicons: [
@@ -113,7 +82,7 @@ export const ourteam = [
   },
   {
     name: 'Slavik Junge',
-    icon: Slavik,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173018/Slavik_hckw3z.webp',
     work: 'Advisor',
     category: 'KOL',
     socialicons: [
@@ -125,7 +94,7 @@ export const ourteam = [
   },
   {
     name: 'Cripto Avances',
-    icon: Cripto,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173173/Cripto_zrqbr1.webp',
     work: 'KOL youtube',
     category: 'KOL',
     socialicons: [
@@ -141,7 +110,7 @@ export const ourteam = [
   },
   {
     name: 'tuNNCay',
-    icon: tu,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172994/tuNNCay_1_ki4blh.webp',
     work: 'Ambassador',
     category: 'KOL',
     socialicons: [
@@ -157,7 +126,7 @@ export const ourteam = [
   },
   {
     name: 'Hristo Piyankov',
-    icon: Hristo,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173126/Hristo_df13vz.webp',
     work: 'Advisor',
     category: 'KOL',
     socialicons: [
@@ -169,7 +138,7 @@ export const ourteam = [
   },
   {
     name: 'DustyBC',
-    icon: Dusty,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173161/DustyBC_erdeqx.webp',
     work: 'KOL',
     category: 'KOL',
     socialicons: [
@@ -185,7 +154,7 @@ export const ourteam = [
   },
   {
     name: 'Muqsit Haider Ali',
-    icon: Muqsit,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173052/Muqsit_u7eecu.webp',
     work: 'CEO',
     category: 'Team',
     socialicons: [
@@ -197,7 +166,7 @@ export const ourteam = [
   },
   {
     name: 'Mateusz Gorecki',
-    icon: Mat,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173060/Matt_ehx3cu.webp',
     work: 'COO',
     category: 'Team',
     socialicons: [
@@ -209,7 +178,7 @@ export const ourteam = [
   },
   {
     name: 'Harsh Raj',
-    icon: Harsh,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173143/Harsh_dyuiwr.webp',
     work: 'CTO',
     category: 'Team',
     socialicons: [
@@ -221,7 +190,7 @@ export const ourteam = [
   },
   {
     name: 'Harsh Joshi',
-    icon: Harsh2,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173140/Harsh2_gtpvom.webp',
     work: 'CFO',
     category: 'Team',
     socialicons: [
@@ -233,7 +202,7 @@ export const ourteam = [
   },
   {
     name: 'Romain Adam Ghibaudo',
-    icon: Adam,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173231/Adam_jikjlw.webp',
     work: 'CBDO',
     category: 'Team',
     socialicons: [
@@ -246,7 +215,7 @@ export const ourteam = [
   },
   {
     name: 'Alessandro Huaroto',
-    icon: Aless,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173223/Alessandro_djkmxm.webp',
     work: 'CHRO',
     category: 'Team',
     socialicons: [
@@ -258,7 +227,7 @@ export const ourteam = [
   },
   {
     name: 'Dariia Silkina',
-    icon: Dari,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173164/Dori_cukbdf.webp',
     work: 'Design Lead',
     category: 'Team',
     socialicons: [
@@ -270,7 +239,7 @@ export const ourteam = [
   },
   {
     name: 'Chetan Arora',
-    icon: Chetan,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173191/Chetan_qsntag.webp',
     work: 'FullStack Developer',
     category: 'Team',
     socialicons: [
@@ -283,7 +252,7 @@ export const ourteam = [
 
   {
     name: 'Mario Manuel Rodriguez',
-    icon: Mario,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173064/Mario_lesipw.webp',
     work: 'Game Developer',
     category: 'Team',
     socialicons: [
@@ -295,7 +264,7 @@ export const ourteam = [
   },
   {
     name: 'Admir Aganovic',
-    icon: Admir,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173229/Admir_Aganovic_evbagr.webp',
     work: 'Game Developer',
     category: 'Team',
     socialicons: [
@@ -307,7 +276,7 @@ export const ourteam = [
   },
   {
     name: 'Tarik Yacizi',
-    icon: Tarik,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173000/Tarik_Yacizi_junzgg.webp',
     work: 'Game Developer',
     category: 'Team',
     socialicons: [
@@ -319,7 +288,7 @@ export const ourteam = [
   },
   {
     name: 'Akhil Iyengar',
-    icon: Akhil,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717180348/Akhil_Iyengar_l0f4zr.webp',
     work: '3D Designer',
     category: 'Team',
     socialicons: [
@@ -331,7 +300,7 @@ export const ourteam = [
   },
   {
     name: ' Alexander Lyulin',
-    icon: Alex,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173217/Alex_1_geldsm.webp',
     work: 'Social Media Manager',
     category: 'Team',
     socialicons: [
@@ -343,7 +312,7 @@ export const ourteam = [
   },
   {
     name: 'Ivan Reyna',
-    icon: Ivan,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173112/Ivan_btfbal.webp',
     work: 'Excutive Assistant',
     category: 'Team',
     socialicons: [
@@ -355,7 +324,7 @@ export const ourteam = [
   },
   {
     name: 'Oleh Voroshilov',
-    icon: Oleh,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173049/Oleh_idwukn.webp',
     work: 'Media Manager',
     category: 'Team',
     socialicons: [
@@ -367,7 +336,7 @@ export const ourteam = [
   },
   {
     name: 'Rainier Raymundo',
-    icon: Rainier,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173043/Rainier_Raymundo_kf15zc.webp',
     work: 'Community Moderator',
     category: 'Team',
     socialicons: [
@@ -379,7 +348,7 @@ export const ourteam = [
   },
   {
     name: 'Zander Garcia',
-    icon: Zander,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172986/Zander_Garcia_1_snokjq.webp',
     work: 'Community Moderator',
     category: 'Team',
     socialicons: [
@@ -391,7 +360,7 @@ export const ourteam = [
   },
   {
     name: 'Adrian',
-    icon: Adrian,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173225/Adrian__iucds2.webp',
     work: 'Community Moderator',
     category: 'Team',
     socialicons: [
@@ -404,7 +373,7 @@ export const ourteam = [
 
   {
     name: 'Kenneth Ian Conjurado',
-    icon: ke,
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173106/kenneth_fz3xfw.webp',
     work: 'Community Moderator',
     category: 'Team',
     socialicons: [
