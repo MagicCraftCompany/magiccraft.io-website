@@ -35,7 +35,7 @@ const Tabs = ({ children, type }: TabsProps) => {
 
   return (
     <div className=" flex flex-wrap justify-center mx-auto">
-      <div className={`${!type? 'flex-col': ''} lg:flex-row inline-flex mb-10 p-1 bg-[#03082F] rounded-3xl`}>
+      <div className={`${!type? 'flex-col': ''} lg:flex-row inline-flex mb-10 p-1 bg-[#21295C] rounded-3xl`}>
         {children.map((child) => {
           const tab = child as React.ReactElement<TabProps>;
           return (

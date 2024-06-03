@@ -28,6 +28,7 @@ module.exports = {
         mrback: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173137/Hero_1_v7qidt.webp')",
         mrback1: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173132/hero2_olqlpn.webp')",
         supportbg: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173117/Image_w7qty5.webp')",
+        faqtab: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717433825/Image_1_cqkad8.webp')",
         bgpatch: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173211/bgpatch_nvhjfc.webp')",
       },
       keyframes: {
