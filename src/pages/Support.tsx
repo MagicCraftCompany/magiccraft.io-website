@@ -112,10 +112,10 @@ export default function FAQ() {
                     iconActive={contacticon2}
                   >
                     <div className="flex flex-shrink-0 flex-col  items-start justify-between rounded-[25.4px] border border-[#9AD4FD] bg-[#03082F] bg-gradient-to-b from-[#161242] to-[rgba(6,11,49,0.95)] shadow-[0px_0px_20.32px_#22068F] backdrop-blur-[5.128px] md:flex-row lg:max-w-[934px] ">
-                      <form className="w-full p-4 md:pl-[4em]">
+                      <form className="w-full  p-4 md:pl-[4em]">
                         <div className="mb-4">
                           <input
-                            className="flex w-full items-start rounded-[6.001px] border-2 border-[#2C345A] bg-[rgba(0,0,0,0.16)] p-2 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:w-[443.23px]"
+                            className="flex w-full lg:mt-6 items-start rounded-[6.001px] border-2 border-[#2C345A] bg-[rgba(0,0,0,0.16)] p-2 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:w-[443.23px]"
                             id="name"
                             type="text"
                             placeholder="Your Email"
