@@ -1,7 +1,6 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 
-
 import left from '@/assets/icons/left-preview.svg'
 import right from '@/assets/icons/right-preview.svg'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -9,16 +8,12 @@ import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
 
 import 'swiper/css'
 
-
-
-
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
 import pc from '@/assets/icons/icon-pc.svg'
 
 import lock from '@/assets/icons/Union.svg'
 import diamond from '@/assets/icons/Group.svg'
-
 
 import watch from '@/assets/icons/Frame.svg'
 
@@ -29,21 +24,18 @@ function Homepagemagicrunner() {
         <Header />
         <main className="scroll-smooth pb-32">
           <section className="relative flex flex-wrap ">
-            <div className="relative hidden lg:block  h-[700px] w-full bg-mrback bg-cover  bg-center ">
+            <div className="relative hidden h-[700px]  w-full bg-mrback bg-cover bg-center  lg:block ">
               <div className="   mrback-bg-gradient absolute inset-0  w-full"></div>
-             
             </div>
-            <div className="relative block lg:hidden  h-[700px] w-full bg-mrback1 bg-cover  bg-center ">
+            <div className="relative block h-[700px]  w-full bg-mrback1 bg-cover bg-center  lg:hidden ">
               <div className="   mrback1-bg-gradient absolute inset-0   w-full"></div>
-             
             </div>
             <div className="mrback-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className=" flex w-full  rounded-lg   ">
-
-              <div className="w-fit absolute inset-0  -mb-20 mt-40  lg:ml-[15em]  flex  flex-col  justify-center text-center lg:-top-[30em] lg:p-4 lg:text-left">
-              <span className="hidden lg:block rounded-[2em] bg-[#4457B8] text-[#98FFF9] w-fit m-4 py-2 px-4 justify-center ">
-                    MagicCraft Ecosystem Game
-                  </span>
+              <div className="absolute inset-0 -mb-20  mt-40 flex  w-fit  flex-col  justify-center  text-center lg:-top-[30em] lg:ml-[15em] lg:p-4 lg:text-left">
+                <span className="m-4 hidden w-fit justify-center rounded-[2em] bg-[#4457B8] px-4 py-2 text-[#98FFF9] lg:block ">
+                  MagicCraft Ecosystem Game
+                </span>
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text font-serif text-2xl text-transparent drop-shadow-xl">
                   <span className="text-4xl font-bold lg:p-5 lg:text-6xl">
                     MAGIC RUNNER
@@ -53,7 +45,7 @@ function Homepagemagicrunner() {
                     RISE, RUN, REDEEM
                   </span>
                 </h3>
-                <div className="w-max m-2 block h-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:hidden" />
+                <div className="m-2 block h-px w-max bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:hidden" />
 
                 <p className="p-4">
                   Haunted by tragedy, Frigard races against fate, the lone
@@ -139,7 +131,10 @@ function Homepagemagicrunner() {
                       </span>
                       <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
                       <span className=" p-4">
-                        <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp" className=" p-4"></img>
+                        <img
+                          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"
+                          className=" p-4"
+                        ></img>
                         Get it on
                         <br />
                         <p className="text-2xl font-bold">Google Play</p>
@@ -194,7 +189,10 @@ function Homepagemagicrunner() {
           </section>
 
           <section className="relative h-[700px] bg-center md:h-[900px] lg:h-full">
-            <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp" className="h-full w-full object-cover" />
+            <img
+              src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp"
+              className="h-full w-full object-cover"
+            />
             <div className="absolute left-0 top-0  flex h-full w-full  flex-col  text-center">
               <h2 className="text-balance  p-2 font-serif text-4xl text-white">
                 $ MCRT REWARDS
@@ -220,7 +218,7 @@ function Homepagemagicrunner() {
                     >
                       <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
                         <div className="  lg:h-full lg:w-full">
-                          <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173021/Screenshot_tr30jv.webp"/>
+                          <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173021/Screenshot_tr30jv.webp" />
                         </div>
                       </div>
                     </SwiperSlide>
@@ -292,7 +290,10 @@ function Homepagemagicrunner() {
               <h1 className="p-4 text-4xl font-bold">DAILY MISSIONS</h1>
               <div className="m-2   flex flex-wrap items-center justify-center rounded-[3.125em] bg-[#4457B8] pr-2 text-[#98FFF9]">
                 <div className="flex flex-wrap items-center justify-center rounded-[3.125em] bg-[#98FFF9] p-2 text-black">
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173184/clock_evbzyy.webp" className="m-1 h-10 w-10" />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173184/clock_evbzyy.webp"
+                    className="m-1 h-10 w-10"
+                  />
                   <p>Ends in:</p>
                 </div>
                 <p className="p-2">08h 21m 11s</p>
@@ -387,7 +388,7 @@ function Homepagemagicrunner() {
                   </div>
                 </div>
               </div>
-              
+
               <div className="h-[35.25em] w-[18.375em] rounded-[20px] border-2 border-solid border-[#5856E0] bg-[#12142A]">
                 <div className="flex flex-wrap">
                   <div className="  my-4 ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em]">
@@ -399,7 +400,10 @@ function Homepagemagicrunner() {
                   </div>
                 </div>
                 <div className="bg-lightgray h-[9.890063em] w-[10.944563em]  flex-shrink-0 ">
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="mx-[3.9em]" />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp"
+                    className="mx-[3.9em]"
+                  />
                 </div>
                 <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
                   <div className="h-[0.4em] w-[6.7em] rounded-lg bg-[#98FFF9] "></div>
@@ -470,7 +474,10 @@ function Homepagemagicrunner() {
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173158/Ellipse_410_h2fzj4.webp"
                     className="absolute inset-0 h-full w-full object-cover  lg:mt-0"
                   />
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="absolute mt-6 " />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp"
+                    className="absolute mt-6 "
+                  />
                 </div>
                 <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
                   <div className="h-[0.4em] w-full rounded-lg bg-[#98FFF9] "></div>
@@ -541,7 +548,10 @@ function Homepagemagicrunner() {
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173158/Ellipse_410_h2fzj4.webp"
                     className="absolute inset-0 h-full w-full object-cover  lg:mt-0"
                   />
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="absolute mt-6 " />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp"
+                    className="absolute mt-6 "
+                  />
                 </div>
                 <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
                   <div className="h-[0.4em] w-full rounded-lg bg-[#98FFF9] "></div>
@@ -618,7 +628,10 @@ function Homepagemagicrunner() {
             <div className="flex flex-col items-start  justify-center gap-5 lg:flex-row">
               <div className="mb-4 flex w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[405.059px]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191355/novice-chest_rlk14i.webp" className="h-10 w-10" />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191355/novice-chest_rlk14i.webp"
+                    className="h-10 w-10"
+                  />
                 </div>
                 <h3 className="mt-4 font-bold">NOVICE CHEST</h3>
 
@@ -631,7 +644,10 @@ function Homepagemagicrunner() {
               </div>
               <div className="mb-4 flex  w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[405.059px]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="h-14 w-14" />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp"
+                    className="h-14 w-14"
+                  />
                 </div>
                 <h3 className="mt-4 font-bold">PREMIUM CHESTS</h3>
 
