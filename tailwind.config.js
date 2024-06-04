@@ -30,6 +30,7 @@ module.exports = {
         supportbg: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173117/Image_w7qty5.webp')",
         faqtab: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717433825/Image_1_cqkad8.webp')",
         bgpatch: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173211/bgpatch_nvhjfc.webp')",
+        bgpatch1: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717482718/Image_1_1_ifmi0t.webp')",
       },
       keyframes: {
         'accordion-down': {
