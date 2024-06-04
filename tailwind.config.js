@@ -48,7 +48,9 @@ module.exports = {
       colors: {
         'custom-dark': '#0A0917',
         'custom-light': 'rgba(68, 87, 184, 0.30)',
-        'tab-bg':'#21295C'
+        'tab-bg':'#21295C',
+        'custom-fade':'#fff',
+
       },
       fontFamily: {
         sans: ['"Futura PT"', ...defaultTheme.fontFamily.sans],
