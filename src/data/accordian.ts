@@ -3,29 +3,19 @@
     value: '1',
     question:
       'What are the prerequisites for playing the game using the web3 Lobby?',
-    answer: ` To play the game using web3 Lobby, you will need the latest version  of MagicCraft. You can download it from the following sources:
-             IOS:{" "}
-          <a
-            className="mr-1 md:underline"
-            href="https://apps.apple.com/us/app/magiccraft-pvp/id1638183525"
-          >
-            click here
-          </a>
-          Android:{" "}
-          <a
-            className="md:underline"
-            href="https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en&pli=1"
-          >
-            click here
-          </a>`,
+    answer: ` To play the game using the web3 Lobby, you will need the latest version of MagicCraft. You can download it from the following sources:
+    <br>
+    iOS: <a className="mr-1 " href="https://apps.apple.com/us/app/magiccraft-pvp/id1638183525">click here</a>
+    <br>
+    Android: <a className="md:underline" href="https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en&pli=1">click here</a>`,
   },
   {
     value: '2',
     question: 'How can I create a MagicCraft Account?',
-    answer: `To create a MagicCraft Account, visit{" "}
-          <a href="lobby.magiccraft.io/register" className="md:underline">
-            link
-          </a>{" "}
+    answer: `To create a MagicCraft Account, visit
+          <a href="lobby.magiccraft.io/register" >
+            -link-
+          </a>
           and follow the account creation process. During account creation,
           you will need to connect your wallet (e.g., Metamask or
           TrustWallet) if you already have one. If you don't have a wallet,
