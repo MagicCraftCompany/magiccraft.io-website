@@ -177,5 +177,9 @@
   border: 1.174px solid #3F3F7A;
   background: #11113A;
   box-shadow: 0px 4.698px 46.978px 0px rgba(10, 9, 23, 0.60);
- }
+ } 
+ .glow {
+  box-shadow: 0 0px 20px rgba(152, 255, 249, 1), 0px 0px 20px rgba(72, 102, 169, 0.4), 0px 0px 30px rgba(72, 102, 169, 0.4);
+}
+ 
 }
