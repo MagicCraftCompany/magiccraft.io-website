@@ -69,32 +69,32 @@ const gameLinks = [
   },
 ]
 
-// const tokenLinks = [
-//   {
-//     title: 'Staking',
-//     link: 'https://app.magiccraft.io/pledging',
-//   },
-//   {
-//     title: 'Marketplace',
-//     link: 'https://app.magiccraft.io/marketplace/explorer',
-//   },
-//   {
-//     title: 'MCRT Token',
-//     link: 'https://magiccraft.io/mcrt-token',
-//   },
-//   {
-//     title: 'Tokenomics',
-//     link: 'https://magiccraft.io/mcrt-token#tokenomics',
-//   },
-//   {
-//     title: 'Roadmap',
-//     link: 'https://magiccraft.io/numbers#roadmap',
-//   },
-//   {
-//     title: 'Whitepaper',
-//     link: 'https://docs.magiccraft.io/',
-//   },
-// ]
+const tokenLinks = [
+  {
+    title: 'Staking',
+    link: 'https://app.magiccraft.io/pledging',
+  },
+  {
+    title: 'Marketplace',
+    link: 'https://app.magiccraft.io/marketplace/explorer',
+  },
+  {
+    title: 'MCRT Token',
+    link: 'https://magiccraft.io/mcrt-token',
+  },
+  {
+    title: 'Tokenomics',
+    link: 'https://magiccraft.io/mcrt-token#tokenomics',
+  },
+  {
+    title: 'Roadmap',
+    link: 'https://magiccraft.io/numbers#roadmap',
+  },
+  {
+    title: 'Whitepaper',
+    link: 'https://docs.magiccraft.io/',
+  },
+]
 
 const moreLinks = [
   {
@@ -127,19 +127,19 @@ const Footer = () => {
   return (
     <footer className="text-primary relative z-10 bg-[#03082F] py-10">
       <div className="mx-auto flex w-11/12 max-w-[1650px] flex-col-reverse justify-between gap-10 lg:flex-row">
-        <button>
+        <button className='hidden lg:block'>
           <img
             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173152/Go_to_top_of_page_fgfqwp.webp"
             className=" absolute left-[4em]   cursor-pointer"
           />
         </button>
-        <button>
+        <button className=' hidden lg:block'>
           <img
             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173193/Chat_bot_button_a3hguu.webp"
             className="absolute right-[7em] -mt-10    cursor-pointer"
           />
         </button>
-        <div className="ml-10 flex w-full flex-col lg:w-1/2 ">
+        <div className="lg:ml-10 flex w-full flex-col lg:w-1/2 ">
           <div>
             <img
               src={magiccraftLogo}
@@ -204,9 +204,9 @@ const Footer = () => {
               })}
             </ul>
           </div>
-          {/* <div className="w-full space-y-7 ">
+          <div className="w-full space-y-7 block lg:hidden ">
             <h5 className="text-3xl text-white/60">Token</h5>
-            <ul className="space-y-[18px] text-xl">
+            <ul className="space-y-[18px] text-xl text-[#98FFF9]">
               {tokenLinks.map((item, i) => {
                 return (
                   <li key={i}>
@@ -217,7 +217,7 @@ const Footer = () => {
                 )
               })}
             </ul>
-          </div>{' '} */}
+          </div>{' '}
           <div className="w-full space-y-7 ">
             <h5 className="text-3xl text-white/60">More</h5>
             <ul className="space-y-[18px] text-xl text-[#98FFF9]">
@@ -234,8 +234,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="mx-auto my-4 h-px w-11/12 max-w-[1650px] bg-gradient-to-r from-[#556DE033] via-[#556DE0] to-[#556DE033]"></div>
-      <div className="mx-auto w-[43.5em] max-w-4xl  text-center">
+      <div className="mx-auto my-4 h-px w-11/12  bg-gradient-to-r from-[#556DE033] via-[#556DE0] to-[#556DE033]"></div>
+      <div className="mx-auto lg:w-[43.5em] max-w-4xl  text-center">
         <p className="text-sm text-[#8896AB]">
           $MCRT is only marketed and offered for sale to experienced investors
           who can independently understand the risks associated with a
