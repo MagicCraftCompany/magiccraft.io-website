@@ -13,21 +13,23 @@ export const roadmapData: RoadmapDataType = [
     goals: [
       {
         features: [
-          'Addition of 3 new games to the MagicCraft Ecosystem',
-          'Full UI/UX overhaul of the MagicCraft game',
-          'Releasing a league system for ranked progression.',
+          ' Player Profile screen',
+          'Custom game Rooms',
+          'Team Voice Chat',
+          'NFT Character Integration',
         ],
       },
       {
         features: [
-          'Releasing an NFT season pass for special benefits in the MagicCraft Ecosystem.',
-          'Releasing an event calendar for tournaments, competitions, and special events.',
+          'Mage',
+          'New Map',
+          'New Character'
         ],
       },
       {
         features: [
-          'New whitepaper release.',
-          'Adding automatic matchmaking functionality to the MagicCraft Lobby.',
+          'Custom room added to service',
+          'Play-2-Earn Games',
         ],
       },
     ],
@@ -38,20 +40,25 @@ export const roadmapData: RoadmapDataType = [
     goals: [
       {
         features: [
-          'Addition of 3 new games to the MagicCraft Ecosystem.',
-          'Major storyline updates for MagicCraft world and characters.',
+          'Game Type:Free for All',
+          'Development of Metagame continues',
+          'Parties &Friends',
+          'Community Tournaments',
+          'Spectator mode'
         ],
       },
       {
         features: [
-          'Enabling a 5v5 multiplayer quickplay mode with automatic matchmaking in MagicCraft game.',
-          'Adding in-game items, including NFT skins, voice lines, and emotes for the MagicCraft game.',
+          'New Map: Cloud Terrace',
+          ' new Character: Ronin',
+          'Music UPdate',
+          'Steam announcement'
         ],
       },
       {
         features: [
-          'Renewing the season pass with added utilities in the MagicCraft Ecosystem.',
-          'Overhauling the MagicCraft website to prioritize its Ecosystem of games.',
+          'Halving,splitting the lobbies and $MCRT prizes in half',
+          'Automatic lobbies',
         ],
       },
     ],
@@ -62,8 +69,10 @@ export const roadmapData: RoadmapDataType = [
     goals: [
       {
         features: [
-          'Addition of 3 new games to the MagicCraft Ecosystem.',
-          'Releasing a dynamic daily task system for the full MagicCraft Ecosystem.',
+          'Daily Quests',
+          'Game Type:Tournament',
+          'Game Type:Battle Royale',
+          'NFT Rental System'
         ],
       },
       {
