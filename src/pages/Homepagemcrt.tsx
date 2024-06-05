@@ -21,12 +21,16 @@ import { ourteam } from '@/components/Team/ourTeam'
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Tabs, Tab } from '@/components/tabs'
+import frame1 from '@/assets/icons/Frame (1).svg'
+import frame2 from '@/assets/icons/Frame (2).svg'
+import frame3 from '@/assets/icons/Frame (3).svg'
+import frame4 from '@/assets/icons/Frame (4).svg'
 
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(8)
 
-  const registerHandler = ()=> {
-    window.location.href='https://lobby.magiccraft.io/register'
+  const registerHandler = () => {
+    window.location.href = 'https://lobby.magiccraft.io/register'
   }
 
   const loadMore = () => {
@@ -42,14 +46,22 @@ function Homepagemcrt() {
         <main className="scroll-smooth pb-32">
           {/*header*/}
           <section className="relative h-[700px]  bg-cover bg-center">
-            <video className="absolute  inset-0 h-full w-full object-cover" autoPlay loop muted>
-            <source src={Video} type="video/mp4"/>
+            <video
+              className="absolute  inset-0 h-full w-full object-cover"
+              autoPlay
+              loop
+              muted
+            >
+              <source src={Video} type="video/mp4" />
             </video>
             <div className="video-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className="relative z-10 mx-auto  max-w-screen-xl">
               <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
                 <div className="w-full  max-w-[20%] md:w-full md:max-w-28">
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" alt="MCRT Token" />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
+                    alt="MCRT Token"
+                  />
                 </div>
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
                   <div className=" flex justify-center ">
@@ -58,10 +70,10 @@ function Homepagemcrt() {
                   <span className="text-3xl">WHERE PLAY MEANS PROSPERITY</span>
                 </h1>
               </div>
-              <div className="mx-auto  md:mb-20  mt-20  md:mt-0 md:w-[566px]  ">
-                <div className="rounded-[20px]   bg-gradient-to-b from-[#B591F2]   to-transparent ">
-                  <div className="relative  flex max-w-full flex-col items-start   justify-center overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  md:max-w-full md:px-8 md:py-3">
-                    <h4 className="  px-10 py-2 text-center font-serif text-lg md:text-[22px] ">
+              <div className="mx-auto  mt-20  md:mb-20  md:mt-0 md:w-[34.75em]  ">
+                <div className="rounded-[1.25em]   bg-gradient-to-b from-[#B591F2]   to-transparent p-px ">
+                  <div className="relative  flex max-w-full flex-col items-start   justify-center overflow-hidden rounded-[1.25em]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%   md:px-11 md:py-3">
+                    <h4 className="  mx-[3em] py-2  text-center font-serif text-lg md:text-[1.375em] ">
                       <span className="text-[#FFB649]  ">PLAY </span> MAGICCRAFT
                       NOW!
                       <br />
@@ -125,7 +137,7 @@ function Homepagemcrt() {
                   <br />
                   <span className="text-2xl font-bold">WITH MAGICCRAFT</span>
                 </h3>
-                <p className="hidden md:block">
+                <p className="my-4 hidden md:block">
                   {' '}
                   MagicCraft is a Play-to-Earn blockchain game featuring
                   fast-paced <br />
@@ -153,30 +165,31 @@ function Homepagemcrt() {
                   can pave the path to prosperity.
                 </p>
 
-                <div className="m-2  hidden h-px w-6/12 bg-gradient-to-r from-transparent via-[#556DE0] to-transparent md:block " />
-                <div className="m-4 block  h-px w-full bg-gradient-to-r  from-transparent via-[#556DE0] to-transparent md:hidden " />
+                <div className="m-4  h-px w-full bg-gradient-to-r  from-transparent via-[#556DE0] to-transparent " />
                 <div className="flex w-full justify-center lg:justify-start">
-                  <button onClick={registerHandler} className=" flex flex-wrap rounded-lg border-2 border-[#98FFF9] p-2 text-[#98FFF9] md:mx-0">
+                  <button
+                    onClick={registerHandler}
+                    className=" flex flex-wrap rounded-lg border-2 border-[#98FFF9] px-4 py-2 text-[#98FFF9] md:mx-0"
+                  >
                     <img
                       src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
                       alt="Button Image"
-                      className="mr-2 h-6 w-6"
+                      className="mr-2 mt-1 h-4 w-4"
                     />
                     Register Now
                   </button>
                 </div>
               </div>
             </div>
-            <div className="relative w-full rounded-lg lg:-ml-40 md:mb-10 md:w-[537.735px]  lg:w-4/12">
+            <div className="relative w-full rounded-lg md:mb-10 md:w-[537.735px] lg:-ml-[20em]  lg:w-4/12">
               <Swiper
-              id="1"
+                id="1"
                 className="w-full p-10 "
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={50}
                 slidesPerView={1}
                 onSwiper={(swiper) => console.log(swiper)}
                 navigation={{ prevEl: '.arrow-left', nextEl: '.arrow-right' }}
-
                 autoHeight={true}
                 pagination={{ clickable: true, dynamicBullets: true }}
               >
@@ -184,15 +197,15 @@ function Homepagemcrt() {
                   style={{ marginRight: '0 !important' }}
                   className="h-full w-10/12"
                 >
-                  <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl">
-                    <div className="testimonials-first rounded-3xl">
-                      <div className="testimonials-second p-4">
-                        <button className="border-ffffff z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
+                  <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid">
+                    <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
+                      <div className=" rounded-3xl  bg-gradient-to-b from-[#151149] to-[#190E29]  to-80% p-4">
+                        <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
                           <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Testimonials`}</div>
                         </button>
-                        <div className="bg-gainsboro relative z-[3] h-[21px] w-5" />
-                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)]">
-                          <div className="relative inline-block max-w-full flex-1 !bg-clip-text font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">
+                        <div className=" relative z-[3] h-[21px] w-5 " />
+                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch  ">
+                          <div className="relative inline-block max-w-full flex-1   font-medium ">
                             I'm holding my coins and will keep holding them for
                             a long time, so I have no fancy items to show here
                             (hopefully I'll show a new pc soon since mine is
@@ -202,6 +215,24 @@ function Homepagemcrt() {
                             game and I'm glad @Sinerv0 helped me with and nft,
                             always grateful. The game is a lot of fun too when
                             played with good friends 👏😄
+                          </div>
+                        </div>
+                        <div className="flex flex-row gap-10">
+                          <div className=" m-2 flex flex-wrap">
+                            <img src={frame1} className="mr-2" />
+                            83
+                          </div>
+                          <div className=" m-2 flex flex-wrap">
+                            <img src={frame2} className="mr-2" />
+                            61
+                          </div>
+                          <div className=" m-2 flex flex-wrap">
+                            <img src={frame3} className="mr-2" />
+                            2.0k
+                          </div>
+                          <div className=" m-2 flex flex-wrap">
+                            <img src={frame4} className="mr-2" />
+                            308.6k
                           </div>
                         </div>
                       </div>
@@ -232,25 +263,43 @@ function Homepagemcrt() {
                             played with good friends 👏😄
                           </div>
                         </div>
+                        <div className="flex flex-row gap-10">
+                          <div className=" m-2 flex flex-wrap">
+                            <img src={frame1} className="mr-2" />
+                            83
+                          </div>
+                          <div className=" m-2 flex flex-wrap">
+                            <img src={frame2} className="mr-2" />
+                            61
+                          </div>
+                          <div className=" m-2 flex flex-wrap">
+                            <img src={frame3} className="mr-2" />
+                            2.0k
+                          </div>
+                          <div className=" m-2 flex flex-wrap">
+                            <img src={frame4} className="mr-2" />
+                            308.6k
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </SwiperSlide>
-                 </Swiper>
-              <button className="arrow-left arrow absolute lg:-left-4  top-[50%] cursor-pointer  ">
+              </Swiper>
+              <button className="arrow-left arrow absolute top-[50%]  cursor-pointer lg:-left-4  ">
                 <img src={left} alt="MCRT Token" />
               </button>
-              <button className="arrow-right arrow absolute lg:-right-4 right-0 top-[50%] cursor-pointer ">
+              <button className="arrow-right arrow absolute right-0 top-[50%] cursor-pointer lg:-right-4 ">
                 <img src={right} alt="MCRT Token" />
               </button>
             </div>
           </section>
 
           {/*unlimited ways to earn */}
-          <section className=" relative hidden h-auto w-full bg-center md:block lg:h-full">
+          <section className=" relative hidden h-auto  bg-center md:block lg:h-full">
             <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp" />
-            <div className="absolute left-0 right-0 top-0 lg:m-4 flex h-full flex-col  text-center">
-              <h2 className="text-balance font-serif text-lg text-white lg:text-4xl">
+            <div className="absolute left-0 right-0 top-0 flex h-full flex-col text-center  lg:m-4">
+              <h2 className="mt-4 text-balance font-serif text-lg text-white lg:text-4xl">
                 UNLIMITED WAYS TO EARN MCRT
               </h2>
               <p className="text-xs text-white lg:mt-4   lg:text-xl">
@@ -266,13 +315,16 @@ function Homepagemcrt() {
                 MagicRunner and Magic8Ball today and start earning!
               </p>
               <Swiper
-               id="swiper-section-two"
-                className="w-5/12 pt-4 lg:mt-6 md:mt-0"
+                id="swiper-section-two"
+                className="w-5/12 pt-4 md:mt-0 lg:mt-6"
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={50}
                 slidesPerView={1}
                 onSwiper={(swiper) => console.log(swiper)}
-                navigation={{ prevEl: '.arrow-left-first', nextEl: '.arrow-right-first' }}
+                navigation={{
+                  prevEl: '.arrow-left-first',
+                  nextEl: '.arrow-right-first',
+                }}
                 autoHeight={true}
                 pagination={{ clickable: true, dynamicBullets: true }}
               >
@@ -284,8 +336,8 @@ function Homepagemcrt() {
                     <div className=" md:h-[120px] md:w-[150px] lg:h-full lg:w-full">
                       <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717353441/crouserl_first_1_pehlcf.webp" />
                     </div>
-                    <div className="crousel-first relative lg:w-[40em] flex h-full lg:-ml-10  flex-col items-start  ">
-                      <div className="backdrop-blur-custom   ml-4 mt-2 flex items-center justify-center rounded-[68.117px] bg-[rgba(10,9,23,0.60)] px-2  py-1 text-[#98FFF9] md:text-xs lg:text-lg lg:px-4 lg:py-2">
+                    <div className="crousel-first relative flex h-full flex-col items-start  lg:-ml-10 lg:w-[40em]  ">
+                      <div className="backdrop-blur-custom   ml-4 mt-2 flex items-center justify-center rounded-[68.117px] bg-[rgba(10,9,23,0.60)] px-2  py-1 text-[#98FFF9] md:text-xs lg:px-4 lg:py-2 lg:text-lg">
                         Patch update
                       </div>
                       <label className=" text-left">
@@ -293,16 +345,17 @@ function Homepagemcrt() {
                           MagicRunner
                         </span>
                         <p className="ml-5 p-2  text-xs lg:text-lg">
-                          Web3 games utilize the blockchain to<br/> provide players
-                          with a unique gaming<br/> experience that is markedly
-                          different <br/>from traditional games.
+                          Web3 games utilize the blockchain to
+                          <br /> provide players with a unique gaming
+                          <br /> experience that is markedly different <br />
+                          from traditional games.
                         </p>
                       </label>
-                      <button className=" lg:m-5 md:ml-5 mb-2 mt-1 p-0.5 lg:text-lg  md:text-xs  inline-flex flex-wrap rounded-lg border-2 border-[#98FFF9] text-[#98FFF9] md:px-1  lg:w-[260px] lg:pl-0.5 lg:py-0.5">
+                      <button className=" mb-2 mt-1 inline-flex flex-wrap rounded-lg border-2  border-[#98FFF9]  p-0.5 text-[#98FFF9] md:ml-5 md:px-1 md:text-xs lg:m-5 lg:w-[260px]  lg:py-0.5 lg:pl-0.5 lg:text-lg">
                         <img
                           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
                           alt="Button Image"
-                          className= "lg:mr-2 lg:h-6 lg:w-6 p-1 md:w-4 md:h-4 md:mr-1 "
+                          className="p-1 md:mr-1 md:h-4 md:w-4 lg:mr-2 lg:h-6 lg:w-6 "
                         />
                         Download MagicRunner Now
                       </button>
@@ -310,19 +363,19 @@ function Homepagemcrt() {
                   </div>
                 </SwiperSlide>
               </Swiper>
-              <button className="arrow-left-first arrow absolute  top-[50%] cursor-pointer ">
+              <button className="arrow-left-first arrow absolute top-[50%] cursor-pointer lg:left-[20em] ">
                 <img src={left} alt="MCRT Token" />
               </button>
-              <button className="arrow-right-first arrow absolute right-0 top-[50%] cursor-pointer">
+              <button className="arrow-right-first arrow absolute right-0 top-[50%] cursor-pointer lg:right-[20em]">
                 <img src={right} alt="MCRT Token" />
               </button>
             </div>
           </section>
 
           {/*JOIN THE ACTION */}
-          <section className=" bg-center p-4 lg:h-full ">
-            <div className="relative w-full rounded-4xl bg-[#0C0218]  ">
-              <div className="space-y-5 px-8 pb-10 pt-5 md:px-10">
+          <section className=" flex justify-center bg-center p-4 lg:-mt-[5em] lg:h-full ">
+            <div className="relative max-w-[80em]  rounded-4xl bg-[#0A0424] bg-opacity-70 ">
+              <div className="space-y-5   px-8 pb-10 pt-5 md:px-10">
                 <h5 className="mx-auto max-w-xl text-balance text-center font-serif text-base md:text-2xl">
                   JOIN THE ACTION ,EARN MCRT
                 </h5>
@@ -358,7 +411,7 @@ function Homepagemcrt() {
                     </div>
                   </div>
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
-                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% ">
+                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% ">
                       <h4 className="pl-2  pt-2  font-serif text-lg md:text-[22px]">
                         <span className="py-4 text-[#FFB649] lg:pl-6">
                           DOWNLOAD
@@ -384,7 +437,10 @@ function Homepagemcrt() {
                         </span>
                         <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
                         <span className=" px-3 py-4">
-                          <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp" className=" pb-4"></img>
+                          <img
+                            src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"
+                            className=" pb-4"
+                          ></img>
                           Get it on
                           <br />
                           <p className="text-sm font-bold lg:text-xl">
@@ -398,7 +454,7 @@ function Homepagemcrt() {
                     </div>
                   </div>
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
-                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  ">
+                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r  from-[#57186D] to-[#2A0D4E] to-90%  ">
                       <div className="flex flex-wrap">
                         <div>
                           <img
@@ -427,23 +483,40 @@ function Homepagemcrt() {
           </section>
 
           {/*roadmap */}
+
           <section className="relative">
             <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px]  rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
 
             <div className="space-y-20">
-              <div className="space-y-8">
+              <div className="space-y-5">
                 <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
                   Roadmap
                 </h2>
-                <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
-                  2024
-                </div>
               </div>
-
-              <div className="mx-auto grid snap-x snap-mandatory scroll-p-4 auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
-                {roadmapData.map((data) => (
-                  <RoadmapCard data={data} key={data.quarter} />
-                ))}
+              <div className="flex items-center justify-center">
+                <Tabs type="team">
+                  <Tab label="2022" className="w-[80vw]">
+                    <div className="mx-auto grid snap-x snap-mandatory scroll-p-4 auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
+                      {roadmapData.map((data) => (
+                        <RoadmapCard data={data} key={data.quarter} />
+                      ))}
+                    </div>
+                  </Tab>
+                  <Tab label="2023" className="w-[80vw]">
+                    <div className="mx-auto grid snap-x snap-mandatory scroll-p-4 auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
+                      {roadmapData.map((data) => (
+                        <RoadmapCard data={data} key={data.quarter} />
+                      ))}
+                    </div>
+                  </Tab>
+                  <Tab label="2024" className="w-[80vw]">
+                    <div className="mx-auto grid snap-x snap-mandatory scroll-p-4 auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
+                      {roadmapData.map((data) => (
+                        <RoadmapCard data={data} key={data.quarter} />
+                      ))}
+                    </div>
+                  </Tab>
+                </Tabs>
               </div>
             </div>
           </section>
@@ -533,13 +606,13 @@ function Homepagemcrt() {
               </h3>
               <div className="flex items-center justify-center">
                 <Tabs type="team">
-                  <Tab label="ALL" className='w-[80vw]'>
-                    <div className="space-y-4 lg:w-[60vw] w-[80vw]">
+                  <Tab label="ALL" className="w-[80vw]">
+                    <div className="w-[80vw] space-y-4 lg:w-[60vw]">
                       <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {ourteam.slice(0, visibleCount).map((item) => (
                           <div
                             key={item.name}
-                            className="flex flex-col items-center text-center justify-center bg-[#020418] md:h-80"
+                            className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
                           >
                             <img
                               className="mt-4  px-2 md:w-full"
@@ -582,13 +655,13 @@ function Homepagemcrt() {
                       )}
                     </div>
                   </Tab>
-                  <Tab label="Advisors and KOL's" className='w-[80vw]'>
-                    <div className="space-y-4 lg:w-[60vw] w-[80vw]">
+                  <Tab label="Advisors and KOL's" className="w-[80vw]">
+                    <div className="w-[80vw] space-y-4 lg:w-[60vw]">
                       <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {kolTeam.slice(0, visibleCount).map((item) => (
                           <div
                             key={item.name}
-                            className="flex flex-col items-center text-center justify-center bg-[#020418] md:h-80"
+                            className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
                           >
                             <img
                               className="mt-4 px-2 md:w-full"
@@ -631,13 +704,13 @@ function Homepagemcrt() {
                       )}
                     </div>
                   </Tab>
-                  <Tab label="Team" className='w-[80vw]'>
-                    <div className="space-y-4 lg:w-[60vw] w-[80vw]">
+                  <Tab label="Team" className="w-[80vw]">
+                    <div className="w-[80vw] space-y-4 lg:w-[60vw]">
                       <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {teamMembers.slice(0, visibleCount).map((item) => (
                           <div
                             key={item.name}
-                            className="flex flex-col items-center justify-center text-center bg-[#020418] md:h-80"
+                            className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
                           >
                             <img
                               className="mt-4 px-2 md:w-full"
@@ -680,7 +753,6 @@ function Homepagemcrt() {
                       )}
                     </div>
                   </Tab>
-                 
                 </Tabs>
               </div>
             </section>
