@@ -1,4 +1,5 @@
 import { Minus } from 'lucide-react'
+import {titleKeyMaper} from '@/lib/utils'
 
 type RoadmapCardType = {
   data: {
@@ -30,7 +31,7 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
               `}
               >
                 <div className="bg-black/20 px-7 py-5">
-                  <h3 className="text-center font-serif text-3xl">Features</h3>
+                  <h3 className="text-center font-serif text-3xl">{titleKeyMaper(i)}</h3>
                 </div>
                 <div className="space-y-2 px-5 pb-6">
                   {goal.features.map((feature, i) => {

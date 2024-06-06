@@ -29,6 +29,10 @@ function Homepagemagicrunner() {
       window.location.href = 'https://apps.apple.com/us/app/magicrunner-frigards-escape/id6479990522'
 
     } 
+    const playnowHandler = () => {
+      window.location.href = 'https://lobby.magiccraft.io/magic-runner'
+
+    } 
    return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -186,7 +190,7 @@ function Homepagemagicrunner() {
                   <div className="w-[13em] select-none snap-start  px-4">
                     <img
                       className="pointer-events-noneselect-none"
-                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magic-8-ball-card_wsmmg4.webp"
+                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_10_ouvuyg.webp"
                       alt="Magic8Ball game"
                     />
                   </div>
