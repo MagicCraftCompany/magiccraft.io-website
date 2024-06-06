@@ -72,19 +72,21 @@ export const roadmapData: RoadmapDataType = [
           'Daily Quests',
           'Game Type:Tournament',
           'Game Type:Battle Royale',
-          'NFT Rental System'
+          'NFT Rental System',
+          'NFT Map Integration',
         ],
       },
       {
         features: [
-          'Unveiling a comprehensive player reward system that ties all ecosystem games together, rewarding cross-game achievements.',
-          'Collaborating with fantasy writers to expand the MagicCraft universe.',
+          'New Map',
+          'New Character',
+          'First Arcane Character Skin NFT',
         ],
       },
       {
         features: [
-          'Renewing the season pass with added utilities in the MagicCraft Ecosystem',
-          'Creating a MagicCraft marketplace for official merchandise.',
+          'Free gift MCRT added to Service',
+          'Offer Wall added to service',
         ],
       },
     ],
@@ -96,18 +98,19 @@ export const roadmapData: RoadmapDataType = [
     goals: [
       {
         features: [
-          'Addition of 1-3 new games to the MagicCraft Ecosystem.',
-          'Developing a storyline expansion that introduces a new antagonist and questline.',
+          'Ladder updates for matchmaking',
+          'Begin developing clans',
+          'Begin developing clan wars',
         ],
       },
       {
         features: [
-          'Renewing the season pass with added utilities in the MagicCraft Ecosystem.',
+          'New Character',
         ],
       },
       {
         features: [
-          "Planning an end-of-year celebratory event with surprise announcements for the next year's roadmap.",
+          "Daily bonus added to service",
         ],
       },
     ],

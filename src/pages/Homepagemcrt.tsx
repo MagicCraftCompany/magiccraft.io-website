@@ -25,6 +25,7 @@ import frame1 from '@/assets/icons/Frame (1).svg'
 import frame2 from '@/assets/icons/Frame (2).svg'
 import frame3 from '@/assets/icons/Frame (3).svg'
 import frame4 from '@/assets/icons/Frame (4).svg'
+ 
 
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(8)
@@ -127,7 +128,7 @@ function Homepagemcrt() {
 
           {/*register now */}
 
-          <section className="relative flex flex-col items-center gap-4 bg-[#020418] bg-center lg:h-[400px] lg:flex-wrap  ">
+          <section className="relative flex flex-col items-center gap-4 bg-[#020418] bg-center lg:p-4 lg:h-[500px] lg:flex-wrap  ">
             <div className="flex rounded-lg lg:w-6/12 lg:pl-52  ">
               <div className=" flex flex-col items-center justify-center p-4 text-center md:p-4 md:text-left lg:mt-10 ">
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
@@ -181,7 +182,7 @@ function Homepagemcrt() {
                 </div>
               </div>
             </div>
-            <div className="relative w-full rounded-lg md:mb-10 md:w-[537.735px] lg:-ml-[20em]  lg:w-4/12">
+            <div className="relative w-full rounded-lg md:mb-10  lg:-ml-[10em]   lg:w-4/12">
               <Swiper
                 id="1"
                 className="w-full p-10 "
@@ -204,8 +205,8 @@ function Homepagemcrt() {
                           <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Testimonials`}</div>
                         </button>
                         <div className=" relative z-[3] h-[21px] w-5 " />
-                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch  ">
-                          <div className="relative inline-block max-w-full flex-1   font-medium ">
+                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
+                          <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
                             I'm holding my coins and will keep holding them for
                             a long time, so I have no fancy items to show here
                             (hopefully I'll show a new pc soon since mine is
@@ -243,15 +244,15 @@ function Homepagemcrt() {
                   style={{ marginRight: '0 !important' }}
                   className="h-full w-10/12"
                 >
-                  <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl">
-                    <div className="testimonials-first rounded-3xl">
-                      <div className="testimonials-second p-4">
-                        <button className="border-ffffff z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
+                  <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid">
+                    <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
+                      <div className=" rounded-3xl  bg-gradient-to-b from-[#151149] to-[#190E29]  to-80% p-4">
+                        <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
                           <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Testimonials`}</div>
                         </button>
-                        <div className="bg-gainsboro relative z-[3] h-[21px] w-5" />
-                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)]">
-                          <div className="relative inline-block max-w-full flex-1 !bg-clip-text font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">
+                        <div className=" relative z-[3] h-[21px] w-5 " />
+                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
+                          <div className="relative inline-block max-w-full flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
                             I'm holding my coins and will keep holding them for
                             a long time, so I have no fancy items to show here
                             (hopefully I'll show a new pc soon since mine is

@@ -185,14 +185,14 @@ function Homepagegames() {
                 <div className="w-56 select-none snap-start ">
                   <img
                     className="pointer-events-noneselect-none"
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magic-8-ball-card_wsmmg4.webp"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_10_ouvuyg.webp"
                     alt="Magic8Ball game"
                   />
                 </div>
                 <div className="w-56 select-none snap-start">
                   <img
                     className="pointer-events-none select-none"
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717330559/magic-runner-card_rl7lcj.webp"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_9_vqeywh.webp"
                     alt="MagicRunner game"
                   />
                 </div>
