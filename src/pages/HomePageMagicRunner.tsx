@@ -18,7 +18,18 @@ import diamond from '@/assets/icons/Group.svg'
 import watch from '@/assets/icons/Frame.svg'
 
 function Homepagemagicrunner() {
-  return (
+  const joinMissionHandler = () => {
+    window.location.href = 'https://lobby.magiccraft.io/magic-runner'
+  } 
+  
+    const playonandroidHandler = () => {
+      window.location.href = 'https://play.google.com/store/apps/details?id=com.MagicCraftInc.MagicRunner'
+    } 
+    const playonappleHandler = () => {
+      window.location.href = 'https://apps.apple.com/us/app/magicrunner-frigards-escape/id6479990522'
+
+    } 
+   return (
     <>
       <div className="min-h-dvh w-full text-white">
         <Header />
@@ -69,7 +80,7 @@ function Homepagemagicrunner() {
                 </h4>
                 <div className="flex items-center justify-center md:flex-wrap">
                   <span className=" p-2 md:p-5">
-                    <img src={pc}></img>
+                    <img src={pc} ></img>
                     Download
                     <br />
                     <p className=" text-lg font-bold md:text-xl">PC</p>
@@ -78,7 +89,7 @@ function Homepagemagicrunner() {
                   <div className="block h-10  w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
 
                   <span className="p-2  md:p-5">
-                    <img src={AppleIcon}></img>
+                    <img src={AppleIcon} onClick={playonappleHandler}></img>
                     Get it on <br />
                     <p className=" text-lg font-bold md:text-xl">App Store</p>
                   </span>
@@ -93,7 +104,7 @@ function Homepagemagicrunner() {
                   <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
 
                   <span className=" p-2  md:p-5">
-                    <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
+                    <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp" onClick={playonandroidHandler}></img>
                     Get it on
                     <br />
                     <p className="text-xl font-bold"> Google play</p>
@@ -109,7 +120,7 @@ function Homepagemagicrunner() {
                   </h4>
                   <div className="mt-4 inline-flex gap-[1.875em] ">
                     <span className=" font-xs   font-normal not-italic leading-normal">
-                      <img src={steam} className=" shrink-0"></img>
+                      <img src={steam} className=" shrink-0 mb-2"></img>
                       <p>Get it on</p>
 
                       <p className="font-sm  font-bold leading-normal">Steam</p>
@@ -117,7 +128,7 @@ function Homepagemagicrunner() {
 
                     <div className="mt-5 block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
                     <span className=" font-xs  font-normal not-italic leading-normal">
-                      <img src={AppleIcon} className="shrink-0"></img>
+                      <img src={AppleIcon} className="shrink-0 mb-2" onClick={playonappleHandler}></img>
                       Get it on
                       <br />
                       <p className="font-sm  font-bold leading-normal">
@@ -128,7 +139,8 @@ function Homepagemagicrunner() {
                     <span className=" font-xs   font-normal not-italic leading-normal">
                       <img
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"
-                        className="shrink-0"
+                        className="shrink-0 mb-2"
+                        onClick={playonandroidHandler}
                       ></img>
                       Get it on
                       <br />
@@ -175,7 +187,7 @@ function Homepagemagicrunner() {
                     <img
                       className="pointer-events-noneselect-none"
                       src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magic-8-ball-card_wsmmg4.webp"
-                      alt="Magic 8 Ball game"
+                      alt="Magic8Ball game"
                     />
                   </div>
                 </div>
@@ -606,7 +618,7 @@ function Homepagemagicrunner() {
               </div>
             </div>
             <div className="m-6 flex items-center justify-center lg:m-10">
-              <button className="rounded-lg bg-[#98FFF9] p-2  text-base text-[#0E0E2E] md:w-[12.625em] ">
+              <button className="rounded-lg bg-[#98FFF9] p-2  text-base text-[#0E0E2E] md:w-[12.625em] " onClick={joinMissionHandler}>
                 {' '}
                 Join a Mission
               </button>
@@ -634,10 +646,7 @@ function Homepagemagicrunner() {
 
                 <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#7761AD] to-transparent " />
                 <p className="flex flex-wrap p-2 text-center">
-                  Available for all players to open once <br />
-                  daily at no cost, encouraging daily <br />
-                  engagement.
-                </p>
+                Novice Chests are available for all players to open up to five times daily, encouraging repeated engagement. These chests offer the player consistent incentives and promote regular play, promoting player retention.                </p>
               </div>
               <div className="mb-4 flex  w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[22em]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
@@ -650,15 +659,10 @@ function Homepagemagicrunner() {
 
                 <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#7761AD] to-transparent " />
                 <p className="flex flex-wrap p-2 text-center">
-                   Including Masterful, Mythic, Eternal,
-                  <br />
-                  and Legendary tiers, these chests <br />
-                  necessitate gems for unlocking. Gems <br />
-                  represent a versatile in-game currency, <br />
-                  obtainable either through direct <br />
-                  purchase or as rewards from previously <br />
-                  unlocked chests.
-                </p>
+                 
+                 
+
+                Premium Chests include daily rewards with Masterful, Mythic, Eternal, and Legendary tiers, offering increasingly valuable items. This system incentivizes regular play, enhancing player engagement and satisfaction.                </p>
               </div>
               <div className="mb-4 flex w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[20em]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
@@ -669,18 +673,20 @@ function Homepagemagicrunner() {
                 <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#7761AD] to-transparent " />
                 <p className="flex flex-wrap p-4 text-center">
                   To maintain a dynamic and engaging
-                  <br />
-                  gameplay experience, all chests <br />
+                  
+                  gameplay experience, all chests 
                   earned must be unlocked on the same
-                  <br />
-                  day of acquisition; otherwise, they <br />
-                  expire at day's end, adding a strategic <br />
+                  
+                  day of acquisition; otherwise, they 
+                  expire at day's end, adding a strategic 
                   element to resource management.
                 </p>
               </div>
             </div>
             <div className="m-6 flex items-center justify-center">
-              <button className="rounded-lg bg-[#98FFF9] p-2  text-[#0E0E2E] md:w-[12.625em] md:text-base ">
+              <button 
+              className="rounded-lg bg-[#98FFF9] p-2  text-[#0E0E2E] md:w-[12.625em] md:text-base" 
+              onClick={joinMissionHandler}>
                 {' '}
                 Join a Mission
               </button>

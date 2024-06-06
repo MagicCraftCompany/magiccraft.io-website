@@ -132,7 +132,7 @@ function Homepagegames() {
                     economy.
                   </h4>
                   <div className="flex flex-wrap items-center gap-[10px]">
-                    {['MagicCraft', 'Magic 8Ball', 'Magic Runner'].map(
+                    {['MagicCraft', 'Magic8Ball', 'MagicRunner'].map(
                       (val) => {
                         return (
                           <div
@@ -186,14 +186,14 @@ function Homepagegames() {
                   <img
                     className="pointer-events-noneselect-none"
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magic-8-ball-card_wsmmg4.webp"
-                    alt="Magic 8 Ball game"
+                    alt="Magic8Ball game"
                   />
                 </div>
                 <div className="w-56 select-none snap-start">
                   <img
                     className="pointer-events-none select-none"
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717330559/magic-runner-card_rl7lcj.webp"
-                    alt="Magic Runner game"
+                    alt="MagicRunner game"
                   />
                 </div>
               </div>
