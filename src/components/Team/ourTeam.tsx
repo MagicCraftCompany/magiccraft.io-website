@@ -14,15 +14,15 @@ export const ourteam = [
     category: 'KOL',
     socialicons: [
       {
-        icons: <FaYoutube />,
+        icons: <FaYoutube style={{ color: 'grey' }} />,
         socialmedia: 'https://www.youtube.com/@JamesCryptoGuru',
       },
       {
-        icons: <FaXTwitter />,
+        icons: <FaXTwitter style={{ color: 'grey' }} />,
         socialmedia: 'https://x.com/jamyies',
       },
       {
-        icons: <FaInstagram />,
+        icons: <FaInstagram style={{ color: 'grey' }} />,
         socialmedia:
           'https://www.instagram.com/jamescryptog/?igsh=MWVicDRuczFibW03Mw%3D%3Dhttps://www.instagram.com/jamescryptog/?igsh=MWVicDRuczFibW03Mw%3D%3D',
       },
@@ -35,11 +35,11 @@ export const ourteam = [
     category: 'KOL',
     socialicons: [
       {
-        icons: <FaYoutube />,
+        icons: <FaYoutube style={{ color: 'grey' }} />,
         socialmedia: 'https://www.youtube.com/@davincij15',
       },
       {
-        icons: <FaXTwitter />,
+        icons: <FaXTwitter style={{ color: 'grey' }} />,
         socialmedia: 'https://twitter.com/Davincij15',
       },
     ],
@@ -51,11 +51,11 @@ export const ourteam = [
     category: 'KOL',
     socialicons: [
       {
-        icons: <FaYoutube />,
+        icons: <FaYoutube style={{ color: 'grey' }} />,
         socialmedia: 'https://www.youtube.com/@TheMoon',
       },
       {
-        icons: <FaXTwitter />,
+        icons: <FaXTwitter style={{ color: 'grey' }} />,
         socialmedia: 'https://twitter.com/TheMoonCarl',
       },
     ],
@@ -67,15 +67,15 @@ export const ourteam = [
     category: 'KOL',
     socialicons: [
       {
-        icons: <FaYoutube />,
+        icons: <FaYoutube style={{ color: 'grey' }} />,
         socialmedia: 'https://www.youtube.com/@MMCryptoTube',
       },
       {
-        icons: <FaXTwitter />,
+        icons: <FaXTwitter style={{ color: 'grey' }} />,
         socialmedia: 'https://twitter.com/MMCrypto',
       },
       {
-        icons: <FaInstagram />,
+        icons: <FaInstagram style={{ color: 'grey' }} />,
         socialmedia: 'https://www.instagram.com/chrismmcrypto/?hl=en',
       },
     ],
@@ -87,7 +87,7 @@ export const ourteam = [
     category: 'KOL',
     socialicons: [
       {
-        icons: <FaYoutube />,
+        icons: <FaYoutube style={{ color: 'grey' }} />,
         socialmedia: 'https://www.youtube.com/@slavik3468',
       },
     ],
@@ -99,11 +99,11 @@ export const ourteam = [
     category: 'KOL',
     socialicons: [
       {
-        icons: <FaYoutube />,
+        icons: <FaYoutube style={{ color: 'grey' }} />,
         socialmedia: 'https://www.youtube.com/@cripto-avances',
       },
       {
-        icons: <FaTwitter />,
+        icons: <FaTwitter style={{ color: 'grey' }} />,
         socialmedia: 'https://twitter.com/CriptoAvances',
       },
     ],
@@ -115,11 +115,11 @@ export const ourteam = [
     category: 'KOL',
     socialicons: [
       {
-        icons: <FaYoutube />,
+        icons: <FaYoutube style={{ color: 'grey' }} />,
         socialmedia: 'https://www.youtube.com/@tunncaycrypto1889/featured',
       },
       {
-        icons: <FaXTwitter />,
+        icons: <FaXTwitter style={{ color: 'grey' }} />,
         socialmedia: 'https://twitter.com/tuNNCayCrypto',
       },
     ],
@@ -131,7 +131,7 @@ export const ourteam = [
     category: 'KOL',
     socialicons: [
       {
-        icons: <FaTwitter />,
+        icons: <FaTwitter style={{ color: 'grey' }} />,
         socialmedia: 'https://twitter.com/Hristo_Piyankov',
       },
     ],
@@ -143,11 +143,11 @@ export const ourteam = [
     category: 'KOL',
     socialicons: [
       {
-        icons: <FaYoutube />,
+        icons: <FaYoutube style={{ color: 'grey' }} />,
         socialmedia: 'https://www.youtube.com/@DustyBC',
       },
       {
-        icons: <FaTwitter />,
+        icons: <FaTwitter style={{ color: 'grey' }} />,
         socialmedia: 'https://twitter.com/TheDustyBC',
       },
     ],
@@ -159,7 +159,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/muqsit-ali-591911183/',
       },
     ],
@@ -171,7 +171,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://linkedin.com/in/mateuszgorecki8/',
       },
     ],
@@ -183,7 +183,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/harsh-raj-2b8709129/',
       },
     ],
@@ -195,7 +195,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/itsharshjoshi/',
       },
     ],
@@ -207,7 +207,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia:
           'https://www.magiccraft.io/www.linkedin.com/in/romain-ghibaudo',
       },
@@ -220,7 +220,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://linkedin.com/in/alessandro-huaroto-997b12195/',
       },
     ],
@@ -232,7 +232,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://lonkedin.com/in/dariia-sikina-755bb71aa/',
       },
     ],
@@ -244,7 +244,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/chaytan',
       },
     ],
@@ -257,7 +257,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'http://www.linkedin.com/in/mário-caldas-207929166',
       },
     ],
@@ -269,7 +269,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/admir-aganovic-b630b5228/',
       },
     ],
@@ -281,7 +281,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/trk90/',
       },
     ],
@@ -293,7 +293,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/akhil-iyengar-234593134/',
       },
     ],
@@ -305,7 +305,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/alexander-lyulin/',
       },
     ],
@@ -317,7 +317,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/gladshark1/',
       },
     ],
@@ -329,7 +329,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/oleh-chulanov/',
       },
     ],
@@ -341,7 +341,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/rainier-raymundo-472179239/',
       },
     ],
@@ -353,7 +353,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/zander-garcia-070065244/',
       },
     ],
@@ -365,7 +365,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/rasadul-islam-264b59217',
       },
     ],
@@ -378,7 +378,7 @@ export const ourteam = [
     category: 'Team',
     socialicons: [
       {
-        icons: <FaLinkedin />,
+        icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia: 'https://www.linkedin.com/in/kenneth-conjurado-044215217/',
       },
     ],

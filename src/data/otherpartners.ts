@@ -28,8 +28,10 @@ import castrum from '@/assets/icons/castrum.svg'
  
  export const otherpartners = [
     {
-      name: 'UNIX',
+      name: 'UNIX Gaming',
       icon: unix,
+      // link:'unixgaming.org',
+      // type:'Gaming Ecosysystem'
     },
     {
       name: 'GLIP.GG',

@@ -87,7 +87,7 @@ function Homepagemcrt() {
                         <p className=" text-lg font-bold md:text-xl">PC</p>
                       </span>
 
-                      <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
+                      <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
                       <span className="p-2  md:p-5">
                         <img src={AppleIcon}></img>
@@ -96,7 +96,7 @@ function Homepagemcrt() {
                           App Store
                         </p>
                       </span>
-                      <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
+                      <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
                       <span className=" p-2  md:p-5">
                         <img src={steam}></img>
@@ -104,7 +104,7 @@ function Homepagemcrt() {
                         <br />
                         <p className="text-xl font-bold">Steam</p>
                       </span>
-                      <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
+                      <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
                       <span className=" p-2  md:p-5">
                         <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
@@ -394,7 +394,7 @@ function Homepagemcrt() {
                           <img
                             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173182/contact_ylmg83.webp"
                             style={{ width: '150px', height: '150px' }}
-                            className="p-4"
+                            className="p-4 mt-1"
                             alt="Directory"
                           />
                         </div>
@@ -427,7 +427,7 @@ function Homepagemcrt() {
                           <p className="text-sm font-bold lg:text-xl">Steam</p>
                         </span>
 
-                        <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
+                        <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
                         <span className="px-3 lg:py-4">
                           <img src={AppleIcon} className=" pb-4"></img>
                           Get it on
@@ -436,7 +436,7 @@ function Homepagemcrt() {
                             App store
                           </p>
                         </span>
-                        <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
+                        <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
                         <span className=" px-3 py-4">
                           <img
                             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"
@@ -460,7 +460,7 @@ function Homepagemcrt() {
                         <div>
                           <img
                             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173149/Group_7072_cgsuti.webp"
-                            className="h-[120px] w-[120px] p-4 lg:h-[150px] lg:w-[150px]"
+                            className="h-[120px] w-[120px] p-4 mt-4"
                             alt="Directory"
                           />
                         </div>
@@ -485,7 +485,7 @@ function Homepagemcrt() {
 
           {/*roadmap */}
 
-          <section className="relative">
+          {/* <section className="relative">
             <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px]  rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
 
             <div className="space-y-20">
@@ -520,12 +520,12 @@ function Homepagemcrt() {
                 </Tabs>
               </div>
             </div>
-          </section>
+          </section> */}
           {/*roadmap */}
 
           {/*connect */}
-          <section className="relative mx-auto my-10 flex w-11/12 max-w-screen-xl flex-wrap items-center space-y-10 md:space-y-20 lg:space-y-0 ">
-            <div className=" relative rounded-lg bg-[#98FFF9] bg-opacity-50 p-4 lg:h-[280px] lg:w-7/12 ">
+          <section className="relative mx-auto my-10 flex w-11/12 max-w-screen-xl flex-wrap justify-center items-center space-y-10 md:space-y-20 lg:space-y-0 ">
+            <div className=" relative rounded-2xl border-solid border-[2px] bg-gradient-to-r from-[#173B52] to-[#557e91] to-80% bg-opacity-70 p-4 lg:h-[280px] lg:w-5/12 ">
               <img
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/blahbla_wvvyzg.webp"
                 className="absolute -top-10 right-0     block h-[400px] rounded-lg object-cover  md:hidden "
@@ -534,7 +534,7 @@ function Homepagemcrt() {
               <img
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/character_imeoab.webp"
                 alt="character"
-                className="  absolute  inset-0 -top-20  left-[300px] hidden rounded-lg  object-cover p-10 md:block  md:w-7/12 lg:w-[350px]  "
+                className="  absolute  inset-0 -top-20  left-[200px] hidden rounded-lg  object-cover p-10 md:block  md:w-7/12 lg:w-[350px]  "
               />
               <div className=" p-4 text-left ">
                 <h3 className=" mt-40 bg-gradient-to-b from-white to-white/75  bg-clip-text font-serif text-4xl text-transparent drop-shadow-xl md:mt-10 md:text-5xl  lg:mt-0 lg:text-3xl ">
@@ -573,7 +573,7 @@ function Homepagemcrt() {
               </div>
             </div>
 
-            <div className=" hidden w-5/12  rounded-lg bg-black px-10 pt-10  lg:block">
+            <div className=" hidden w-5/12  rounded-2xl bg-[#08061C] bg-opacity-70 px-10 pt-10  lg:block">
               <p>
                 Step into a world where gamers thrive together! Join our Discord
                 and Telegram channels to connect with players worldwide, share
@@ -588,7 +588,7 @@ function Homepagemcrt() {
                   <p className="text-2xl font-bold"> Discord</p>
                 </span>
 
-                <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                <div className="block h-[4em] w-[2px] bg-gradient-to-t from-transparent via-[#2F3A80] mx-4 to-transparent " />
                 <img src={AppleIcon} className=" pl-4"></img>
                 <span className=" p-4">
                   Join MagicCraft's
@@ -626,14 +626,14 @@ function Homepagemcrt() {
                                 <p className="mt-1 text-[#98FFF9]">
                                   {item.work}
                                 </p>
-                                <div className="mt-2 flex">
+                                <div className="mt-2 flex ">
                                   {item.socialicons.map((social, index) => (
                                     <a
                                       key={index}
                                       href={social.socialmedia}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="mx-2 text-[#FFFFFF]"
+                                      className="mx-2 text-[#FFFFFF] bg-opacity-70"
                                     >
                                       {social.icons}
                                     </a>
@@ -764,7 +764,7 @@ function Homepagemcrt() {
           <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 md:space-y-20">
             <div className="space-y-8">
               <h3 className="mt-8 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text pt-4 text-center font-serif text-4xl text-transparent drop-shadow-xl">
-                Join them
+                $MCRT lISTED ON
               </h3>
               <div className="grid grid-cols-3 gap-5 md:grid-cols-4">
                 {partners.map((item) => {
@@ -774,6 +774,8 @@ function Homepagemcrt() {
                       className="grid h-20 place-items-center bg-[#161E4A]   md:h-36"
                     >
                       <img className="px-2 " src={item.icon} alt={item.name} />
+                      
+
                     </div>
                   )
                 })}
@@ -794,6 +796,13 @@ function Homepagemcrt() {
                       className="grid h-20 place-items-center bg-[#000000]  md:h-36"
                     >
                       <img className="px-2 " src={item.icon} alt={item.name} />
+                      {/* <div className='flex flex-row'>
+                      <div className='w-1/2'>
+                      <p className="text-[#fff] flex text-start text-xs font-bold leading-tight mr-[18em]  ">{item.name}</p>
+                   {item.link && <p className="text-[#fff] text-left mr-[15em]"> {item.link}</p>}
+                   </div>
+                   {item.type && <p className="text-white w-1/2">{item.type}</p>}
+                    </div> */}
                     </div>
                   )
                 })}
