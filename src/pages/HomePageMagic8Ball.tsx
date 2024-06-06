@@ -55,7 +55,7 @@ function Homepagemagic8ball() {
                 </span>
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text font-serif text-2xl text-transparent drop-shadow-xl">
                   <span className="text-4xl font-bold lg:p-5 lg:text-6xl">
-                    MAGIC 8BALL
+                    MAGIC8BALL
                   </span>
                   <br />
                   <span className="text-lg font-bold  lg:p-5">
@@ -198,7 +198,7 @@ function Homepagemagic8ball() {
                     <img
                       className="pointer-events-noneselect-none"
                       src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magic-8-ball-card_wsmmg4.webp"
-                      alt="Magic 8 Ball game"
+                      alt="Magic8Ball game"
                     />
                   </div>
                 </div>
@@ -273,7 +273,7 @@ function Homepagemagic8ball() {
                       <br className="hidden lg:block" />
                       believed to carry the wisdom and power of the oracles{' '}
                       <br className="hidden lg:block" />
-                      themselves. Thus, in Magic 8Ball, every match is a step{' '}
+                      themselves. Thus, in Magic8Ball, every match is a step{' '}
                       <br className="hidden lg:block" />
                       closer to mastering not just the game, but also the
                       <br className="hidden lg:block" />

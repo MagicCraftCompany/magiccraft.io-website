@@ -125,9 +125,9 @@ const moreLinks = [
 
 const Footer = () => {
   return (
-    <footer className="text-primary relative z-10 bg-[#03082F] py-10">
+    <footer className="text-primary relative z-10 bg-[#03082F] py-10 lg:ml-[12em]">
       <div className="mx-auto flex w-11/12 max-w-[1650px] flex-col-reverse justify-between gap-10 lg:flex-row">
-        <button className='hidden lg:block'>
+        {/* <button className='hidden lg:block'>
           <img
             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173152/Go_to_top_of_page_fgfqwp.webp"
             className=" absolute left-[4em]   cursor-pointer"
@@ -138,7 +138,7 @@ const Footer = () => {
             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173193/Chat_bot_button_a3hguu.webp"
             className="absolute right-[7em] -mt-10    cursor-pointer"
           />
-        </button>
+        </button> */}
         <div className="lg:ml-10 flex w-full flex-col lg:w-1/2 ">
           <div>
             <img
