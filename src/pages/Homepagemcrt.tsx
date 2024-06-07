@@ -485,7 +485,7 @@ function Homepagemcrt() {
 
           {/*roadmap */}
 
-          {/* <section className="relative">
+           <section className="relative">
             <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px]  rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
 
             <div className="space-y-20">
@@ -520,7 +520,7 @@ function Homepagemcrt() {
                 </Tabs>
               </div>
             </div>
-          </section> */}
+          </section> 
           {/*roadmap */}
 
           {/*connect */}
