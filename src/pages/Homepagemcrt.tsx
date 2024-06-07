@@ -496,21 +496,21 @@ function Homepagemcrt() {
               <div className="flex items-center justify-center ">
                 <Tabs type="team">
                   <Tab label="2022" className="w-full max-w-[80vw]  ">
-                    <div className="grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl">
+                    <div className="grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl lg:overflow-x-hidden">
                       {roadmapData.map((data) => (
                         <RoadmapCard data={data} key={data.quarter} />
                       ))}
                     </div>
                   </Tab>
                   <Tab label="2023" className="w-full max-w-[80vw]">
-                    <div className=" grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col  gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl">
+                    <div className=" grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col  gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl lg:overflow-x-hidden">
                       {roadmapData.map((data) => (
                         <RoadmapCard data={data} key={data.quarter} />
                       ))}
                     </div>
                   </Tab>
                   <Tab label="2024" className="w-full max-w-[80vw]">
-                    <div className=" grid max-w-[100vw] snap-x  snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl">
+                    <div className=" grid max-w-[100vw] snap-x  snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl  lg:overflow-x-hidden">
                       {roadmapData.map((data) => (
                         <RoadmapCard data={data} key={data.quarter} />
                       ))}
@@ -786,27 +786,40 @@ function Homepagemcrt() {
               <h3 className="m-4  text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl ">
                 OUR PARTNERS
               </h3>
-              <div className="grid grid-cols-3 gap-5 md:grid-cols-4">
+              <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
                 {otherpartners.map((item) => {
-                  return (
+                 const link = item.link.includes('http') ? item.link : `https://${item.link}`;
+                 return (
                     <div
                       key={item.name}
-                      className="grid h-20 place-items-center bg-[#000000]  md:h-36"
+                      className="flex h-20 flex-col items-center bg-[#000000] md:h-36 md:justify-center"
                     >
-                      <img className="px-2 " src={item.icon} alt={item.name} />
-                      <div className="flex flex-row gap-[4em]   justify-between ">
-                        <div className="">
-                          <div className="text-xs font-bold leading-tight text-[#fff]   ">
+                      <img
+                        className="h-16 w-16 px-2 md:h-auto md:w-auto "
+                        src={item.icon}
+                        alt={item.name}
+                      />
+                      <div className="  flex flex-col items-center md:mt-4 md:flex-row md:justify-between md:gap-5">
+                        <div className="text-center md:items-start md:flex-col md:flex md:mr-[2em]">
+                          <div className="text-xs font-bold leading-tight text-[#fff] md:text-sm">
                             {item.name}
                           </div>
                           {item.link && (
-                            <div className="bg-gradient-to-b from-white to-gray-500 bg-clip-text text-[8.583px] font-bold leading-normal text-transparent underline">
-                              {item.link}
-                            </div>
-                          )}
+              <a 
+                href={link} 
+                className="bg-gradient-to-b from-[#fff] to-[#808080] to-80% bg-clip-text text-[8.583px] font-bold leading-normal text-transparent underline md:text-xs"
+                target="_blank"
+                rel="noopener noreferrer"
+              
+              >
+                {item.link}
+              </a>
+            )}
                         </div>
                         {item.type && (
-                          <div className="text-[#7BCEB0]  ">{item.type}</div>
+                          <div className="mt-1 text-xs text-[#7BCEB0] md:mt-0 md:text-sm md:ml-[2em]">
+                            {item.type}
+                          </div>
                         )}
                       </div>
                     </div>
