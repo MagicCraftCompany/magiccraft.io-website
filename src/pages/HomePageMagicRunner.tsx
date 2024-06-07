@@ -69,7 +69,7 @@ function Homepagemagicrunner() {
                 </p>
 
                 <div className=" m-2 hidden h-px  w-5/12 bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:block" />
-                <button className=" m-5 hidden rounded-lg bg-[#98FFF9] p-2 text-black lg:block lg:w-[6.125em]">
+                <button className=" m-5 hidden rounded-lg bg-[#98FFF9] p-2 text-black lg:block lg:w-[6.125em]" onClick={playnowHandler }>
                   Play Now
                 </button>
               </div>
@@ -287,7 +287,7 @@ function Homepagemagicrunner() {
                       support his quest for survival and justice.
                     </p>
 
-                    <button className="m-5 rounded-lg  border-2 border-solid border-[#98FFF9] p-2 text-[#98FFF9] ">
+                    <button className="m-5 rounded-lg  border-2 border-solid border-[#98FFF9] p-2 text-[#98FFF9] "  onClick={playnowHandler }>
                       Play Now
                     </button>
                   </div>
