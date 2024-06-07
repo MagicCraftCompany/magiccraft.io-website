@@ -494,24 +494,23 @@ function Homepagemcrt() {
                 </h2>
               </div>
               <div className="flex items-center justify-center ">
-                <Tabs type="team" >
-                  
+                <Tabs type="team">
                   <Tab label="2022" className="w-full max-w-[80vw]  ">
-                    <div className="grid snap-x snap-mandatory overflow-x-scroll max-w-[100vw] auto-cols-auto grid-flow-col gap-8  px-4 lg:max-w-screen-xl">
+                    <div className="grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl">
                       {roadmapData.map((data) => (
                         <RoadmapCard data={data} key={data.quarter} />
                       ))}
                     </div>
                   </Tab>
                   <Tab label="2023" className="w-full max-w-[80vw]">
-                    <div className=" grid snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8  overflow-x-scroll max-w-[100vw]  px-4 lg:max-w-screen-xl">
+                    <div className=" grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col  gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl">
                       {roadmapData.map((data) => (
                         <RoadmapCard data={data} key={data.quarter} />
                       ))}
                     </div>
                   </Tab>
                   <Tab label="2024" className="w-full max-w-[80vw]">
-                    <div className=" grid snap-x snap-mandatory  auto-cols-auto grid-flow-col gap-8 overflow-x-scroll max-w-[100vw]  px-4 lg:max-w-screen-xl">
+                    <div className=" grid max-w-[100vw] snap-x  snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl">
                       {roadmapData.map((data) => (
                         <RoadmapCard data={data} key={data.quarter} />
                       ))}
@@ -795,13 +794,21 @@ function Homepagemcrt() {
                       className="grid h-20 place-items-center bg-[#000000]  md:h-36"
                     >
                       <img className="px-2 " src={item.icon} alt={item.name} />
-                      <div className='flex flex-row gap-8 '>
-                      <div className=''>
-                      <div className="text-[#fff]  text-start text-xs font-bold leading-tight   ">{item.name}</div>
-                   {item.link && <div className="text-[#fff] text-left"> {item.link}</div>}
-                   </div>
-                   {item.type && <div className="text-white ">{item.type}</div>}
-                    </div>
+                      <div className="flex flex-row gap-[4em]   justify-between ">
+                        <div className="">
+                          <div className="text-xs font-bold leading-tight text-[#fff]   ">
+                            {item.name}
+                          </div>
+                          {item.link && (
+                            <div className="bg-gradient-to-b from-white to-gray-500 bg-clip-text text-[8.583px] font-bold leading-normal text-transparent underline">
+                              {item.link}
+                            </div>
+                          )}
+                        </div>
+                        {item.type && (
+                          <div className="text-[#7BCEB0]  ">{item.type}</div>
+                        )}
+                      </div>
                     </div>
                   )
                 })}
