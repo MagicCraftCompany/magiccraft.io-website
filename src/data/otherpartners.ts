@@ -30,8 +30,8 @@ import castrum from '@/assets/icons/castrum.svg'
     {
       name: 'UNIX Gaming',
       icon: unix,
-      // link:'unixgaming.org',
-      // type:'Gaming Ecosysystem'
+      link:'unixgaming.org',
+      type:'Gaming Ecosysystem'
     },
     {
       name: 'GLIP.GG',
