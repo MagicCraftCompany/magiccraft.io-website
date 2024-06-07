@@ -25,7 +25,6 @@ import frame1 from '@/assets/icons/Frame (1).svg'
 import frame2 from '@/assets/icons/Frame (2).svg'
 import frame3 from '@/assets/icons/Frame (3).svg'
 import frame4 from '@/assets/icons/Frame (4).svg'
- 
 
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(8)
@@ -128,7 +127,7 @@ function Homepagemcrt() {
 
           {/*register now */}
 
-          <section className="relative flex flex-col items-center gap-4 bg-[#020418] bg-center lg:p-4 lg:h-[500px] lg:flex-wrap  ">
+          <section className="relative flex flex-col items-center gap-4 bg-[#020418] bg-center lg:h-[500px] lg:flex-wrap lg:p-4  ">
             <div className="flex rounded-lg lg:w-6/12 lg:pl-52  ">
               <div className=" flex flex-col items-center justify-center p-4 text-center md:p-4 md:text-left lg:mt-10 ">
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
@@ -394,7 +393,7 @@ function Homepagemcrt() {
                           <img
                             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173182/contact_ylmg83.webp"
                             style={{ width: '150px', height: '150px' }}
-                            className="p-4 mt-1"
+                            className="mt-1 p-4"
                             alt="Directory"
                           />
                         </div>
@@ -460,7 +459,7 @@ function Homepagemcrt() {
                         <div>
                           <img
                             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173149/Group_7072_cgsuti.webp"
-                            className="h-[120px] w-[120px] p-4 mt-4"
+                            className="mt-4 h-[120px] w-[120px] p-4"
                             alt="Directory"
                           />
                         </div>
@@ -485,33 +484,34 @@ function Homepagemcrt() {
 
           {/*roadmap */}
 
-           <section className="relative">
-            <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px]  rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
+          <section className="relative">
+            <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px] rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
 
             <div className="space-y-20">
-              <div className="space-y-5">
+              <div className="space-y-8">
                 <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
                   Roadmap
                 </h2>
               </div>
-              <div className="flex items-center justify-center">
-                <Tabs type="team">
-                  <Tab label="2022" className="w-[80vw]">
-                    <div className="mx-auto grid snap-x snap-mandatory scroll-p-4 auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
+              <div className="flex items-center justify-center ">
+                <Tabs type="team" >
+                  
+                  <Tab label="2022" className="w-full max-w-[80vw]  ">
+                    <div className="grid snap-x snap-mandatory overflow-x-scroll max-w-[100vw] auto-cols-auto grid-flow-col gap-8  px-4 lg:max-w-screen-xl">
                       {roadmapData.map((data) => (
                         <RoadmapCard data={data} key={data.quarter} />
                       ))}
                     </div>
                   </Tab>
-                  <Tab label="2023" className="w-[80vw]">
-                    <div className="mx-auto grid snap-x snap-mandatory scroll-p-4 auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
+                  <Tab label="2023" className="w-full max-w-[80vw]">
+                    <div className=" grid snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8  overflow-x-scroll max-w-[100vw]  px-4 lg:max-w-screen-xl">
                       {roadmapData.map((data) => (
                         <RoadmapCard data={data} key={data.quarter} />
                       ))}
                     </div>
                   </Tab>
-                  <Tab label="2024" className="w-[80vw]">
-                    <div className="mx-auto grid snap-x snap-mandatory scroll-p-4 auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
+                  <Tab label="2024" className="w-full max-w-[80vw]">
+                    <div className=" grid snap-x snap-mandatory  auto-cols-auto grid-flow-col gap-8 overflow-x-scroll max-w-[100vw]  px-4 lg:max-w-screen-xl">
                       {roadmapData.map((data) => (
                         <RoadmapCard data={data} key={data.quarter} />
                       ))}
@@ -520,12 +520,13 @@ function Homepagemcrt() {
                 </Tabs>
               </div>
             </div>
-          </section> 
+          </section>
+
           {/*roadmap */}
 
           {/*connect */}
-          <section className="relative mx-auto my-10 flex w-11/12 max-w-screen-xl flex-wrap justify-center items-center space-y-10 md:space-y-20 lg:space-y-0 ">
-            <div className=" relative rounded-2xl border-solid border-[2px] bg-gradient-to-r from-[#173B52] to-[#557e91] to-80% bg-opacity-70 p-4 lg:h-[280px] lg:w-5/12 ">
+          <section className="relative mx-auto my-10 flex w-11/12 max-w-screen-xl flex-wrap items-center justify-center space-y-10 md:space-y-20 lg:space-y-0 ">
+            <div className=" relative rounded-2xl border-[2px] border-solid bg-opacity-70 bg-gradient-to-r from-[#173B52] to-[#557e91] to-80% p-4 lg:h-[280px] lg:w-5/12 ">
               <img
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/blahbla_wvvyzg.webp"
                 className="absolute -top-10 right-0     block h-[400px] rounded-lg object-cover  md:hidden "
@@ -588,7 +589,7 @@ function Homepagemcrt() {
                   <p className="text-2xl font-bold"> Discord</p>
                 </span>
 
-                <div className="block h-[4em] w-[2px] bg-gradient-to-t from-transparent via-[#2F3A80] mx-4 to-transparent " />
+                <div className="mx-4 block h-[4em] w-[2px] bg-gradient-to-t from-transparent via-[#2F3A80] to-transparent " />
                 <img src={AppleIcon} className=" pl-4"></img>
                 <span className=" p-4">
                   Join MagicCraft's
@@ -633,7 +634,7 @@ function Homepagemcrt() {
                                       href={social.socialmedia}
                                       target="_blank"
                                       rel="noopener noreferrer"
-                                      className="mx-2 text-[#FFFFFF] bg-opacity-70"
+                                      className="mx-2 bg-opacity-70 text-[#FFFFFF]"
                                     >
                                       {social.icons}
                                     </a>
@@ -774,8 +775,6 @@ function Homepagemcrt() {
                       className="grid h-20 place-items-center bg-[#161E4A]   md:h-36"
                     >
                       <img className="px-2 " src={item.icon} alt={item.name} />
-                      
-
                     </div>
                   )
                 })}
@@ -796,13 +795,13 @@ function Homepagemcrt() {
                       className="grid h-20 place-items-center bg-[#000000]  md:h-36"
                     >
                       <img className="px-2 " src={item.icon} alt={item.name} />
-                      {/* <div className='flex flex-row'>
-                      <div className='w-1/2'>
-                      <p className="text-[#fff] flex text-start text-xs font-bold leading-tight mr-[18em]  ">{item.name}</p>
-                   {item.link && <p className="text-[#fff] text-left mr-[15em]"> {item.link}</p>}
+                      <div className='flex flex-row gap-8 '>
+                      <div className=''>
+                      <div className="text-[#fff]  text-start text-xs font-bold leading-tight   ">{item.name}</div>
+                   {item.link && <div className="text-[#fff] text-left"> {item.link}</div>}
                    </div>
-                   {item.type && <p className="text-white w-1/2">{item.type}</p>}
-                    </div> */}
+                   {item.type && <div className="text-white ">{item.type}</div>}
+                    </div>
                     </div>
                   )
                 })}

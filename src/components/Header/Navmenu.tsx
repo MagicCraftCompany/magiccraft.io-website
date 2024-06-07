@@ -12,7 +12,7 @@ const NavMenu = ({ item }: NavMenuProps) => {
         onMouseOver={() => setIsMenuOpen(true)}
         onMouseOut={() => setIsMenuOpen(false)}
       >
-        <div className="hidden w-[18px] shrink-0 place-items-center 2xl:grid">
+        <div className=" w-[18px] shrink-0 place-items-center 2xl:grid">
           <img className="max-w-full" src={item.icon} alt="" />
         </div>
         <span className="text-lg font-medium">{item.title}</span>

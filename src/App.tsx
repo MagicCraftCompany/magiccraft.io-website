@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Homepagegames />}></Route>
-        <Route path="/mcrt" element={<Homepagemcrt />}></Route>
+        <Route path="/magiccraft" element={<Homepagemcrt />}></Route>
         <Route path="/magicrunner" element={<Homepagemagicrunner />}></Route>
         <Route path="/magic8ball" element={<Homepagemagic8ball />}></Route>
         <Route path="/hero" element={<Hero />}></Route>
