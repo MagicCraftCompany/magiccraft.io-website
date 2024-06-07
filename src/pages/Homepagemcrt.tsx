@@ -788,36 +788,37 @@ function Homepagemcrt() {
               </h3>
               <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
                 {otherpartners.map((item) => {
-                 const link = item.link.includes('http') ? item.link : `https://${item.link}`;
-                 return (
+                  const link = item.link.includes('http')
+                    ? item.link
+                    : `https://${item.link}`
+                  return (
                     <div
                       key={item.name}
                       className="flex h-20 flex-col items-center bg-[#000000] md:h-36 md:justify-center"
                     >
                       <img
-                        className="h-16 w-16 px-2 md:h-auto md:w-auto "
+                        className="h-16 w-16 md:h-auto md:w-auto "
                         src={item.icon}
                         alt={item.name}
                       />
-                      <div className="  flex flex-col items-center md:mt-4 md:flex-row md:justify-between md:gap-5">
-                        <div className="text-center md:items-start md:flex-col md:flex md:mr-[2em]">
+                      <div className="  flex flex-col bg-[#010419] items-center md:mt-5 md:flex-row md:justify-between md:gap-5">
+                        <div className="text-center md:mr-[2em] md:flex md:flex-col md:items-start">
                           <div className="text-xs font-bold leading-tight text-[#fff] md:text-sm">
                             {item.name}
                           </div>
                           {item.link && (
-              <a 
-                href={link} 
-                className="bg-gradient-to-b from-[#fff] to-[#808080] to-80% bg-clip-text text-[8.583px] font-bold leading-normal text-transparent underline md:text-xs"
-                target="_blank"
-                rel="noopener noreferrer"
-              
-              >
-                {item.link}
-              </a>
-            )}
+                            <a
+                              href={link}
+                              className="bg-gradient-to-b from-[#fff] to-[#808080] to-80% bg-clip-text text-[8.583px] font-bold leading-normal text-transparent underline md:text-xs"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {item.link}
+                            </a>
+                          )}
                         </div>
                         {item.type && (
-                          <div className="mt-1 text-xs text-[#7BCEB0] md:mt-0 md:text-sm md:ml-[2em]">
+                          <div className="mt-1 text-xs text-[#7BCEB0] md:ml-[2em] md:mt-0 md:text-sm">
                             {item.type}
                           </div>
                         )}
