@@ -801,15 +801,15 @@ function Homepagemcrt() {
                         src={item.icon}
                         alt={item.name}
                       />
-                      <div className="  flex flex-col bg-[#010419] items-center md:mt-5 md:flex-row md:justify-between md:gap-5">
+                      <div className="  flex flex-col  bg-[#010419] items-center md:mt-5 md:flex-row md:justify-between md:gap-5">
                         <div className="text-center md:mr-[2em] md:flex md:flex-col md:items-start">
-                          <div className="text-xs font-bold leading-tight text-[#fff] md:text-sm">
+                          <div className="text-xs  hidden lg:block font-bold leading-tight text-[#fff] md:text-sm">
                             {item.name}
                           </div>
                           {item.link && (
                             <a
                               href={link}
-                              className="bg-gradient-to-b from-[#fff] to-[#808080] to-80% bg-clip-text text-[8.583px] font-bold leading-normal text-transparent underline md:text-xs"
+                              className="bg-gradient-to-b hidden lg:block from-[#fff] to-[#808080] to-80% bg-clip-text text-[8.583px] font-bold leading-normal text-transparent underline md:text-xs"
                               target="_blank"
                               rel="noopener noreferrer"
                             >
@@ -818,7 +818,7 @@ function Homepagemcrt() {
                           )}
                         </div>
                         {item.type && (
-                          <div className="mt-1 text-xs text-[#7BCEB0] md:ml-[2em] md:mt-0 md:text-sm">
+                          <div className="mt-1 text-xs hidden lg:block text-[#7BCEB0] md:ml-[2em] md:mt-0 md:text-sm">
                             {item.type}
                           </div>
                         )}

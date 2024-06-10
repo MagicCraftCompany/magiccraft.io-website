@@ -115,14 +115,14 @@ function Homepagemagic8ball() {
                     <p className=" text-lg font-bold md:text-xl">PC</p>
                   </span>
 
-                  <div className="block h-10  w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
+                  <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
                   <span className="p-2  md:p-5">
                     <img src={AppleIcon}></img>
                     Get it on <br />
                     <p className=" text-lg font-bold md:text-xl">App Store</p>
                   </span>
-                  <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
+                  <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
                   <span className=" p-2  md:p-5">
                     <img src={steam}></img>
@@ -130,7 +130,7 @@ function Homepagemagic8ball() {
                     <br />
                     <p className="text-xl font-bold">Steam</p>
                   </span>
-                  <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#9255E0] to-transparent " />
+                  <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
                   <span className=" p-2  md:p-5">
                     <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
@@ -156,7 +156,7 @@ function Homepagemagic8ball() {
                       <p className="font-sm  font-bold leading-normal">Steam</p>
                     </span>
 
-                    <div className="mt-5 block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                    <div className="mt-5 block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#556DE0] to-transparent " />
                     <span className=" font-xs  font-normal not-italic leading-normal">
                       <img src={AppleIcon} className="shrink-0 mb-2" onClick={playonappleHandler}></img>
                       Get it on
@@ -165,7 +165,7 @@ function Homepagemagic8ball() {
                         App store
                       </p>
                     </span>
-                    <div className="mt-5 block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                    <div className="mt-5 block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#556DE0] to-transparent " />
                     <span className=" font-xs   font-normal not-italic leading-normal">
                       <img
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"
@@ -181,7 +181,7 @@ function Homepagemagic8ball() {
                   </div>
                 </div>
 
-                <div className="  block h-[10em] w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                <div className="  block h-[10em] w-[2px] bg-gradient-to-t from-transparent via-[#556DE0] to-transparent " />
                 <div className="leading-0 relative px-4  font-normal   ">
                   <h4 className="font-serif text-lg md:text-[1.375em]">
                     <span className="text-white ">STATISTICS</span>
@@ -202,7 +202,7 @@ function Homepagemagic8ball() {
                     <span className=" text-white ">Total MCRT earned</span>
                   </div>
                 </div>
-                <div className="  block h-[10em] w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                <div className="  block h-[10em] w-[2px] bg-gradient-to-t from-transparent via-[#556DE0] to-transparent " />
                 <div className="ml-4 flex flex-row">
                   <a href="https://magiccraft.io" rel="noreferrer noopener">
                     <div className="w-[13em] select-none snap-start px-4">
