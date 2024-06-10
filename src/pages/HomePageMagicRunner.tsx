@@ -675,7 +675,7 @@ function Homepagemagicrunner() {
                 <h3 className="mt-4 font-serif font-bold">EXPIRATION POLICY</h3>
 
                 <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#7761AD] to-transparent " />
-                <p className="flex flex-wrap p-4 text-center">
+                <p className="flex flex-wrap px-4 pb-2 text-center">
                   To maintain a dynamic and engaging
                   
                   gameplay experience, all chests 
