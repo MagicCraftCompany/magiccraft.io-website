@@ -28,6 +28,20 @@ import watch from '@/assets/icons/Frame.svg'
 
 
 function Homepagemagic8ball() {
+  const playonandroidHandler = () => {
+    window.location.href = 'https://play.google.com/store/apps/details?id=com.MagicCraftInc.MagicRunner'
+  } 
+  const playonappleHandler = () => {
+    window.location.href = 'https://apps.apple.com/us/app/magicrunner-frigards-escape/id6479990522'
+
+  } 
+  const joinMissionHandler = () => {
+    window.location.href = 'https://lobby.magiccraft.io/magic-runner'
+  } 
+  const playnowHandler = () => {
+    window.location.href = 'https://lobby.magiccraft.io/magic-runner'
+
+  } 
   return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -80,7 +94,7 @@ function Homepagemagic8ball() {
                 </p>
 
                 <div className=" m-2 hidden h-px  w-5/12 bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:block" />
-                <button className=" m-5 hidden rounded-lg bg-[#98FFF9] p-2 text-black lg:block lg:w-[6.125em]">
+                <button className=" m-5 hidden rounded-lg bg-[#98FFF9] p-2 text-black lg:block lg:w-[6.125em]" onClick={playnowHandler }>
                   Play Now
                 </button>
               </div>
@@ -128,80 +142,86 @@ function Homepagemagic8ball() {
               </div>
             </div>
 
-            <div className="z-10  m-10 -mt-10  hidden w-full rounded-4xl  bg-custom-dark bg-opacity-70  lg:block">
-              <div className="flex flex-wrap ">
-                <div className=" md:px-10  ">
-                  <div className="relative  h-full w-full  overflow-hidden rounded-[20px]  bg-gradient-to-r  to-90% px-8 md:p-10  ">
-                    <h4 className="font-serif text-lg md:text-[22px]">
-                      <span className="text-white">DOWNLOAD NEW BUILD</span>
-                    </h4>
-                    <div className="flex flex-wrap items-center ">
-                      <span className=" p-4">
-                        <img src={steam} className=" p-4"></img>
-                        Get it on
-                        <br />
-                        <p className="text-2xl font-bold">Steam</p>
-                      </span>
+            <div className="z-10 -mt-[13em] ml-[15.125em] hidden max-h-[14em]  max-w-[79.125em]   rounded-4xl  bg-custom-dark  bg-opacity-70  lg:block">
+              <div className="flex flex-wrap p-10 ">
+                <div className="leading-0  relative  px-4  font-normal   ">
+                  <h4 className="font-serif text-lg md:text-[1.375em]">
+                    <span className="text-white ">DOWNLOAD NEW BUILD</span>
+                  </h4>
+                  <div className="mt-4 inline-flex gap-[1.875em] ">
+                    <span className=" font-xs   font-normal not-italic leading-normal">
+                      <img src={steam} className=" shrink-0 mb-2"></img>
+                      <p>Get it on</p>
 
-                      <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
-                      <span className=" p-4">
-                        <img src={AppleIcon} className=" p-4"></img>
-                        Get it on
-                        <br />
-                        <p className="text-2xl font-bold">App store</p>
-                      </span>
-                      <div className="block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
-                      <span className=" p-4">
-                        <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp" className=" p-4"></img>
-                        Get it on
-                        <br />
-                        <p className="text-2xl font-bold">Google Play</p>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="h-30 my-10 block w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
-                <div className="space-y-5 px-8 pb-10 pt-5 md:px-10 ">
-                  <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r  to-90% px-8 py-4 md:p-10  ">
-                    <h4 className="font-serif text-lg md:text-[22px] ">
-                      <span className="text-white ">STATISTICS</span>
-                    </h4>
+                      <p className="font-sm  font-bold leading-normal">Steam</p>
+                    </span>
 
-                    <div className="p-6">
-                      <span className=" my-4 py-4 text-[#98FFF9]">201</span>
+                    <div className="mt-5 block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                    <span className=" font-xs  font-normal not-italic leading-normal">
+                      <img src={AppleIcon} className="shrink-0 mb-2" onClick={playonappleHandler}></img>
+                      Get it on
                       <br />
-                      <span className="my-4 py-4 text-white">
-                        {' '}
-                        Amount of Players
-                      </span>
-                      <br />
-                      <span className="my-4 py-4 text-[#98FFF9]">32,112</span>
-                      <br />
-                      <span className="my-4 py-4 text-white">
-                        Total MCRT earned
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div className="h-30 my-10 block w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
-                <div className="mx-4 grid snap-x snap-mandatory auto-cols-min grid-flow-col gap-6 overflow-x-auto overscroll-contain overscroll-x-contain px-4 pt-12">
-                  <a href="https://magiccraft.io" rel="noreferrer noopener">
-                    <div className="w-[13em] select-none snap-start">
+                      <p className="font-sm  font-bold leading-normal">
+                        App store
+                      </p>
+                    </span>
+                    <div className="mt-5 block h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                    <span className=" font-xs   font-normal not-italic leading-normal">
                       <img
-                        className="pointer-events-none select-none"
+                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"
+                        className="shrink-0 mb-2"
+                        onClick={playonandroidHandler}
+                      ></img>
+                      Get it on
+                      <br />
+                      <p className="font-sm  font-bold leading-normal">
+                        Google Play
+                      </p>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="  block h-[10em] w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                <div className="leading-0 relative px-4  font-normal   ">
+                  <h4 className="font-serif text-lg md:text-[1.375em]">
+                    <span className="text-white ">STATISTICS</span>
+                  </h4>
+
+                  <div className="flex flex-col p-4">
+                    <span className="  text-[#98FFF9]">201</span>
+
+                    <span className=" text-white">Amount of Players</span>
+                    <span className=" flex flex-row text-[#98FFF9]">
+                      32,112
+                      <img
+                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
+                        className="mx-2 mt-1 h-4 w-4"
+                      />
+                    </span>
+
+                    <span className=" text-white ">Total MCRT earned</span>
+                  </div>
+                </div>
+                <div className="  block h-[10em] w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent " />
+                <div className="ml-4 flex flex-row">
+                  <a href="https://magiccraft.io" rel="noreferrer noopener">
+                    <div className="w-[13em] select-none snap-start px-4">
+                      <img
+                        className="pointer-events-none select-none  "
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magiccraft-card_dfthct.webp"
                         alt="MagicCraft Game"
                       />
                     </div>
                   </a>
-                  <div className="w-[13em] select-none snap-start ">
+                  <div className="w-[13em] select-none snap-start  px-4">
                     <img
                       className="pointer-events-noneselect-none"
-                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magic-8-ball-card_wsmmg4.webp"
+                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_10_ouvuyg.webp"
                       alt="Magic8Ball game"
                     />
                   </div>
                 </div>
+                
               </div>
             </div>
           </section>
@@ -289,13 +309,18 @@ function Homepagemagic8ball() {
             </div>
           </section>
           {/* {/* daily mission*/}
-          <section className=" relative mt-10 h-full w-full md:mt-40 lg:-mt-[9em]">
+          <section className=" relative mt-60 h-full w-full md:mt-40 lg:-mt-[15em]">
             <div className=" flex flex-col items-center justify-center  lg:flex-row">
-              <h1 className="p-4 text-4xl font-bold">DAILY MISSIONS</h1>
-              <div className="m-2   flex flex-wrap items-center justify-center rounded-[3.125em] bg-[#4457B8] pr-2 text-[#98FFF9]">
+              <h1 className="mt-2 p-4 font-serif text-4xl font-bold">
+                DAILY MISSIONS
+              </h1>
+              <div className=" mx-2 mt-2  flex flex-wrap items-center justify-center rounded-[3.125em] bg-[#4457B8] pr-2 text-[#98FFF9]">
                 <div className="flex flex-wrap items-center justify-center rounded-[3.125em] bg-[#98FFF9] p-2 text-black">
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173184/clock_evbzyy.webp" className="m-1 h-10 w-10" />
-                  <p>Ends in:</p>
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173184/clock_evbzyy.webp"
+                    className="m-1 h-10 w-10"
+                  />
+                  <p className="p-2">Ends in:</p>
                 </div>
                 <p className="p-2">08h 21m 11s</p>
               </div>
@@ -304,7 +329,7 @@ function Homepagemagic8ball() {
             <div className="m-4 flex space-x-4 overflow-auto lg:items-center lg:justify-center">
               <div className=" h-[35.25em] w-[18.375em] flex-shrink-0 rounded-[20px] border-2 border-solid border-[#5856E0] bg-[#12142A]">
                 <div className="flex flex-wrap">
-                  <div className="  my-4 ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em]">
+                  <div className="my-4  ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em] font-serif">
                     {' '}
                     NOVICE CHEST
                   </div>
@@ -328,7 +353,7 @@ function Homepagemagic8ball() {
                 </div>
                 <div className="mx-10 my-6">
                   <div className="flex text-xl ">
-                    <span className="flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade flex-shrink-0 text-opacity-30">
                       Collect coins :
                     </span>
                     <span className="ml-8 text-[#3A5874]">400/400</span>
@@ -344,13 +369,13 @@ function Homepagemagic8ball() {
                     </span>
                   </div>
                   <div className="flex text-xl">
-                    <span className="flex-shrink-0 text-white">
+                    <span className="mb-2 flex-shrink-0 text-white">
                       Time in the air:
                     </span>
                     <span className="ml-7 text-[#98FFF9]">0s/30s</span>
                   </div>
                   <div className="flex text-xl">
-                    <span className="flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade mb-2 flex-shrink-0 text-opacity-30">
                       Obstacle jumps :
                     </span>
                     <span className="ml-2 text-[#3A5874]">40/40</span>
@@ -366,10 +391,10 @@ function Homepagemagic8ball() {
                 <div className="my-8 block h-px w-full bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent " />
 
                 <div className="">
-                  <div className="-mt-5 flex flex-row items-center justify-center gap-[12px] self-stretch rounded-xl bg-[#0E0E2E] px-[21px] pb-[23.9px] pt-3">
-                    <button className="bg-fff9 rounded-8xs  flex flex-1 cursor-pointer flex-row items-center justify-center rounded-lg bg-[#98FFF9] px-3 py-[9px] opacity-[0.2] [backdrop-filter:blur(23px)]">
+                  <div className="-mt-5 flex flex-row items-center justify-center gap-[12px] self-stretch rounded-xl bg-[#0E0E2E] px-[21px] ">
+                    <button className="bg-fff9 rounded-8xs   mt-2 flex flex-1 cursor-pointer flex-row items-center justify-center rounded-lg bg-[#98FFF9] py-[9px] pl-2 opacity-[0.2] [backdrop-filter:blur(23px)]">
                       <div className="flex flex-1 flex-row items-center justify-center">
-                        <div className="font-colus relative flex-1 text-left text-lg font-bold leading-[158%] text-[#0E0E2E]">
+                        <div className="relative flex-1 text-left font-serif text-lg font-bold leading-[158%] text-[#0E0E2E]">
                           Unlock the CHEST
                         </div>
                       </div>
@@ -392,7 +417,7 @@ function Homepagemagic8ball() {
 
               <div className="h-[35.25em] w-[18.375em] rounded-[20px] border-2 border-solid border-[#5856E0] bg-[#12142A]">
                 <div className="flex flex-wrap">
-                  <div className="  my-4 ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em]">
+                  <div className=" my-4  ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em] font-serif">
                     {' '}
                     NOVICE CHEST
                   </div>
@@ -401,14 +426,17 @@ function Homepagemagic8ball() {
                   </div>
                 </div>
                 <div className="bg-lightgray h-[9.890063em] w-[10.944563em]  flex-shrink-0 ">
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="mx-[3.9em]" />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp"
+                    className="mx-[3.9em]"
+                  />
                 </div>
                 <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
                   <div className="h-[0.4em] w-[6.7em] rounded-lg bg-[#98FFF9] "></div>
                 </div>
                 <div className="mx-10 my-6">
                   <div className="flex text-xl ">
-                    <span className="flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade flex-shrink-0 text-opacity-30">
                       Collect coins :
                     </span>
                     <span className="ml-8 text-[#3A5874]">400/400</span>
@@ -424,13 +452,13 @@ function Homepagemagic8ball() {
                     </span>
                   </div>
                   <div className="flex text-xl">
-                    <span className="flex-shrink-0 text-white">
+                    <span className="mb-2 flex-shrink-0 text-white">
                       Time in the air:
                     </span>
                     <span className="ml-7 text-[#98FFF9]">0s/30s</span>
                   </div>
                   <div className="flex text-xl">
-                    <span className="flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade mb-2 flex-shrink-0 text-opacity-30">
                       Obstacle jumps :
                     </span>
                     <span className="ml-2 text-[#3A5874]">40/40</span>
@@ -446,10 +474,10 @@ function Homepagemagic8ball() {
                 <div className="my-8 block h-px w-full bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent " />
 
                 <div className="">
-                  <div className="-mt-5 flex flex-row items-center justify-center gap-[12px] self-stretch rounded-xl bg-[#0E0E2E] px-[21px] pb-[23.9px] pt-3">
-                    <button className="bg-fff9 rounded-8xs  flex flex-1 cursor-pointer flex-row items-center justify-center rounded-lg bg-[#98FFF9] px-3 py-[9px] opacity-[0.2] [backdrop-filter:blur(23px)]">
+                  <div className="-mt-5 flex flex-row items-center justify-center gap-[12px] self-stretch rounded-xl bg-[#0E0E2E] px-[21px] ">
+                    <button className="bg-fff9 rounded-8xs  mt-2 flex flex-1 cursor-pointer flex-row items-center justify-center rounded-lg bg-[#98FFF9] px-3 py-[9px] opacity-[0.2] [backdrop-filter:blur(23px)]">
                       <div className="flex flex-1 flex-row items-center justify-center">
-                        <div className="font-colus relative flex-1 text-center text-lg font-bold leading-[158%] text-[#61687B]">
+                        <div className="relative flex-1 text-center font-serif text-lg font-bold leading-[158%] text-[#61687B]">
                           COLLECT REWARDS
                         </div>
                       </div>
@@ -459,7 +487,7 @@ function Homepagemagic8ball() {
               </div>
               <div className="h-[35.25em] w-[18.375em] rounded-[20px] border-2 border-solid border-[#5856E0] bg-[#12142A]">
                 <div className="flex flex-wrap">
-                  <div className="  my-4 ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em]">
+                  <div className="my-4  ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em] font-serif">
                     {' '}
                     NOVICE CHEST
                   </div>
@@ -472,20 +500,23 @@ function Homepagemagic8ball() {
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173158/Ellipse_410_h2fzj4.webp"
                     className="absolute inset-0 h-full w-full object-cover  lg:mt-0"
                   />
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="absolute mt-6 " />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp"
+                    className="absolute mt-6 "
+                  />
                 </div>
-                <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
-                  <div className="h-[0.4em] w-full rounded-lg bg-[#98FFF9] "></div>
+                <div className="glow mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9] shadow-lg ring-2 ring-[#4866A9] ring-opacity-50">
+                  <div className="h-[0.4em] w-full rounded-lg bg-[#98FFF9]"></div>
                 </div>
                 <div className="mx-10 my-6">
                   <div className="flex text-xl ">
-                    <span className="flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade flex-shrink-0 text-opacity-30">
                       Collect coins :
                     </span>
                     <span className="ml-8 text-[#3A5874]">400/400</span>
                   </div>
                   <div className="flex text-xl ">
-                    <span className="mt-3 flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade mt-3 flex-shrink-0 text-opacity-30">
                       Miles to run:
                     </span>
                     <span className="ml-11 text-[#3A5874]  ">
@@ -495,19 +526,19 @@ function Homepagemagic8ball() {
                     </span>
                   </div>
                   <div className="flex text-xl">
-                    <span className="flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade mb-2 flex-shrink-0 text-opacity-30">
                       Time in the air:
                     </span>
                     <span className="ml-7 text-[#3A5874]">0s/30s</span>
                   </div>
                   <div className="flex text-xl">
-                    <span className="flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade mb-2 flex-shrink-0 text-opacity-30">
                       Obstacle jumps :
                     </span>
                     <span className="ml-2 text-[#3A5874]">40/40</span>
                   </div>
                   <div className="flex text-xl">
-                    <span className="flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade flex-shrink-0 text-opacity-30">
                       In-game playing:
                     </span>
                     <span className="ml-2 text-[#3A5874]">0,7h/4h</span>
@@ -517,10 +548,10 @@ function Homepagemagic8ball() {
                 <div className="my-8 block h-px w-full bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent " />
 
                 <div className="">
-                  <div className="-mt-5 flex flex-row items-center justify-center gap-[12px] self-stretch rounded-xl bg-[#0E0E2E] px-[21px] pb-[23.9px] pt-3">
-                    <button className="bg-fff9 rounded-8xs  flex flex-1 cursor-pointer flex-row items-center justify-center rounded-lg bg-[#98FFF9] px-3 py-[9px] opacity-[0.2] [backdrop-filter:blur(23px)]">
+                  <div className="-mt-5 flex flex-row items-center justify-center gap-[12px] self-stretch rounded-xl bg-[#0E0E2E] px-[21px] ">
+                    <button className="bg-fff9 rounded-8xs  mt-2 flex flex-1 cursor-pointer flex-row items-center justify-center rounded-lg bg-[#98FFF9] px-3 py-[9px] opacity-[0.2] [backdrop-filter:blur(23px)]">
                       <div className="flex flex-1 flex-row items-center justify-center">
-                        <div className="font-colus relative flex-1 text-center text-lg font-bold leading-[158%] text-[#0E0E2E]">
+                        <div className="relative flex-1 text-center font-serif text-lg font-bold leading-[158%] text-[#0E0E2E]">
                           COLLECT REWARDS
                         </div>
                       </div>
@@ -530,7 +561,7 @@ function Homepagemagic8ball() {
               </div>
               <div className="h-[35.25em] w-[18.375em] rounded-[20px] border-2 border-solid border-[#5856E0] bg-[#12142A]">
                 <div className="flex flex-wrap">
-                  <div className="  my-4 ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em]">
+                  <div className="my-4  ml-4 flex h-[2.25em] w-[10em] items-center justify-center gap-[0.125em] rounded-[3.4375em] bg-gradient-to-r from-[#6741A5] to-[#270A39] p-[0.3125em] px-[0.875em] font-serif">
                     {' '}
                     NOVICE CHEST
                   </div>
@@ -543,20 +574,23 @@ function Homepagemagic8ball() {
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173158/Ellipse_410_h2fzj4.webp"
                     className="absolute inset-0 h-full w-full object-cover  lg:mt-0"
                   />
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="absolute mt-6 " />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp"
+                    className="absolute mt-6 "
+                  />
                 </div>
-                <div className="mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9]">
-                  <div className="h-[0.4em] w-full rounded-lg bg-[#98FFF9] "></div>
+                <div className="glow mx-10 h-[0.6180625em] w-[12.9375em] rounded-lg border-2 border-solid border-[#4866A9] shadow-lg ring-2 ring-[#4866A9] ring-opacity-50">
+                  <div className="h-[0.4em] w-full rounded-lg bg-[#98FFF9]"></div>
                 </div>
                 <div className="mx-10 my-6">
-                  <div className="flex text-xl ">
-                    <span className="flex-shrink-0 text-[#808080]">
+                  <div className="flex  text-xl ">
+                    <span className="text-custom-fade flex-shrink-0 text-opacity-30">
                       Collect coins :
                     </span>
                     <span className="ml-8 text-[#3A5874]">400/400</span>
                   </div>
                   <div className="flex text-xl ">
-                    <span className="mt-3 flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade mt-3 flex-shrink-0 text-opacity-30">
                       Miles to run:
                     </span>
                     <span className="ml-11 text-[#3A5874]  ">
@@ -566,19 +600,19 @@ function Homepagemagic8ball() {
                     </span>
                   </div>
                   <div className="flex text-xl">
-                    <span className="flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade mb-2 flex-shrink-0 text-opacity-30">
                       Time in the air:
                     </span>
                     <span className="ml-7 text-[#3A5874]">0s/30s</span>
                   </div>
                   <div className="flex text-xl">
-                    <span className="flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade mb-2 flex-shrink-0 text-opacity-30">
                       Obstacle jumps :
                     </span>
                     <span className="ml-2 text-[#3A5874]">40/40</span>
                   </div>
                   <div className="flex text-xl">
-                    <span className="flex-shrink-0 text-[#808080]">
+                    <span className="text-custom-fade flex-shrink-0 text-opacity-30 ">
                       In-game playing:
                     </span>
                     <span className="ml-2 text-[#3A5874]">0,7h/4h</span>
@@ -588,10 +622,10 @@ function Homepagemagic8ball() {
                 <div className="my-8 block h-px w-full bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent " />
 
                 <div className="">
-                  <div className="-mt-5 flex flex-row items-center justify-center gap-[12px] self-stretch rounded-xl bg-[#0E0E2E] px-[21px] pb-[23.9px] pt-3">
-                    <button className="bg-fff9 rounded-8xs  flex flex-1 cursor-pointer flex-row items-center justify-center rounded-lg bg-[#98FFF9] px-3 py-[9px] opacity-[0.2] [backdrop-filter:blur(23px)]">
+                  <div className="-mt-5 flex flex-row items-center justify-center gap-[12px] self-stretch rounded-xl bg-[#0E0E2E] px-[21px]  ">
+                    <button className="bg-fff9 rounded-8xs  mt-2 flex flex-1 cursor-pointer flex-row items-center justify-center rounded-lg bg-[#98FFF9] px-3 py-[9px] opacity-[0.2] [backdrop-filter:blur(23px)]">
                       <div className="flex flex-1 flex-row items-center justify-center">
-                        <div className="font-colus relative flex-1 text-center text-lg font-bold leading-[158%] text-[#0E0E2E]">
+                        <div className="relative flex-1 text-center font-serif text-lg font-bold leading-[158%] text-[#0E0E2E]">
                           COLLECT REWARDS
                         </div>
                       </div>
@@ -601,7 +635,7 @@ function Homepagemagic8ball() {
               </div>
             </div>
             <div className="m-6 flex items-center justify-center lg:m-10">
-              <button className="rounded-lg bg-[#98FFF9] p-2 font-bold text-[#0E0E2E] md:w-[12.625em] md:text-2xl ">
+              <button className="rounded-lg bg-[#98FFF9] p-2  text-base text-[#0E0E2E] md:w-[12.625em] " onClick={joinMissionHandler}>
                 {' '}
                 Join a Mission
               </button>
@@ -612,64 +646,64 @@ function Homepagemagic8ball() {
 
           <section className=" relative m-5">
             <div className="m-10 flex items-center justify-center font-bold ">
-              <h1 className="text-center text-4xl">
+              <h1 className="text-center font-serif text-4xl">
                 {' '}
                 CHEST TYPES AND <br /> UNLOCKING MECHANISMS
               </h1>
             </div>
             <div className="flex flex-col items-start  justify-center gap-5 lg:flex-row">
-              <div className="mb-4 flex w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[405.059px]  ">
+              <div className="mb-4 flex w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[20em]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191355/novice-chest_rlk14i.webp" className="h-10 w-10" />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191355/novice-chest_rlk14i.webp"
+                    className="h-10 w-10"
+                  />
                 </div>
-                <h3 className="mt-4 font-bold">NOVICE CHEST</h3>
+                <h3 className="mt-4 font-serif font-bold">NOVICE CHEST</h3>
 
-                <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#34125A] to-transparent " />
-                <p className="flex flex-wrap p-4 text-center">
-                  Available for all players to open once <br />
-                  daily at no cost, encouraging daily <br />
-                  engagement.
-                </p>
+                <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#7761AD] to-transparent " />
+                <p className="flex flex-wrap p-2 text-center">
+                Novice Chests are available for all players to open up to five times daily, encouraging repeated engagement. These chests offer the player consistent incentives and promote regular play, promoting player retention.                </p>
               </div>
-              <div className="mb-4 flex  w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[405.059px]  ">
+              <div className="mb-4 flex  w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[22em]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
-                  <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp" className="h-14 w-14" />
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173103/Layer_0_copy_o5vtz1.webp"
+                    className="h-14 w-14"
+                  />
                 </div>
-                <h3 className="mt-4 font-bold">PREMIUM CHESTS</h3>
+                <h3 className="mt-4 font-serif font-bold">PREMIUM CHESTS</h3>
 
-                <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#34125A] to-transparent " />
-                <p className="flex flex-wrap p-4 text-center">
-                   Including Masterful, Mythic, Eternal,
-                  <br />
-                  and Legendary tiers, these chests <br />
-                  necessitate gems for unlocking. Gems <br />
-                  represent a versatile in-game currency, <br />
-                  obtainable either through direct <br />
-                  purchase or as rewards from previously <br />
-                  unlocked chests.
-                </p>
+                <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#7761AD] to-transparent " />
+                <p className="flex flex-wrap p-2 text-center">
+                 
+                 
+
+                Premium Chests include daily rewards with Masterful, Mythic, Eternal, and Legendary tiers, offering increasingly valuable items. This system incentivizes regular play, enhancing player engagement and satisfaction.                </p>
               </div>
-              <div className="mb-4 flex w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[405.059px]  ">
+              <div className="mb-4 flex w-full flex-shrink-0 flex-col  items-center justify-center  rounded-[20.152px] border-[1.008px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_4.03px_50.381px_0px_rgba(10,9,23,0.60)] lg:w-[20em]  ">
                 <div className="-mt-6 flex h-[5.625em] w-[5.625em] items-center justify-center rounded-[1.875em] bg-[#34125A]">
                   <img src={watch} className="h-12 w-12" />
                 </div>
-                <h3 className="mt-4 font-bold">EXPIRATION POLICY</h3>
+                <h3 className="mt-4 font-serif font-bold">EXPIRATION POLICY</h3>
 
-                <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#34125A] to-transparent " />
-                <p className="flex flex-wrap p-4 text-center">
+                <div className="my-2 block h-px w-full bg-gradient-to-r from-transparent via-[#7761AD] to-transparent " />
+                <p className="flex flex-wrap  px-4 pb-2  text-center">
                   To maintain a dynamic and engaging
-                  <br />
-                  gameplay experience, all chests <br />
+                  
+                  gameplay experience, all chests 
                   earned must be unlocked on the same
-                  <br />
-                  day of acquisition; otherwise, they <br />
-                  expire at day's end, adding a strategic <br />
+                  
+                  day of acquisition; otherwise, they 
+                  expire at day's end, adding a strategic 
                   element to resource management.
                 </p>
               </div>
             </div>
             <div className="m-6 flex items-center justify-center">
-              <button className="rounded-lg bg-[#98FFF9] p-2 font-bold text-[#0E0E2E] md:w-[12.625em] md:text-2xl ">
+              <button 
+              className="rounded-lg bg-[#98FFF9] p-2  text-[#0E0E2E] md:w-[12.625em] md:text-base" 
+              onClick={joinMissionHandler}>
                 {' '}
                 Join a Mission
               </button>
