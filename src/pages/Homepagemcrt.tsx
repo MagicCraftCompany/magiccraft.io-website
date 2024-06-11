@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import left from '@/assets/icons/left-preview.svg'
@@ -25,6 +25,7 @@ import frame1 from '@/assets/icons/Frame (1).svg'
 import frame2 from '@/assets/icons/Frame (2).svg'
 import frame3 from '@/assets/icons/Frame (3).svg'
 import frame4 from '@/assets/icons/Frame (4).svg'
+import React from 'react'
 
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(8)
@@ -39,6 +40,29 @@ function Homepagemcrt() {
 
   const kolTeam = ourteam.filter((member) => member.category === 'KOL')
   const teamMembers = ourteam.filter((member) => member.category === 'Team')
+
+  const adjustDividerHeight = useCallback(() => {
+    const dividers = document.querySelectorAll('.divider')
+    dividers.forEach((divider) => {
+      const parentElement = divider.parentElement
+      if (parentElement) {
+        const gridHeight = parentElement.clientHeight
+        ;(divider as HTMLElement).style.height = `${gridHeight}px`
+      }
+    })
+  }, [])
+
+  useEffect(() => {
+    adjustDividerHeight()
+  }, [visibleCount, adjustDividerHeight])
+
+  useEffect(() => {
+    window.addEventListener('resize', adjustDividerHeight)
+    return () => {
+      window.removeEventListener('resize', adjustDividerHeight)
+    }
+  }, [adjustDividerHeight])
+
   return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -493,18 +517,15 @@ function Homepagemcrt() {
                   Roadmap
                 </h2>
                 <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
-                    2024
-                  </div>
+                  2024
+                </div>
               </div>
               <div className="flex items-center justify-center ">
-               
-                
-                    <div className=" grid max-w-[100vw] snap-x  snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl  lg:overflow-x-hidden">
-                      {roadmapData.map((data) => (
-                        <RoadmapCard data={data} key={data.quarter} />
-                      ))}
-                    </div>
-                  
+                <div className=" grid max-w-[100vw] snap-x  snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl  lg:overflow-x-hidden">
+                  {roadmapData.map((data) => (
+                    <RoadmapCard data={data} key={data.quarter} />
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -588,165 +609,164 @@ function Homepagemcrt() {
           </section>
 
           {/*our team */}
-          <div className="  h-auto  bg-[#020418] p-10">
-            <section className="relative mx-auto  max-w-screen-xl space-y-10 p-4 md:space-y-20">
-              <h3 className="-mb-10 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl">
-                Our team
-              </h3>
-              <div className="flex items-center justify-center">
-                <Tabs type="team">
-                  <Tab label="ALL" className="w-[80vw]">
-                    <div className="w-[80vw] space-y-4 lg:w-[60vw]">
-                      <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
-                        {ourteam.slice(0, visibleCount).map((item) => (
-                          <div
-                            key={item.name}
-                            className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
-                          >
-                            <img
-                              className="mt-4  px-2 md:w-full"
-                              src={item.icon}
-                              alt={item.name}
-                            />
-                            <p className="mt-2 text-white">{item.name}</p>
-                            {item.work && (
-                              <>
-                                <p className="mt-1 text-[#98FFF9]">
-                                  {item.work}
-                                </p>
-                                <div className="mt-2 flex ">
-                                  {item.socialicons.map((social, index) => (
-                                    <a
-                                      key={index}
-                                      href={social.socialmedia}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="mx-2 bg-opacity-70 text-[#FFFFFF]"
-                                    >
-                                      {social.icons}
-                                    </a>
-                                  ))}
-                                </div>
-                              </>
-                            )}
-                          </div>
-                        ))}
+          <div className="h-auto bg-[#020418] p-10">
+      <section className="relative mx-auto max-w-screen-xl space-y-10 p-4 md:space-y-20">
+        <h3 className="-mb-10 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl">
+          Our team
+        </h3>
+        <div className="flex items-center justify-center">
+          <Tabs type="team">
+            <Tab label="ALL" className="w-[80vw]">
+              <div className="w-[80vw] space-y-4 lg:w-[60vw]">
+                <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                  {ourteam.slice(0, visibleCount).map((item, index) => (
+                    <React.Fragment key={item.name}>
+                      <div className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80">
+                        <img className="mt-4 px-2 md:w-full" src={item.icon} alt={item.name} />
+                        <p className="mt-2 text-white">{item.name}</p>
+                        {item.work && (
+                          <>
+                            <p className="mt-1 text-[#98FFF9]">{item.work}</p>
+                            <div className="mt-2 flex">
+                              {item.socialicons.map((social, idx) => (
+                                <a
+                                  key={idx}
+                                  href={social.socialmedia}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="mx-2 bg-opacity-70 text-[#FFFFFF]"
+                                >
+                                  {social.icons}
+                                </a>
+                              ))}
+                            </div>
+                          </>
+                        )}
                       </div>
-                      {visibleCount < ourteam.length && (
-                        <div className="mt-4 flex  justify-center text-center">
-                          <button
-                            onClick={loadMore}
-                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur  "
-                          >
-                            <img src={down} className="m-1" /> Load More
-                          </button>
-                        </div>
+                      {index < ourteam.slice(0, visibleCount).length - 1 && (
+                        <>
+                          {(index + 1) % 2 === 0 && (
+                            <div className="divider absolute right-0 top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
+                          )}
+                          <div className="divider absolute left-0 top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
+                          <div className="divider absolute left-[25%] top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
+                          <div className="divider absolute left-[50%] top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
+                          <div className="divider absolute left-[75%] top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
+                        </>
                       )}
-                    </div>
-                  </Tab>
-                  <Tab label="Advisors and KOL's" className="w-[80vw]">
-                    <div className="w-[80vw] space-y-4 lg:w-[60vw]">
-                      <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
-                        {kolTeam.slice(0, visibleCount).map((item) => (
-                          <div
-                            key={item.name}
-                            className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
-                          >
-                            <img
-                              className="mt-4 px-2 md:w-full"
-                              src={item.icon}
-                              alt={item.name}
-                            />
-                            <p className="mt-2 text-white">{item.name}</p>
-                            {item.work && (
-                              <>
-                                <p className="mt-1 text-[#98FFF9]">
-                                  {item.work}
-                                </p>
-                                <div className="mt-2 flex">
-                                  {item.socialicons.map((social, index) => (
-                                    <a
-                                      key={index}
-                                      href={social.socialmedia}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="mx-2 text-[#FFFFFF]"
-                                    >
-                                      {social.icons}
-                                    </a>
-                                  ))}
-                                </div>
-                              </>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                      {visibleCount < kolTeam.length && (
-                        <div className="mt-4 flex  justify-center text-center">
-                          <button
-                            onClick={loadMore}
-                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur  "
-                          >
-                            <img src={down} className="m-1" /> Load More
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  </Tab>
-                  <Tab label="Team" className="w-[80vw]">
-                    <div className="w-[80vw] space-y-4 lg:w-[60vw]">
-                      <div className="my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
-                        {teamMembers.slice(0, visibleCount).map((item) => (
-                          <div
-                            key={item.name}
-                            className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
-                          >
-                            <img
-                              className="mt-4 px-2 md:w-full"
-                              src={item.icon}
-                              alt={item.name}
-                            />
-                            <p className="mt-2 text-white">{item.name}</p>
-                            {item.work && (
-                              <>
-                                <p className="mt-1 text-[#98FFF9]">
-                                  {item.work}
-                                </p>
-                                <div className="mt-2 flex">
-                                  {item.socialicons.map((social, index) => (
-                                    <a
-                                      key={index}
-                                      href={social.socialmedia}
-                                      target="_blank"
-                                      rel="noopener noreferrer"
-                                      className="mx-2 text-[#FFFFFF]"
-                                    >
-                                      {social.icons}
-                                    </a>
-                                  ))}
-                                </div>
-                              </>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                      {visibleCount < teamMembers.length && (
-                        <div className="mt-4 flex  justify-center text-center">
-                          <button
-                            onClick={loadMore}
-                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur  "
-                          >
-                            <img src={down} className="m-1" /> Load More
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  </Tab>
-                </Tabs>
+                    </React.Fragment>
+                  ))}
+                </div>
+                {visibleCount < ourteam.length && (
+                  <div className="mt-4 flex justify-center text-center">
+                    <button
+                      onClick={() => {
+                        loadMore();
+                        setTimeout(adjustDividerHeight, 0);
+                      }}
+                      className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
+                    >
+                      <img src={down} className="m-1" alt="Down arrow" /> Load More
+                    </button>
+                  </div>
+                )}
               </div>
-            </section>
-          </div>
+            </Tab>
 
+            <Tab label="Advisors and KOL's" className="w-[80vw]">
+              <div className="w-[80vw] space-y-4 lg:w-[60vw]">
+                <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                  {kolTeam.slice(0, visibleCount).map((item) => (
+                    
+                      <div  key={item.name} className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80">
+                        <img className="mt-4 px-2 md:w-full" src={item.icon} alt={item.name} />
+                        <p className="mt-2 text-white">{item.name}</p>
+                        {item.work && (
+                          <>
+                            <p className="mt-1 text-[#98FFF9]">{item.work}</p>
+                            <div className="mt-2 flex">
+                              {item.socialicons.map((social, idx) => (
+                                <a
+                                  key={idx}
+                                  href={social.socialmedia}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="mx-2 text-[#FFFFFF]"
+                                >
+                                  {social.icons}
+                                </a>
+                              ))}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                      
+                  ))}
+                </div>
+                {visibleCount < kolTeam.length && (
+                  <div className="mt-4 flex justify-center text-center">
+                    <button
+                      onClick={() => {
+                        loadMore();
+                        
+                      }}
+                      className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
+                    >
+                      <img src={down} className="m-1" alt="Down arrow" /> Load More
+                    </button>
+                  </div>
+                )}
+              </div>
+            </Tab>
+
+            <Tab label="Team" className="w-[80vw]">
+              <div className="w-[80vw] space-y-4 lg:w-[60vw]">
+                <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                  {teamMembers.slice(0, visibleCount).map((item) => (
+                        <div key={item.name}   className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80">
+                        <img className="mt-4 px-2 md:w-full" src={item.icon} alt={item.name} />
+                        <p className="mt-2 text-white">{item.name}</p>
+                        {item.work && (
+                          <>
+                            <p className="mt-1 text-[#98FFF9]">{item.work}</p>
+                            <div className="mt-2 flex">
+                              {item.socialicons.map((social,index) => (
+                                <a
+                                  key={index}
+                                  href={social.socialmedia}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="mx-2 text-[#FFFFFF]"
+                                >
+                                  {social.icons}
+                                </a>
+                              ))}
+                            </div>
+                          </>
+                        )}
+                      </div>
+                     
+                  ))}
+                </div>
+                {visibleCount < teamMembers.length && (
+                  <div className="mt-4 flex justify-center text-center">
+                    <button
+                      onClick={() => {
+                        loadMore();
+                        
+                      }}
+                      className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
+                    >
+                      <img src={down} className="m-1" alt="Down arrow" /> Load More
+                    </button>
+                  </div>
+                )}
+              </div>
+            </Tab>
+          </Tabs>
+        </div>
+      </section>
+    </div>
           {/*our team ended */}
 
           <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 md:space-y-20">
@@ -782,39 +802,34 @@ function Homepagemcrt() {
                   return (
                     <div
                       key={item.name}
-                      className="flex flex-col h-[5em] items-center bg-[#000000] md:h-36 md:justify-center"
-                    
-                     >
-                      <div className='flex p-5 justify-center items-center lg:mt-5'>
-                      <img
-                        className="  "
-                        src={item.icon}
-                        alt={item.name}
-                      />
+                      className="flex h-[5em] flex-col items-center bg-[#000000] md:h-36 md:justify-center"
+                    >
+                      <div className="flex items-center justify-center p-5 lg:mt-5">
+                        <img src={item.icon} alt={item.name} />
                       </div>
-                      <div className='hidden lg:block'>
-                      <div className="  flex flex-col w-[19.4em] h-[3.5em] px-2  bg-[#010419] items-center  md:flex-row md:justify-between ">
-                        <div className="text-center md:mr-[2em] md:flex md:flex-col md:items-start">
-                          <div className="text-xs   hidden lg:block font-bold leading-tight text-[#fff] md:text-sm">
-                            {item.name}
+                      <div className="hidden lg:block">
+                        <div className="  flex h-[3.5em] w-[19.4em] flex-col items-center  bg-[#010419] px-2  md:flex-row md:justify-between ">
+                          <div className="text-center md:mr-[2em] md:flex md:flex-col md:items-start">
+                            <div className="hidden   text-xs font-bold leading-tight text-[#fff] md:text-sm lg:block">
+                              {item.name}
+                            </div>
+                            {item.link && (
+                              <a
+                                href={link}
+                                className="hidden bg-gradient-to-b from-[#fff] to-[#808080] to-80% bg-clip-text text-[8.583px] font-bold leading-normal text-transparent underline md:text-xs lg:block"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {item.link}
+                              </a>
+                            )}
                           </div>
-                          {item.link && (
-                            <a
-                              href={link}
-                              className="bg-gradient-to-b hidden lg:block from-[#fff] to-[#808080] to-80% bg-clip-text text-[8.583px] font-bold leading-normal text-transparent underline md:text-xs"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {item.link}
-                            </a>
+                          {item.type && (
+                            <div className="mt-1 hidden text-xs text-[#7BCEB0] md:ml-[2em] md:mt-0 md:text-sm lg:block">
+                              {item.type}
+                            </div>
                           )}
                         </div>
-                        {item.type && (
-                          <div className="mt-1 text-xs hidden lg:block text-[#7BCEB0] md:ml-[2em] md:mt-0 md:text-sm">
-                            {item.type}
-                          </div>
-                        )}
-                      </div>
                       </div>
                     </div>
                   )

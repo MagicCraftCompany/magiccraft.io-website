@@ -64,7 +64,7 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
               ${data.variant === 'default' ? 'from-[#3D186D] to-[#2A0D4E]' : 'from-[#2A0D4E] to-[#57186D] '}
               `}
               >
-                <div className="bg-black/20 px-7 py-5 rounded-t-3xl">
+                <div className="bg-black/20 px-7 py-5 rounded-3xl">
                   <h3 className="text-center font-serif text-2xl">{titleKeyMaper(i)}</h3>
                 </div>
                 <div className="space-y-2 px-5 pb-6">
