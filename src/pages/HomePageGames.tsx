@@ -484,26 +484,27 @@ function Homepagegames() {
               </div>
             </section>
 
-            <section className="relative">
-              <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px]  rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
+          <section className="relative">
+            <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px] rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
 
-              <div className="space-y-20">
-                <div className="space-y-8">
-                  <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
-                    Roadmap
-                  </h2>
-                  <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
-                    2024
-                  </div>
+            <div className="space-y-20">
+              <div className="space-y-8">
+                <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
+                  Roadmap
+                </h2>
+                <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
+                  2024
                 </div>
-
-                <div className="mx-auto grid snap-x snap-mandatory scroll-p-4 auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
+              </div>
+              <div className="flex items-center justify-center ">
+                <div className=" grid max-w-[100vw] snap-x  snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl  lg:overflow-x-hidden">
                   {roadmapData.map((data) => (
                     <RoadmapCard data={data} key={data.quarter} />
                   ))}
                 </div>
               </div>
-            </section>
+            </div>
+          </section>
           </div>
         </main>
         <Suspense fallback={<div>Loading...</div>}>
