@@ -1,180 +1,156 @@
-import unix from '@/assets/icons/Unix.svg'
-import glip from '@/assets/icons/glip.svg'
-import magic from '@/assets/icons/magic.svg'
-import elixir from '@/assets/icons/elixir.svg'
-import salad from '@/assets/icons/salad.svg'
-import gameswift from '@/assets/icons/gameswift.svg'
-import portal from '@/assets/icons/portal.svg'
-import stepn from '@/assets/icons/stepn.svg'
-import ovio from '@/assets/icons/ovioLogo 1.svg'
-import nftb from '@/assets/icons/nftb.svg'
-import devoted from '@/assets/icons/devoted.svg'
-import whimsy from '@/assets/icons/Whimsy Games LOGO.svg'
-import chainplay from '@/assets/icons/chainplay.svg'
-import soquest from '@/assets/icons/soquest.svg'
-import cointelegraph from '@/assets/icons/Coin telegram.svg'
-import safepal from '@/assets/icons/safepal.svg'
-import owned from '@/assets/icons/owned.svg'
 
-import gam3s from '@/assets/icons/GAM3S.svg'
-import flame from '@/assets/icons/flame.svg'
-import wombat from '@/assets/icons/wombat.svg'
-import creo from '@/assets/icons/creoengine.svg'
-import carv from '@/assets/icons/carv.svg'
-import earn from '@/assets/icons/earn.svg'
-import gate from '@/assets/icons/gate.svg'
-import castrum from '@/assets/icons/castrum.svg'
+
 
  
  export const otherpartners = [
     {
       name: 'UNIX Gaming',
-      icon: unix,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110995/svgexport-1_1_srwfyz.svg',
       link:'unixgaming.org',
       type:'Gaming Ecosysystem'
     },
     {
       name: 'GLIP.GG',
-      icon: glip,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110994/svgexport-1_1_1_cverx3.svg',
       link:'glip.gg',
       type:'Accelerator'
 
     },
     {
       name: 'Magic Square',
-      icon: magic,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718101231/magicilogo_wwkj1w.webp',
        link:'magicsquare.io',
       type:'Web3 App'
     },
     {
       name: 'Elixir',
-      icon: elixir,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110994/logo_1_gsh0cz.svg',
        link:'elixir.app',
       type:'Game Launcher'
     },
     {
       name: 'Salad',
-      icon: salad,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110994/Vector_kg5vvi.svg',
        link:'salad.ventures',
       type:'Ecosystem Catalyst'
     },
     {
       name: 'GameSwift',
-      icon: gameswift,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110994/svgexport-18_1_xb6kyo.svg',
       link:'gameswift.io',
       type:'Gaming Ecosystem'
     },
     {
       name: 'Portal',
-      icon: portal,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110993/svgexport-1_2_1_aoci43.svg',
        link:'portalcoin.xyz',
       type:'Universal gaming portal'
     },
     {
       name: 'STEPN',
-      icon: stepn,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110993/stepn-logo_1_xdjwbh.svg',
        link:'stepn.com',
       type:'GameFi'
     },
     {
       name: 'OviO',
-      icon: ovio,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110993/ovioLogo_1_1_vkijgs.svg',
        link:'ovio.gg',
       type:'Gaming Ecosystem'
     },
     {
       name: 'NFTb',
-      icon: nftb,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110992/logo_2_blggkr.svg',
        link:'nftb.io',
       type:'Defi Ecosystem'
     },
     {
       name: 'Devoted Studios',
-      icon: devoted,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110992/Vector_1_nykjmb.svg',
        link:'devotedstudios.com',
       type:'Production company'
     },
     {
       name: 'Whimsy Games',
-      icon: whimsy,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110992/Whimsy_Games_LOGO_1_cqjhhs.svg',
        link:'whimsygames.co',
       type:'Game Studio'
     },
     {
       name: 'ChainPlay',
-      icon: chainplay,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110988/Group_306455_1_e1rnye.svg',
        link:'chainplay.gg',
       type:'Web3 Gaming Hub'
     },
     {
       name: 'SoQuest',
-      icon: soquest,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110991/logo_1_kfltj2.svg',
        link:'soquest.xyz',
       type:'Portal'
     },
     {
       name: 'The Cointelegraph',
-      icon: cointelegraph,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/Coin_telegram_1_xeemce.svg',
        link:'cointelegraph.com',
       type:'Media'
     },
     {
       name: 'SafePal',
-      icon: safepal,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/logo-light_1_bcab40.svg',
        link:'safepal.com',
       type:'Wallet'
     },
     {
       name: 'Owned',
-      icon: owned,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/63516e47c385682843c8_j5dyd1.svg',
        link:'owned.gg',
       type:'Esports'
     },
     {
       name: 'GAM3S.GG',
-      icon: gam3s,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110988/zz-2_mbo2sg.svg',
         link:'gam3s.gg',
       type:'Portal'
     },
     {
       name: 'FlameStore',
-      icon: flame,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/62fa710c943e1bdc6a18_yjfcgw.svg',
       link:'flamestore.xyz',
       type:'Game marketplace'
     },
     {
       name: 'Wombat',
-      icon: wombat,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/svgexport-1_1_3_hsqnvm.svg',
        link:'wombat.app',
       type:'Game browser'
     },
     {
       name: 'Creo Engine',
-      icon: creo,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/logo_creo.bdc18584_1_lqte3s.svg',
        link:'creoengine.com',
       type:'Wen3 Ecosystem'
     },
     {
       name: 'CARV',
-      icon: carv,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110988/Screenshot_2024-02-2_a9jdiy.svg',
        link:'carv.io',
       type:'Protocol'
     },
     {
       name: 'Earn Alliance',
-      icon: earn,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110988/ea_logo-2_v3wrm9.svg',
        link:'earnalliance.com',
       type:'Blockchain'
     },
     {
       name: 'Gate IO',
-      icon: gate,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110988/logo_2_ujbkej.svg',
        link:'gate.io',
       type:'CEX'
     },
     {
       name: 'Castrum',
-      icon: castrum,
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110988/Vector_2_jy62et.svg',
        link:'castrum.capital',
       type:'fundraising'
     },

@@ -492,31 +492,19 @@ function Homepagemcrt() {
                 <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
                   Roadmap
                 </h2>
+                <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
+                    2024
+                  </div>
               </div>
               <div className="flex items-center justify-center ">
-                <Tabs type="team">
-                  <Tab label="2022" className="w-full max-w-[80vw]  ">
-                    <div className="grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl lg:overflow-x-hidden">
-                      {roadmapData.map((data) => (
-                        <RoadmapCard data={data} key={data.quarter} />
-                      ))}
-                    </div>
-                  </Tab>
-                  <Tab label="2023" className="w-full max-w-[80vw]">
-                    <div className=" grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col  gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl lg:overflow-x-hidden">
-                      {roadmapData.map((data) => (
-                        <RoadmapCard data={data} key={data.quarter} />
-                      ))}
-                    </div>
-                  </Tab>
-                  <Tab label="2024" className="w-full max-w-[80vw]">
+               
+                
                     <div className=" grid max-w-[100vw] snap-x  snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-scroll  px-4 lg:max-w-screen-xl  lg:overflow-x-hidden">
                       {roadmapData.map((data) => (
                         <RoadmapCard data={data} key={data.quarter} />
                       ))}
                     </div>
-                  </Tab>
-                </Tabs>
+                  
               </div>
             </div>
           </section>
@@ -786,7 +774,7 @@ function Homepagemcrt() {
               <h3 className="m-4  text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl ">
                 OUR PARTNERS
               </h3>
-              <div className="grid grid-cols-3 gap-4 md:grid-cols-4">
+              <div className="grid grid-cols-3 gap-3 md:grid-cols-4">
                 {otherpartners.map((item) => {
                   const link = item.link.includes('http')
                     ? item.link
@@ -794,16 +782,20 @@ function Homepagemcrt() {
                   return (
                     <div
                       key={item.name}
-                      className="flex h-20 flex-col items-center bg-[#000000] md:h-36 md:justify-center"
-                    >
+                      className="flex flex-col h-[5em] items-center bg-[#000000] md:h-36 md:justify-center"
+                    
+                     >
+                      <div className='flex p-5 justify-center items-center lg:mt-5'>
                       <img
-                        className="h-16 w-16 md:h-auto md:w-auto "
+                        className="  "
                         src={item.icon}
                         alt={item.name}
                       />
-                      <div className="  flex flex-col  bg-[#010419] items-center md:mt-5 md:flex-row md:justify-between md:gap-5">
+                      </div>
+                      <div className='hidden lg:block'>
+                      <div className="  flex flex-col w-[19.4em] h-[3.5em] px-2  bg-[#010419] items-center  md:flex-row md:justify-between ">
                         <div className="text-center md:mr-[2em] md:flex md:flex-col md:items-start">
-                          <div className="text-xs  hidden lg:block font-bold leading-tight text-[#fff] md:text-sm">
+                          <div className="text-xs   hidden lg:block font-bold leading-tight text-[#fff] md:text-sm">
                             {item.name}
                           </div>
                           {item.link && (
@@ -822,6 +814,7 @@ function Homepagemcrt() {
                             {item.type}
                           </div>
                         )}
+                      </div>
                       </div>
                     </div>
                   )
