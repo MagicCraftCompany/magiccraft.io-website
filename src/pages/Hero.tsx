@@ -28,7 +28,7 @@ function Hero() {
               className="relative block h-[700px]  w-full bg-cover top-[-70px] bg-center   md:hidden "
             />
 
-            <div className=" flex w-full  rounded-lg   ">
+            <div className=" flex w-full   rounded-lg   ">
               <div className="absolute inset-0 -mb-20  mt-40 flex  w-fit  flex-col  justify-center  text-center lg:-top-[20em] lg:ml-[20em] lg:text-left">
                 <span className="m-4 hidden w-fit justify-center rounded-[2em] bg-[#4457b84d]  px-4 py-2 text-[#98FFF9] lg:block   ">
                   <div className="flex flex-wrap">
@@ -63,19 +63,19 @@ function Hero() {
                 </button>
               </div>
             </div>
-            <div className='flex justify-center items-center '>
-            <div className=" bg-custom-dark -mt-40 flex flex-row  items-center h-fit w-[79.125em] gap-[0.5em] rounded-[1.875em] bg-[rgba(10,9,23,0.60)] bg-opacity-70  px-[3.75em] backdrop-blur-[0.71875em] ">
+            <div className='  '>
+            <div className="lg:-mt-40   lg:ml-[15.125em] flex lg:flex-row flex-col  items-center  gap-[0.5em] rounded-[1.875em] bg-[#13152E] bg-opacity-70  px-[1.75em] backdrop-blur-[0.71875em] ">
               <div className="relative flex h-fit  w-fit flex-col overflow-hidden rounded-[20px]   px-2  ">
-                <h4 className="flex flex-wrap p-1">
+                <h4 className="flex flex-row p-1">
                   Game role:{' '}
-                  <div className="flex flex-wrap px-2 text-[#98FFF9] ">
+                  <div className="flex flex-row px-2 text-[#98FFF9] ">
                     {' '}
-                    <img src={one} className="px-2" /> Battlemage{' '}
+                    <img src={one} className="px-2 " /> Battlemage{' '}
                   </div>
                 </h4>
-                <h4 className="flex flex-wrap p-1  ">
+                <h4 className="flex flex-row p-1  ">
                   Difficulty:{' '}
-                  <div className="ml-6 flex  flex-wrap rounded-3xl bg-[#1F2E32] px-4  text-[#8EFF49]">
+                  <div className="ml-6 flex  flex-row rounded-3xl bg-[#1F2E32] px-4  text-[#8EFF49]">
                     {' '}
                     <div className="mx-2 mt-2 h-2 w-2 rounded-3xl bg-[#8EFF49]"></div>{' '}
                     Easy{' '}
@@ -84,29 +84,30 @@ function Hero() {
               </div>
 
               <div className="relative flex h-fit  w-fit flex-col  overflow-hidden rounded-[20px]   px-2  ">
-                <h4 className="flex flex-wrap p-1">
+                <h4 className="flex flex-row p-1">
                   HP:{' '}
-                  <div className="flex flex-wrap pl-10 text-[#98FFF9] ">
+                  <div className="flex flex-row pl-10 text-[#98FFF9] ">
                     {' '}
                     <img src={heart} className="px-2" /> 438
                   </div>
                 </h4>
-                <h4 className="flex flex-wrap p-1  ">
+                <h4 className="flex flex-row p-1  ">
                   Mobility:{' '}
-                  <div className="flex flex-wrap  px-2 text-[#98FFF9]">
+                  <div className="flex flex-row  px-2 text-[#98FFF9]">
                     {' '}
                     <img src={arrow} className="px-2" /> Good
                   </div>
                 </h4>
               </div>
 
-              <div className="my-8 block h-[2.5em] w-px bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent " />
+              <div className="my-8 hidden lg:block h-[3em] w-px bg-gradient-to-t from-transparent via-[#98FFF9] to-transparent " />
+              <div className="my-8 lg:hidden block h-px w-[10em] bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent " />
 
-              <div className="relative flex h-fit  w-fit flex-row  overflow-hidden rounded-[20px]   px-2  ">
-                <div className="flex flex-wrap items-center justify-center p-2">
+              <div className="relative flex h-fit justify-center items-center   w-fit flex-row  overflow-hidden rounded-[20px]   px-2  ">
+                <div className="flex flex-col lg:flex-row gap-3 items-center justify-center p-2">
                   Abilities:
                   <div className="flex flex-wrap px-4 ">
-                    <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173120/image_139_upbgkg.webp" className="px-2" />
+                    <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173120/image_139_upbgkg.webp" className="px-2 " />
                     <div className="flex flex-col">
                       <p className="text-[#98FFF9]"> Reflective Shield</p>
                       <p> Damage:90</p>
