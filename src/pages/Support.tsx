@@ -21,19 +21,7 @@ import contacticon2 from '@/assets/icons/li_coins (1).svg'
 import vector from '@/assets/icons/contact-vector.svg'
 
 export default function FAQ() {
-  //   const [selectedTab, setSelectedTab] = useState<string>('web3');
-
-  //   const tabOptions = [
-  //     { label: 'Web3 Slay-to-Earn Mode', value: 'web3' },
-  //     { label: 'Web 2 Mode', value: 'web2' },
-  //     { label: '$ MCRT & pledging', value: 'mcrt' },
-  //     { label: 'Partner with MagicCraft', value: 'partner' },
-  //     { label: 'Contact Team', value: 'contact' },
-  //   ];
-
-  //   const handleTabSelect = (value: string) => {
-  //     setSelectedTab(value);
-  //   };
+  
 
   function Question() {
     return (

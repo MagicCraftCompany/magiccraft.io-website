@@ -9,7 +9,7 @@ import Homepagemagicrunner from './pages/HomePageMagicRunner'
 import Homepagemagic8ball from './pages/HomePageMagic8Ball'
 import Hero from './pages/Hero'
 import ChooseYourHero from './pages/ChooseYourHero'
-
+import Server from './pages/serverStatus'
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +22,7 @@ function App() {
         <Route path="/Chooseyourhero" element={<ChooseYourHero/>}></Route>
         <Route path="/faq" element={<Support />}></Route>
         <Route path="/patch" element={<GamePatch />}></Route>
+        <Route path="/server" element={<Server />}></Route>
       </Routes>
     </BrowserRouter>
   )
