@@ -46,7 +46,7 @@ function server() {
               <div className="block h-px w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent" />
             </div>
 
-            <div className="flex flex-row justify-center gap-[20px]">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-[20px]">
               {servers.map((server) => (
                 <div
                   key={server.id}
