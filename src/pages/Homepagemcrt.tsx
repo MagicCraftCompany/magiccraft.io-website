@@ -13,7 +13,6 @@ import down from '@/assets/icons/li_chevron-down.svg'
 
 import { roadmapData } from '../data/roadmapData'
 import RoadmapCard from '../components/Cards/RoadmapCard'
-import Video from '@/assets/images/video.mp4'
 
 import { otherpartners } from '@/data/otherpartners'
 import partners from '@/data/partners'
@@ -76,7 +75,7 @@ function Homepagemcrt() {
               loop
               muted
             >
-              <source src={Video} type="video/mp4" />
+              <source src="https://res.cloudinary.com/dfzcr2ch4/video/upload/v1717166775/video_gokp2f.mp4" type="video/mp4" />
             </video>
             <div className="video-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className="relative z-10 mx-auto  max-w-screen-xl">
