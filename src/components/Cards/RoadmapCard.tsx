@@ -1,6 +1,6 @@
 import { Minus } from 'lucide-react';
 import { titleKeyMaper } from '@/lib/utils';
-import check from '@/assets/icons/check.svg';
+import checks from '@/assets/icons/check.svg';
 import triangle from '@/assets/icons/Rectangle 1585.svg';
 import righttick from '@/assets/icons/rightcheck.svg';
 
@@ -48,7 +48,7 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
               {shouldHighlightCard && (
                 <>
                   <img
-                    src={check}
+                    src={checks}
                     alt="Checkbox"
                     className="absolute mt-2 left-[16.5em] right-0 transform -translate-x-1/2 rounded-2xl z-10"
                   />
