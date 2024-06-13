@@ -5,6 +5,13 @@ import Header from '@/components/Header/Header'
 import one from '@/assets/icons/1.svg'
 import heart from '@/assets/icons/li_heart.svg'
 import arrow from '@/assets/icons/game-icons_fast-arrow.svg'
+import { Tab, Tabs } from '@/components/tabs'
+import damage from '@/assets/icons/Game role_.svg'
+
+import dash from '@/assets/images/image 139.png'
+import peaks from '@/assets/images/image 140.webp'
+import icestorm from '@/assets/images/image 141.webp'
+
 
 
 function Hero() {
@@ -28,8 +35,8 @@ function Hero() {
               className="relative block h-[700px]  w-full bg-cover top-[-70px] bg-center   md:hidden "
             />
 
-            <div className=" flex w-full   rounded-lg   ">
-              <div className="absolute inset-0 -mb-20  mt-40 flex  w-fit  flex-col  justify-center  text-center lg:-top-[20em] lg:ml-[20em] lg:text-left">
+            <div className=" flex w-full rounded-lg ">
+              <div className="absolute inset-0 -mb-20 -mt-40 md:-mt-10 lg:mt-40 flex  w-fit  flex-col  justify-center  text-center lg:-top-[20em] lg:ml-[20em] lg:text-left">
                 <span className="m-4 hidden w-fit justify-center rounded-[2em] bg-[#4457b84d]  px-4 py-2 text-[#98FFF9] lg:block   ">
                   <div className="flex flex-wrap">
                     {' '}
@@ -63,8 +70,8 @@ function Hero() {
                 </button>
               </div>
             </div>
-            <div className='  '>
-            <div className="lg:-mt-40   lg:ml-[15.125em] flex lg:flex-row flex-col  items-center  gap-[0.5em] rounded-[1.875em] bg-[#13152E] bg-opacity-70  px-[1.75em] backdrop-blur-[0.71875em] ">
+            <div className=' flex justify-center items-center '>
+            <div className="lg:-mt-40 w-[409px] md:w-[704px] md:mx-[2em] lg:w-fit  lg:ml-[15.125em] flex lg:flex-row flex-col  items-center  gap-[0.5em] rounded-[1.875em] bg-[#13152E] bg-opacity-70  px-[1.75em] backdrop-blur-[0.71875em] ">
               <div className="relative flex h-fit  w-fit flex-col overflow-hidden rounded-[20px]   px-2  ">
                 <h4 className="flex flex-row p-1">
                   Game role:{' '}
@@ -132,6 +139,50 @@ function Hero() {
                 </div>
                 </div>
               </div>
+              </div>
+            </div>
+          </section>
+          <section className="relative h-[700px] bg-center  lg:h-full">
+            <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp" className="h-full w-full object-cover" />
+            <div className="absolute left-0 top-0  flex h-full w-full  flex-col  text-center">
+              <h2 className="text-balance  p-2 font-serif text-4xl text-white">
+                ABILITY DETAILS
+              </h2>
+
+              <div className="flex flex-col   items-center justify-center  lg:flex-row">
+                <div className=" lg:-mt-30 w-full lg:relative lg:-mr-10   lg:w-[40em]">
+                 
+                  </div>
+                  <Tabs >
+                  <Tab label="Lightning Dash" icon={dash} className="w-[80vw]">
+                 <div>
+                 <img
+                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/Rectangle_3_mxdrdh.webp"
+                      className=" px-4 rounded-2xl "
+                    ></img>
+                 </div>
+
+                <div className="my-4 h-full w-full rounded-lg bg-custom-dark bg-opacity-70 p-4 lg:h-fit  lg:w-[500px]">
+                  <div className="flex flex-wrap">
+                   
+                    <span className="p-5 text-4xl font-bold">How it works</span>
+                  </div>
+                  <div className="m-2 block h-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent lg:w-5/12" />
+
+                  <div className="p-1 text-left lg:p-4 ">
+                    <p className="lg:p-5 ">
+                      Zap calls forth a cascade of lightning in the chosen direction 
+                      Enemies hit take damage and are silenced.
+                    </p>
+                    <div className='flex flex-row'>Damage:<img src={damage}/>90</div>
+
+                    
+                  </div>
+                </div>
+                </Tab>
+                <Tab label="Ice Peaks" icon={peaks} className="w-[80vw]" children={undefined}></Tab>
+                <Tab label="Ice Storms" icon={icestorm}  className="w-[80vw]" children={undefined}></Tab>
+                </Tabs>
               </div>
             </div>
           </section>
