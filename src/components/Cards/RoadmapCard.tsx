@@ -1,6 +1,6 @@
 import { Minus } from 'lucide-react';
 import { titleKeyMaper } from '@/lib/utils';
-import checks from '@/assets/icons/check.svg';
+import checks from '@/assets/icons/tick.svg';
 import triangle from '@/assets/icons/Rectangle 1585.svg';
 import righttick from '@/assets/icons/rightcheck.svg';
 
