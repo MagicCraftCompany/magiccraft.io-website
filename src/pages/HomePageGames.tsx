@@ -13,8 +13,21 @@ import RoadmapCard from '../components/Cards/RoadmapCard'
 import partners from '@/data/partners'
 import { foundation } from '@/data/foundation'
 import strengths from '@/data/strengths'
+import { useNavigate } from 'react-router-dom'
 
 function Homepagegames() {
+
+  const navigate = useNavigate();
+
+  const magiccrafthandleClick = () => {
+    navigate('/');
+  };
+  const magicrunnerhandleClick = () => {
+    navigate('/magicrunner');
+  };
+  const magic8ballhandleClick = () => {
+    navigate('/magic8ball');
+  };
   return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -55,26 +68,29 @@ function Homepagegames() {
                   </h3>
                   <div className="flex flex-row gap-[2em]">
                    
-                      <div className="w-56 select-none snap-start">
+                      <div className="w-56 select-none snap-start cursor-pointer"  onClick={magiccrafthandleClick}>
                         <img
                           className="pointer-events-none select-none"
                           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magiccraft-card_dfthct.webp"
                           alt="MagicCraft Game"
+                         
                         />
                       </div>
                     
-                    <div className="w-56 select-none snap-start">
+                    <div className="w-56 select-none snap-start cursor-pointer"  onClick={magic8ballhandleClick}>
                       <img
                         className="pointer-events-none select-none"
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_10_ouvuyg.webp"
                         alt="Magic8Ball game"
+                        
                       />
                     </div>
-                    <div className="w-56 select-none snap-start">
+                    <div className="w-56 select-none snap-start cursor-pointer" onClick={magicrunnerhandleClick }>
                       <img
                         className="pointer-events-none select-none"
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_9_vqeywh.webp"
                         alt="MagicRunner game"
+                        
                       />
                     </div>
                   </div>

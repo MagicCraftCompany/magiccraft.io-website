@@ -16,6 +16,7 @@ import lock from '@/assets/icons/Union.svg'
 import diamond from '@/assets/icons/Group.svg'
 
 import watch from '@/assets/icons/Frame.svg'
+import { useNavigate } from 'react-router-dom'
 
 function Homepagemagicrunner() {
   const joinMissionHandler = () => {
@@ -33,6 +34,16 @@ function Homepagemagicrunner() {
       window.location.href = 'https://lobby.magiccraft.io/magic-runner'
 
     } 
+
+  const navigate = useNavigate();
+
+  const magiccrafthandleClick = () => {
+    navigate('/');
+  };
+  const magic8ballhandleClick = () => {
+    navigate('/magic8ball');
+  };
+
    return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -178,16 +189,16 @@ function Homepagemagicrunner() {
                 </div>
                 <div className="  block h-[10em] w-[2px] bg-gradient-to-t from-transparent via-[#556DE0] to-transparent " />
                 <div className="ml-4 flex flex-row">
-                  <a href="https://magiccraft.io" rel="noreferrer noopener">
-                    <div className="w-[13em] select-none snap-start px-4">
+                 
+                    <div className="w-[13em] select-none snap-start px-4 cursor-pointer" onClick={magiccrafthandleClick}>
                       <img
                         className="pointer-events-none select-none  "
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magiccraft-card_dfthct.webp"
                         alt="MagicCraft Game"
                       />
                     </div>
-                  </a>
-                  <div className="w-[13em] select-none snap-start  px-4">
+                 
+                  <div className="w-[13em] select-none snap-start  px-4 cursor-pointer" onClick={magic8ballhandleClick}>
                     <img
                       className="pointer-events-noneselect-none"
                       src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_10_ouvuyg.webp"

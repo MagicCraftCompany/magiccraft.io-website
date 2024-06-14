@@ -29,7 +29,7 @@ import watch from '@/assets/icons/Frame.svg'
 
 function Homepagemagic8ball() {
   const playonandroidHandler = () => {
-    window.location.href = 'https://play.google.com/store/apps/details?id=com.MagicCraftInc.MagicRunner'
+    window.location.href = 'https://play.google.com/store/apps/details?id=com.magiccraft.magic8ball&hl=en_IN'
   } 
   const playonappleHandler = () => {
     window.location.href = 'https://apps.apple.com/us/app/magicrunner-frigards-escape/id6479990522'
@@ -103,7 +103,7 @@ function Homepagemagic8ball() {
             <div className="relative mx-auto  mb-20 block md:-mt-10  md:w-[566px]   lg:hidden  ">
               <div className="rounded-[20px]    bg-[#271565]  ">
                 <h4 className="  px-10 py-2 text-center font-serif text-lg md:text-[22px] ">
-                  <span className="text-[#FFB649]  ">PLAY </span> MAGICRUNNER
+                  <span className="text-[#FFB649]  ">PLAY </span> MAGIC8BALL
                   NOW!
                   <br />
                 </h4>
@@ -117,14 +117,14 @@ function Homepagemagic8ball() {
 
                   <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                  <span className="p-2  md:p-5">
+                  <span className="p-2  md:p-5 cursor-pointer">
                     <img src={AppleIcon}></img>
                     Get it on <br />
                     <p className=" text-lg font-bold md:text-xl">App Store</p>
                   </span>
                   <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                  <span className=" p-2  md:p-5">
+                  <span className=" p-2  md:p-5 cursor-pointer">
                     <img src={steam}></img>
                     Get it on
                     <br />
@@ -132,7 +132,7 @@ function Homepagemagic8ball() {
                   </span>
                   <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                  <span className=" p-2  md:p-5">
+                  <span className=" p-2  md:p-5 cursor-pointer" >
                     <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
                     Get it on
                     <br />
@@ -300,7 +300,7 @@ function Homepagemagic8ball() {
                       deeper mysteries of MagicCraft
                     </p>
 
-                    <button className="m-5 rounded-lg  border-2 border-solid border-[#98FFF9] p-2 text-[#98FFF9] ">
+                    <button className="m-5 rounded-lg  border-2 border-solid border-[#98FFF9] p-2 text-[#98FFF9] " onClick={playnowHandler}>
                       Play Now
                     </button>
                   </div>
