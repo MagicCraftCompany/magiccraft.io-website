@@ -196,7 +196,8 @@ function Homepagemcrt() {
 
           {/*register now */}
 
-          <section className="relative flex flex-col justify-center items-center gap-[20em] bg-[#020418] bg-center lg:h-[500px] lg:flex-row lg:p-4  ">
+          <section className="relative flex flex-col justify-center items-center  bg-[#020418] bg-center lg:h-[500px] lg:flex-row lg:p-4  ">
+           <div className='lg:w-[200em] flex items-center justify-center lg:flex-row lg:gap-[10em]  md:gap-[20em]'>
             <div className="flex rounded-lg lg:w-6/12 lg:pl-52  ">
               <div className=" flex flex-col items-center justify-center p-4 text-center md:p-4 md:text-left lg:mt-10 ">
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
@@ -252,7 +253,7 @@ function Homepagemcrt() {
             <div className="relative w-full rounded-lg md:mb-10  lg:-ml-[10em]   lg:w-4/12">
               <Swiper
                 id="1"
-                className="w-full p-10 "
+                className=" p-10 "
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={50}
                 slidesPerView={1}
@@ -360,6 +361,7 @@ function Homepagemcrt() {
               <button className="arrow-right arrow absolute right-0 top-[50%] cursor-pointer lg:-right-4 ">
                 <img src={right} alt="MCRT Token" className="cursor-pointer" />
               </button>
+            </div>
             </div>
           </section>
 
