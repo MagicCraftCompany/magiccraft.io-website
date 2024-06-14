@@ -25,6 +25,7 @@ import frame2 from '@/assets/icons/Frame (2).svg'
 import frame3 from '@/assets/icons/Frame (3).svg'
 import frame4 from '@/assets/icons/Frame (4).svg'
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(8)
@@ -62,6 +63,31 @@ function Homepagemcrt() {
     }
   }, [adjustDividerHeight])
 
+
+  const playonappleHandler = () => {
+    window.location.href='https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
+  }
+  const playonpcHandler = () => {
+    window.location.href='https://mc-game-public.s3.eu-central-1.amazonaws.com/MagicCraft+4.27.9109.zip'
+  }
+  const playonsteamHandler = () => {
+    window.location.href='https://store.steampowered.com/app/2395760/MagicCraft/'
+  }
+  const getfromgoogleHandler = () => {
+    window.location.href='https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
+  }
+  const discordmagiccraftHandler = () => {
+    window.location.href='https://discord.com/invite/magiccraftgame'
+  }
+  const telegrammagiccrftHandler = () => {
+    window.location.href='https://t.me/magiccraftgamechat'
+  }
+
+  const navigate = useNavigate();
+
+  const magicrunnerhandleClick = () => {
+    navigate('/magicrunner');
+  };
   return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -102,7 +128,7 @@ function Homepagemcrt() {
                       <br />
                     </h4>
                     <div className="flex flex-wrap items-center">
-                      <span className=" p-2 md:p-5">
+                      <span className=" p-2 md:p-5 cursor-pointer " onClick={playonpcHandler}  >
                         <img src={pc}></img>
                         Download
                         <br />
@@ -111,7 +137,7 @@ function Homepagemcrt() {
 
                       <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                      <span className="p-2  md:p-5">
+                      <span className="p-2  md:p-5 cursor-pointer " onClick={playonappleHandler}>
                         <img src={AppleIcon}></img>
                         Get it on <br />
                         <p className=" text-lg font-bold md:text-xl">
@@ -120,7 +146,7 @@ function Homepagemcrt() {
                       </span>
                       <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                      <span className=" p-2  md:p-5">
+                      <span className=" p-2  md:p-5 cursor-pointer " onClick={ playonsteamHandler}>
                         <img src={steam}></img>
                         Get it on
                         <br />
@@ -128,7 +154,7 @@ function Homepagemcrt() {
                       </span>
                       <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                      <span className=" p-2  md:p-5">
+                      <span className=" p-2  md:p-5 cursor-pointer " onClick={getfromgoogleHandler}>
                         <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
                         Get it on
                         <br />
@@ -310,10 +336,10 @@ function Homepagemcrt() {
                 </SwiperSlide>
               </Swiper>
               <button className="arrow-left arrow absolute top-[50%]  cursor-pointer lg:-left-4  ">
-                <img src={left} alt="MCRT Token" />
+                <img src={left} alt="MCRT Token" className='cursor-pointer' />
               </button>
               <button className="arrow-right arrow absolute right-0 top-[50%] cursor-pointer lg:-right-4 ">
-                <img src={right} alt="MCRT Token" />
+                <img src={right} alt="MCRT Token"  className='cursor-pointer' />
               </button>
             </div>
           </section>
@@ -374,7 +400,7 @@ function Homepagemcrt() {
                           from traditional games.
                         </p>
                       </label>
-                      <button className=" mb-2 mt-1 inline-flex flex-wrap rounded-lg border-2  border-[#98FFF9]  p-0.5 text-[#98FFF9] md:ml-5 md:px-1 md:text-xs lg:m-5 lg:w-[260px]  lg:py-0.5 lg:pl-0.5 lg:text-lg">
+                      <button className=" mb-2 mt-1 inline-flex flex-wrap rounded-lg border-2  border-[#98FFF9]  p-0.5 text-[#98FFF9] md:ml-5 md:px-1 md:text-xs lg:m-5 lg:w-[260px]  lg:py-0.5 lg:pl-0.5 lg:text-lg" onClick={magicrunnerhandleClick}>
                         <img
                           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
                           alt="Button Image"
@@ -442,7 +468,7 @@ function Homepagemcrt() {
                         THE GAME
                       </h4>
                       <div className="flex flex-wrap items-center lg:mb-4 lg:pl-10">
-                        <span className="px-3 lg:py-4 ">
+                        <span className="px-3 lg:py-4 cursor-pointer  " onClick={playonsteamHandler}>
                           <img src={steam} className=" pb-4"></img>
                           Get it on
                           <br />
@@ -450,7 +476,7 @@ function Homepagemcrt() {
                         </span>
 
                         <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
-                        <span className="px-3 lg:py-4">
+                        <span className="px-3 lg:py-4 cursor-pointer " onClick={playonappleHandler}>
                           <img src={AppleIcon} className=" pb-4"></img>
                           Get it on
                           <br />
@@ -459,7 +485,7 @@ function Homepagemcrt() {
                           </p>
                         </span>
                         <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
-                        <span className=" px-3 py-4">
+                        <span className=" px-3 py-4 cursor-pointer " onClick={getfromgoogleHandler}>
                           <img
                             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"
                             className=" pb-4"
@@ -590,7 +616,7 @@ function Homepagemcrt() {
               </p>
               <div className="flex flex-wrap items-center">
                 <img src={pc}></img>
-                <span className=" p-4">
+                <span className=" p-4 cursor-pointer" onClick={discordmagiccraftHandler}>
                   Join MagicCraft's
                   <br />
                   <p className="text-2xl font-bold"> Discord</p>
@@ -598,7 +624,7 @@ function Homepagemcrt() {
 
                 <div className="mx-4 block h-[4em] w-[2px] bg-gradient-to-t from-transparent via-[#2F3A80] to-transparent " />
                 <img src={AppleIcon} className=" pl-4"></img>
-                <span className=" p-4">
+                <span className=" p-4 cursor-pointer" onClick={telegrammagiccrftHandler}>
                   Join MagicCraft's
                   <br />
                   <p className="text-2xl font-bold"> Telegram</p>

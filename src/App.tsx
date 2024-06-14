@@ -14,8 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Homepagegames />}></Route>
-        <Route path="/magiccraft" element={<Homepagemcrt />}></Route>
+        <Route path="/vision" element={<Homepagegames />}></Route>
+        <Route path="/" element={<Homepagemcrt />}></Route>
         <Route path="/magicrunner" element={<Homepagemagicrunner />}></Route>
         <Route path="/magic8ball" element={<Homepagemagic8ball />}></Route>
         <Route path="/hero" element={<Hero />}></Route>
@@ -23,6 +23,7 @@ function App() {
         <Route path="/faq" element={<Support />}></Route>
         <Route path="/patch" element={<GamePatch />}></Route>
         <Route path="/server" element={<Server />}></Route>
+       
       </Routes>
     </BrowserRouter>
   )
