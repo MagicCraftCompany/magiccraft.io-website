@@ -27,7 +27,10 @@ type TabsProps = {
 };
 
 const Tabs = ({ children, type }: TabsProps) => {
-  const [activeTab, setActiveTab] = useState<string>((children[0] as React.ReactElement<TabProps>).props.label);
+  const search = window.location.search;
+  const params = new URLSearchParams(search);
+  const foo = params.get('contact');
+  const [activeTab, setActiveTab] = useState<string>(foo?(children[4] as React.ReactElement<TabProps>).props.label: (children[0] as React.ReactElement<TabProps>).props.label);
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>, newActiveTab: string) => {
     e.preventDefault();
