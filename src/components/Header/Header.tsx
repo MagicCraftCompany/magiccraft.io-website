@@ -38,7 +38,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       {
         title: 'MagicCraft',
           icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
-          path: '/',
+          path: '/magiccraft',
         
       },
       {
@@ -115,11 +115,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
           path: 'https://magiccraft.io/contact-us',
         },
         
-        {
-          title: 'Vision',
-          icon: './icons/icon-contact.svg',
-          path: '/vision',
-        },
+        
       ],
     },
     {
