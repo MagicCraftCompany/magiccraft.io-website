@@ -29,7 +29,7 @@ function Homepagegames() {
     navigate('/magic8ball');
   };
   const contactTeamhandleClick=() => {
-    navigate('/faq#contact')
+    navigate('/faq?contact=true')
   };
   return (
     <>
