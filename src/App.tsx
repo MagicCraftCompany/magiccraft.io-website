@@ -14,8 +14,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/vision" element={<Homepagegames />}></Route>
-        <Route path="/" element={<Homepagemcrt />}></Route>
+        <Route path="/" element={<Homepagegames />}></Route>
+        <Route path="/magiccraft" element={<Homepagemcrt />}></Route>
         <Route path="/magicrunner" element={<Homepagemagicrunner />}></Route>
         <Route path="/magic8ball" element={<Homepagemagic8ball />}></Route>
         <Route path="/hero" element={<Hero />}></Route>

@@ -75,31 +75,35 @@ export default function FAQ() {
 
                 <Tabs>
                   <Tab
+                  id="Web3 Slay-to-Earn Mode"
                     label="Web3 Slay-to-Earn Mode"
                     icon={web3}
                     iconActive={web}
                   >
                     <Question />
                   </Tab>
-                  <Tab label="Web 2 Mode" icon={web2} iconActive={web22}>
+                  <Tab id="Web 2 Mode" label="Web 2 Mode" icon={web2} iconActive={web22}>
                     <Question />
                   </Tab>
-                  <Tab label="$ MCRT & pledging" icon={Mcrt} iconActive={Mcrt2}>
+                  <Tab id="$ MCRT & pledging"  label="$ MCRT & pledging" icon={Mcrt} iconActive={Mcrt2}>
                     <Question />
                   </Tab>
                   <Tab
+                   id="Partner with MagicCraft"
                     label="Partner with MagicCraft"
                     icon={Mcrt}
                     iconActive={Mcrt2}
                   >
                     <Question />
                   </Tab>
+                  
                   <Tab
+                   id="contact"
                     label="Contact Team"
                     icon={contacticon}
                     iconActive={contacticon2}
                   >
-                    <div className="flex flex-shrink-0 flex-col  items-start justify-between rounded-[25.4px] border border-[#9AD4FD] bg-[#03082F] bg-gradient-to-b from-[#161242] to-[rgba(6,11,49,0.95)] shadow-[0px_0px_20.32px_#22068F] backdrop-blur-[5.128px] md:flex-row lg:max-w-[934px] ">
+                    <div  className="flex flex-shrink-0 flex-col  items-start justify-between rounded-[25.4px] border border-[#9AD4FD] bg-[#03082F] bg-gradient-to-b from-[#161242] to-[rgba(6,11,49,0.95)] shadow-[0px_0px_20.32px_#22068F] backdrop-blur-[5.128px] md:flex-row lg:max-w-[934px]   ">
                       <form className="w-full  p-4 md:pl-[4em]">
                         <div className="mb-4">
                           <input
@@ -167,6 +171,7 @@ export default function FAQ() {
                       />
                     </div>
                   </Tab>
+                
                 </Tabs>
               </section>
             </div>

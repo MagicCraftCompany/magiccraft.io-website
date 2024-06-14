@@ -20,13 +20,16 @@ function Homepagegames() {
   const navigate = useNavigate();
 
   const magiccrafthandleClick = () => {
-    navigate('/');
+    navigate('/magiccraft');
   };
   const magicrunnerhandleClick = () => {
     navigate('/magicrunner');
   };
   const magic8ballhandleClick = () => {
     navigate('/magic8ball');
+  };
+  const contactTeamhandleClick=() => {
+    navigate('/faq#contact')
   };
   return (
     <>
@@ -64,7 +67,7 @@ function Homepagegames() {
               <div className="grid h-[17em] w-full snap-x  snap-mandatory auto-cols-min grid-flow-col gap-6 overflow-x-auto overscroll-contain overscroll-x-contain rounded-4xl bg-custom-dark bg-opacity-70 px-4 pt-4 lg:ml-[10em] lg:w-[60em] lg:items-center lg:justify-center">
                 <div className="flex flex-col items-center">
                   <h3 className="font-serif font-bold">
-                    MAGICVERSE GAME TO PLAY
+                  MAGICCRAFT ECOSYSTEM GAMES
                   </h3>
                   <div className="flex flex-row gap-[2em]">
                    
@@ -127,12 +130,26 @@ function Homepagegames() {
                     gaming experiences will shape a unified global gaming
                     economy.
                   </h4>
-                  <div className="flex flex-wrap items-center gap-[10px]">
+                  <div className="flex flex-wrap items-center gap-[10px] cursor-pointer">
                     {['MagicCraft', 'Magic8Ball', 'MagicRunner'].map((val) => {
-                      return (
+ let handleClick;
+ switch (val) {
+   case 'MagicCraft':
+     handleClick = magiccrafthandleClick;
+     break;
+   case 'Magic8Ball':
+     handleClick = magic8ballhandleClick;
+     break;
+   case 'MagicRunner':
+     handleClick = magicrunnerhandleClick;
+     break;
+   default:
+     handleClick = () => {}; 
+ }                      return (
                         <div
                           key={val}
                           className="game-chips-bg grid w-fit place-items-center rounded-full px-4 py-3"
+                          onClick={handleClick}
                         >
                           <p>{val}</p>
                         </div>
@@ -143,7 +160,7 @@ function Homepagegames() {
                   <div className="flex items-center gap-8 pt-10">
                   <a href="">
                       <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]">
-                      Become part of Ecosystem
+                      Join Our Ecosystem
                       </div>
                     </a>
                     <a href="#faq">
@@ -154,7 +171,7 @@ function Homepagegames() {
                     <div className="w-px self-stretch bg-gradient-to-b from-transparent via-[#98FFF9] to-transparent" />
                     <a
                       className="flex flex-col items-center justify-center gap-1"
-                      href="https://youtu.be/YAp7k3NsKpg?si=PKWHUbWH86j4iC2f"
+                      href="  https://www.youtube.com/watch?v=YAp7k3NsKpg"
                       target="_blank"
                       rel="noreferrer noopener"
                     >
@@ -377,14 +394,11 @@ function Homepagegames() {
 
               <div className="text-center">
                 <button>
-                  <a
-                    rel="noreferrer noopener"
-                    href="https://magiccraft.io/contact-us"
-                  >
-                    <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]">
+                 
+                    <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]" onClick={ contactTeamhandleClick}>
                       Contact us
                     </div>
-                  </a>
+                  
                 </button>
               </div>
             </section>

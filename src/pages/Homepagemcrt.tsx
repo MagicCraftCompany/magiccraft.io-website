@@ -125,71 +125,68 @@ function Homepagemcrt() {
                   <span className="text-3xl">WHERE PLAY MEANS PROSPERITY</span>
                 </h1>
               </div>
-              <div className="  mt-20 mx-[2em] md:mx-auto md:mb-20  md:mt-0 md:w-[34.75em]  ">
-             
+              <div className="  mx-[2em]  md:mx-auto md:mb-20  md:mt-0 md:w-[34.75em]  ">
                 <div className="rounded-[1.25em]   bg-gradient-to-b from-[#B591F2]   to-transparent p-px ">
-                 
                   <div className="relative   max-w-full flex-col    overflow-hidden rounded-[1.25em]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%   md:px-11 md:py-3">
-                   
                     <h4 className="  mx-[3em] py-2  text-center font-serif text-lg md:text-[1.375em] ">
                       <span className="text-[#FFB649]  ">PLAY </span> MAGICCRAFT
                       NOW!
                       <br />
                     </h4>
-                    <div className='flex justify-center items-center '>
-                    <div className="flex flex-row items-center gap-[10px]">
-                      <span
-                        className=" cursor-pointer p-2 md:p-5 "
-                        onClick={playonpcHandler}
+                    <div className="flex items-center justify-center ">
+                      <div className="flex flex-row items-center gap-[20px] m-4">
+                        <span
+                          className=" cursor-pointer  "
+                          onClick={playonpcHandler}
+                        >
+                          <img src={pc}></img>
+                          Download
+                          <br />
+                          <p className=" text-lg font-bold md:text-xl ">PC</p>
+                        </span>
+
+                        <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
+
+                        <span
+                          className="cursor-pointer   "
+                          onClick={playonappleHandler}
+                        >
+                          <img src={AppleIcon}></img>
+                          Get it on 
+                          <div className=" text-lg font-bold md:text-xl  ">
+                            App Store
+                          </div>
+                        </span>
+                        <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
+
+                        <span
+                          className=" cursor-pointer   "
+                          onClick={playonsteamHandler}
+                        >
+                          <img src={steam}></img>
+                          Get it on
+                          <br />
+                          <p className="text-xl font-bold flex flex-row md:text-xl">Steam</p>
+                        </span>
+                        <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
+
+                        <span
+                          className=" cursor-pointer   "
+                          onClick={getfromgoogleHandler}
+                        >
+                          <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
+                          Get it on
+                          <br />
+                          <p className="text-lg font-bold flex flex-row md:text-xl"> Google play</p>
+                        </span>
+                      </div>
+
+                      <div
+                        style={{ right: '25px' }}
+                        className="absolute -bottom-10 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]"
                       >
-                        <img src={pc}></img>
-                        Download
-                        <br />
-                        <p className=" text-lg font-bold md:text-xl">PC</p>
-                      </span>
-
-                      <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
-
-                      <span
-                        className="cursor-pointer  p-2 md:p-5 "
-                        onClick={playonappleHandler}
-                      >
-                        <img src={AppleIcon}></img>
-                        Get it on <br />
-                        <p className=" text-lg font-bold md:text-xl">
-                          App Store
-                        </p>
-                      </span>
-                      <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
-
-                      <span
-                        className=" cursor-pointer  p-2 md:p-5 "
-                        onClick={playonsteamHandler}
-                      >
-                        <img src={steam}></img>
-                        Get it on
-                        <br />
-                        <p className="text-xl font-bold">Steam</p>
-                      </span>
-                      <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
-
-                      <span
-                        className=" cursor-pointer  p-2 md:p-5 "
-                        onClick={getfromgoogleHandler}
-                      >
-                        <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
-                        Get it on
-                        <br />
-                        <p className="text-xl font-bold"> Google play</p>
-                      </span>
-                    </div>
-
-                    <div
-                      style={{ right: '25px' }}
-                      className="absolute -bottom-10 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]"
-                    >
-                      !
-                    </div>
+                        !
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -462,7 +459,7 @@ function Homepagemcrt() {
                 <div className="grid grid-cols-1 gap-[30px]  md:grid-cols-2 lg:grid-cols-3  lg:place-items-stretch ">
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
                     <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  ">
-                      <div className="flex flex-wrap ">
+                      <div className="flex flex-row ">
                         <div>
                           <img
                             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173182/contact_ylmg83.webp"
@@ -486,15 +483,12 @@ function Homepagemcrt() {
                   </div>
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
                     <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% ">
-                      
-                      <h4 className="px-7  pt-2  flex justify-center items-center  font-serif text-lg md:text-[22px]">
-                        <span className=" text-[#FFB649] lg:pl-6">
-                          DOWNLOAD
-                        </span>{' '}
+                      <h4 className="flex items-center justify-center px-7 pt-2 font-serif text-lg md:text-[22px]">
+                        <span className="text-[#FFB649] lg:pl-6">DOWNLOAD</span>{' '}
                         THE GAME
                       </h4>
 
-                      <div className="flex flex-row justify-center items-center gap-[10px] lg:mb-4 lg:pl-10">
+                      <div className="flex flex-row items-center justify-center gap-[10px] lg:mb-4 lg:pl-10">
                         <span
                           className="cursor-pointer px-3 lg:py-4  "
                           onClick={playonsteamHandler}
@@ -548,7 +542,7 @@ function Homepagemcrt() {
                             alt="Directory"
                           />
                         </div>
-                        <div className="my-4 p-4">
+                        <div className="my-4 p-4 ">
                           <h4 className="font-serif text-lg md:text-[22px]">
                             <span className="text-[#FF49ED]">JUMP</span> INTO
                             <br />
@@ -695,7 +689,7 @@ function Homepagemcrt() {
                         {ourteam.slice(0, visibleCount).map((item, index) => (
                           <React.Fragment key={item.name}>
                             <div className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80">
-                              <img 
+                              <img
                                 className=" max:w-[12.5em] max:h-[12.5em]"
                                 src={item.icon}
                                 alt={item.name}
