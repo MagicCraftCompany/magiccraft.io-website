@@ -139,7 +139,7 @@ function Homepagemcrt() {
                           className=" cursor-pointer  "
                           onClick={playonpcHandler}
                         >
-                          <img src={pc}></img>
+                          <div className='w-6 h-6 m-4'> <img src={pc}></img></div>
                           Download
                           <br />
                           <p className=" text-lg font-bold md:text-xl ">PC</p>
@@ -151,7 +151,7 @@ function Homepagemcrt() {
                           className="cursor-pointer   "
                           onClick={playonappleHandler}
                         >
-                          <img src={AppleIcon}></img>
+                         <div className='w-6 h-6 m-4'> <img src={AppleIcon}></img></div>
                           Get it on 
                           <div className=" text-lg font-bold md:text-xl  ">
                             App Store
@@ -163,7 +163,7 @@ function Homepagemcrt() {
                           className=" cursor-pointer   "
                           onClick={playonsteamHandler}
                         >
-                          <img src={steam}></img>
+                          <div className='w-6 h-6 m-4'> <img src={steam}></img></div>
                           Get it on
                           <br />
                           <p className="text-xl font-bold flex flex-row md:text-xl">Steam</p>
@@ -174,7 +174,7 @@ function Homepagemcrt() {
                           className=" cursor-pointer   "
                           onClick={getfromgoogleHandler}
                         >
-                          <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
+                        <div className='w-6 h-6 m-4'>    <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img></div>
                           Get it on
                           <br />
                           <p className="text-lg font-bold flex flex-row md:text-xl"> Google play</p>
@@ -196,7 +196,7 @@ function Homepagemcrt() {
 
           {/*register now */}
 
-          <section className="relative flex flex-col items-center gap-4 bg-[#020418] bg-center lg:h-[500px] lg:flex-wrap lg:p-4  ">
+          <section className="relative flex flex-col justify-center items-center gap-[20em] bg-[#020418] bg-center lg:h-[500px] lg:flex-row lg:p-4  ">
             <div className="flex rounded-lg lg:w-6/12 lg:pl-52  ">
               <div className=" flex flex-col items-center justify-center p-4 text-center md:p-4 md:text-left lg:mt-10 ">
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
@@ -221,15 +221,15 @@ function Homepagemcrt() {
                 <p className="block p-4 md:hidden">
                   {' '}
                   MagicCraft is a Play-to-Earn blockchain
-                  <br />
-                  game featuring fast-paced multiplayer <br />
-                  battles. Every day, thousands of players <br />
+                 
+                  game featuring fast-paced multiplayer 
+                  battles. Every day, thousands of players 
                   earn our utility token, MCRT, by
-                  <br />
+                 
                   showcasing their skills. Join them to step into
-                  <br />
+
                   a new era of gaming where your prowess
-                  <br />
+                  
                   can pave the path to prosperity.
                 </p>
 
@@ -683,7 +683,7 @@ function Homepagemcrt() {
               </h3>
               <div className="flex items-center justify-center">
                 <Tabs type="team">
-                  <Tab label="ALL" className="w-[80vw]">
+                  <Tab id="ALL" label="ALL" className="w-[80vw]">
                     <div className="w-[80vw] space-y-4 lg:w-[60vw]">
                       <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {ourteam.slice(0, visibleCount).map((item, index) => (
@@ -748,7 +748,7 @@ function Homepagemcrt() {
                     </div>
                   </Tab>
 
-                  <Tab label="Advisors and KOL's" className="w-[80vw]">
+                  <Tab id="Advisors and KOL's" label="Advisors and KOL's" className="w-[80vw]">
                     <div className="w-[80vw] space-y-4 lg:w-[60vw]">
                       <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {kolTeam.slice(0, visibleCount).map((item) => (
@@ -801,7 +801,7 @@ function Homepagemcrt() {
                     </div>
                   </Tab>
 
-                  <Tab label="Team" className="w-[80vw]">
+                  <Tab id="Team" label="Team" className="w-[80vw]">
                     <div className="w-[80vw] space-y-4 lg:w-[60vw]">
                       <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {teamMembers.slice(0, visibleCount).map((item) => (
