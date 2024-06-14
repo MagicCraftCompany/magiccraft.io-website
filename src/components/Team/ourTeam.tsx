@@ -251,7 +251,7 @@ export const ourteam = [
   },
 
   {
-    name: 'Mario Manuel Rodriguez',
+    name: 'Mário Caldas',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173064/Mario_lesipw.webp',
     work: 'Game Developer',
     category: 'Team',
@@ -275,7 +275,7 @@ export const ourteam = [
     ],
   },
   {
-    name: 'Tarik Yacizi',
+    name: 'Tarik Yazici',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173000/Tarik_Yacizi_junzgg.webp',
     work: 'Game Developer',
     category: 'Team',

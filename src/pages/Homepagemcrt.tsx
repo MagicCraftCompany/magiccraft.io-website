@@ -209,8 +209,7 @@ function Homepagemcrt() {
                   MagicCraft is a Play-to-Earn blockchain game featuring
                   fast-paced <br />
                   multiplayer battles. Every day, thousands of players earn our
-                  utility
-                  <br />
+                  utility <br />
                   token, MCRT, by showcasing their skills. Join them to step
                   into a <br />
                   new era of gaming where your prowess can pave the path to{' '}
@@ -273,15 +272,7 @@ function Homepagemcrt() {
                         <div className=" relative z-[3] h-[21px] w-5 " />
                         <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
                           <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
-                            I'm holding my coins and will keep holding them for
-                            a long time, so I have no fancy items to show here
-                            (hopefully I'll show a new pc soon since mine is
-                            almost 7 years old 😂) but the amount I earn by
-                            playing the game I can say is a lot more than my
-                            monthly salary here in Cuba. I'm glad I found this
-                            game and I'm glad @Sinerv0 helped me with and nft,
-                            always grateful. The game is a lot of fun too when
-                            played with good friends 👏😄
+                          I'm holding my coins and will keep holding them for a long time, so I have no fancy items to show here (hopefully I'll show a new PC soon since mine is almost 7 years old 😂). However, the amount I earn by playing the game is a lot more than my monthly salary here in Cuba. I'm glad I found this game, and I'm glad @Sinerv0 helped me with an NFT. I'm always grateful. The game is a lot of fun too when played with good friends 👏😄.
                           </div>
                         </div>
                         <div className="flex flex-row gap-10">
@@ -371,8 +362,8 @@ function Homepagemcrt() {
               </h2>
               <p className="text-xs text-white lg:mt-4   lg:text-xl">
                 Explore Unlimited Ways to Earn MCRT through our dynamic
-                <br className="block lg:hidden" />
-                {' '} portfolio of games within the MagicCraft
+                <br className="block lg:hidden" /> portfolio of games within the
+                MagicCraft
                 <br className="hidden lg:block" /> Ecosystem. Each{' '}
                 <br className="block lg:hidden" /> game offers unique
                 opportunities to earn more MCRT and{' '}
