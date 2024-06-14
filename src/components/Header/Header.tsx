@@ -71,7 +71,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         {
           title: 'Pledging',
           icon: './icons/icon-huobi.svg',
-          path: 'https://www.huobi.com/en-us/exchange/mcrt_usdt',
+          path: 'https://app.magiccraft.io/pledging',
         },
         {
           title: 'Referral System',
@@ -81,7 +81,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       ],
     },
     {
-      title: 'Others',
+      title: 'About',
       icon: './icons/icon-help.svg',
       submenu: [
         // {
@@ -112,7 +112,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         {
           title: 'Contact Us',
           icon: './icons/icon-contact.svg',
-          path: 'https://magiccraft.io/contact-us',
+          path: '/faq?contact=true',
         },
         
         
@@ -140,7 +140,6 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       ],
     },
 
-    ]
   // {
   //   title: 'NFTs',
   //   icon: './icons/icon-nft-new.svg',
@@ -185,23 +184,23 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
   //     },
   //   ],
   // },
-  // {
-  //   title: 'Statistics',
-  //   icon: './icons/icon-stats.svg',
-  //   submenu: [
-  //     {
-  //       title: 'Leaderboard',
-  //       icon: './icons/icon-leaderboard.svg',
-  //       path: 'https://lobby.magiccraft.io/leaderboard',
-  //     },
-  //     {
-  //       title: 'Game stats',
-  //       icon: './icons/icon-gamestats.svg',
-  //       path: 'https://lobby.magiccraft.io/stats',
-  //     },
-  //   ],
-  // },
-// ]
+  {
+    title: 'Statistics',
+    icon: './icons/icon-stats.svg',
+    submenu: [
+      {
+        title: 'Leaderboard',
+        icon: './icons/icon-leaderboard.svg',
+        path: 'https://lobby.magiccraft.io/leaderboard',
+      },
+      {
+        title: 'Game stats',
+        icon: './icons/icon-gamestats.svg',
+        path: 'https://lobby.magiccraft.io/stats',
+      },
+    ],
+  },
+ ]
 
 const Header = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)

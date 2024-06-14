@@ -136,7 +136,7 @@ function Homepagemcrt() {
                     <div className="flex items-center justify-center ">
                       <div className="flex flex-row items-center gap-[20px] m-4">
                         <span
-                          className=" cursor-pointer  "
+                          className=" cursor-pointer hidden md:block"
                           onClick={playonpcHandler}
                         >
                           <div className='w-6 h-6 m-4'> <img src={pc}></img></div>
@@ -145,7 +145,7 @@ function Homepagemcrt() {
                           <p className=" text-lg font-bold md:text-xl ">PC</p>
                         </span>
 
-                        <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
+                        <div className="hidden md:block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
                         <span
                           className="cursor-pointer   "
@@ -196,8 +196,8 @@ function Homepagemcrt() {
 
           {/*register now */}
 
-          <section className="relative flex flex-col justify-center items-center  bg-[#020418] bg-center lg:h-[500px] lg:flex-row lg:p-4  ">
-           <div className='lg:w-[200em] flex items-center justify-center lg:flex-row lg:gap-[10em]  md:gap-[20em]'>
+          <section className="relative flex flex-col justify-center items-center  bg-[#020418] bg-center lg:h-[500px] lg:flex-row lg:p-4  lg:gap-[10em]  md:gap-[20em]">
+           {/* <div className='lg:w-[200em] flex items-center justify-center lg:flex-row lg:gap-[10em]  md:gap-[20em]'> */}
             <div className="flex rounded-lg lg:w-6/12 lg:pl-52  ">
               <div className=" flex flex-col items-center justify-center p-4 text-center md:p-4 md:text-left lg:mt-10 ">
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
@@ -270,20 +270,12 @@ function Homepagemcrt() {
                     <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
                       <div className=" rounded-3xl  bg-gradient-to-b from-[#151149] to-[#190E29]  to-80% p-4">
                         <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                          <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Testimonials`}</div>
+                          <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Julius Joseph`}</div>
                         </button>
                         <div className=" relative z-[3] h-[21px] w-5 " />
                         <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
                           <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
-                            I'm holding my coins and will keep holding them for
-                            a long time, so I have no fancy items to show here
-                            (hopefully I'll show a new PC soon since mine is
-                            almost 7 years old 😂). However, the amount I earn
-                            by playing the game is a lot more than my monthly
-                            salary here in Cuba. I'm glad I found this game, and
-                            I'm glad @Sinerv0 helped me with an NFT. I'm always
-                            grateful. The game is a lot of fun too when played
-                            with good friends 👏😄.
+                          Well, my testimony might not be huge like most here but one thing that is evident is that God has actually use Magiccraft to come through for me at my lowest moment. Best thanks to the Team, Magiccraft to the moon 🌙🌙🌙.
                           </div>
                         </div>
                         <div className="flex flex-row gap-10">
@@ -316,20 +308,12 @@ function Homepagemcrt() {
                     <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
                       <div className=" rounded-3xl  bg-gradient-to-b from-[#151149] to-[#190E29]  to-80% p-4">
                         <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                          <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Testimonials`}</div>
+                          <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Didabban`}</div>
                         </button>
                         <div className=" relative z-[3] h-[21px] w-5 " />
                         <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
                           <div className="relative inline-block max-w-full flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
-                            I'm holding my coins and will keep holding them for
-                            a long time, so I have no fancy items to show here
-                            (hopefully I'll show a new PC soon since mine is
-                            almost 7 years old 😂). However, the amount I earn
-                            by playing the game is a lot more than my monthly
-                            salary here in Cuba. I'm glad I found this game, and
-                            I'm glad @Sinerv0 helped me with an NFT. I'm always
-                            grateful. The game is a lot of fun too when played
-                            with good friends 👏😄.
+                          My game play was seriously affected because I was using a phone with low RAM. But thanks to Magiccraft, I was able to buy a Redmi Note 12 for around $200! Now I can enjoy a better gaming experience and earn more MCRT.
                           </div>
                         </div>
                         <div className="flex flex-row gap-10">
@@ -355,13 +339,12 @@ function Homepagemcrt() {
                   </div>
                 </SwiperSlide>
               </Swiper>
-              <button className="arrow-left arrow absolute top-[50%]  cursor-pointer lg:-left-4  ">
+              <button className="z-10 arrow-left arrow absolute top-[50%]  cursor-pointer lg:-left-4  ">
                 <img src={left} alt="MCRT Token" className="cursor-pointer" />
               </button>
-              <button className="arrow-right arrow absolute right-0 top-[50%] cursor-pointer lg:-right-4 ">
+              <button className="z-10 arrow-right arrow absolute right-0 top-[50%] cursor-pointer lg:-right-4 ">
                 <img src={right} alt="MCRT Token" className="cursor-pointer" />
               </button>
-            </div>
             </div>
           </section>
 
@@ -436,12 +419,6 @@ function Homepagemcrt() {
                   </div>
                 </SwiperSlide>
               </Swiper>
-              <button className="arrow-left-first arrow absolute top-[50%] cursor-pointer lg:left-[20em] ">
-                <img src={left} alt="MCRT Token" />
-              </button>
-              <button className="arrow-right-first arrow absolute right-0 top-[50%] cursor-pointer lg:right-[20em]">
-                <img src={right} alt="MCRT Token" />
-              </button>
             </div>
           </section>
 
@@ -450,7 +427,7 @@ function Homepagemcrt() {
             <div className="relative max-w-[80em]  rounded-4xl bg-[#0A0424] bg-opacity-70 ">
               <div className="space-y-5   px-8 pb-10 pt-5 md:px-10">
                 <h5 className="mx-auto max-w-xl text-balance text-center font-serif text-base md:text-2xl">
-                  JOIN THE ACTION ,EARN MCRT
+                  JOIN THE ACTION, EARN MCRT
                 </h5>
                 <p className="text-center">
                   Jump into MagicCraft matches and compete to win MCRT. Showcase
@@ -486,8 +463,8 @@ function Homepagemcrt() {
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
                     <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% ">
                       <h4 className="flex items-center justify-center px-7 pt-2 font-serif text-lg md:text-[22px]">
-                        <span className="text-[#FFB649] lg:pl-6">DOWNLOAD</span>{' '}
-                        THE GAME
+                        <span className="text-[#FFB649] lg:pl-6">DOWNLOAD </span>{' '}
+                        <span className='ml-2'> THE GAME</span>
                       </h4>
 
                       <div className="flex flex-row items-center justify-center gap-[10px] lg:mb-4 lg:pl-10">
