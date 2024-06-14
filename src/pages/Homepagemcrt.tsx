@@ -63,31 +63,34 @@ function Homepagemcrt() {
     }
   }, [adjustDividerHeight])
 
-
   const playonappleHandler = () => {
-    window.location.href='https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
+    window.location.href =
+      'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
   }
   const playonpcHandler = () => {
-    window.location.href='https://mc-game-public.s3.eu-central-1.amazonaws.com/MagicCraft+4.27.9109.zip'
+    window.location.href =
+      'https://mc-game-public.s3.eu-central-1.amazonaws.com/MagicCraft+4.27.9109.zip'
   }
   const playonsteamHandler = () => {
-    window.location.href='https://store.steampowered.com/app/2395760/MagicCraft/'
+    window.location.href =
+      'https://store.steampowered.com/app/2395760/MagicCraft/'
   }
   const getfromgoogleHandler = () => {
-    window.location.href='https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
+    window.location.href =
+      'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
   }
   const discordmagiccraftHandler = () => {
-    window.location.href='https://discord.com/invite/magiccraftgame'
+    window.location.href = 'https://discord.com/invite/magiccraftgame'
   }
   const telegrammagiccrftHandler = () => {
-    window.location.href='https://t.me/magiccraftgamechat'
+    window.location.href = 'https://t.me/magiccraftgamechat'
   }
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const magicrunnerhandleClick = () => {
-    navigate('/magicrunner');
-  };
+    navigate('/magicrunner')
+  }
   return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -101,7 +104,10 @@ function Homepagemcrt() {
               loop
               muted
             >
-              <source src="https://res.cloudinary.com/dfzcr2ch4/video/upload/v1717166775/video_gokp2f.mp4" type="video/mp4" />
+              <source
+                src="https://res.cloudinary.com/dfzcr2ch4/video/upload/v1717166775/video_gokp2f.mp4"
+                type="video/mp4"
+              />
             </video>
             <div className="video-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className="relative z-10 mx-auto  max-w-screen-xl">
@@ -128,7 +134,10 @@ function Homepagemcrt() {
                       <br />
                     </h4>
                     <div className="flex flex-wrap items-center">
-                      <span className=" p-2 md:p-5 cursor-pointer " onClick={playonpcHandler}  >
+                      <span
+                        className=" cursor-pointer p-2 md:p-5 "
+                        onClick={playonpcHandler}
+                      >
                         <img src={pc}></img>
                         Download
                         <br />
@@ -137,7 +146,10 @@ function Homepagemcrt() {
 
                       <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                      <span className="p-2  md:p-5 cursor-pointer " onClick={playonappleHandler}>
+                      <span
+                        className="cursor-pointer  p-2 md:p-5 "
+                        onClick={playonappleHandler}
+                      >
                         <img src={AppleIcon}></img>
                         Get it on <br />
                         <p className=" text-lg font-bold md:text-xl">
@@ -146,7 +158,10 @@ function Homepagemcrt() {
                       </span>
                       <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                      <span className=" p-2  md:p-5 cursor-pointer " onClick={ playonsteamHandler}>
+                      <span
+                        className=" cursor-pointer  p-2 md:p-5 "
+                        onClick={playonsteamHandler}
+                      >
                         <img src={steam}></img>
                         Get it on
                         <br />
@@ -154,7 +169,10 @@ function Homepagemcrt() {
                       </span>
                       <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                      <span className=" p-2  md:p-5 cursor-pointer " onClick={getfromgoogleHandler}>
+                      <span
+                        className=" cursor-pointer  p-2 md:p-5 "
+                        onClick={getfromgoogleHandler}
+                      >
                         <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
                         Get it on
                         <br />
@@ -336,10 +354,10 @@ function Homepagemcrt() {
                 </SwiperSlide>
               </Swiper>
               <button className="arrow-left arrow absolute top-[50%]  cursor-pointer lg:-left-4  ">
-                <img src={left} alt="MCRT Token" className='cursor-pointer' />
+                <img src={left} alt="MCRT Token" className="cursor-pointer" />
               </button>
               <button className="arrow-right arrow absolute right-0 top-[50%] cursor-pointer lg:-right-4 ">
-                <img src={right} alt="MCRT Token"  className='cursor-pointer' />
+                <img src={right} alt="MCRT Token" className="cursor-pointer" />
               </button>
             </div>
           </section>
@@ -400,7 +418,10 @@ function Homepagemcrt() {
                           from traditional games.
                         </p>
                       </label>
-                      <button className=" mb-2 mt-1 inline-flex flex-wrap rounded-lg border-2  border-[#98FFF9]  p-0.5 text-[#98FFF9] md:ml-5 md:px-1 md:text-xs lg:m-5 lg:w-[260px]  lg:py-0.5 lg:pl-0.5 lg:text-lg" onClick={magicrunnerhandleClick}>
+                      <button
+                        className=" mb-2 mt-1 inline-flex flex-wrap rounded-lg border-2  border-[#98FFF9]  p-0.5 text-[#98FFF9] md:ml-5 md:px-1 md:text-xs lg:m-5 lg:w-[260px]  lg:py-0.5 lg:pl-0.5 lg:text-lg"
+                        onClick={magicrunnerhandleClick}
+                      >
                         <img
                           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
                           alt="Button Image"
@@ -468,7 +489,10 @@ function Homepagemcrt() {
                         THE GAME
                       </h4>
                       <div className="flex flex-wrap items-center lg:mb-4 lg:pl-10">
-                        <span className="px-3 lg:py-4 cursor-pointer  " onClick={playonsteamHandler}>
+                        <span
+                          className="cursor-pointer px-3 lg:py-4  "
+                          onClick={playonsteamHandler}
+                        >
                           <img src={steam} className=" pb-4"></img>
                           Get it on
                           <br />
@@ -476,7 +500,10 @@ function Homepagemcrt() {
                         </span>
 
                         <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
-                        <span className="px-3 lg:py-4 cursor-pointer " onClick={playonappleHandler}>
+                        <span
+                          className="cursor-pointer px-3 lg:py-4 "
+                          onClick={playonappleHandler}
+                        >
                           <img src={AppleIcon} className=" pb-4"></img>
                           Get it on
                           <br />
@@ -485,7 +512,10 @@ function Homepagemcrt() {
                           </p>
                         </span>
                         <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
-                        <span className=" px-3 py-4 cursor-pointer " onClick={getfromgoogleHandler}>
+                        <span
+                          className=" cursor-pointer px-3 py-4 "
+                          onClick={getfromgoogleHandler}
+                        >
                           <img
                             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"
                             className=" pb-4"
@@ -585,7 +615,10 @@ function Homepagemcrt() {
                   support. Be part of a community that plays, earns, and grows
                   together.
                 </p>
-                <div className=" block flex-row flex-wrap items-center lg:hidden ">
+                <div
+                  className=" block flex-row flex-wrap items-center lg:hidden"
+                  onClick={discordmagiccraftHandler}
+                >
                   <div className="flex flex-wrap  ">
                     <img src={pc} className="m-4"></img>
                     <span className="mt-4 text-2xl ">
@@ -595,7 +628,10 @@ function Homepagemcrt() {
                     </span>
                   </div>
                   <div className="hidden h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent md:block " />
-                  <div className="flex flex-wrap ">
+                  <div
+                    className="flex flex-wrap "
+                    onClick={telegrammagiccrftHandler}
+                  >
                     <img src={AppleIcon} className=" m-4"></img>
                     <span className="mt-4 text-2xl ">
                       Join MagicCraft's
@@ -616,7 +652,10 @@ function Homepagemcrt() {
               </p>
               <div className="flex flex-wrap items-center">
                 <img src={pc}></img>
-                <span className=" p-4 cursor-pointer" onClick={discordmagiccraftHandler}>
+                <span
+                  className=" cursor-pointer p-4"
+                  onClick={discordmagiccraftHandler}
+                >
                   Join MagicCraft's
                   <br />
                   <p className="text-2xl font-bold"> Discord</p>
@@ -624,7 +663,10 @@ function Homepagemcrt() {
 
                 <div className="mx-4 block h-[4em] w-[2px] bg-gradient-to-t from-transparent via-[#2F3A80] to-transparent " />
                 <img src={AppleIcon} className=" pl-4"></img>
-                <span className=" p-4 cursor-pointer" onClick={telegrammagiccrftHandler}>
+                <span
+                  className=" cursor-pointer p-4"
+                  onClick={telegrammagiccrftHandler}
+                >
                   Join MagicCraft's
                   <br />
                   <p className="text-2xl font-bold"> Telegram</p>
@@ -635,163 +677,186 @@ function Homepagemcrt() {
 
           {/*our team */}
           <div className="h-auto bg-[#020418] p-10">
-      <section className="relative mx-auto max-w-screen-xl space-y-10 p-4 md:space-y-20">
-        <h3 className="-mb-10 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl">
-          Our team
-        </h3>
-        <div className="flex items-center justify-center">
-          <Tabs type="team">
-            <Tab label="ALL" className="w-[80vw]">
-              <div className="w-[80vw] space-y-4 lg:w-[60vw]">
-                <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
-                  {ourteam.slice(0, visibleCount).map((item, index) => (
-                    <React.Fragment key={item.name}>
-                      <div className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80">
-                        <img className="mt-4 px-2 md:w-full" src={item.icon} alt={item.name} />
-                        <p className="mt-2 text-white">{item.name}</p>
-                        {item.work && (
-                          <>
-                            <p className="mt-1 text-[#98FFF9]">{item.work}</p>
-                            <div className="mt-2 flex">
-                              {item.socialicons.map((social, idx) => (
-                                <a
-                                  key={idx}
-                                  href={social.socialmedia}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="mx-2 bg-opacity-70 text-[#FFFFFF]"
-                                >
-                                  {social.icons}
-                                </a>
-                              ))}
+            <section className="relative mx-auto max-w-screen-xl space-y-10 p-4 md:space-y-20">
+              <h3 className="-mb-10 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl">
+                Our team
+              </h3>
+              <div className="flex items-center justify-center">
+                <Tabs type="team">
+                  <Tab label="ALL" className="w-[80vw]">
+                    <div className="w-[80vw] space-y-4 lg:w-[60vw]">
+                      <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                        {ourteam.slice(0, visibleCount).map((item, index) => (
+                          <React.Fragment key={item.name}>
+                            <div className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80">
+                              <img
+                                className="mt-4 px-2 md:w-full"
+                                src={item.icon}
+                                alt={item.name}
+                              />
+                              <p className="mt-2 text-white">{item.name}</p>
+                              {item.work && (
+                                <>
+                                  <p className="mt-1 text-[#98FFF9]">
+                                    {item.work}
+                                  </p>
+                                  <div className="mt-2 flex">
+                                    {item.socialicons.map((social, idx) => (
+                                      <a
+                                        key={idx}
+                                        href={social.socialmedia}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="mx-2 bg-opacity-70 text-[#FFFFFF]"
+                                      >
+                                        {social.icons}
+                                      </a>
+                                    ))}
+                                  </div>
+                                </>
+                              )}
                             </div>
-                          </>
-                        )}
+                            {index <
+                              ourteam.slice(0, visibleCount).length - 1 && (
+                              <>
+                                {(index + 1) % 2 === 0 && (
+                                  <div className="divider absolute right-0 top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
+                                )}
+                                <div className="divider absolute left-0 top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
+                                <div className="divider absolute left-[25%] top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
+                                <div className="divider absolute left-[50%] top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
+                                <div className="divider absolute left-[75%] top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
+                              </>
+                            )}
+                          </React.Fragment>
+                        ))}
                       </div>
-                      {index < ourteam.slice(0, visibleCount).length - 1 && (
-                        <>
-                          {(index + 1) % 2 === 0 && (
-                            <div className="divider absolute right-0 top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
-                          )}
-                          <div className="divider absolute left-0 top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
-                          <div className="divider absolute left-[25%] top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
-                          <div className="divider absolute left-[50%] top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
-                          <div className="divider absolute left-[75%] top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
-                        </>
+                      {visibleCount < ourteam.length && (
+                        <div className="mt-4 flex justify-center text-center">
+                          <button
+                            onClick={() => {
+                              loadMore()
+                              setTimeout(adjustDividerHeight, 0)
+                            }}
+                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
+                          >
+                            <img src={down} className="m-1" alt="Down arrow" />{' '}
+                            Load More
+                          </button>
+                        </div>
                       )}
-                    </React.Fragment>
-                  ))}
-                </div>
-                {visibleCount < ourteam.length && (
-                  <div className="mt-4 flex justify-center text-center">
-                    <button
-                      onClick={() => {
-                        loadMore();
-                        setTimeout(adjustDividerHeight, 0);
-                      }}
-                      className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
-                    >
-                      <img src={down} className="m-1" alt="Down arrow" /> Load More
-                    </button>
-                  </div>
-                )}
-              </div>
-            </Tab>
+                    </div>
+                  </Tab>
 
-            <Tab label="Advisors and KOL's" className="w-[80vw]">
-              <div className="w-[80vw] space-y-4 lg:w-[60vw]">
-                <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
-                  {kolTeam.slice(0, visibleCount).map((item) => (
-                    
-                      <div  key={item.name} className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80">
-                        <img className="mt-4 px-2 md:w-full" src={item.icon} alt={item.name} />
-                        <p className="mt-2 text-white">{item.name}</p>
-                        {item.work && (
-                          <>
-                            <p className="mt-1 text-[#98FFF9]">{item.work}</p>
-                            <div className="mt-2 flex">
-                              {item.socialicons.map((social, idx) => (
-                                <a
-                                  key={idx}
-                                  href={social.socialmedia}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="mx-2 text-[#FFFFFF]"
-                                >
-                                  {social.icons}
-                                </a>
-                              ))}
-                            </div>
-                          </>
-                        )}
+                  <Tab label="Advisors and KOL's" className="w-[80vw]">
+                    <div className="w-[80vw] space-y-4 lg:w-[60vw]">
+                      <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                        {kolTeam.slice(0, visibleCount).map((item) => (
+                          <div
+                            key={item.name}
+                            className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
+                          >
+                            <img
+                              className="mt-4 px-2 md:w-full"
+                              src={item.icon}
+                              alt={item.name}
+                            />
+                            <p className="mt-2 text-white">{item.name}</p>
+                            {item.work && (
+                              <>
+                                <p className="mt-1 text-[#98FFF9]">
+                                  {item.work}
+                                </p>
+                                <div className="mt-2 flex">
+                                  {item.socialicons.map((social, idx) => (
+                                    <a
+                                      key={idx}
+                                      href={social.socialmedia}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="mx-2 text-[#FFFFFF]"
+                                    >
+                                      {social.icons}
+                                    </a>
+                                  ))}
+                                </div>
+                              </>
+                            )}
+                          </div>
+                        ))}
                       </div>
-                      
-                  ))}
-                </div>
-                {visibleCount < kolTeam.length && (
-                  <div className="mt-4 flex justify-center text-center">
-                    <button
-                      onClick={() => {
-                        loadMore();
-                        
-                      }}
-                      className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
-                    >
-                      <img src={down} className="m-1" alt="Down arrow" /> Load More
-                    </button>
-                  </div>
-                )}
-              </div>
-            </Tab>
+                      {visibleCount < kolTeam.length && (
+                        <div className="mt-4 flex justify-center text-center">
+                          <button
+                            onClick={() => {
+                              loadMore()
+                            }}
+                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
+                          >
+                            <img src={down} className="m-1" alt="Down arrow" />{' '}
+                            Load More
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </Tab>
 
-            <Tab label="Team" className="w-[80vw]">
-              <div className="w-[80vw] space-y-4 lg:w-[60vw]">
-                <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
-                  {teamMembers.slice(0, visibleCount).map((item) => (
-                        <div key={item.name}   className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80">
-                        <img className="mt-4 px-2 md:w-full" src={item.icon} alt={item.name} />
-                        <p className="mt-2 text-white">{item.name}</p>
-                        {item.work && (
-                          <>
-                            <p className="mt-1 text-[#98FFF9]">{item.work}</p>
-                            <div className="mt-2 flex">
-                              {item.socialicons.map((social,index) => (
-                                <a
-                                  key={index}
-                                  href={social.socialmedia}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="mx-2 text-[#FFFFFF]"
-                                >
-                                  {social.icons}
-                                </a>
-                              ))}
-                            </div>
-                          </>
-                        )}
+                  <Tab label="Team" className="w-[80vw]">
+                    <div className="w-[80vw] space-y-4 lg:w-[60vw]">
+                      <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                        {teamMembers.slice(0, visibleCount).map((item) => (
+                          <div
+                            key={item.name}
+                            className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
+                          >
+                            <img
+                              className="mt-4 px-2 md:w-full"
+                              src={item.icon}
+                              alt={item.name}
+                            />
+                            <p className="mt-2 text-white">{item.name}</p>
+                            {item.work && (
+                              <>
+                                <p className="mt-1 text-[#98FFF9]">
+                                  {item.work}
+                                </p>
+                                <div className="mt-2 flex">
+                                  {item.socialicons.map((social, index) => (
+                                    <a
+                                      key={index}
+                                      href={social.socialmedia}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="mx-2 text-[#FFFFFF]"
+                                    >
+                                      {social.icons}
+                                    </a>
+                                  ))}
+                                </div>
+                              </>
+                            )}
+                          </div>
+                        ))}
                       </div>
-                     
-                  ))}
-                </div>
-                {visibleCount < teamMembers.length && (
-                  <div className="mt-4 flex justify-center text-center">
-                    <button
-                      onClick={() => {
-                        loadMore();
-                        
-                      }}
-                      className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
-                    >
-                      <img src={down} className="m-1" alt="Down arrow" /> Load More
-                    </button>
-                  </div>
-                )}
+                      {visibleCount < teamMembers.length && (
+                        <div className="mt-4 flex justify-center text-center">
+                          <button
+                            onClick={() => {
+                              loadMore()
+                            }}
+                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
+                          >
+                            <img src={down} className="m-1" alt="Down arrow" />{' '}
+                            Load More
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </Tab>
+                </Tabs>
               </div>
-            </Tab>
-          </Tabs>
-        </div>
-      </section>
-    </div>
+            </section>
+          </div>
           {/*our team ended */}
 
           <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 md:space-y-20">
