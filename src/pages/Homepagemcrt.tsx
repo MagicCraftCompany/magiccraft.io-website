@@ -372,7 +372,7 @@ function Homepagemcrt() {
               <p className="text-xs text-white lg:mt-4   lg:text-xl">
                 Explore Unlimited Ways to Earn MCRT through our dynamic
                 <br className="block lg:hidden" />
-                portfolio of games within the MagicCraft
+                {' '} portfolio of games within the MagicCraft
                 <br className="hidden lg:block" /> Ecosystem. Each{' '}
                 <br className="block lg:hidden" /> game offers unique
                 opportunities to earn more MCRT and{' '}
