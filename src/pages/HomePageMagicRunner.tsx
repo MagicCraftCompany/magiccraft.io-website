@@ -72,7 +72,7 @@ function Homepagemagicrunner() {
                   Haunted by tragedy, Frigard races against fate, the lone
                   survivor of
                   <br className="hidden lg:block" />
-                  Vladislav's wrath and the treachery of Karas. Now, every step
+                  <span className='ml-2 md:ml-0'>Vladislav's</span> wrath and the treachery of Karas. Now, every step
                   is a<br className="hidden lg:block" />
                   desperate sprint for survival, a relentless chase where the
                   shadow of <br className="hidden lg:block" />
@@ -274,7 +274,7 @@ function Homepagemagicrunner() {
 
                   <div className="p-1 text-left lg:p-4 ">
                     <p className="lg:p-5 ">
-                      As Frigard embarks on his harrowing journey, fleeing from{' '}
+                      As Frigard embarks on his harrowing journey, fleeing from {' '}
                       <br className="hidden lg:block" />
                       Vladislav, the magical essence of the MagicCraft universe
                       <br className="hidden lg:block" />

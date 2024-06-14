@@ -38,13 +38,8 @@ function Homepagegames() {
           <Header />
         </Suspense>
         <main className="scroll-smooth pb-32">
-          {/* hero section */}
           <section className="relative h-[700px] bg-hero bg-cover bg-center">
-            {/* <div className=" hero-bg-gradient absolute -top-8 -z-10 h-fit w-full "> */}
-            {/* <img src={heroImg} alt="Magiccraft Characters" /> */}
             <div className="hero-bg-gradient absolute inset-0  h-full w-full"></div>
-            {/* </div> */}
-
             <div className="relative mx-auto w-11/12 max-w-screen-xl">
               <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
                 <div className="w-14 max-w-28 md:w-full">
