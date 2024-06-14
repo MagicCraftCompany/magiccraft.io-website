@@ -125,15 +125,19 @@ function Homepagemcrt() {
                   <span className="text-3xl">WHERE PLAY MEANS PROSPERITY</span>
                 </h1>
               </div>
-              <div className="mx-auto  mt-20  md:mb-20  md:mt-0 md:w-[34.75em]  ">
+              <div className="  mt-20 mx-[2em] md:mx-auto md:mb-20  md:mt-0 md:w-[34.75em]  ">
+             
                 <div className="rounded-[1.25em]   bg-gradient-to-b from-[#B591F2]   to-transparent p-px ">
-                  <div className="relative  flex max-w-full flex-col items-start   justify-center overflow-hidden rounded-[1.25em]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%   md:px-11 md:py-3">
+                 
+                  <div className="relative   max-w-full flex-col    overflow-hidden rounded-[1.25em]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%   md:px-11 md:py-3">
+                   
                     <h4 className="  mx-[3em] py-2  text-center font-serif text-lg md:text-[1.375em] ">
                       <span className="text-[#FFB649]  ">PLAY </span> MAGICCRAFT
                       NOW!
                       <br />
                     </h4>
-                    <div className="flex flex-wrap items-center">
+                    <div className='flex justify-center items-center '>
+                    <div className="flex flex-row items-center gap-[10px]">
                       <span
                         className=" cursor-pointer p-2 md:p-5 "
                         onClick={playonpcHandler}
@@ -185,6 +189,7 @@ function Homepagemcrt() {
                       className="absolute -bottom-10 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]"
                     >
                       !
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -272,7 +277,15 @@ function Homepagemcrt() {
                         <div className=" relative z-[3] h-[21px] w-5 " />
                         <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
                           <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
-                          I'm holding my coins and will keep holding them for a long time, so I have no fancy items to show here (hopefully I'll show a new PC soon since mine is almost 7 years old 😂). However, the amount I earn by playing the game is a lot more than my monthly salary here in Cuba. I'm glad I found this game, and I'm glad @Sinerv0 helped me with an NFT. I'm always grateful. The game is a lot of fun too when played with good friends 👏😄.
+                            I'm holding my coins and will keep holding them for
+                            a long time, so I have no fancy items to show here
+                            (hopefully I'll show a new PC soon since mine is
+                            almost 7 years old 😂). However, the amount I earn
+                            by playing the game is a lot more than my monthly
+                            salary here in Cuba. I'm glad I found this game, and
+                            I'm glad @Sinerv0 helped me with an NFT. I'm always
+                            grateful. The game is a lot of fun too when played
+                            with good friends 👏😄.
                           </div>
                         </div>
                         <div className="flex flex-row gap-10">
@@ -312,13 +325,13 @@ function Homepagemcrt() {
                           <div className="relative inline-block max-w-full flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
                             I'm holding my coins and will keep holding them for
                             a long time, so I have no fancy items to show here
-                            (hopefully I'll show a new pc soon since mine is
-                            almost 7 years old 😂) but the amount I earn by
-                            playing the game I can say is a lot more than my
-                            monthly salary here in Cuba. I'm glad I found this
-                            game and I'm glad @Sinerv0 helped me with and nft,
-                            always grateful. The game is a lot of fun too when
-                            played with good friends 👏😄
+                            (hopefully I'll show a new PC soon since mine is
+                            almost 7 years old 😂). However, the amount I earn
+                            by playing the game is a lot more than my monthly
+                            salary here in Cuba. I'm glad I found this game, and
+                            I'm glad @Sinerv0 helped me with an NFT. I'm always
+                            grateful. The game is a lot of fun too when played
+                            with good friends 👏😄.
                           </div>
                         </div>
                         <div className="flex flex-row gap-10">
@@ -361,15 +374,15 @@ function Homepagemcrt() {
                 UNLIMITED WAYS TO EARN MCRT
               </h2>
               <p className="text-xs text-white lg:mt-4   lg:text-xl">
-                Explore Unlimited Ways to Earn MCRT through our dynamic
+                Explore unlimited ways to earn MCRT through our dynamic
                 <br className="block lg:hidden" /> portfolio of games within the
                 MagicCraft
-                <br className="hidden lg:block" /> Ecosystem. Each{' '}
+                <br className="hidden lg:block" /> ecosystem. Each
                 <br className="block lg:hidden" /> game offers unique
-                opportunities to earn more MCRT and{' '}
+                opportunities to earn more MCRT and
                 <br className="block lg:hidden" />
                 enhance your overall <br className="hidden lg:block" /> gaming
-                experience. Dive into <br className="block lg:hidden" />{' '}
+                experience. Dive into <br className="block lg:hidden" />
                 MagicRunner and Magic8Ball today and start earning!
               </p>
               <Swiper
@@ -405,8 +418,8 @@ function Homepagemcrt() {
                         <p className="ml-5 p-2  text-xs lg:text-lg">
                           Web3 games utilize the blockchain to
                           <br /> provide players with a unique gaming
-                          <br /> experience that is markedly different <br />
-                          from traditional games.
+                          <br /> experience that is markedly different
+                          <br /> from traditional games.
                         </p>
                       </label>
                       <button
@@ -434,17 +447,17 @@ function Homepagemcrt() {
           </section>
 
           {/*JOIN THE ACTION */}
-          <section className=" flex justify-center bg-center p-4 lg:-mt-[5em] lg:h-full ">
+          <section className=" flex justify-center bg-center p-4 lg:-mt-[3em] lg:h-full ">
             <div className="relative max-w-[80em]  rounded-4xl bg-[#0A0424] bg-opacity-70 ">
               <div className="space-y-5   px-8 pb-10 pt-5 md:px-10">
                 <h5 className="mx-auto max-w-xl text-balance text-center font-serif text-base md:text-2xl">
                   JOIN THE ACTION ,EARN MCRT
                 </h5>
                 <p className="text-center">
-                  Jump into MagicCraft matches and compete to win MCRT.Showcase
-                  your skills,claim your rewards,
-                  <br className="hidden lg:block" /> and rise through the
-                  ranks.Start your journey to gaming glory now!
+                  Jump into MagicCraft matches and compete to win MCRT. Showcase
+                  your skills, claim your rewards,
+                  <br className="hidden lg:block" /> and rise through the ranks.
+                  Start your journey to gaming glory now!
                 </p>
                 <div className="grid grid-cols-1 gap-[30px]  md:grid-cols-2 lg:grid-cols-3  lg:place-items-stretch ">
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
@@ -473,13 +486,15 @@ function Homepagemcrt() {
                   </div>
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
                     <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% ">
-                      <h4 className="pl-2  pt-2  font-serif text-lg md:text-[22px]">
-                        <span className="py-4 text-[#FFB649] lg:pl-6">
+                      
+                      <h4 className="px-7  pt-2  flex justify-center items-center  font-serif text-lg md:text-[22px]">
+                        <span className=" text-[#FFB649] lg:pl-6">
                           DOWNLOAD
                         </span>{' '}
                         THE GAME
                       </h4>
-                      <div className="flex flex-wrap items-center lg:mb-4 lg:pl-10">
+
+                      <div className="flex flex-row justify-center items-center gap-[10px] lg:mb-4 lg:pl-10">
                         <span
                           className="cursor-pointer px-3 lg:py-4  "
                           onClick={playonsteamHandler}
@@ -554,7 +569,7 @@ function Homepagemcrt() {
 
           {/*roadmap */}
 
-          <section className="relative">
+          <section className="relative my-10">
             <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px] rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
 
             <div className="space-y-20">
@@ -579,7 +594,7 @@ function Homepagemcrt() {
           {/*roadmap */}
 
           {/*connect */}
-          <section className="relative mx-auto my-10 flex w-11/12 max-w-screen-xl flex-wrap items-center justify-center space-y-10 md:space-y-20 lg:space-y-0 ">
+          <section className="relative mx-auto mt-[10em] flex w-11/12 max-w-screen-xl flex-wrap items-center justify-center space-y-10 md:space-y-20 lg:space-y-0 ">
             <div className=" relative rounded-2xl border-[2px] border-solid bg-opacity-70 bg-gradient-to-r from-[#173B52] to-[#557e91] to-80% p-4 lg:h-[280px] lg:w-5/12 ">
               <img
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/blahbla_wvvyzg.webp"
@@ -680,8 +695,8 @@ function Homepagemcrt() {
                         {ourteam.slice(0, visibleCount).map((item, index) => (
                           <React.Fragment key={item.name}>
                             <div className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80">
-                              <img
-                                className="mt-4 px-2 md:w-full"
+                              <img 
+                                className=" max:w-[12.5em] max:h-[12.5em]"
                                 src={item.icon}
                                 alt={item.name}
                               />
@@ -748,7 +763,7 @@ function Homepagemcrt() {
                             className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
                           >
                             <img
-                              className="mt-4 px-2 md:w-full"
+                              className="max:w-[12.5em] max:h-[12.5em]"
                               src={item.icon}
                               alt={item.name}
                             />
@@ -801,7 +816,7 @@ function Homepagemcrt() {
                             className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
                           >
                             <img
-                              className="mt-4 px-2 md:w-full"
+                              className="max:w-[12.5em] max:h-[12.5em]"
                               src={item.icon}
                               alt={item.name}
                             />
