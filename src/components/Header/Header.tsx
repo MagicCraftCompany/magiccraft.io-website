@@ -38,7 +38,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       {
         title: 'MagicCraft',
           icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
-          path: '/magiccraft',
+          path: '/',
         
       },
       {
@@ -115,6 +115,11 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
           path: 'https://magiccraft.io/contact-us',
         },
         
+        {
+          title: 'Vision',
+          icon: './icons/icon-contact.svg',
+          path: '/vision',
+        },
       ],
     },
     {
@@ -222,7 +227,7 @@ const Header = () => {
       <header className="relative z-50 w-full bg-[#0A091799] px-3 py-4 backdrop-blur-md md:px-4 md:py-5">
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
           <div className="grid shrink-0 place-items-center self-stretch  bg-black/20 px-4  md:px-8 ">
-            <a href="https://magiccraft.io/" rel="noreferrer noopener">
+            <a href="/" rel="noreferrer noopener">
               <img className="w-28 md:w-36" src={mcLogo} alt="MagicCraft" />
             </a>
           </div>

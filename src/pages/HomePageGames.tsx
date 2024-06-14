@@ -54,7 +54,7 @@ function Homepagegames() {
                     MAGICVERSE GAME TO PLAY
                   </h3>
                   <div className="flex flex-row gap-[2em]">
-                    <a href="https://magiccraft.io" rel="noreferrer noopener">
+                   
                       <div className="w-56 select-none snap-start">
                         <img
                           className="pointer-events-none select-none"
@@ -62,7 +62,7 @@ function Homepagegames() {
                           alt="MagicCraft Game"
                         />
                       </div>
-                    </a>
+                    
                     <div className="w-56 select-none snap-start">
                       <img
                         className="pointer-events-none select-none"
