@@ -1,7 +1,7 @@
 import React, { useState, ReactNode, MouseEvent } from 'react';
 
 type TabProps = {
-  id: string;
+  id?: string;
   label: string;
   children: ReactNode;
   className?: string; 
