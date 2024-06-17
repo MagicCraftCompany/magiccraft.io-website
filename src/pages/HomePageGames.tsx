@@ -16,21 +16,20 @@ import strengths from '@/data/strengths'
 import { useNavigate } from 'react-router-dom'
 
 function Homepagegames() {
-
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const magiccrafthandleClick = () => {
-    navigate('/magiccraft');
-  };
+    navigate('/magiccraft')
+  }
   const magicrunnerhandleClick = () => {
-    navigate('/magicrunner');
-  };
+    navigate('/magicrunner')
+  }
   const magic8ballhandleClick = () => {
-    navigate('/magic8ball');
-  };
-  const contactTeamhandleClick=() => {
+    navigate('/magic8ball')
+  }
+  const contactTeamhandleClick = () => {
     navigate('/faq?contact=true')
-  };
+  }
   return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -49,46 +48,47 @@ function Homepagegames() {
                   />
                 </div>
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
-                  <span className="text-xl md:text-4xl">
-                    MagicCraft 2024:
-                  </span>{' '}
+                  <span className="text-xl md:text-4xl">MagicCraft 2024:</span>{' '}
                   <br />
                   MCRT is The Future of Gaming
                 </h1>
               </div>
 
-              
-
               <div className="grid h-[17em] w-full snap-x  snap-mandatory auto-cols-min grid-flow-col gap-6 overflow-x-auto overscroll-contain overscroll-x-contain rounded-4xl bg-custom-dark bg-opacity-70 px-4 pt-4 lg:ml-[10em] lg:w-[60em] lg:items-center lg:justify-center">
                 <div className="flex flex-col items-center">
                   <h3 className="font-serif font-bold">
-                  MAGICCRAFT ECOSYSTEM GAMES
+                    MAGICCRAFT ECOSYSTEM GAMES
                   </h3>
                   <div className="flex flex-row gap-[2em]">
-                   
-                      <div className="w-56 select-none snap-start cursor-pointer"  onClick={magiccrafthandleClick}>
-                        <img
-                          className="pointer-events-none select-none"
-                          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magiccraft-card_dfthct.webp"
-                          alt="MagicCraft Game"
-                         
-                        />
-                      </div>
-                    
-                    <div className="w-56 select-none snap-start cursor-pointer"  onClick={magic8ballhandleClick}>
+                    <div
+                      className="w-56 cursor-pointer select-none snap-start"
+                      onClick={magiccrafthandleClick}
+                    >
+                      <img
+                        className="pointer-events-none select-none"
+                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magiccraft-card_dfthct.webp"
+                        alt="MagicCraft Game"
+                      />
+                    </div>
+
+                    <div
+                      className="w-56 cursor-pointer select-none snap-start"
+                      onClick={magic8ballhandleClick}
+                    >
                       <img
                         className="pointer-events-none select-none"
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_10_ouvuyg.webp"
                         alt="Magic8Ball game"
-                        
                       />
                     </div>
-                    <div className="w-56 select-none snap-start cursor-pointer" onClick={magicrunnerhandleClick }>
+                    <div
+                      className="w-56 cursor-pointer select-none snap-start"
+                      onClick={magicrunnerhandleClick}
+                    >
                       <img
                         className="pointer-events-none select-none"
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_9_vqeywh.webp"
                         alt="MagicRunner game"
-                        
                       />
                     </div>
                   </div>
@@ -125,22 +125,23 @@ function Homepagegames() {
                     gaming experiences will shape a unified global gaming
                     economy.
                   </h4>
-                  <div className="flex flex-wrap items-center gap-[10px] cursor-pointer">
+                  <div className="flex cursor-pointer flex-wrap items-center gap-[10px]">
                     {['MagicCraft', 'Magic8Ball', 'MagicRunner'].map((val) => {
- let handleClick;
- switch (val) {
-   case 'MagicCraft':
-     handleClick = magiccrafthandleClick;
-     break;
-   case 'Magic8Ball':
-     handleClick = magic8ballhandleClick;
-     break;
-   case 'MagicRunner':
-     handleClick = magicrunnerhandleClick;
-     break;
-   default:
-     handleClick = () => {}; 
- }                      return (
+                      let handleClick
+                      switch (val) {
+                        case 'MagicCraft':
+                          handleClick = magiccrafthandleClick
+                          break
+                        case 'Magic8Ball':
+                          handleClick = magic8ballhandleClick
+                          break
+                        case 'MagicRunner':
+                          handleClick = magicrunnerhandleClick
+                          break
+                        default:
+                          handleClick = () => {}
+                      }
+                      return (
                         <div
                           key={val}
                           className="game-chips-bg grid w-fit place-items-center rounded-full px-4 py-3"
@@ -153,9 +154,9 @@ function Homepagegames() {
                   </div>
 
                   <div className="flex items-center gap-8 pt-10">
-                  <a href="">
+                    <a href="">
                       <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]">
-                      Join Our Ecosystem
+                        Join Our Ecosystem
                       </div>
                     </a>
                     <a href="#faq">
@@ -163,7 +164,7 @@ function Homepagegames() {
                         FAQ
                       </div>
                     </a>
-                    <div className="w-px self-stretch bg-gradient-to-b from-transparent via-[#98FFF9] to-transparent" />
+                    <div className="hidden w-px self-stretch bg-gradient-to-b from-transparent via-[#98FFF9] to-transparent md:block" />
                     <a
                       className="flex flex-col items-center justify-center gap-1"
                       href="  https://www.youtube.com/watch?v=YAp7k3NsKpg"
@@ -186,21 +187,22 @@ function Homepagegames() {
                 </div>
               </div>
 
-              <div className="relative w-full rounded-4xl mt-[4em] bg-[#0C0218]">
+              <div className="relative mt-[4em] w-full rounded-4xl bg-[#0C0218]">
                 <div className="space-y-5 px-8 pb-10 pt-5 md:px-10">
-                 
                   <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-4">
-                  <h5 className="mx-auto  text-balance text-center font-serif text-base md:text-[16px] md:mt-[2em]">
-                   jOIN US IN SHAPING THE FUTURE<br/>
-                   OF GAMING WITH MCRT, THE<br/>
-                   CORNERSTONE CURRENCY OF <br/>
-                   THE GAMING WORLD.
-                  </h5>
+                    <h5 className="mx-auto  text-balance text-center font-serif text-base md:mt-[2em] md:text-[16px]">
+                      jOIN US IN SHAPING THE FUTURE
+                      <br />
+                      OF GAMING WITH MCRT, THE
+                      <br />
+                      CORNERSTONE CURRENCY OF <br />
+                      THE GAMING WORLD.
+                    </h5>
                     <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
                       <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-4 py-2 md:p-10 ">
                         <h4 className="font-serif  text-lg md:text-[16px]">
                           <span className="text-[#8EFF49]">
-                           MCRT INTEGRATION:
+                            MCRT INTEGRATION:
                           </span>{' '}
                           <br /> ENHANCE YOUR GAMING WITH MCRT.
                         </h4>
@@ -230,7 +232,7 @@ function Homepagegames() {
                         <h4 className="font-serif text-lg md:text-[16px]">
                           <span className="text-[#98FFF9]">PORTFOLIO:</span>{' '}
                           <br />
-                         INDIE AND AA GAMES ONBOARDED.
+                          INDIE AND AA GAMES ONBOARDED.
                         </h4>
 
                         <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
@@ -389,11 +391,12 @@ function Homepagegames() {
 
               <div className="text-center">
                 <button>
-                 
-                    <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]" onClick={ contactTeamhandleClick}>
-                      Contact us
-                    </div>
-                  
+                  <div
+                    className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]"
+                    onClick={contactTeamhandleClick}
+                  >
+                    Contact us
+                  </div>
                 </button>
               </div>
             </section>
