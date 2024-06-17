@@ -28,7 +28,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function Homepagemcrt() {
-  const [visibleCount, setVisibleCount] = useState(8)
+  const [visibleCount, setVisibleCount] = useState(16)
 
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
@@ -196,18 +196,19 @@ function Homepagemcrt() {
 
           {/*register now */}
 
-          <section className="relative flex flex-col justify-center items-center  bg-[#020418] bg-center lg:h-[500px] lg:flex-row lg:p-4  lg:gap-[10em]  md:gap-[20em]">
-           {/* <div className='lg:w-[200em] flex items-center justify-center lg:flex-row lg:gap-[10em]  md:gap-[20em]'> */}
-            <div className="flex rounded-lg lg:w-6/12 lg:pl-52  ">
-              <div className=" flex flex-col items-center justify-center p-4 text-center md:p-4 md:text-left lg:mt-10 ">
+          <section className="relative flex justify-center items-center  bg-[#020418] bg-center lg:h-[500px]  lg:p-4    ">
+            <div className='grid grid-cols gap-[5em] md:gap-[2em] items-center lg:grid-cols-2 lg:gap-[10em] '>
+           {/* <div className='xl:gap-[12em] 2xl:gap-[5em] xl:flex xl:justify-center xl-items-center xl:flex-row flex flex-col md:flex-row md:gap-[5e]'> */}
+            <div className=" w-[400px] h-[400px] mt-10 lg:mt-0  ">
+              <div className=" flex flex-col items-center justify-center p-4 text-center  lg:text-left  ">
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
-                  <span className="text-4xl font-bold ">
+                  <div className="text-4xl font-bold ">
                     A NEW ERA IN GAMING
-                  </span>
-                  <br />
-                  <span className="text-2xl font-bold">WITH MAGICCRAFT</span>
+                  </div>
+                 
+                  <div className="text-2xl font-bold ">WITH MAGICCRAFT</div>
                 </h3>
-                <p className="my-4 hidden md:block">
+                {/* <p className="my-4 hidden md:block">
                   {' '}
                   MagicCraft is a Play-to-Earn blockchain game featuring
                   fast-paced <br />
@@ -218,8 +219,8 @@ function Homepagemcrt() {
                   new era of gaming where your prowess can pave the path to{' '}
                   <br />
                   prosperity.
-                </p>
-                <p className="block p-4 md:hidden">
+                </p> */}
+                <p className=" p-4 md:p-0 md:mt-2 ">
                   {' '}
                   MagicCraft is a Play-to-Earn blockchain
                  
@@ -250,7 +251,7 @@ function Homepagemcrt() {
                 </div>
               </div>
             </div>
-            <div className="relative w-full rounded-lg md:mb-10  lg:-ml-[10em]   lg:w-4/12">
+            <div className="relative  rounded-lg w-[400px] h-[400px]      ">
               <Swiper
                 id="1"
                 className=" p-10 "
@@ -339,88 +340,67 @@ function Homepagemcrt() {
                   </div>
                 </SwiperSlide>
               </Swiper>
-              <button className="z-10 arrow-left arrow absolute top-[50%]  cursor-pointer lg:-left-4  ">
+              <button className="z-10 arrow-left  arrow absolute top-[40%]  cursor-pointer lg:-left-4 left-0 ">
                 <img src={left} alt="MCRT Token" className="cursor-pointer" />
               </button>
-              <button className="z-10 arrow-right arrow absolute right-0 top-[50%] cursor-pointer lg:-right-4 ">
+              <button className="z-10 arrow-right arrow absolute -right-1 top-[40%] cursor-pointer lg:-right-4  ">
                 <img src={right} alt="MCRT Token" className="cursor-pointer" />
               </button>
+            </div>
             </div>
           </section>
 
           {/*unlimited ways to earn */}
-          <section className=" relative hidden h-auto  bg-center md:block lg:h-full">
-            <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp" />
-            <div className="absolute left-0 right-0 top-0 flex h-full flex-col text-center  lg:m-4">
-              <h2 className="mt-4 text-balance font-serif text-lg text-white lg:text-4xl">
-                UNLIMITED WAYS TO EARN MCRT
-              </h2>
-              <p className="text-xs text-white lg:mt-4   lg:text-xl">
-                Explore unlimited ways to earn MCRT through our dynamic
-                <br className="block lg:hidden" /> portfolio of games within the
-                MagicCraft
-                <br className="hidden lg:block" /> ecosystem. Each
-                <br className="block lg:hidden" /> game offers unique
-                opportunities to earn more MCRT and
-                <br className="block lg:hidden" />
-                enhance your overall <br className="hidden lg:block" /> gaming
-                experience. Dive into <br className="block lg:hidden" />
-                MagicRunner and Magic8Ball today and start earning!
-              </p>
-              <Swiper
-                id="swiper-section-two"
-                className="w-5/12 pt-4 md:mt-0 lg:mt-6"
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
-                spaceBetween={50}
-                slidesPerView={1}
-                onSwiper={(swiper) => console.log(swiper)}
-                navigation={{
-                  prevEl: '.arrow-left-first',
-                  nextEl: '.arrow-right-first',
-                }}
-                autoHeight={true}
-                pagination={{ clickable: true, dynamicBullets: true }}
-              >
-                <SwiperSlide
-                  style={{ marginRight: '0 !important' }}
-                  className="h-full w-5/12"
-                >
-                  <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
-                    <div className=" md:h-[120px] md:w-[150px] lg:h-full lg:w-full">
-                      <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717353441/crouserl_first_1_pehlcf.webp" />
-                    </div>
-                    <div className="crousel-first relative flex h-full flex-col items-start  lg:-ml-10 lg:w-[40em]  ">
-                      <div className="backdrop-blur-custom   ml-4 mt-2 flex items-center justify-center rounded-[68.117px] bg-[rgba(10,9,23,0.60)] px-2  py-1 text-[#98FFF9] md:text-xs lg:px-4 lg:py-2 lg:text-lg">
-                        Patch update
-                      </div>
-                      <label className=" text-left">
-                        <span className="  ml-4 px-3  text-sm font-bold lg:text-2xl">
-                          MagicRunner
-                        </span>
-                        <p className="ml-5 p-2  text-xs lg:text-lg">
-                          Web3 games utilize the blockchain to
-                          <br /> provide players with a unique gaming
-                          <br /> experience that is markedly different
-                          <br /> from traditional games.
-                        </p>
-                      </label>
-                      <button
-                        className=" mb-2 mt-1 inline-flex flex-wrap rounded-lg border-2  border-[#98FFF9]  p-0.5 text-[#98FFF9] md:ml-5 md:px-1 md:text-xs lg:m-5 lg:w-[260px]  lg:py-0.5 lg:pl-0.5 lg:text-lg"
-                        onClick={magicrunnerhandleClick}
-                      >
-                        <img
-                          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
-                          alt="Button Image"
-                          className="p-1 md:mr-1 md:h-4 md:w-4 lg:mr-2 lg:h-6 lg:w-6 "
-                        />
-                        Download MagicRunner Now
-                      </button>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-            </div>
-          </section>
+          <section className="relative hidden py-4 lg:h-[900px] md:block bg-cover bg-center" style={{ backgroundImage: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp')" }}>
+  <div className="h-full flex flex-col items-center justify-center text-center ">
+    <h2 className=" lg:mt-0 text-balance font-serif text-lg text-white lg:text-4xl">
+      UNLIMITED WAYS TO EARN MCRT
+    </h2>
+    <p className="text-xs text-white lg:mt-4 lg:text-xl">
+      Explore unlimited ways to earn MCRT through our dynamic
+      <br className="block lg:hidden" /> portfolio of games within the MagicCraft
+      <br className="hidden lg:block" /> ecosystem. Each
+      <br className="block lg:hidden" /> game offers unique opportunities to earn more MCRT and
+      <br className="block lg:hidden" />
+      enhance your overall <br className="hidden lg:block" /> gaming experience. Dive into <br className="block lg:hidden" />
+      MagicRunner and Magic8Ball today and start earning!
+    </p>
+    <div className="flex flex-col lg:grid lg:grid-cols-2  mt-4 items-center justify-center rounded-3xl text-center">
+      <div className="">
+        <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717353441/crouserl_first_1_pehlcf.webp" className="lg:h-[30em] lg:w-[20em] md:h-[20em] md:w-[15em] lg:mt-5" />
+      </div>
+      <div className="crousel-first relative -mt-[10em]  lg:-ml-[6em] flex h-fit w-fit flex-col items-start bg-[rgba(10,9,23,0.60)] p-4 rounded-lg">
+        <div className="my-1 flex items-center justify-center rounded-[68.117px] text-[#98FFF9] bg-[#0B0F2E] p-2 px-4 text-lg">
+          Patch update
+        </div>
+        <div className="text-left">
+          <div className=" font-bold text-2xl ml-2 my-2">
+            MagicRunner
+          </div>
+          <p className="text-lg ml-2 my-2">
+            Web3 games utilize the blockchain to <br /> 
+           provide players with a unique gaming <br />
+            experience that is markedly different <br />
+            from traditional games.
+          </p>
+        </div>
+        <button
+          className="flex flex-row py-1 px-4 rounded-lg border-2 border-[#98FFF9] text-[#98FFF9] my-2 ml-2"
+          onClick={magicrunnerhandleClick}
+        >
+          <img
+            src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
+            alt="Button Image"
+            className="h-6 w-6 p-1"
+          />
+          Download MagicRunner Now
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
           {/*JOIN THE ACTION */}
           <section className=" flex justify-center bg-center p-4 lg:-mt-[3em] lg:h-full ">
@@ -435,7 +415,7 @@ function Homepagemcrt() {
                   <br className="hidden lg:block" /> and rise through the ranks.
                   Start your journey to gaming glory now!
                 </p>
-                <div className="grid grid-cols-1 gap-[30px]  md:grid-cols-2 lg:grid-cols-3  lg:place-items-stretch ">
+                <div className="grid grid-cols-1 gap-[30px]  md:grid-cols-2 xl:grid-cols-3  lg:place-items-stretch ">
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
                     <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  ">
                       <div className="flex flex-row ">
