@@ -59,7 +59,7 @@ function Homepagemagicrunner() {
                 </span>
                 <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text font-serif text-2xl text-transparent drop-shadow-xl">
                   <span className="text-4xl font-bold lg:p-5 lg:text-6xl">
-                    MAGIC RUNNER
+                    MAGICRUNNER
                   </span>
                   <br />
                   <span className="text-lg font-bold  lg:p-5">
@@ -94,7 +94,7 @@ function Homepagemagicrunner() {
                   <br />
                 </h4>
                 <div className="flex items-center justify-center md:flex-wrap gap-[0.5em] p-4">
-                  <span className=" p-2 md:p-5">
+                  <span className="cursor-pointer  p-2 md:p-5">
                     <img src={pc} ></img>
                     Download
                     <br />
@@ -103,14 +103,14 @@ function Homepagemagicrunner() {
 
                   <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                  <span className="p-2  md:p-5">
+                  <span className="p-2 cursor-pointer  md:p-5">
                     <img src={AppleIcon} onClick={playonappleHandler}></img>
                     Get it on <br />
                     <p className=" text-lg font-bold md:text-xl">App Store</p>
                   </span>
                   <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                  <span className=" p-2  md:p-5">
+                  <span className=" p-2 cursor-pointer   md:p-5">
                     <img src={steam}></img>
                     Get it on
                     <br />
@@ -118,7 +118,7 @@ function Homepagemagicrunner() {
                   </span>
                   <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                  <span className=" p-2  md:p-5">
+                  <span className="cursor-pointer  p-2  md:p-5">
                     <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp" onClick={playonandroidHandler}></img>
                     Get it on
                     <br />
@@ -134,7 +134,7 @@ function Homepagemagicrunner() {
                     <span className="text-white ">DOWNLOAD NEW BUILD</span>
                   </h4>
                   <div className="mt-4 inline-flex gap-[1.875em] ">
-                    <span className=" font-xs   font-normal not-italic leading-normal">
+                    <span className=" font-xs cursor-pointer   font-normal not-italic leading-normal">
                       <img src={steam} className=" shrink-0 mb-2"></img>
                       <p>Get it on</p>
 
@@ -142,7 +142,7 @@ function Homepagemagicrunner() {
                     </span>
 
                     <div className="mt-5 block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#556DE0] to-transparent " />
-                    <span className=" font-xs  font-normal not-italic leading-normal">
+                    <span className=" font-xs cursor-pointer  font-normal not-italic leading-normal">
                       <img src={AppleIcon} className="shrink-0 mb-2" onClick={playonappleHandler}></img>
                       Get it on
                       <br />
@@ -151,7 +151,7 @@ function Homepagemagicrunner() {
                       </p>
                     </span>
                     <div className="mt-5 block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#556DE0] to-transparent " />
-                    <span className=" font-xs   font-normal not-italic leading-normal">
+                    <span className=" font-xs cursor-pointer   font-normal not-italic leading-normal">
                       <img
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"
                         className="shrink-0 mb-2"
