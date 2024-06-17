@@ -18,7 +18,7 @@
     },
     {
       name: 'Magic Square',
-      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718101231/magicilogo_wwkj1w.webp',
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718619014/logo-3_1_1_alowih.webp',
        link:'magicsquare.io',
       type:'Web3 App'
     },
