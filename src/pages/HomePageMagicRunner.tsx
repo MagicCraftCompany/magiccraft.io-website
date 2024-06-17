@@ -53,7 +53,7 @@ function Homepagemagicrunner() {
             <div className="relative hidden h-[700px]  w-full bg-mrback bg-cover bg-center  lg:block "></div>
             <div className="relative block h-[700px]  w-full bg-mrback1 bg-cover bg-center  lg:hidden "></div>
             <div className=" flex   rounded-lg   ">
-              <div className="absolute inset-0 -mt-40 flex  w-fit  flex-col  justify-center  text-center  lg:ml-[15em] lg:p-4 lg:text-left">
+              <div className="absolute inset-0 md:-mt-40 flex  w-fit  flex-col  justify-center  text-center  lg:ml-[15em] lg:p-4 lg:text-left">
                 <span className="m-4 hidden w-fit justify-center rounded-[2em] bg-custom-light bg-opacity-70  px-4 py-2 text-[#98FFF9] lg:block ">
                   MagicCraft Ecosystem Game
                 </span>
@@ -93,7 +93,7 @@ function Homepagemagicrunner() {
                   NOW!
                   <br />
                 </h4>
-                <div className="flex items-center justify-center md:flex-wrap">
+                <div className="flex items-center justify-center md:flex-wrap gap-[0.5em] p-4">
                   <span className=" p-2 md:p-5">
                     <img src={pc} ></img>
                     Download
@@ -210,7 +210,7 @@ function Homepagemagicrunner() {
             </div>
           </section>
 
-          <section className="relative h-[700px] bg-center md:h-[900px] lg:mt-10 lg:h-[130vh]">
+          <section className="relative h-[700px] bg-center md:h-[900px] xl:h-[900px] lg:mt-10 lg:h-[130vh]">
             <img
               src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp"
               className="h-full w-full object-cover"
@@ -236,7 +236,7 @@ function Homepagemagicrunner() {
                   >
                     <SwiperSlide
                       style={{ marginRight: '0 !important' }}
-                      className="h-full w-5/12"
+                      className="h-full w-[40em]"
                     >
                       <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
                         <div className="  lg:h-full lg:w-full">
@@ -254,6 +254,36 @@ function Homepagemagicrunner() {
                         </div>
                       </div>
                     </SwiperSlide>
+                    {/* <SwiperSlide
+                      style={{ marginRight: '0 !important' }}
+                      className=" w-6/12"
+                    >
+                      <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
+                        <div className="  w-[336px] h-[400px]">
+                          <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718606774/WhatsApp_Image_2024-06-14_at_6.41.22_PM_1_mhelzl.webp" />
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide
+                      style={{ marginRight: '0 !important' }}
+                      className="h-full w-6/12"
+                    >
+                      <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
+                        <div className="  lg:h-full lg:w-full">
+                          <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718606774/WhatsApp_Image_2024-06-14_at_6.41.22_PM_fwmlga.webp" />
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                    <SwiperSlide
+                      style={{ marginRight: '0 !important' }}
+                      className="h-full w-6/12"
+                    >
+                      <div className="item-center flex flex-col items-center justify-center  self-stretch rounded-3xl text-center lg:flex-row lg:items-start lg:justify-start">
+                        <div className="  lg:h-full lg:w-full">
+                          <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718606774/WhatsApp_Image_2024-06-14_at_6.41.23_PM_yhaduo.webp" />
+                        </div>
+                      </div>
+                    </SwiperSlide> */}
                   </Swiper>
                   <button className="arrow-left arrow absolute left-0 top-[25%] m-1 -translate-y-1/2 cursor-pointer lg:left-[9em] lg:top-1/2  lg:transform">
                     <img src={left} alt="MCRT Token" />
@@ -307,7 +337,7 @@ function Homepagemagicrunner() {
             </div>
           </section>
           {/* daily mission*/}
-          <section className=" relative mt-60 h-full w-full md:mt-40 lg:-mt-[15em]">
+          <section className=" relative mt-60 h-full w-full md:mt-40 lg:-mt-[15em] xl:-mt-[10em]">
             <div className=" flex flex-col items-center justify-center  lg:flex-row">
               <h1 className="mt-2 p-4 font-serif text-4xl font-bold">
                 DAILY MISSIONS
