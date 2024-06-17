@@ -182,6 +182,7 @@ function Homepagegames() {
                   <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717330280/ecosystem_y5ixdr.webp"
                     alt="MagicCraft Ecosystem"
+                    className='ml-[0.5em]'
                   />
                   {/* <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b from-transparent to-[#03082F] to-85% md:hidden" /> */}
                 </div>
