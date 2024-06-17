@@ -38,7 +38,7 @@ function Homepagemagicrunner() {
   const navigate = useNavigate();
 
   const magiccrafthandleClick = () => {
-    navigate('/');
+    navigate('/magiccraft');
   };
   const magic8ballhandleClick = () => {
     navigate('/magic8ball');
