@@ -226,7 +226,7 @@ function Homepagemagic8ball() {
             </div>
           </section>
 
-          <section className="relative h-[700px] bg-center  lg:h-full">
+          <section className="relative h-[700px] bg-center  lg:h-full xl:h-[800px]">
             <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp" className="h-full w-full object-cover" />
             <div className="absolute left-0 top-0  flex h-full w-full  flex-col  text-center">
               <h2 className="text-balance  p-2 font-serif text-4xl text-white">
