@@ -134,25 +134,31 @@ function Homepagemcrt() {
                       <br />
                     </h4>
                     <div className="flex items-center justify-center ">
-                      <div className="flex flex-row items-center gap-[20px] m-4">
+                      <div className="m-4 flex flex-row items-center gap-[20px]">
                         <span
-                          className=" cursor-pointer hidden md:block"
+                          className=" hidden cursor-pointer md:block"
                           onClick={playonpcHandler}
                         >
-                          <div className='w-6 h-6 m-4'> <img src={pc}></img></div>
+                          <div className="m-4 h-6 w-6">
+                            {' '}
+                            <img src={pc}></img>
+                          </div>
                           Download
                           <br />
                           <p className=" text-lg font-bold md:text-xl ">PC</p>
                         </span>
 
-                        <div className="hidden md:block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
+                        <div className="hidden h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent md:block " />
 
                         <span
                           className="cursor-pointer   "
                           onClick={playonappleHandler}
                         >
-                         <div className='w-6 h-6 m-4'> <img src={AppleIcon}></img></div>
-                          Get it on 
+                          <div className="m-4 h-6 w-6">
+                            {' '}
+                            <img src={AppleIcon}></img>
+                          </div>
+                          Get it on
                           <div className=" text-lg font-bold md:text-xl  ">
                             App Store
                           </div>
@@ -163,10 +169,15 @@ function Homepagemcrt() {
                           className=" cursor-pointer   "
                           onClick={playonsteamHandler}
                         >
-                          <div className='w-6 h-6 m-4'> <img src={steam}></img></div>
+                          <div className="m-4 h-6 w-6">
+                            {' '}
+                            <img src={steam}></img>
+                          </div>
                           Get it on
                           <br />
-                          <p className="text-xl font-bold flex flex-row md:text-xl">Steam</p>
+                          <p className="flex flex-row text-xl font-bold md:text-xl">
+                            Steam
+                          </p>
                         </span>
                         <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
@@ -174,10 +185,16 @@ function Homepagemcrt() {
                           className=" cursor-pointer   "
                           onClick={getfromgoogleHandler}
                         >
-                        <div className='w-6 h-6 m-4'>    <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img></div>
+                          <div className="m-4 h-6 w-6">
+                            {' '}
+                            <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
+                          </div>
                           Get it on
                           <br />
-                          <p className="text-lg font-bold flex flex-row md:text-xl"> Google play</p>
+                          <p className="flex flex-row text-lg font-bold md:text-xl">
+                            {' '}
+                            Google play
+                          </p>
                         </span>
                       </div>
 
@@ -196,19 +213,19 @@ function Homepagemcrt() {
 
           {/*register now */}
 
-          <section className="relative flex justify-center items-center  bg-[#020418] bg-center lg:h-[500px]  lg:p-4    ">
-            <div className='grid grid-cols gap-[5em] md:gap-[2em] items-center lg:grid-cols-2 lg:gap-[10em] '>
-           {/* <div className='xl:gap-[12em] 2xl:gap-[5em] xl:flex xl:justify-center xl-items-center xl:flex-row flex flex-col md:flex-row md:gap-[5e]'> */}
-            <div className=" w-[400px] h-[400px] mt-10 lg:mt-0  ">
-              <div className=" flex flex-col items-center justify-center p-4 text-center  lg:text-left  ">
-                <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
-                  <div className="text-4xl font-bold ">
-                    A NEW ERA IN GAMING
-                  </div>
-                 
-                  <div className="text-2xl font-bold ">WITH MAGICCRAFT</div>
-                </h3>
-                {/* <p className="my-4 hidden md:block">
+          <section className="relative flex items-center justify-center  bg-[#020418] bg-center lg:h-[500px]  lg:p-4    ">
+            <div className="grid-cols grid items-center gap-[5em] md:gap-[2em] lg:grid-cols-2 lg:gap-[10em] ">
+              {/* <div className='xl:gap-[12em] 2xl:gap-[5em] xl:flex xl:justify-center xl-items-center xl:flex-row flex flex-col md:flex-row md:gap-[5e]'> */}
+              <div className=" mt-10 h-[400px] w-[400px] lg:mt-0  ">
+                <div className=" flex flex-col items-center justify-center p-4 text-center  lg:text-left  ">
+                  <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
+                    <div className="text-4xl font-bold ">
+                      A NEW ERA IN GAMING
+                    </div>
+
+                    <div className="text-2xl font-bold ">WITH MAGICCRAFT</div>
+                  </h3>
+                  {/* <p className="my-4 hidden md:block">
                   {' '}
                   MagicCraft is a Play-to-Earn blockchain game featuring
                   fast-paced <br />
@@ -220,187 +237,203 @@ function Homepagemcrt() {
                   <br />
                   prosperity.
                 </p> */}
-                <p className=" p-4 md:p-0 md:mt-2 ">
-                  {' '}
-                  MagicCraft is a Play-to-Earn blockchain
-                 
-                  game featuring fast-paced multiplayer 
-                  battles. Every day, thousands of players 
-                  earn our utility token, MCRT, by
-                 
-                  showcasing their skills. Join them to step into
+                  <p className=" p-4 md:mt-2 md:p-0 ">
+                    {' '}
+                    MagicCraft is a Play-to-Earn blockchain game featuring
+                    fast-paced multiplayer battles. Every day, thousands of
+                    players earn our utility token, MCRT, by showcasing their
+                    skills. Join them to step into a new era of gaming where
+                    your prowess can pave the path to prosperity.
+                  </p>
 
-                  a new era of gaming where your prowess
-                  
-                  can pave the path to prosperity.
-                </p>
-
-                <div className="m-4  h-px w-full bg-gradient-to-r  from-transparent via-[#556DE0] to-transparent " />
-                <div className="flex w-full justify-center lg:justify-start">
-                  <button
-                    onClick={registerHandler}
-                    className=" flex flex-wrap rounded-lg border-2 border-[#98FFF9] px-4 py-2 text-[#98FFF9] md:mx-0"
-                  >
-                    <img
-                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
-                      alt="Button Image"
-                      className="mr-2 mt-1 h-4 w-4"
-                    />
-                    Register Now
-                  </button>
+                  <div className="m-4  h-px w-full bg-gradient-to-r  from-transparent via-[#556DE0] to-transparent " />
+                  <div className="flex w-full justify-center lg:justify-start">
+                    <button
+                      onClick={registerHandler}
+                      className=" flex flex-wrap rounded-lg border-2 border-[#98FFF9] px-4 py-2 text-[#98FFF9] md:mx-0"
+                    >
+                      <img
+                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
+                        alt="Button Image"
+                        className="mr-2 mt-1 h-4 w-4"
+                      />
+                      Register Now
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="relative  rounded-lg w-[400px] h-[400px]      ">
-              <Swiper
-                id="1"
-                className=" p-10 "
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
-                spaceBetween={50}
-                slidesPerView={1}
-                onSwiper={(swiper) => console.log(swiper)}
-                navigation={{ prevEl: '.arrow-left', nextEl: '.arrow-right' }}
-                autoHeight={true}
-                pagination={{ clickable: true, dynamicBullets: true }}
-              >
-                <SwiperSlide
-                  style={{ marginRight: '0 !important' }}
-                  className="h-full w-10/12"
+              <div className="relative  h-[400px] w-[400px] rounded-lg      ">
+                <Swiper
+                  id="1"
+                  className=" p-10 "
+                  modules={[Navigation, Pagination, Scrollbar, A11y]}
+                  spaceBetween={50}
+                  slidesPerView={1}
+                  onSwiper={(swiper) => console.log(swiper)}
+                  navigation={{ prevEl: '.arrow-left', nextEl: '.arrow-right' }}
+                  autoHeight={true}
+                  pagination={{ clickable: true, dynamicBullets: true }}
                 >
-                  <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid">
-                    <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
-                      <div className=" rounded-3xl  bg-gradient-to-b from-[#151149] to-[#190E29]  to-80% p-4">
-                        <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                          <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Julius Joseph`}</div>
-                        </button>
-                        <div className=" relative z-[3] h-[21px] w-5 " />
-                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                          <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
-                          Well, my testimony might not be huge like most here but one thing that is evident is that God has actually use Magiccraft to come through for me at my lowest moment. Best thanks to the Team, Magiccraft to the moon 🌙🌙🌙.
+                  <SwiperSlide
+                    style={{ marginRight: '0 !important' }}
+                    className="h-full w-10/12"
+                  >
+                    <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid">
+                      <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
+                        <div className=" rounded-3xl  bg-gradient-to-b from-[#151149] to-[#190E29]  to-80% p-4">
+                          <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
+                            <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Julius Joseph`}</div>
+                          </button>
+                          <div className=" relative z-[3] h-[21px] w-5 " />
+                          <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
+                            <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
+                              Well, my testimony might not be huge like most
+                              here but one thing that is evident is that God has
+                              actually use Magiccraft to come through for me at
+                              my lowest moment. Best thanks to the Team,
+                              Magiccraft to the moon 🌙🌙🌙.
+                            </div>
                           </div>
-                        </div>
-                        <div className="flex flex-row gap-10">
-                          <div className=" m-2 flex flex-wrap">
-                            <img src={frame1} className="mr-2" />
-                            83
-                          </div>
-                          <div className=" m-2 flex flex-wrap">
-                            <img src={frame2} className="mr-2" />
-                            61
-                          </div>
-                          <div className=" m-2 flex flex-wrap">
-                            <img src={frame3} className="mr-2" />
-                            2.0k
-                          </div>
-                          <div className=" m-2 flex flex-wrap">
-                            <img src={frame4} className="mr-2" />
-                            308.6k
+                          <div className="flex flex-row gap-10">
+                            <div className=" m-2 flex flex-wrap">
+                              <img src={frame1} className="mr-2" />
+                              83
+                            </div>
+                            <div className=" m-2 flex flex-wrap">
+                              <img src={frame2} className="mr-2" />
+                              61
+                            </div>
+                            <div className=" m-2 flex flex-wrap">
+                              <img src={frame3} className="mr-2" />
+                              2.0k
+                            </div>
+                            <div className=" m-2 flex flex-wrap">
+                              <img src={frame4} className="mr-2" />
+                              308.6k
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide
-                  style={{ marginRight: '0 !important' }}
-                  className="h-full w-10/12"
-                >
-                  <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid">
-                    <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
-                      <div className=" rounded-3xl  bg-gradient-to-b from-[#151149] to-[#190E29]  to-80% p-4">
-                        <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                          <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Didabban`}</div>
-                        </button>
-                        <div className=" relative z-[3] h-[21px] w-5 " />
-                        <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                          <div className="relative inline-block max-w-full flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
-                          My game play was seriously affected because I was using a phone with low RAM. But thanks to Magiccraft, I was able to buy a Redmi Note 12 for around $200! Now I can enjoy a better gaming experience and earn more MCRT.
+                  </SwiperSlide>
+                  <SwiperSlide
+                    style={{ marginRight: '0 !important' }}
+                    className="h-full w-10/12"
+                  >
+                    <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid">
+                      <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
+                        <div className=" rounded-3xl  bg-gradient-to-b from-[#151149] to-[#190E29]  to-80% p-4">
+                          <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
+                            <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Didabban`}</div>
+                          </button>
+                          <div className=" relative z-[3] h-[21px] w-5 " />
+                          <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
+                            <div className="relative inline-block max-w-full flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
+                              My game play was seriously affected because I was
+                              using a phone with low RAM. But thanks to
+                              Magiccraft, I was able to buy a Redmi Note 12 for
+                              around $200! Now I can enjoy a better gaming
+                              experience and earn more MCRT.
+                            </div>
                           </div>
-                        </div>
-                        <div className="flex flex-row gap-10">
-                          <div className=" m-2 flex flex-wrap">
-                            <img src={frame1} className="mr-2" />
-                            83
-                          </div>
-                          <div className=" m-2 flex flex-wrap">
-                            <img src={frame2} className="mr-2" />
-                            61
-                          </div>
-                          <div className=" m-2 flex flex-wrap">
-                            <img src={frame3} className="mr-2" />
-                            2.0k
-                          </div>
-                          <div className=" m-2 flex flex-wrap">
-                            <img src={frame4} className="mr-2" />
-                            308.6k
+                          <div className="flex flex-row gap-10">
+                            <div className=" m-2 flex flex-wrap">
+                              <img src={frame1} className="mr-2" />
+                              83
+                            </div>
+                            <div className=" m-2 flex flex-wrap">
+                              <img src={frame2} className="mr-2" />
+                              61
+                            </div>
+                            <div className=" m-2 flex flex-wrap">
+                              <img src={frame3} className="mr-2" />
+                              2.0k
+                            </div>
+                            <div className=" m-2 flex flex-wrap">
+                              <img src={frame4} className="mr-2" />
+                              308.6k
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </SwiperSlide>
-              </Swiper>
-              <button className="z-10 arrow-left  arrow absolute top-[40%]  cursor-pointer lg:-left-4 left-0 ">
-                <img src={left} alt="MCRT Token" className="cursor-pointer" />
-              </button>
-              <button className="z-10 arrow-right arrow absolute -right-1 top-[40%] cursor-pointer lg:-right-4  ">
-                <img src={right} alt="MCRT Token" className="cursor-pointer" />
-              </button>
-            </div>
+                  </SwiperSlide>
+                </Swiper>
+                <button className="arrow-left arrow  absolute left-0 top-[40%]  z-10 cursor-pointer lg:-left-4 ">
+                  <img src={left} alt="MCRT Token" className="cursor-pointer" />
+                </button>
+                <button className="arrow-right arrow absolute -right-1 top-[40%] z-10 cursor-pointer lg:-right-4  ">
+                  <img
+                    src={right}
+                    alt="MCRT Token"
+                    className="cursor-pointer"
+                  />
+                </button>
+              </div>
             </div>
           </section>
 
           {/*unlimited ways to earn */}
-          <section className="relative hidden py-4 lg:h-[900px] md:block bg-cover bg-center" style={{ backgroundImage: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp')" }}>
-  <div className="h-full flex flex-col items-center justify-center text-center ">
-    <h2 className=" lg:mt-0 text-balance font-serif text-lg text-white lg:text-4xl">
-      UNLIMITED WAYS TO EARN MCRT
-    </h2>
-    <p className="text-xs text-white lg:mt-4 lg:text-xl">
-      Explore unlimited ways to earn MCRT through our dynamic
-      <br className="block lg:hidden" /> portfolio of games within the MagicCraft
-      <br className="hidden lg:block" /> ecosystem. Each
-      <br className="block lg:hidden" /> game offers unique opportunities to earn more MCRT and
-      <br className="block lg:hidden" />
-      enhance your overall <br className="hidden lg:block" /> gaming experience. Dive into <br className="block lg:hidden" />
-      MagicRunner and Magic8Ball today and start earning!
-    </p>
-    <div className="flex flex-col lg:grid lg:grid-cols-2  mt-4 items-center justify-center rounded-3xl text-center">
-      <div className="">
-        <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717353441/crouserl_first_1_pehlcf.webp" className="lg:h-[30em] lg:w-[20em] md:h-[20em] md:w-[15em] lg:mt-5" />
-      </div>
-      <div className="crousel-first relative -mt-[10em]  lg:-ml-[6em] flex h-fit w-fit flex-col items-start bg-[rgba(10,9,23,0.60)] p-4 rounded-lg">
-        <div className="my-1 flex items-center justify-center rounded-[68.117px] text-[#98FFF9] bg-[#0B0F2E] p-2 px-4 text-lg">
-          Patch update
-        </div>
-        <div className="text-left">
-          <div className=" font-bold text-2xl ml-2 my-2">
-            MagicRunner
-          </div>
-          <p className="text-lg ml-2 my-2">
-            Web3 games utilize the blockchain to <br /> 
-           provide players with a unique gaming <br />
-            experience that is markedly different <br />
-            from traditional games.
-          </p>
-        </div>
-        <button
-          className="flex flex-row py-1 px-4 rounded-lg border-2 border-[#98FFF9] text-[#98FFF9] my-2 ml-2"
-          onClick={magicrunnerhandleClick}
-        >
-          <img
-            src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
-            alt="Button Image"
-            className="h-6 w-6 p-1"
-          />
-          Download MagicRunner Now
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+          <section
+            className="relative hidden bg-cover bg-center py-4 md:block lg:h-[900px]"
+            style={{
+              backgroundImage:
+                "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp')",
+            }}
+          >
+            <div className="flex h-full flex-col items-center justify-center text-center ">
+              <h2 className=" text-balance font-serif text-lg text-white lg:mt-0 lg:text-4xl">
+                UNLIMITED WAYS TO EARN MCRT
+              </h2>
+              <p className="text-xs text-white lg:mt-4 lg:text-xl">
+                Explore unlimited ways to earn MCRT through our dynamic
+                <br className="block lg:hidden" /> portfolio of games within the
+                MagicCraft
+                <br className="hidden lg:block" /> ecosystem. Each
+                <br className="block lg:hidden" /> game offers unique
+                opportunities to earn more MCRT and
+                <br className="block lg:hidden" />
+                enhance your overall <br className="hidden lg:block" /> gaming
+                experience. Dive into <br className="block lg:hidden" />
+                MagicRunner and Magic8Ball today and start earning!
+              </p>
+              <div className="mt-4 flex flex-col items-center  justify-center rounded-3xl text-center lg:grid lg:grid-cols-2">
+                <div className="">
+                  <img
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717353441/crouserl_first_1_pehlcf.webp"
+                    className="md:h-[20em] md:w-[15em] lg:mt-5 lg:h-[30em] lg:w-[20em]"
+                  />
+                </div>
+                <div className="crousel-first relative -mt-[10em]  flex h-fit w-fit flex-col items-start rounded-lg bg-[rgba(10,9,23,0.60)] p-4 lg:-ml-[6em]">
+                  <div className="my-1 flex items-center justify-center rounded-[68.117px] bg-[#0B0F2E] p-2 px-4 text-lg text-[#98FFF9]">
+                    Patch update
+                  </div>
+                  <div className="text-left">
+                    <div className=" my-2 ml-2 text-2xl font-bold">
+                      MagicRunner
+                    </div>
+                    <p className="my-2 ml-2 text-lg">
+                      Web3 games utilize the blockchain to <br />
+                      provide players with a unique gaming <br />
+                      experience that is markedly different <br />
+                      from traditional games.
+                    </p>
+                  </div>
+                  <button
+                    className="my-2 ml-2 flex flex-row rounded-lg border-2 border-[#98FFF9] px-4 py-1 text-[#98FFF9]"
+                    onClick={magicrunnerhandleClick}
+                  >
+                    <img
+                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
+                      alt="Button Image"
+                      className="h-6 w-6 p-1"
+                    />
+                    Download MagicRunner Now
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
 
           {/*JOIN THE ACTION */}
           <section className=" flex justify-center bg-center p-4 lg:-mt-[3em] lg:h-full ">
@@ -415,7 +448,7 @@ function Homepagemcrt() {
                   <br className="hidden lg:block" /> and rise through the ranks.
                   Start your journey to gaming glory now!
                 </p>
-                <div className="grid grid-cols-1 gap-[30px]  md:grid-cols-2 xl:grid-cols-3  lg:place-items-stretch ">
+                <div className="grid grid-cols-1 gap-[30px]  md:grid-cols-2 lg:place-items-stretch  xl:grid-cols-3 ">
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
                     <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  ">
                       <div className="flex flex-row ">
@@ -443,8 +476,10 @@ function Homepagemcrt() {
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
                     <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% ">
                       <h4 className="flex items-center justify-center px-7 pt-2 font-serif text-lg md:text-[22px]">
-                        <span className="text-[#FFB649] lg:pl-6">DOWNLOAD </span>{' '}
-                        <span className='ml-2'> THE GAME</span>
+                        <span className="text-[#FFB649] lg:pl-6">
+                          DOWNLOAD{' '}
+                        </span>{' '}
+                        <span className="ml-2"> THE GAME</span>
                       </h4>
 
                       <div className="flex flex-row items-center justify-center gap-[10px] lg:mb-4 lg:pl-10">
@@ -472,7 +507,7 @@ function Homepagemcrt() {
                         </span>
                         <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
                         <span
-                          className=" cursor-pointer px-3 py-4 "
+                          className=" cursor-pointer  px-3 lg:py-4 z-10 "
                           onClick={getfromgoogleHandler}
                         >
                           <img
@@ -707,7 +742,11 @@ function Homepagemcrt() {
                     </div>
                   </Tab>
 
-                  <Tab id="Advisors and KOL's" label="Advisors and KOL's" className="w-[80vw]">
+                  <Tab
+                    id="Advisors and KOL's"
+                    label="Advisors and KOL's"
+                    className="w-[80vw]"
+                  >
                     <div className="w-[80vw] space-y-4 lg:w-[60vw]">
                       <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {kolTeam.slice(0, visibleCount).map((item) => (
