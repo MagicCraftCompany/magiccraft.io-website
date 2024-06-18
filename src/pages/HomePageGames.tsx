@@ -153,7 +153,7 @@ function Homepagegames() {
                     })}
                   </div>
 
-                  <div className="flex items-center gap-8 pt-10">
+                  <div className="flex flex-col items-center gap-8 pt-10">
                     <a href="">
                       <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]">
                         Join Our Ecosystem
