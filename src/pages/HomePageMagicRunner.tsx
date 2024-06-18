@@ -17,6 +17,7 @@ import diamond from '@/assets/icons/Group.svg'
 
 import watch from '@/assets/icons/Frame.svg'
 import { useNavigate } from 'react-router-dom'
+import CountdownTimer from '@/components/countDown'
 
 function Homepagemagicrunner() {
   const joinMissionHandler = () => {
@@ -342,15 +343,17 @@ function Homepagemagicrunner() {
               <h1 className="mt-2 p-4 font-serif text-4xl font-bold">
                 DAILY MISSIONS
               </h1>
-              <div className=" mx-2 mt-2  flex flex-wrap items-center justify-center rounded-[3.125em] bg-[#4457B8] pr-2 text-[#98FFF9]">
-                <div className="flex flex-wrap items-center justify-center rounded-[3.125em] bg-[#98FFF9] p-2 text-black">
+              <div className=" mx-2 mt-2  flex flex-row items-center justify-center rounded-[3.125em] bg-[#4457B8] pr-2 text-[#98FFF9]">
+                <div className="flex flex-row items-center justify-center rounded-[3.125em] bg-[#98FFF9] p-2 text-black">
                   <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173184/clock_evbzyy.webp"
                     className="m-1 h-10 w-10"
                   />
-                  <p className="p-2">Ends in:</p>
+                  <p className="p-2">Ends in:
+                 
+                  </p>
                 </div>
-                <p className="p-2">08h 21m 11s</p>
+                <p className="py-2 w-[10em]"> <CountdownTimer /></p>
               </div>
             </div>
 
