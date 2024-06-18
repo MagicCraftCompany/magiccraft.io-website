@@ -10,6 +10,7 @@ import Homepagemagic8ball from './pages/HomePageMagic8Ball'
 import Hero from './pages/Hero'
 import ChooseYourHero from './pages/ChooseYourHero'
 import Server from './pages/serverStatus'
+import TermsAndConditions from './pages/TermsAndCondition'
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +24,7 @@ function App() {
         <Route path="/faq" element={<Support />}></Route>
         <Route path="/patch" element={<GamePatch />}></Route>
         <Route path="/server" element={<Server />}></Route>
+        <Route path="/terms" element={<TermsAndConditions />}></Route>
        
       </Routes>
     </BrowserRouter>

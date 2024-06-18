@@ -19,6 +19,7 @@ import Mcrt2 from '@/assets/icons/li_coins (1).svg'
 import contacticon from '@/assets/icons/li_users.svg'
 import contacticon2 from '@/assets/icons/li_coins (1).svg'
 import vector from '@/assets/icons/contact-vector.svg'
+import { Link } from 'react-router-dom'
 
 export default function FAQ() {
   
@@ -141,10 +142,14 @@ export default function FAQ() {
                               className="form-checkbox text-[#03082F]-500"
                             />
                             <span className="m-2 text-white">
-                              I agree to the
-                            </span>
-                            <span className="text-[#71749f] underline">
-                              Terms and Conditions
+                              I agree to the{" "}
+                              <Link
+                                className="w-full bg-gradient-to-br from-[#9AD4FD] to-[#8DC4FE70] bg-clip-text text-transparent underline decoration-[#8DC4FE70]"
+                                to="/terms"
+                                target="_blank"
+                              >
+                                Terms and Conditions
+                              </Link>
                             </span>
                           </label>
                         </div>
