@@ -37,10 +37,10 @@ function Homepagemagic8ball() {
 
   } 
   const joinMissionHandler = () => {
-    window.location.href = 'https://lobby.magiccraft.io/magic-runner'
+    window.location.href = 'https://lobby.magiccraft.io/magic-8ball'
   } 
   const playnowHandler = () => {
-    window.location.href = 'https://lobby.magiccraft.io/magic-runner'
+    window.location.href = 'https://lobby.magiccraft.io/magic-8ball'
 
   } 
   const navigate = useNavigate()
