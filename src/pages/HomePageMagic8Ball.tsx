@@ -33,7 +33,7 @@ function Homepagemagic8ball() {
     window.location.href = 'https://play.google.com/store/apps/details?id=com.magiccraft.magic8ball&hl=en_IN'
   } 
   const playonappleHandler = () => {
-    window.location.href = 'https://apps.apple.com/us/app/magicrunner-frigards-escape/id6479990522'
+    window.location.href = ''
 
   } 
   const joinMissionHandler = () => {
@@ -116,7 +116,7 @@ const magicrunnerhandleClick = () => {
                   <br />
                 </h4>
                 <div className="flex items-center justify-center md:flex-wrap">
-                  <span className=" p-2 md:p-5">
+                  <span className=" p-2 md:p-5 cursor-pointer hidden lg:block">
                     <img src={pc}></img>
                     Download
                     <br />
@@ -125,14 +125,14 @@ const magicrunnerhandleClick = () => {
 
                   <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                  <span className="p-2  md:p-5 cursor-pointer">
+                  <span className="p-2 z-10 md:p-5 cursor-pointer" onClick={playonappleHandler}>
                     <img src={AppleIcon}></img>
                     Get it on <br />
                     <p className=" text-lg font-bold md:text-xl">App Store</p>
                   </span>
                   <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                  <span className=" p-2  md:p-5 cursor-pointer">
+                  <span className=" p-2  md:p-5 cursor-pointer" onClick={playnowHandler }>
                     <img src={steam}></img>
                     Get it on
                     <br />
@@ -140,7 +140,7 @@ const magicrunnerhandleClick = () => {
                   </span>
                   <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
-                  <span className=" p-2  md:p-5 cursor-pointer" >
+                  <span className=" p-2  md:p-5 cursor-pointer"onClick={playonandroidHandler} >
                     <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
                     Get it on
                     <br />
@@ -157,7 +157,7 @@ const magicrunnerhandleClick = () => {
                     <span className="text-white ">DOWNLOAD NEW BUILD</span>
                   </h4>
                   <div className="mt-4 inline-flex gap-[1.875em] ">
-                    <span className=" font-xs   font-normal not-italic leading-normal">
+                    <span className=" font-xs   font-normal not-italic leading-normal cursor-pointer" onClick={playnowHandler}>
                       <img src={steam} className=" shrink-0 mb-2"></img>
                       <p>Get it on</p>
 
@@ -165,20 +165,20 @@ const magicrunnerhandleClick = () => {
                     </span>
 
                     <div className="mt-5 block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#556DE0] to-transparent " />
-                    <span className=" font-xs  font-normal not-italic leading-normal">
-                      <img src={AppleIcon} className="shrink-0 mb-2" onClick={playonappleHandler}></img>
+                    <span className="z-10 font-xs  font-normal not-italic leading-normal cursor-pointer" onClick={playonappleHandler}>
+                      <img src={AppleIcon} className="shrink-0 mb-2 cursor-pointer" ></img>
                       Get it on
                       <br />
-                      <p className="font-sm  font-bold leading-normal">
+                      <p className="font-sm  font-bold leading-normal cursor-pointer">
                         App store
                       </p>
                     </span>
                     <div className="mt-5 block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#556DE0] to-transparent " />
-                    <span className=" font-xs   font-normal not-italic leading-normal">
+                    <span className="z-10 font-xs   font-normal not-italic leading-normal cursor-pointer"  onClick={playonandroidHandler}>
                       <img
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"
                         className="shrink-0 mb-2"
-                        onClick={playonandroidHandler}
+                       
                       ></img>
                       Get it on
                       <br />
@@ -203,7 +203,7 @@ const magicrunnerhandleClick = () => {
                       32,112
                       <img
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
-                        className="mx-2 mt-1 h-4 w-4"
+                        className="mx-2 mt-1 h-4 w-4 "
                       />
                     </span>
 
@@ -213,9 +213,9 @@ const magicrunnerhandleClick = () => {
                 <div className="  block h-[10em] w-[2px] bg-gradient-to-t from-transparent via-[#556DE0] to-transparent " />
                 <div className="ml-4 flex flex-row">
                  
-                    <div className="w-[13em] select-none snap-start px-4" onClick={magiccrafthandleClick}>
+                    <div className="w-[13em] select-none cursor-pointer snap-start px-4" onClick={magiccrafthandleClick}>
                       <img
-                        className="pointer-events-none select-none "
+                        className="pointer-events-none select-none cursor-pointer z-10"
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magiccraft-card_dfthct.webp"
                         alt="MagicCraft Game"
                       />
@@ -223,7 +223,7 @@ const magicrunnerhandleClick = () => {
                  
                   <div className="w-[13em] select-none snap-start  px-4 " onClick={magicrunnerhandleClick}>
                     <img
-                      className="pointer-events-noneselect-none"
+                      className="pointer-events-noneselect-none cursor-pointer"
                       src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_9_vqeywh.webp"
                       alt="Magicrunner game"
                     />
@@ -317,12 +317,12 @@ const magicrunnerhandleClick = () => {
             </div>
           </section>
           {/* {/* daily mission*/}
-          <section className=" relative mt-60 h-full w-full md:mt-40 lg:-mt-[15em]">
-            <div className=" flex flex-col items-center justify-center  lg:flex-row">
-              <h1 className="mt-2 p-4 font-serif text-4xl font-bold">
+          <section className=" relative mt-[5em]  h-full w-full md:mt-40 lg:-mt-[15em]">
+            <div className=" flex flex-col items-center justify-center gap-[0.5em]  lg:flex-row">
+              <h1 className="mt-2 p-4 font-serif text-4xl font-bold m-4">
                 DAILY MISSIONS
               </h1>
-              <div className=" mx-2 mt-2  flex flex-row items-center justify-center rounded-[3.125em] bg-[#4457B8] pr-2 text-[#98FFF9]">
+              <div className=" mx-2 mb-4  flex flex-row items-center justify-center rounded-[3.125em] bg-[#4457B8] pr-2 text-[#98FFF9]">
                 <div className="flex flex-row items-center justify-center rounded-[3.125em] bg-[#98FFF9] p-2 text-black">
                   <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173184/clock_evbzyy.webp"

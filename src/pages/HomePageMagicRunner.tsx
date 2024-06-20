@@ -135,7 +135,7 @@ function Homepagemagicrunner() {
                     <span className="text-white ">DOWNLOAD NEW BUILD</span>
                   </h4>
                   <div className="mt-4 inline-flex gap-[1.875em] ">
-                    <span className=" font-xs cursor-pointer   font-normal not-italic leading-normal">
+                    <span className=" font-xs cursor-pointer   font-normal not-italic leading-normal" onClick={playnowHandler}>
                       <img src={steam} className=" shrink-0 mb-2"></img>
                       <p>Get it on</p>
 
