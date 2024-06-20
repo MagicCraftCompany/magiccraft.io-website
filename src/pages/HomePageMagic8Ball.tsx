@@ -123,7 +123,7 @@ const magicrunnerhandleClick = () => {
                     <p className=" text-lg font-bold md:text-xl">PC</p>
                   </span>
 
-                  <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
+                  <div className="hidden lg:block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
                   <span className="p-2 z-10 md:p-5 cursor-pointer" onClick={playonappleHandler}>
                     <img src={AppleIcon}></img>
