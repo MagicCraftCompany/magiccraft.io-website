@@ -95,14 +95,14 @@ function Homepagemagicrunner() {
                   <br />
                 </h4>
                 <div className="flex items-center justify-center md:flex-wrap gap-[0.5em] p-4">
-                  <span className="cursor-pointer  p-2 md:p-5">
+                  <span className="cursor-pointer hidden lg:block  p-2 md:p-5">
                     <img src={pc} ></img>
                     Download
                     <br />
                     <p className=" text-lg font-bold md:text-xl">PC</p>
                   </span>
 
-                  <div className="block h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
+                  <div className=" h-[5em]  w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent hidden lg:block  " />
 
                   <span className="p-2 cursor-pointer  md:p-5">
                     <img src={AppleIcon} onClick={playonappleHandler}></img>
