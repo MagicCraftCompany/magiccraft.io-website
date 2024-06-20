@@ -16,6 +16,9 @@ import strengths from '@/data/strengths'
 import { useNavigate } from 'react-router-dom'
 
 function Homepagegames() {
+  const youtubeLink=()=>{
+    window.location.href='https://www.youtube.com/watch?v=YAp7k3NsKpg'
+  }
   const navigate = useNavigate()
 
   const magiccrafthandleClick = () => {
@@ -155,11 +158,11 @@ function Homepagegames() {
 
                   <div className="flex flex-col lg:flex-row items-center gap-8 pt-10">
                     <div>
-                    <a href="">
-                      <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]">
+                   
+                      <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]" onClick={youtubeLink}>
                         Join Our Ecosystem
                       </div>
-                    </a>
+                    
                     </div>
                     <div className=' flex flex-row gap-[0.7em]'>
                     <a href="#faq">
