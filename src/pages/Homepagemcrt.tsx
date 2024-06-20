@@ -159,7 +159,7 @@ function Homepagemcrt() {
                             <img src={AppleIcon}></img>
                           </div>
                           Get it on
-                          <div className=" text-lg font-bold md:text-xl  ">
+                          <div className=" text-sm font-bold md:text-xl  ">
                             App Store
                           </div>
                         </span>
@@ -175,9 +175,9 @@ function Homepagemcrt() {
                           </div>
                           Get it on
                           <br />
-                          <p className="flex flex-row text-xl font-bold md:text-xl">
+                          <div className="flex flex-row text-sm font-bold md:text-xl">
                             Steam
-                          </p>
+                          </div>
                         </span>
                         <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
 
@@ -191,10 +191,10 @@ function Homepagemcrt() {
                           </div>
                           Get it on
                           <br />
-                          <p className="flex flex-row text-lg font-bold md:text-xl">
-                            {' '}
+                          <div className="flex flex-row text-sm font-bold md:text-xl">
+                          
                             Google play
-                          </p>
+                          </div>
                         </span>
                       </div>
 
@@ -362,7 +362,7 @@ function Homepagemcrt() {
                 <button className="arrow-left arrow  absolute left-0 top-[40%]  z-10 cursor-pointer lg:-left-4 ">
                   <img src={left} alt="MCRT Token" className="cursor-pointer" />
                 </button>
-                <button className="arrow-right arrow absolute -right-1 top-[40%] z-10 cursor-pointer lg:-right-4  ">
+                <button className="arrow-right arrow absolute right-0 top-[40%] z-10 cursor-pointer lg:-right-4  ">
                   <img
                     src={right}
                     alt="MCRT Token"
