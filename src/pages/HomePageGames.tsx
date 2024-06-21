@@ -159,14 +159,14 @@ function Homepagegames() {
                   <div className="flex flex-col lg:flex-row items-center gap-8 pt-10">
                     <div>
                    
-                      <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]" onClick={youtubeLink}>
+                      <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F] cursor-pointer" onClick={youtubeLink}>
                         Join Our Ecosystem
                       </div>
                     
                     </div>
                     <div className=' flex flex-row gap-[0.7em]'>
                     <a href="#faq">
-                      <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F] ">
+                      <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F] cursor-pointer ">
                         FAQ
                       </div>
                     </a>
@@ -177,7 +177,7 @@ function Homepagegames() {
                       target="_blank"
                       rel="noreferrer noopener"
                     >
-                      <div className="flex flex-col items-center justify-center gap-1">
+                      <div className="flex flex-col items-center justify-center gap-1 cursor-pointer ">
                         <Play size={18} />
                         <p>Watch Intro</p>
                       </div>
