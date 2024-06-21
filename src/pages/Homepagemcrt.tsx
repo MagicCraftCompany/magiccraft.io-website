@@ -628,7 +628,7 @@ function Homepagemcrt() {
                     onClick={telegrammagiccrftHandler}
                   >
                     {/* <img src={AppleIcon} className=" m-4"></img> */}
-                    <LiaTelegramPlane   style={{ width: "2em" , height:"3em"}}/>
+                    <LiaTelegramPlane   style={{ width: "2em" , height:"3em" , margin:"10px"}}/>
 
                     <span className="mt-4 text-2xl ">
 
