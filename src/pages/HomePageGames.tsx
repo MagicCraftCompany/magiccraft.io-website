@@ -53,7 +53,7 @@ function Homepagegames() {
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
                   <span className="text-xl md:text-4xl">MagicCraft 2024:</span>{' '}
                   <br />
-                  MCRT is The Future of Gaming
+                 $ MCRT is The Future of Gaming
                 </h1>
               </div>
 
