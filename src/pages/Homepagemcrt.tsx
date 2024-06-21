@@ -26,6 +26,7 @@ import frame3 from '@/assets/icons/Frame (3).svg'
 import frame4 from '@/assets/icons/Frame (4).svg'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { LiaTelegramPlane } from 'react-icons/lia'
 
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(16)
@@ -626,8 +627,11 @@ function Homepagemcrt() {
                     className="flex flex-wrap "
                     onClick={telegrammagiccrftHandler}
                   >
-                    <img src={AppleIcon} className=" m-4"></img>
+                    {/* <img src={AppleIcon} className=" m-4"></img> */}
+                    <LiaTelegramPlane   style={{ width: "2em" , height:"3em"}}/>
+
                     <span className="mt-4 text-2xl ">
+
                       Join MagicCraft's
                       <br />
                       <p className="text-2xl font-bold"> Telegram</p>
@@ -656,7 +660,8 @@ function Homepagemcrt() {
                 </span>
 
                 <div className="mx-4 block h-[4em] w-[2px] bg-gradient-to-t from-transparent via-[#2F3A80] to-transparent " />
-                <img src={AppleIcon} className=" pl-4"></img>
+                {/* <img src={AppleIcon} className=" pl-4"></img> */}
+                <LiaTelegramPlane   style={{ width: "2em" , height:"3em"}}/>
                 <span
                   className=" cursor-pointer p-4"
                   onClick={telegrammagiccrftHandler}
