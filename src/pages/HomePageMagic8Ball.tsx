@@ -30,10 +30,10 @@ import CountdownTimer from '@/components/countDown'
 
 function Homepagemagic8ball() {
   const playonandroidHandler = () => {
-    window.location.href = 'https://play.google.com/store/apps/details?id=com.magiccraft.magic8ball&hl=en_IN'
+    window.location.href = 'https://play.google.com/store/apps/details?id=com.magiccraft.magic8ball'
   } 
   const playonappleHandler = () => {
-    window.location.href = ''
+    window.location.href = 'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
 
   } 
   const joinMissionHandler = () => {

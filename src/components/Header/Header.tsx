@@ -137,6 +137,11 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
           icon: './icons/icon-huobi.svg',
           path: 'https://www.huobi.com/en-us/exchange/mcrt_usdt',
         },
+        {
+          title: 'Buy with credit card',
+          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718968472/648bac0dcb1a13d71ac879ff_Swipelux-Twitter_gfxxae.webp',
+          path: 'https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12',
+        },
       ],
     },
 

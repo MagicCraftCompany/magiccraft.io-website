@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom'
 
 function Homepagegames() {
   const youtubeLink=()=>{
-    window.location.href='https://www.youtube.com/watch?v=YAp7k3NsKpg'
+    window.location.href='https://lobby.magiccraft.io/register'
   }
   const navigate = useNavigate()
 
