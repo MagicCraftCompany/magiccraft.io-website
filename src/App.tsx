@@ -11,6 +11,7 @@ import Hero from './pages/Hero'
 import ChooseYourHero from './pages/ChooseYourHero'
 import Server from './pages/serverStatus'
 import TermsAndConditions from './pages/TermsAndCondition'
+import Studios from './pages/Studios'
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +24,8 @@ function App() {
         <Route path="/Chooseyourhero" element={<ChooseYourHero/>}></Route>
         <Route path="/faq" element={<Support />}></Route>
         <Route path="/patch" element={<GamePatch />}></Route>
+        <Route path="/studios" element={<Studios />}></Route>
+
         <Route path="/server" element={<Server />}></Route>
         <Route path="/terms" element={<TermsAndConditions />}></Route>
        
