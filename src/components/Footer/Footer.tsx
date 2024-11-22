@@ -125,7 +125,7 @@ const moreLinks = [
 
 const Footer = () => {
   return (
-    <footer className="text-primary relative z-10 bg-[#03082F] py-10 lg:ml-[12em]">
+    <footer className="text-primary relative z-10  py-10 lg:ml-[12em]">
       <div className="mx-auto flex w-11/12 max-w-[1650px] flex-col-reverse justify-between gap-10 lg:flex-row">
         {/* <button className='hidden lg:block'>
           <img

@@ -3,7 +3,7 @@ import Header from '@/components/Header/Header'
 
 function Studios() {
   return (
-    <div className="min-h-dvh w-full bg-[#0a0a1a] text-white">
+    <div className="min-h-dvh w-full text-white">
       <Header />
       <main className="scroll-smooth pb-32">
         <section className="relative flex flex-col items-center space-y-12 px-4 py-16">

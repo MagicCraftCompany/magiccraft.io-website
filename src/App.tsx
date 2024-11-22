@@ -12,6 +12,7 @@ import ChooseYourHero from './pages/ChooseYourHero'
 import Server from './pages/serverStatus'
 import TermsAndConditions from './pages/TermsAndCondition'
 import Studios from './pages/Studios'
+import NewsPage from './pages/McNews'
 function App() {
   return (
     <BrowserRouter>
@@ -25,6 +26,7 @@ function App() {
         <Route path="/faq" element={<Support />}></Route>
         <Route path="/patch" element={<GamePatch />}></Route>
         <Route path="/studios" element={<Studios />}></Route>
+        <Route path="/news" element={<NewsPage />}></Route>
 
         <Route path="/server" element={<Server />}></Route>
         <Route path="/terms" element={<TermsAndConditions />}></Route>
