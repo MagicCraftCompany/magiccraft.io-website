@@ -13,6 +13,8 @@ import Server from './pages/serverStatus'
 import TermsAndConditions from './pages/TermsAndCondition'
 import Studios from './pages/Studios'
 import NewsPage from './pages/McNews'
+import  PrivacyPolicy  from './pages/PrivacyPolicy'
+import { Disclaimer } from './pages/Disclaimer'
 function App() {
   return (
     <BrowserRouter>
@@ -30,6 +32,10 @@ function App() {
 
         <Route path="/server" element={<Server />}></Route>
         <Route path="/terms" element={<TermsAndConditions />}></Route>
+        <Route path="/privacypolicy" element={<PrivacyPolicy />}></Route>
+        <Route path="/disclaimer" element={<Disclaimer />}></Route>
+
+
        
       </Routes>
     </BrowserRouter>
