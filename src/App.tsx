@@ -14,7 +14,7 @@ import TermsAndConditions from './pages/TermsAndCondition'
 import Studios from './pages/Studios'
 import NewsPage from './pages/McNews'
 import  PrivacyPolicy  from './pages/PrivacyPolicy'
-import { Disclaimer } from './pages/Disclaimer'
+import  Disclaimer  from './pages/Disclaimer'
 function App() {
   return (
     <BrowserRouter>
