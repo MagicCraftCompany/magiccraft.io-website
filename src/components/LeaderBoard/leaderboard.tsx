@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState,  } from "react";
 import LeaderboardTable from "./leaderboardDataTable";
 // import axios from "../../../api/axios";
 // import LeaderboardTable from "./leaderboardDataTable";
@@ -24,9 +24,9 @@ interface LeaderboardProps {
   gameId: number; // Now we pass gameId instead of gameTitle
 }
 
-export default function Leaderboard({ gameId }: LeaderboardProps) {
-  const [data, setData] = useState<PlayerData[]>([]);
-  const [loading, setLoading] = useState(true);
+export default function Leaderboard({  }: LeaderboardProps) {
+  const [data, ] = useState<PlayerData[]>([]);
+  const [loading, ] = useState(true);
   const [currentLeaderboard, setCurrentLeaderboard] = useState("week");
 
   // useEffect(() => {
