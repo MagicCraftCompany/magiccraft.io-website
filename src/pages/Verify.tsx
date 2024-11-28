@@ -12,27 +12,24 @@ export default function Verify() {
         <img
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732728187/Image_4_a6xltr.webp"
           className="hidden lg:block"
-          alt="Disclaimer banner"
-          width={1920}
-          height={500}
+          alt="verify banner"
+         
         />
 
         {/* Tablet Image */}
         <img
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732728036/Image_6_mts4sr.webp"
           className="hidden md:block lg:hidden"
-          alt="Disclaimer banner"
-          width={1024}
-          height={700}
+          alt="verify banner"
+        
         />
 
         {/* Mobile Image */}
         <img
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732728028/Image_5_caa7pl.webp"
           className="block md:hidden"
-          alt="Disclaimer banner"
-          width={375}
-          height={500}
+          alt="verify banner"
+          
         />
 
         {/* Overlay Title */}
@@ -44,22 +41,24 @@ export default function Verify() {
       </div>
 
       {/* Verification Form */}
-      <div className="container mx-auto px-4 py-8 -mt-[100px]">
+      <div className="container mx-auto px-4 py-8 -mt-[200px] gap-4">
         <div className="max-w-3xl mx-auto bg-[#0F1137]/80 rounded-2xl p-6 backdrop-blur-sm">
           <div className="space-y-6">
             {/* Platform Selector */}
-            <div>
+            <div className='flex flex-row justify-between'>
               <label htmlFor="platform" className="block text-sm mb-2">Choose the platform:</label>
+
               <div className="relative">
                 <select
                   id="platform"
-                  className="w-full bg-[#141632] border border-[#1C1F45] rounded-md py-2 px-3 appearance-none text-white"
+                  className="w-full bg-[#141632] border-solid border-[1px] border-[#98FFF9] rounded-4xl py-2 px-8 appearance-none text-white"
                 >
-                  <option value="telegram">Telegram</option>
+                  <option value="telegram" className='px-2 text-[#98FFF9] '>Telegram</option>
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-white pointer-events-none" />
+                <ChevronDown className="absolute right-3 top-1/2 transform -translate-y-1/2 text-[#98FFF9] pointer-events-none " />
               </div>
             </div>
+            <div className="   bg-gradient-to-r from-transparent via-[#98FFF9]   to-transparent p-px "/>
 
             {/* Query Input */}
             <div>
@@ -76,6 +75,7 @@ export default function Verify() {
                 </button>
               </div>
             </div>
+            <div className="   bg-gradient-to-r from-transparent via-[#98FFF9]   to-transparent p-px "/>
 
             {/* Info Text */}
             <div className="text-center space-y-2">

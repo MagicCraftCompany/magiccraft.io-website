@@ -16,6 +16,8 @@ import NewsPage from './pages/McNews'
 import  PrivacyPolicy  from './pages/PrivacyPolicy'
 import  Disclaimer  from './pages/Disclaimer'
 import Verify from './pages/Verify'
+import LeaderboardPage from './pages/LeaderBoard'
+import HoldersPage from './pages/TopHolders'
 function App() {
   return (
     <BrowserRouter>
@@ -36,6 +38,9 @@ function App() {
         <Route path="/privacypolicy" element={<PrivacyPolicy />}></Route>
         <Route path="/disclaimer" element={<Disclaimer />}></Route>
         <Route path="/verify" element={<Verify />}></Route>
+        <Route path="/leaderboard" element={<LeaderboardPage />}></Route>
+        <Route path="/topholders" element={<HoldersPage />}></Route>
+
 
 
 
