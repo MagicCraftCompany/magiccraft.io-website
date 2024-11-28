@@ -15,6 +15,7 @@ import Studios from './pages/Studios'
 import NewsPage from './pages/McNews'
 import  PrivacyPolicy  from './pages/PrivacyPolicy'
 import  Disclaimer  from './pages/Disclaimer'
+import Verify from './pages/Verify'
 function App() {
   return (
     <BrowserRouter>
@@ -34,6 +35,8 @@ function App() {
         <Route path="/terms" element={<TermsAndConditions />}></Route>
         <Route path="/privacypolicy" element={<PrivacyPolicy />}></Route>
         <Route path="/disclaimer" element={<Disclaimer />}></Route>
+        <Route path="/verify" element={<Verify />}></Route>
+
 
 
        
