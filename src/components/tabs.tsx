@@ -38,21 +38,21 @@ const Tabs = ({ children, type }: TabsProps) => {
   };
 
   return (
-    <div className=" flex flex-wrap justify-center mx-auto">
-      <div className={`${!type? 'flex-col': ''} lg:flex-row inline-flex mb-10 py-[0.375em] bg-tab-bg bg-opacity-70 rounded-3xl`}>
+    <div className=" flex flex-wrap justify-center mx-auto ">
+      <div className={`${!type? 'flex-col': ''} lg:flex-row inline-flex mb-10 py-[0.375em] bg-tab-bg bg-opacity-70 rounded-3xl `}>
         {children.map((child) => {
           const tab = child as React.ReactElement<TabProps>;
           return (
             <button
             
               key={tab.props.label}
-              className={`md:w-auto ${activeTab === tab.props.label ? 'rounded-3xl bg-[#98FFF9] text-[#03082F] mx-1 px-1 md:mx-2 md:px-4' : 'text-[#98FFF9] mx-1 px-1 md:mx-2 md:px-4'}  font-medium whitespace-nowrap`}
+              className={`md:w-fit ${activeTab === tab.props.label ? 'rounded-3xl bg-[#98FFF9] text-[#03082F] mx-1 px-1  md:px-2' : 'text-[#98FFF9] mx-1 px-1  md:px-4'}  font-medium whitespace-nowrap`}
               onClick={(e) => handleClick(e, tab.props.label)}
               aria-selected={activeTab === tab.props.label}
             >
               <div className="flex items-center">
                 {!type && <img src={activeTab === tab.props.label ? tab.props.iconActive : tab.props.icon} alt={`${tab.props.label} icon`} />}
-                <span className="px-4 py-2">{tab.props.label}</span>
+                <span className="px-2 py-2">{tab.props.label}</span>
               </div>
             </button>
           );

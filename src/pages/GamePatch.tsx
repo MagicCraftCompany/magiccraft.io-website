@@ -9,17 +9,17 @@ const Footer = lazy(() => import('@/components/Footer/Footer'));
 function GamePatch() {
   return (
     <>
-      <div className="flex h-full w-full flex-col text-white">
+      <div className="min-h-dvh w-full text-white">
       <Suspense fallback={<div>Loading...</div>}>
         <Header />
       </Suspense>
-        <main className="scroll-smooth">
-          <section className="relative  md:bg-bgpatch  bg-bgpatch1 bg-contain bg-no-repeat">
-            <div className="video-bg-gradient absolute inset-0  h-full w-full"></div>
+        <main className="scroll-smooth pb-32">
+          <section className="relative  md:bg-bgpatch  bg-bgpatch1 bg-contain bg-no-repeat min-h-[90vh] lg:-top-[120px]">
+            <div className="video-bg-gradient absolute inset-0  h-[94vh] w-full"></div>
             <button><img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173152/Go_to_top_of_page_fgfqwp.webp" className=' absolute left-[5em] top-[39em]  cursor-pointer'/></button>
             <button><img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173193/Chat_bot_button_a3hguu.webp" className='absolute right-[7em]  top-[35em] cursor-pointer'/></button>
 
-            <div className="m-4 flex h-[300px] flex-col justify-center space-y-5 text-center  md:px-10">
+            <div className="mt-[10em] flex h-[300px] flex-col justify-center space-y-5 text-center  md:px-10">
               <h1 className="mx-auto flex max-w-xl flex-wrap font-serif text-4xl md:text-5xl ">
                 GAME PATCHES V.23270
               </h1>

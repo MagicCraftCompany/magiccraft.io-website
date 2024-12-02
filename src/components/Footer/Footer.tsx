@@ -13,39 +13,39 @@ import {
 
 const socialLinks = [
   {
-    icon: <FaXTwitter size={30} />,
+    icon: <FaXTwitter size={20} />,
     link: 'https://twitter.com/MagicCraftGame',
   },
   {
-    icon: <FaDiscord size={30} />,
+    icon: <FaDiscord size={20} />,
     link: 'https://discord.gg/c4bgnsqzQR',
   },
   {
-    icon: <FaTelegram size={30} />,
+    icon: <FaTelegram size={20} />,
     link: 'https://t.me/magiccraftgamechat',
   },
   {
-    icon: <FaReddit size={30} />,
+    icon: <FaReddit size={20} />,
     link: 'https://www.reddit.com/r/magiccraftgame/',
   },
   {
-    icon: <FaInstagram size={30} />,
+    icon: <FaInstagram size={20} />,
     link: 'https://www.instagram.com/magiccraftgame/',
   },
   {
-    icon: <FaMedium size={30} />,
+    icon: <FaMedium size={20} />,
     link: 'https://medium.com/@MagicCraftGame',
   },
   {
-    icon: <FaLinkedin size={30} />,
+    icon: <FaLinkedin size={20} />,
     link: 'https://www.linkedin.com/company/magiccraft',
   },
   {
-    icon: <FaTiktok size={30} />,
+    icon: <FaTiktok size={20} />,
     link: 'https://www.tiktok.com/@magiccraftgame',
   },
   {
-    icon: <FaYoutube size={30} />,
+    icon: <FaYoutube size={20} />,
     link: 'https://www.youtube.com/@MagicCraftGame',
   },
 ]
@@ -123,9 +123,10 @@ const moreLinks = [
   },
 ]
 
+
 const Footer = () => {
   return (
-    <footer className="text-primary relative z-10  py-10 lg:ml-[12em]">
+    <footer className="text-primary relative z-10  py-10 lg:ml-[12em] ">
       <div className="mx-auto flex w-11/12 max-w-[1650px] flex-col-reverse justify-between gap-10 lg:flex-row">
         {/* <button className='hidden lg:block'>
           <img
@@ -144,14 +145,14 @@ const Footer = () => {
             <img
               src={magiccraftLogo}
               alt="Magiccraft Logo"
-              className="max-w-[240px]"
+              className="max-w-[200px]"
             />
           </div>
           <div className="space-y-[18px] pt-5">
-            <p className="text-lg text-white/60">
+            <p className="text-md text-white/60">
               &copy; 2021-2024 MagicCraft Ltd. All rights reserved
             </p>
-            <ul className="flex flex-row space-x-6 text-lg text-[#98FFF9]">
+            <ul className="flex flex-row space-x-6 text-md text-[#98FFF9]">
               <a
                 href="https://magiccraft.io/privacy-policy"
                 rel="noreferrer noopener"
@@ -173,7 +174,7 @@ const Footer = () => {
               </a>
             </ul>
 
-            <p className="text-lg text-white/60">
+            <p className="text-md text-white/60">
               MagicCraft Services and MCRT Token are not available in the United
               States or other prohibited jurisdictions. Services for this
               product are facilitated though MagicCraft Ltd.
@@ -191,8 +192,8 @@ const Footer = () => {
         </div>
         <div className="grid w-full grid-cols-2 gap-10 md:grid-cols-3  lg:w-1/2 ">
           <div className="w-full space-y-7 ">
-            <h5 className="text-3xl text-white/60">Game</h5>
-            <ul className="space-y-[18px] text-xl text-[#98FFF9]">
+            <h5 className="text-2xl text-white/60">Game</h5>
+            <ul className="space-y-[14px] text-md text-[#98FFF9]">
               {gameLinks.map((item, i) => {
                 return (
                   <li key={i}>
@@ -205,8 +206,8 @@ const Footer = () => {
             </ul>
           </div>
           <div className="w-full space-y-7 block lg:hidden ">
-            <h5 className="text-3xl text-white/60">Token</h5>
-            <ul className="space-y-[18px] text-xl text-[#98FFF9]">
+            <h5 className="text-2xl text-white/60">Token</h5>
+            <ul className="space-y-[14px] text-md text-[#98FFF9]">
               {tokenLinks.map((item, i) => {
                 return (
                   <li key={i}>
@@ -219,8 +220,8 @@ const Footer = () => {
             </ul>
           </div>{' '}
           <div className="w-full space-y-7 ">
-            <h5 className="text-3xl text-white/60">More</h5>
-            <ul className="space-y-[18px] text-xl text-[#98FFF9]">
+            <h5 className="text-2xl text-white/60">More</h5>
+            <ul className="space-y-[14px] text-md text-[#98FFF9]">
               {moreLinks.map((item, i) => {
                 return (
                   <li key={i}>

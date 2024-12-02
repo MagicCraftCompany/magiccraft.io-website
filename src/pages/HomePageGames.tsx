@@ -1,4 +1,4 @@
-import { Suspense, lazy } from 'react'
+import { Suspense, lazy, useState } from 'react'
 
 const Header = lazy(() => import('@/components/Header/Header'))
 const Footer = lazy(() => import('@/components/Footer/Footer'))
@@ -14,10 +14,20 @@ import partners from '@/data/partners'
 import { foundation } from '@/data/foundation'
 import strengths from '@/data/strengths'
 import { useNavigate } from 'react-router-dom'
+import GameCard from '@/components/ui/GameCard'
+import { Game, gamesData } from '@/data/game'
 
 function Homepagegames() {
-  const youtubeLink=()=>{
-    window.location.href='https://lobby.magiccraft.io/register'
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setIsSubmitting(true)
+    // Add your form submission logic here
+    setIsSubmitting(false)
+  }
+  const youtubeLink = () => {
+    window.location.href = 'https://lobby.magiccraft.io/register'
   }
   const navigate = useNavigate()
 
@@ -33,6 +43,15 @@ function Homepagegames() {
   const contactTeamhandleClick = () => {
     navigate('/faq?contact=true')
   }
+
+  const filteredGames = gamesData.filter(
+    (game: { title: string }) =>
+      game.title === 'magicflutter' ||
+      game.title === 'magicchess' ||
+      game.title === 'tetrablox' ||
+      game.title === 'runescribes' ||
+      game.title === 'magicrunner'
+  )
   return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -40,7 +59,7 @@ function Homepagegames() {
           <Header />
         </Suspense>
         <main className="scroll-smooth pb-32">
-          <section className="relative h-[700px] bg-hero bg-cover bg-center">
+          <section className="relative -mt-[120px] h-[700px] bg-hero bg-cover bg-center">
             <div className="hero-bg-gradient absolute inset-0  h-full w-full"></div>
             <div className="relative mx-auto w-11/12 max-w-screen-xl">
               <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
@@ -51,56 +70,34 @@ function Homepagegames() {
                   />
                 </div>
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
-                  <span className="text-xl md:text-4xl">MagicCraft 2024:</span>{' '}
+                  <span className="text-xl md:text-4xl">
+                    {' '}
+                    MagicCraft Vision 2024:
+                  </span>{' '}
                   <br />
-                 $ MCRT is The Future of Gaming
+                  MCRT is The Future of Gaming Currency{' '}
                 </h1>
               </div>
 
-              <div className="grid h-[17em] w-full snap-x  snap-mandatory auto-cols-min grid-flow-col gap-6 overflow-x-auto overscroll-contain overscroll-x-contain rounded-4xl bg-custom-dark bg-opacity-70 px-4 pt-4 lg:ml-[10em] lg:w-[60em] lg:items-center lg:justify-center">
-                <div className="flex flex-col items-center">
-                  <h3 className="font-serif font-bold">
-                    MAGICCRAFT ECOSYSTEM GAMES
+              <div className="-mt-[50px] rounded-4xl bg-custom-dark bg-opacity-70 p-4 px-10 pb-10 ">
+                <div className="text-center">
+                  <h3 className="mb-4 font-serif text-2xl font-bold">
+                    MAGICVERSE GAME TO PLAY{' '}
                   </h3>
-                  <div className="flex flex-row gap-[2em]">
-                    <div
-                      className="w-56 cursor-pointer select-none snap-start"
-                      onClick={magiccrafthandleClick}
-                    >
-                      <img
-                        className="pointer-events-none select-none"
-                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191090/magiccraft-card_dfthct.webp"
-                        alt="MagicCraft Game"
-                      />
-                    </div>
+                </div>
 
-                    <div
-                      className="w-56 cursor-pointer select-none snap-start"
-                      onClick={magic8ballhandleClick}
-                    >
-                      <img
-                        className="pointer-events-none select-none"
-                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_10_ouvuyg.webp"
-                        alt="Magic8Ball game"
-                      />
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                  {filteredGames.map((game: Game) => (
+                    <div key={game.id} className="flex-1">
+                      <GameCard game={game} />
                     </div>
-                    <div
-                      className="w-56 cursor-pointer select-none snap-start"
-                      onClick={magicrunnerhandleClick}
-                    >
-                      <img
-                        className="pointer-events-none select-none"
-                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717679173/CARD_9_vqeywh.webp"
-                        alt="MagicRunner game"
-                      />
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
           </section>
 
-          <div className="space-y-28 md:pt-60  lg:pt-48">
+          <div className="space-y-28 md:mt-20  md:pt-60 lg:pt-48">
             <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl">
               <div className="flex flex-col-reverse items-start gap-0 md:flex-row md:gap-8">
                 <div className="w-full space-y-8 self-end md:w-1/2">
@@ -156,32 +153,33 @@ function Homepagegames() {
                     })}
                   </div>
 
-                  <div className="flex flex-col lg:flex-row items-center gap-8 pt-10">
+                  <div className="flex flex-col items-center gap-8 pt-10 lg:flex-row">
                     <div>
-                   
-                      <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F] cursor-pointer" onClick={youtubeLink}>
+                      <div
+                        className="cursor-pointer rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]"
+                        onClick={youtubeLink}
+                      >
                         Join Our Ecosystem
                       </div>
-                    
                     </div>
-                    <div className=' flex flex-row gap-[0.7em]'>
-                    <a href="#faq">
-                      <div className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F] cursor-pointer ">
-                        FAQ
-                      </div>
-                    </a>
-                    <div className="hidden w-px self-stretch bg-gradient-to-b from-transparent via-[#98FFF9] to-transparent md:block" />
-                    <a
-                      className="flex flex-col items-center justify-center gap-1"
-                      href="  https://www.youtube.com/watch?v=YAp7k3NsKpg"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                    >
-                      <div className="flex flex-col items-center justify-center gap-1 cursor-pointer ">
-                        <Play size={18} />
-                        <p>Watch Intro</p>
-                      </div>
-                    </a>
+                    <div className=" flex flex-row gap-[0.7em]">
+                      <a href="#faq">
+                        <div className="cursor-pointer rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F] ">
+                          FAQ
+                        </div>
+                      </a>
+                      <div className="hidden w-px self-stretch bg-gradient-to-b from-transparent via-[#98FFF9] to-transparent md:block" />
+                      <a
+                        className="flex flex-col items-center justify-center gap-1"
+                        href="  https://www.youtube.com/watch?v=YAp7k3NsKpg"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                      >
+                        <div className="flex cursor-pointer flex-col items-center justify-center gap-1 ">
+                          <Play size={18} />
+                          <p>Watch Intro</p>
+                        </div>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -189,13 +187,13 @@ function Homepagegames() {
                   <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717330280/ecosystem_y5ixdr.webp"
                     alt="MagicCraft Ecosystem"
-                    className='ml-[0.5em]'
+                    className="ml-[0.5em]"
                   />
                   {/* <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b from-transparent to-[#03082F] to-85% md:hidden" /> */}
                 </div>
               </div>
 
-              <div className="relative mt-[4em] w-full rounded-4xl bg-[#0C0218]">
+              <div className="relative mt-[4em] w-full rounded-4xl bg-[#080420]">
                 <div className="space-y-5 px-8 pb-10 pt-5 md:px-10">
                   <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-4">
                     <h5 className="mx-auto  text-balance text-center font-serif text-base md:mt-[2em] md:text-[16px]">
@@ -409,6 +407,14 @@ function Homepagegames() {
               </div>
             </section>
 
+            {/* banner */}
+            <div className="flex justify-center items-center">
+              <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733083558/image_13_uvjb9s.webp" alt="banner" className="w-full max-w-screen-xl" />
+              <button className="absolute left-[220px]  mt-[230px]   text-[#98FFF9]  pt-4 px-4 rounded">
+                Read More
+              </button>
+            </div>
+
             <section
               id="faq"
               className="relative mx-auto w-11/12 max-w-screen-xl space-y-20"
@@ -418,6 +424,67 @@ function Homepagegames() {
               </h2>
 
               <FaqAccordion />
+            </section>
+
+            <section
+              className="relative hidden bg-cover bg-center py-4 md:block lg:h-[900px]"
+              style={{
+                backgroundImage:
+                  "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp')",
+              }}
+            >
+              <div className="flex h-full flex-col items-center justify-center text-center ">
+                <h2 className=" text-balance font-serif text-lg text-white lg:mt-0 lg:text-4xl">
+                  UNLIMITED WAYS TO EARN MCRT
+                </h2>
+                <p className="text-xs text-white lg:mt-4 lg:text-xl">
+                  Explore unlimited ways to earn MCRT through our dynamic
+                  <br className="block lg:hidden" /> portfolio of games within
+                  the MagicCraft
+                  <br className="hidden lg:block" /> ecosystem. Each
+                  <br className="block lg:hidden" /> game offers unique
+                  opportunities to earn more MCRT and
+                  <br className="block lg:hidden" />
+                  enhance your overall <br className="hidden lg:block" /> gaming
+                  experience. Dive into <br className="block lg:hidden" />
+                  MagicRunner and Magic8Ball today and start earning!
+                </p>
+                <div className="mt-4 flex flex-col items-center  justify-center rounded-3xl text-center lg:grid lg:grid-cols-2">
+                  <div className="">
+                    <img
+                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717353441/crouserl_first_1_pehlcf.webp"
+                      className="md:h-[20em] md:w-[15em] lg:mt-5 lg:h-[30em] lg:w-[20em]"
+                    />
+                  </div>
+                  <div className="crousel-first relative -mt-[10em]  flex h-fit w-fit flex-col items-start rounded-lg bg-[rgba(10,9,23,0.60)] p-4 lg:-ml-[6em]">
+                    <div className="my-1 flex items-center justify-center rounded-[68.117px] bg-[#0B0F2E] p-2 px-4 text-lg text-[#98FFF9]">
+                      Patch update
+                    </div>
+                    <div className="text-left">
+                      <div className=" my-2 ml-2 text-2xl font-bold">
+                        MagicRunner
+                      </div>
+                      <p className="my-2 ml-2 text-lg">
+                        Web3 games utilize the blockchain to <br />
+                        provide players with a unique gaming <br />
+                        experience that is markedly different <br />
+                        from traditional games.
+                      </p>
+                    </div>
+                    <button
+                      className="my-2 ml-2 flex flex-row rounded-lg border-2 border-[#98FFF9] px-4 py-1 text-[#98FFF9]"
+                      onClick={magicrunnerhandleClick}
+                    >
+                      <img
+                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
+                        alt="Button Image"
+                        className="h-6 w-6 p-1"
+                      />
+                      Download MagicRunner Now
+                    </button>
+                  </div>
+                </div>
+              </div>
             </section>
 
             <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
@@ -560,6 +627,92 @@ function Homepagegames() {
                       <RoadmapCard data={data} key={data.quarter} />
                     ))}
                   </div>
+                </div>
+              </div>
+            </section>
+
+            <section className="mx-auto w-full max-w-6xl px-4 py-12">
+              <div className="grid items-center gap-8 lg:grid-cols-2">
+                <div className="rounded-3xl  p-8 border-2 border-[#98FFF9] bg-gradient-to-r from-[#1A2742] to-[#6D85B4]" >
+                  <h2 className="mb-8 text-3xl font-bold text-white">
+                    QUESTIONS &<br />
+                    SUGGESTIONS
+                  </h2>
+                  <div className="space-y-2">
+                    <a
+                      href="mailto:contact@magicraft.io"
+                      className="flex items-center text-cyan-400 transition-colors hover:text-cyan-300"
+                    >
+                      <span className="mr-2">✉</span>
+                      contact@magicraft.io
+                    </a>
+                    <a
+                      href="mailto:marketing@magicraft.io"
+                      className="flex items-center text-cyan-400 transition-colors hover:text-cyan-300"
+                    >
+                      <span className="mr-2">✉</span>
+                      marketing@magicraft.io
+                    </a>
+                  </div>
+                </div>
+
+                <div className="bg-[#11113A] rounded-3xl p-8 -ml-20">
+                  <form onSubmit={onSubmit} className="space-y-6">
+                    <div className="space-y-2 flex flex-col">
+                      <label htmlFor="email" className="text-white">
+                        Your email
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        placeholder="Enter here your email"
+                        required
+                        className="rounded-md border px-4 py-2 border-[#202660] bg-[rgba(68,87,184,0.10)] backdrop-blur-sm text-[#98FFF9]"
+                      />
+                    </div>
+
+                    <div className="space-y-2 flex flex-col">
+                      <label htmlFor="name" className="text-white">
+                        Your Name
+                      </label>
+                      <input
+                        id="name"
+                        placeholder="Enter here your Name"
+                        required
+                        className="rounded-md border px-4 py-2 border-[#202660] bg-[rgba(68,87,184,0.10)] backdrop-blur-sm text-[#98FFF9]"
+                      />
+                    </div>
+
+                    <div className="space-y-2 flex flex-col ">
+                      <label htmlFor="question" className="text-white">
+                        Your Question
+                      </label>
+                      <textarea
+                        id="question"
+                        placeholder="Enter here your questions or suggestions"
+                        required
+                        className="rounded-md border px-4 py-2 border-[#202660] bg-[rgba(68,87,184,0.10)] backdrop-blur-sm text-[#98FFF9]"
+                      />
+                    </div>
+
+                    <div className="flex items-center space-x-2">
+                      <input id="privacy" type="checkbox" required />
+                      <label
+                        htmlFor="privacy"
+                        className="text-sm text-gray-400"
+                      >
+                        I agree with Privacy Policy
+                      </label>
+                    </div>
+
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="text-navy-900 w-full bg-[#98FFF9] text-[#11113A] py-4 rounded-md font-medium "
+                    >
+                      {isSubmitting ? 'Sending...' : 'Send'}
+                    </button>
+                  </form>
                 </div>
               </div>
             </section>

@@ -18,6 +18,7 @@ import  Disclaimer  from './pages/Disclaimer'
 import Verify from './pages/Verify'
 import LeaderboardPage from './pages/LeaderBoard'
 import HoldersPage from './pages/TopHolders'
+import Dashboard from './pages/Dashboard'
 function App() {
   return (
     <BrowserRouter>
@@ -40,6 +41,8 @@ function App() {
         <Route path="/verify" element={<Verify />}></Route>
         <Route path="/leaderboard" element={<LeaderboardPage />}></Route>
         <Route path="/topholders" element={<HoldersPage />}></Route>
+        <Route path="/dashboard" element={<Dashboard />}></Route>
+
 
 
 
