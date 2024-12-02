@@ -224,9 +224,12 @@ const Header = () => {
 
   return (
     <>
-      <header className="relative z-50 w-full px-3 py-4  md:px-4 md:py-5">
+      {/* <header className="relative z-50 w-full px-3 py-4  md:px-4 md:py-5">
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
-          <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 ">
+          <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 "> */}
+        <header className="relative z-50 w-full bg-[#0A091799] px-3 py-4 backdrop-blur-md md:px-4 md:py-3">
+        <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-10 md:h-[60px]">
+          <div className="grid shrink-0 place-items-center self-stretch  bg-black/20 px-4  md:px-8 ">
             <a href="/" rel="noreferrer noopener">
               <img className="w-28 md:w-36" src={mcLogo} alt="MagicCraft" />
             </a>

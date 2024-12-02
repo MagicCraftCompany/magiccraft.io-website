@@ -25,11 +25,39 @@ import frame2 from '@/assets/icons/Frame (2).svg'
 import frame3 from '@/assets/icons/Frame (3).svg'
 import frame4 from '@/assets/icons/Frame (4).svg'
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { LiaTelegramPlane } from 'react-icons/lia'
-
+import { cn } from '@/lib/utils'
+import ReactPlayer from 'react-player'
+const videos = [
+  {
+    id: 1,
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    thumbnail: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_5_k5qbji.webp',
+    duration: '0:37',
+  },
+  {
+    id: 2,
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    thumbnail: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_6_iruxrf.webp',
+    duration: '0:51',
+  },
+  {
+    id: 3,
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    thumbnail: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_8_elconp.webp',
+    duration: '0:28',
+  },
+  {
+    id: 4,
+    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+    thumbnail: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_7_bc3rpq.webp',
+    duration: '6:22',
+  },
+]
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(16)
+  const [activeVideo, setActiveVideo] = useState(videos[0])
 
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
@@ -87,20 +115,20 @@ function Homepagemcrt() {
     window.location.href = 'https://t.me/magiccraftgamechat'
   }
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
-  const magicrunnerhandleClick = () => {
-    navigate('/magicrunner')
-  }
+  // const magicrunnerhandleClick = () => {
+  //   navigate('/magicrunner')
+  // }
   return (
     <>
       <div className="min-h-dvh w-full text-white">
         <Header />
-        <main className="scroll-smooth pb-32">
+        <main className="-mt-[70px] scroll-smooth pb-32">
           {/*header*/}
           <section className="relative h-[700px]  bg-cover bg-center">
             <video
-              className="absolute  inset-0 h-full w-full object-cover"
+              className="absolute  inset-0 h-full w-full object-cover "
               autoPlay
               loop
               muted
@@ -126,7 +154,7 @@ function Homepagemcrt() {
                   <span className="text-3xl">WHERE PLAY MEANS PROSPERITY</span>
                 </h1>
               </div>
-              <div className="  mx-[2em]  md:mx-auto md:mb-20  md:mt-0 md:w-[34.75em]  ">
+              <div className="  mx-[2em]  md:mx-auto md:mb-20  md:mt-4 md:w-[35em]  ">
                 <div className="rounded-[1.25em]   bg-gradient-to-b from-[#B591F2]   to-transparent p-px ">
                   <div className="relative   max-w-full flex-col    overflow-hidden rounded-[1.25em]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%   md:px-11 md:py-3">
                     <h4 className="  mx-[3em] py-2  text-center font-serif text-lg md:text-[1.375em] ">
@@ -146,7 +174,7 @@ function Homepagemcrt() {
                           </div>
                           Download
                           <br />
-                          <p className=" text-lg font-bold md:text-xl ">PC</p>
+                          <p className=" text-lg font-bold md:text-lg ">PC</p>
                         </span>
 
                         <div className="hidden h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent md:block " />
@@ -160,7 +188,7 @@ function Homepagemcrt() {
                             <img src={AppleIcon}></img>
                           </div>
                           Get it on
-                          <div className=" text-sm font-bold md:text-xl  ">
+                          <div className=" text-sm font-bold md:text-lg  ">
                             App Store
                           </div>
                         </span>
@@ -176,7 +204,7 @@ function Homepagemcrt() {
                           </div>
                           Get it on
                           <br />
-                          <div className="flex flex-row text-sm font-bold md:text-xl">
+                          <div className="flex flex-row text-sm font-bold md:text-lg">
                             Steam
                           </div>
                         </span>
@@ -192,8 +220,7 @@ function Homepagemcrt() {
                           </div>
                           Get it on
                           <br />
-                          <div className="flex flex-row text-sm font-bold md:text-xl">
-                          
+                          <div className="flex flex-row text-sm font-bold md:text-lg">
                             Google play
                           </div>
                         </span>
@@ -215,7 +242,7 @@ function Homepagemcrt() {
           {/*register now */}
 
           <section className="relative flex items-center justify-center  bg-[#020418] bg-center lg:h-[500px]  lg:p-4    ">
-            <div className="grid-cols grid items-center gap-[5em] md:gap-[2em] lg:grid-cols-2 lg:gap-[10em] ">
+            <div className="grid-cols grid items-center gap-[5em] md:gap-[2em] lg:grid-cols-2 lg:gap-[0em] ">
               {/* <div className='xl:gap-[12em] 2xl:gap-[5em] xl:flex xl:justify-center xl-items-center xl:flex-row flex flex-col md:flex-row md:gap-[5e]'> */}
               <div className=" mt-10 h-[400px] w-[400px] lg:mt-0  ">
                 <div className=" flex flex-col items-center justify-center p-4 text-center  lg:text-left  ">
@@ -263,7 +290,7 @@ function Homepagemcrt() {
                   </div>
                 </div>
               </div>
-              <div className="relative  h-[400px] w-[400px] rounded-lg      ">
+              <div className="relative  h-[400px] w-[400px] rounded-lg lg:w-[538px] lg:py-10      ">
                 <Swiper
                   id="1"
                   className=" p-10 "
@@ -279,7 +306,7 @@ function Homepagemcrt() {
                     style={{ marginRight: '0 !important' }}
                     className="h-full w-10/12"
                   >
-                    <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid">
+                    <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
                       <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
                         <div className=" rounded-3xl  bg-gradient-to-b from-[#151149] to-[#190E29]  to-80% p-4">
                           <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
@@ -287,7 +314,7 @@ function Homepagemcrt() {
                           </button>
                           <div className=" relative z-[3] h-[21px] w-5 " />
                           <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                            <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
+                            <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
                               Well, my testimony might not be huge like most
                               here but one thing that is evident is that God has
                               actually use Magiccraft to come through for me at
@@ -295,7 +322,7 @@ function Homepagemcrt() {
                               Magiccraft to the moon 🌙🌙🌙.
                             </div>
                           </div>
-                          <div className="flex flex-row gap-10">
+                          <div className="flex flex-row gap-10 lg:mt-5">
                             <div className=" m-2 flex flex-wrap">
                               <img src={frame1} className="mr-2" />
                               83
@@ -329,7 +356,7 @@ function Homepagemcrt() {
                           </button>
                           <div className=" relative z-[3] h-[21px] w-5 " />
                           <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                            <div className="relative inline-block max-w-full flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] ">
+                            <div className="relative inline-block max-w-full flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
                               My game play was seriously affected because I was
                               using a phone with low RAM. But thanks to
                               Magiccraft, I was able to buy a Redmi Note 12 for
@@ -337,7 +364,7 @@ function Homepagemcrt() {
                               experience and earn more MCRT.
                             </div>
                           </div>
-                          <div className="flex flex-row gap-10">
+                          <div className="flex flex-row gap-10 lg:mt-5">
                             <div className=" m-2 flex flex-wrap">
                               <img src={frame1} className="mr-2" />
                               83
@@ -360,10 +387,10 @@ function Homepagemcrt() {
                     </div>
                   </SwiperSlide>
                 </Swiper>
-                <button className="arrow-left arrow  absolute left-0 top-[40%]  z-10 cursor-pointer lg:-left-4 ">
+                <button className="arrow-left arrow  absolute left-0 top-[40%] z-10 cursor-pointer lg:-left-4 lg:top-[50%] ">
                   <img src={left} alt="MCRT Token" className="cursor-pointer" />
                 </button>
-                <button className="arrow-right arrow absolute right-0 top-[40%] z-10 cursor-pointer lg:-right-4  ">
+                <button className="arrow-right arrow absolute right-0 top-[40%] z-10 cursor-pointer lg:-right-4 lg:top-[50%]  ">
                   <img
                     src={right}
                     alt="MCRT Token"
@@ -375,69 +402,82 @@ function Homepagemcrt() {
           </section>
 
           {/*unlimited ways to earn */}
-          <section
-            className="relative hidden bg-cover bg-center py-4 md:block lg:h-[900px]"
-            style={{
-              backgroundImage:
-                "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp')",
-            }}
-          >
-            <div className="flex h-full flex-col items-center justify-center text-center ">
-              <h2 className=" text-balance font-serif text-lg text-white lg:mt-0 lg:text-4xl">
-                UNLIMITED WAYS TO EARN MCRT
-              </h2>
-              <p className="text-xs text-white lg:mt-4 lg:text-xl">
-                Explore unlimited ways to earn MCRT through our dynamic
-                <br className="block lg:hidden" /> portfolio of games within the
-                MagicCraft
-                <br className="hidden lg:block" /> ecosystem. Each
-                <br className="block lg:hidden" /> game offers unique
-                opportunities to earn more MCRT and
-                <br className="block lg:hidden" />
-                enhance your overall <br className="hidden lg:block" /> gaming
-                experience. Dive into <br className="block lg:hidden" />
-                MagicRunner and Magic8Ball today and start earning!
-              </p>
-              <div className="mt-4 flex flex-col items-center  justify-center rounded-3xl text-center lg:grid lg:grid-cols-2">
-                <div className="">
-                  <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717353441/crouserl_first_1_pehlcf.webp"
-                    className="md:h-[20em] md:w-[15em] lg:mt-5 lg:h-[30em] lg:w-[20em]"
+          
+          <section className="relative min-h-screen w-full overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0 z-0 h-full w-full object-cover object-center">
+              <img
+                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp"
+                alt="Background"
+                className="h-full w-full object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#020418]"></div>
+            </div>
+
+            {/* Content Container */}
+            <div className=" z-10">
+              {/* Side Images */}
+              <div className="pointer-events-none absolute  left-0 top-0 w-1/2 ">
+                <img
+                  src=" https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733134962/Group_306299_w9lhp1.webp"
+                  alt="Left character art"
+                  className="object-contain  "
+                />
+              </div>
+              <div className="pointer-events-none absolute right-0 top-0 w-1/2 ">
+                <img
+                  src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135221/2_2_zbxfw1.webp"
+                  alt="Right character art"
+                  className="object-contain"
+                />
+              </div>
+
+              <div className=" mx-auto max-w-6xl px-4 mt-[170px]">
+                {/* Title */}
+                <h2 className="mb-12 text-center font-serif text-4xl text-white opacity-90">
+                  GAMEPLAY
+                </h2>
+
+                {/* Main Video Player */}
+                <div className="relative mx-auto h-[310px] w-[560px] overflow-hidden rounded-lg bg-black">
+                  <ReactPlayer
+                    url={activeVideo.url}
+                    width="100%"
+                    height="100%"
+                    controls
+                    playing={false}
+                    light={activeVideo.thumbnail}
                   />
                 </div>
-                <div className="crousel-first relative -mt-[10em]  flex h-fit w-fit flex-col items-start rounded-lg bg-[rgba(10,9,23,0.60)] p-4 lg:-ml-[6em]">
-                  <div className="my-1 flex items-center justify-center rounded-[68.117px] bg-[#0B0F2E] p-2 px-4 text-lg text-[#98FFF9]">
-                    Patch update
-                  </div>
-                  <div className="text-left">
-                    <div className=" my-2 ml-2 text-2xl font-bold">
-                      MagicRunner
-                    </div>
-                    <p className="my-2 ml-2 text-lg">
-                      Web3 games utilize the blockchain to <br />
-                      provide players with a unique gaming <br />
-                      experience that is markedly different <br />
-                      from traditional games.
-                    </p>
-                  </div>
-                  <button
-                    className="my-2 ml-2 flex flex-row rounded-lg border-2 border-[#98FFF9] px-4 py-1 text-[#98FFF9]"
-                    onClick={magicrunnerhandleClick}
-                  >
-                    <img
-                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
-                      alt="Button Image"
-                      className="h-6 w-6 p-1"
-                    />
-                    Download MagicRunner Now
-                  </button>
+
+                {/* Video Thumbnails */}
+                <div className=" m-20 grid grid-cols-4 gap-4 ">
+                  {videos.map((video) => (
+                    <button
+                      key={video.id}
+                      onClick={() => setActiveVideo(video)}
+                      className={cn(
+                        'group relative aspect-video w-full overflow-hidden rounded-lg transition-all hover:ring-2 hover:ring-white/50',
+                        activeVideo.id === video.id && 'ring-2 ring-white'
+                      )}
+                    >
+                      <img
+                        src={video.thumbnail}
+                        alt={`Video thumbnail ${video.id}`}
+                        className="object-cover transition-transform group-hover:scale-105"
+                      />
+                      <div className="absolute bottom-2 right-2 rounded bg-black/80 px-1.5 py-0.5 text-xs text-white">
+                        {video.duration}
+                      </div>
+                    </button>
+                  ))}
                 </div>
               </div>
             </div>
           </section>
 
           {/*JOIN THE ACTION */}
-          <section className=" flex justify-center bg-center p-4 lg:-mt-[3em] lg:h-full ">
+          <section className=" flex justify-center bg-center p-4 lg:mt-[3em] lg:h-full ">
             <div className="relative max-w-[80em]  rounded-4xl bg-[#0A0424] bg-opacity-70 ">
               <div className="space-y-5   px-8 pb-10 pt-5 md:px-10">
                 <h5 className="mx-auto max-w-xl text-balance text-center font-serif text-base md:text-2xl">
@@ -450,7 +490,7 @@ function Homepagemcrt() {
                   Start your journey to gaming glory now!
                 </p>
                 <div className="grid grid-cols-1 gap-[30px]  md:grid-cols-2 lg:place-items-stretch  xl:grid-cols-3 ">
-                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
+                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px ">
                     <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90%  ">
                       <div className="flex flex-row ">
                         <div>
@@ -474,7 +514,7 @@ function Homepagemcrt() {
                       </div>
                     </div>
                   </div>
-                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
+                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px ">
                     <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% ">
                       <h4 className="flex items-center justify-center px-7 pt-2 font-serif text-lg md:text-[22px]">
                         <span className="text-[#FFB649] lg:pl-6">
@@ -491,7 +531,7 @@ function Homepagemcrt() {
                           <img src={steam} className=" pb-4"></img>
                           Get it on
                           <br />
-                          <p className="text-sm font-bold lg:text-xl">Steam</p>
+                          <p className="text-sm font-bold lg:text-lg">Steam</p>
                         </span>
 
                         <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
@@ -502,13 +542,13 @@ function Homepagemcrt() {
                           <img src={AppleIcon} className=" pb-4"></img>
                           Get it on
                           <br />
-                          <p className="text-sm font-bold lg:text-xl">
+                          <p className="text-sm font-bold lg:text-lg">
                             App store
                           </p>
                         </span>
                         <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
                         <span
-                          className=" cursor-pointer  px-3 lg:py-4 z-10 "
+                          className=" z-10  cursor-pointer px-3 lg:py-4 "
                           onClick={getfromgoogleHandler}
                         >
                           <img
@@ -517,7 +557,7 @@ function Homepagemcrt() {
                           ></img>
                           Get it on
                           <br />
-                          <p className="text-sm font-bold lg:text-xl">
+                          <p className="text-sm font-bold lg:text-lg">
                             Google Play
                           </p>
                         </span>
@@ -527,13 +567,13 @@ function Homepagemcrt() {
                       </div>
                     </div>
                   </div>
-                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px lg:h-[170px] lg:w-[400px]">
+                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px ">
                     <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r  from-[#57186D] to-[#2A0D4E] to-90%  ">
                       <div className="flex flex-wrap">
                         <div>
                           <img
                             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173149/Group_7072_cgsuti.webp"
-                            className="mt-4 h-[120px] w-[120px] p-4"
+                            className=" p-4"
                             alt="Directory"
                           />
                         </div>
@@ -583,7 +623,7 @@ function Homepagemcrt() {
           {/*roadmap */}
 
           {/*connect */}
-          <section className="relative mx-auto mt-[10em] flex w-11/12 max-w-screen-xl flex-wrap items-center justify-center space-y-10 md:space-y-20 lg:space-y-0 ">
+          <section className="relative mx-auto m-[10em] flex w-11/12 max-w-screen-xl flex-wrap items-center justify-center space-y-10 md:space-y-20 lg:space-y-0 ">
             <div className=" relative rounded-2xl border-[2px] border-solid bg-opacity-70 bg-gradient-to-r from-[#173B52] to-[#557e91] to-80% p-4 lg:h-[280px] lg:w-5/12 ">
               <img
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/blahbla_wvvyzg.webp"
@@ -628,10 +668,11 @@ function Homepagemcrt() {
                     onClick={telegrammagiccrftHandler}
                   >
                     {/* <img src={AppleIcon} className=" m-4"></img> */}
-                    <LiaTelegramPlane   style={{ width: "2em" , height:"3em" , margin:"10px"}}/>
+                    <LiaTelegramPlane
+                      style={{ width: '2em', height: '3em', margin: '10px' }}
+                    />
 
                     <span className="mt-4 text-2xl ">
-
                       Join MagicCraft's
                       <br />
                       <p className="text-2xl font-bold"> Telegram</p>
@@ -661,7 +702,7 @@ function Homepagemcrt() {
 
                 <div className="mx-4 block h-[4em] w-[2px] bg-gradient-to-t from-transparent via-[#2F3A80] to-transparent " />
                 {/* <img src={AppleIcon} className=" pl-4"></img> */}
-                <LiaTelegramPlane   style={{ width: "2em" , height:"3em"}}/>
+                <LiaTelegramPlane style={{ width: '2em', height: '3em' }} />
                 <span
                   className=" cursor-pointer p-4"
                   onClick={telegrammagiccrftHandler}
@@ -895,13 +936,13 @@ function Homepagemcrt() {
                   return (
                     <div
                       key={item.name}
-                      className="flex h-[5em] flex-col items-center bg-[#000000] md:h-36 md:justify-center"
+                      className="flex h-[5em] flex-col items-center bg-[#080F44] md:h-36 md:justify-center"
                     >
                       <div className="flex items-center justify-center p-5 lg:mt-5">
                         <img src={item.icon} alt={item.name} />
                       </div>
                       <div className="hidden lg:block">
-                        <div className="  flex h-[3.5em] w-[19.4em] flex-col items-center  bg-[#010419] px-2  md:flex-row md:justify-between ">
+                        <div className="  flex h-[3.5em] w-[19.4em] flex-col items-center  bg-[#0C1661] px-2  md:flex-row md:justify-between ">
                           <div className="text-center md:mr-[2em] md:flex md:flex-col md:items-start">
                             <div className="hidden   text-xs font-bold leading-tight text-[#fff] md:text-sm lg:block">
                               {item.name}
@@ -918,7 +959,7 @@ function Homepagemcrt() {
                             )}
                           </div>
                           {item.type && (
-                            <div className="mt-1 hidden text-xs text-[#7BCEB0] md:ml-[2em] md:mt-0 md:text-sm lg:block">
+                            <div className="mt-1 hidden text-xs text-[#7AF2B8] md:ml-[2em] md:mt-0 md:text-sm lg:block">
                               {item.type}
                             </div>
                           )}

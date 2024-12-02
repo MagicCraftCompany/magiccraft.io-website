@@ -126,7 +126,13 @@ function Homepagegames() {
                     economy.
                   </h4>
                   <div className="flex cursor-pointer flex-wrap items-center gap-[10px]">
-                    {['MagicCraft', 'Magic8Ball', 'MagicRunner'].map((val) => {
+                    {[
+                      'MagicCraft',
+                      'Magic8Ball',
+                      'MagicRunner',
+                      'Runescribe',
+                      'MagicTetra',
+                    ].map((val) => {
                       let handleClick
                       switch (val) {
                         case 'MagicCraft':
@@ -137,6 +143,12 @@ function Homepagegames() {
                           break
                         case 'MagicRunner':
                           handleClick = magicrunnerhandleClick
+                          break
+                        case 'Runescribe':
+                          // handleClick = magicrunnerhandleClick
+                          break
+                        case 'MagicTetra':
+                          // handleClick = magicrunnerhandleClick
                           break
                         default:
                           handleClick = () => {}
@@ -162,20 +174,20 @@ function Homepagegames() {
                         Join Our Ecosystem
                       </div>
                     </div>
-                    <div className=" flex flex-row gap-[0.7em]">
+                    <div className="flex flex-row gap-[0.7em]">
                       <a href="#faq">
-                        <div className="cursor-pointer rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F] ">
+                        <div className="cursor-pointer rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]">
                           FAQ
                         </div>
                       </a>
                       <div className="hidden w-px self-stretch bg-gradient-to-b from-transparent via-[#98FFF9] to-transparent md:block" />
                       <a
                         className="flex flex-col items-center justify-center gap-1"
-                        href="  https://www.youtube.com/watch?v=YAp7k3NsKpg"
+                        href="https://www.youtube.com/watch?v=YAp7k3NsKpg"
                         target="_blank"
                         rel="noreferrer noopener"
                       >
-                        <div className="flex cursor-pointer flex-col items-center justify-center gap-1 ">
+                        <div className="flex cursor-pointer flex-col items-center justify-center gap-1">
                           <Play size={18} />
                           <p>Watch Intro</p>
                         </div>
@@ -183,13 +195,25 @@ function Homepagegames() {
                     </div>
                   </div>
                 </div>
-                <div className="relative mx-auto w-full max-w-lg  md:w-1/2 md:pt-0">
-                  <img
+                <div className="relative mx-auto w-full max-w-lg md:w-1/2 md:pt-0" style={{ width: '641px', height: '317.512px', flexShrink: '0' }}>
+                  {/* <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717330280/ecosystem_y5ixdr.webp"
                     alt="MagicCraft Ecosystem"
                     className="ml-[0.5em]"
-                  />
+                  /> */}
                   {/* <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b from-transparent to-[#03082F] to-85% md:hidden" /> */}
+
+                  <video
+                    className="absolute  inset-0 h-full w-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                  >
+                    <source
+                      src="https://res.cloudinary.com/dfzcr2ch4/video/upload/v1717166775/video_gokp2f.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
                 </div>
               </div>
 
@@ -408,9 +432,13 @@ function Homepagegames() {
             </section>
 
             {/* banner */}
-            <div className="flex justify-center items-center">
-              <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733083558/image_13_uvjb9s.webp" alt="banner" className="w-full max-w-screen-xl" />
-              <button className="absolute left-[220px]  mt-[230px]   text-[#98FFF9]  pt-4 px-4 rounded">
+            <div className="flex items-center justify-center">
+              <img
+                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733083558/image_13_uvjb9s.webp"
+                alt="banner"
+                className="w-full max-w-screen-xl"
+              />
+              <button className="absolute left-[220px]  mt-[230px]   rounded  px-4 pt-4 text-[#98FFF9]">
                 Read More
               </button>
             </div>
@@ -633,7 +661,7 @@ function Homepagegames() {
 
             <section className="mx-auto w-full max-w-6xl px-4 py-12">
               <div className="grid items-center gap-8 lg:grid-cols-2">
-                <div className="rounded-3xl  p-8 border-2 border-[#98FFF9] bg-gradient-to-r from-[#1A2742] to-[#6D85B4]" >
+                <div className="rounded-3xl  border-2 border-[#98FFF9] bg-gradient-to-r from-[#173B52] to-[#557e91] to-80%  px-8 py-10 h-[280px] -mt-[5em]">
                   <h2 className="mb-8 text-3xl font-bold text-white">
                     QUESTIONS &<br />
                     SUGGESTIONS
@@ -656,9 +684,9 @@ function Homepagegames() {
                   </div>
                 </div>
 
-                <div className="bg-[#11113A] rounded-3xl p-8 -ml-20">
+                <div className="-ml-20 rounded-3xl bg-[#11113A] p-8">
                   <form onSubmit={onSubmit} className="space-y-6">
-                    <div className="space-y-2 flex flex-col">
+                    <div className="flex flex-col space-y-2">
                       <label htmlFor="email" className="text-white">
                         Your email
                       </label>
@@ -667,11 +695,11 @@ function Homepagegames() {
                         type="email"
                         placeholder="Enter here your email"
                         required
-                        className="rounded-md border px-4 py-2 border-[#202660] bg-[rgba(68,87,184,0.10)] backdrop-blur-sm text-[#98FFF9]"
+                        className="rounded-md border border-[#202660] bg-[rgba(68,87,184,0.10)] px-4 py-2 text-[#98FFF9] backdrop-blur-sm"
                       />
                     </div>
 
-                    <div className="space-y-2 flex flex-col">
+                    <div className="flex flex-col space-y-2">
                       <label htmlFor="name" className="text-white">
                         Your Name
                       </label>
@@ -679,11 +707,11 @@ function Homepagegames() {
                         id="name"
                         placeholder="Enter here your Name"
                         required
-                        className="rounded-md border px-4 py-2 border-[#202660] bg-[rgba(68,87,184,0.10)] backdrop-blur-sm text-[#98FFF9]"
+                        className="rounded-md border border-[#202660] bg-[rgba(68,87,184,0.10)] px-4 py-2 text-[#98FFF9] backdrop-blur-sm"
                       />
                     </div>
 
-                    <div className="space-y-2 flex flex-col ">
+                    <div className="flex flex-col space-y-2 ">
                       <label htmlFor="question" className="text-white">
                         Your Question
                       </label>
@@ -691,7 +719,7 @@ function Homepagegames() {
                         id="question"
                         placeholder="Enter here your questions or suggestions"
                         required
-                        className="rounded-md border px-4 py-2 border-[#202660] bg-[rgba(68,87,184,0.10)] backdrop-blur-sm text-[#98FFF9]"
+                        className="rounded-md border border-[#202660] bg-[rgba(68,87,184,0.10)] px-4 py-2 text-[#98FFF9] backdrop-blur-sm"
                       />
                     </div>
 
@@ -708,7 +736,7 @@ function Homepagegames() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="text-navy-900 w-full bg-[#98FFF9] text-[#11113A] py-4 rounded-md font-medium "
+                      className="text-navy-900 w-full rounded-md bg-[#98FFF9] py-4 font-medium text-[#11113A] "
                     >
                       {isSubmitting ? 'Sending...' : 'Send'}
                     </button>
