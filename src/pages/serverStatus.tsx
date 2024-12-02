@@ -36,8 +36,8 @@ function server() {
           <Header />
         </Suspense>
         <main className="scroll-smooth">
-          <section className="relative bg-bgpatch1 bg-contain bg-no-repeat md:bg-bgpatch">
-            <div className="video-bg-gradient absolute inset-0 h-full w-full"></div>
+          <section className="relative bg-bgpatch1 bg-contain bg-no-repeat md:bg-bgpatch -mt-[100px] min-h-[90vh] ">
+            <div className="video-bg-gradient absolute inset-0  w-full h-[94vh]"></div>
 
             <div className="m-4 flex h-[300px] flex-col justify-center space-y-5 text-center md:px-10">
               <h1 className="mx-auto flex max-w-xl flex-wrap font-serif text-4xl md:text-5xl">
@@ -46,7 +46,7 @@ function server() {
               <div className="block h-px w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent" />
             </div>
 
-            <div className="flex flex-col lg:flex-row justify-center items-center gap-[20px]">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-[20px] mb-[200px]">
               {servers.map((server) => (
                 <div
                   key={server.id}
