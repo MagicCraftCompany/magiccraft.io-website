@@ -33,25 +33,29 @@ const videos = [
   {
     id: 1,
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_5_k5qbji.webp',
+    thumbnail:
+      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_5_k5qbji.webp',
     duration: '0:37',
   },
   {
     id: 2,
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_6_iruxrf.webp',
+    thumbnail:
+      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_6_iruxrf.webp',
     duration: '0:51',
   },
   {
     id: 3,
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_8_elconp.webp',
+    thumbnail:
+      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_8_elconp.webp',
     duration: '0:28',
   },
   {
     id: 4,
     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_7_bc3rpq.webp',
+    thumbnail:
+      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_7_bc3rpq.webp',
     duration: '6:22',
   },
 ]
@@ -241,11 +245,10 @@ function Homepagemcrt() {
 
           {/*register now */}
 
-          <section className="relative flex items-center justify-center  bg-[#020418] bg-center lg:h-[500px]  lg:p-4    ">
-            <div className="grid-cols grid items-center gap-[5em] md:gap-[2em] lg:grid-cols-2 lg:gap-[0em] ">
-              {/* <div className='xl:gap-[12em] 2xl:gap-[5em] xl:flex xl:justify-center xl-items-center xl:flex-row flex flex-col md:flex-row md:gap-[5e]'> */}
-              <div className=" mt-10 h-[400px] w-[400px] lg:mt-0  ">
-                <div className=" flex flex-col items-center justify-center p-4 text-center  lg:text-left  ">
+          <section className="relative flex min-h-screen flex-col items-center justify-center bg-[#020418] p-4 md:h-[500px] md:flex-row">
+            <div className="grid w-full max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-4">
+              <div className="mx-auto flex w-full max-w-[400px] flex-col items-center justify-center space-y-6 md:mx-0 md:max-w-none md:items-start">
+                <div className="space-y-2 text-center md:text-left">
                   <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
                     <div className="text-4xl font-bold ">
                       A NEW ERA IN GAMING
@@ -253,47 +256,27 @@ function Homepagemcrt() {
 
                     <div className="text-2xl font-bold ">WITH MAGICCRAFT</div>
                   </h3>
-                  {/* <p className="my-4 hidden md:block">
-                  {' '}
-                  MagicCraft is a Play-to-Earn blockchain game featuring
-                  fast-paced <br />
-                  multiplayer battles. Every day, thousands of players earn our
-                  utility <br />
-                  token, MCRT, by showcasing their skills. Join them to step
-                  into a <br />
-                  new era of gaming where your prowess can pave the path to{' '}
-                  <br />
-                  prosperity.
-                </p> */}
-                  <p className=" p-4 md:mt-2 md:p-0 ">
-                    {' '}
+                  <p className="text-center text-base opacity-90 md:text-left md:text-lg">
                     MagicCraft is a Play-to-Earn blockchain game featuring
                     fast-paced multiplayer battles. Every day, thousands of
                     players earn our utility token, MCRT, by showcasing their
                     skills. Join them to step into a new era of gaming where
                     your prowess can pave the path to prosperity.
                   </p>
-
-                  <div className="m-4  h-px w-full bg-gradient-to-r  from-transparent via-[#556DE0] to-transparent " />
-                  <div className="flex w-full justify-center lg:justify-start">
-                    <button
-                      onClick={registerHandler}
-                      className=" flex flex-wrap rounded-lg border-2 border-[#98FFF9] px-4 py-2 text-[#98FFF9] md:mx-0"
-                    >
-                      <img
-                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
-                        alt="Button Image"
-                        className="mr-2 mt-1 h-4 w-4"
-                      />
-                      Register Now
-                    </button>
-                  </div>
+                </div>
+                <div className="flex w-full justify-center md:justify-start">
+                  <button
+                    onClick={registerHandler}
+                    className="rounded-lg border-2 border-[#98FFF9] px-6 py-3 font-bold text-[#98FFF9] "
+                  >
+                    Register Now
+                  </button>
                 </div>
               </div>
-              <div className="relative  h-[400px] w-[400px] rounded-lg lg:w-[538px] lg:py-10">
+              <div className="relative mx-auto w-full max-w-[400px] p-4 md:mx-0 md:max-w-[538px] md:p-10">
                 <Swiper
                   id="1"
-                  className="p-10 w-full"
+                  className="md:w-full "
                   modules={[Navigation, Pagination, Scrollbar, A11y]}
                   spaceBetween={50}
                   slidesPerView={1}
@@ -306,9 +289,9 @@ function Homepagemcrt() {
                     style={{ marginRight: '0 !important' }}
                     className="h-full w-10/12"
                   >
-                    <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
-                      <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
-                        <div className=" rounded-3xl  bg-gradient-to-b from-[#151149] to-[#190E29]  to-80% p-4">
+                    <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
+                      <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
+                        <div className=" max-w-[310px]  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
                           <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
                             <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Julius Joseph`}</div>
                           </button>
@@ -350,7 +333,7 @@ function Homepagemcrt() {
                   >
                     <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid">
                       <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
-                        <div className=" rounded-3xl  bg-gradient-to-b from-[#151149] to-[#190E29]  to-80% p-4">
+                        <div className=" max-w-[310px]  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
                           <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
                             <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Didabban`}</div>
                           </button>
@@ -387,10 +370,10 @@ function Homepagemcrt() {
                     </div>
                   </SwiperSlide>
                 </Swiper>
-                <button className="arrow-left arrow  absolute left-0 top-[40%] z-10 cursor-pointer lg:-left-4 lg:top-[50%] ">
+                <button className="arrow-left arrow  absolute -left-4 top-[40%] z-10 cursor-pointer md:left-0 lg:-left-4 lg:top-[50%] ">
                   <img src={left} alt="MCRT Token" className="cursor-pointer" />
                 </button>
-                <button className="arrow-right arrow absolute right-0 top-[40%] z-10 cursor-pointer lg:-right-4 lg:top-[50%]  ">
+                <button className="arrow-right arrow absolute -right-4 top-[40%] z-10 cursor-pointer md:right-0 lg:-right-4 lg:top-[50%]  ">
                   <img
                     src={right}
                     alt="MCRT Token"
@@ -402,7 +385,7 @@ function Homepagemcrt() {
           </section>
 
           {/*unlimited ways to earn */}
-          
+
           <section className="relative min-h-screen w-full overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0 z-0 h-full w-full object-cover object-center">
@@ -421,25 +404,25 @@ function Homepagemcrt() {
                 <img
                   src=" https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733134962/Group_306299_w9lhp1.webp"
                   alt="Left character art"
-                  className="object-contain hidden lg:block "
+                  className="hidden object-contain lg:block "
                 />
               </div>
               <div className="pointer-events-none absolute right-0 top-0 w-1/2 ">
                 <img
                   src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135221/2_2_zbxfw1.webp"
                   alt="Right character art"
-                  className="object-contain hidden lg:block "
+                  className="hidden object-contain lg:block "
                 />
               </div>
 
-              <div className=" mx-auto max-w-6xl px-4 mt-[170px]">
+              <div className=" mx-auto mt-[170px] max-w-6xl px-4">
                 {/* Title */}
                 <h2 className="mb-12 text-center font-serif text-4xl text-white opacity-90">
                   GAMEPLAY
                 </h2>
 
                 {/* Main Video Player */}
-                <div className="relative mx-auto h-[310px] lg:w-[560px] w-full overflow-hidden rounded-lg bg-black">
+                <div className="relative mx-auto hidden h-[310px] w-full overflow-hidden rounded-lg bg-black lg:block lg:w-[560px]">
                   <ReactPlayer
                     url={activeVideo.url}
                     width="100%"
@@ -451,7 +434,7 @@ function Homepagemcrt() {
                 </div>
 
                 {/* Video Thumbnails */}
-                <div className=" m-20 grid grid-cols-4 gap-4 ">
+                <div className=" m-20 hidden grid-cols-4 gap-4 lg:grid ">
                   {videos.map((video) => (
                     <button
                       key={video.id}
@@ -471,6 +454,54 @@ function Homepagemcrt() {
                       </div>
                     </button>
                   ))}
+                </div>
+
+                <div className="mt-8 lg:hidden">
+                  <Swiper
+                    id="2"
+                    modules={[Navigation]}
+                    navigation={{
+                      prevEl: '.arrow-left',
+                      nextEl: '.arrow-right',
+                    }}
+                    spaceBetween={20}
+                    slidesPerView={1.2}
+                    centeredSlides={true}
+                    loop={true}
+                    pagination={{ clickable: true }}
+                    onSlideChange={(swiper) =>
+                      setActiveVideo(videos[swiper.realIndex])
+                    }
+                  >
+                    {videos.map((video) => (
+                      <SwiperSlide key={video.id} className="cursor-pointer">
+                        <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+                          <img
+                            src={video.thumbnail}
+                            alt={`Video thumbnail ${video.id}`}
+                            className="h-full w-full object-cover"
+                          />
+                          <div className="absolute bottom-2 right-2 rounded bg-black/80 px-1.5 py-0.5 text-xs text-white">
+                            {video.duration}
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper>
+                  <button className="arrow-left arrow  absolute left-0 top-[50%] z-10 cursor-pointer lg:-left-4 lg:top-[50%] ">
+                    <img
+                      src={left}
+                      alt="MCRT Token"
+                      className="cursor-pointer"
+                    />
+                  </button>
+                  <button className="arrow-right arrow absolute right-0 top-[50%] z-10 cursor-pointer lg:-right-4 lg:top-[50%]  ">
+                    <img
+                      src={right}
+                      alt="MCRT Token"
+                      className="cursor-pointer"
+                    />
+                  </button>
                 </div>
               </div>
             </div>
@@ -514,8 +545,8 @@ function Homepagemcrt() {
                       </div>
                     </div>
                   </div>
-                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px ">
-                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% ">
+                  <div className="group overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px transition-transform hover:scale-[1.02]">
+                    <div className="relative h-full rounded-[20px] bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
                       <h4 className="flex items-center justify-center px-7 pt-2 font-serif text-lg md:text-[22px]">
                         <span className="text-[#FFB649] lg:pl-6">
                           DOWNLOAD{' '}
@@ -523,9 +554,9 @@ function Homepagemcrt() {
                         <span className="ml-2"> THE GAME</span>
                       </h4>
 
-                      <div className="flex flex-row items-center justify-center gap-[10px] lg:mb-4 lg:pl-10">
+                      <div className="flex flex-row items-center justify-center gap-2  mb-2 md:mb-0">
                         <span
-                          className="cursor-pointer px-3 lg:py-4  "
+                          className="cursor-pointer md:px-3 lg:py-4  "
                           onClick={playonsteamHandler}
                         >
                           <img src={steam} className=" pb-4"></img>
@@ -567,23 +598,21 @@ function Homepagemcrt() {
                       </div>
                     </div>
                   </div>
-                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px ">
-                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r  from-[#57186D] to-[#2A0D4E] to-90%  ">
-                      <div className="flex flex-wrap">
-                        <div>
-                          <img
-                            src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173149/Group_7072_cgsuti.webp"
-                            className=" p-4"
-                            alt="Directory"
-                          />
-                        </div>
-                        <div className="my-4 p-4 ">
-                          <h4 className="font-serif text-lg md:text-[22px]">
+
+                  <div className="group overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px transition-transform hover:scale-[1.02]">
+                    <div className="relative h-full rounded-[20px] bg-gradient-to-r from-[#57186D] to-[#2A0D4E] to-90%">
+                      <div className="flex items-start p-6">
+                        <img
+                          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173149/Group_7072_cgsuti.webp"
+                          className="mr-4 h-24 w-24 object-contain"
+                          alt="Web3 lobby icon"
+                        />
+                        <div className="pt-2">
+                          <h3 className="font-serif text-lg md:text-xl">
                             <span className="text-[#FF49ED]">JUMP</span> INTO
-                            <br />
-                            A WEB3 <br />
+                            <br />A WEB3 <br />
                             LOBBY
-                          </h4>
+                          </h3>
                         </div>
                       </div>
                       <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
@@ -623,7 +652,7 @@ function Homepagemcrt() {
           {/*roadmap */}
 
           {/*connect */}
-          <section className="relative mx-auto m-[10em] flex w-11/12 max-w-screen-xl flex-wrap items-center justify-center space-y-10 md:space-y-20 lg:space-y-0 ">
+          <section className="relative m-[10em] mx-auto flex w-11/12 max-w-screen-xl flex-wrap items-center justify-center space-y-10 md:space-y-20 lg:space-y-0 ">
             <div className=" relative rounded-2xl border-[2px] border-solid bg-opacity-70 bg-gradient-to-r from-[#173B52] to-[#557e91] to-80% p-4 lg:h-[280px] lg:w-5/12 ">
               <img
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/blahbla_wvvyzg.webp"
