@@ -1,4 +1,4 @@
-import { Suspense, lazy, useState } from 'react'
+import { Suspense, lazy } from 'react'
 
 const Header = lazy(() => import('@/components/Header/Header'))
 const Footer = lazy(() => import('@/components/Footer/Footer'))
@@ -16,16 +16,17 @@ import strengths from '@/data/strengths'
 import { useNavigate } from 'react-router-dom'
 import GameCard from '@/components/ui/GameCard'
 import { Game, gamesData } from '@/data/game'
+import ContactForm from '@/components/ContactForm'
 
 function Homepagegames() {
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  // const [isSubmitting, setIsSubmitting] = useState(false)
 
-  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault()
-    setIsSubmitting(true)
-    // Add your form submission logic here
-    setIsSubmitting(false)
-  }
+  // async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+  //   event.preventDefault()
+  //   setIsSubmitting(true)
+  //   // Add your form submission logic here
+  //   setIsSubmitting(false)
+  // }
   const youtubeLink = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
   }
@@ -686,7 +687,7 @@ function Homepagegames() {
               </div>
             </section>
 
-            <section className="mx-auto w-full max-w-6xl px-4 py-12">
+            {/* <section className="mx-auto w-full max-w-6xl px-4 py-12">
               <div className="grid items-center gap-8 lg:grid-cols-2">
                 <div className="-mt-[5em]  h-[280px] rounded-3xl border-2 border-[#98FFF9] bg-gradient-to-r from-[#173B52]  to-[#557e91] to-80% px-8 py-10">
                   <h2 className="mb-8 text-3xl font-bold text-white">
@@ -770,7 +771,8 @@ function Homepagegames() {
                   </form>
                 </div>
               </div>
-            </section>
+            </section> */}
+            <ContactForm />
           </div>
         </main>
         <Suspense fallback={<div>Loading...</div>}>

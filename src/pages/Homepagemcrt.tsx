@@ -27,41 +27,41 @@ import frame4 from '@/assets/icons/Frame (4).svg'
 import React from 'react'
 // import { useNavigate } from 'react-router-dom'
 import { LiaTelegramPlane } from 'react-icons/lia'
-import { cn } from '@/lib/utils'
-import ReactPlayer from 'react-player'
-const videos = [
-  {
-    id: 1,
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail:
-      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_5_k5qbji.webp',
-    duration: '0:37',
-  },
-  {
-    id: 2,
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail:
-      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_6_iruxrf.webp',
-    duration: '0:51',
-  },
-  {
-    id: 3,
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail:
-      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_8_elconp.webp',
-    duration: '0:28',
-  },
-  {
-    id: 4,
-    url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-    thumbnail:
-      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_7_bc3rpq.webp',
-    duration: '6:22',
-  },
-]
+import GamePlay from '@/components/GamePlay'
+
+// const videos = [
+//   {
+//     id: 1,
+//     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+//     thumbnail:
+//       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_5_k5qbji.webp',
+//     duration: '0:37',
+//   },
+//   {
+//     id: 2,
+//     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+//     thumbnail:
+//       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_6_iruxrf.webp',
+//     duration: '0:51',
+//   },
+//   {
+//     id: 3,
+//     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+//     thumbnail:
+//       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_8_elconp.webp',
+//     duration: '0:28',
+//   },
+//   {
+//     id: 4,
+//     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+//     thumbnail:
+//       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_7_bc3rpq.webp',
+//     duration: '6:22',
+//   },
+// ]
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(16)
-  const [activeVideo, setActiveVideo] = useState(videos[0])
+  // const [activeVideo, setActiveVideo] = useState(videos[0])
 
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
@@ -288,6 +288,7 @@ function Homepagemcrt() {
                   <SwiperSlide
                     style={{ marginRight: '0 !important' }}
                     className="h-full w-10/12"
+                  key="testimonial-1"
                   >
                     <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
                       <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
@@ -330,6 +331,7 @@ function Homepagemcrt() {
                   <SwiperSlide
                     style={{ marginRight: '0 !important' }}
                     className="h-full w-10/12"
+                     key="testimonial-2"
                   >
                     <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid">
                       <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
@@ -384,128 +386,8 @@ function Homepagemcrt() {
             </div>
           </section>
 
-          {/*unlimited ways to earn */}
-
-          <section className="relative min-h-screen w-full overflow-hidden">
-            {/* Background Image */}
-            <div className="absolute inset-0 z-0 h-full w-full object-cover object-center">
-              <img
-                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp"
-                alt="Background"
-                className="h-full w-full object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#020418]"></div>
-            </div>
-
-            {/* Content Container */}
-            <div className=" z-10">
-              {/* Side Images */}
-              <div className="pointer-events-none absolute  left-0 top-0 w-1/2 ">
-                <img
-                  src=" https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733134962/Group_306299_w9lhp1.webp"
-                  alt="Left character art"
-                  className="hidden object-contain lg:block "
-                />
-              </div>
-              <div className="pointer-events-none absolute right-0 top-0 w-1/2 ">
-                <img
-                  src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135221/2_2_zbxfw1.webp"
-                  alt="Right character art"
-                  className="hidden object-contain lg:block "
-                />
-              </div>
-
-              <div className=" mx-auto mt-[170px] max-w-6xl px-4">
-                {/* Title */}
-                <h2 className="mb-12 text-center font-serif text-4xl text-white opacity-90">
-                  GAMEPLAY
-                </h2>
-
-                {/* Main Video Player */}
-                <div className="relative mx-auto hidden h-[310px] w-full overflow-hidden rounded-lg bg-black lg:block lg:w-[560px]">
-                  <ReactPlayer
-                    url={activeVideo.url}
-                    width="100%"
-                    height="100%"
-                    controls
-                    playing={false}
-                    light={activeVideo.thumbnail}
-                  />
-                </div>
-
-                {/* Video Thumbnails */}
-                <div className=" m-20 hidden grid-cols-4 gap-4 lg:grid ">
-                  {videos.map((video) => (
-                    <button
-                      key={video.id}
-                      onClick={() => setActiveVideo(video)}
-                      className={cn(
-                        'group relative aspect-video w-full overflow-hidden rounded-lg transition-all hover:ring-2 hover:ring-white/50',
-                        activeVideo.id === video.id && 'ring-2 ring-white'
-                      )}
-                    >
-                      <img
-                        src={video.thumbnail}
-                        alt={`Video thumbnail ${video.id}`}
-                        className="object-cover transition-transform group-hover:scale-105"
-                      />
-                      <div className="absolute bottom-2 right-2 rounded bg-black/80 px-1.5 py-0.5 text-xs text-white">
-                        {video.duration}
-                      </div>
-                    </button>
-                  ))}
-                </div>
-
-                <div className="mt-8 lg:hidden">
-                  <Swiper
-                    id="2"
-                    modules={[Navigation]}
-                    navigation={{
-                      prevEl: '.arrow-left',
-                      nextEl: '.arrow-right',
-                    }}
-                    spaceBetween={20}
-                    slidesPerView={1.2}
-                    centeredSlides={true}
-                    loop={true}
-                    pagination={{ clickable: true }}
-                    onSlideChange={(swiper) =>
-                      setActiveVideo(videos[swiper.realIndex])
-                    }
-                  >
-                    {videos.map((video) => (
-                      <SwiperSlide key={video.id} className="cursor-pointer">
-                        <div className="relative aspect-video w-full overflow-hidden rounded-lg">
-                          <img
-                            src={video.thumbnail}
-                            alt={`Video thumbnail ${video.id}`}
-                            className="h-full w-full object-cover"
-                          />
-                          <div className="absolute bottom-2 right-2 rounded bg-black/80 px-1.5 py-0.5 text-xs text-white">
-                            {video.duration}
-                          </div>
-                        </div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper>
-                  <button className="arrow-left arrow  absolute left-0 top-[50%] z-10 cursor-pointer lg:-left-4 lg:top-[50%] ">
-                    <img
-                      src={left}
-                      alt="MCRT Token"
-                      className="cursor-pointer"
-                    />
-                  </button>
-                  <button className="arrow-right arrow absolute right-0 top-[50%] z-10 cursor-pointer lg:-right-4 lg:top-[50%]  ">
-                    <img
-                      src={right}
-                      alt="MCRT Token"
-                      className="cursor-pointer"
-                    />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
+         
+          <GamePlay/>
 
           {/*JOIN THE ACTION */}
           <section className=" flex justify-center bg-center p-4 lg:mt-[3em] lg:h-full ">
@@ -554,7 +436,7 @@ function Homepagemcrt() {
                         <span className="ml-2"> THE GAME</span>
                       </h4>
 
-                      <div className="flex flex-row items-center justify-center gap-2  mb-2 md:mb-0">
+                      <div className="mb-2 flex flex-row items-center justify-center  gap-2 md:mb-0">
                         <span
                           className="cursor-pointer md:px-3 lg:py-4  "
                           onClick={playonsteamHandler}
