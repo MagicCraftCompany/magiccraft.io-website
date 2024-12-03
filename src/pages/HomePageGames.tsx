@@ -86,12 +86,21 @@ function Homepagegames() {
                   </h3>
                 </div>
 
-                <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+                <div className=" hidden grid-cols-5 gap-4  lg:grid ">
                   {filteredGames.map((game: Game) => (
-                    <div key={game.id} className="flex-1">
+                    <div key={game.id} className="mx-4 min-w-[160px] flex-1 ">
                       <GameCard game={game} />
                     </div>
                   ))}
+                </div>
+                <div className=" grid grid-cols-5 gap-4 overflow-x-auto md:grid-cols-2  lg:hidden lg:grid-cols-3 xl:grid-cols-5">
+                  <div className="flex flex-nowrap">
+                    {filteredGames.map((game: Game) => (
+                      <div key={game.id} className="mx-4 min-w-[160px] flex-1 ">
+                        <GameCard game={game} />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -102,7 +111,7 @@ function Homepagegames() {
               <div className="flex flex-col-reverse items-start gap-0 md:flex-row md:gap-8">
                 <div className="w-full space-y-8 self-end md:w-1/2">
                   <div>
-                    <div className="flex items-center gap-1">
+                    <div className="mt-[100px] flex items-center gap-1 md:mt-0">
                       <p className="rotate-180 whitespace-nowrap text-lg leading-none tracking-widest text-[#bd6ae182] [writing-mode:vertical-lr]">
                         Meet
                       </p>
@@ -195,7 +204,14 @@ function Homepagegames() {
                     </div>
                   </div>
                 </div>
-                <div className="relative mx-auto w-full max-w-lg md:w-1/2 md:pt-0" style={{ width: '641px', height: '317.512px', flexShrink: '0' }}>
+                <div
+                  className=" relative mx-auto hidden w-full max-w-lg md:w-1/2 md:pt-0 lg:block"
+                  style={{
+                    width: '641px',
+                    height: '317.512px',
+                    flexShrink: '0',
+                  }}
+                >
                   {/* <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717330280/ecosystem_y5ixdr.webp"
                     alt="MagicCraft Ecosystem"
@@ -432,17 +448,28 @@ function Homepagegames() {
             </section>
 
             {/* banner */}
-            <div className="flex items-center justify-center">
-              <img
-                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733083558/image_13_uvjb9s.webp"
-                alt="banner"
-                className="w-full max-w-screen-xl"
-              />
-              <button className="absolute left-[220px]  mt-[230px]   rounded  px-4 pt-4 text-[#98FFF9]">
-                Read More
-              </button>
-            </div>
+            <div className="w-full">
+              <div className="relative mx-auto w-full max-w-screen-xl">
+                <img
+                  src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp"
+                  alt="Magiccraft banner showing a wizard character"
+                  className="h-auto w-full rounded-lg object-cover"
+                />
 
+                {/* Content overlay using flexbox */}
+                <div className="absolute inset-0 ml-4 flex flex-col justify-end p-6 sm:p-8 md:p-12 lg:p-16">
+                  <div className="space-y-2 sm:space-y-4">
+                    <h1 className="font-serif text-sm text-white sm:text-xl lg:text-2xl">
+                      MAGICCRAFT BROWSER GAMES
+                    </h1>
+                    <button className="group inline-flex items-center gap-2 text-sm text-[#98FFF9] transition-colors hover:text-white sm:text-base">
+                      Read more
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
             <section
               id="faq"
               className="relative mx-auto w-11/12 max-w-screen-xl space-y-20"
@@ -661,7 +688,7 @@ function Homepagegames() {
 
             <section className="mx-auto w-full max-w-6xl px-4 py-12">
               <div className="grid items-center gap-8 lg:grid-cols-2">
-                <div className="rounded-3xl  border-2 border-[#98FFF9] bg-gradient-to-r from-[#173B52] to-[#557e91] to-80%  px-8 py-10 h-[280px] -mt-[5em]">
+                <div className="-mt-[5em]  h-[280px] rounded-3xl border-2 border-[#98FFF9] bg-gradient-to-r from-[#173B52]  to-[#557e91] to-80% px-8 py-10">
                   <h2 className="mb-8 text-3xl font-bold text-white">
                     QUESTIONS &<br />
                     SUGGESTIONS
@@ -684,7 +711,7 @@ function Homepagegames() {
                   </div>
                 </div>
 
-                <div className="-ml-20 rounded-3xl bg-[#11113A] p-8">
+                <div className="rounded-3xl bg-[#11113A] p-8 lg:-ml-20 ">
                   <form onSubmit={onSubmit} className="space-y-6">
                     <div className="flex flex-col space-y-2">
                       <label htmlFor="email" className="text-white">

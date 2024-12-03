@@ -290,10 +290,10 @@ function Homepagemcrt() {
                   </div>
                 </div>
               </div>
-              <div className="relative  h-[400px] w-[400px] rounded-lg lg:w-[538px] lg:py-10      ">
+              <div className="relative  h-[400px] w-[400px] rounded-lg lg:w-[538px] lg:py-10">
                 <Swiper
                   id="1"
-                  className=" p-10 "
+                  className="p-10 w-full"
                   modules={[Navigation, Pagination, Scrollbar, A11y]}
                   spaceBetween={50}
                   slidesPerView={1}
@@ -421,14 +421,14 @@ function Homepagemcrt() {
                 <img
                   src=" https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733134962/Group_306299_w9lhp1.webp"
                   alt="Left character art"
-                  className="object-contain  "
+                  className="object-contain hidden lg:block "
                 />
               </div>
               <div className="pointer-events-none absolute right-0 top-0 w-1/2 ">
                 <img
                   src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135221/2_2_zbxfw1.webp"
                   alt="Right character art"
-                  className="object-contain"
+                  className="object-contain hidden lg:block "
                 />
               </div>
 
@@ -439,7 +439,7 @@ function Homepagemcrt() {
                 </h2>
 
                 {/* Main Video Player */}
-                <div className="relative mx-auto h-[310px] w-[560px] overflow-hidden rounded-lg bg-black">
+                <div className="relative mx-auto h-[310px] lg:w-[560px] w-full overflow-hidden rounded-lg bg-black">
                   <ReactPlayer
                     url={activeVideo.url}
                     width="100%"
