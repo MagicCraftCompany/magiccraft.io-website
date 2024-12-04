@@ -1,4 +1,5 @@
 import emailjs from 'emailjs-com';
+import { ArrowUpRight } from 'lucide-react';
 import { useState } from 'react';
 
 const ContactForm = () => {
@@ -43,14 +44,14 @@ const ContactForm = () => {
             <div className="space-y-2">
               <a
                 href="mailto:contact@magicraft.io"
-                className="flex items-center text-cyan-400 transition-colors hover:text-cyan-300"
+                className="flex items-center text-white transition-colors "
               >
                 <span className="mr-2">✉</span>
                 contact@magicraft.io
               </a>
               <a
                 href="mailto:marketing@magicraft.io"
-                className="flex items-center text-cyan-400 transition-colors hover:text-cyan-300"
+                className="flex items-center text-white transition-colors "
               >
                 <span className="mr-2">✉</span>
                 marketing@magicraft.io
@@ -96,9 +97,10 @@ const ContactForm = () => {
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="text-navy-900 w-full rounded-md bg-[#98FFF9] py-4 font-medium text-[#11113A]"
+                    className="text-[19px] w-full rounded-md bg-[#98FFF9] py-4 font-bold text-[#11113A] flex flex-row items-center justify-center"
                 >
-                    {isSubmitting ? 'Sending...' : 'Send'}
+                                  <ArrowUpRight />
+                                  {isSubmitting ? 'Sending...' : 'Send'}
                 </button>
             </form>
         </div>

@@ -155,10 +155,10 @@ function Homepagegames() {
                           handleClick = magicrunnerhandleClick
                           break
                         case 'Runescribe':
-                          // handleClick = magicrunnerhandleClick
+                          handleClick = () => window.location.href = 'https://games.magiccraft.io/gamepage/runescribes'
                           break
-                        case 'MagicTetra':
-                          // handleClick = magicrunnerhandleClick
+                        case 'TetraBlox':
+                          handleClick = () => window.location.href = 'https://games.magiccraft.io/gamepage/tetrablox'
                           break
                         default:
                           handleClick = () => {}

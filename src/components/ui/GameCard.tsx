@@ -12,7 +12,7 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
 
   return (
     <Link
-      to={`/gamepage/${title}`}
+      to={`https://games.magiccraft.io/gamepage/${title}`}
       className="relative flex flex-col items-start cursor-pointer rounded-[20.723px] border-[0.691px] border-[#3F3F7A] bg-[#11113A] shadow-[0px_2.763px_27.631px_0px_rgba(10,9,23,0.60)] transition-transform duration-300 hover:scale-105 hover:shadow-[0_0_15px_5px_rgba(52,14,65,1)] overflow-hidden w-full"
     >
       <div className="relative w-full pb-[130%]"> {/* 4:3 aspect ratio */}
