@@ -426,9 +426,9 @@ function Homepagemcrt() {
                           />
                         </div>
 
-                        <div className="my-4 p-4">
+                        <div className="my-4 p-4 cursor-pointer" onClick={registerHandler}>
                           <h4 className="font-serif  text-lg md:text-[22px]">
-                            <span className="text-[#8EFF49]">REGISTER</span>
+                            <span className="text-[#8EFF49] ">REGISTER</span>
                             <br /> AN $MCRT <br /> ACCOUNT
                           </h4>
                         </div>
@@ -493,25 +493,27 @@ function Homepagemcrt() {
                   </div>
 
                   <div className="group overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px transition-transform hover:scale-[1.02]">
-                    <div className="relative h-full rounded-[20px] bg-gradient-to-r from-[#57186D] to-[#2A0D4E] to-90%">
-                      <div className="flex items-start p-6">
-                        <img
-                          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173149/Group_7072_cgsuti.webp"
-                          className="mr-4 h-24 w-24 object-contain"
-                          alt="Web3 lobby icon"
-                        />
-                        <div className="pt-2">
-                          <h3 className="font-serif text-lg md:text-xl">
-                            <span className="text-[#FF49ED]">JUMP</span> INTO
-                            <br />A WEB3 <br />
-                            LOBBY
-                          </h3>
+                    <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer">
+                      <div className="relative h-full rounded-[20px] bg-gradient-to-r from-[#57186D] to-[#2A0D4E] to-90%">
+                        <div className="flex items-start p-6">
+                          <img
+                            src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173149/Group_7072_cgsuti.webp"
+                            className="mr-4 h-24 w-24 object-contain"
+                            alt="Web3 lobby icon"
+                          />
+                          <div className="pt-2">
+                            <h3 className="font-serif text-lg md:text-xl">
+                              <span className="text-[#FF49ED]">JUMP</span> INTO
+                              <br />A WEB3 <br />
+                              LOBBY
+                            </h3>
+                          </div>
+                        </div>
+                        <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
+                          3
                         </div>
                       </div>
-                      <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
-                        3
-                      </div>
-                    </div>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -564,7 +566,7 @@ function Homepagemcrt() {
                   <p>CONQUER</p>
                 </h3>
                 <div className="m-2 block  h-px w-5/12 bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent " />
-                <p className="p-2 text-[#98FFF9] md:text-2xl">join us!</p>
+                <p className="p-2 text-[#98FFF9] font-sans md:text-2xl">join us!</p>
                 <p className="block md:mt-40  lg:hidden ">
                   Step into a world where gamers thrive together! Join our
                   Discord and Telegram channels to connect with players
@@ -700,7 +702,7 @@ function Homepagemcrt() {
             <div className="-mt-[50px] rounded-4xl bg-custom-dark bg-opacity-70 p-4 px-10 pb-10  ">
                 <div className="text-center">
                   <h3 className="mb-4 font-serif text-2xl font-bold">
-                   OTHER MAGICVERSE GAME TO PLAY{' '}
+                   OTHER MAGICVERSE GAMES TO PLAY{' '}
                   </h3>
                 </div>
                 <div className="w-full">

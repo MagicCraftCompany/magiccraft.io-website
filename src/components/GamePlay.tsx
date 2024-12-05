@@ -13,36 +13,37 @@ const videos = [
       id: 1,
       url: 'https://www.youtube.com/watch?v=zXUtAyjfvcc',
       thumbnail:
-        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_5_k5qbji.webp',
+        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910423/12_yvxlug.webp',
+        duration: '19:59',
       
     },
     {
       id: 2,
       url: 'https://www.youtube.com/watch?v=6jTooJ2v-M8',
       thumbnail:
-        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_6_iruxrf.webp',
-      duration: '0:51',
+        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910421/1_1_qhmxrt.webp',
+      duration: '6:34',
     },
     {
       id: 3,
       url: 'https://www.youtube.com/watch?v=I96iKLPcSPs',
       thumbnail:
-        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_8_elconp.webp',
-      duration: '0:28',
+        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910421/14_n3epjx.webp',
+      duration: '7:19',
     },
     {
       id: 4,
       url: 'https://www.youtube.com/watch?v=nqlqpT8WVCo',
       thumbnail:
-        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_7_bc3rpq.webp',
+        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910421/15_d2kbtv.webp',
       duration: '6:22',
     },
     {
         id: 5,
         url: 'https://www.youtube.com/watch?v=nqlqpT8WVCo',
         thumbnail:
-          'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_7_bc3rpq.webp',
-        duration: '6:22',
+          'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910422/8_y93bo1.webp',
+        duration: '0:48',
       },
   ]
 function GamePlay(){
@@ -97,7 +98,7 @@ return(
     </div>
 
     {/* Video Thumbnails */}
-    <div className=" m-20 hidden grid-cols-4 gap-4 lg:grid ">
+    <div className=" m-20 hidden grid-cols-5 gap-4 lg:grid ">
       {videos.map((video) => (
         <button
           key={video.id}

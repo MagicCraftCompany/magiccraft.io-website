@@ -1,7 +1,7 @@
 import bybit from '@/assets/icons/bybit.svg'
 
 import bitget from '@/assets/icons/bitget.svg'
-import bitmart from '@/assets/icons/bitmart.svg'
+// import bitmart from '@/assets/icons/bitmart.svg'
 import pancakeswap from '@/assets/icons/pancakeswap.svg'
 import mexc from '@/assets/icons/mexc.svg'
 import uniswap from '@/assets/icons/uniswap.svg'
@@ -23,10 +23,10 @@ const partners = [
     name: 'Bitget',
     icon: bitget,
   },
-  {
-    name: 'Bitmart',
-    icon: bitmart,
-  },
+  // {
+  //   name: 'Bitmart',
+  //   icon: bitmart,
+  // },
   {
     name: 'Pancakeswap',
     icon: pancakeswap,

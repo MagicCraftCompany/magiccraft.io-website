@@ -209,7 +209,7 @@ export const ourteam = [
       {
         icons: <FaLinkedin style={{ color: 'grey' }} />,
         socialmedia:
-          'https://www.magiccraft.io/www.linkedin.com/in/romain-ghibaudo',
+          'https://www.linkedin.com/in/romain-ghibaudo/',
       },
     ],
   },
