@@ -704,7 +704,7 @@ function Homepagemcrt() {
                   </h3>
                 </div>
                 <div className="w-full">
-              <div className="relative mx-auto w-full max-w-screen-xl">
+              <div className="relative mx-auto w-full max-w-screen-xl hidden lg:block">
                 <img
                   src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp"
                   alt="Magiccraft banner showing a wizard character"
@@ -717,10 +717,10 @@ function Homepagemcrt() {
                     <h1 className="font-serif text-sm text-white sm:text-xl lg:text-2xl">
                       MAGICCRAFT BROWSER GAMES
                     </h1>
-                    <button className="group inline-flex items-center gap-2 text-sm text-[#98FFF9] transition-colors hover:text-white sm:text-base">
+                    <a href="https://games.magiccraft.io/" className="group inline-flex items-center gap-2 text-sm text-[#98FFF9] transition-colors hover:text-white sm:text-base">
                       Read more
                       <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </button>
+                    </a>
                   </div>
                 </div>
               </div>
