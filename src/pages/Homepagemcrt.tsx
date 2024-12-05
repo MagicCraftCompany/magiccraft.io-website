@@ -28,6 +28,9 @@ import React from 'react'
 // import { useNavigate } from 'react-router-dom'
 import { LiaTelegramPlane } from 'react-icons/lia'
 import GamePlay from '@/components/GamePlay'
+import GameCard from '@/components/ui/GameCard'
+import { Game, gamesData } from '@/data/game'
+import { ArrowUpRight } from 'lucide-react'
 
 // const videos = [
 //   {
@@ -124,6 +127,15 @@ function Homepagemcrt() {
   // const magicrunnerhandleClick = () => {
   //   navigate('/magicrunner')
   // }
+
+  const filteredGames = gamesData.filter(
+    (game: { title: string }) =>
+      game.title === 'magicflutter' ||
+      game.title === 'magicchess' ||
+      game.title === 'tetrablox' ||
+      game.title === 'runescribes' ||
+      game.title === 'magicrunner'
+  )
   return (
     <>
       <div className="min-h-dvh w-full text-white">
@@ -288,7 +300,7 @@ function Homepagemcrt() {
                   <SwiperSlide
                     style={{ marginRight: '0 !important' }}
                     className="h-full w-10/12"
-                  key="testimonial-1"
+                    key="testimonial-1"
                   >
                     <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
                       <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
@@ -331,7 +343,7 @@ function Homepagemcrt() {
                   <SwiperSlide
                     style={{ marginRight: '0 !important' }}
                     className="h-full w-10/12"
-                     key="testimonial-2"
+                    key="testimonial-2"
                   >
                     <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid">
                       <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
@@ -386,8 +398,7 @@ function Homepagemcrt() {
             </div>
           </section>
 
-         
-          <GamePlay/>
+          <GamePlay />
 
           {/*JOIN THE ACTION */}
           <section className=" flex justify-center bg-center p-4 lg:mt-[3em] lg:h-full ">
@@ -625,7 +636,113 @@ function Homepagemcrt() {
               </div>
             </div>
           </section>
+          {/**browser game  */}
+          <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl space-y-20 mb-[50px]">
+            <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
+              FULL LAUNCH OF THE MAGICVERSE GAME
+            </h2>
+            <div className="relative mt-[4em] w-full rounded-4xl bg-[#080420] ">
+              <div className="space-y-5 px-8 pb-10 pt-5 md:px-10">
+                <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-4">
+                  <h5 className="mx-auto  text-balance text-center font-serif text-base md:mt-[2em] md:text-[16px]">
+                    jOIN US IN SHAPING THE FUTURE
+                    <br />
+                    OF GAMING WITH MCRT, THE
+                    <br />
+                    CORNERSTONE CURRENCY OF <br />
+                    THE GAMING WORLD.
+                  </h5>
+                  <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
+                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-4 py-2 md:p-10 ">
+                      <h4 className="font-serif  text-lg md:text-[16px]">
+                        <span className="text-[#8EFF49]">
+                          MCRT INTEGRATION:
+                        </span>{' '}
+                        <br /> ENHANCE YOUR GAMING WITH MCRT.
+                      </h4>
 
+                      <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
+                        1
+                      </div>
+                    </div>
+                  </div>
+                  <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
+                    <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% px-8 py-4 md:p-10  ">
+                      <h4 className="font-serif text-lg md:text-[16px]">
+                        <span className="text-[#C09AFF]">
+                          MONTHLY SURPRISES:
+                        </span>{' '}
+                        <br />
+                        NEW GAMES EVERY TWO MONTHS.
+                      </h4>
+
+                      <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
+                        2
+                      </div>
+                    </div>
+                  </div>
+                  <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
+                    <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10  ">
+                      <h4 className="font-serif text-lg md:text-[16px]">
+                        <span className="text-[#98FFF9]">PORTFOLIO:</span>{' '}
+                        <br />
+                        INDIE AND AA GAMES ONBOARDED.
+                      </h4>
+
+                      <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
+                        3
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="-mt-[50px] rounded-4xl bg-custom-dark bg-opacity-70 p-4 px-10 pb-10  ">
+                <div className="text-center">
+                  <h3 className="mb-4 font-serif text-2xl font-bold">
+                   OTHER MAGICVERSE GAME TO PLAY{' '}
+                  </h3>
+                </div>
+                <div className="w-full">
+              <div className="relative mx-auto w-full max-w-screen-xl">
+                <img
+                  src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp"
+                  alt="Magiccraft banner showing a wizard character"
+                  className="h-auto w-full rounded-lg object-cover"
+                />
+
+                {/* Content overlay using flexbox */}
+                <div className="absolute inset-0 ml-4 flex flex-col justify-end p-6 sm:p-8 md:p-12 lg:p-16">
+                  <div className="space-y-2 sm:space-y-4">
+                    <h1 className="font-serif text-sm text-white sm:text-xl lg:text-2xl">
+                      MAGICCRAFT BROWSER GAMES
+                    </h1>
+                    <button className="group inline-flex items-center gap-2 text-sm text-[#98FFF9] transition-colors hover:text-white sm:text-base">
+                      Read more
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+                <div className=" hidden grid-cols-5 gap-4  lg:grid ">
+                  {filteredGames.map((game: Game) => (
+                    <div key={game.id} className="mx-4 min-w-[160px] flex-1 ">
+                      <GameCard game={game} />
+                    </div>
+                  ))}
+                </div>
+                <div className=" grid grid-cols-5 gap-4 overflow-x-auto md:grid-cols-2  lg:hidden lg:grid-cols-3 xl:grid-cols-5">
+                  <div className="flex flex-nowrap">
+                    {filteredGames.map((game: Game) => (
+                      <div key={game.id} className="mx-4 min-w-[160px] flex-1 ">
+                        <GameCard game={game} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+          </section>
           {/*our team */}
           <div className="h-auto bg-[#020418] p-10">
             <section className="relative mx-auto max-w-screen-xl space-y-10 p-4 md:space-y-20">
