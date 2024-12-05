@@ -13,7 +13,7 @@ const videos = [
       id: 1,
       url: 'https://www.youtube.com/watch?v=zXUtAyjfvcc',
       thumbnail:
-        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910423/12_yvxlug.webp',
+      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910421/14_n3epjx.webp',
         duration: '19:59',
       
     },
@@ -21,29 +21,30 @@ const videos = [
       id: 2,
       url: 'https://www.youtube.com/watch?v=6jTooJ2v-M8',
       thumbnail:
-        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910421/1_1_qhmxrt.webp',
+        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280872/image_19_16_lwlhzb.webp',
       duration: '6:34',
     },
     {
       id: 3,
       url: 'https://www.youtube.com/watch?v=I96iKLPcSPs',
       thumbnail:
-        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910421/14_n3epjx.webp',
+      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910423/12_yvxlug.webp',
+     
       duration: '7:19',
     },
     {
       id: 4,
       url: 'https://www.youtube.com/watch?v=nqlqpT8WVCo',
       thumbnail:
-        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910421/15_d2kbtv.webp',
+        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1729605924/Link_2x-1_r9djmf.webp',
       duration: '6:22',
     },
     {
         id: 5,
-        url: 'https://www.youtube.com/watch?v=nqlqpT8WVCo',
+        url: 'https://www.youtube.com/watch?v=z47pne8Lq_E&t=41s',
         thumbnail:
-          'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910422/8_y93bo1.webp',
-        duration: '0:48',
+          'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_1_fzdlkt.webp',
+        duration: '4:14',
       },
   ]
 function GamePlay(){
@@ -93,7 +94,6 @@ return(
         height="100%"
         controls
         playing={false}
-        light={activeVideo.thumbnail}
       />
     </div>
 
