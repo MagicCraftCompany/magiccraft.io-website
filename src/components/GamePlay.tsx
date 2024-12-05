@@ -14,7 +14,7 @@ const videos = [
       url: 'https://www.youtube.com/watch?v=zXUtAyjfvcc',
       thumbnail:
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910421/14_n3epjx.webp',
-        duration: '19:59',
+        duration: '20:00',
       
     },
     {
@@ -28,7 +28,7 @@ const videos = [
       id: 3,
       url: 'https://www.youtube.com/watch?v=I96iKLPcSPs',
       thumbnail:
-      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910423/12_yvxlug.webp',
+      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280875/image_19_15_m1yugr.webp',
      
       duration: '7:19',
     },
@@ -37,7 +37,7 @@ const videos = [
       url: 'https://www.youtube.com/watch?v=nqlqpT8WVCo',
       thumbnail:
         'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1729605924/Link_2x-1_r9djmf.webp',
-      duration: '6:22',
+      duration: '0:49',
     },
     {
         id: 5,
