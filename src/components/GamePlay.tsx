@@ -87,7 +87,7 @@ return(
     </h2>
 
     {/* Main Video Player */}
-    <div className="relative mx-auto hidden h-[310px] w-full overflow-hidden rounded-lg bg-black lg:block lg:w-[560px]">
+    <div className="relative mx-auto hidden h-[310px] w-full overflow-hidden rounded-lg bg-black lg:block lg:w-[560px] cursor-pointer">
       <ReactPlayer
         url={activeVideo.url}
         width="100%"
