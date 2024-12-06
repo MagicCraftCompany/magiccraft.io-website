@@ -143,7 +143,7 @@ function Homepagemcrt() {
         <Header />
         <main className="-mt-[70px] scroll-smooth pb-32">
           {/*header*/}
-          <section className="relative h-[700px]  bg-cover bg-center">
+          <section className="min-h-screen relative h-[700px]  bg-cover bg-center">
             <video
               className="absolute  inset-0 h-full w-full object-cover "
               autoPlay
@@ -260,7 +260,7 @@ function Homepagemcrt() {
 
           {/*register now */}
 
-          <section className="relative flex min-h-screen flex-col items-center justify-center bg-[#020418] p-4 md:h-[500px] md:flex-row mt-4 md:mt-0">
+          <section className="relative flex min-h-screen flex-col items-center justify-center bg-[#020418] p-4 md:h-[500px] md:flex-row  ">
             <div className="grid w-full max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-4">
               <div className="mx-auto flex w-full max-w-[400px] flex-col items-center justify-center space-y-6 md:mx-0 md:max-w-none md:items-start">
                 <div className="space-y-2 text-center md:text-left">
@@ -525,7 +525,7 @@ function Homepagemcrt() {
 
           {/*roadmap */}
 
-          <section className="relative my-10">
+          <section className="relative my-10 min-h-screen">
             <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px] rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
 
             <div className="space-y-20">
@@ -550,7 +550,7 @@ function Homepagemcrt() {
           {/*roadmap */}
 
           {/*connect */}
-          <section className="relative m-[10em] mx-auto flex w-11/12 max-w-screen-xl flex-wrap items-center justify-center space-y-10 md:space-y-20 lg:space-y-0 ">
+          <section className="relative m-[10em] mx-auto flex w-11/12 max-w-screen-xl flex-wrap items-center justify-center space-y-10 md:space-y-20 lg:space-y-0  ">
             <div className=" relative rounded-2xl border-[2px] border-solid bg-opacity-70 bg-gradient-to-r from-[#173B52] to-[#557e91] to-80% p-4 lg:h-[280px] lg:w-5/12 ">
               <img
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/blahbla_wvvyzg.webp"
@@ -642,12 +642,12 @@ function Homepagemcrt() {
             </div>
           </section>
           {/**browser game  */}
-          <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl space-y-20 mb-[50px]">
-            <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
+          <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl space-y-10 mb-[50px] min-h-screen">
+            <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl  md:leading-[3.5rem]">
               FULL LAUNCH OF THE MAGICVERSE GAME
             </h2>
-            <div className="relative mt-[4em] w-full rounded-4xl bg-[#080420] ">
-              <div className="space-y-5 px-8 pb-10 pt-5 md:px-10">
+            <div className="relative  w-full rounded-4xl bg-[#080420] ">
+              <div className="space-y-5 px-8 pb-6 pt-5 md:px-10">
                 <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-4">
                   <h5 className="mx-auto  text-balance text-center font-serif text-base md:mt-[2em] md:text-[16px]">
                     jOIN US IN SHAPING THE FUTURE
@@ -658,7 +658,7 @@ function Homepagemcrt() {
                     THE GAMING WORLD.
                   </h5>
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
-                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-4 py-2 md:p-10 ">
+                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-4 py-2  ">
                       <h4 className="font-serif  text-lg md:text-[16px]">
                         <span className="text-[#8EFF49]">
                           MCRT INTEGRATION:
@@ -666,13 +666,13 @@ function Homepagemcrt() {
                         <br /> ENHANCE YOUR GAMING WITH MCRT.
                       </h4>
 
-                      <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
+                      <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[190px]">
                         1
                       </div>
                     </div>
                   </div>
                   <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                    <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% px-8 py-4 md:p-10  ">
+                    <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% px-8 py-4 ">
                       <h4 className="font-serif text-lg md:text-[16px]">
                         <span className="text-[#C09AFF]">
                           MONTHLY SURPRISES:
@@ -681,20 +681,20 @@ function Homepagemcrt() {
                         NEW GAMES EVERY TWO MONTHS.
                       </h4>
 
-                      <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
+                      <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[190px]">
                         2
                       </div>
                     </div>
                   </div>
                   <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                    <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10  ">
+                    <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4   ">
                       <h4 className="font-serif text-lg md:text-[16px]">
                         <span className="text-[#98FFF9]">PORTFOLIO:</span>{' '}
                         <br />
                         INDIE AND AA GAMES ONBOARDED.
                       </h4>
 
-                      <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
+                      <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[190px]">
                         3
                       </div>
                     </div>
@@ -702,37 +702,38 @@ function Homepagemcrt() {
                 </div>
               </div>
             </div>
-            <div className="-mt-[50px] rounded-4xl bg-custom-dark bg-opacity-70 p-4 px-10 pb-10  ">
+            <div className=" rounded-4xl bg-custom-dark bg-opacity-70  px-10 py-5 ">
                 <div className="text-center">
-                  <h3 className="mb-4 font-serif text-2xl font-bold">
+                  <h3 className=" font-serif text-2xl font-bold">
                    OTHER MAGICVERSE GAMES TO PLAY{' '}
                   </h3>
                 </div>
                 <div className="w-full">
-              <div className="relative mx-auto w-full max-w-screen-xl hidden lg:block">
+              <div className="relative mx-auto w-full   max-w-screen-xl hidden lg:block">
+              <div className=' '>
                 <img
                   src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp"
                   alt="Magiccraft banner showing a wizard character"
-                  className="h-auto w-full rounded-lg object-cover"
+                  className="h-auto  mb-6 w-full object-cover"
                 />
-
+              </div>
                 {/* Content overlay using flexbox */}
-                <div className="absolute inset-0 ml-4 flex flex-col justify-end p-6 sm:p-8 md:p-12 lg:p-16">
-                  <div className="space-y-2 sm:space-y-4">
-                    <h1 className="font-serif text-sm text-white sm:text-xl lg:text-2xl">
+                <div className="absolute  inset-0 ml-4 flex flex-col justify-end p-4 sm:p-6 md:p-8 lg:p-[4rem]">
+                  <div className="space-y-1 sm:space-y-2">
+                    <h1 className="font-serif text-xs text-white sm:text-lg lg:text-xl">
                       MAGICCRAFT BROWSER GAMES
                     </h1>
-                    <a href="https://games.magiccraft.io/" className="group inline-flex items-center gap-2 text-sm text-[#98FFF9] transition-colors hover:text-white sm:text-base">
+                    <a href="https://games.magiccraft.io/" className="group inline-flex items-center gap-1 text-xs text-[#98FFF9] transition-colors hover:text-white sm:text-sm">
                       Read more
-                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                     </a>
                   </div>
                 </div>
               </div>
             </div>
-                <div className=" hidden grid-cols-5 gap-4  lg:grid ">
+                <div className=" hidden grid-cols-5 gap-4  lg:grid lg:mx-10">
                   {filteredGames.map((game: Game) => (
-                    <div key={game.id} className="mx-4 min-w-[160px] flex-1 ">
+                    <div key={game.id} className=" min-w-[160px] flex-1 ">
                       <GameCard game={game} />
                     </div>
                   ))}
@@ -750,7 +751,7 @@ function Homepagemcrt() {
           </section>
           {/*our team */}
           <div className="h-auto bg-[#020418] p-10">
-            <section className="relative mx-auto max-w-screen-xl space-y-10 p-4 md:space-y-20">
+            <section className="relative mx-auto max-w-screen-xl space-y-10 p-4 md:space-y-20 min-h-screen">
               <h3 className="-mb-10 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl">
                 Our team
               </h3>
@@ -936,7 +937,7 @@ function Homepagemcrt() {
           </div>
           {/*our team ended */}
 
-          <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 md:space-y-20">
+          <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 md:space-y-20 min-h-screen">
             <div className="space-y-8">
               <h3 className="mt-8 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text pt-4 text-center font-serif text-4xl text-transparent drop-shadow-xl">
                 $MCRT lISTED ON
