@@ -144,7 +144,6 @@ return(
                       height="100%"
                       controls
                       playing={false}
-                      light={video.thumbnail}
                     />
                   </div>
           </SwiperSlide>

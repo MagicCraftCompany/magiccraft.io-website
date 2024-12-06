@@ -12,10 +12,10 @@ import { Tabs, Tab } from '@/components/tabs'
 
 import web3 from '@/assets/icons/li_help-circle (1).svg'
 import web from '@/assets/icons/li_help-circle.svg'
-import web2 from '@/assets/icons/li_file-text.svg'
-import web22 from '@/assets/icons/li_file-text (1).svg'
-import Mcrt from '@/assets/icons/li_coins.svg'
-import Mcrt2 from '@/assets/icons/li_coins (1).svg'
+// import web2 from '@/assets/icons/li_file-text.svg'
+// import web22 from '@/assets/icons/li_file-text (1).svg'
+// import Mcrt from '@/assets/icons/li_coins.svg'
+// import Mcrt2 from '@/assets/icons/li_coins (1).svg'
 import contacticon from '@/assets/icons/li_users.svg'
 import contacticon2 from '@/assets/icons/li_coins (1).svg'
 import vector from '@/assets/icons/contact-vector.svg'
@@ -27,13 +27,13 @@ export default function FAQ() {
       <Accordion
         type="single"
         collapsible
-        className="m-auto h-full lg:w-[79em]  "
+        className="mx-auto h-full w-full  "
       >
         {questions.map((question) => (
           <AccordionItem
             key={question.value}
             value={question.value}
-            className="mb-2 rounded-[20px] border-0 bg-[#11113A] data-[state=open]:mb-[30px] data-[state=open]:bg-gradient-to-l data-[state=open]:from-[#3D186D] data-[state=open]:to-[#2A0D4E] md:gap-[30px]"
+            className="mb-2 rounded-[20px] border-0 bg-[#11113A] data-[state=open]:mb-[30px] data-[state=open]:bg-gradient-to-l data-[state=open]:from-[#3D186D] data-[state=open]:to-[#2A0D4E] "
           >
             <AccordionTrigger className="p-4 text-left font-serif font-bold text-[#C09AFF] data-[state=open]:text-white md:p-[30px] md:text-2xl md:hover:no-underline">
               {question.question}
@@ -65,42 +65,43 @@ export default function FAQ() {
                 <div className="mt-4 block h-px w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent"></div>
               </div>
 
-              <section className="items-center justify-center">
+
+              <section className="flex justify-center items-center gap-4 mx-auto">
                 {/* Render Dropdown on Mobile and Tablet */}
 
                 <Tabs >
                   <Tab
                     id="Web3 Slay-to-Earn Mode"
-                    label="Web3 Slay-to-Earn Mode"
+                    label="FAQ"
                     icon={web3}
                     iconActive={web}
                   >
                     <Question />
                   </Tab>
-                  <Tab
+                  {/* <Tab
                     id="Web 2 Mode"
                     label="Web 2 Mode"
                     icon={web2}
                     iconActive={web22}
                   >
                     <Question />
-                  </Tab>
-                  <Tab
+                  </Tab> */}
+                  {/* <Tab
                     id="$ MCRT & pledging"
                     label="$ MCRT & pledging"
                     icon={Mcrt}
                     iconActive={Mcrt2}
                   >
                     <Question />
-                  </Tab>
-                  <Tab
+                  </Tab> */}
+                  {/* <Tab
                     id="Partner with MagicCraft"
                     label="Partner with MagicCraft"
                     icon={Mcrt}
                     iconActive={Mcrt2}
                   >
                     <Question />
-                  </Tab>
+                  </Tab> */}
 
                   <Tab
                     id="contact"

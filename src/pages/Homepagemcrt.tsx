@@ -31,6 +31,7 @@ import GamePlay from '@/components/GamePlay'
 import GameCard from '@/components/ui/GameCard'
 import { Game, gamesData } from '@/data/game'
 import { ArrowUpRight } from 'lucide-react'
+import DownloadSection from '@/components/HomePageCard'
 
 // const videos = [
 //   {
@@ -103,10 +104,10 @@ function Homepagemcrt() {
     window.location.href =
       'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
   }
-  const playonpcHandler = () => {
-    window.location.href =
-      'https://mc-game-public.s3.eu-central-1.amazonaws.com/MagicCraft+4.27.9109.zip'
-  }
+  // const playonpcHandler = () => {
+  //   window.location.href =
+  //     'https://mc-game-public.s3.eu-central-1.amazonaws.com/MagicCraft+4.27.9109.zip'
+  // }
   const playonsteamHandler = () => {
     window.location.href =
       'https://store.steampowered.com/app/2395760/MagicCraft/'
@@ -170,7 +171,7 @@ function Homepagemcrt() {
                   <span className="text-3xl">WHERE PLAY MEANS PROSPERITY</span>
                 </h1>
               </div>
-              <div className="  mx-[2em]  md:mx-auto md:mb-20  md:mt-4 md:w-[35em]  ">
+              {/* <div className="  mx-[2em]  md:mx-auto md:mb-20  md:mt-4 md:w-[35em]  ">
                 <div className="rounded-[1.25em]   bg-gradient-to-b from-[#B591F2]   to-transparent p-px ">
                   <div className="relative   max-w-full flex-col    overflow-hidden rounded-[1.25em]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%   md:px-11 md:py-3">
                     <h4 className="  mx-[3em] py-2  text-center font-serif text-lg md:text-[1.375em] ">
@@ -251,13 +252,15 @@ function Homepagemcrt() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
+                          <DownloadSection/>
+
             </div>
           </section>
 
           {/*register now */}
 
-          <section className="relative flex min-h-screen flex-col items-center justify-center bg-[#020418] p-4 md:h-[500px] md:flex-row">
+          <section className="relative flex min-h-screen flex-col items-center justify-center bg-[#020418] p-4 md:h-[500px] md:flex-row mt-4 md:mt-0">
             <div className="grid w-full max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-4">
               <div className="mx-auto flex w-full max-w-[400px] flex-col items-center justify-center space-y-6 md:mx-0 md:max-w-none md:items-start">
                 <div className="space-y-2 text-center md:text-left">
@@ -566,7 +569,7 @@ function Homepagemcrt() {
                   <p>CONQUER</p>
                 </h3>
                 <div className="m-2 block  h-px w-5/12 bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent " />
-                <p className="p-2 text-[#98FFF9] font-sans md:text-2xl">join us!</p>
+                <p className="p-2 text-[#98FFF9] font-serif font-bold md:text-2xl">join us!</p>
                 <p className="block md:mt-40  lg:hidden ">
                   Step into a world where gamers thrive together! Join our
                   Discord and Telegram channels to connect with players
