@@ -143,17 +143,17 @@ function Homepagemcrt() {
                 </h1>
               </div>
            <div className='flex flex-row '>
-            <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_307723_m3crb2.webp" alt="Background" className="h-[200px] w-[350px] mt-6 hidden lg:block" />
-             <div className="  mx-[2em]  md:mx-auto md:mb-20  md:mt-4 md:w-[35em]  ">
-                <div className="rounded-[1.25em]   bg-gradient-to-b from-[#B591F2]   to-transparent p-px ">
-                  <div className="relative   max-w-full flex-col    overflow-hidden rounded-[1.25em]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%   md:px-11 md:py-3">
+            <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_307723_m3crb2.webp" alt="Background" className="h-[167px] w-[350px] mt-7 hidden lg:block" />
+             <div className="  mx-[2em]  md:mx-auto md:mb-20  md:mt-6 md:w-[35em]  ">
+                <div className="rounded-[1.25em]   bg-gradient-to-b from-[#B591F2]   to-transparent p-px md:p-0 ">
+                  <div className="relative   max-w-full flex-col    overflow-hidden rounded-[1.25em]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%   ">
                     <h4 className="  mx-[3em] py-2  text-center font-serif text-lg md:text-[1.375em] ">
                       <span className="text-[#FFB649]  ">PLAY </span> MAGICCRAFT
                       NOW!
                       <br />
                     </h4>
                     <div className="flex items-center justify-center ">
-                      <div className="m-4 flex flex-row items-center gap-[20px]">
+                      <div className="lg:m-2 m-4 flex flex-row items-center gap-[20px]">
                         <span
                           className=" hidden cursor-pointer md:block"
                           onClick={playonpcHandler}
@@ -226,7 +226,7 @@ function Homepagemcrt() {
                   </div>
                 </div>
               </div> 
-              <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_306549_inz0yy.webp" alt="Background" className="h-[200px] w-[350px] mt-6 hidden lg:block" />
+              <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_306549_inz0yy.webp" alt="Background" className="h-[165px] w-[350px] mt-6 hidden lg:block" />
 
               </div> 
              {/* <div className='lg:mt-[5rem]'>
