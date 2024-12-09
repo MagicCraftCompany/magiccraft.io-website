@@ -42,7 +42,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         
       },
       {
-        title: 'Browser Game',
+        title: 'Browser Games',
           icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
           path: 'https://games.magiccraft.io/',
         
