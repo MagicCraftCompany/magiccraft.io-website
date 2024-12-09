@@ -173,6 +173,7 @@ export const roadmapData: RoadmapDataType = [
           'Expanded community tournaments with prizes',
           'Launch of Clan System with initial functionalities',
           'First Community Voting System for game features',
+          "Release of MagicCraft Xbox version",
         ],
       },
       {

@@ -34,7 +34,7 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
   return (
     <div className="min-w-72 snap-center space-y-6">
       <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
-        Q{data.quarter} 24
+        Q{data.quarter} 25
       </h3>
 
       <div className="grid grid-cols-1 gap-8">
