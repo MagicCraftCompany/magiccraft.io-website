@@ -142,7 +142,7 @@ function Homepagemcrt() {
                   <span className="text-3xl">$MCRT THE CURRENCY OF GAMING</span>
                 </h1>
               </div>
-           <div className='flex flex-row '>
+           <div className='flex flex-row gap-2 lg:mt-10 '>
             <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_307723_m3crb2.webp" alt="Background" className="h-[167px] w-[350px] mt-7 hidden lg:block" />
              <div className="  mx-[2em]  md:mx-auto md:mb-20  md:mt-6 md:w-[35em]  ">
                 <div className="rounded-[1.25em]   bg-gradient-to-b from-[#B591F2]   to-transparent p-px md:p-0 ">
