@@ -10,6 +10,7 @@ import {
   FaTiktok,
   FaYoutube,
 } from 'react-icons/fa6'
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const socialLinks = [
   {
@@ -103,7 +104,7 @@ const moreLinks = [
   },
   {
     title: 'FAQ',
-    link: 'https://magiccraft.io/faq',
+    link: '/faq',
   },
   {
     title: 'Become a partner',
@@ -125,6 +126,7 @@ const moreLinks = [
 
 
 const Footer = () => {
+  const navigate = useNavigate(); 
   return (
     <footer className="text-primary relative z-10  py-10 lg:ml-[12em] ">
       <div className="mx-auto flex w-11/12 max-w-[1650px] flex-col-reverse justify-between gap-10 lg:flex-row">
@@ -153,25 +155,10 @@ const Footer = () => {
               &copy; 2021-2024 MagicCraft Ltd. All rights reserved
             </p>
             <ul className="flex flex-row space-x-6 text-md text-[#98FFF9]">
-              <a
-                href="https://magiccraft.io/privacy-policy"
-                rel="noreferrer noopener"
-              >
-                <li>Privacy Policy</li>
-              </a>
-              <a
-                href={'https://magiccraft.io/terms-of-use'}
-                rel="noreferrer noopener"
-              >
-                <li>Terms and Conditions</li>
-              </a>
-
-              <a
-                href="https://magiccraft.io/disclaimer"
-                rel="noreferrer noopener"
-              >
-                <li>Disclaimer</li>
-              </a>
+              
+            <li onClick={() => navigate('/privacypolicy')} className="cursor-pointer">Privacy Policy</li>
+                  <li onClick={() => navigate('/terms')} className="cursor-pointer">Terms and Conditions</li>
+                  <li onClick={() => navigate('/disclaimer')} className="cursor-pointer">Disclaimer</li>
             </ul>
 
             <p className="text-md text-white/60">

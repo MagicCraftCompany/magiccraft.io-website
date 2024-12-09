@@ -648,7 +648,7 @@ function Homepagemcrt() {
           {/**browser game  */}
           <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl space-y-10 mb-[50px] min-h-screen ">
             <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl  md:leading-[3.5rem]">
-              FULL LAUNCH OF THE MAGICVERSE GAME
+            Join the MagicCraft Ecosystem
             </h2>
             <div className="relative  w-full rounded-4xl bg-[#080420]  ">
               <div className="space-y-5 px-8 pb-6 pt-5 md:px-10 ">
@@ -709,7 +709,7 @@ function Homepagemcrt() {
             <div className=" rounded-4xl bg-custom-dark bg-opacity-70  px-10 py-5  ">
                 <div className="text-center">
                   <h3 className=" font-serif text-2xl font-bold">
-                   OTHER MAGICVERSE GAMES TO PLAY{' '}
+                   OTHER ECOSYSTEM GAMES TO PLAY{' '}
                   </h3>
                 </div>
                 <div className="w-full">
@@ -1010,7 +1010,7 @@ function Homepagemcrt() {
             </div>
           </section>
         </main>
-        <Footer />
+        <Footer  />
       </div>
     </>
   )
