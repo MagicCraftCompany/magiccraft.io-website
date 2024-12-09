@@ -51,7 +51,8 @@ function GamePlay(){
     const [activeVideo, setActiveVideo] = useState(videos[0])
 
 return(
-<section className="relative min-h-screen w-full overflow-hidden">
+
+<section className="relative  md:min-h-screen h-[50vh] md:h-full w-full overflow-hidden ">
 {/* Background Image */}
 <div className="absolute inset-0 z-0 h-full w-full object-cover object-center">
   <img
@@ -80,7 +81,7 @@ return(
     />
   </div>
 
-  <div className=" mx-auto mt-[170px] max-w-6xl px-4">
+  <div className=" mx-auto md:mt-[170px] mt-4 max-w-6xl px-4">
     {/* Title */}
     <h2 className="mb-12 text-center font-serif text-4xl text-white opacity-90">
       GAMEPLAY
@@ -120,7 +121,7 @@ return(
       ))}
     </div>
 
-    <div className="mt-8 lg:hidden">
+    <div className=" lg:hidden">
       <Swiper
         id="other-swiper"
         className="md:w-full "
@@ -149,14 +150,14 @@ return(
           </SwiperSlide>
         ))}
       </Swiper>
-      <button className="other-arrow-left arrow  absolute left-0 top-[50%] z-10 cursor-pointer lg:-left-4 lg:top-[50%] ">
+      <button className="other-arrow-left arrow  absolute left-0 top-[45%] z-10 cursor-pointer lg:-left-4  ">
         <img
           src={left}
           alt="MCRT Token"
           className="cursor-pointer"
         />
       </button>
-      <button className="other-arrow-right arrow absolute right-0 top-[50%] z-10 cursor-pointer lg:-right-4 lg:top-[50%]  ">
+      <button className="other-arrow-right arrow absolute right-0 top-[45%] z-10 cursor-pointer lg:-right-4 lg:top-[50%]  ">
         <img
           src={right}
           alt="MCRT Token"
