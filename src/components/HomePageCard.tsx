@@ -98,13 +98,13 @@ import {
       },
       {
        
-        image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733468189/CARD_3_1_ugj7j9.webp',
+        image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733576701/CARD_3_2_rneld1.webp',
         href: 'https://app.magiccraft.io/marketplace/explorer',
       },
     ]
   
     return (
-      <section className="w-full  py-6 md:py-12 lg:py-20 -mt-10 md:-mt-0">
+      <section className="w-full  py-6 md:py-0 ">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col gap-6 lg:gap-8">
             {/* Download Section */}

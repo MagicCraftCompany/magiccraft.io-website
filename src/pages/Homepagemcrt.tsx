@@ -166,7 +166,7 @@ function Homepagemcrt() {
                 </div>
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
                   <div className=" flex justify-center ">
-                    <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173072/MagicCraft_1_txz7ga.webp"></img>
+                    <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173072/MagicCraft_1_txz7ga.webp"  alt="MCRT Icon"/>
                   </div>
                   <span className="text-3xl">WHERE PLAY MEANS PROSPERITY</span>
                 </h1>
@@ -253,14 +253,16 @@ function Homepagemcrt() {
                   </div>
                 </div>
               </div> */}
-                          <DownloadSection/>
-
+             <div className='lg:mt-[5rem]'>
+                  <DownloadSection/>
+                  </div> 
             </div>
+           
           </section>
-
+          
           {/*register now */}
 
-          <section className="relative flex min-h-screen flex-col items-center justify-center bg-[#020418] p-4 md:h-[500px] md:flex-row  ">
+          <section className="relative flex  flex-col items-center justify-center bg-[#020418] p-4 md:py-5 md:flex-row  ">
             <div className="grid w-full max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-4">
               <div className="mx-auto flex w-full max-w-[400px] flex-col items-center justify-center space-y-6 md:mx-0 md:max-w-none md:items-start">
                 <div className="space-y-2 text-center md:text-left">
@@ -323,19 +325,19 @@ function Homepagemcrt() {
                           </div>
                           <div className="flex flex-row gap-10 lg:mt-5">
                             <div className=" m-2 flex flex-wrap">
-                              <img src={frame1} className="mr-2" />
+                              <img src={frame1} className="mr-2" alt="Icon" />
                               83
                             </div>
                             <div className=" m-2 flex flex-wrap">
-                              <img src={frame2} className="mr-2" />
+                              <img src={frame2} className="mr-2" alt="Icon" />
                               61
                             </div>
                             <div className=" m-2 flex flex-wrap">
-                              <img src={frame3} className="mr-2" />
+                              <img src={frame3} className="mr-2" alt="Icon" />
                               2.0k
                             </div>
                             <div className=" m-2 flex flex-wrap">
-                              <img src={frame4} className="mr-2" />
+                              <img src={frame4} className="mr-2" alt="Icon" />
                               308.6k
                             </div>
                           </div>
@@ -366,19 +368,19 @@ function Homepagemcrt() {
                           </div>
                           <div className="flex flex-row gap-10 lg:mt-5">
                             <div className=" m-2 flex flex-wrap">
-                              <img src={frame1} className="mr-2" />
+                              <img src={frame1} className="mr-2" alt="Icon" />
                               83
                             </div>
                             <div className=" m-2 flex flex-wrap">
-                              <img src={frame2} className="mr-2" />
+                              <img src={frame2} className="mr-2" alt="Icon" />
                               61
                             </div>
                             <div className=" m-2 flex flex-wrap">
-                              <img src={frame3} className="mr-2" />
+                              <img src={frame3} className="mr-2" alt="Icon" />
                               2.0k
                             </div>
                             <div className=" m-2 flex flex-wrap">
-                              <img src={frame4} className="mr-2" />
+                              <img src={frame4} className="mr-2"  alt="Icon" />
                               308.6k
                             </div>
                           </div>
@@ -455,7 +457,7 @@ function Homepagemcrt() {
                           className="cursor-pointer md:px-3 lg:py-4  "
                           onClick={playonsteamHandler}
                         >
-                          <img src={steam} className=" pb-4"></img>
+                          <img src={steam} className=" pb-4" alt="Steam Icon"></img>
                           Get it on
                           <br />
                           <p className="text-sm font-bold lg:text-lg">Steam</p>
@@ -466,7 +468,7 @@ function Homepagemcrt() {
                           className="cursor-pointer px-3 lg:py-4 "
                           onClick={playonappleHandler}
                         >
-                          <img src={AppleIcon} className=" pb-4"></img>
+                          <img src={AppleIcon} className=" pb-4" alt="Apple Icon"></img>
                           Get it on
                           <br />
                           <p className="text-sm font-bold lg:text-lg">
@@ -481,6 +483,7 @@ function Homepagemcrt() {
                           <img
                             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"
                             className=" pb-4"
+                            alt="Google Play Icon"
                           ></img>
                           Get it on
                           <br />
@@ -555,6 +558,7 @@ function Homepagemcrt() {
               <img
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/blahbla_wvvyzg.webp"
                 className="absolute -top-10 right-0     block h-[400px] rounded-lg object-cover  md:hidden "
+                alt="blahbla"
               />
 
               <img
@@ -582,7 +586,7 @@ function Homepagemcrt() {
                   onClick={discordmagiccraftHandler}
                 >
                   <div className="flex flex-wrap  ">
-                    <img src={pc} className="m-4"></img>
+                    <img src={pc} alt="PC Icon" className="m-4"></img>
                     <span className="mt-4 text-2xl ">
                       Join MagicCraft's
                       <br />
@@ -617,7 +621,7 @@ function Homepagemcrt() {
                 of a community that plays, earns, and grows together.
               </p>
               <div className="flex flex-wrap items-center">
-                <img src={pc}></img>
+                <img src={pc} alt="PC Icon"></img>
                 <span
                   className=" cursor-pointer p-4"
                   onClick={discordmagiccraftHandler}
@@ -642,12 +646,12 @@ function Homepagemcrt() {
             </div>
           </section>
           {/**browser game  */}
-          <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl space-y-10 mb-[50px] min-h-screen">
+          <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl space-y-10 mb-[50px] min-h-screen ">
             <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl  md:leading-[3.5rem]">
               FULL LAUNCH OF THE MAGICVERSE GAME
             </h2>
-            <div className="relative  w-full rounded-4xl bg-[#080420] ">
-              <div className="space-y-5 px-8 pb-6 pt-5 md:px-10">
+            <div className="relative  w-full rounded-4xl bg-[#080420]  ">
+              <div className="space-y-5 px-8 pb-6 pt-5 md:px-10 ">
                 <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-4">
                   <h5 className="mx-auto  text-balance text-center font-serif text-base md:mt-[2em] md:text-[16px]">
                     jOIN US IN SHAPING THE FUTURE
@@ -702,7 +706,7 @@ function Homepagemcrt() {
                 </div>
               </div>
             </div>
-            <div className=" rounded-4xl bg-custom-dark bg-opacity-70  px-10 py-5 ">
+            <div className=" rounded-4xl bg-custom-dark bg-opacity-70  px-10 py-5  ">
                 <div className="text-center">
                   <h3 className=" font-serif text-2xl font-bold">
                    OTHER MAGICVERSE GAMES TO PLAY{' '}
