@@ -56,9 +56,9 @@ return(
 {/* Background Image */}
 <div className="absolute inset-0 z-0 h-full w-full object-cover object-center">
   <img
-    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp"
+    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733751841/BG_1_ynaikk.webp"
     alt="Background"
-    className="h-full w-full object-cover object-center"
+    className="object-cover object-center"
   />
   <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#020418]"></div>
 </div>
@@ -67,18 +67,18 @@ return(
 <div className=" z-10">
   {/* Side Images */}
   <div className="pointer-events-none absolute  left-0 top-0 w-1/2 ">
-    <img
+    {/* <img
       src=" https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733134962/Group_306299_w9lhp1.webp"
       alt="Left character art"
       className="hidden object-contain lg:block "
-    />
+    /> */}
   </div>
   <div className="pointer-events-none absolute right-0 top-0 w-1/2 ">
-    <img
+    {/* <img
       src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135221/2_2_zbxfw1.webp"
       alt="Right character art"
       className="hidden object-contain lg:block "
-    />
+    /> */}
   </div>
 
   <div className=" mx-auto md:mt-[170px] mt-4 max-w-6xl px-4">

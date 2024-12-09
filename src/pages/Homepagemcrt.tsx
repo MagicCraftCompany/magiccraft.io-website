@@ -31,38 +31,9 @@ import GamePlay from '@/components/GamePlay'
 import GameCard from '@/components/ui/GameCard'
 import { Game, gamesData } from '@/data/game'
 import { ArrowUpRight } from 'lucide-react'
-import DownloadSection from '@/components/HomePageCard'
+// import DownloadSection from '@/components/HomePageCard'
 
-// const videos = [
-//   {
-//     id: 1,
-//     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-//     thumbnail:
-//       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_5_k5qbji.webp',
-//     duration: '0:37',
-//   },
-//   {
-//     id: 2,
-//     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-//     thumbnail:
-//       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_6_iruxrf.webp',
-//     duration: '0:51',
-//   },
-//   {
-//     id: 3,
-//     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-//     thumbnail:
-//       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_8_elconp.webp',
-//     duration: '0:28',
-//   },
-//   {
-//     id: 4,
-//     url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-//     thumbnail:
-//       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_7_bc3rpq.webp',
-//     duration: '6:22',
-//   },
-// ]
+
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(16)
   // const [activeVideo, setActiveVideo] = useState(videos[0])
@@ -104,10 +75,10 @@ function Homepagemcrt() {
     window.location.href =
       'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
   }
-  // const playonpcHandler = () => {
-  //   window.location.href =
-  //     'https://mc-game-public.s3.eu-central-1.amazonaws.com/MagicCraft+4.27.9109.zip'
-  // }
+  const playonpcHandler = () => {
+    window.location.href =
+      'https://mc-game-public.s3.eu-central-1.amazonaws.com/MagicCraft+4.27.9109.zip'
+  }
   const playonsteamHandler = () => {
     window.location.href =
       'https://store.steampowered.com/app/2395760/MagicCraft/'
@@ -143,7 +114,7 @@ function Homepagemcrt() {
         <Header />
         <main className="-mt-[70px] scroll-smooth pb-32">
           {/*header*/}
-          <section className="min-h-screen relative h-[700px]  bg-cover bg-center">
+          <section className="md:min-h-screen relative h-[700px]  bg-cover bg-center">
             <video
               className="absolute  inset-0 h-full w-full object-cover "
               autoPlay
@@ -171,7 +142,9 @@ function Homepagemcrt() {
                   <span className="text-3xl">$MCRT THE CURRENCY OF GAMING</span>
                 </h1>
               </div>
-              {/* <div className="  mx-[2em]  md:mx-auto md:mb-20  md:mt-4 md:w-[35em]  ">
+           <div className='flex flex-row '>
+            <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_307723_m3crb2.webp" alt="Background" className="h-[200px] w-[350px] mt-6 hidden lg:block" />
+             <div className="  mx-[2em]  md:mx-auto md:mb-20  md:mt-4 md:w-[35em]  ">
                 <div className="rounded-[1.25em]   bg-gradient-to-b from-[#B591F2]   to-transparent p-px ">
                   <div className="relative   max-w-full flex-col    overflow-hidden rounded-[1.25em]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%   md:px-11 md:py-3">
                     <h4 className="  mx-[3em] py-2  text-center font-serif text-lg md:text-[1.375em] ">
@@ -252,10 +225,13 @@ function Homepagemcrt() {
                     </div>
                   </div>
                 </div>
-              </div> */}
-             <div className='lg:mt-[5rem]'>
+              </div> 
+              <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_306549_inz0yy.webp" alt="Background" className="h-[200px] w-[350px] mt-6 hidden lg:block" />
+
+              </div> 
+             {/* <div className='lg:mt-[5rem]'>
                   <DownloadSection/>
-                  </div> 
+                  </div>  */}
             </div>
            
           </section>
