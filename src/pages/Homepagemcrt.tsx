@@ -295,9 +295,9 @@ function Homepagemcrt() {
               </div>
             </div>
           </section>
-
+         <section id="gameplay">
           <GamePlay />
-
+          </section>
           {/*JOIN THE ACTION */}
           <section className=" flex justify-center bg-center p-4 lg:mt-[3em] lg:h-full ">
             <div className="relative max-w-[80em]  rounded-4xl bg-[#0A0424] bg-opacity-70 ">
@@ -421,7 +421,7 @@ function Homepagemcrt() {
 
           {/*roadmap */}
 
-          <section className="relative my-10 min-h-screen">
+          <section className="relative my-10 min-h-screen" id="roadmap">
             <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px] rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
 
             <div className="space-y-20">
@@ -647,7 +647,7 @@ function Homepagemcrt() {
               </div>
           </section>
           {/*our team */}
-          <div className="h-auto bg-[#020418] p-10">
+          <div className="h-auto bg-[#020418] p-10" id="team">
             <section className="relative mx-auto max-w-screen-xl space-y-10 p-4 md:space-y-20 min-h-screen">
               <h3 className="-mb-10 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl">
                 Our team

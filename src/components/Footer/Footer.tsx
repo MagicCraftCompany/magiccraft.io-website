@@ -66,7 +66,7 @@ const gameLinks = [
   },
   {
     title: 'Team',
-    link: 'https://magiccraft.io/#team',
+    link: '/#team',
   },
 ]
 
@@ -89,7 +89,7 @@ const tokenLinks = [
   },
   {
     title: 'Roadmap',
-    link: 'https://magiccraft.io/numbers#roadmap',
+    link: '/#roadmap',
   },
   {
     title: 'Whitepaper',
@@ -184,9 +184,31 @@ const Footer = () => {
               {gameLinks.map((item, i) => {
                 return (
                   <li key={i}>
-                    <a href={item.link} rel="noreferrer noopener">
-                      {item.title}
-                    </a>
+                    {item.link.startsWith('http') ? (
+                      <a href={item.link} rel="noreferrer noopener">
+                        {item.title}
+                      </a>
+                    ) : (
+                      <a
+                        onClick={() => {
+                          if (item.link.startsWith('/#')) {
+                            const targetId = item.link.slice(2); // Remove '/#'
+                            navigate('/'); // Navigate to homepage
+                            setTimeout(() => {
+                              const element = document.getElementById(targetId);
+                              if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' });
+                              }
+                            }, 0); // Delay to ensure navigation happens first
+                          } else {
+                            navigate(item.link); // Use useNavigate for routes
+                          }
+                        }}
+                        className="cursor-pointer"
+                      >
+                        {item.title}
+                      </a>
+                    )}
                   </li>
                 )
               })}
@@ -198,9 +220,31 @@ const Footer = () => {
               {tokenLinks.map((item, i) => {
                 return (
                   <li key={i}>
-                    <a href={item.link} rel="noreferrer noopener">
+                    {item.link.startsWith('http') ? (
+                      <a href={item.link} rel="noreferrer noopener">
+                        {item.title}
+                      </a>
+                    ) : (
+                      <a
+                      onClick={() => {
+                        if (item.link.startsWith('/#')) {
+                          const targetId = item.link.slice(2); // Remove '/#'
+                          navigate('/'); // Navigate to homepage
+                          setTimeout(() => {
+                            const element = document.getElementById(targetId);
+                            if (element) {
+                              element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                          }, 0); // Delay to ensure navigation happens first
+                        } else {
+                          navigate(item.link); // Use useNavigate for routes
+                        }
+                      }}
+                      className="cursor-pointer"
+                    >
                       {item.title}
                     </a>
+                    )}
                   </li>
                 )
               })}
