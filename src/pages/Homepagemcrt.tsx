@@ -31,6 +31,7 @@ import GamePlay from '@/components/GamePlay'
 import GameCard from '@/components/ui/GameCard'
 import { Game, gamesData } from '@/data/game'
 import { ArrowUpRight } from 'lucide-react'
+import MagicraftDownload from '@/components/HomePageCard'
 // import DownloadSection from '@/components/HomePageCard'
 
 
@@ -75,10 +76,10 @@ function Homepagemcrt() {
     window.location.href =
       'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
   }
-  const playonpcHandler = () => {
-    window.location.href =
-      'https://mc-game-public.s3.eu-central-1.amazonaws.com/MagicCraft+4.27.9109.zip'
-  }
+  // const playonpcHandler = () => {
+  //   window.location.href =
+  //     'https://mc-game-public.s3.eu-central-1.amazonaws.com/MagicCraft+4.27.9109.zip'
+  // }
   const playonsteamHandler = () => {
     window.location.href =
       'https://store.steampowered.com/app/2395760/MagicCraft/'
@@ -142,97 +143,13 @@ function Homepagemcrt() {
                   <span className="text-3xl">$MCRT THE CURRENCY OF GAMING</span>
                 </h1>
               </div>
-           <div className='flex flex-row gap-2 lg:mt-10 '>
-            <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_307723_m3crb2.webp" alt="Background" className="h-[167px] w-[350px] mt-7 hidden lg:block" />
-             <div className="  mx-[2em]  md:mx-auto md:mb-20  md:mt-6 md:w-[35em]  ">
-                <div className="rounded-[1.25em]   bg-gradient-to-b from-[#B591F2]   to-transparent p-px md:p-0 ">
-                  <div className="relative   max-w-full flex-col    overflow-hidden rounded-[1.25em]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%   ">
-                    <h4 className="  mx-[3em] py-2  text-center font-serif text-lg md:text-[1.375em] ">
-                      <span className="text-[#FFB649]  ">PLAY </span> MAGICCRAFT
-                      NOW!
-                      <br />
-                    </h4>
-                    <div className="flex items-center justify-center ">
-                      <div className="lg:m-2 m-4 flex flex-row items-center gap-[20px]">
-                        <span
-                          className=" hidden cursor-pointer md:block"
-                          onClick={playonpcHandler}
-                        >
-                          <div className="m-4 h-6 w-6">
-                            {' '}
-                            <img src={pc}></img>
-                          </div>
-                          Download
-                          <br />
-                          <p className=" text-lg font-bold md:text-lg ">PC</p>
-                        </span>
+           
+            
 
-                        <div className="hidden h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent md:block " />
-
-                        <span
-                          className="cursor-pointer   "
-                          onClick={playonappleHandler}
-                        >
-                          <div className="m-4 h-6 w-6">
-                            {' '}
-                            <img src={AppleIcon}></img>
-                          </div>
-                          Get it on
-                          <div className=" text-sm font-bold md:text-lg  ">
-                            App Store
-                          </div>
-                        </span>
-                        <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
-
-                        <span
-                          className=" cursor-pointer   "
-                          onClick={playonsteamHandler}
-                        >
-                          <div className="m-4 h-6 w-6">
-                            {' '}
-                            <img src={steam}></img>
-                          </div>
-                          Get it on
-                          <br />
-                          <div className="flex flex-row text-sm font-bold md:text-lg">
-                            Steam
-                          </div>
-                        </span>
-                        <div className="block h-[5em] w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent " />
-
-                        <span
-                          className=" cursor-pointer   "
-                          onClick={getfromgoogleHandler}
-                        >
-                          <div className="m-4 h-6 w-6">
-                            {' '}
-                            <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173081/logo_1_ulmoss.webp"></img>
-                          </div>
-                          Get it on
-                          <br />
-                          <div className="flex flex-row text-sm font-bold md:text-lg">
-                            Google play
-                          </div>
-                        </span>
-                      </div>
-
-                      <div
-                        style={{ right: '25px' }}
-                        className="absolute -bottom-10 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]"
-                      >
-                        !
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> 
-              <img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_306549_inz0yy.webp" alt="Background" className="h-[165px] w-[350px] mt-6 hidden lg:block" />
-
-              </div> 
-             {/* <div className='lg:mt-[5rem]'>
-                  <DownloadSection/>
-                  </div>  */}
             </div>
+            <div className="absolute bottom-0 w-full ">
+               <MagicraftDownload/>
+             </div>
            
           </section>
           

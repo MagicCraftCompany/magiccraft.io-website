@@ -93,14 +93,14 @@ function PrivacyPolicy() {
                   Privacy Policy also covers our collection, use, and disclosure
                   of your information in connection with any communication
                   between you and MagicCraft, such as email correspondence,
-                  customer  support inquiries, or any other interactions related
+                  customer support inquiries, or any other interactions related
                   to the Game and Services.
                 </p>
                 <p className="leading-relaxed text-white/80">
                   his Privacy Policy does not apply to information collected
-                  by: a. MagicCraft through any other means, including on any
+                  by:a. MagicCraft through any other means, including on any
                   other website or application operated by MagicCraft or any
-                  third party (including our affiliates and subsidiaries); or b.
+                  third party (including our affiliates and subsidiaries); orb.
                   Any third party (including our affiliates and subsidiaries),
                   including through any application or content (including
                   advertising) that may link to or be accessible from or on our
@@ -115,7 +115,7 @@ function PrivacyPolicy() {
                   apply to your use of them. We encourage you to review the
                   privacy policies of any third-party websites, applications, or
                   services you may access or use to understand their data
-                  collection and use practices. 
+                  collection and use practices.
                 </p>
               </section>
 
@@ -130,13 +130,13 @@ function PrivacyPolicy() {
                 We collect various types of information from and about you when you access or use our Game and Services, which can be broadly categorized into personal information and non-personal information.
                 </p>
                 <p className="leading-relaxed text-white/80">
-                a. Personal Information: Personal information refers to any information that can be used to identify you as an individual, either directly or indirectly. Examples of personal information we may collect include, but are not limited to, your name, email address, username, password, date of birth, and any other information you choose to provide when creating an account, interacting with our customer support, or participating in promotions or surveys. 
+                a. Personal Information:Personal information refers to any information that can be used to identify you as an individual, either directly or indirectly. Examples of personal information we may collect include, but are not limited to, your name, email address, username, password, date of birth, and any other information you choose to provide when creating an account, interacting with our customer support, or participating in promotions or surveys.
                 </p>
                 <p className="leading-relaxed text-white/80">
-                b. Non-Personal Information: Non-personal information refers to any information that cannot be used to directly identify you as an individual. Examples of non-personal information we may collect include, but are not limited to, device information (such as device type, operating system, and unique device identifiers), usage data (such as game progress, scores, achievements, and user preferences), and information collected through cookies and other tracking technologies (such as IP addresses, browser types, and access times).
+                b. Non-Personal Information:Non-personal information refers to any information that cannot be used to directly identify you as an individual. Examples of non-personal information we may collect include, but are not limited to, device information (such as device type, operating system, and unique device identifiers), usage data (such as game progress, scores, achievements, and user preferences), and information collected through cookies and other tracking technologies (such as IP addresses, browser types, and access times).
                 </p>
                 <p className="leading-relaxed text-white/80">
-                c. Information from Third-Party Sources: We may also obtain information about you from third-party sources, such as social media platforms or other third-party services, when you choose to link or connect your MagicCraft account with those platforms or services. The information we receive from these third-party sources may include your name, username, profile picture, email address, and any other information you have made publicly available or have authorized the third party to share with us. We may combine this information with the personal and non-personal information we collect directly from you to help personalize and improve your experience with our Game and Services.                 
+                c. Information from Third-Party Sources:We may also obtain information about you from third-party sources, such as social media platforms or other third-party services, when you choose to link or connect your MagicCraft account with those platforms or services. The information we receive from these third-party sources may include your name, username, profile picture, email address, and any other information you have made publicly available or have authorized the third party to share with us. We may combine this information with the personal and non-personal information we collect directly from you to help personalize and improve your experience with our Game and Services.                
                 </p>
               </section>
 
@@ -147,16 +147,16 @@ function PrivacyPolicy() {
                   We collect information about you in various ways when you access or use our Game and Services, including:
                 </p>
                 <p className="leading-relaxed text-white/80">
-                  <strong>a. Information You Provide:</strong> We collect personal information that you voluntarily provide to us when you create an account, participate in promotions or surveys, interact with our customer support, or otherwise communicate with us. This may include information such as your name, email address, username, password, date of birth, and any other information you choose to provide. 
+                  <strong>a. Information You Provide:</strong> We collect personal information that you voluntarily provide to us when you create an account, participate in promotions or surveys, interact with our customer support, or otherwise communicate with us. This may include information such as your name, email address, username, password, date of birth, and any other information you choose to provide.
                 </p>
                 <p className="leading-relaxed text-white/80">
-                  <strong>b. Information Collected Automatically:</strong>When you access or use our Game and Services, we automatically collect certain non-personal information about your device, usage, and interactions with our Game and Services. This may include device information (such as device type, operating system, and unique device identifiers), usage data (such as game progress, scores, achievements, and user preferences), and information collected through cookies and other tracking technologies (such as IP addresses, browser types, and access times). 
+                  <strong>b. Information Collected Automatically:</strong>When you access or use our Game and Services, we automatically collect certain non-personal information about your device, usage, and interactions with our Game and Services. This may include device information (such as device type, operating system, and unique device identifiers), usage data (such as game progress, scores, achievements, and user preferences), and information collected through cookies and other tracking technologies (such as IP addresses, browser types, and access times).
                 </p>
                 <p className="leading-relaxed text-white/80">
-                  <strong>c. Cookies and Tracking Technologies:</strong> We use various tracking technologies, such as cookies, web beacons, and similar technologies, to collect information about your use of our Game and Services, to improve the user experience, and to personalize content and advertising. Cookies are small data files stored on your device that help us recognize you and remember your preferences. Web beacons (also known as pixel tags or clear GIFs) are small transparent images embedded in web pages, emails, or other communications that help us track your interactions with our Game and Services. You can control the use of cookies and similar technologies through your browser settings, but please note that some features of our Game and Services may not function properly if you disable cookies. 
+                  <strong>c. Cookies and Tracking Technologies:</strong> We use various tracking technologies, such as cookies, web beacons, and similar technologies, to collect information about your use of our Game and Services, to improve the user experience, and to personalize content and advertising. Cookies are small data files stored on your device that help us recognize you and remember your preferences. Web beacons (also known as pixel tags or clear GIFs) are small transparent images embedded in web pages, emails, or other communications that help us track your interactions with our Game and Services. You can control the use of cookies and similar technologies through your browser settings, but please note that some features of our Game and Services may not function properly if you disable cookies.
                 </p>
                 <p className="leading-relaxed text-white/80">
-                We may also work with third-party service providers, such as analytics and advertising partners, who use cookies and other tracking technologies to collect information about your use of our Game and Services and to provide personalized advertising based on your interests. Some of these third-party service providers may participate in industry frameworks, such as the Digital Advertising Alliance (DAA) and the Network Advertising Initiative (NAI), which provide tools for opting out of targeted advertising. To learn more about your options and how to opt-out, visit the DAA's website at www.aboutads.info/choices and the NAI's website atwww.networkadvertising.org/choices. 
+                We may also work with third-party service providers, such as analytics and advertising partners, who use cookies and other tracking technologies to collect information about your use of our Game and Services and to provide personalized advertising based on your interests. Some of these third-party service providers may participate in industry frameworks, such as the Digital Advertising Alliance (DAA) and the Network Advertising Initiative (NAI), which provide tools for opting out of targeted advertising. To learn more about your options and how to opt-out, visit the DAA's website at www.aboutads.info/choices and the NAI's website atwww.networkadvertising.org/choices.
                 </p>
               </section>
 
@@ -167,9 +167,9 @@ function PrivacyPolicy() {
                 We use the information we collect about you for various purposes, including to:                
                 </p>
                 <p className="leading-relaxed text-white/80">
-                a. Provide and maintain our Game and Services, including to create and manage your account, process in-game transactions, and respond to your inquiries and support requests;                 </p>
+                a. Provide and maintain our Game and Services, including to create and manage your account, process in-game transactions, and respond to your inquiries and support requests;                </p>
                 <p className="leading-relaxed text-white/80">
-                b. Improve, personalize, and enhance your experience with our Game and Services by understanding your preferences, customizing content and advertising, and providing you with relevant recommendations and offers;               
+                b. Improve, personalize, and enhance your experience with our Game and Services by understanding your preferences, customizing content and advertising, and providing you with relevant recommendations and offers;              
                 </p>
                 <p className="leading-relaxed text-white/80">
                 c. Monitor and analyze usage trends and user behavior to improve the performance, functionality, and security of our Game and Services;               
@@ -205,15 +205,15 @@ function PrivacyPolicy() {
               <section className="space-y-4">
                 <h2 className="text-xl font-semibold">6. Data Retention and Security</h2>
                 <p className="leading-relaxed text-white/80">
-                a. Data Retention:<br/> We retain your information for as long as necessary to fulfill the purposes for which it was collected, including to provide our Game and Services, comply with legal obligations, resolve disputes, and enforce our agreements. The specific retention period for your information may vary depending on the nature of the information and the purposes for which it was collected. When your information is no longer required for these purposes, we will securely delete or anonymize it in accordance with applicable laws and regulations.                
+                a. Data Retention:<br/>We retain your information for as long as necessary to fulfill the purposes for which it was collected, including to provide our Game and Services, comply with legal obligations, resolve disputes, and enforce our agreements. The specific retention period for your information may vary depending on the nature of the information and the purposes for which it was collected. When your information is no longer required for these purposes, we will securely delete or anonymize it in accordance with applicable laws and regulations.               
                  </p>
                  <p className="leading-relaxed text-white/80">
-                 b. Security:<br/> We take the security of your information seriously and have implemented appropriate technical and organizational measures to protect it from unauthorized access, disclosure, alteration, or destruction. These measures may include encryption, access controls, and other security technologies. However, please note that no method of transmission over the internet or method of electronic storage is 100% secure. While we strive to protect your information, we cannot guarantee its absolute security.                 </p>
+                 b. Security:<br/>We take the security of your information seriously and have implemented appropriate technical and organizational measures to protect it from unauthorized access, disclosure, alteration, or destruction. These measures may include encryption, access controls, and other security technologies. However, please note that no method of transmission over the internet or method of electronic storage is 100% secure. While we strive to protect your information, we cannot guarantee its absolute security.                 </p>
                  <p className="leading-relaxed text-white/80">
                  To help maintain the security of your account and personal information, we recommend that you use a strong and unique password, enable any available security features, such as two-factor authentication, and regularly update your account information. You should also be cautious when sharing your personal information with others, and avoid using public or unsecured networks when accessing our Game and Services.                 
                  </p>
                  <p className="leading-relaxed text-white/80">
-                 If you believe that your account or personal information has been compromised, please contact us immediately using the contact information provided at the end of this Privacy Policy.                 
+                 If you believe that your account or personal information has been compromised, please contact us immediately using the contact information provided at the end of this Privacy Policy.                
                   </p>
               </section>
 
@@ -221,14 +221,14 @@ function PrivacyPolicy() {
               <section className="space-y-4">
                 <h2 className="text-xl font-semibold">7. Your Rights and Choices</h2>
                 <p className="leading-relaxed text-white/80">
-                As a user of our Game and Services, you have certain rights and choices regarding your information and how it is used. These rights and choices may vary depending on your jurisdiction and applicable data protection laws. They may include the following:                 </p>
+                As a user of our Game and Services, you have certain rights and choices regarding your information and how it is used. These rights and choices may vary depending on your jurisdiction and applicable data protection laws. They may include the following:                </p>
                 <p className="leading-relaxed text-white/80">
-                a. Access, Update, or Delete Your Information: You have the right to access, update, or request the deletion of your personal information at any time. You can manage and update your account information through the settings in our Game or by contacting our customer support. If you wish to delete your account, please note that some information may be retained for a certain period to comply with legal obligations, resolve disputes, enforce our agreements, or for other legitimate purposes.                
+                a. Access, Update, or Delete Your Information:You have the right to access, update, or request the deletion of your personal information at any time. You can manage and update your account information through the settings in our Game or by contacting our customer support. If you wish to delete your account, please note that some information may be retained for a certain period to comply with legal obligations, resolve disputes, enforce our agreements, or for other legitimate purposes.                
                 </p>
                 <p className="leading-relaxed text-white/80">
-                b. Opt-Out of Targeted Advertising: You may opt-out of targeted advertising by adjusting your device settings, such as turning off ad tracking or resetting your advertising identifier. Additionally, you can opt-out of targeted advertising from certain third-party service providers who participate in industry frameworks, such as the Digital Advertising Alliance (DAA) and the Network Advertising Initiative (NAI), by visiting their respective websites at www.aboutads.info/choices andwww.networkadvertising.org/choices.                 </p>
+                b. Opt-Out of Targeted Advertising:You may opt-out of targeted advertising by adjusting your device settings, such as turning off ad tracking or resetting your advertising identifier. Additionally, you can opt-out of targeted advertising from certain third-party service providers who participate in industry frameworks, such as the Digital Advertising Alliance (DAA) and the Network Advertising Initiative (NAI), by visiting their respective websites at www.aboutads.info/choices andwww.networkadvertising.org/choices.                </p>
                 <p className="leading-relaxed text-white/80">
-                c. Do Not Track: Some browsers offer a "Do Not Track" (DNT) feature that allows you to express your preference not to be tracked across websites. Since there is no common understanding of how to interpret DNT signals, we currently do not respond to them. However, you can still exercise control over your information and opt-out of targeted advertising as described above.                </p>
+                c. Do Not Track:Some browsers offer a "Do Not Track" (DNT) feature that allows you to express your preference not to be tracked across websites. Since there is no common understanding of how to interpret DNT signals, we currently do not respond to them. However, you can still exercise control over your information and opt-out of targeted advertising as described above.                </p>
 
                 <p className="leading-relaxed text-white/80">
                 If you are located in certain jurisdictions, such as the European Union or California, you may have additional rights under applicable data protection laws, such as the right to data portability, the right to restrict or object to the processing of your personal information, and the right to lodge a complaint with a supervisory authority. To exercise these rights or make a request related to your information, please contact us using the contact information provided at the end of this Privacy Policy.                </p>
@@ -254,7 +254,7 @@ function PrivacyPolicy() {
                 <p className="leading-relaxed text-white/80">
                 We take appropriate measures to ensure that your information is treated securely and in accordance with this Privacy Policy, regardless of where it is processed. These measures may include the use of contractual clauses, such as the Standard Contractual Clauses approved by the European Commission, to protect the transfer of your information to countries outside the European Economic Area.                </p>
                 <p className="leading-relaxed text-white/80">
-                By accessing or using our Game and Services, you consent to the transfer, storage, and processing of your information in countries outside your country of residence, as described in this Privacy Policy. If you do not agree with these international data transfers and processing, you should not access or use our Game and Services.                 </p>
+                By accessing or using our Game and Services, you consent to the transfer, storage, and processing of your information in countries outside your country of residence, as described in this Privacy Policy. If you do not agree with these international data transfers and processing, you should not access or use our Game and Services.                </p>
               </section>
 
               {/* Section 10 */}
@@ -272,9 +272,9 @@ function PrivacyPolicy() {
                 <p className="leading-relaxed text-white/80">
                 We may update this Privacy Policy from time to time to reflect changes in our practices, the Game and Services, or applicable laws and regulations. When we make changes to this Privacy Policy, we will revise the "Last Updated" date at the top of this policy and post the updated version on our website and within our Game, as applicable. We may also notify you of significant changes through other means, such as by sending an email or displaying a notice within our Game and Services.                </p>
                 <p className="leading-relaxed text-white/80">
-                Your continued access or use of our Game and Services after any changes to this Privacy Policy have been posted constitutes your acceptance of those changes. If you do not agree with any changes to this Privacy Policy, you should discontinue your access or use of our Game and Services.                 </p>
+                Your continued access or use of our Game and Services after any changes to this Privacy Policy have been posted constitutes your acceptance of those changes. If you do not agree with any changes to this Privacy Policy, you should discontinue your access or use of our Game and Services.                </p>
                 <p className="leading-relaxed text-white/80">
-                We encourage you to review this Privacy Policy periodically to stay informed about our privacy practices and how we protect your information. If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us using the contact information provided at the end of this Privacy Policy.                 </p>
+                We encourage you to review this Privacy Policy periodically to stay informed about our privacy practices and how we protect your information. If you have any questions or concerns about this Privacy Policy or our privacy practices, please contact us using the contact information provided at the end of this Privacy Policy.                </p>
               </section>
 
               {/* Section 12 */}

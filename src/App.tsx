@@ -19,6 +19,7 @@ import Verify from './pages/Verify'
 import LeaderboardPage from './pages/LeaderBoard'
 import HoldersPage from './pages/TopHolders'
 import Dashboard from './pages/Dashboard'
+import GameDeveloper from './pages/GameDeveloper'
 function App() {
   return (
     <BrowserRouter>
@@ -33,7 +34,7 @@ function App() {
         <Route path="/patch" element={<GamePatch />}></Route>
         <Route path="/studios" element={<Studios />}></Route>
         <Route path="/news" element={<NewsPage />}></Route>
-
+        <Route path="/game-developer" element={<GameDeveloper />}></Route>
         <Route path="/server" element={<Server />}></Route>
         <Route path="/terms" element={<TermsAndConditions />}></Route>
         <Route path="/privacypolicy" element={<PrivacyPolicy />}></Route>
