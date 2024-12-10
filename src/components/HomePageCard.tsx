@@ -278,7 +278,7 @@ export default function MagicraftDownload() {
   ]
 
   return (
-    <div className="flex flex-row gap-2 items-center justify-center lg:mb-4">
+    <div className="flex flex-row gap-2 items-center justify-center lg:mb-4 lg:mx-40">
       <div className="relative mx-auto lg:mx-0 w-full max-w-4xl lg:mt-[25px]">
         <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[1px]">
           <div className="relative overflow-hidden rounded-[20px] bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
@@ -320,7 +320,7 @@ export default function MagicraftDownload() {
             >
               !
             </div>
-          <div className="my-2 lg:mx-10 mx-2 flex justify-center gap-6 rounded-[10px] border-[1px] border-[#B591F2] border-solid bg-gradient-to-r from-[#6D3190] to-[#642588] py-2 ">
+          <div className="my-2 lg:mx-10 lg:px-2 mx-2 flex justify-center gap-6 rounded-[10px] border-[1px] border-[#B591F2] border-solid bg-gradient-to-r from-[#6D3190] to-[#642588] py-2 ">
           {socialLinks.map((social) => (
             <a
               key={social.name}
@@ -354,13 +354,13 @@ export default function MagicraftDownload() {
       <img
         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_307723_m3crb2.webp"
         alt="Meme Characters"
-        className="mt-7 hidden h-[167px] w-[350px] lg:block"
+        className="mt-7 hidden h-[167px] xl:w-[350px] lg:w-[270px]  lg:block"
       />
 
       <img
         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_306549_inz0yy.webp"
         alt="Updates"
-        className="mt-6 hidden h-[165px] w-[350px] lg:block"
+        className="mt-6 hidden h-[165px] xl:w-[350px] lg:w-[270px]  lg:block"
       />
     </div>
   )
