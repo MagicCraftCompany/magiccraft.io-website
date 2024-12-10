@@ -10,7 +10,7 @@ import {
   FaTiktok,
   FaYoutube,
 } from 'react-icons/fa6'
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom' // Import useNavigate
 
 const socialLinks = [
   {
@@ -124,9 +124,8 @@ const moreLinks = [
   },
 ]
 
-
 const Footer = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate()
   return (
     <footer className="text-primary relative z-10  py-10 lg:ml-[12em] ">
       <div className="mx-auto flex w-11/12 max-w-[1650px] flex-col-reverse justify-between gap-10 lg:flex-row">
@@ -142,7 +141,7 @@ const Footer = () => {
             className="absolute right-[7em] -mt-10    cursor-pointer"
           />
         </button> */}
-        <div className="lg:ml-10 flex w-full flex-col lg:w-1/2 ">
+        <div className="flex w-full flex-col lg:ml-10 lg:w-1/2 ">
           <div>
             <img
               src={magiccraftLogo}
@@ -154,11 +153,22 @@ const Footer = () => {
             <p className="text-md text-white/60">
               &copy; 2021-2024 MagicCraft Ltd. All rights reserved
             </p>
-            <ul className="flex flex-row space-x-6 text-md text-[#98FFF9]">
-              
-            <li onClick={() => navigate('/privacypolicy')} className="cursor-pointer">Privacy Policy</li>
-                  <li onClick={() => navigate('/terms')} className="cursor-pointer">Terms and Conditions</li>
-                  <li onClick={() => navigate('/disclaimer')} className="cursor-pointer">Disclaimer</li>
+            <ul className="text-md flex flex-row space-x-6 text-[#98FFF9]">
+              <li
+                onClick={() => navigate('/privacypolicy')}
+                className="cursor-pointer"
+              >
+                Privacy Policy
+              </li>
+              <li onClick={() => navigate('/terms')} className="cursor-pointer">
+                Terms and Conditions
+              </li>
+              <li
+                onClick={() => navigate('/disclaimer')}
+                className="cursor-pointer"
+              >
+                Disclaimer
+              </li>
             </ul>
 
             <p className="text-md text-white/60">
@@ -180,7 +190,7 @@ const Footer = () => {
         <div className="grid w-full grid-cols-2 gap-10 md:grid-cols-3  lg:w-1/2 ">
           <div className="w-full space-y-7 ">
             <h5 className="text-2xl text-white/60">Game</h5>
-            <ul className="space-y-[14px] text-md text-[#98FFF9]">
+            <ul className="text-md space-y-[14px] text-[#98FFF9]">
               {gameLinks.map((item, i) => {
                 return (
                   <li key={i}>
@@ -192,16 +202,16 @@ const Footer = () => {
                       <a
                         onClick={() => {
                           if (item.link.startsWith('/#')) {
-                            const targetId = item.link.slice(2); // Remove '/#'
-                            navigate('/'); // Navigate to homepage
+                            const targetId = item.link.slice(2) // Remove '/#'
+                            navigate('/') // Navigate to homepage
                             setTimeout(() => {
-                              const element = document.getElementById(targetId);
+                              const element = document.getElementById(targetId)
                               if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' });
+                                element.scrollIntoView({ behavior: 'smooth' })
                               }
-                            }, 0); // Delay to ensure navigation happens first
+                            }, 0) // Delay to ensure navigation happens first
                           } else {
-                            navigate(item.link); // Use useNavigate for routes
+                            navigate(item.link) // Use useNavigate for routes
                           }
                         }}
                         className="cursor-pointer"
@@ -214,9 +224,9 @@ const Footer = () => {
               })}
             </ul>
           </div>
-          <div className="w-full space-y-7 block lg:hidden ">
+          <div className="block w-full space-y-7 lg:hidden ">
             <h5 className="text-2xl text-white/60">Token</h5>
-            <ul className="space-y-[14px] text-md text-[#98FFF9]">
+            <ul className="text-md space-y-[14px] text-[#98FFF9]">
               {tokenLinks.map((item, i) => {
                 return (
                   <li key={i}>
@@ -226,24 +236,24 @@ const Footer = () => {
                       </a>
                     ) : (
                       <a
-                      onClick={() => {
-                        if (item.link.startsWith('/#')) {
-                          const targetId = item.link.slice(2); // Remove '/#'
-                          navigate('/'); // Navigate to homepage
-                          setTimeout(() => {
-                            const element = document.getElementById(targetId);
-                            if (element) {
-                              element.scrollIntoView({ behavior: 'smooth' });
-                            }
-                          }, 0); // Delay to ensure navigation happens first
-                        } else {
-                          navigate(item.link); // Use useNavigate for routes
-                        }
-                      }}
-                      className="cursor-pointer"
-                    >
-                      {item.title}
-                    </a>
+                        onClick={() => {
+                          if (item.link.startsWith('/#')) {
+                            const targetId = item.link.slice(2) // Remove '/#'
+                            navigate('/') // Navigate to homepage
+                            setTimeout(() => {
+                              const element = document.getElementById(targetId)
+                              if (element) {
+                                element.scrollIntoView({ behavior: 'smooth' })
+                              }
+                            }, 0) // Delay to ensure navigation happens first
+                          } else {
+                            navigate(item.link) // Use useNavigate for routes
+                          }
+                        }}
+                        className="cursor-pointer"
+                      >
+                        {item.title}
+                      </a>
                     )}
                   </li>
                 )

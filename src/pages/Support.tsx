@@ -71,7 +71,7 @@ export default function FAQ() {
 
                 <Tabs >
                   <Tab
-                    id="Web3 Slay-to-Earn Mode"
+                    id="FAQ"
                     label="FAQ"
                     icon={web3}
                     iconActive={web}

@@ -61,7 +61,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     ],
   },
   {
-      title: 'Services',
+      title: 'DApps',
       icon: service,
       submenu: [
         {
@@ -118,7 +118,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         {
           title: 'Contact Us',
           icon: './icons/icon-contact.svg',
-          path: '/faq?contact=true',
+          path: 'https://magiccraft.io/contact-us',
         },
         
         

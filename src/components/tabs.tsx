@@ -1,4 +1,4 @@
-import React, { useState, ReactNode, MouseEvent } from 'react';
+import React, { useState, ReactNode, MouseEvent, Dispatch, SetStateAction } from 'react';
 
 type TabProps = {
   id?: string;
@@ -8,6 +8,7 @@ type TabProps = {
   icon?: string;
   iconActive?: string;
   type?: string;
+  
 };
 
 const Tab = ({label, icon, children, type }: TabProps) => {
@@ -24,6 +25,8 @@ type TabsProps = {
   children: ReactNode[];
   className?: string;
   type?: string;
+  activeTab?: string; // Add activeTab as an optional prop
+  onTabChange?: Dispatch<SetStateAction<string>>;
 };
 
 const Tabs = ({ children, type }: TabsProps) => {
