@@ -93,7 +93,7 @@ export default function MagicraftDownload() {
   ]
 
   return (
-    <div className="flex flex-row gap-2 items-center justify-center lg:mb-4 lg:mx-40">
+    <div className="flex flex-row gap-2 items-center justify-center lg:mb-4 lg:mx-40 mx-4">
       <div className="relative mx-auto lg:mx-0 w-full max-w-4xl lg:mt-[25px]">
         <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[1px]">
           <div className="relative overflow-hidden rounded-[20px] bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
@@ -130,12 +130,12 @@ export default function MagicraftDownload() {
             </div>
 
             <div
-              className="absolute -bottom-10 right-[25px] select-none bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]"
+              className="absolute -bottom-10 right-[25px] select-none bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px] hidden lg:block"
               style={{ right: "25px" }}
             >
               !
             </div>
-          <div className="my-2 lg:mx-10 lg:px-2 mx-2 flex justify-center gap-6 rounded-[10px] border-[1px] border-[#B591F2] border-solid bg-gradient-to-r from-[#6D3190] to-[#642588] py-2 ">
+          <div className="my-2 lg:mx-10 lg:px-2 mx-2 flex justify-center gap-4 lg:gap-6 rounded-[10px] border-[1px] border-[#B591F2] border-solid bg-gradient-to-r from-[#6D3190] to-[#642588] py-2 ">
           {socialLinks.map((social) => (
             <a
               key={social.name}
