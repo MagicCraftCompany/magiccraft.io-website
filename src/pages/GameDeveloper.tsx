@@ -53,7 +53,7 @@ function GameDeveloper() {
 
       {/* Main Content Section */}
       <div>
-      <div className="-mt-20 flex justify-center">
+      <div className="md:-mt-20 flex justify-center">
       <section className="z-10 flex h-full max-w-[100em] flex-col gap-[30px] rounded-[30px] bg-[#11113A] p-6 lg:p-10">
         <div className="mx-auto max-w-7xl">
           <h2 className="mb-12 text-center text-3xl font-bold font-serif">WHY DEVELOP FOR MAGICCRAFT?</h2>
