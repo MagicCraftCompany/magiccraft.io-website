@@ -47,9 +47,9 @@ function GameDeveloper() {
             <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black hover:bg-[#98FFF9]/90">
               Apply
             </button>
-            <button className="rounded-md border-[1px] border-solid border-[#98FFF9]  px-4 py-2 text-[#98FFF9]">
+            {/* <button className="rounded-md border-[1px] border-solid border-[#98FFF9]  px-4 py-2 text-[#98FFF9]">
               More Info
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
