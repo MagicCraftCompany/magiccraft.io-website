@@ -57,11 +57,16 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717662849/Screenshot_2024-01-05_at_15.03_1_x8sbyh.png',
         path: '/magic8ball',
       },
+      {
+        title: 'Build on MagicCraft',
+        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
+        path: '/game-developer',
+      },
      
     ],
   },
   {
-      title: 'DApps',
+      title: 'Dapp',
       icon: service,
       submenu: [
         {
