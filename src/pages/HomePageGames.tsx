@@ -772,7 +772,9 @@ function Homepagegames() {
                 </div>
               </div>
             </section> */}
+            <section id="contact-us">
             <ContactForm />
+            </section>
           </div>
         </main>
         <Suspense fallback={<div>Loading...</div>}>

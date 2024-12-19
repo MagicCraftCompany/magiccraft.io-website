@@ -834,7 +834,7 @@ function Homepagemcrt() {
           </div>
           {/*our team ended */}
 
-          <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 md:space-y-20 min-h-screen">
+          <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 md:space-y-20 min-h-screen" id="partner">
             <div className="space-y-8">
               <h3 className="mt-8 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text pt-4 text-center font-serif text-4xl text-transparent drop-shadow-xl">
                 $MCRT lISTED ON

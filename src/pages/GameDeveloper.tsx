@@ -34,7 +34,7 @@ function GameDeveloper() {
         {/* Overlay Title */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
           <h1 className="text-center font-serif text-4xl font-bold md:text-5xl lg:-mt-[10rem]">
-            built on magiccraft <br/> and earn $MCRT
+            build on magiccraft <br/> and earn $MCRT
           </h1>
           <p className="mx-auto max-w-3xl text-center text-lg text-gray-200">
             MagicCraft’s ecosystem empowers external developers to integrate

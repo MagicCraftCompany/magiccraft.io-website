@@ -51,24 +51,24 @@ const socialLinks = [
   },
 ]
 
-const gameLinks = [
-  {
-    title: 'Story',
-    link: 'https://magiccraft.io/story',
-  },
-  {
-    title: 'Gallery',
-    link: 'https://magiccraft.io/#gallery',
-  },
-  {
-    title: 'Studios',
-    link: 'https://magiccraft.io/studios',
-  },
-  {
-    title: 'Team',
-    link: '/#team',
-  },
-]
+// const gameLinks = [
+//   {
+//     title: 'Story',
+//     link: 'https://magiccraft.io/story',
+//   },
+//   {
+//     title: 'Gallery',
+//     link: 'https://magiccraft.io/#gallery',
+//   },
+//   {
+//     title: 'Studios',
+//     link: 'https://magiccraft.io/studios',
+//   },
+//   {
+//     title: 'Team',
+//     link: '/#team',
+//   },
+// ]
 
 const tokenLinks = [
   {
@@ -80,47 +80,64 @@ const tokenLinks = [
     link: 'https://app.magiccraft.io/marketplace/explorer',
   },
   {
-    title: 'MCRT Token',
-    link: 'https://magiccraft.io/mcrt-token',
+    title: 'Become a partner',
+    link: '/#partner',
   },
-  {
-    title: 'Tokenomics',
-    link: 'https://magiccraft.io/mcrt-token#tokenomics',
-  },
+  // {
+  //   title: 'MCRT Token',
+  //   link: 'https://magiccraft.io/mcrt-token',
+  // },
+  // {
+  //   title: 'Tokenomics',
+  //   link: 'https://magiccraft.io/mcrt-token#tokenomics',
+  // },
   {
     title: 'Roadmap',
     link: '/#roadmap',
   },
+  // {
+  //   title: 'Whitepaper',
+  //   link: 'https://docs.magiccraft.io/',
+  // },
   {
-    title: 'Whitepaper',
-    link: 'https://docs.magiccraft.io/',
+    title: 'Team',
+    link: '/#team',
   },
+   
 ]
 
 const moreLinks = [
-  {
-    title: 'Careers',
-    link: 'https://magiccraft.io/careers',
-  },
+  // {
+  //   title: 'Careers',
+  //   link: 'https://magiccraft.io/careers',
+  // },
   {
     title: 'FAQ',
     link: '/faq',
   },
-  {
-    title: 'Become a partner',
-    link: 'https://magiccraft.io/partnership',
-  },
-  {
-    title: 'Contact us',
-    link: 'https://magiccraft.io/contact-us',
-  },
+  // {
+  //   title: 'Become a partner',
+  //   link: '/#partner',
+  // },
+  // {
+  //   title: 'Contact us',
+  //   link: 'https://magiccraft.io/contact-us',
+  // },
   {
     title: 'Verify',
     link: 'https://app.magiccraft.io/verify',
   },
   {
     title: '$MCRT',
-    link: 'https://magiccraft.io/mcrt-token',
+    link: '/magiccraft',
+  },
+  // {
+  //   title: 'Team',
+  //   link: '/#team',
+  // },
+  {
+    title: 'Whitepaper',
+    link: 'https://docs.magiccraft.io/',
   },
 ]
 
@@ -188,9 +205,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="grid w-full grid-cols-2 gap-10 md:grid-cols-3  lg:w-1/2 ">
-          <div className="w-full space-y-7 ">
-            <h5 className="text-2xl text-white/60">Game</h5>
-            <ul className="text-md space-y-[14px] text-[#98FFF9]">
+          {/* <div className="w-full space-y-7 "> */}
+            {/* <h5 className="text-2xl text-white/60">Game</h5> */}
+            {/* <ul className="text-md space-y-[14px] text-[#98FFF9]">
               {gameLinks.map((item, i) => {
                 return (
                   <li key={i}>
@@ -222,9 +239,9 @@ const Footer = () => {
                   </li>
                 )
               })}
-            </ul>
-          </div>
-          <div className="block w-full space-y-7 lg:hidden ">
+            </ul> */}
+          {/* </div> */}
+          <div className="block w-full space-y-7  ">
             <h5 className="text-2xl text-white/60">Token</h5>
             <ul className="text-md space-y-[14px] text-[#98FFF9]">
               {tokenLinks.map((item, i) => {
@@ -266,9 +283,21 @@ const Footer = () => {
               {moreLinks.map((item, i) => {
                 return (
                   <li key={i}>
-                    <a href={item.link} rel="noreferrer noopener">
-                      {item.title}
-                    </a>
+                    {item.link.startsWith('http') ? (
+                      <a href={item.link} rel="noreferrer noopener">
+                        {item.title}
+                      </a>
+                    ) : (
+                      <a
+                        onClick={() => {
+                          window.scrollTo(0, 0); // Scroll to top
+                          navigate(item.link) // Use useNavigate for routes
+                        }}
+                        className="cursor-pointer"
+                      >
+                        {item.title}
+                      </a>
+                    )}
                   </li>
                 )
               })}
