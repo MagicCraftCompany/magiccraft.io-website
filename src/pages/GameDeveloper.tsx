@@ -36,7 +36,7 @@ function GameDeveloper() {
           <h1 className="text-center font-serif text-4xl font-bold md:text-5xl lg:-mt-[10rem]">
             build on magiccraft <br/> and earn $MCRT
           </h1>
-          <p className="mx-auto max-w-3xl text-center text-lg text-gray-200">
+          <p className="lg:mx-auto max-w-3xl text-center text-lg text-gray-200 mx-6">
             MagicCraft’s ecosystem empowers external developers to integrate
             their games seamlessly, embed MCRT as a universal currency, and
             leverage open-source character rigs to create and sell custom skins
@@ -44,9 +44,9 @@ function GameDeveloper() {
             infrastructure, and intuitive development tools.{' '}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            {/* <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black hover:bg-[#98FFF9]/90">
+            <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black hover:bg-[#98FFF9]/90">
               Apply
-            </button> */}
+            </button>
             {/* <button className="rounded-md border-[1px] border-solid border-[#98FFF9]  px-4 py-2 text-[#98FFF9]">
               More Info
             </button> */}
@@ -63,7 +63,7 @@ function GameDeveloper() {
           <img
             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734081590/Desktop_-_33_dqmuzd.webp"
             alt="MagicCraft Dashboard"
-            className="z-10 mx-auto lg:mt-8 w-full max-w-5xl rounded-lg shadow-lg -mt-[2rem]"
+            className="z-10 mx-auto lg:mt-8 w-full max-w-5xl rounded-lg shadow-lg "
           />
           <section className="z-20 mx-auto flex h-full max-w-6xl  flex-col gap-[30px] rounded-[30px] bg-[#11113A] p-6 lg:p-10 lg:-mt-[20rem] -mt-[6rem]">
             <div className="">
@@ -223,9 +223,9 @@ function GameDeveloper() {
               </div>
             </div>
             <div className="mt-12 flex justify-center">
-              {/* <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black">
+              <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black">
                 Apply
-              </button> */}
+              </button>
             </div>
           </div>
         </section>

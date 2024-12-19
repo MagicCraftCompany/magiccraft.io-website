@@ -4,7 +4,7 @@ export default function OpenSourceFeatures() {
       <div className="mx-auto max-w-5xl space-y-10">
         {/* Character Skins Section */}
         <section className="grid items-center gap-8 lg:grid-cols-2">
-          <div className="space-y-6">
+          <div className="space-y-6 ">
             <h2 className="font-serif text-4xl font-bold tracking-tight md:text-5xl">
               OPEN-SOURCE CHARACTER SKINS
             </h2>
@@ -35,15 +35,15 @@ export default function OpenSourceFeatures() {
         </section>
 
         {/* Maps Section */}
-        <section className="grid items-center gap-8 lg:grid-cols-2">
+        <section className="grid items-center gap-8 lg:grid-cols-2 ">
           <div className="relative order-2 lg:order-1  ">
             <img
               src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734081705/Frame_427319616_1_n2cjgn.webp"
               alt="Game map examples showing fantasy environments"
-              className="rounded-lg object-contain"
+              className="rounded-lg object-contain "
             />
           </div>
-          <div className="order-1 space-y-4 lg:order-2 ">
+          <div className="order-1 space-y-4 lg:order-2 mt-10 lg:mt-0">
             <h2 className="font-serif text-4xl font-bold tracking-tight md:text-5xl">
               OPEN-SOURCE MAPS
             </h2>
