@@ -44,9 +44,9 @@ function GameDeveloper() {
             infrastructure, and intuitive development tools.{' '}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black hover:bg-[#98FFF9]/90">
+            {/* <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black hover:bg-[#98FFF9]/90">
               Apply
-            </button>
+            </button> */}
             {/* <button className="rounded-md border-[1px] border-solid border-[#98FFF9]  px-4 py-2 text-[#98FFF9]">
               More Info
             </button> */}
@@ -81,7 +81,7 @@ function GameDeveloper() {
               <div className="grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-5">
                 <div className="rounded-2xl border-none bg-[#0C0C29] p-6">
                   <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733828313/dvv1lpzscaletrxiu1dg.webp"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734609216/puzzle-game_jblc7w.svg"
                     alt="Harness the Power of Blockchain"
                     className="mb-4 h-12 w-12 text-[#98FFF9]"
                   />
@@ -93,10 +93,10 @@ function GameDeveloper() {
                     Instant APIs for cross-game asset compatibility{' '}
                   </p>
                 </div>
-                <div className="rounded-2xl border-none bg-[#0C0C29] p-6">
+                <div className="rounded-2xl border-none bg-[#0C0C29]  p-6">
                   <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1723292313/MCRT_1_v1uc4l.png"
-                    className="mb-4 h-12 w-12 text-[#98FFF9]"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734609258/casino-chip_vfljxv.svg"
+                    className="mb-4 h-12 w-12 "
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
                     MCRT Currency
@@ -107,10 +107,10 @@ function GameDeveloper() {
                     A stable, on-chain token for frictionless transactions{' '}
                   </p>
                 </div>
-                <div className="rounded-2xl border-none bg-[#0C0C29] p-6">
+                <div className="rounded-2xl border-none bg-[#0C0C29]  p-6">
                   <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734081590/iiwslnksylnirwasf4gr.webp"
-                    className="mb-4 h-12 w-12 text-[#98FFF9]"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734609258/fencing_pbxw3x.svg"
+                    className="mb-4 h-12 w-12 "
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
                     Open-Source Characters
@@ -124,7 +124,7 @@ function GameDeveloper() {
                 </div>
                 <div className="rounded-2xl border-none bg-[#0C0C29] p-6">
                   <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734081590/dgqgg0zcofcywbqc2knj.webp"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734609216/arcade-machine_j9m9js.svg"
                     className="mb-4 h-12 w-12 text-[#98FFF9]"
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
@@ -139,7 +139,7 @@ function GameDeveloper() {
                 </div>
                 <div className="rounded-2xl border-none bg-[#0C0C29] p-6">
                   <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733828313/%EF%B8%8F_ozszok.webp"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734609216/book_tqtxpl.svg"
                     className="mb-4 h-12 w-12 text-[#98FFF9]"
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
@@ -223,9 +223,9 @@ function GameDeveloper() {
               </div>
             </div>
             <div className="mt-12 flex justify-center">
-              <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black">
+              {/* <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black">
                 Apply
-              </button>
+              </button> */}
             </div>
           </div>
         </section>
