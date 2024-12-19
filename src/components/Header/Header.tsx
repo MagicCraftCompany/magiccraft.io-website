@@ -120,11 +120,11 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
           icon: './icons/icon-faq.svg',
           path: '/faq',
         },
-        {
-          title: 'Contact Us',
-          icon: './icons/icon-contact.svg',
-          path: 'https://magiccraft.io/contact-us',
-        },
+        // {
+        //   title: 'Contact Us',
+        //   icon: './icons/icon-contact.svg',
+        //   path: 'https://magiccraft.io/contact-us',
+        // },
         
         
       ],

@@ -42,7 +42,7 @@ function Homepagegames() {
     navigate('/magic8ball')
   }
   const contactTeamhandleClick = () => {
-    navigate('/faq?contact=true')
+    window.location.hash = 'contact';
   }
 
   const filteredGames = gamesData.filter(
@@ -772,7 +772,7 @@ function Homepagegames() {
                 </div>
               </div>
             </section> */}
-            <section id="contact-us">
+            <section id="contact">
             <ContactForm />
             </section>
           </div>
