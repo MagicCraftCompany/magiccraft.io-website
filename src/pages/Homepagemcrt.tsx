@@ -1,11 +1,11 @@
 import { useCallback, useEffect, useState } from 'react'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
-import left from '@/assets/icons/left-preview.svg'
-import right from '@/assets/icons/right-preview.svg'
+// import left from '@/assets/icons/left-preview.svg'
+// import right from '@/assets/icons/right-preview.svg'
 
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
-import 'swiper/css'
+// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+// import 'swiper/css'
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
 import pc from '@/assets/icons/icon-pc.svg'
@@ -18,12 +18,12 @@ import { otherpartners } from '@/data/otherpartners'
 import partners from '@/data/partners'
 import { ourteam } from '@/components/Team/ourTeam'
 
-import { Swiper, SwiperSlide } from 'swiper/react'
+// import { Swiper, SwiperSlide } from 'swiper/react'
 import { Tabs, Tab } from '@/components/tabs'
-import frame1 from '@/assets/icons/Frame (1).svg'
-import frame2 from '@/assets/icons/Frame (2).svg'
-import frame3 from '@/assets/icons/Frame (3).svg'
-import frame4 from '@/assets/icons/Frame (4).svg'
+// import frame1 from '@/assets/icons/Frame (1).svg'
+// import frame2 from '@/assets/icons/Frame (2).svg'
+// import frame3 from '@/assets/icons/Frame (3).svg'
+// import frame4 from '@/assets/icons/Frame (4).svg'
 import React from 'react'
 // import { useNavigate } from 'react-router-dom'
 import { LiaTelegramPlane } from 'react-icons/lia'
@@ -32,6 +32,7 @@ import GameCard from '@/components/ui/GameCard'
 import { Game, gamesData } from '@/data/game'
 import { ArrowUpRight } from 'lucide-react'
 import MagicraftDownload from '@/components/HomePageCard'
+import Testimonial from '@/components/ui/testimonial'
 // import DownloadSection from '@/components/HomePageCard'
 
 
@@ -155,7 +156,7 @@ function Homepagemcrt() {
           
           {/*register now */}
 
-          <section className="relative flex  flex-col items-center justify-center bg-[#020418] p-4 md:py-5 md:flex-row  ">
+          <section className="relative flex  flex-col items-center justify-center lg:h-[500px] h-[700px] bg-[#020418] p-4 md:py-2 md:flex-row  ">
             <div className="grid w-full max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-4">
               <div className="mx-auto flex w-full max-w-[400px] flex-col items-center justify-center space-y-6 md:mx-0 md:max-w-none md:items-start">
                 <div className="space-y-2 text-center md:text-left">
@@ -183,7 +184,7 @@ function Homepagemcrt() {
                   </button>
                 </div>
               </div>
-              <div className="relative mx-auto w-full max-w-[400px] p-4 md:mx-0 md:max-w-[538px] md:p-10">
+              {/* <div className="relative mx-auto w-full max-w-[400px] p-4 md:mx-0 md:max-w-[538px] md:p-10">
                 <Swiper
                   id="1"
                   className="md:w-full "
@@ -292,7 +293,8 @@ function Homepagemcrt() {
                     className="cursor-pointer"
                   />
                 </button>
-              </div>
+              </div> */}
+              <Testimonial/>
             </div>
           </section>
          <section id="gameplay">
