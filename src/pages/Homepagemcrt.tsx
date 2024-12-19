@@ -635,14 +635,17 @@ function Homepagemcrt() {
                     </div>
                   ))}
                 </div>
-                <div className=" grid grid-cols-5 gap-4 overflow-x-auto md:grid-cols-2  lg:hidden lg:grid-cols-3 xl:grid-cols-5">
-                  <div className="flex flex-nowrap">
-                    {filteredGames.map((game: Game) => (
-                      <div key={game.id} className="mx-4 min-w-[160px] flex-1 ">
-                        <GameCard game={game} />
-                      </div>
-                    ))}
+                <div className="relative overflow-x-auto md:grid-cols-2 lg:hidden lg:grid-cols-3 xl:grid-cols-5">
+                  <div className="grid grid-cols-5 gap-4">
+                    <div className="flex flex-nowrap">
+                      {filteredGames.map((game: Game) => (
+                        <div key={game.id} className="mx-4 min-w-[160px] flex-1 ">
+                          <GameCard game={game} />
+                        </div>
+                      ))}
+                    </div>
                   </div>
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent to-white/20" />
                 </div>
               </div>
           </section>

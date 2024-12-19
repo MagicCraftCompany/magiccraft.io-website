@@ -138,11 +138,11 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
           icon: './icons/icon-pancakeswap.svg',
           path: 'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f ',
         },
-        {
-          title: 'Bybit',
-          icon: './icons/icon-bybit.svg',
-          path: 'https://www.bybit.com/en-US/trade/spot/MCRT/USDT',
-        },
+        // {
+        //   title: 'Bybit',
+        //   icon: './icons/icon-bybit.svg',
+        //   path: 'https://www.bybit.com/en-US/trade/spot/MCRT/USDT',
+        // },
         {
           title: 'Huobi Global',
           icon: './icons/icon-huobi.svg',
