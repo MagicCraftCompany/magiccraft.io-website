@@ -63,9 +63,9 @@ function GameDeveloper() {
           <img
             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734081590/Desktop_-_33_dqmuzd.webp"
             alt="MagicCraft Dashboard"
-            className="z-10 mx-auto mt-8 w-full max-w-5xl rounded-lg shadow-lg hidden lg:block"
+            className="z-10 mx-auto lg:mt-8 w-full max-w-5xl rounded-lg shadow-lg -mt-[2rem]"
           />
-          <section className="z-20 mx-auto flex h-full max-w-6xl  flex-col gap-[30px] rounded-[30px] bg-[#11113A] p-6 lg:p-10 lg:-mt-[20rem]">
+          <section className="z-20 mx-auto flex h-full max-w-6xl  flex-col gap-[30px] rounded-[30px] bg-[#11113A] p-6 lg:p-10 lg:-mt-[20rem] -mt-[6rem]">
             <div className="">
               <div className="flex flex-row justify-between">
                 <h2 className="mb-12 font-serif text-3xl font-bold text-white">
