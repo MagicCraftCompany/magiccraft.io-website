@@ -9,6 +9,7 @@ interface GameCardProps {
 const GameCard: React.FC<GameCardProps> = ({ game }) => {
   const { title, status, image } = game;
   const isNewGame = status === "New game";
+  const isUpcoming = status === "Upcoming";
 
   return (
     <Link
@@ -19,16 +20,18 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
         <img 
           src={image} 
           alt={title} 
-          className={`absolute top-0 left-0 w-full h-full object-cover ${isNewGame ? "opacity-100" : "opacity-50"}`} 
+          className={`absolute top-0 left-0 w-full h-full object-cover ${isNewGame ? "opacity-100" : "opacity-100"}`} 
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0E001F] via-transparent to-transparent"></div>
 
         <span className={`absolute left-[5%] top-[5%] rounded-full px-2 py-1 font-sans text-xs sm:text-sm font-bold ${
           isNewGame 
-            ? "bg-[#1C1B24] text-[#98FFF9] bg-opacity-80" 
-            : "bg-white text-black"
+            ? "bg-[#1C1B24] text-[#98FFF9] " 
+            : isUpcoming
+              ? "bg-white text-black"
+              : "hidden"
         }`}>
-          {isNewGame ? "New game" : "Upcoming"}
+          {isNewGame ? "New game" : isUpcoming ? "Upcoming" : ""}
         </span>
 
         <div className="absolute bottom-[7%] left-[7%] right-[7%] text-white">

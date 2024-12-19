@@ -3,7 +3,7 @@
 export interface Game {
     id: number;
     title: string;
-    status: "New game" | "Upcoming";
+    status?: "New game" | "Upcoming";
     image: string;
     about: string;
   }
@@ -12,7 +12,6 @@ export interface Game {
     {
       id: 1,
       title: "magicflutter",
-      status: "New game",
       image:
         "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1724781917/WhatsApp_Image_2024-08-24_at_17.21.31_l2do0d.webp",
       about:"MagicFlutter is an addictive endless side-scroller where quick reflexes are your best friend. In this fast-paced tapping microgame, you’ll guide Dr. Lutz and his latest invention on a thrilling test flight through ancient ruins. Your mission: help him skillfully navigate through crumbling walls and towering pillars to achieve the highest score possible. How far can you soar before the ruins claim another victim?",
@@ -39,7 +38,6 @@ export interface Game {
     {
       id: 3,
       title: "magicrunner",
-      status: "New game",
       image:
         "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1724781917/WhatsApp_Image_2024-08-24_at_17.56.06_awvhlm.webp",
         about:"MagicRunner is a high-speed 3D endless runner where you’ll need to maneuver through Vladislav’s domain. In this action-packed adventure, you'll dash, jump, and slide to avoid obstacles while collecting magical artifacts along the way. ",
