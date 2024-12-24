@@ -40,10 +40,6 @@ const partners = [
     icon: Gate,
     link:'https://www.gate.io/trade/MCRT_USDT'
   },
-  {
-    name:'Gaimin',
-    icon:'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735016249/65b7ead5796cf667f29a45ec_gaimin-logo_fwazvo.webp',
-    link:'https://www.gaimin.io/'
-  },
+ 
 ]
 export default partners

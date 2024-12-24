@@ -154,4 +154,10 @@
        link:'castrum.capital',
       type:'fundraising'
     },
+    {
+      name:'Gaimin',
+      icon:'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735016249/65b7ead5796cf667f29a45ec_gaimin-logo_fwazvo.webp',
+      link:'gaimin.io',
+      type:'Gaming Ecosystem'
+    },
   ]

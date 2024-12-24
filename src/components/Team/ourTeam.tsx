@@ -237,31 +237,8 @@ export const ourteam = [
       },
     ],
   },
-  {
-    name: 'Chetan Arora',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173191/Chetan_qsntag.webp',
-    work: 'FullStack Developer',
-    category: 'Team',
-    socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/chaytan',
-      },
-    ],
-  },
-
-  {
-    name: 'Mário Caldas',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173064/Mario_lesipw.webp',
-    work: 'Game Developer',
-    category: 'Team',
-    socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'http://www.linkedin.com/in/mário-caldas-207929166',
-      },
-    ],
-  },
+ 
+  
   {
     name: 'Admir Aganovic',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173229/Admir_Aganovic_evbagr.webp',
@@ -286,18 +263,7 @@ export const ourteam = [
       },
     ],
   },
-  {
-    name: 'Akhil Iyengar',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717180348/Akhil_Iyengar_l0f4zr.webp',
-    work: '3D Designer',
-    category: 'Team',
-    socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/akhil-iyengar-234593134/',
-      },
-    ],
-  },
+ 
   {
     name: ' Alexander Lyulin',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173217/Alex_1_geldsm.webp',

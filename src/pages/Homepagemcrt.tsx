@@ -852,7 +852,7 @@ function Homepagemcrt() {
                       className="grid h-20 place-items-center bg-[#161E4A]   md:h-36"
                     >
                       <a href={item.link.includes('http') ? item.link : `https://${item.link}`} target="_blank" rel="noopener noreferrer">
-                        <img className={`px-2 ${item.name === 'Gaimin' ? 'w-[200px]' : ''}`} src={item.icon} alt={item.name} />
+                        <img className="px-2"  src={item.icon} alt={item.name} />
                       </a>
                     </div>
                   )
@@ -877,7 +877,7 @@ function Homepagemcrt() {
                       className="flex h-[5em] flex-col items-center bg-[#080F44] md:h-36 md:justify-center"
                     >
                       <div className="flex items-center justify-center p-5 lg:mt-5">
-                        <img src={item.icon} alt={item.name} />
+                        <img className={`px-2 ${item.name === 'Gaimin' ? 'w-[120px]' : ''}`} src={item.icon} alt={item.name} />
                       </div>
                       <div className="hidden lg:block">
                         <div className="  flex h-[3.5em] w-[19.4em] flex-col items-center  bg-[#0C1661] px-2  md:flex-row md:justify-between ">
