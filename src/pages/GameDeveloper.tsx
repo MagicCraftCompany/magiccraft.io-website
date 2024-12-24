@@ -81,7 +81,7 @@ function GameDeveloper() {
               <div className="grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-5">
                 <div className="rounded-2xl border-none bg-[#0C0C29] p-6">
                   <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734609216/puzzle-game_jblc7w.svg"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735019329/Property_1_005-puzzle_rv8cgj.webp"
                     alt="Harness the Power of Blockchain"
                     className="mb-4 h-12 w-12 text-[#98FFF9]"
                   />
@@ -95,7 +95,7 @@ function GameDeveloper() {
                 </div>
                 <div className="rounded-2xl border-none bg-[#0C0C29]  p-6">
                   <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734609258/casino-chip_vfljxv.svg"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735019330/Property_1_001-bitcoin_iqkgsw.webp"
                     className="mb-4 h-12 w-12 "
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
@@ -109,7 +109,7 @@ function GameDeveloper() {
                 </div>
                 <div className="rounded-2xl border-none bg-[#0C0C29]  p-6">
                   <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734609258/fencing_pbxw3x.svg"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735019330/Property_1_002-status_vjzw05.webp"
                     className="mb-4 h-12 w-12 "
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
@@ -124,7 +124,7 @@ function GameDeveloper() {
                 </div>
                 <div className="rounded-2xl border-none bg-[#0C0C29] p-6">
                   <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734609216/arcade-machine_j9m9js.svg"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735019343/Property_1_003-revenue-growth_mjzr99.webp"
                     className="mb-4 h-12 w-12 text-[#98FFF9]"
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
@@ -139,7 +139,7 @@ function GameDeveloper() {
                 </div>
                 <div className="rounded-2xl border-none bg-[#0C0C29] p-6">
                   <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734609216/book_tqtxpl.svg"
+                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735019329/Property_1_004-vocabulary_a1szte.webp"
                     className="mb-4 h-12 w-12 text-[#98FFF9]"
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
