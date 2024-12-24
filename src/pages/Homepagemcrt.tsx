@@ -851,7 +851,9 @@ function Homepagemcrt() {
                       key={item.name}
                       className="grid h-20 place-items-center bg-[#161E4A]   md:h-36"
                     >
-                      <img className="px-2 " src={item.icon} alt={item.name} />
+                      <a href={item.link.includes('http') ? item.link : `https://${item.link}`} target="_blank" rel="noopener noreferrer">
+                        <img className={`px-2 ${item.name === 'Gaimin' ? 'w-[200px]' : ''}`} src={item.icon} alt={item.name} />
+                      </a>
                     </div>
                   )
                 })}

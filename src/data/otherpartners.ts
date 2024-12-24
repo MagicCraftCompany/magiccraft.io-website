@@ -52,12 +52,12 @@
        link:'stepn.com',
       type:'GameFi'
     },
-    {
-      name: 'OviO',
-      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110993/ovioLogo_1_1_vkijgs.svg',
-       link:'ovio.gg',
-      type:'Gaming Ecosystem'
-    },
+    // {
+    //   name: 'OviO',
+    //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110993/ovioLogo_1_1_vkijgs.svg',
+    //    link:'ovio.gg',
+    //   type:'Gaming Ecosystem'
+    // },
     {
       name: 'NFTb',
       icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110992/logo_2_blggkr.svg',
@@ -112,18 +112,18 @@
         link:'gam3s.gg',
       type:'Portal'
     },
-    {
-      name: 'FlameStore',
-      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/62fa710c943e1bdc6a18_yjfcgw.svg',
-      link:'flamestore.xyz',
-      type:'Game marketplace'
-    },
-    {
-      name: 'Wombat',
-      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/svgexport-1_1_3_hsqnvm.svg',
-       link:'wombat.app',
-      type:'Game browser'
-    },
+    // {
+    //   name: 'FlameStore',
+    //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/62fa710c943e1bdc6a18_yjfcgw.svg',
+    //   link:'flamestore.xyz',
+    //   type:'Game marketplace'
+    // },
+    // {
+    //   name: 'Wombat',
+    //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/svgexport-1_1_3_hsqnvm.svg',
+    //    link:'wombat.app',
+    //   type:'Game browser'
+    // },
     {
       name: 'Creo Engine',
       icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/logo_creo.bdc18584_1_lqte3s.svg',
