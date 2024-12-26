@@ -34,7 +34,7 @@ function App() {
         <Route path="/patch" element={<GamePatch />}></Route>
         <Route path="/studios" element={<Studios />}></Route>
         <Route path="/news" element={<NewsPage />}></Route>
-        <Route path="/game-developer" element={<GameDeveloper />}></Route>
+        <Route path="/build-on-magiccraft" element={<GameDeveloper />}></Route>
         <Route path="/server" element={<Server />}></Route>
         <Route path="/terms" element={<TermsAndConditions />}></Route>
         <Route path="/privacypolicy" element={<PrivacyPolicy />}></Route>

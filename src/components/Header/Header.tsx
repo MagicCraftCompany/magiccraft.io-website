@@ -60,7 +60,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       {
         title: 'Build on MagicCraft',
         icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
-        path: '/game-developer',
+        path: '/build-on-magiccraft',
       },
      
     ],
