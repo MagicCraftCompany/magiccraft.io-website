@@ -265,13 +265,13 @@ const Header = () => {
             </div>
             <div className="flex items-center gap-5">
               <a
-                href="https://youtu.be/YAp7k3NsKpg?si=PKWHUbWH86j4iC2f"
+                href="https://pancakeswap.finance/?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f"
                 target="_blank"
                 rel="noreferrer noopener"
               >
                 <div className="flex cursor-pointer items-center gap-2 whitespace-nowrap ">
                   <PlayCircle size={16} />
-                  <p className="text-sm md:text-base">MagicCraft Ecosystem</p>
+                  <p className="text-sm md:text-base"> Buy $MCRT</p>
                 </div>
               </a>
 
