@@ -1,5 +1,5 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
-import { ArrowUpRight, PlayCircle, X } from 'lucide-react'
+import { ArrowUpRight, X } from 'lucide-react'
 import NavMenu from './Navmenu'
 import menuIcon from '@/assets/icons/menu-icon.svg'
 import { useState } from 'react'
@@ -270,7 +270,7 @@ const Header = () => {
                 rel="noreferrer noopener"
               >
                 <div className="flex cursor-pointer items-center gap-2 whitespace-nowrap ">
-                  <PlayCircle size={16} />
+                  {/* <PlayCircle size={16} /> */}
                   <p className="text-sm md:text-base"> Buy $MCRT</p>
                 </div>
               </a>
