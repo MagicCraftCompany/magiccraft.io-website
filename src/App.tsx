@@ -20,6 +20,7 @@ import LeaderboardPage from './pages/LeaderBoard'
 import HoldersPage from './pages/TopHolders'
 import Dashboard from './pages/Dashboard'
 import GameDeveloper from './pages/GameDeveloper'
+import NotFound from './pages/ErrorPage'
 function App() {
   return (
     <BrowserRouter>
@@ -45,7 +46,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />}></Route>
 
 
-
+        <Route path="*" element={<NotFound />} />
 
 
        
