@@ -3,6 +3,9 @@ import Footer from '@/components/Footer/Footer'
 import OpenSourceFeatures from '@/components/ui/gamedevelopercard'
 
 function GameDeveloper() {
+  const handleApplyClick = () => {
+    window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdLmfHGXcXaguZynLSIlk7cSjlvBF9etB50SQc6yDCeayeHYw/viewform";
+  };
   return (
     <div className="min-h-dvh w-full text-white">
       {/* Header */}
@@ -44,7 +47,7 @@ function GameDeveloper() {
             infrastructure, and intuitive development tools.{' '}
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black hover:bg-[#98FFF9]/90">
+            <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black hover:bg-[#98FFF9]/90" onClick={handleApplyClick}>
               Apply
             </button>
             {/* <button className="rounded-md border-[1px] border-solid border-[#98FFF9]  px-4 py-2 text-[#98FFF9]">
@@ -223,7 +226,8 @@ function GameDeveloper() {
               </div>
             </div>
             <div className="mt-12 flex justify-center">
-              <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black">
+              <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black"
+              onClick={handleApplyClick}>
                 Apply
               </button>
             </div>
