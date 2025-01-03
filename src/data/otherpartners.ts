@@ -119,9 +119,9 @@
     //   type:'Game marketplace'
     // },
     // {
-    //   name: 'Wombat',
-    //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/svgexport-1_1_3_hsqnvm.svg',
-    //    link:'wombat.app',
+    //   name: 'Hyperplay',
+    //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735909079/HyperPlayCustomBadge_1_qz02tk.webp',
+    //   link:'wombat.app',
     //   type:'Game browser'
     // },
     {
