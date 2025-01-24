@@ -176,18 +176,18 @@ export const ourteam = [
       },
     ],
   },
-  {
-    name: 'Harsh Raj',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173143/Harsh_dyuiwr.webp',
-    work: 'CTO',
-    category: 'Team',
-    socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/harsh-raj-2b8709129/',
-      },
-    ],
-  },
+  // {
+  //   name: 'Harsh Raj',
+  //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173143/Harsh_dyuiwr.webp',
+  //   work: 'CTO',
+  //   category: 'Team',
+  //   socialicons: [
+  //     {
+  //       icons: <FaLinkedin style={{ color: 'grey' }} />,
+  //       socialmedia: 'https://www.linkedin.com/in/harsh-raj-2b8709129/',
+  //     },
+  //   ],
+  // },
   {
     name: 'Harsh Joshi',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173140/Harsh2_gtpvom.webp',
