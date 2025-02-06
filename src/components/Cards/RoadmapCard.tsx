@@ -72,7 +72,9 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
                     <div key={j} className="flex items-start gap-[10px]">
                       <div className="shrink-0 py-1">
                         {getFeatureIcon(data.quarter, goal.card, feature) ? (
-                          <img src={righttick} className='-mt-[0.5em]' alt="Right Check" />
+                          // <img src={righttick} className='-mt-[0.5em]' alt="Right Check" />
+                          <Minus size={20} className="text-white/50" />
+
                         ) : (
                           <Minus size={20} className="text-white/50" />
                         )}

@@ -8,33 +8,34 @@ type RoadmapDataType = {
 }[]
 
 
+
 // export const roadmapData: RoadmapDataType = [
 //   {
 //     quarter: 1,
 //     variant: 'default',
 //     goals: [
 //       {
-//         card:1,
+//         card: 1,
 //         features: [
-//           ' Player Profile screen',
-//           'Custom game Rooms',
-//           'Team Voice Chat',
-//           'NFT Character Integration',
+//           'Launch of the revamped MagicCraft website',
+//           'Improved onboarding experience for new players',
+//           'Development of the NFT Marketplace for game assets',
+//           'Introduction of the first batch of NFT Characters',
 //         ],
 //       },
 //       {
-//         card:2,
+//         card: 2,
 //         features: [
-//           'Mage',
-//           'New Map',
-//           'New Character'
+//           'New gameplay mode: Capture the Flag',
+//           'Enhancements to the Player Profile section',
+//           'New in-game leaderboard system',
 //         ],
 //       },
 //       {
-//         card:3,
+//         card: 3,
 //         features: [
-//           'Custom room added to service',
-//           'Play-2-Earn Games',
+//           'Integration with a third-party wallet system',
+//           'Launch of referral rewards for community engagement',
 //         ],
 //       },
 //     ],
@@ -44,29 +45,29 @@ type RoadmapDataType = {
 //     variant: 'purple',
 //     goals: [
 //       {
-//         card:4,
+//         card: 4,
 //         features: [
-//           'Game Type:Free for All',
-//           'Development of Metagame continues',
-//           'Parties &Friends',
-//           'Community Tournaments',
-//           'Spectator mode'
+//           'Release of Team Deathmatch game mode',
+//           'Expanded community tournaments with prizes',
+//           'Launch of Clan System with initial functionalities',
+//           'First Community Voting System for game features',
+//           "Release of MagicCraft Xbox version",
 //         ],
 //       },
 //       {
-//         card:5,
+//         card: 5,
 //         features: [
-//           'New Map: Cloud Terrace',
-//           ' new Character: Ronin',
-//           'Music Update',
-//           'Steam announcement'
+//           'New Map: Desert Storm',
+//           'Introduction of two new characters: Rogue and Alchemist',
+//           'Music and sound effects overhaul',
+//           'Integration with Steam for wider access',
 //         ],
 //       },
 //       {
-//         card:6,
+//         card: 6,
 //         features: [
-//           'Halving,splitting the lobbies and $MCRT prizes in half',
-//           'Automatic lobbies',
+//           'Launch of AI Moderation tools for better community management',
+//           'Split rewards in lobbies based on player activity levels',
 //         ],
 //       },
 //     ],
@@ -76,29 +77,28 @@ type RoadmapDataType = {
 //     variant: 'default',
 //     goals: [
 //       {
-//         card:7,
+//         card: 7,
 //         features: [
-//           'Daily Quests',
-//           'Game Type:Tournament',
-//           'Game Type:Battle Royale',
-//           'NFT Rental System',
-//           'NFT Map Integration',
-//           'VC investment',
+//           'Daily Quest System for consistent player rewards',
+//           'Release of Tournament and Battle Royale modes',
+//           'NFT Lending System for sharing game assets',
+//           'Integration of user-generated content tools',
+//           'Expansion of investment rounds for scaling',
 //         ],
 //       },
 //       {
-//         card:8,
+//         card: 8,
 //         features: [
-//           'New Map',
-//           'New Character',
-//           'First Arcane Character Skin NFT',
+//           'New Map: Mystic Valley',
+//           'Release of Legendary Character Skin NFTs',
+//           'New character introduction: Sorcerer',
 //         ],
 //       },
 //       {
-//         card:9,
+//         card: 9,
 //         features: [
-//           'Free gift MCRT added to Service',
-//           'Offer Wall added to service',
+//           'Launch of Gift System for MCRT rewards',
+//           'Offer Wall integration for ad-based earnings',
 //         ],
 //       },
 //     ],
@@ -106,31 +106,30 @@ type RoadmapDataType = {
 //   {
 //     quarter: 4,
 //     variant: 'purple',
-
 //     goals: [
 //       {
-//         card:10,
+//         card: 10,
 //         features: [
-//           'Ladder updates for matchmaking',
-//           'Begin developing clans',
-//           'Begin developing clan wars',
+//           'Updates to matchmaking and ladder ranking systems',
+//           'Development of advanced Clan Wars mechanics',
+//           'Introduction of Seasonal Events',
 //         ],
 //       },
 //       {
-//         card:11,
+//         card: 11,
 //         features: [
-//           'New Character',
+//           'New Character: Shadowblade',
 //         ],
 //       },
 //       {
-//         card:12,
+//         card: 12,
 //         features: [
-//           "Daily bonus added to service",
+//           'Daily Login Bonus System integration',
 //         ],
 //       },
 //     ],
 //   },
-// ]
+// ];
 export const roadmapData: RoadmapDataType = [
   {
     quarter: 1,
@@ -139,25 +138,23 @@ export const roadmapData: RoadmapDataType = [
       {
         card: 1,
         features: [
-          'Launch of the revamped MagicCraft website',
-          'Improved onboarding experience for new players',
-          'Development of the NFT Marketplace for game assets',
-          'Introduction of the first batch of NFT Characters',
+          'Game Maker Launch',
+          'Players create and monetize custom maps via Steam',
         ],
       },
       {
         card: 2,
         features: [
-          'New gameplay mode: Capture the Flag',
-          'Enhancements to the Player Profile section',
-          'New in-game leaderboard system',
+          'New Mobs & AI Enemies',
+          'Enhanced PvE experience with AI-controlled enemies',
+          'Castle Siege Mode - Large-scale battles with fortified objectives',
         ],
       },
       {
         card: 3,
         features: [
-          'Integration with a third-party wallet system',
-          'Launch of referral rewards for community engagement',
+          'Web3 Lobby System Upgrade - Improved matchmaking and in-game economy',
+          'Multi-Crypto Rewards - Earn MCRT and other tokens directly from gameplay',
         ],
       },
     ],
@@ -167,29 +164,25 @@ export const roadmapData: RoadmapDataType = [
     variant: 'purple',
     goals: [
       {
-        card: 4,
+        card: 1,
         features: [
-          'Release of Team Deathmatch game mode',
-          'Expanded community tournaments with prizes',
-          'Launch of Clan System with initial functionalities',
-          'First Community Voting System for game features',
-          "Release of MagicCraft Xbox version",
+          'Battle Pass & Subscriptions',
+          'New monetization model for progression rewards',
         ],
       },
       {
-        card: 5,
+        card: 2,
         features: [
-          'New Map: Desert Storm',
-          'Introduction of two new characters: Rogue and Alchemist',
-          'Music and sound effects overhaul',
-          'Integration with Steam for wider access',
+          'Tournaments & Competitive Play',
+          'Seasonal events and structured prize pools',
+          'Community Map Marketplace - Trade, sell, and showcase custom maps',
         ],
       },
       {
-        card: 6,
+        card: 3,
         features: [
-          'Launch of AI Moderation tools for better community management',
-          'Split rewards in lobbies based on player activity levels',
+          'NFT Character Integration',
+          'Exclusive perks and in-game earning potential',
         ],
       },
     ],
@@ -199,28 +192,24 @@ export const roadmapData: RoadmapDataType = [
     variant: 'default',
     goals: [
       {
-        card: 7,
+        card: 1,
         features: [
-          'Daily Quest System for consistent player rewards',
-          'Release of Tournament and Battle Royale modes',
-          'NFT Lending System for sharing game assets',
-          'Integration of user-generated content tools',
-          'Expansion of investment rounds for scaling',
+          'MagicCraft on Xbox',
+          'Console expansion bringing Web3 gaming to a broader audience',
         ],
       },
       {
-        card: 8,
+        card: 2,
         features: [
-          'New Map: Mystic Valley',
-          'Release of Legendary Character Skin NFTs',
-          'New character introduction: Sorcerer',
+          'New Maps & Game Modes',
+          'Expanding gameplay diversity and player engagement',
         ],
       },
       {
-        card: 9,
+        card: 3,
         features: [
-          'Launch of Gift System for MCRT rewards',
-          'Offer Wall integration for ad-based earnings',
+          'Social Features & Streaming Integration',
+          'Built-in tools for content sharing and engagement',
         ],
       },
     ],
@@ -230,25 +219,27 @@ export const roadmapData: RoadmapDataType = [
     variant: 'purple',
     goals: [
       {
-        card: 10,
+        card: 1,
         features: [
-          'Updates to matchmaking and ladder ranking systems',
-          'Development of advanced Clan Wars mechanics',
-          'Introduction of Seasonal Events',
+          'Full Website Overhaul',
+          'New platform experience optimized for players and investors',
         ],
       },
       {
-        card: 11,
+        card: 2,
         features: [
-          'New Character: Shadowblade',
+          'E-Sports Expansion',
+          'Structured leagues, rankings, and sponsorships',
         ],
       },
       {
-        card: 12,
+        card: 3,
         features: [
-          'Daily Login Bonus System integration',
+          'Staking & Economy Revamp',
+          'Enhancing MCRT sustainability and long-term value',
         ],
       },
     ],
   },
 ];
+
