@@ -160,7 +160,7 @@ export const ourteam = [
     socialicons: [
       {
         icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/muqsit-ali-591911183/',
+        socialmedia: 'https://www.linkedin.com/in/muqsit-haider-ali-591911183/',
       },
     ],
   },
@@ -213,18 +213,7 @@ export const ourteam = [
       },
     ],
   },
-  {
-    name: 'Alessandro Huaroto',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173223/Alessandro_djkmxm.webp',
-    work: 'CHRO',
-    category: 'Team',
-    socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://linkedin.com/in/alessandro-huaroto-997b12195/',
-      },
-    ],
-  },
+  
   // {
   //   name: 'Dariia Silkina',
   //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173164/Dori_cukbdf.webp',
@@ -238,19 +227,7 @@ export const ourteam = [
   //   ],
   // },
  
-  
-  {
-    name: 'Admir Aganovic',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173229/Admir_Aganovic_evbagr.webp',
-    work: 'Game Developer',
-    category: 'Team',
-    socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/admir-aganovic-b630b5228/',
-      },
-    ],
-  },
+ 
   {
     name: 'Tarik Yazici',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173000/Tarik_Yacizi_junzgg.webp',
@@ -264,18 +241,7 @@ export const ourteam = [
     ],
   },
  
-  {
-    name: ' Alexander Lyulin',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173217/Alex_1_geldsm.webp',
-    work: 'Social Media Manager',
-    category: 'Team',
-    socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/alexander-lyulin/',
-      },
-    ],
-  },
+  
   {
     name: 'Ivan Reyna',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173112/Ivan_btfbal.webp',
@@ -300,53 +266,9 @@ export const ourteam = [
       },
     ],
   },
-  {
-    name: 'Rainier Raymundo',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173043/Rainier_Raymundo_kf15zc.webp',
-    work: 'Community Moderator',
-    category: 'Team',
-    socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/rainier-raymundo-472179239/',
-      },
-    ],
-  },
-  {
-    name: 'Zander Garcia',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172986/Zander_Garcia_1_snokjq.webp',
-    work: 'Community Moderator',
-    category: 'Team',
-    socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/zander-garcia-070065244/',
-      },
-    ],
-  },
-  {
-    name: 'Adrian',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173225/Adrian__iucds2.webp',
-    work: 'Community Moderator',
-    category: 'Team',
-    socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/rasadul-islam-264b59217',
-      },
-    ],
-  },
+  
+  
+ 
 
-  {
-    name: 'Kenneth Ian Conjurado',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173106/kenneth_fz3xfw.webp',
-    work: 'Community Moderator',
-    category: 'Team',
-    socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/kenneth-conjurado-044215217/',
-      },
-    ],
-  },
+ 
 ]
