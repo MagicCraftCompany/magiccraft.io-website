@@ -1,7 +1,7 @@
 import {
   FaXTwitter,
   FaYoutube,
-  FaLinkedin,
+  // FaLinkedin,
   FaInstagram,
   FaTwitter,
 } from 'react-icons/fa6'
@@ -153,27 +153,27 @@ export const ourteam = [
     ],
   },
   {
-    name: 'Muqsit Haider Ali',
+    name: 'Muqsit ',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173052/Muqsit_u7eecu.webp',
     work: 'CEO',
     category: 'Team',
     socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/muqsit-haider-ali-591911183/',
-      },
+      // {
+      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
+      //   socialmedia: 'https://www.linkedin.com/in/muqsit-haider-ali-591911183/',
+      // },
     ],
   },
   {
-    name: 'Mateusz Gorecki',
+    name: 'Mateusz ',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173060/Matt_ehx3cu.webp',
     work: 'COO',
     category: 'Team',
     socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://linkedin.com/in/mateuszgorecki8/',
-      },
+      // {
+      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
+      //   socialmedia: 'https://linkedin.com/in/mateuszgorecki8/',
+      // },
     ],
   },
   // {
@@ -189,28 +189,28 @@ export const ourteam = [
   //   ],
   // },
   {
-    name: 'Harsh Joshi',
+    name: 'Harsh ',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173140/Harsh2_gtpvom.webp',
     work: 'CFO',
     category: 'Team',
     socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/itsharshjoshi/',
-      },
+      // {
+      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
+      //   socialmedia: 'https://www.linkedin.com/in/itsharshjoshi/',
+      // },
     ],
   },
   {
-    name: 'Romain Adam Ghibaudo',
+    name: ' Adam ',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173231/Adam_jikjlw.webp',
     work: 'CBDO',
     category: 'Team',
     socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia:
-          'https://www.linkedin.com/in/romain-ghibaudo/',
-      },
+      // {
+      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
+      //   socialmedia:
+      //     'https://www.linkedin.com/in/romain-ghibaudo/',
+      // },
     ],
   },
   
@@ -229,41 +229,41 @@ export const ourteam = [
  
  
   {
-    name: 'Tarik Yazici',
+    name: 'Tarik ',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173000/Tarik_Yacizi_junzgg.webp',
     work: 'Game Developer',
     category: 'Team',
     socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/trk90/',
-      },
+      // {
+      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
+      //   socialmedia: 'https://www.linkedin.com/in/trk90/',
+      // },
     ],
   },
  
   
   {
-    name: 'Ivan Reyna',
+    name: 'Ivan ',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173112/Ivan_btfbal.webp',
     work: 'Excutive Assistant',
     category: 'Team',
     socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/gladshark1/',
-      },
+      // {
+      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
+      //   socialmedia: 'https://www.linkedin.com/in/gladshark1/',
+      // },
     ],
   },
   {
-    name: 'Oleh Voroshilov',
+    name: 'Oleh ',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173049/Oleh_idwukn.webp',
     work: 'Media Manager',
     category: 'Team',
     socialicons: [
-      {
-        icons: <FaLinkedin style={{ color: 'grey' }} />,
-        socialmedia: 'https://www.linkedin.com/in/oleh-chulanov/',
-      },
+      // {
+      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
+      //   socialmedia: 'https://www.linkedin.com/in/oleh-chulanov/',
+      // },
     ],
   },
   
