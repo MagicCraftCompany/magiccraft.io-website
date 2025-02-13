@@ -3,19 +3,19 @@
 
  
  export const otherpartners = [
-    {
-      name: 'UNIX Gaming',
-      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110995/svgexport-1_1_srwfyz.svg',
-      link:'unixgaming.org',
-      type:'Gaming Ecosysystem'
-    },
-    {
-      name: 'GLIP.GG',
-      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110994/svgexport-1_1_1_cverx3.svg',
-      link:'glip.gg',
-      type:'Accelerator'
+    // {
+    //   name: 'UNIX Gaming',
+    //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110995/svgexport-1_1_srwfyz.svg',
+    //   link:'unixgaming.org',
+    //   type:'Gaming Ecosysystem'
+    // },
+    // {
+    //   name: 'GLIP.GG',
+    //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110994/svgexport-1_1_1_cverx3.svg',
+    //   link:'glip.gg',
+    //   type:'Accelerator'
 
-    },
+    // },
     {
       name: 'Magic Square',
       icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718619014/logo-3_1_1_alowih.webp',
@@ -118,12 +118,12 @@
     //   link:'flamestore.xyz',
     //   type:'Game marketplace'
     // },
-    // {
-    //   name: 'Hyperplay',
-    //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735909079/HyperPlayCustomBadge_1_qz02tk.webp',
-    //   link:'wombat.app',
-    //   type:'Game browser'
-    // },
+    {
+      name: 'Hyperplay',
+      icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735909079/HyperPlayCustomBadge_1_qz02tk.webp',
+      link:'hyperplay.xyz',
+      type:'Game browser'
+    },
     {
       name: 'Creo Engine',
       icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110990/logo_creo.bdc18584_1_lqte3s.svg',
@@ -158,6 +158,18 @@
       name:'Gaimin',
       icon:'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735016249/65b7ead5796cf667f29a45ec_gaimin-logo_fwazvo.webp',
       link:'gaimin.io',
+      type:'Gaming Ecosystem'
+    },
+    {
+      name:'Ultra',
+      icon:'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1739437572/ultra-io-logo-vector-removebg-preview_pbeoj0.webp',
+      link:'ultra.io',
+      type:'Gaming Ecosystem'
+    },
+    {
+      name:'GGEM',
+      icon:'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1739438020/5VrITu7p_400x400-removebg-preview_xipruw.png',
+      link:'hub.xyz',
       type:'Gaming Ecosystem'
     },
   ]

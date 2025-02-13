@@ -20,12 +20,8 @@ import { ourteam } from '@/components/Team/ourTeam'
 
 // import { Swiper, SwiperSlide } from 'swiper/react'
 import { Tabs, Tab } from '@/components/tabs'
-// import frame1 from '@/assets/icons/Frame (1).svg'
-// import frame2 from '@/assets/icons/Frame (2).svg'
-// import frame3 from '@/assets/icons/Frame (3).svg'
-// import frame4 from '@/assets/icons/Frame (4).svg'
+
 import React from 'react'
-// import { useNavigate } from 'react-router-dom'
 import { LiaTelegramPlane } from 'react-icons/lia'
 import GamePlay from '@/components/GamePlay'
 import GameCard from '@/components/ui/GameCard'
@@ -877,7 +873,7 @@ function Homepagemcrt() {
                       className="flex h-[5em] flex-col items-center bg-[#080F44] md:h-36 md:justify-center"
                     >
                       <div className="flex items-center justify-center p-5 lg:mt-5">
-                        <img className={`px-2 ${item.name === 'Gaimin' ? 'w-[120px]' : ''}`} src={item.icon} alt={item.name} />
+                        <img className={`px-2 ${item.name === 'Gaimin' ? 'w-[120px]' : item.name === 'Ultra'? 'w-[80px]' : item.name === 'Hyperplay' ? 'w-[100px]' : item.name === 'GGEM' ? 'w-[50px]' : ''}`} src={item.icon} alt={item.name} />
                       </div>
                       <div className="hidden lg:block">
                         <div className="  flex h-[3.5em] w-[19.4em] flex-col items-center  bg-[#0C1661] px-2  md:flex-row md:justify-between ">
