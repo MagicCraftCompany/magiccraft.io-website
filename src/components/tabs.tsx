@@ -49,7 +49,7 @@ const Tabs = ({ children, type }: TabsProps) => {
             <button
             
               key={tab.props.label}
-              className={`md:w-fit ${activeTab === tab.props.label ? 'rounded-3xl bg-[#98FFF9] text-[#03082F] mx-1 px-1  md:px-2' : 'text-[#98FFF9] mx-1 px-1  md:px-4'}  font-medium whitespace-nowrap`}
+              className={`md:w-fit ${activeTab === tab.props.label ? 'rounded-3xl bg-[#98FFF9] text-[#03082F] mx-1 px-1  md:px-2 ' : 'text-[#98FFF9] mx-1 px-1  md:px-4'}  font-medium whitespace-nowrap`}
               onClick={(e) => handleClick(e, tab.props.label)}
               aria-selected={activeTab === tab.props.label}
             >

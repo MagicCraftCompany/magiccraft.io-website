@@ -62,6 +62,11 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
         path: '/build-on-magiccraft',
       },
+      {
+        title: 'Hero',
+        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
+        path: '/chooseyourhero',
+      },
      
     ],
   },

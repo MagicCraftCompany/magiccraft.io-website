@@ -1,8 +1,6 @@
-
-
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
-import { Button } from "@/components/ui/button"
+import { useNavigate } from 'react-router-dom'
 
 // Hero data structure
 interface Hero {
@@ -22,21 +20,26 @@ const heroes: Hero[] = [
   { id: '6', name: 'MOIRA', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_5_zkalot.webp' },
   { id: '7', name: 'KARAS', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_6_stevwh.webp' },
   { id: '8', name: 'GAIL', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_7_mn47kd.webp' },
-  { id: '9', name: 'LEILA', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_8_bi3mce.webp' },
-  { id: '10', name: 'CALLIE', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_9_lsrom5.webp' },
-  { id: '11', name: 'TRUESHOT', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_10_sz7eqb.webp' },
-  { id: '12', name: 'DR. LUTZ', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_11_ptqt4j.webp' },
-  { id: '13', name: 'TARA', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280874/image_19_12_uybthz.webp' },
-  { id: '14', name: 'BLAZY', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280873/image_19_13_a4vhmd.webp' },
-  { id: '15', name: 'BJORN', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280875/image_19_14_vrnkua.webp' },
-  { id: '16', name: 'FRIGARD', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280875/image_19_15_m1yugr.webp' },
-  { id: '17', name: 'VEGA', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280872/image_19_16_lwlhzb.webp' },
-  { id: '18', name: 'BRIENNE', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280872/image_19_17_rzbzrb.webp' },
+  // { id: '9', name: 'LEILA', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_8_bi3mce.webp' },
+  { id: '9', name: 'CALLIE', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_9_lsrom5.webp' },
+  { id: '10', name: 'TRUESHOT', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_10_sz7eqb.webp' },
+  { id: '11', name: 'DR. LUTZ', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_11_ptqt4j.webp' },
+  { id: '12', name: 'TARA', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280874/image_19_12_uybthz.webp' },
+  { id: '13', name: 'BLAZY', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280873/image_19_13_a4vhmd.webp' },
+  { id: '14', name: 'BJORN', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280875/image_19_14_vrnkua.webp' },
+  { id: '15', name: 'FRIGARD', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280875/image_19_15_m1yugr.webp' },
+  { id: '16', name: 'VEGA', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280872/image_19_16_lwlhzb.webp' },
+  { id: '17', name: 'BRIENNE', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280872/image_19_17_rzbzrb.webp' },
 ]
 
 function HeroCard({ hero }: { hero: Hero }) {
+  const navigate = useNavigate();
+
   return (
-    <button className="group relative overflow-hidden rounded-lg transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+    <button
+      onClick={() => navigate(`/hero/${hero.name.toLowerCase()}`)}
+      className="group relative overflow-hidden rounded-lg transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+    >
       <div className="aspect-square">
         <img
           src={hero.image}
@@ -65,14 +68,14 @@ export default function ChooseYourHero() {
       <main className="scroll-smooth pb-32">
         <section className="relative px-4 py-12 md:px-6 lg:px-8">
           <div className="mx-auto max-w-7xl text-center">
-            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+            <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl font-serif">
               CHOOSE YOUR HERO
             </h1>
             <p className="mx-auto mb-12 max-w-3xl text-lg text-gray-400">
               From magical healers to fierce fighters and cunning rogues, each hero is designed and perfectly diverse.
               Browse incredible abilities and devastating ultimates in your way to victory.
             </p>
-            <div className="mb-8 flex items-center justify-center gap-4">
+            {/* <div className="mb-8 flex items-center justify-center gap-4">
               <Button variant="outline" className="rounded-full">
                 All Heroes
               </Button>
@@ -85,9 +88,9 @@ export default function ChooseYourHero() {
               <Button variant="outline" className="rounded-full">
                 Fighter
               </Button>
-            </div>
+            </div> */}
           </div>
-          <div className="mx-auto grid max-w-7xl gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+          <div className="mx-auto grid max-w-6xl gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 font-serif" >
             {heroes.map((hero) => (
               <HeroCard key={hero.id} hero={hero} />
             ))}

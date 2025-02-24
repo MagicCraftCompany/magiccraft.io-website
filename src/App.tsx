@@ -21,6 +21,7 @@ import HoldersPage from './pages/TopHolders'
 import Dashboard from './pages/Dashboard'
 import GameDeveloper from './pages/GameDeveloper'
 import NotFound from './pages/ErrorPage'
+// import HeroCarousel from './components/HeroCarousel'
 function App() {
   return (
     <BrowserRouter>
@@ -30,7 +31,10 @@ function App() {
         <Route path="/magicrunner" element={<Homepagemagicrunner />}></Route>
         <Route path="/magic8ball" element={<Homepagemagic8ball />}></Route>
         <Route path="/hero" element={<Hero />}></Route>
+        <Route path="/hero/:heroName" element={<Hero />} />
         <Route path="/Chooseyourhero" element={<ChooseYourHero/>}></Route>
+        {/* <Route path="/heros" element={<HeroCarousel/>}></Route> */}
+
         <Route path="/faq" element={<Support />}></Route>
         <Route path="/patch" element={<GamePatch />}></Route>
         <Route path="/studios" element={<Studios />}></Route>
