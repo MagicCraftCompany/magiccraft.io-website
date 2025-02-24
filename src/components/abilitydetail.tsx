@@ -36,13 +36,13 @@ export function AbilityDetails({ characterName, abilities }: AbilityDetailsProps
                   label={ability.name}
                   icon={ability.icon}
                   iconActive={ability.iconActive}
-                  className="lg:w-[80vw] w-full "
+                  className="w-[80vw]"
                 >
-                <div className="lg:flex-row flex lg:flex-1 flex-col ">
+                <div className="lg:flex-row flex lg:flex-1 flex-col md:mx-10 lg:mx-0">
                   <div className="flex-1">
                     <img src={ability.image || "/placeholder.svg"} alt={ability.name} className="h-full rounded-lg" />
                   </div>
-                  <div className="flex-1 rounded-lg bg-[#0a0a2e] bg-opacity-70 ">
+                  <div className="flex-1 rounded-lg bg-[#0a0a2e] bg-opacity-70">
                     <div className="flex flex-wrap">
                       <span className="p-5 text-4xl font-bold text-white font-serif">How it works</span>
                     </div>

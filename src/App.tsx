@@ -33,7 +33,6 @@ function App() {
         <Route path="/hero" element={<Hero />}></Route>
         <Route path="/hero/:heroName" element={<Hero />} />
         <Route path="/Chooseyourhero" element={<ChooseYourHero/>}></Route>
-        {/* <Route path="/heros" element={<HeroCarousel/>}></Route> */}
 
         <Route path="/faq" element={<Support />}></Route>
         <Route path="/patch" element={<GamePatch />}></Route>

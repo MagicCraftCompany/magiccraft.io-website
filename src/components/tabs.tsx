@@ -14,7 +14,7 @@ type TabProps = {
 const Tab = ({label, icon, children, type }: TabProps) => {
   return (
     <div className="hidden" role="tabpanel" aria-labelledby={label}>
-      {!type && <img src={icon} alt={`${label} icon`} />}
+      {!type && <img src={icon} alt={`${label} icon`} className="h-6 w-6 md:h-8 md:w-8" />}
       {label}
       {children}
     </div>
@@ -54,7 +54,13 @@ const Tabs = ({ children, type }: TabsProps) => {
               aria-selected={activeTab === tab.props.label}
             >
               <div className="flex items-center">
-                {!type && <img src={activeTab === tab.props.label ? tab.props.iconActive : tab.props.icon} alt={`${tab.props.label} icon`} />}
+                {!type && (
+                  <img
+                    src={activeTab === tab.props.label ? tab.props.iconActive : tab.props.icon}
+                    alt={`${tab.props.label} icon`}
+                    className="h-6 w-6 md:h-8 md:w-8"
+                  />
+                )}
                 <span className="px-2 py-2">{tab.props.label}</span>
               </div>
             </button>

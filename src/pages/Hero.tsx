@@ -5,10 +5,9 @@ import { useParams } from 'react-router-dom'
 import one from '@/assets/icons/1.svg'
 import heart from '@/assets/icons/li_heart.svg'
 import arrow from '@/assets/icons/game-icons_fast-arrow.svg'
-
 import HeroCarousel from '@/components/HeroCarousel'
-import { AbilityDetails } from '@/components/abilitydetail'
 import { characterData } from '@/components/Data/Characterdata'
+import { AbilityDetails } from '@/components/abilitydetail'
 
 function Hero() {
   const { heroName } = useParams();
@@ -75,8 +74,8 @@ function Hero() {
               </div>
             </div>
             <div className=" flex items-center justify-center z-20 ">
-              <div className="flex w-[409px] flex-col items-center gap-[0.5em]  rounded-[1.875em] bg-[#13152E] bg-opacity-70 px-[1.75em]  backdrop-blur-[0.71875em]  md:mx-[2em] md:w-[704px] lg:-mt-40 lg:ml-[15.125em]  lg:w-fit lg:flex-row ">
-                <div className="relative flex h-fit  w-fit flex-col overflow-hidden rounded-[20px]   px-2  ">
+              <div className="flex w-[409px] flex-col items-center gap-[0.5em]  rounded-[1.875em] bg-[#13152E] bg-opacity-70 px-[1.75em]  backdrop-blur-[0.71875em]  md:mx-[2em] md:w-[704px] lg:-mt-40 lg:ml-[15.125em]  lg:w-fit lg:flex-row py-4 lg:py-0 ">
+                <div className="relative  lg:flex h-fit  w-fit lg:flex-col overflow-hidden rounded-[20px]   lg:px-2  ">
                   <h4 className="flex flex-row p-1">
                     Game role:{' '}
                     <div className="flex flex-row px-2 text-[#98FFF9] ">
@@ -115,13 +114,13 @@ function Hero() {
                 <div className="my-8 block h-px w-[10em] bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent lg:hidden " />
 
                 <div className="relative flex h-fit w-fit flex-row   items-center justify-center  overflow-hidden rounded-[20px]   px-2  ">
-                  <div className="flex flex-col items-center justify-center gap-3 p-2 lg:flex-row">
+                  <div className="flex flex-col items-center justify-center gap-3 lg:p-2 lg:flex-row ">
                     Abilities:
                     {abilities.map((ability) => (
                       <div key={ability.id} className="flex flex-wrap px-4 ">
                        <img
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173114/image1393_uyesc3.webp"
-                        className="px-2"
+                        className="px-2 hidden lg:block"
                       />
                         <div className="flex flex-col">
                           <p className="text-[#98FFF9]">{ability.name}</p>

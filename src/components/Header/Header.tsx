@@ -2,13 +2,26 @@ import mcLogo from '@/assets/images/magiccraft-logo.webp'
 import { ArrowUpRight, X } from 'lucide-react'
 import NavMenu from './Navmenu'
 import menuIcon from '@/assets/icons/menu-icon.svg'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import NavMenuMobile from './NavMenuMobile'
 import { AnimatePresence, motion } from 'framer-motion'
 import Referral from'@/assets/icons/Referral.svg'
 import Whitepaper from '@/assets/icons/whitepaper.svg'
 import lobby from '@/assets/icons/lobby.svg'
 import service from '@/assets/icons/li_shopping-bag.svg'
+import { useLocation } from 'react-router-dom'
+import bybit from '@/assets/icons/icon-bybit.svg'
+import marketplace from '@/assets/icons/icon-marketplace.svg'
+import leaderboard from '@/assets/icons/icon-leaderboard.svg'
+import stats from '@/assets/icons/icon-gamestats.svg'
+import currency from '@/assets/icons/icon-currency.svg'
+import faq from '@/assets/icons/icon-faq.svg'
+import gamepad from '@/assets/icons/icon-gamepad.svg'
+import pledge from '@/assets/icons/icon-huobi.svg'
+import about from '@/assets/icons/icon-help.svg'
+import statistics from '@/assets/icons/icon-stats.svg'
+import pancakeswap from '@/assets/icons/icon-pancakeswap.svg'
+import huobi from '@/assets/icons/icon-huobi.svg'
 
 export type NavMenuItemProps = {
   path?: string
@@ -33,7 +46,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
   
   {
     title: 'Games',
-    icon: './icons/icon-gamepad.svg',
+    icon: gamepad,
     submenu: [
       {
         title: 'MagicCraft',
@@ -62,11 +75,11 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
         path: '/build-on-magiccraft',
       },
-      // {
-      //   title: 'Hero',
-      //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
-      //   path: '/chooseyourhero',
-      // },
+      {
+        title: 'Hero',
+        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
+        path: '/chooseyourhero',
+      },
      
     ],
   },
@@ -81,12 +94,12 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         },
         {
           title: 'Marketplace',
-          icon: './icons/icon-marketplace.svg',
+          icon: marketplace,
           path: 'https://app.magiccraft.io/marketplace/explorer',
         },
         {
           title: 'Pledging',
-          icon: './icons/icon-huobi.svg',
+          icon: pledge,
           path: 'https://app.magiccraft.io/pledging',
         },
         {
@@ -98,7 +111,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     },
     {
       title: 'About',
-      icon: './icons/icon-help.svg',
+      icon: about,
       submenu: [
         // {
         //   title: 'Heroes',
@@ -122,7 +135,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         // },
         {
           title: 'FAQs',
-          icon: './icons/icon-faq.svg',
+          icon: faq,
           path: '/faq',
         },
         // {
@@ -136,21 +149,21 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     },
     {
       title: 'Buy $MCRT',
-      icon: './icons/icon-currency.svg',
+      icon: currency,
       submenu: [
         {
           title: 'PancakeSwap',
-          icon: './icons/icon-pancakeswap.svg',
+          icon: pancakeswap,
           path: 'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f ',
         },
         {
           title: 'Bybit',
-          icon: './icons/icon-bybit.svg',
+          icon: bybit,
           path: 'https://www.bybit.com/en/trade/spot/MCRT/USDT',
         },
         {
           title: 'Huobi Global',
-          icon: './icons/icon-huobi.svg',
+          icon: huobi,
           path: 'https://www.huobi.com/en-us/exchange/mcrt_usdt',
         },
         {
@@ -207,16 +220,16 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
   // },
   {
     title: 'Statistics',
-    icon: './icons/icon-stats.svg',
+    icon: statistics,
     submenu: [
       {
         title: 'Leaderboard',
-        icon: './icons/icon-leaderboard.svg',
+        icon: leaderboard,
         path: 'https://lobby.magiccraft.io/leaderboard',
       },
       {
         title: 'Game stats',
-        icon: './icons/icon-gamestats.svg',
+        icon: stats,
         path: 'https://lobby.magiccraft.io/stats',
       },
     ],
@@ -225,6 +238,12 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
 
 const Header = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    console.log('Current route:', location.pathname)
+    // Add more logs if needed to debug state or props
+  }, [location])
 
   function closeSidebar() {
     setIsSideMenuOpen(false)
