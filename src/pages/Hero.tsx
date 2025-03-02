@@ -20,14 +20,14 @@ function Hero() {
         <Header />
         <main className="scroll-smooth pb-32">
           <section className="relative flex flex-wrap bg-cover bg-center ">
-            <div className="absolute inset-0 hidden z-10  w-full lg:block  bg-gradient-to-r from-[#03082F]  via-[#060817] to-transparent" />
+            <div className={`absolute inset-0 hidden z-10 ${character?.name === 'Dr. Lutz' ? 'w-full' : 'w-3/4'} lg:block  bg-gradient-to-r from-[#03082F]  via-[#060817] to-transparent`} />
             <img
               src={
                 character?.visuals.background_image.desktop ||
                 '/placeholder.svg'
               }
               alt={character?.name}
-              className="relative hidden h-[700px] w-1/2 bg-cover bg-center lg:block lg:ml-auto  "
+              className={`relative hidden h-[700px]  bg-cover bg-center lg:block lg:ml-auto `}
             />
 
             <img

@@ -570,7 +570,7 @@ export const characterData = [
       visuals: {
         background_image: {
           mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160246/DRUID_1_sxtwnz.webp',
-          desktop: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160246/DRUID_1_sxtwnz.webp',
+          desktop: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740917657/DRUID_3_pshgqy.webp',
           tab: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160246/DRUID_1_sxtwnz.webp',
         },
         theme: '',

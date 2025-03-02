@@ -367,8 +367,8 @@ export default function HeroCarousel() {
               <div
                 className={`transition-all duration-500 ${
                   hero.position === 0
-                    ? "w-64 h-[420px] md:w-[320px] md:h-[480px]"
-                    : "w-48 h-[280px] md:w-64 md:h-[320px] opacity-50"
+                    ? "w-64 h-[420px] md:w-[300px] md:h-[380px]"
+                    : "w-48 h-[280px] md:w-[250px] md:h-[250px] opacity-50"
                 }`}
               >
                 <img
@@ -377,7 +377,7 @@ export default function HeroCarousel() {
                   className="w-full h-full object-cover rounded-2xl"
                 />
                 <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent rounded-b-2xl">
-                  <h3 className="text-white font-bold text-center text-lg md:text-xl">{hero.name}</h3>
+                  <h3 className="text-white font-bold text-center text-lg md:text-xl font-serif">{hero.name}</h3>
                   
                 </div>
               </div>
