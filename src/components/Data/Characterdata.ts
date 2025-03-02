@@ -228,7 +228,7 @@ export const characterData = [
       ],
       visuals: {
         background_image: {
-          mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160257/BJORN_xxplme.webp',
+          mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740935624/BJORN_3_qdvhdu.webp',
           desktop: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160257/BJORN_xxplme.webp',
           tab: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160257/BJORN_xxplme.webp',
         },
@@ -400,7 +400,7 @@ export const characterData = [
       ],
       visuals: {
         background_image: {
-          mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160456/Hero_1_zn1ghm.webp',
+          mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740935624/CALLIE_2_o06hcy.webp',
           desktop: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160452/CALLIE_ebfntj.webp',
           tab: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160456/Hero_1_zn1ghm.webp',
         },
@@ -1432,7 +1432,7 @@ export const characterData = [
       ],
       visuals: {
         background_image: {
-          mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160230/VEGA_q8sgfs.webp',
+          mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740935624/VEGA_3_sb9r02.webp',
           desktop: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160230/VEGA_q8sgfs.webp',
           tab: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160230/VEGA_q8sgfs.webp',
         },
@@ -1604,7 +1604,7 @@ export const characterData = [
       ],
       visuals: {
         background_image: {
-          mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_z0ukji.webp',
+          mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740935624/Zap_pk1krd.webp',
           desktop: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173134/Hero_3_dkigsu.webp',
           tab: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_z0ukji.webp',
         },
