@@ -1,3 +1,24 @@
+import amun from '@/assets/images/hero/amun (2).webp'
+import brienne from '@/assets/images/hero/Brienne (2).webp'
+import bjorn from '@/assets/images/hero/bjorn (2).webp'
+import blazy from '@/assets/images/hero/blazy.webp'
+import druid from '@/assets/images/hero/Druid (2).webp'
+import jean from '@/assets/images/hero/Jean (2).webp'
+import karas from '@/assets/images/hero/karas (2).webp' 
+import drluts from '@/assets/images/hero/Lutz (3).webp'
+import craig from '@/assets/images/hero/Craig.webp'
+import callie from '@/assets/images/hero/callie (1).webp'
+import frigard from '@/assets/images/hero/Frigard (2).webp'
+import gail from '@/assets/images/hero/Gail (2).webp'
+import moira from '@/assets/images/hero/Moira (2).webp'
+import ronin from '@/assets/images/hero/Ronin (2).webp'
+import tara from '@/assets/images/hero/Tara (2).webp'
+import trueshot from '@/assets/images/hero/Trueshot.webp'
+import vega from '@/assets/images/hero/Vega (2).webp'
+import vladislav from '@/assets/images/hero/Vladislav (2).webp'
+
+
+
 export const characterData = [
   [
     {
@@ -62,8 +83,7 @@ export const characterData = [
           description:
             'Amun transforms into a spectral form and shifts through astral planes to evade enemy attacks.',
           damage: 80,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740386384/Rectangle_3_2_rdemjn.webp',
+          image: amun,
         },
         {
           name: 'Death Order',
@@ -73,8 +93,7 @@ export const characterData = [
           description:
             'Amun calls upon dark forces to issue a deadly decree that smites his foes.',
           damage: 95,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740386384/Rectangle_3_2_rdemjn.webp',
+          image:amun,
         },
         {
           name: 'The Energy of Emptiness',
@@ -84,8 +103,7 @@ export const characterData = [
           description:
             'Amun unleashes a burst of void energy that drains strength from all in its path.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740386384/Rectangle_3_2_rdemjn.webp',
+          image:amun,
         },
       ],
     },
@@ -151,8 +169,7 @@ export const characterData = [
           description:
             'Brienne surges forward with noble might, breaking enemy lines with a powerful charge.',
           damage: 100,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740398086/Rectangle_3_16_conz82.webp',
+          image: brienne,
         },
         {
           name: "King's Judgment",
@@ -162,8 +179,7 @@ export const characterData = [
           description:
             "Delivering a decisive blow, Brienne enacts the king's command to smite her foes.",
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740398086/Rectangle_3_16_conz82.webp',
+          image: brienne,
         },
         {
           name: 'Imperial Shield',
@@ -173,8 +189,7 @@ export const characterData = [
           description:
             'Brienne forms a protective barrier that reduces incoming damage while advancing.',
           damage: 70,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740398086/Rectangle_3_16_conz82.webp',
+          image: brienne,
         },
       ],
     },
@@ -240,8 +255,7 @@ export const characterData = [
           description:
             'Bjorn delivers a brutal melee attack that cleaves through multiple enemies.',
           damage: 95,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740394943/Rectangle_3_3_jtkalb.webp',
+          image:bjorn,
         },
         {
           name: 'Justice Cleave',
@@ -251,8 +265,7 @@ export const characterData = [
           description:
             'A wide arc swing that enforces his sense of justice upon his foes.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740394943/Rectangle_3_3_jtkalb.webp',
+          image:bjorn,
         },
         {
           name: 'Order Restored',
@@ -262,8 +275,7 @@ export const characterData = [
           description:
             'Bjorn channels his inner resolve to restore order and weaken enemy defenses.',
           damage: 75,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740394943/Rectangle_3_3_jtkalb.webp',
+          image:bjorn,
         },
       ],
     },
@@ -329,8 +341,7 @@ export const characterData = [
           description:
             'Blazy releases a sudden burst of flames, engulfing nearby enemies in fire.',
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/Rectangle_3_mxdrdh.webp',
+          image:blazy,
         },
         {
           name: 'Flame Whip',
@@ -340,8 +351,7 @@ export const characterData = [
           description:
             'A swift lash of flame that strikes and burns enemies from a distance.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/Rectangle_3_mxdrdh.webp',
+          image:blazy,
         },
         {
           name: 'Hellfire Eruption',
@@ -351,8 +361,7 @@ export const characterData = [
           description:
             'Blazy summons a massive eruption of hellfire, scorching everything in its path.',
           damage: 95,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/Rectangle_3_mxdrdh.webp',
+          image:blazy,
         },
       ],
     },
@@ -418,8 +427,7 @@ export const characterData = [
           description:
             'Callie harnesses the power of the swamp to ensnare and damage her enemies.',
           damage: 70,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396553/Rectangle_3_10_nvqzve.webp',
+          image:callie,
         },
         {
           name: 'Toxic Surge',
@@ -429,8 +437,7 @@ export const characterData = [
           description:
             'A surge of poisonous energy erupts from Callie, weakening and damaging foes.',
           damage: 80,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396553/Rectangle_3_10_nvqzve.webp',
+          image:callie,
         },
         {
           name: 'Marsh Mirage',
@@ -440,8 +447,7 @@ export const characterData = [
           description:
             'Callie creates deceptive illusions from the marsh to confuse her adversaries.',
           damage: 75,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396553/Rectangle_3_10_nvqzve.webp',
+          image:callie,
         },
       ],
     },
@@ -507,8 +513,7 @@ export const characterData = [
           description:
             'Craig slams the ground with raw power, sending shockwaves that damage all nearby foes.',
           damage: 100,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/primal_smash_img.webp',
+          image:craig,
         },
         {
           name: "Earth's Reclamation",
@@ -518,8 +523,7 @@ export const characterData = [
           description:
             'Craig calls upon the power of the earth to reclaim lost ground and crush his enemies.',
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/earths_reclamation_img.webp',
+          image:craig,
         },
         {
           name: "Titan's Roar",
@@ -529,8 +533,7 @@ export const characterData = [
           description:
             'With a mighty roar, Craig intimidates his foes, reducing their combat effectiveness.',
           damage: 80,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/titans_roar_img.webp',
+          image:craig,
         },
       ],
     },
@@ -596,8 +599,7 @@ export const characterData = [
           description:
             'The Druid summons the fury of nature to launch a devastating attack.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740394943/Rectangle_3_5_nhcioc.webp',
+          image:druid,
         },
         {
           name: 'Life Drain',
@@ -607,8 +609,7 @@ export const characterData = [
           description:
             'The Druid siphons life from his enemies to heal himself during battle.',
           damage: 80,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740394943/Rectangle_3_5_nhcioc.webp',
+          image:druid,
         },
         {
           name: "Forest's Vengeance",
@@ -618,8 +619,7 @@ export const characterData = [
           description:
             'The spirit of the forest rises to avenge nature, unleashing relentless force.',
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740394943/Rectangle_3_5_nhcioc.webp',
+          image:druid,
         },
       ],
     },
@@ -685,8 +685,7 @@ export const characterData = [
           description:
             'Dr. Lutz deploys a volatile explosive charge that detonates on contact.',
           damage: 110,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396837/Rectangle_3_11_ycn5go.webp',
+          image:drluts,
         },
         {
           name: 'Rocket Barrage',
@@ -696,8 +695,7 @@ export const characterData = [
           description:
             'A salvo of rockets rains down on enemies, overwhelming them with explosive force.',
           damage: 105,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396837/Rectangle_3_11_ycn5go.webp',
+          image:drluts,
         },
         {
           name: 'Detonation Protocol',
@@ -707,8 +705,7 @@ export const characterData = [
           description:
             'Dr. Lutz triggers a chain reaction, causing a massive explosion in a wide area.',
           damage: 115,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396837/Rectangle_3_11_ycn5go.webp',
+          image:drluts,
         },
       ],
     },
@@ -774,8 +771,7 @@ export const characterData = [
           description:
             'Frigard inflicts a chilling bite that slows and damages his enemies.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740397663/Rectangle_3_13_tgyqdd.webp',
+          image:frigard,
         },
         {
           name: 'Glacial Shard',
@@ -785,8 +781,7 @@ export const characterData = [
           description:
             'A sharp shard of ice is hurled toward foes, piercing through defenses.',
           damage: 80,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740397663/Rectangle_3_13_tgyqdd.webp',
+          image:frigard,
         },
         {
           name: 'Blizzard Fury',
@@ -796,8 +791,7 @@ export const characterData = [
           description:
             'Frigard summons a ferocious blizzard that engulfs the battlefield in ice.',
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740397663/Rectangle_3_13_tgyqdd.webp',
+          image:frigard,
         },
       ],
     },
@@ -863,8 +857,7 @@ export const characterData = [
           description:
             'Gail unleashes a powerful gust of wind that knocks enemies off balance.',
           damage: 80,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396216/Rectangle_3_9_lqett0.webp',
+          image:gail,
         },
         {
           name: 'Cyclone Burst',
@@ -874,8 +867,7 @@ export const characterData = [
           description:
             'A swirling burst of wind disorients enemies caught in its path.',
           damage: 75,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396216/Rectangle_3_9_lqett0.webp',
+          image:gail,
         },
         {
           name: 'Tempest Call',
@@ -885,8 +877,7 @@ export const characterData = [
           description:
             'Gail summons a violent storm that bombards enemies with fierce winds.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396216/Rectangle_3_9_lqett0.webp',
+          image:gail,
         },
       ],
     },
@@ -952,8 +943,7 @@ export const characterData = [
           description:
             'Jean phases into the ethereal plane to dodge incoming attacks.',
           damage: 70,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740394943/Rectangle_3_4_yttns1.webp',
+          image:jean,
         },
         {
           name: 'Mystic Surge',
@@ -963,8 +953,7 @@ export const characterData = [
           description:
             'Jean channels an ancient surge of magic to overwhelm his enemies.',
           damage: 80,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740394943/Rectangle_3_4_yttns1.webp',
+          image:jean,
         },
         {
           name: 'Arcane Eruption',
@@ -974,8 +963,7 @@ export const characterData = [
           description:
             'A torrent of arcane energy explodes from Jean’s core, battering all nearby foes.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740394943/Rectangle_3_4_yttns1.webp',
+          image:jean,
         },
       ],
     },
@@ -1041,8 +1029,7 @@ export const characterData = [
           description:
             'Karas cloaks himself in darkness, making him nearly invisible to enemies.',
           damage: 75,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740395937/Rectangle_3_8_fsdxej.webp',
+          image:karas,
         },
         {
           name: 'Dark Incantation',
@@ -1052,8 +1039,7 @@ export const characterData = [
           description:
             'Karas invokes forbidden magic to curse and weaken his adversaries.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740395937/Rectangle_3_8_fsdxej.webp',
+          image:karas,
         },
         {
           name: 'Nether Blast',
@@ -1063,8 +1049,7 @@ export const characterData = [
           description:
             'A concentrated blast of dark energy erupts from Karas, devastating all in its path.',
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740395937/Rectangle_3_8_fsdxej.webp',
+          image:karas,
         },
       ],
     },
@@ -1130,8 +1115,7 @@ export const characterData = [
           description:
             'Moira blends magic and machinery to unleash a surge of electrifying power.',
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740395800/Rectangle_3_7_io04aj.webp',
+          image:moira,
         },
         {
           name: 'Mechanical Onslaught',
@@ -1141,8 +1125,7 @@ export const characterData = [
           description:
             'A relentless barrage of mechanical fury overwhelms Moira’s enemies.',
           damage: 95,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740395800/Rectangle_3_7_io04aj.webp',
+          image:moira,
         },
         {
           name: 'Energy Overload',
@@ -1152,8 +1135,7 @@ export const characterData = [
           description:
             'Moira unleashes an overwhelming burst of energy that cripples her foes.',
           damage: 100,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740395800/Rectangle_3_7_io04aj.webp',
+          image:moira,
         },
       ],
     },
@@ -1219,8 +1201,7 @@ export const characterData = [
           description:
             'Ronin strikes with a phantom blade that cuts through enemy defenses.',
           damage: 95,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/ghost_slash_img.webp',
+          image:ronin,
         },
         {
           name: "Demon's Embrace",
@@ -1230,8 +1211,7 @@ export const characterData = [
           description:
             'Ronin channels dark energy to empower his strikes with demonic force.',
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/demons_embrace_img.webp',
+          image:ronin,
         },
         {
           name: 'Silent Retribution',
@@ -1241,8 +1221,7 @@ export const characterData = [
           description:
             'With lethal precision, Ronin delivers a silent, deadly strike.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/silent_retribution_img.webp',
+          image:ronin,
         },
       ],
     },
@@ -1308,8 +1287,7 @@ export const characterData = [
           description:
             'Tara launches a surprise attack from the urban shadows.',
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740397168/Rectangle_3_12_rmmvkj.webp',
+          image:tara,
         },
         {
           name: 'Urban Evasion',
@@ -1319,8 +1297,7 @@ export const characterData = [
           description:
             'Tara quickly evades incoming attacks by blending into her surroundings.',
           damage: 75,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740397168/Rectangle_3_12_rmmvkj.webp',
+          image:tara,
         },
         {
           name: "Survivor's Fury",
@@ -1330,8 +1307,7 @@ export const characterData = [
           description:
             'Drawing on her harsh past, Tara unleashes a furious assault on her enemies.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740397168/Rectangle_3_12_rmmvkj.webp',
+          image:tara,
         },
       ],
     },
@@ -1397,8 +1373,7 @@ export const characterData = [
           description:
             'True Shot fires a mystical arrow that homes in on its destined target.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396837/Rectangle_3_11_ycn5go.webp',
+          image:trueshot,
         },
         {
           name: "Forest's Wrath",
@@ -1408,8 +1383,7 @@ export const characterData = [
           description:
             'Channeling the dying forest’s power, True Shot inflicts nature’s retribution.',
           damage: 80,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396837/Rectangle_3_11_ycn5go.webp',
+          image:trueshot,
         },
         {
           name: 'Snipe Strike',
@@ -1419,8 +1393,7 @@ export const characterData = [
           description:
             'From a distance, True Shot delivers a precise and deadly snipe attack.',
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740396837/Rectangle_3_11_ycn5go.webp',
+          image:trueshot,
         },
       ],
     },
@@ -1486,8 +1459,7 @@ export const characterData = [
           description:
             'Wielding a spectral scythe, Vega cleaves through his foes with deadly precision.',
           damage: 100,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740397877/Rectangle_3_14_u9vraj.webp',
+          image:vega,
         },
         {
           name: 'Soul Harvest',
@@ -1497,8 +1469,7 @@ export const characterData = [
           description:
             'Vega siphons the life force from his enemies to replenish his own strength.',
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740397877/Rectangle_3_14_u9vraj.webp',
+          image:vega,
         },
         {
           name: "Death's Embrace",
@@ -1508,8 +1479,7 @@ export const characterData = [
           description:
             'Vega surrounds himself with a shroud of death that empowers his next attack.',
           damage: 95,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740397877/Rectangle_3_14_u9vraj.webp',
+          image:vega,
         },
       ],
     },
@@ -1575,8 +1545,7 @@ export const characterData = [
           description:
             'Vladislav drains the vitality of his enemies by feasting on their blood.',
           damage: 105,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740395467/image_151_tapj5y.webp',
+          image:vladislav,
         },
         {
           name: 'Crimson Rampage',
@@ -1586,8 +1555,7 @@ export const characterData = [
           description:
             'Unleashing savage brutality, Vladislav rampages through enemy ranks.',
           damage: 100,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740395467/image_151_tapj5y.webp',
+          image:vladislav,
         },
         {
           name: 'Heart of Darkness',
@@ -1597,8 +1565,7 @@ export const characterData = [
           description:
             'Vladislav channels the abyss within, releasing devastating dark energy.',
           damage: 110,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740395467/image_151_tapj5y.webp',
+          image:vladislav,
         },
       ],
     },

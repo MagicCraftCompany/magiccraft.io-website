@@ -21,6 +21,8 @@ function Hero() {
         <main className="scroll-smooth pb-32">
           <section className="relative flex flex-wrap bg-cover bg-center ">
             <div className={`absolute inset-0 hidden z-10 ${character?.name === 'Dr. Lutz' ? 'w-full' : 'w-3/4'} lg:block  bg-gradient-to-r from-[#03082F]  via-[#060817] to-transparent`} />
+            <div className={`absolute inset-0 sm:hidden z-10   bg-gradient-to-t from-[#03082F]  via-[#060817] to-transparent`} />
+
             <img
               src={
                 character?.visuals.background_image.desktop ||
@@ -38,16 +40,20 @@ function Hero() {
               alt={character?.name}
               className="relative hidden h-[700px] w-full bg-cover bg-center sm:hidden md:block lg:hidden "
             />
+
             <img
                src={
                 character?.visuals.background_image. mobile ||
                 '/placeholder.svg'
               }
-              className="relative top-[-70px] block  h-[700px] w-full bg-cover bg-center   md:hidden "
+              className="relative top-[-10px] block w-full h-[700px]     md:hidden "
             />
+
             
             <div className=" flex w-full rounded-lg z-20 ">
-              <div className="absolute inset-0 -mb-20 -mt-40 flex w-fit flex-col  justify-center  text-center  md:-mt-10  lg:-top-[20em] lg:ml-[20em] lg:mt-40 lg:text-left">
+              
+              <div className="absolute inset-0  -mt-40 flex w-fit flex-col  justify-center  text-center  md:-mt-10  lg:-top-[20em] lg:ml-[20em] lg:mt-40 lg:text-left ">
+
                 <span className="m-4 hidden w-fit justify-center rounded-[2em] bg-[#4457b84d]  px-4 py-2 text-[#98FFF9] lg:block   ">
                   <div className="flex flex-wrap">
                     {' '}
@@ -72,6 +78,7 @@ function Hero() {
 
                
               </div>
+
             </div>
             <div className=" flex items-center justify-center z-20 ">
               <div className="flex w-[409px] flex-col items-center gap-[0.5em]  rounded-[1.875em] bg-[#13152E] bg-opacity-70 px-[1.75em]  backdrop-blur-[0.71875em]  md:mx-[2em] md:w-[704px] lg:-mt-40 lg:ml-[15.125em]  lg:w-fit lg:flex-row py-4 lg:py-0 ">
