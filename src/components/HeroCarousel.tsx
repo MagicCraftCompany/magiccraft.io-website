@@ -209,41 +209,41 @@ interface Hero {
 }
 
 const heroes: Hero[] = [
-  { id: 1, name: "ZAP", image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_z0ukji.webp" },
+  { id: 1, name: "ZAP", image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740935624/Zap_pk1krd.webp" },
   {
     id: 2,
     name: "DRUID",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_1_fzdlkt.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160246/DRUID_1_sxtwnz.webp",
   },
   {
     id: 3,
     name: "JEAN",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_2_mqz53g.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160370/JEAN_1_ixngfc.webp",
   },
   {
     id: 4,
     name: "AMUN",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_3_ell268.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740245569/image_261_1_rvn5tn.webp",
   },
   {
     id: 5,
     name: "VLADISLAV",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_4_fqjech.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160462/VLADISLAV_1_awiznl.webp",
   },
   {
     id: 6,
     name: "MOIRA",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_5_zkalot.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160458/MOIRA_1_dhacg5.webp",
   },
   {
     id: 7,
     name: "KARAS",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_6_stevwh.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160230/KARAS_1_q2wpgv.webp",
   },
   {
     id: 8,
     name: "GAIL",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_7_mn47kd.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160455/GAIL_1_litgen.webp",
   },
   // {
   //   id: 9,
@@ -253,47 +253,47 @@ const heroes: Hero[] = [
   {
     id: 10,
     name: "CALLIE",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_9_lsrom5.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740935624/CALLIE_2_o06hcy.webp",
   },
   {
     id: 11,
     name: "TRUESHOT",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_10_sz7eqb.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160370/ARCHER_1_dwe2sq.webp",
   },
   {
     id: 12,
     name: "DR. LUTZ",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280871/image_19_11_ptqt4j.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160457/LUTZ_1_tvcmnw.webp",
   },
   {
     id: 13,
     name: "TARA",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280874/image_19_12_uybthz.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160461/TARA_1_l4zw4f.webp",
   },
   {
     id: 14,
     name: "BLAZY",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280873/image_19_13_a4vhmd.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160451/BLAIZY_1_simi1s.webp",
   },
   {
     id: 15,
     name: "BJORN",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280875/image_19_14_vrnkua.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740935624/BJORN_3_qdvhdu.webp",
   },
   {
     id: 16,
     name: "FRIGARD",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280875/image_19_15_m1yugr.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160454/FRIGARD_1_acxal4.webp",
   },
   {
     id: 17,
     name: "VEGA",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280872/image_19_16_lwlhzb.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740935624/VEGA_3_sb9r02.webp",
   },
   {
     id: 18,
     name: "BRIENNE",
-    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280872/image_19_17_rzbzrb.webp",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160370/Brienne_1_su9kbw.webp",
   },
 ]
 
