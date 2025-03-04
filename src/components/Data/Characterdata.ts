@@ -486,9 +486,9 @@ export const characterData = [
       ],
       visuals: {
         background_image: {
-          mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160372/KRAG_1_cnmy9b.webp',
+          mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1741082672/KRAG_2_uioyzt.webp',
           desktop: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160371/KRAG_fccfjo.webp',
-          tab: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160372/KRAG_1_cnmy9b.webp',
+          tab: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160371/KRAG_fccfjo.webp',
         },
         theme: '',
         UI_elements: {
@@ -507,9 +507,9 @@ export const characterData = [
       ability_details: [
         {
           name: 'Primal Smash',
-          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173114/primal_smash.webp',
+          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173114/image_139_1_ojcjhs.webp',
           iconActive:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173114/primal_smash_active.webp',
+            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173114/image_139_1_ojcjhs.webp',
           description:
             'Craig slams the ground with raw power, sending shockwaves that damage all nearby foes.',
           damage: 100,
@@ -517,9 +517,9 @@ export const characterData = [
         },
         {
           name: "Earth's Reclamation",
-          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173120/earths_reclamation.webp',
+          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173120/image_139_upbgkg.webp',
           iconActive:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173120/earths_reclamation_active.webp',
+            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173120/image_139_upbgkg.webp',
           description:
             'Craig calls upon the power of the earth to reclaim lost ground and crush his enemies.',
           damage: 90,
@@ -527,9 +527,9 @@ export const characterData = [
         },
         {
           name: "Titan's Roar",
-          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173123/titans_roar.webp',
+          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173123/image1393_uyesc3.webp',
           iconActive:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173123/titans_roar_active.webp',
+            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173123/image1393_uyesc3.webp',
           description:
             'With a mighty roar, Craig intimidates his foes, reducing their combat effectiveness.',
           damage: 80,
@@ -1175,7 +1175,7 @@ export const characterData = [
       visuals: {
         background_image: {
           mobile: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160462/RONIN_kibnxo.webp',
-          desktop: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160459/RONIN_1_ejhaez.webp',
+          desktop: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1741081903/65bc6f0f0b3803026196fe5055a75747_ugvj0j.webp',
           tab: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160462/RONIN_kibnxo.webp',
         },
         theme: '',
@@ -1195,9 +1195,9 @@ export const characterData = [
       ability_details: [
         {
           name: 'Ghost Slash',
-          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173114/ghost_slash.webp',
+          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173123/image_139_1_ojcjhs.webp',
           iconActive:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173114/ghost_slash_active.webp',
+            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173123/image_139_1_ojcjhs.webp',
           description:
             'Ronin strikes with a phantom blade that cuts through enemy defenses.',
           damage: 95,
@@ -1205,9 +1205,9 @@ export const characterData = [
         },
         {
           name: "Demon's Embrace",
-          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173120/demons_embrace.webp',
+          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173120/image_139_upbgkg.webp',
           iconActive:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173120/demons_embrace_active.webp',
+            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173120/image_139_upbgkg.webp',
           description:
             'Ronin channels dark energy to empower his strikes with demonic force.',
           damage: 90,
@@ -1215,9 +1215,9 @@ export const characterData = [
         },
         {
           name: 'Silent Retribution',
-          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173123/silent_retribution.webp',
+          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173123/image1393_uyesc3.webp',
           iconActive:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173123/silent_retribution_active.webp',
+            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173123/image1393_uyesc3.webp',
           description:
             'With lethal precision, Ronin delivers a silent, deadly strike.',
           damage: 85,

@@ -30,6 +30,8 @@ const heroes: Hero[] = [
   { id: '15', name: 'FRIGARD', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280875/image_19_15_m1yugr.webp' },
   { id: '16', name: 'VEGA', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280872/image_19_16_lwlhzb.webp' },
   { id: '17', name: 'BRIENNE', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280872/image_19_17_rzbzrb.webp' },
+  { id: '18', name: 'RONIN', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160459/RONIN_1_ejhaez.webp' },
+  { id: '19', name: 'CRAIG', image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160372/KRAG_1_cnmy9b.webp' },
 ]
 
 function HeroCard({ hero }: { hero: Hero }) {
@@ -38,14 +40,13 @@ function HeroCard({ hero }: { hero: Hero }) {
   return (
     <button
       onClick={() => navigate(`/hero/${hero.name.toLowerCase()}`)}
-      className="group relative overflow-hidden rounded-lg transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+      className="group relative overflow-hidden rounded-2xl transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
     >
       <div className="aspect-square">
-        <img
+        <img 
           src={hero.image}
           alt={`${hero.name} character portrait`}
-          className="object-cover transition-transform group-hover:scale-110"
-          
+          className="h-full w-full object-cover transition-transform group-hover:scale-110"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>

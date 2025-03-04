@@ -295,6 +295,16 @@ const heroes: Hero[] = [
     name: "BRIENNE",
     image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160370/Brienne_1_su9kbw.webp",
   },
+  {
+    id: 19,
+    name: "CRAIG",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1741082672/KRAG_2_uioyzt.webp",
+  },
+  {
+    id: 20,
+    name: "RONIN",
+    image: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1740160459/RONIN_1_ejhaez.webp",
+  },
 ]
 
 export default function HeroCarousel() {
