@@ -81,7 +81,7 @@ function Hero() {
 
             </div>
             <div className=" flex items-center justify-center z-20 ">
-              <div className="flex  flex-col items-center gap-[0.5em]  rounded-[1.875em] md:bg-[#13152E] bg-[#040514] md:bg-opacity-70 px-[1.75em]  backdrop-blur-[0.71875em]  md:mx-[2em] md:w-[704px] lg:-mt-40 lg:ml-[15.125em]  lg:w-fit lg:flex-row py-4 lg:py-0 ">
+              <div className="flex  flex-col  items-center gap-[0.5em]  rounded-[1.875em] md:bg-[#13152E]  md:bg-opacity-70 px-[1.75em]  backdrop-blur-[0.71875em]  md:mx-[2em] md:w-[704px] lg:-mt-40 lg:ml-[15.125em]  lg:w-fit lg:flex-row py-4 lg:py-0 ">
                <div className="flex flex-row justify-between w-full md:w-fit">
                 <div className="relative  lg:flex h-fit  w-fit lg:flex-col overflow-hidden rounded-[20px]   lg:px-2  ">
                   <h4 className="flex flex-row p-1">
@@ -95,7 +95,7 @@ function Hero() {
                     Difficulty:{' '}
                     <div className="md:ml-6 ml-2 flex  flex-row rounded-3xl bg-[#1F2E32] px-4  text-[#8EFF49]">
                       {' '}
-                      <div className="md:mx-2 mr-1 md:mr-0 mt-2 md:h-2 md:w-2 h-1 w-1 rounded-3xl text-[10px] md:text-sm bg-[#8EFF49]"></div>{' '}
+                      <div className="md:mx-2 mr-1 md:mr-2 mt-2 md:h-2 md:w-2 h-1 w-1 rounded-3xl text-[10px] md:text-sm bg-[#8EFF49]"></div>{' '}
                       {character?.difficulty}{' '}
                     </div>
                   </h4>
