@@ -81,7 +81,7 @@ function Hero() {
 
             </div>
             <div className=" flex items-center justify-center z-20 ">
-              <div className="flex w-[409px] flex-col items-center gap-[0.5em]  rounded-[1.875em] md:bg-[#13152E] bg-[#040514] md:bg-opacity-70 px-[1.75em]  backdrop-blur-[0.71875em]  md:mx-[2em] md:w-[704px] lg:-mt-40 lg:ml-[15.125em]  lg:w-fit lg:flex-row py-4 lg:py-0 ">
+              <div className="flex  flex-col items-center gap-[0.5em]  rounded-[1.875em] md:bg-[#13152E] bg-[#040514] md:bg-opacity-70 px-[1.75em]  backdrop-blur-[0.71875em]  md:mx-[2em] md:w-[704px] lg:-mt-40 lg:ml-[15.125em]  lg:w-fit lg:flex-row py-4 lg:py-0 ">
                <div className="flex flex-row justify-between w-full md:w-fit">
                 <div className="relative  lg:flex h-fit  w-fit lg:flex-col overflow-hidden rounded-[20px]   lg:px-2  ">
                   <h4 className="flex flex-row p-1">
