@@ -81,20 +81,21 @@ function Hero() {
 
             </div>
             <div className=" flex items-center justify-center z-20 ">
-              <div className="flex w-[409px] flex-col items-center gap-[0.5em]  rounded-[1.875em] bg-[#13152E] bg-opacity-70 px-[1.75em]  backdrop-blur-[0.71875em]  md:mx-[2em] md:w-[704px] lg:-mt-40 lg:ml-[15.125em]  lg:w-fit lg:flex-row py-4 lg:py-0 ">
+              <div className="flex w-[409px] flex-col items-center gap-[0.5em]  rounded-[1.875em] md:bg-[#13152E] bg-[#040514] md:bg-opacity-70 px-[1.75em]  backdrop-blur-[0.71875em]  md:mx-[2em] md:w-[704px] lg:-mt-40 lg:ml-[15.125em]  lg:w-fit lg:flex-row py-4 lg:py-0 ">
+               <div className="flex flex-row justify-between w-full md:w-fit">
                 <div className="relative  lg:flex h-fit  w-fit lg:flex-col overflow-hidden rounded-[20px]   lg:px-2  ">
                   <h4 className="flex flex-row p-1">
                     Game role:{' '}
                     <div className="flex flex-row px-2 text-[#98FFF9] ">
                       {' '}
-                      <img src={one} className="px-2 " /> {character?.role.class}{' '}
+                      <img src={one} className="md:px-2 mr-1 md:mr-0 " /> {character?.role.class}{' '}
                     </div>
                   </h4>
                   <h4 className="flex flex-row p-1  ">
                     Difficulty:{' '}
-                    <div className="ml-6 flex  flex-row rounded-3xl bg-[#1F2E32] px-4  text-[#8EFF49]">
+                    <div className="md:ml-6 ml-2 flex  flex-row rounded-3xl bg-[#1F2E32] px-4  text-[#8EFF49]">
                       {' '}
-                      <div className="mx-2 mt-2 h-2 w-2 rounded-3xl bg-[#8EFF49]"></div>{' '}
+                      <div className="md:mx-2 mr-1 md:mr-0 mt-2 md:h-2 md:w-2 h-1 w-1 rounded-3xl text-[10px] md:text-sm bg-[#8EFF49]"></div>{' '}
                       {character?.difficulty}{' '}
                     </div>
                   </h4>
@@ -103,20 +104,20 @@ function Hero() {
                 <div className="relative flex h-fit  w-fit flex-col  overflow-hidden rounded-[20px]   px-2  ">
                   <h4 className="flex flex-row p-1">
                     MP:{' '}
-                    <div className="flex flex-row pl-10 text-[#98FFF9] ">
+                    <div className="flex flex-row md:pl-10 pl-2 text-[#98FFF9] ">
                       {' '}
                       <img src={heart} className="px-2" /> {character?.MP}
                     </div>
                   </h4>
                   <h4 className="flex flex-row p-1  ">
                     Mobility:{' '}
-                    <div className="flex flex-row  px-2 text-[#98FFF9]">
+                    <div className="flex flex-row md:px-2 px-1 text-[#98FFF9]">
                       {' '}
                       <img src={arrow} className="px-2" /> {character?.mobility}
                     </div>
                   </h4>
                 </div>
-
+                </div>
                 <div className="my-8 hidden h-[3em] w-px bg-gradient-to-t from-transparent via-[#98FFF9] to-transparent lg:block " />
                 <div className="my-8 block h-px w-[10em] bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent lg:hidden " />
 
