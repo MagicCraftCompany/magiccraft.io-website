@@ -183,3 +183,13 @@
 }
  
 }
+
+/* XSwap Modal Background Fix */
+[class*="xswap-modal"] {
+  background-color: #000000 !important;
+}
+
+/* If the above doesn't work, try this more specific selector */
+div[class*="xswap-modal-container"] {
+  background-color: #000000 !important;
+}

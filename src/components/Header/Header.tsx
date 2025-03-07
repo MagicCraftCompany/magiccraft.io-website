@@ -22,6 +22,7 @@ import about from '@/assets/icons/icon-help.svg'
 import statistics from '@/assets/icons/icon-stats.svg'
 import pancakeswap from '@/assets/icons/icon-pancakeswap.svg'
 import huobi from '@/assets/icons/icon-huobi.svg'
+import { openTransactionModal } from "@xswap-link/sdk";
 
 export type NavMenuItemProps = {
   path?: string
@@ -235,6 +236,20 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     ],
   },
  ]
+ const handleBuyMCRT = async () => {
+  try {
+    await openTransactionModal({
+      integratorId: "34808808c1f4ae4533b7",
+      dstChain: "56",
+      dstToken: "0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f",
+      srcChain: "56",
+      srcToken: "0x0000000000000000000000000000000000000000",
+      defaultWalletPicker: true,
+    });
+  } catch (error) {
+    console.error("XPay transaction failed:", error);
+  }
+};
 
 const Header = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
@@ -288,16 +303,12 @@ const Header = () => {
               )}
             </div>
             <div className="flex items-center gap-5">
-              <a
-                href="https://pancakeswap.finance/?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f"
-                target="_blank"
-                rel="noreferrer noopener"
+              <button
+                onClick={handleBuyMCRT}
+                className="flex cursor-pointer items-center gap-2 whitespace-nowrap"
               >
-                <div className="flex cursor-pointer items-center gap-2 whitespace-nowrap ">
-                  {/* <PlayCircle size={16} /> */}
-                  <p className="text-sm md:text-base"> Buy $MCRT</p>
-                </div>
-              </a>
+                <p className="text-sm md:text-base">Buy $MCRT</p>
+              </button>
 
               <button className="hidden md:block">
                 <a
