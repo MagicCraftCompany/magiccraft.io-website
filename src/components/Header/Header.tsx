@@ -71,21 +71,12 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717662849/Screenshot_2024-01-05_at_15.03_1_x8sbyh.png',
         path: '/magic8ball',
       },
-      {
-        title: 'Build on MagicCraft',
-        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
-        path: '/build-on-magiccraft',
-      },
-      {
-        title: 'Hero',
-        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
-        path: '/chooseyourhero',
-      },
+      
      
     ],
   },
   {
-      title: 'Dapp',
+      title: 'Web3',
       icon: service,
       submenu: [
         {
@@ -173,6 +164,18 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
           path: 'https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12',
         },
       ],
+    },
+    {
+      title: 'Build on MagicCraft',
+      icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1722867433/MCRT_shydrd.webp",
+      path: '/build-on-magiccraft',
+      submenu: [],
+    },
+    {
+      title: 'Heros',
+      icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1722867433/MCRT_shydrd.webp",
+      path: '/chooseyourhero',
+      submenu: [],
     },
 
   // {
