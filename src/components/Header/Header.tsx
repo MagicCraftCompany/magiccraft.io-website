@@ -35,13 +35,29 @@ export type NavMenuItemProps = {
 export type NavMenuProps = {
   item: NavMenuItemProps
   closeSidebar?: () => void
+  onXswapClick?: () => Promise<void>
 }
 
 export type SubMenuProps = {
   title: string
   icon: string
   path: string
+  isXswap?: boolean
 }
+const handleBuyMCRT = async () => {
+  try {
+    await openTransactionModal({
+      integratorId: "34808808c1f4ae4533b7",
+      dstChain: "56",
+      dstToken: "0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f",
+      srcChain: "56",
+      srcToken: "0x0000000000000000000000000000000000000000",
+      defaultWalletPicker: true,
+    });
+  } catch (error) {
+    console.error("XPay transaction failed:", error);
+  }
+};
 
 const commonMenuItemsNew: NavMenuItemProps[] = [
   
@@ -143,6 +159,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       title: 'Buy $MCRT',
       icon: currency,
       submenu: [
+        
         {
           title: 'PancakeSwap',
           icon: pancakeswap,
@@ -165,18 +182,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         },
       ],
     },
-    {
-      title: 'Build on MagicCraft',
-      icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1722867433/MCRT_shydrd.webp",
-      path: '/build-on-magiccraft',
-      submenu: [],
-    },
-    {
-      title: 'Heros',
-      icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1722867433/MCRT_shydrd.webp",
-      path: '/chooseyourhero',
-      submenu: [],
-    },
+   
 
   // {
   //   title: 'NFTs',
@@ -238,22 +244,20 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       },
     ],
   },
+  {
+    title: 'Build on MagicCraft',
+    icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1722867433/MCRT_shydrd.webp",
+    path: '/build-on-magiccraft',
+    submenu: [],
+  },
+  {
+    title: 'Heros',
+    icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173029/runner_1_tqbhtw.webp",
+    path: '/chooseyourhero',
+    submenu: [],
+  },
  ]
- const handleBuyMCRT = async () => {
-  try {
-    await openTransactionModal({
-      integratorId: "34808808c1f4ae4533b7",
-      dstChain: "56",
-      dstToken: "0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f",
-      srcChain: "56",
-      srcToken: "0x0000000000000000000000000000000000000000",
-      defaultWalletPicker: true,
-    });
-  } catch (error) {
-    console.error("XPay transaction failed:", error);
-  }
-};
-
+ 
 const Header = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
   const location = useLocation()
@@ -281,46 +285,53 @@ const Header = () => {
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
           <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 "> */}
         <header className="relative z-50 w-full bg-[#0A091799] px-3 py-4 backdrop-blur-md md:px-4 md:py-3">
-        <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-10 md:h-[60px]">
-          <div className="grid shrink-0 place-items-center self-stretch  bg-black/20 px-4  md:px-8 ">
+        <nav className="flex items-center justify-between gap-2 md:gap-4 rounded-xl bg-[#431269B2] md:h-[60px]">
+          <div className="grid shrink-0 place-items-center self-stretch bg-black/20 px-2 md:px-4 lg:px-8">
             <a href="/" rel="noreferrer noopener">
-              <img className="w-28 md:w-36" src={mcLogo} alt="MagicCraft" />
+              <img className="w-20 md:w-28 lg:w-36" src={mcLogo} alt="MagicCraft" />
             </a>
           </div>
 
-          <div className="flex w-full items-center justify-end gap-12 py-4 pr-3 xl:justify-between">
-            <div className="hidden items-center gap-6 xl:flex">
+          <div className="flex w-full items-center justify-end gap-4 md:gap-8 lg:gap-12 py-2 md:py-4 pr-2 md:pr-3 xl:justify-between">
+            <div className="hidden items-center gap-3 md:gap-4 lg:gap-4 xl:flex">
               {commonMenuItemsNew.map((item) =>
                 item?.submenu?.length > 0 ? (
-                  <NavMenu key={item.title} item={item} />
+                  <NavMenu 
+                    key={item.title} 
+                    item={item} 
+                 
+                  />
                 ) : (
                   <a key={item.title} href={item.path || '/'}>
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="hidden shrink-0 2xl:block">
-                        <img src={item.icon} alt={item.title} />
+                    <div className="flex items-center justify-center gap-1 md:gap-2">
+                      <div className="hidden shrink-0 xl:block">
+                        <img src={item.icon} alt={item.title} className="w-4" />
                       </div>
-                      <p className="text-lg text-white">{item.title}</p>
+                      <p className="text-[13px] text-white whitespace-nowrap md:text-[5px] xl:text-base">{item.title}</p>
                     </div>
                   </a>
                 )
               )}
             </div>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-2 md:gap-3 lg:gap-5">
               <button
                 onClick={handleBuyMCRT}
-                className="flex cursor-pointer items-center gap-2 whitespace-nowrap"
+                className="flex cursor-pointer items-center gap-1 md:gap-2 whitespace-nowrap"
               >
-                <p className="text-sm md:text-base">Buy $MCRT</p>
+                <p className="text-xs md:text-sm xl:text-base">Buy $MCRT</p>
               </button>
+              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="flex cursor-pointer items-center gap-1 md:gap-2 whitespace-nowrap">
+                <p className="text-xs md:text-sm xl:text-base flex flex-row items-center gap-1"><img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1741759467/image_25_gnebrl.webp" className='w-4'/>Shop</p>
+              </a>
 
               <button className="hidden md:block">
                 <a
                   href="https://lobby.magiccraft.io/"
                   rel="noreferrer noopener"
                 >
-                  <div className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#98FFF9] px-5 py-3 text-[#03082F]">
-                    <ArrowUpRight size={18} />
-                    <p>Go to Lobby</p>
+                  <div className="flex w-full items-center justify-center gap-1 md:gap-2 rounded-lg bg-[#98FFF9] px-3 md:px-4 lg:px-5 py-2 md:py-3 text-[#03082F]">
+                    <ArrowUpRight size={16} className="md:size-18" />
+                    <p className="text-xs md:text-sm xl:text-base">Lobby</p>
                   </div>
                 </a>
               </button>
@@ -329,7 +340,7 @@ const Header = () => {
                 className="block shrink-0 xl:hidden"
               >
                 <span className="sr-only">Open Menu</span>
-                <img src={menuIcon} alt="Open Menu" />
+                <img src={menuIcon} alt="Open Menu" className="w-6 md:w-8" />
               </button>
             </div>
           </div>
@@ -369,6 +380,7 @@ const Header = () => {
                         key={item.title}
                         item={item}
                         closeSidebar={closeSidebar}
+                     
                       />
                     ) : (
                       <a
