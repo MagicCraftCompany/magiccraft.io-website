@@ -42,13 +42,13 @@ export default function MagicraftDownload() {
       label: "Get it on",
       sublabel: "Hyperplay",
     },
-    // {
-    //   name: "Windows",
-    //   icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733814933/Vector_5_e3mxyx.svg",
-    //   href: "https://magiccraft.io/pc",
-    //   label: "Download",
-    //   sublabel: "PC",
-    // },
+    {
+      name: "Windows",
+      icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733814933/Vector_5_e3mxyx.svg",
+      href: "https://drive.google.com/file/d/1GGXs8uWcS_YRTkt7syyAlclVI1soZYSa/view",
+      label: "Download",
+      sublabel: "PC",
+    },
    
   
     
