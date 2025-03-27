@@ -2,28 +2,28 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import { openTransactionModal } from "@xswap-link/sdk";
 
-import Homepagemcrt from "./pages/Homepagemcrt";
-import Homepagegames from "./pages/HomePageGames";
-import Support from "./pages/Support";
-import GamePatch from "./pages/GamePatch";
-import Homepagemagicrunner from "./pages/HomePageMagicRunner";
-import Homepagemagic8ball from "./pages/HomePageMagic8Ball";
-import Hero from "./pages/Hero";
-import ChooseYourHero from "./pages/ChooseYourHero";
-import Server from "./pages/serverStatus";
-import TermsAndConditions from "./pages/TermsAndCondition";
-import Studios from "./pages/Studios";
-import NewsPage from "./pages/McNews";
-import BlogPost from "./pages/BlogPost";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import Disclaimer from "./pages/Disclaimer";
-import Verify from "./pages/Verify";
-import LeaderboardPage from "./pages/LeaderBoard";
-import HoldersPage from "./pages/TopHolders";
-import Dashboard from "./pages/Dashboard";
-import GameDeveloper from "./pages/GameDeveloper";
-import NotFound from "./pages/ErrorPage";
-import SanityStudio from "./pages/SanityStudio";
+import Homepagemcrt from "@/pages/Homepagemcrt";
+import Homepagegames from "@/pages/HomePageGames";
+import Support from "@/pages/Support";
+import GamePatch from "@/pages/GamePatch";
+import Homepagemagicrunner from "@/pages/HomePageMagicRunner";
+import Homepagemagic8ball from "@/pages/HomePageMagic8Ball";
+import Hero from "@/pages/Hero";
+import ChooseYourHero from "@/pages/ChooseYourHero";
+import Server from "@/pages/serverStatus";
+import TermsAndConditions from "@/pages/TermsAndCondition";
+import Studios from "@/pages/Studios";
+import NewsPage from "@/pages/McNews";
+import BlogPost from "@/pages/BlogPost";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import Disclaimer from "@/pages/Disclaimer";
+import Verify from "@/pages/Verify";
+import LeaderboardPage from "@/pages/LeaderBoard";
+import HoldersPage from "@/pages/TopHolders";
+import Dashboard from "@/pages/Dashboard";
+import GameDeveloper from "@/pages/GameDeveloper";
+import NotFound from "@/pages/ErrorPage";
+import SanityStudio from "@/pages/SanityStudio";
 
 // const handleBuyMCRT = async () => {
 //   try {
