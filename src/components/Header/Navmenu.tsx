@@ -8,14 +8,14 @@ const NavMenu = ({ item }: NavMenuProps) => {
   return (
     <div className="relative z-50">
       <div
-        className="flex cursor-pointer select-none items-center gap-2 py-2 text-white"
+        className="flex cursor-pointer select-none items-center gap-1 py-2 text-white"
         onMouseOver={() => setIsMenuOpen(true)}
         onMouseOut={() => setIsMenuOpen(false)}
       >
-        <div className=" w-[18px] shrink-0 place-items-center 2xl:grid">
+        <div className="  shrink-0 place-items-center 2xl:grid ">
           <img className="max-w-full" src={item.icon} alt="" />
         </div>
-        <span className="text-lg font-medium">{item.title}</span>
+        <span className="text-lg font-medium md:text-xs xl:text-base ">{item.title}</span>
         <LuChevronDown
           size={18}
           // className={`transition-all ${isMenuOpen && 'rotate-180'}`}

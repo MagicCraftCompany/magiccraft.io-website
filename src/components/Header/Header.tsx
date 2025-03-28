@@ -1,14 +1,28 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
-import { ArrowUpRight, PlayCircle, X } from 'lucide-react'
+import { ArrowUpRight, X } from 'lucide-react'
 import NavMenu from './Navmenu'
 import menuIcon from '@/assets/icons/menu-icon.svg'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import NavMenuMobile from './NavMenuMobile'
 import { AnimatePresence, motion } from 'framer-motion'
 import Referral from'@/assets/icons/Referral.svg'
 import Whitepaper from '@/assets/icons/whitepaper.svg'
 import lobby from '@/assets/icons/lobby.svg'
 import service from '@/assets/icons/li_shopping-bag.svg'
+import { useLocation } from 'react-router-dom'
+import bybit from '@/assets/icons/icon-bybit.svg'
+import marketplace from '@/assets/icons/icon-marketplace.svg'
+import leaderboard from '@/assets/icons/icon-leaderboard.svg'
+import stats from '@/assets/icons/icon-gamestats.svg'
+import currency from '@/assets/icons/icon-currency.svg'
+import faq from '@/assets/icons/icon-faq.svg'
+import gamepad from '@/assets/icons/icon-gamepad.svg'
+import pledge from '@/assets/icons/icon-huobi.svg'
+import about from '@/assets/icons/icon-help.svg'
+import statistics from '@/assets/icons/icon-stats.svg'
+import pancakeswap from '@/assets/icons/icon-pancakeswap.svg'
+import huobi from '@/assets/icons/icon-huobi.svg'
+import { openTransactionModal } from "@xswap-link/sdk";
 
 export type NavMenuItemProps = {
   path?: string
@@ -21,24 +35,46 @@ export type NavMenuItemProps = {
 export type NavMenuProps = {
   item: NavMenuItemProps
   closeSidebar?: () => void
+  onXswapClick?: () => Promise<void>
 }
 
 export type SubMenuProps = {
   title: string
   icon: string
   path: string
+  isXswap?: boolean
 }
+const handleBuyMCRT = async () => {
+  try {
+    await openTransactionModal({
+      integratorId: "34808808c1f4ae4533b7",
+      dstChain: "56",
+      dstToken: "0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f",
+      srcChain: "56",
+      srcToken: "0x0000000000000000000000000000000000000000",
+      defaultWalletPicker: true,
+    });
+  } catch (error) {
+    console.error("XPay transaction failed:", error);
+  }
+};
 
 const commonMenuItemsNew: NavMenuItemProps[] = [
   
   {
     title: 'Games',
-    icon: './icons/icon-gamepad.svg',
+    icon: gamepad,
     submenu: [
       {
         title: 'MagicCraft',
           icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
           path: '/magiccraft',
+        
+      },
+      {
+        title: 'Browser Games',
+          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
+          path: 'https://games.magiccraft.io/',
         
       },
       {
@@ -51,11 +87,12 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717662849/Screenshot_2024-01-05_at_15.03_1_x8sbyh.png',
         path: '/magic8ball',
       },
+      
      
     ],
   },
   {
-      title: 'Services',
+      title: 'Web3',
       icon: service,
       submenu: [
         {
@@ -65,12 +102,12 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         },
         {
           title: 'Marketplace',
-          icon: './icons/icon-marketplace.svg',
+          icon: marketplace,
           path: 'https://app.magiccraft.io/marketplace/explorer',
         },
         {
           title: 'Pledging',
-          icon: './icons/icon-huobi.svg',
+          icon: pledge,
           path: 'https://app.magiccraft.io/pledging',
         },
         {
@@ -82,7 +119,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     },
     {
       title: 'About',
-      icon: './icons/icon-help.svg',
+      icon: about,
       submenu: [
         // {
         //   title: 'Heroes',
@@ -106,39 +143,46 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         // },
         {
           title: 'FAQs',
-          icon: './icons/icon-faq.svg',
+          icon: faq,
           path: '/faq',
         },
-        {
-          title: 'Contact Us',
-          icon: './icons/icon-contact.svg',
-          path: '/faq?contact=true',
-        },
+        // {
+        //   title: 'Contact Us',
+        //   icon: './icons/icon-contact.svg',
+        //   path: 'https://magiccraft.io/contact-us',
+        // },
         
         
       ],
     },
     {
       title: 'Buy $MCRT',
-      icon: './icons/icon-currency.svg',
+      icon: currency,
       submenu: [
+        
         {
           title: 'PancakeSwap',
-          icon: './icons/icon-pancakeswap.svg',
+          icon: pancakeswap,
           path: 'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f ',
         },
         {
           title: 'Bybit',
-          icon: './icons/icon-bybit.svg',
-          path: 'https://www.bybit.com/en-US/trade/spot/MCRT/USDT',
+          icon: bybit,
+          path: 'https://www.bybit.com/en/trade/spot/MCRT/USDT',
         },
         {
           title: 'Huobi Global',
-          icon: './icons/icon-huobi.svg',
+          icon: huobi,
           path: 'https://www.huobi.com/en-us/exchange/mcrt_usdt',
+        },
+        {
+          title: 'Buy with credit card',
+          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718968472/648bac0dcb1a13d71ac879ff_Swipelux-Twitter_gfxxae.webp',
+          path: 'https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12',
         },
       ],
     },
+   
 
   // {
   //   title: 'NFTs',
@@ -186,24 +230,42 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
   // },
   {
     title: 'Statistics',
-    icon: './icons/icon-stats.svg',
+    icon: statistics,
     submenu: [
       {
         title: 'Leaderboard',
-        icon: './icons/icon-leaderboard.svg',
+        icon: leaderboard,
         path: 'https://lobby.magiccraft.io/leaderboard',
       },
       {
         title: 'Game stats',
-        icon: './icons/icon-gamestats.svg',
+        icon: stats,
         path: 'https://lobby.magiccraft.io/stats',
       },
     ],
   },
+  {
+    title: 'Build on MagicCraft',
+    icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1722867433/MCRT_shydrd.webp",
+    path: '/build-on-magiccraft',
+    submenu: [],
+  },
+  {
+    title: 'Heros',
+    icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173029/runner_1_tqbhtw.webp",
+    path: '/chooseyourhero',
+    submenu: [],
+  },
  ]
-
+ 
 const Header = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    console.log('Current route:', location.pathname)
+    // Add more logs if needed to debug state or props
+  }, [location])
 
   function closeSidebar() {
     setIsSideMenuOpen(false)
@@ -219,41 +281,47 @@ const Header = () => {
 
   return (
     <>
-      <header className="relative z-50 w-full bg-[#0A091799] px-3 py-4 backdrop-blur-md md:px-4 md:py-5">
+      {/* <header className="relative z-50 w-full px-3 py-4  md:px-4 md:py-5">
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
-          <div className="grid shrink-0 place-items-center self-stretch  bg-black/20 px-4  md:px-8 ">
+          <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 "> */}
+        <header className="relative z-50 w-full bg-[#0A091799] px-3 py-4 backdrop-blur-md md:px-4 md:py-3">
+        <nav className="flex items-center justify-between gap-2 md:gap-4 rounded-xl bg-[#431269B2] md:h-[60px]">
+          <div className="grid shrink-0 place-items-center self-stretch bg-black/20 px-2 md:px-4 lg:px-8">
             <a href="/" rel="noreferrer noopener">
-              <img className="w-28 md:w-36" src={mcLogo} alt="MagicCraft" />
+              <img className="w-20 md:w-28 lg:w-36" src={mcLogo} alt="MagicCraft" />
             </a>
           </div>
 
-          <div className="flex w-full items-center justify-end gap-12 py-4 pr-3 xl:justify-between">
-            <div className="hidden items-center gap-6 xl:flex">
+          <div className="flex w-full items-center justify-end gap-4 md:gap-8 lg:gap-12 py-2 md:py-4 pr-2 md:pr-3 xl:justify-between">
+            <div className="hidden items-center gap-3 md:gap-4 lg:gap-4 xl:flex">
               {commonMenuItemsNew.map((item) =>
                 item?.submenu?.length > 0 ? (
-                  <NavMenu key={item.title} item={item} />
+                  <NavMenu 
+                    key={item.title} 
+                    item={item} 
+                 
+                  />
                 ) : (
                   <a key={item.title} href={item.path || '/'}>
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="hidden shrink-0 2xl:block">
-                        <img src={item.icon} alt={item.title} />
+                    <div className="flex items-center justify-center gap-1 md:gap-2">
+                      <div className="hidden shrink-0 xl:block">
+                        <img src={item.icon} alt={item.title} className="w-4" />
                       </div>
-                      <p className="text-lg text-white">{item.title}</p>
+                      <p className="text-[13px] text-white whitespace-nowrap md:text-[5px] xl:text-base">{item.title}</p>
                     </div>
                   </a>
                 )
               )}
             </div>
-            <div className="flex items-center gap-5">
-              <a
-                href="https://youtu.be/YAp7k3NsKpg?si=PKWHUbWH86j4iC2f"
-                target="_blank"
-                rel="noreferrer noopener"
+            <div className="flex items-center gap-2 md:gap-3 lg:gap-5">
+              <button
+                onClick={handleBuyMCRT}
+                className="flex cursor-pointer items-center gap-1 md:gap-2 whitespace-nowrap"
               >
-                <div className="flex cursor-pointer items-center gap-2 whitespace-nowrap ">
-                  <PlayCircle size={16} />
-                  <p className="text-sm md:text-base">MagicCraft Ecosystem</p>
-                </div>
+                <p className="text-xs md:text-sm xl:text-base">Buy $MCRT</p>
+              </button>
+              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="flex cursor-pointer items-center gap-1 md:gap-2 whitespace-nowrap">
+                <p className="text-xs md:text-sm xl:text-base flex flex-row items-center gap-1"><img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1741759467/image_25_gnebrl.webp" className='w-4'/>Shop</p>
               </a>
 
               <button className="hidden md:block">
@@ -261,9 +329,9 @@ const Header = () => {
                   href="https://lobby.magiccraft.io/"
                   rel="noreferrer noopener"
                 >
-                  <div className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#98FFF9] px-5 py-3 text-[#03082F]">
-                    <ArrowUpRight size={18} />
-                    <p>Go to Lobby</p>
+                  <div className="flex w-full items-center justify-center gap-1 md:gap-2 rounded-lg bg-[#98FFF9] px-3 md:px-4 lg:px-5 py-2 md:py-3 text-[#03082F]">
+                    <ArrowUpRight size={16} className="md:size-18" />
+                    <p className="text-xs md:text-sm xl:text-base">Lobby</p>
                   </div>
                 </a>
               </button>
@@ -272,7 +340,7 @@ const Header = () => {
                 className="block shrink-0 xl:hidden"
               >
                 <span className="sr-only">Open Menu</span>
-                <img src={menuIcon} alt="Open Menu" />
+                <img src={menuIcon} alt="Open Menu" className="w-6 md:w-8" />
               </button>
             </div>
           </div>
@@ -312,6 +380,7 @@ const Header = () => {
                         key={item.title}
                         item={item}
                         closeSidebar={closeSidebar}
+                     
                       />
                     ) : (
                       <a
