@@ -22,6 +22,8 @@ import HoldersPage from "./pages/TopHolders";
 import Dashboard from "./pages/Dashboard";
 import GameDeveloper from "./pages/GameDeveloper";
 import NotFound from "./pages/ErrorPage";
+import BlogPost from "./pages/BlogPost";
+import SanityStudio from "./pages/SanityStudio";
 
 // const handleBuyMCRT = async () => {
 //   try {
@@ -53,6 +55,7 @@ function App() {
         <Route path="/patch" element={<GamePatch />} />
         <Route path="/studios" element={<Studios />} />
         <Route path="/news" element={<NewsPage />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/build-on-magiccraft" element={<GameDeveloper />} />
         <Route path="/server" element={<Server />} />
         <Route path="/terms" element={<TermsAndConditions />} />
@@ -62,6 +65,7 @@ function App() {
         <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/topholders" element={<HoldersPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin/*" element={<SanityStudio />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
