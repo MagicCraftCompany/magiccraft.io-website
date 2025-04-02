@@ -256,6 +256,12 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     path: '/chooseyourhero',
     submenu: [],
   },
+  {
+    title: 'News',
+    icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1721250180/teenyicons_twitch-solid_m9vixv.svg",
+    path: '/news',
+    submenu: [],
+  },
  ]
  
 const Header = () => {

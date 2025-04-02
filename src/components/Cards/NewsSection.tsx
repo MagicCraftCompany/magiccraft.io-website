@@ -18,11 +18,14 @@ interface BlogPost {
   _createdAt: string
 }
 
+const ARTICLES_PER_PAGE = 6;
+
 export function NewsSection() {
   const [activeFilter, setActiveFilter] = useState<FilterType>('All')
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [loading, setLoading] = useState(true)
   const [useFallbackData, setUseFallbackData] = useState(false)
+  const [visibleArticles, setVisibleArticles] = useState(ARTICLES_PER_PAGE)
 
   useEffect(() => {
     async function loadPosts() {
@@ -46,14 +49,27 @@ export function NewsSection() {
     loadPosts()
   }, [])
 
+  // Reset visible articles when filter changes
+  useEffect(() => {
+    setVisibleArticles(ARTICLES_PER_PAGE);
+  }, [activeFilter]);
+
   // If using fallback data or if no posts returned from Sanity, filter the static newsArticles
-  const displayArticles = useFallbackData || !posts || posts.length === 0
+  const filteredArticles = useFallbackData || !posts || posts.length === 0
     ? newsArticles.filter((article: NewsArticle) => 
         activeFilter === 'All' ? true : article.type === activeFilter
       )
     : posts.filter((post: BlogPost) => 
         activeFilter === 'All' ? true : post.type === activeFilter
       );
+
+  // Get only the visible articles
+  const displayArticles = filteredArticles.slice(0, visibleArticles);
+
+  // Handle load more click
+  const handleLoadMore = () => {
+    setVisibleArticles(prev => prev + ARTICLES_PER_PAGE);
+  };
 
   // Convert blog post to news article format
   const convertToArticle = (post: BlogPost): NewsArticle => {
@@ -156,14 +172,19 @@ export function NewsSection() {
         </div>
       )}
       
-      <div className="flex justify-center mt-8">
-        <button className="flex items-center gap-2 bg-[#1E1A36] hover:bg-[#2A2545] text-white px-4 py-2 rounded-md transition-colors">
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-          Load more
-        </button>
-      </div>
+      {filteredArticles.length > visibleArticles && (
+        <div className="flex justify-center mt-8">
+          <button 
+            onClick={handleLoadMore}
+            className="flex items-center gap-2 bg-[#1E1A36] hover:bg-[#2A2545] text-white px-4 py-2 rounded-md transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+            Load more
+          </button>
+        </div>
+      )}
     </div>
   )
 }
