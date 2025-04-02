@@ -103,8 +103,8 @@ export default function MagicraftDownload() {
   ]
 
   return (
-    <div className="flex flex-row gap-2 items-center justify-center lg:mb-4 lg:mx-20 mx-2">
-      <div className="relative mx-auto lg:mx-0 w-full max-w-4xl lg:mt-[25px]">
+    <div className="flex flex-row gap-2 items-center justify-center lg:mb-4  mx-2">
+      <div className="relative mx-auto lg:mx-0 w-full max-w-4xl lg:mt-[25px] lg:max-w-[700px]">
         <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] ">
           <div className="relative overflow-hidden rounded-[20px] bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
             {/* <h4 className="mx-[3em] py-2 text-center font-serif text-lg md:text-[1.375em]">
@@ -159,25 +159,13 @@ export default function MagicraftDownload() {
           </div>
         </div>
 
-        {/* <div className="mt-4 flex justify-center gap-6 rounded-full bg-[#3D1B5C] py-4">
-          {socialLinks.map((social) => (
-            <a
-              key={social.name}
-              href={social.link}
-              className="transition-transform hover:scale-110"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {social.icon}
-            </a>
-          ))}
-        </div> */}
+       
       </div>
 
       <img
         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_307723_m3crb2.webp"
         alt="Meme Characters"
-        className="mt-7 hidden h-[167px] xl:w-[350px] lg:w-[270px]  lg:block cursor-pointer"
+        className="mt-6 hidden h-[165px] w-[290px] lg:block cursor-pointer transition-transform hover:scale-105"
         onClick={() => {
           const element = document.getElementById("gameplay");
           if (element) {
@@ -186,11 +174,16 @@ export default function MagicraftDownload() {
         }}
       />
 
-      <img
-        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_306549_inz0yy.webp"
-        alt="Updates"
-        className="mt-6 hidden h-[165px] xl:w-[350px] lg:w-[270px]  lg:block"
-      />
+      <a
+        href="/news"
+        className="mt-6 hidden lg:block w-fit"
+      >
+        <img
+          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733753251/Group_306549_inz0yy.webp"
+          alt="Updates"
+          className="h-[165px] w-[320px] transition-transform hover:scale-105"
+        />
+      </a>
     </div>
   )
 }
