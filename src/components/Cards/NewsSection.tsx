@@ -126,9 +126,10 @@ export function NewsSection() {
             displayArticles.map((item: NewsArticle | BlogPost, index: number) => {
               const article = 'id' in item ? item : convertToArticle(item as BlogPost);
               return (
-                <div 
-                  key={article.id} 
-                  className={`rounded-xl overflow-hidden relative ${index === 1 ? 'md:col-span-2 lg:col-span-1' : ''}`}
+                <a 
+                  key={article.id}
+                  href={article.readMoreLink}
+                  className={`rounded-xl cursor-pointer overflow-hidden relative block transition-transform hover:scale-[1.02] ${index === 1 ? 'md:col-span-2 lg:col-span-1' : ''}`}
                 >
                   <div className="relative group h-[280px] overflow-hidden">
                     <img 
@@ -148,20 +149,17 @@ export function NewsSection() {
                         )}
                       </div>
                       <div className="absolute bottom-0 left-0 p-6 w-full">
-                        <h3 className="text-xl font-bold text-white mb-4">{article.title}</h3>
-                        <a 
-                          href={article.readMoreLink}
-                          className="text-teal-400 hover:text-teal-300 flex items-center text-sm"
-                        >
+                        <h3 className="text-xl font-bold text-white mb-4 group-hover:text-teal-400 transition-colors">{article.title}</h3>
+                        <div className="text-teal-400 group-hover:text-teal-300 flex items-center text-sm transition-colors">
                           Read more 
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                           </svg>
-                        </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </a>
               );
             })
           ) : (

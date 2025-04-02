@@ -152,7 +152,12 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         //   path: 'https://magiccraft.io/contact-us',
         // },
         
-        
+        {
+          title: 'News',
+          icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1721250180/teenyicons_twitch-solid_m9vixv.svg",
+          path: '/news',
+          
+        },
       ],
     },
     {
@@ -251,17 +256,12 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     submenu: [],
   },
   {
-    title: 'Heros',
+    title: 'Heroes',
     icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173029/runner_1_tqbhtw.webp",
     path: '/chooseyourhero',
     submenu: [],
   },
-  {
-    title: 'News',
-    icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1721250180/teenyicons_twitch-solid_m9vixv.svg",
-    path: '/news',
-    submenu: [],
-  },
+ 
  ]
  
 const Header = () => {

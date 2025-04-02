@@ -9,7 +9,10 @@ interface NewsCardProps {
 
 export function NewsCard({ article, className = '' }: NewsCardProps) {
   return (
-    <div className={`group relative overflow-hidden rounded-3xl bg-[#070725] shadow-lg ${className}`}>
+    <a 
+      href={article.readMoreLink}
+      className={`group relative cursor-pointer overflow-hidden rounded-3xl bg-[#070725] shadow-lg transition-transform hover:scale-[1.02] block ${className}`}
+    >
       <div className="relative h-full w-full p-6">
         <div className="space-y-2">
           <div className="flex items-center gap-2">
@@ -21,16 +24,13 @@ export function NewsCard({ article, className = '' }: NewsCardProps) {
             )}
           </div>
           
-          <h3 className="text-2xl font-bold text-white">{article.title}</h3>
+          <h3 className="text-2xl font-bold text-white group-hover:text-teal-400 transition-colors">{article.title}</h3>
           
           <p className="text-sm text-gray-400">{article.description}</p>
           
-          <a
-            href={article.readMoreLink}
-            className="inline-flex items-center gap-1 text-sm text-teal-400 hover:text-teal-300"
-          >
+          <div className="inline-flex items-center gap-1 text-sm text-teal-400 group-hover:text-teal-300">
             Read more <ArrowUpRight className="h-4 w-4" />
-          </a>
+          </div>
         </div>
 
         <div className="absolute right-0 top-0 h-full w-1/3">
@@ -38,14 +38,13 @@ export function NewsCard({ article, className = '' }: NewsCardProps) {
             <img
               src={article.image}
               alt=""
-              
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-[#070725] to-transparent" />
           </div>
         </div>
       </div>
-    </div>
+    </a>
   )
 }
 
