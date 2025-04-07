@@ -43,7 +43,7 @@
     {
       name: 'Portal',
       icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110993/svgexport-1_2_1_aoci43.svg',
-       link:'portalcoin.xyz',
+      link:'portalgaming.com',
       type:'Universal gaming portal'
     },
     {
@@ -169,7 +169,7 @@
     {
       name:'GGEM',
       icon:'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1739438020/5VrITu7p_400x400-removebg-preview_xipruw.png',
-      link:'hub.xyz',
+      link:'app.ggem.gg ',
       type:'Gaming Ecosystem'
     },
   ]

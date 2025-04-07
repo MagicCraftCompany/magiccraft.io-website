@@ -10,13 +10,13 @@ import { roadmapData } from '../data/roadmapData'
 import FaqAccordion from '../components/Accordion/FaqAccordion'
 import RoadmapCard from '../components/Cards/RoadmapCard'
 
-import partners from '@/data/partners'
 import { foundation } from '@/data/foundation'
 import strengths from '@/data/strengths'
 import { useNavigate } from 'react-router-dom'
 import GameCard from '@/components/ui/GameCard'
 import { Game, gamesData } from '@/data/game'
 import ContactForm from '@/components/ContactForm'
+import { ListedPartners } from '@/components/Partners/Partners'
 
 function Homepagegames() {
   // const [isSubmitting, setIsSubmitting] = useState(false)
@@ -35,12 +35,12 @@ function Homepagegames() {
   const magiccrafthandleClick = () => {
     navigate('/magiccraft')
   }
-  const magicrunnerhandleClick = () => {
-    navigate('/magicrunner')
-  }
-  const magic8ballhandleClick = () => {
-    navigate('/magic8ball')
-  }
+  // const magicrunnerhandleClick = () => {
+  //   navigate('/magicrunner')
+  // }
+  // const magic8ballhandleClick = () => {
+  //   navigate('/magic8ball')
+  // }
   const contactTeamhandleClick = () => {
     window.location.hash = 'contact';
   }
@@ -138,8 +138,8 @@ function Homepagegames() {
                   <div className="flex cursor-pointer flex-wrap items-center gap-[10px]">
                     {[
                       'MagicCraft',
-                      'Magic8Ball',
-                      'MagicRunner',
+                      // 'Magic8Ball',
+                      // 'MagicRunner',
                       'Runescribe',
                       'MagicTetra',
                     ].map((val) => {
@@ -148,12 +148,12 @@ function Homepagegames() {
                         case 'MagicCraft':
                           handleClick = magiccrafthandleClick
                           break
-                        case 'Magic8Ball':
-                          handleClick = magic8ballhandleClick
-                          break
-                        case 'MagicRunner':
-                          handleClick = magicrunnerhandleClick
-                          break
+                        // case 'Magic8Ball':
+                        //   handleClick = magic8ballhandleClick
+                        //   break
+                        // case 'MagicRunner':
+                        //   handleClick = magicrunnerhandleClick
+                        //   break
                         case 'Runescribe':
                           handleClick = () => window.location.href = 'https://games.magiccraft.io/gamepage/runescribes'
                           break
@@ -266,7 +266,7 @@ function Homepagegames() {
                             MONTHLY SURPRISES:
                           </span>{' '}
                           <br />
-                          NEW GAMES EVERY TWO MONTHS.
+                          earn rewards every hour
                         </h4>
 
                         <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
@@ -482,7 +482,7 @@ function Homepagegames() {
               <FaqAccordion />
             </section>
 
-            <section
+            {/* <section
               className="relative hidden bg-cover bg-center py-4 md:block lg:h-[900px]"
               style={{
                 backgroundImage:
@@ -527,10 +527,10 @@ function Homepagegames() {
                         from traditional games.
                       </p>
                     </div>
-                    <button
+                    {/* <button
                       className="my-2 ml-2 flex flex-row rounded-lg border-2 border-[#98FFF9] px-4 py-1 text-[#98FFF9]"
                       onClick={magicrunnerhandleClick}
-                    >
+                    > 
                       <img
                         src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
                         alt="Button Image"
@@ -541,7 +541,7 @@ function Homepagegames() {
                   </div>
                 </div>
               </div>
-            </section>
+            </section> */}
 
             <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
               <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
@@ -640,7 +640,7 @@ function Homepagegames() {
                 </div>
 
                 <div className="space-y-8">
-                  <h3 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
+                  {/* <h3 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
                     Join them
                   </h3>
                   <div className="grid grid-cols-3 gap-5 md:grid-cols-4">
@@ -658,8 +658,8 @@ function Homepagegames() {
                         </div>
                       )
                     })}
-                  </div>
-
+                  </div> */}
+                  <ListedPartners />
                   <div className="block h-px w-full bg-gradient-to-r from-transparent via-[#9255E0] to-transparent md:hidden" />
                 </div>
               </div>

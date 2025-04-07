@@ -46,8 +46,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepagemcrt  />} />
         <Route path="/magiccraft" element={<Homepagegames />} />
-        <Route path="/magicrunner" element={<Homepagemagicrunner />} />
-        <Route path="/magic8ball" element={<Homepagemagic8ball />} />
+        {/* <Route path="/magicrunner" element={<Homepagemagicrunner />} />
+        <Route path="/magic8ball" element={<Homepagemagic8ball />} /> */}
         <Route path="/hero" element={<Hero />} />
         <Route path="/hero/:heroName" element={<Hero />} />
         <Route path="/Chooseyourhero" element={<ChooseYourHero />} />

@@ -3,6 +3,8 @@ import bybit from '@/assets/icons/bybit.svg'
 import pancakeswap from '@/assets/icons/pancakeswap.svg'
 import mexc from '@/assets/icons/mexc.svg'
 import Gate from '@/assets/icons/logo.svg'
+import weex from '@/assets/images/weex.webp'
+import bitunix from '@/assets/images/bitunix.webp'
 const partners = [
   {
     name: 'Bybit',
@@ -39,6 +41,16 @@ const partners = [
     name: 'Gate.io',
     icon: Gate,
     link:'https://www.gate.io/trade/MCRT_USDT'
+  },
+  {
+    name: 'WEEX',
+    icon: weex,
+    link:'https://www.weex.com/trade/MCRT-USDT'
+  },
+  {
+    name: 'Bitunix',
+    icon: bitunix,
+    link:'https://www.bitunix.com/spot-trade/MCRTUSDT'
   },
  
 ]

@@ -77,16 +77,16 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
           path: 'https://games.magiccraft.io/',
         
       },
-      {
-        title: 'MagicRunner',
-        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173132/hero2_olqlpn.webp',
-        path: '/magicrunner',
-      },
-      {
-        title: 'Magic8Ball',
-        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717662849/Screenshot_2024-01-05_at_15.03_1_x8sbyh.png',
-        path: '/magic8ball',
-      },
+      // {
+      //   title: 'MagicRunner',
+      //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173132/hero2_olqlpn.webp',
+      //   path: '/magicrunner',
+      // },
+      // {
+      //   title: 'Magic8Ball',
+      //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717662849/Screenshot_2024-01-05_at_15.03_1_x8sbyh.png',
+      //   path: '/magic8ball',
+      // },
       
      
     ],
@@ -175,10 +175,15 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
           icon: bybit,
           path: 'https://www.bybit.com/en/trade/spot/MCRT/USDT',
         },
+        // {
+        //   title: 'Huobi Global',
+        //   icon: huobi,
+        //   path: 'https://www.huobi.com/en-us/exchange/mcrt_usdt',
+        // },
         {
-          title: 'Huobi Global',
+          title: 'HTX',
           icon: huobi,
-          path: 'https://www.huobi.com/en-us/exchange/mcrt_usdt',
+          path: ' https://www.htx.com/trade/mcrt_usdt ',
         },
         {
           title: 'Buy with credit card',

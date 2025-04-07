@@ -81,7 +81,7 @@ const tokenLinks = [
   },
   {
     title: 'Become a partner',
-    link: '/#partner',
+    link: 'mailto:adam@magiccraft.io',
   },
   // {
   //   title: 'MCRT Token',
@@ -247,7 +247,7 @@ const Footer = () => {
               {tokenLinks.map((item, i) => {
                 return (
                   <li key={i}>
-                    {item.link.startsWith('http') ? (
+                    {item.link.startsWith('http') || item.link.startsWith('mailto:') ? (
                       <a href={item.link} rel="noreferrer noopener">
                         {item.title}
                       </a>
