@@ -1,21 +1,22 @@
-import amun from '@/assets/images/hero/amun (2).webp'
-import brienne from '@/assets/images/hero/Brienne (2).webp'
-import bjorn from '@/assets/images/hero/bjorn (2).webp'
-import blazy from '@/assets/images/hero/blazy.webp'
-import druid from '@/assets/images/hero/Druid (2).webp'
-import jean from '@/assets/images/hero/Jean (2).webp'
-import karas from '@/assets/images/hero/karas (2).webp' 
-import drluts from '@/assets/images/hero/Lutz (3).webp'
-import craig from '@/assets/images/hero/Craig.webp'
-import callie from '@/assets/images/hero/callie (1).webp'
-import frigard from '@/assets/images/hero/Frigard (2).webp'
-import gail from '@/assets/images/hero/Gail (2).webp'
-import moira from '@/assets/images/hero/Moira (2).webp'
-import ronin from '@/assets/images/hero/Ronin (2).webp'
-import tara from '@/assets/images/hero/Tara (2).webp'
-import trueshot from '@/assets/images/hero/Trueshot.webp'
-import vega from '@/assets/images/hero/Vega (2).webp'
-import vladislav from '@/assets/images/hero/Vladislav (2).webp'
+import amun from '@/assets/images/hero/amun.webp'
+import brienne from '@/assets/images/hero/brienne.webp'
+import bjorn from '@/assets/images/hero/bjorn (4).webp'
+import blazy from '@/assets/images/hero/blazy (1).webp'
+import druid from '@/assets/images/hero/druid.webp'
+import jean from '@/assets/images/hero/jean.webp'
+import karas from '@/assets/images/hero/karas (3).webp' 
+import drluts from '@/assets/images/hero/drlutz.webp'
+import craig from '@/assets/images/hero/craig (1).webp'
+import callie from '@/assets/images/hero/callie.webp'
+import frigard from '@/assets/images/hero/frigard.webp'
+import gail from '@/assets/images/hero/gail.webp'
+import moira from '@/assets/images/hero/moira.webp'
+import ronin from '@/assets/images/hero/ronin.webp'
+import tara from '@/assets/images/hero/tara.webp'
+import trueshot from '@/assets/images/hero/trueshot (1).webp'
+import vega from '@/assets/images/hero/vega (1).webp'
+import vladislav from '@/assets/images/hero/vladislav.webp'
+import zap from '@/assets/images/hero/zap (1).webp'
 
 
 
@@ -1631,8 +1632,7 @@ export const characterData = [
           description:
             'Zap transforms into a ball of lightning, dashing toward a target while becoming invulnerable and damaging enemies in his path.',
           damage: 90,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/Rectangle_3_mxdrdh.webp',
+          image:zap,
         },
         {
           name: 'Ice Peaks',
@@ -1642,8 +1642,7 @@ export const characterData = [
           description:
             'Creates sharp ice peaks that damage and slow enemies in their tracks.',
           damage: 75,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/Rectangle_3_mxdrdh.webp',
+          image:zap,
         },
         {
           name: 'Ice Storms',
@@ -1653,8 +1652,7 @@ export const characterData = [
           description:
             'Summons a devastating ice storm that freezes enemies in its wake.',
           damage: 85,
-          image:
-            'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718279898/Rectangle_3_mxdrdh.webp',
+          image:zap,
         },
       ],
     },
