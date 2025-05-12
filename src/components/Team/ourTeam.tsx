@@ -201,7 +201,7 @@ export const ourteam = [
     ],
   },
   {
-    name: ' Adam ',
+    name: 'Romain "Adam"',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173231/Adam_jikjlw.webp',
     work: 'CBDO',
     category: 'Team',
