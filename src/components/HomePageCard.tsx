@@ -142,7 +142,7 @@ export default function MagicraftDownload() {
             </div>
 
             <div
-              className="absolute -bottom-10 right-[25px] hidden select-none bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px] lg:block"
+              className="absolute -bottom-10 right-[25px] hidden select-none pointer-events-none bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px] lg:block"
               style={{ right: '25px' }}
             >
               !
