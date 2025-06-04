@@ -22,29 +22,27 @@ export default function TermsAndConditions() {
   return (
     <Wrapper className="text-slate-100">
       <InnerWrapper>
-        <h1>MAGICCRAFT LOBBY SYSTEM AND TOURNAMENT TERMS AND CONDITIONS</h1>
+        <h1>MAGICCRAFT LOBBY SYSTEM TERMS AND CONDITIONS</h1>
         <h2>1. Overview</h2>
         <p>
-          Welcome to MagicCraft's Lobby System! We are excited to offer you the
-          opportunity to participate in the creation and entry of lobbies,
-          creating teams with other players, and earning winnings paid in MCRT
-          tokens (“MCRT”). We are also thrilled to offer you the opportunity to
-          compete in various tournaments hosted on the Lobby System, through
-          which you can showcase your skills and earn winnings paid in MCRT
-          (“Tournament”).
+          Welcome to MagicCraft's lobbies! We are excited to offer you the opportunity to participate in the creation and entry of lobbies,
+          creating teams with other players, and earning winnings paid in MCRT tokens ("MCRT"). We are also thrilled to offer you the opportunity to
+          compete in various matches hosted on our lobby system, through which you can showcase your skills and earn winnings paid in MCRT, BTC, SOL
+          and other cryptocurrencies that may be introduced by MagicCraft in the future ("Lobby System", "Lobbies", or "Lobby").
+        </p>
+        <p>
+          MagicCraft may also host tournaments, organized manually or through automated means, for its community members and the public at large ("Tournament").
         </p>
         <p>
           However, before you start, it is important that you carefully read and
           understand the following Terms ("Terms"). These Terms set forth the
-          rules and guidelines that govern your use of the Lobby System and
-          Tournaments hosted by MagicCraft. By using the Lobby System or
-          participating in the Tournament, you agree to be bound by these Terms,
+          rules and guidelines that govern your use of the Lobby System hosted by MagicCraft. By using the Lobby System,
+          you agree to be bound by these Terms,
           which constitute a legally binding agreement between you and
           MagicCraft.
         </p>
         <p>
-          If you do not agree to these Terms, you may neither use the Lobby
-          System nor participate in a Tournament. Please take a moment to read
+          If you do not agree to these Terms, you may not use the Lobby System. Please take a moment to read
           these Terms carefully to ensure that you understand your rights and
           obligations.
         </p>
@@ -82,15 +80,15 @@ export default function TermsAndConditions() {
         </p>
         <p>
           To connect your digital wallet to the Lobby System, you may be
-          required to sign messages using your digital wallet to confirm your
+          required to sign transactions using your digital wallet to confirm your
           identity and authorise transactions within the Lobby System.
         </p>
         <h3>2.3. Funding your Wallet with MCRT.</h3>
         <p>
-          Lobbies may be configured to require a pledge to be paid in MCRT.
-          You agree to bear all risks associated with the use of MCRT within the
+          Lobbies may be configured to require an entry fee to be paid in MCRT.
+          You agree to pay all fees and bear all risks associated with the use of MCRT within the
           Lobby System. You must ensure that you have sufficient MCRT in your
-          digital wallet to pay a pledge for a lobby.
+          digital wallet to pay any entry fee for a Lobby.
         </p>
         <p>
           You acknowledge that you are solely responsible for any fees or
@@ -99,27 +97,27 @@ export default function TermsAndConditions() {
           use of a digital wallet or any fees or charges associated with
           transferring MCRT to your digital wallet.
         </p>
-        <h3>2.4. Distribution of Pledges.</h3>
+        <h3>2.4. Distribution of Entry Fee.</h3>
         <p>
-          When a team wins a game in a lobby, the pledges collected from each
-          player will be distributed to the players in the winning team. The
-          distribution of the pledges will be automatic and based on the
-          outcome of the game. MagicCraft is not responsible for any errors or
-          inaccuracies in the distribution of the pledges.
+          When a team wins a game in a lobby, the
+          entry fee collected (if applicable) from each player will be distributed to the players
+          in the winning team, subject to a percentage fee charged by MagicCraft. The distribution of the entry fee will be automatic
+          and based on the outcome of the game. MagicCraft is not responsible
+          for any errors or inaccuracies in the distribution of the entry fee.
         </p>
         <p>
           Please be advised that any errors or inaccuracies in the distribution
-          of pledges resulting in loss shall not render MagicCraft liable for
+          of entry fees resulting in loss shall not render MagicCraft liable for
           any damages, losses, or expenses incurred by the players. MagicCraft
-          endeavors to ensure that the distribution of pledges is accurate
+          endeavors to ensure that the distribution of entry fees is accurate
           and efficient; however, unforeseen technical issues may cause
           discrepancies in the distribution of funds. It is hereby acknowledged
           by the players that MagicCraft shall not be held liable for any
           errors, bugs, or inaccuracies in the automatic distribution of entry
           fees. By participating in the game, players agree to be bound by these
-          Terms, including the automatic distribution of pledges.
+          Terms, including the automatic distribution of entry fees.
         </p>
-        <h3>2.5. Termination of Access</h3>
+        <h3>2.5. Termination of Access, Disqualification, and Forfeiture of Rewards.</h3>
         <p>
           MagicCraft reserves the right to terminate or suspend access to the
           Lobby System, in whole or in part, at any time and for any reason
@@ -127,11 +125,22 @@ export default function TermsAndConditions() {
           account if it determines, in its sole discretion, you are exploiting
           or attempting to exploit any bugs, errors or vulnerabilities in the
           Lobby System or are engaging in any illegal or fraudulent activity
-          related to the use of the system. Such termination or suspension may
-          be immediate and without notice to you. In the event of any
+          related to the use of the system. Such termination or suspension may be immediate,
+          without notice to you, and may result in the forfeiture of rewards or other funds
+          that you have earned through your participation in the Lobby System or Tournament. In the event of any
           termination or suspension, MagicCraft shall not be liable for any
           damages, losses, or expenses incurred by you.
         </p>
+        <p>
+          Specific circumstances in which MagicCraft may terminate, suspend, or disqualify you from participation
+          in the Lobby System resulting in the forfeiture of your rewards include, but are not limited to, the following:
+        </p>
+        <ul>
+          <li>Changing your connected wallet address during the withdrawal process.</li>
+          <li>Playing more than twelve (12) Lobbies per day using multiple accounts linked to the same IP address.</li>
+          <li>Swapping NFTs between accounts to access the Lobbies from a different wallet.</li>
+          <li>Repeated AFK (Away From Keyboard) behavior from one account while another account in the same Lobby continues to actively participate.</li>
+        </ul>
         <h2>3. TOURNAMENTS.</h2>
         <h3>3.1. Eligibility.</h3>
         <p>
