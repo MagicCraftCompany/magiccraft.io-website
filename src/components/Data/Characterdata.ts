@@ -206,7 +206,7 @@ export const characterData = [
       mobility: 'Good',
       MP: 1000,
       description:
-        'The law is absolute. Bjorn may be branded as a barbarian but her underlying sense of justice is as resolute as the strongest steel. Believing that the world has descended into chaos, he plans to restore the world to order by taking down the mages of Emergate first.',
+        'The law is absolute. Bjorn may be branded as a barbarian but his underlying sense of justice is as resolute as the strongest steel. Believing that the world has descended into chaos, he plans to restore the world to order by taking down the mages of Emergate first.',
       abilities: [
         {
           id: 'savagestrike',
