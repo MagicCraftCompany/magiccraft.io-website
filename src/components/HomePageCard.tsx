@@ -50,7 +50,7 @@ export default function MagicraftDownload() {
     {
       name: 'Windows',
       icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733814933/Vector_5_e3mxyx.svg',
-      href: 'https://drive.google.com/file/d/1Zo29E6kVhT47Z96O1_TS02tWnVeuHD9Z/view?usp=sharing',
+      href: 'https://drive.google.com/file/d/1wfV-qn74SExbEbCi7_OVQEJkTV7zb54Q/view?usp=sharing',
       label: 'Download',
       sublabel: 'PC',
     },
