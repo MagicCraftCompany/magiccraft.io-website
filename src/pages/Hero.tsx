@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import { useParams } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 import one from '@/assets/icons/1.svg'
 import heart from '@/assets/icons/li_heart.svg'
@@ -14,8 +15,26 @@ function Hero() {
   const character = characterData[0].find((character) => character.name.toLowerCase() === heroName);
   const abilitiesdetails = character?.ability_details || [];
   const abilities = character?.abilities || [];
+
+  const pageTitle = `${character?.name} - ${character?.title}`;
+  const pageDescription = character?.description || 'Learn about the character';
+  const canonicalUrl = `${window.location.origin}/hero/${heroName}`;
+
   return (
     <>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        {character?.visuals?.background_image?.desktop && (
+          <meta property="og:image" content={character.visuals.background_image.desktop} />
+        )}
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <div className="min-h-dvh w-full text-white">
         <Header />
         <main className="scroll-smooth pb-32">

@@ -8,6 +8,7 @@ import { questions } from '@/data/accordian'
 import { cn } from '@/lib/utils'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
+import { Helmet } from 'react-helmet-async'
 import { Tabs, Tab } from '@/components/tabs'
 
 import web3 from '@/assets/icons/li_help-circle (1).svg'
@@ -49,6 +50,10 @@ export default function FAQ() {
 
   return (
     <>
+      <Helmet>
+        <title>Support - MagicCraft</title>
+        <meta name="description" content="Get help and support for MagicCraft. Find answers to frequently asked questions and contact our team." />
+      </Helmet>
       <div className="min-h-dvh w-full text-white">
       <Header />
       <main className="scroll-smooth pb-32">

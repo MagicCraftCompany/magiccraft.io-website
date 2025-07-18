@@ -33,6 +33,7 @@ import Partners from '@/components/Partners/Partners'
 // import { CryptoLobbies } from '@/components/CryptoLobbies/CryptoLobbies'
 
 // import DownloadSection from '@/components/HomePageCard'
+import { Helmet } from 'react-helmet-async'
 
 
 function Homepagemcrt() {
@@ -111,6 +112,19 @@ function Homepagemcrt() {
   )
   return (
     <>
+      <Helmet>
+        <title>MagicCraft - Play-to-Earn Blockchain Game</title>
+        <meta
+          name="description"
+          content="MagicCraft is a Play-to-Earn blockchain game featuring fast-paced multiplayer battles. Join thousands of players to earn MCRT, the utility token of MagicCraft."
+        />
+        <meta
+          name="keywords"
+          content="MagicCraft, blockchain game, P2E, MCRT, MagicCraft Token, MagicCraft Game, MagicCraft PVP"
+        />
+        <meta name="author" content="MagicCraft" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Helmet>
       <div className="min-h-dvh w-full text-white">
         <Header />
         <main className="-mt-[70px] scroll-smooth pb-32">

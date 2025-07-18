@@ -1,6 +1,7 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import { useNavigate } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async';
 
 // Hero data structure
 interface Hero {
@@ -65,6 +66,10 @@ function HeroCard({ hero }: { hero: Hero }) {
 export default function ChooseYourHero() {
   return (
     <div className="min-h-dvh w-full  text-white">
+      <Helmet>
+        <title>Choose Your Hero - Hero Selector</title>
+        <meta name="description" content="Select your hero for epic battles in the game." />
+      </Helmet>
       <Header />
       <main className="scroll-smooth pb-32">
         <section className="relative px-4 py-12 md:px-6 lg:px-8">

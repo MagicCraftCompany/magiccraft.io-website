@@ -1,7 +1,13 @@
 import Header from '@/components/Header/Header'
+import { Helmet } from 'react-helmet-async'
 function PrivacyPolicy() {
   return (
     <div className="min-h-dvh w-full text-white">
+      <Helmet>
+        <title>Privacy Policy - MagicCraft</title>
+        <meta name="description" content="MagicCraft Privacy Policy. Learn how we collect, use, and protect your personal information." />
+        <meta name="keywords" content="MagicCraft, privacy policy, data protection, personal information" />
+      </Helmet>
       {/* Header */}
       <Header />
 

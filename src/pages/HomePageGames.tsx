@@ -17,6 +17,7 @@ import GameCard from '@/components/ui/GameCard'
 import { Game, gamesData } from '@/data/game'
 import ContactForm from '@/components/ContactForm'
 import { ListedPartners } from '@/components/Partners/Partners'
+import { Helmet } from 'react-helmet-async'
 
 function Homepagegames() {
   // const [isSubmitting, setIsSubmitting] = useState(false)
@@ -53,8 +54,20 @@ function Homepagegames() {
       game.title === 'runescribes' ||
       game.title === 'magicrunner'
   )
+  const canonical = 'https://www.magiccraft.io/games'
   return (
     <>
+      <Helmet>
+        <title>MagicCraft Games – Play & Earn with $MCRT</title>
+        <meta name="description" content="Discover the MagicVerse – blockchain games powered by the $MCRT token. Play MagicCraft and other titles to earn while you game." />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content="MagicCraft Games" />
+        <meta property="og:description" content="Explore our portfolio of Web3 games and start earning $MCRT." />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <div className="min-h-dvh w-full text-white">
         <Suspense fallback={<div>Loading...</div>}>
           <Header />

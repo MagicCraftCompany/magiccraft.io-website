@@ -6,6 +6,7 @@ import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 interface SanityTextChild {
   _type: string;
@@ -114,8 +115,15 @@ export default function BlogPost() {
     day: 'numeric',
   });
 
+  const canonicalUrl = `${window.location.origin}/blog/${slug}`;
+
   return (
     <div className="min-h-dvh w-full bg-gradient-to-b from-[#070725] to-[#0a0a2e] text-white">
+      <Helmet>
+        <title>{post.title} - Blog</title>
+        <meta name="description" content={post.description} />
+        <link rel="canonical" href={canonicalUrl} />
+      </Helmet>
       <Header />
       <main className="mx-auto max-w-4xl px-4 py-12">
         <div className="mb-8">

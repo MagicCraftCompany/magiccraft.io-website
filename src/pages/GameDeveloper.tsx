@@ -1,6 +1,7 @@
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import OpenSourceFeatures from '@/components/ui/gamedevelopercard'
+import { Helmet } from 'react-helmet-async';
 
 function GameDeveloper() {
   const handleApplyClick = () => {
@@ -8,6 +9,10 @@ function GameDeveloper() {
   };
   return (
     <div className="min-h-dvh w-full text-white">
+      <Helmet>
+        <title>Game Developer - MagicCraft</title>
+        <meta name="description" content="Build on MagicCraft's ecosystem and earn $MCRT. Integrate your games, create custom skins, and leverage open-source character rigs." />
+      </Helmet>
       {/* Header */}
       <Header />
 

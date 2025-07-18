@@ -1,9 +1,21 @@
 import Header from '@/components/Header/Header'
 import Leaderboard from '@/components/LeaderBoard/leaderboard'
+import { Helmet } from 'react-helmet-async'
 
 function LeaderboardPage() {
   return (
     <>
+      <Helmet>
+        <title>MagicCraft Leaderboard – Top Players & $MCRT Earnings</title>
+        <meta name="description" content="Check the MagicCraft leaderboard to see the highest-ranked players and their $MCRT earnings in real time." />
+        <link rel="canonical" href="https://www.magiccraft.io/leaderboard" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.magiccraft.io/leaderboard" />
+        <meta property="og:title" content="MagicCraft Leaderboard" />
+        <meta property="og:description" content="Discover the top MagicCraft competitors and track your position among them." />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732780930/Image_9_rqkm4a.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <div className="min-h-dvh w-full text-white ">
         <Header />
         <div className="relative">
