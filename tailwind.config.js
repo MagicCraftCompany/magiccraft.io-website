@@ -24,13 +24,20 @@ module.exports = {
     extend: {
       backgroundImage: {
         hero: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717180584/hero_w75tmm.webp')",
-        video:"url('https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto:video,q_auto/m2qegasybx2ts0picyhh')",
-        mrback: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173137/Hero_1_v7qidt.webp')",
-        mrback1: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173132/hero2_olqlpn.webp')",
-        supportbg: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173117/Image_w7qty5.webp')",
-        faqtab: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717433825/Image_1_cqkad8.webp')",
-        bgpatch: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173211/bgpatch_nvhjfc.webp')",
-        bgpatch1: "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717482718/Image_1_1_ifmi0t.webp')",
+        video:
+          "url('https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto:video,q_auto/m2qegasybx2ts0picyhh')",
+        mrback:
+          "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173137/Hero_1_v7qidt.webp')",
+        mrback1:
+          "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173132/hero2_olqlpn.webp')",
+        supportbg:
+          "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173117/Image_w7qty5.webp')",
+        faqtab:
+          "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717433825/Image_1_cqkad8.webp')",
+        bgpatch:
+          "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173211/bgpatch_nvhjfc.webp')",
+        bgpatch1:
+          "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717482718/Image_1_1_ifmi0t.webp')",
       },
       keyframes: {
         'accordion-down': {
@@ -48,12 +55,11 @@ module.exports = {
       colors: {
         'custom-dark': '#0A0917',
         'custom-light': 'rgba(68, 87, 184, 0.30)',
-        'tab-bg':'#21295C',
-        'custom-fade':'#fff',
-
+        'tab-bg': '#21295C',
+        'custom-fade': '#fff',
       },
       fontFamily: {
-        sans: ['"Futura PT"', ...defaultTheme.fontFamily.sans],
+        sans: ['"Nunito"', ...defaultTheme.fontFamily.sans],
         serif: ["'Colus'", ...defaultTheme.fontFamily.serif],
         ancient: ['"Font-The Ancient"', ...defaultTheme.fontFamily.serif],
       },

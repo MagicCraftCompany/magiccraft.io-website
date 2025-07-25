@@ -6,6 +6,11 @@
   background-color: #03082f;
 }
 
+/* Global font settings */
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+}
+
 @font-face {
   font-family: 'Colus';
   src:

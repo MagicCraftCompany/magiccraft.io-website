@@ -10,6 +10,7 @@ const InnerWrapper = styled.div`
   max-width: 70rem;
   gap: 1rem;
   padding-inline: 2rem;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 `;
 
 const Wrapper = styled.div`
@@ -18,6 +19,7 @@ const Wrapper = styled.div`
   align-items: center;
   text-align: center;
   margin-block: 2rem;
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
 `;
 
 const BackButton = styled.button`
