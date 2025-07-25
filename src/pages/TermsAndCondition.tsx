@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 
 const InnerWrapper = styled.div`
   display: flex;
@@ -19,8 +20,42 @@ const Wrapper = styled.div`
   margin-block: 2rem;
 `;
 
+const BackButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #4457B84D;
+  color: #98FFF9;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: #4457B860;
+    transform: translateX(-2px);
+  }
+  
+  &:active {
+    transform: translateX(-1px);
+  }
+`;
+
 export default function TermsAndConditions() {
   const canonical = 'https://www.magiccraft.io/terms-and-condition';
+  
+  const handleBack = () => {
+    window.history.back();
+  };
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <>
       <Helmet>
@@ -35,7 +70,25 @@ export default function TermsAndConditions() {
       </Helmet>
       <Wrapper className="text-slate-100">
         <InnerWrapper>
+          <BackButton onClick={handleBack}>
+            ← Back
+          </BackButton>
+          
           <h1>MAGICCRAFT LOBBY SYSTEM TERMS AND CONDITIONS</h1>
+          
+          {/* Last Updated Notice */}
+          <div style={{ 
+            width: 'fit-content',
+            borderRadius: '12px',
+            background: '#4457B84D',
+            padding: '16px',
+            fontSize: '14px',
+            color: '#98FFF9',
+            marginBottom: '24px'
+          }}>
+            Last updated: 31st March 2023
+          </div>
+          
           <h2>1. Overview</h2>
           <p>
             Welcome to MagicCraft's lobbies! We are excited to offer you the opportunity to participate in the creation and entry of lobbies,

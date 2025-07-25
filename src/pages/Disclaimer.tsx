@@ -1,4 +1,49 @@
-import Header from "@/components/Header/Header"
+import styled from "styled-components";
+import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
+
+const InnerWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: initial;
+  max-width: 70rem;
+  gap: 1rem;
+  padding-inline: 2rem;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-block: 2rem;
+`;
+
+const BackButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #4457B84D;
+  color: #98FFF9;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: #4457B860;
+    transform: translateX(-2px);
+  }
+  
+  &:active {
+    transform: translateX(-1px);
+  }
+`;
 
 const disclaimerSections = [
   {
@@ -36,76 +81,61 @@ const disclaimerSections = [
 ]
 
 export default function Disclaimer() {
+  const canonical = 'https://www.magiccraft.io/disclaimer';
+  
+  const handleBack = () => {
+    window.history.back();
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="min-h-dvh w-full text-white bg-[#0C0C29]">
-      <Header />
+    <>
+      <Helmet>
+        <title>Disclaimer - MagicCraft</title>
+        <meta name="description" content="MagicCraft Disclaimer. Important information about risks, legal obligations, and limitations when using MagicCraft services." />
+        <meta name="keywords" content="MagicCraft, disclaimer, risks, legal, MCRT, NFT, cryptocurrency" />
+        <link rel="canonical" href={canonical} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content="Disclaimer - MagicCraft" />
+        <meta property="og:description" content="Important disclaimer information about risks and legal obligations when using MagicCraft services." />
+        <meta name="twitter:card" content="summary" />
+      </Helmet>
 
-      {/* Banner Section */}
-      <div className="relative">
-        {/* Desktop Image */}
-        <img
-          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732696195/Frame_307520_ute5lk.webp"
-          className="hidden lg:block"
-          alt="Disclaimer banner"
-          width={1920}
-          height={500}
-        />
-
-        {/* Tablet Image */}
-        <img
-          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732696204/Image_3_wtr574.webp"
-          className="hidden md:block lg:hidden"
-          alt="Disclaimer banner"
-          width={1024}
-          height={700}
-        />
-
-        {/* Mobile Image */}
-        <img
-          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732696195/Image_2_qgwr9m.webp"
-          className="block md:hidden"
-          alt="Disclaimer banner"
-          width={375}
-          height={500}
-        />
-
-        {/* Overlay Title */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="font-serif text-4xl font-bold md:text-5xl">
-            DISCLAIMER
-          </h1>
-        </div>
-      </div>
-
-      {/* Main Content Section */}
-      <div className="-mt-20 flex justify-center px-4">
-        <main className="z-10 flex h-full w-full max-w-[65em] flex-col gap-[30px] rounded-[30px] bg-[#11113A] p-6 lg:p-10">
-          <div className="mx-auto max-w-4xl">
-            {/* Last Updated Notice */}
-            <div className="mb-8 w-fit rounded-full bg-[#4457B84D] px-6 py-3 text-sm text-[#98FFF9]">
-              Last updated: 31st March 2023
-            </div>
-
-            {/* Disclaimer Content */}
-            <div className="space-y-6">
-              {disclaimerSections.map((section, index) => (
-                <div 
-                  key={index}
-                  className="rounded-3xl bg-[#0C0C29] p-6 md:p-10 space-y-4"
-                >
-                  <h2 className="text-xl font-semibold text-[#98FFF9]">
-                    {section.title}
-                  </h2>
-                  <p className="leading-relaxed text-white/80">
-                    {section.content}
-                  </p>
-                </div>
-              ))}
-            </div>
+      <Wrapper className="text-slate-100">
+        <InnerWrapper>
+          <BackButton onClick={handleBack}>
+            ← Back
+          </BackButton>
+          
+          <h1>MAGICCRAFT DISCLAIMER</h1>
+          
+          {/* Last Updated Notice */}
+          <div style={{ 
+            width: 'fit-content',
+            borderRadius: '12px',
+            background: '#4457B84D',
+            padding: '16px',
+            fontSize: '14px',
+            color: '#98FFF9',
+            marginBottom: '24px'
+          }}>
+            Last updated: 31st March 2023
           </div>
-        </main>
-      </div>
-    </div>
+
+          {/* Disclaimer Content */}
+          {disclaimerSections.map((section, index) => (
+            <div key={index}>
+              <h2>{section.title}</h2>
+              <p>{section.content}</p>
+            </div>
+          ))}
+        </InnerWrapper>
+      </Wrapper>
+    </>
   )
 }
 
