@@ -308,10 +308,8 @@ const Footer = () => {
       <div className="mx-auto my-4 h-px w-11/12  bg-gradient-to-r from-[#556DE033] via-[#556DE0] to-[#556DE033]"></div>
       <div className="mx-auto lg:w-[43.5em] max-w-4xl  text-center">
         <p className="text-sm text-[#8896AB]">
-          $MCRT is only marketed and offered for sale to experienced investors
-          who can independently understand the risks associated with a
-          cryptocurrency project. If you are new to the cryptocurrency space,
-          please make sure you thoroughly familiarise yourself with the risks
+          $MCRT is a utility token designed for use within the MagicCraft ecosystem. If you are new to the cryptocurrency space,
+          please make sure you thoroughly familiarise yourself with the nature and risks
           associated with $MCRT as per our{' '}
           <a
             className="text-primary text-[#98FFF9] underline"
