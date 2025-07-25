@@ -8,42 +8,43 @@ import right from '@/assets/icons/right-preview.svg'
 import { useState } from 'react';
 
 
+// Helper function to extract YouTube video ID from URL
+const getYouTubeVideoId = (url: string): string => {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+  return (match && match[2].length === 11) ? match[2] : '';
+};
+
+// Helper function to get YouTube thumbnail
+const getYouTubeThumbnail = (url: string): string => {
+  const videoId = getYouTubeVideoId(url);
+  return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+};
+
 const videos = [
     {
       id: 1,
       url: 'https://www.youtube.com/watch?v=zXUtAyjfvcc',
-      thumbnail:
-      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1725910421/14_n3epjx.webp',
-        duration: '20:00',
-      
+      duration: '20:00',
     },
     {
       id: 2,
       url: 'https://www.youtube.com/watch?v=6jTooJ2v-M8',
-      thumbnail:
-        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280872/image_19_16_lwlhzb.webp',
       duration: '6:34',
     },
     {
       id: 3,
       url: 'https://www.youtube.com/watch?v=I96iKLPcSPs',
-      thumbnail:
-      'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280875/image_19_15_m1yugr.webp',
-     
       duration: '7:19',
     },
     {
       id: 4,
       url: 'https://www.youtube.com/watch?v=nqlqpT8WVCo',
-      thumbnail:
-        'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1729605924/Link_2x-1_r9djmf.webp',
       duration: '0:49',
     },
     {
         id: 5,
         url: 'https://www.youtube.com/watch?v=z47pne8Lq_E&t=41s',
-        thumbnail:
-          'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_1_fzdlkt.webp',
         duration: '4:14',
       },
   ]
@@ -110,7 +111,7 @@ return(
           )}
         >
           <img
-            src={video.thumbnail}
+            src={getYouTubeThumbnail(video.url)}
             alt={`Video thumbnail ${video.id}`}
             className="object-cover transition-transform group-hover:scale-105"
           />
