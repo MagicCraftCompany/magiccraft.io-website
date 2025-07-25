@@ -576,14 +576,13 @@ function Homepagemcrt() {
                     THE GAMING WORLD.
                   </h5>
                   <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
-                    <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-4 py-2  ">
-                      <h4 className="font-serif  text-lg md:text-[16px]">
+                    <div className="relative h-full w-full overflow-hidden rounded-[20px] bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 flex flex-col justify-between">
+                      <h4 className="font-serif text-lg md:text-[16px]">
                         <span className="text-[#8EFF49]">
                           MCRT INTEGRATION:
                         </span>{' '}
                         <br /> ENHANCE YOUR GAMING WITH MCRT.
                       </h4>
-
                       <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[190px]">
                         1
                       </div>
