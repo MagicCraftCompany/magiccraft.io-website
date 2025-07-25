@@ -62,7 +62,7 @@ const Tabs = ({ children, type }: TabsProps) => {
                       className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7"
                     />
                   )}
-                  <span className="px-1 sm:px-2 py-1 sm:py-2 text-xs sm:text-sm">{tab.props.label}</span>
+                  <span className="px-3 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm">{tab.props.label}</span>
                 </div>
               </button>
             );
