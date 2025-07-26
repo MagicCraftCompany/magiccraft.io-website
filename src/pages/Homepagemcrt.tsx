@@ -127,7 +127,7 @@ function Homepagemcrt() {
       </Helmet>
       <div className="min-h-dvh w-full text-white">
         <Header />
-        <main className="-mt-[70px] scroll-smooth pb-32">
+        <main className="-mt-[80px] md:-mt-[80px] scroll-smooth pb-32">
           {/*header*/}
           <section className="md:min-h-screen relative lg:h-[700px] h-[800px]  bg-cover bg-center">
             <video

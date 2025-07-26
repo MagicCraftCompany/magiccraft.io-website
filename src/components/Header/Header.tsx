@@ -1,5 +1,5 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
-import { ArrowUpRight, X } from 'lucide-react'
+import { X } from 'lucide-react'
 import NavMenu from './Navmenu'
 import menuIcon from '@/assets/icons/menu-icon.svg'
 import { useState, useEffect } from 'react'
@@ -295,15 +295,15 @@ const Header = () => {
       {/* <header className="relative z-50 w-full px-3 py-4  md:px-4 md:py-5">
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
           <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 "> */}
-        <header className="relative z-50 w-full bg-[#0A091799] px-3 py-4 backdrop-blur-md md:px-4 md:py-3">
-        <nav className="flex items-center justify-between gap-2 md:gap-4 rounded-xl bg-[#431269B2] md:h-[60px]">
-          <div className="grid shrink-0 place-items-center self-stretch bg-black/20 px-2 md:px-4 lg:px-8">
-            <a href="/" rel="noreferrer noopener">
-              <img className="w-20 md:w-28 lg:w-36" src={mcLogo} alt="MagicCraft" />
+        <header className="relative z-50 w-full bg-[#431269B2] backdrop-blur-md">
+        <nav className="flex items-center justify-between h-16 md:h-[70px]">
+          <div className="grid shrink-0 place-items-center self-stretch px-3 md:px-6 lg:px-8">
+            <a href="/" rel="noreferrer noopener" className="h-full flex items-center">
+              <img className="w-32 sm:w-36 md:w-40 lg:w-48" src={mcLogo} alt="MagicCraft" />
             </a>
           </div>
 
-          <div className="flex w-full items-center justify-end gap-4 md:gap-8 lg:gap-12 py-2 md:py-4 pr-2 md:pr-3 xl:justify-between">
+          <div className="flex w-full items-center justify-end gap-3 md:gap-6 lg:gap-8 px-4 md:px-6 xl:justify-between">
             <div className="hidden items-center gap-3 md:gap-4 lg:gap-4 xl:flex">
               {commonMenuItemsNew.map((item) =>
                 item?.submenu?.length > 0 ? (
@@ -324,34 +324,39 @@ const Header = () => {
                 )
               )}
             </div>
-            <div className="flex items-center gap-2 md:gap-3 lg:gap-5">
-              <button
-                onClick={handleBuyMCRT}
-                className="flex cursor-pointer items-center gap-1 md:gap-2 whitespace-nowrap"
-              >
-                <p className="text-xs md:text-sm xl:text-base">Buy $MCRT</p>
-              </button>
-              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="flex cursor-pointer items-center gap-1 md:gap-2 whitespace-nowrap">
-                <p className="text-xs md:text-sm xl:text-base flex flex-row items-center gap-1"><img src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1741759467/image_25_gnebrl.webp" className='w-4'/>Shop</p>
-              </a>
-
+            <div className="flex items-center gap-2 md:gap-4">
               <button className="hidden md:block">
                 <a
                   href="https://lobby.magiccraft.io/"
                   rel="noreferrer noopener"
                 >
-                  <div className="flex w-full items-center justify-center gap-1 md:gap-2 rounded-lg bg-[#98FFF9] px-3 md:px-4 lg:px-5 py-2 md:py-3 text-[#03082F]">
-                    <ArrowUpRight size={16} className="md:size-18" />
-                    <p className="text-xs md:text-sm xl:text-base">Lobby</p>
+                  <div className="flex w-full items-center justify-center gap-1 md:gap-2 rounded-lg bg-gray-800/40 border border-gray-600/30 hover:bg-gray-700/40 transition-all duration-200 px-4 py-2 text-white">
+                    <p className="text-sm md:text-base font-medium">Play</p>
                   </div>
                 </a>
+              </button>
+              
+              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800/40 border border-gray-600/30 hover:bg-gray-700/40 transition-all duration-200">
+                  <img src={service} alt="Shop" className='w-5 h-5' />
+                  <p className="text-sm md:text-base font-medium text-white">
+                    Shop
+                  </p>
+                </div>
+              </a>
+
+              <button
+                onClick={handleBuyMCRT}
+                className="flex cursor-pointer items-center gap-1 whitespace-nowrap px-4 py-1.5 md:py-2 rounded-lg bg-[#98FFF9] hover:bg-[#98FFF9]/90 transition-all duration-200 text-[#03082F] mr-2 md:ml-0"
+              >
+                <p className="text-sm md:text-base font-medium">Buy $MCRT</p>
               </button>
               <button
                 onClick={openSidebar}
                 className="block shrink-0 xl:hidden"
               >
                 <span className="sr-only">Open Menu</span>
-                <img src={menuIcon} alt="Open Menu" className="w-6 md:w-8" />
+                <img src={menuIcon} alt="Open Menu" className="w-7 md:w-8" />
               </button>
             </div>
           </div>
@@ -382,6 +387,30 @@ const Header = () => {
                     onClick={closeSidebar}
                   />
                 </div>
+                <div className="h-[2px] w-full shrink-0 bg-gradient-to-r from-transparent via-[#5377BD] to-transparent" />
+
+                {/* Mobile Shop and Play buttons */}
+                <div className="flex gap-4 py-0">
+                  <a
+                    href="https://app.magiccraft.io/marketplace/explorer"
+                    onClick={closeSidebar}
+                    rel="noreferrer noopener"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-800/40 border border-gray-600/30"
+                  >
+                    <img src={service} alt="Shop" className='w-6 h-6' />
+                    <p className="text-[22px] font-normal text-white">Shop</p>
+                  </a>
+                  
+                  <a
+                    href="https://lobby.magiccraft.io/"
+                    onClick={closeSidebar}
+                    rel="noreferrer noopener"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-800/40 border border-gray-600/30"
+                  >
+                    <p className="text-[22px] font-medium text-white">Play</p>
+                  </a>
+                </div>
+
                 <div className="h-[2px] w-full shrink-0 bg-gradient-to-r from-transparent via-[#5377BD] to-transparent" />
 
                 <div className="flex flex-col gap-y-8 pt-8">
@@ -417,11 +446,6 @@ const Header = () => {
                   )}
                 </div>
 
-                <div className="pt-16">
-                  <div className="py-8 text-sm font-bold">
-                    &copy; Copyright MagicCraft 2024
-                  </div>
-                </div>
               </div>
             </motion.nav>
           </header>
