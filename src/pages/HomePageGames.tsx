@@ -86,7 +86,7 @@ function Homepagegames() {
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
                   <span className="text-xl md:text-4xl">
                     {' '}
-                    MagicCraft Vision 2024:
+                    MagicCraft Vision 2025:
                   </span>{' '}
                   <br />
                   MCRT is The Future of Gaming Currency{' '}
@@ -142,7 +142,7 @@ function Homepagegames() {
                     </p>
                   </div>
                   <h4 className="text-balance text-2xl leading-9">
-                    In 2024, MagicCraft is set to redefine the Web3 gaming
+                    In 2025, MagicCraft is set to redefine the Web3 gaming
                     landscape by positioning MCRT at the heart of every
                     gamer&apos;s journey. Our commitment to developing new
                     gaming experiences will shape a unified global gaming
@@ -687,7 +687,7 @@ function Homepagegames() {
                     Roadmap
                   </h2>
                   <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
-                    2024
+                    2025
                   </div>
                 </div>
                 <div className="flex items-center justify-center ">

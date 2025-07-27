@@ -7,7 +7,7 @@ export const faqData = [
   {
     question: 'WHEN WILL THE FULL MAGICCRAFT GAME BE AVAILABLE? ',
     answer:
-      'You can play the MagicCraft game right now! Get started by downloading it on iOS, Android, or Steam. New updates are coming to MagicCraft in 2024, with fresh storyline development, new characters, and maps.',
+      'You can play the MagicCraft game right now! Get started by downloading it on iOS, Android, or Steam. New updates are coming to MagicCraft in 2025, with fresh storyline development, new characters, and maps.',
   },
   {
     question: 'HOW DO I GET STARTED WITH MAGICCRAFT?',

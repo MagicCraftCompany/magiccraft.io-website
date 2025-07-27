@@ -168,7 +168,7 @@ const Footer = () => {
           </div>
           <div className="space-y-[18px] pt-5">
             <p className="text-md text-white/60">
-              &copy; 2021-2024 MagicCraft Ltd. All rights reserved
+              &copy; 2025 MagicCraft Ltd. All rights reserved
             </p>
             <ul className="text-md flex flex-row space-x-6 text-[#98FFF9]">
               <li

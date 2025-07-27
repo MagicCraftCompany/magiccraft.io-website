@@ -20,7 +20,7 @@ export const ListedPartners = () => {
           return (
             <div
               key={item.name}
-              className="grid h-20 place-items-center bg-[#161E4A] md:h-36"
+              className="grid h-20 place-items-center bg-[#161E4A] rounded-xl md:h-36 hover:bg-[#1a2456] transition-colors duration-200"
             >
               <a href={item.link.includes('http') ? item.link : `https://${item.link}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full h-full px-4">
                 <img 
@@ -52,7 +52,7 @@ const OurPartners = () => {
           return (
             <div
               key={item.name}
-              className="flex h-[5em] flex-col items-center bg-[#080F44] md:h-36 md:justify-center"
+              className="flex h-[5em] flex-col items-center bg-[#080F44] rounded-xl md:h-36 md:justify-center"
             >
               <div className="flex items-center justify-center p-5 lg:mt-5">
                 <img className={`px-2 ${item.name === 'Gaimin' ? 'w-[120px]' : item.name === 'Ultra'? 'w-[80px]' : item.name === 'Hyperplay' ? 'w-[100px]' : item.name === 'GGEM' ? 'w-[50px]' : ''}`} src={item.icon} alt={item.name} />
@@ -75,7 +75,7 @@ const OurPartners = () => {
                     )}
                   </div>
                   {item.type && (
-                    <div className="mt-1 hidden text-xs text-[#7AF2B8] md:ml-[2em] md:mt-0 md:text-sm lg:block">
+                    <div className="mt-1 hidden text-xs text-[#7AF2B8] md:mt-0 md:text-sm lg:block text-right md:ml-auto">
                       {item.type}
                     </div>
                   )}

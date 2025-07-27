@@ -677,8 +677,8 @@ function Homepagemcrt() {
               </h3>
               <div className="flex items-center justify-center">
                 <Tabs type="team">
-                  <Tab id="ALL" label="ALL" className="w-[80vw]">
-                    <div className="w-[80vw] space-y-4 ">
+                  <Tab id="ALL" label="ALL" className="w-full max-w-screen-xl">
+                    <div className="w-full space-y-4">
                       <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {ourteam.slice(0, visibleCount).map((item, index) => (
                           <React.Fragment key={item.name}>
@@ -745,9 +745,9 @@ function Homepagemcrt() {
                   <Tab
                     id="Advisors and KOL's"
                     label="Advisors and KOL's"
-                    className="w-[80vw]"
+                    className="w-full max-w-screen-xl"
                   >
-                    <div className="w-[80vw] space-y-4 ">
+                    <div className="w-full space-y-4 ">
                       <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {kolTeam.slice(0, visibleCount).map((item) => (
                           <div
@@ -799,8 +799,8 @@ function Homepagemcrt() {
                     </div>
                   </Tab>
 
-                  <Tab id="Team" label="Team" className="w-[80vw]">
-                    <div className="w-[80vw] space-y-4 ">
+                  <Tab id="Team" label="Team" className="w-full max-w-screen-xl">
+                    <div className="w-full space-y-4 ">
                       <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
                         {teamMembers.slice(0, visibleCount).map((item) => (
                           <div
