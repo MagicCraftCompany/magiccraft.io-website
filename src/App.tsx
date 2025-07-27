@@ -12,7 +12,6 @@ import Hero from "./pages/Hero";
 import ChooseYourHero from "./pages/ChooseYourHero";
 import Server from "./pages/serverStatus";
 import TermsAndConditions from "./pages/TermsAndCondition";
-import Studios from "./pages/Studios";
 import NewsPage from "./pages/McNews";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Disclaimer from "./pages/Disclaimer";
@@ -53,7 +52,6 @@ function App() {
         <Route path="/Chooseyourhero" element={<ChooseYourHero />} />
         <Route path="/faq" element={<Support />} />
         <Route path="/patch" element={<GamePatch />} />
-        <Route path="/studios" element={<Studios />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/build-on-magiccraft" element={<GameDeveloper />} />

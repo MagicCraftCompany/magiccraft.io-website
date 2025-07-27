@@ -51,25 +51,6 @@ const socialLinks = [
   },
 ]
 
-// const gameLinks = [
-//   {
-//     title: 'Story',
-//     link: 'https://magiccraft.io/story',
-//   },
-//   {
-//     title: 'Gallery',
-//     link: 'https://magiccraft.io/#gallery',
-//   },
-//   {
-//     title: 'Studios',
-//     link: 'https://magiccraft.io/studios',
-//   },
-//   {
-//     title: 'Team',
-//     link: '/#team',
-//   },
-// ]
-
 const tokenLinks = [
   {
     title: 'Staking',
@@ -81,48 +62,23 @@ const tokenLinks = [
   },
   {
     title: 'Become a partner',
-    link: 'mailto:adam@magiccraft.io',
+    link: 'mailto:mateusz@magiccraft.io',
   },
-  // {
-  //   title: 'MCRT Token',
-  //   link: 'https://magiccraft.io/mcrt-token',
-  // },
-  // {
-  //   title: 'Tokenomics',
-  //   link: 'https://magiccraft.io/mcrt-token#tokenomics',
-  // },
   {
     title: 'Roadmap',
     link: '/#roadmap',
   },
-  // {
-  //   title: 'Whitepaper',
-  //   link: 'https://docs.magiccraft.io/',
-  // },
   {
     title: 'Team',
     link: '/#team',
   },
-   
-]
+];
 
 const moreLinks = [
-  // {
-  //   title: 'Careers',
-  //   link: 'https://magiccraft.io/careers',
-  // },
   {
     title: 'FAQ',
     link: '/faq',
   },
-  // {
-  //   title: 'Become a partner',
-  //   link: '/#partner',
-  // },
-  // {
-  //   title: 'Contact us',
-  //   link: 'https://magiccraft.io/contact-us',
-  // },
   {
     title: 'Verify',
     link: 'https://app.magiccraft.io/verify',
@@ -131,10 +87,6 @@ const moreLinks = [
     title: '$MCRT',
     link: '/magiccraft',
   },
-  // {
-  //   title: 'Team',
-  //   link: '/#team',
-  // },
   {
     title: 'Whitepaper',
     link: 'https://docs.magiccraft.io/',
@@ -146,18 +98,6 @@ const Footer = () => {
   return (
     <footer className="text-primary relative z-10  py-10 lg:ml-[12em] ">
       <div className="mx-auto flex w-11/12 max-w-[1650px] flex-col-reverse justify-between gap-10 lg:flex-row">
-        {/* <button className='hidden lg:block'>
-          <img
-            src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173152/Go_to_top_of_page_fgfqwp.webp"
-            className=" absolute left-[4em]   cursor-pointer"
-          />
-        </button>
-        <button className=' hidden lg:block'>
-          <img
-            src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173193/Chat_bot_button_a3hguu.webp"
-            className="absolute right-[7em] -mt-10    cursor-pointer"
-          />
-        </button> */}
         <div className="flex w-full flex-col lg:ml-10 lg:w-1/2 ">
           <div>
             <img
