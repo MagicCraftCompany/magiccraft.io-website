@@ -40,6 +40,13 @@ const NavMenuMobile = ({ item, closeSidebar }: NavMenuProps) => {
                   className="pl-4 pt-5"
                 >
                   <div className="flex h-full w-full cursor-pointer items-center gap-2">
+                    <div className="grid w-5 shrink-0 place-items-center">
+                      <img
+                        className="max-w-full"
+                        src={subItem.icon}
+                        alt={subItem.title}
+                      />
+                    </div>
                     <p className="text-lg font-bold drop-shadow-md">
                       {subItem.title}
                     </p>
