@@ -8,12 +8,12 @@ import heart from '@/assets/icons/li_heart.svg'
 import arrow from '@/assets/icons/game-icons_fast-arrow.svg'
 import HeroCarousel from '@/components/HeroCarousel'
 import { characterData } from '@/components/Data/Characterdata'
-import { AbilityDetails } from '@/components/abilitydetail'
+// import { AbilityDetails } from '@/components/abilitydetail'
 
 function Hero() {
   const { heroName } = useParams();
   const character = characterData[0].find((character) => character.name.toLowerCase() === heroName);
-  const abilitiesdetails = character?.ability_details || [];
+  // const abilitiesdetails = character?.ability_details || [];
   const abilities = character?.abilities || [];
 
   const pageTitle = `${character?.name} - ${character?.title}`;
@@ -164,9 +164,10 @@ function Hero() {
               </div>
             </div>
           </section>
-          <section>
+          {/* TODO: Uncomment when up-to-date screenshots are available */}
+          {/* <section>
             <AbilityDetails characterName={character?.name || ''} abilities={abilitiesdetails} />
-          </section>
+          </section> */}
           <section className="relative">
             <HeroCarousel />
           </section>

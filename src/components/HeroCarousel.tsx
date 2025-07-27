@@ -173,19 +173,20 @@ export default function HeroCarousel() {
           {getVisibleHeroes().map((hero) => (
             <div
               key={hero.id}
-              className="absolute transition-all duration-500 ease-in-out"
+              className="absolute transition-all duration-500 ease-in-out cursor-pointer"
               style={{
                 transform: `translateX(${window.innerWidth < 768 ? centerOffset : hero.position * translateValue}px)`,
                 zIndex: hero.position === 0 ? 10 : 5,
               }}
+              onClick={() => navigate(`/hero/${hero.name.toLowerCase()}`)}
             >
               <div
-                className={`transition-all duration-500 overflow-hidden rounded-2xl ${
+                className={`transition-all duration-500 overflow-hidden rounded-2xl hover:scale-105 ${
                   hero.position === 0
                     ? "w-[240px] h-[320px] sm:w-48 sm:h-[340px] md:w-[260px] md:h-[420px] border-2 border-[#4BD5FF] sm:border-[#4BD5FF] scale-100"
                     : hero.position === -1 || hero.position === 1
-                      ? "hidden sm:block sm:w-36 sm:h-[240px] md:w-[180px] md:h-[280px] opacity-60 blur-[1px] border border-[#1A2151] scale-95"
-                      : "hidden sm:block sm:w-32 sm:h-[210px] md:w-[160px] md:h-[240px] opacity-40 blur-[2px] border border-[#1A2151] scale-90"
+                      ? "hidden sm:block sm:w-36 sm:h-[240px] md:w-[180px] md:h-[280px] opacity-60 blur-[1px] border border-[#1A2151] scale-95 hover:opacity-80"
+                      : "hidden sm:block sm:w-32 sm:h-[210px] md:w-[160px] md:h-[240px] opacity-40 blur-[2px] border border-[#1A2151] scale-90 hover:opacity-60"
                 }`}
               >
                 <img

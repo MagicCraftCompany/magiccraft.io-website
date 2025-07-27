@@ -12,9 +12,6 @@ const NavMenu = ({ item }: NavMenuProps) => {
         onMouseOver={() => setIsMenuOpen(true)}
         onMouseOut={() => setIsMenuOpen(false)}
       >
-        <div className="  shrink-0 place-items-center 2xl:grid ">
-          <img className="max-w-full" src={item.icon} alt="" />
-        </div>
         <span className="text-lg font-medium md:text-xs xl:text-base ">{item.title}</span>
         <LuChevronDown
           size={18}
