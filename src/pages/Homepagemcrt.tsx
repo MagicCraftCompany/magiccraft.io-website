@@ -1,26 +1,14 @@
 import { useCallback, useEffect, useState } from 'react'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
-// import left from '@/assets/icons/left-preview.svg'
-// import right from '@/assets/icons/right-preview.svg'
-
-// import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
-// import 'swiper/css'
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
 import pc from '@/assets/icons/icon-pc.svg'
 import down from '@/assets/icons/li_chevron-down.svg'
-
+import { Tabs, Tab } from '@/components/tabs'
 import { roadmapData } from '../data/roadmapData'
 import RoadmapCard from '../components/Cards/RoadmapCard'
-
-// import { otherpartners } from '@/data/otherpartners'
-// import partners from '@/data/partners'
 import { ourteam } from '@/components/Team/ourTeam'
-
-// import { Swiper, SwiperSlide } from 'swiper/react'
-import { Tabs, Tab } from '@/components/tabs'
-
 import React from 'react'
 import { LiaTelegramPlane } from 'react-icons/lia'
 import GamePlay from '@/components/GamePlay'
@@ -30,15 +18,12 @@ import { ArrowUpRight } from 'lucide-react'
 import MagicraftDownload from '@/components/HomePageCard'
 import Testimonial from '@/components/ui/testimonial'
 import Partners from '@/components/Partners/Partners'
-// import { CryptoLobbies } from '@/components/CryptoLobbies/CryptoLobbies'
 
-// import DownloadSection from '@/components/HomePageCard'
 import { Helmet } from 'react-helmet-async'
 
 
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(16)
-  // const [activeVideo, setActiveVideo] = useState(videos[0])
 
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
@@ -77,10 +62,6 @@ function Homepagemcrt() {
     window.location.href =
       'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
   }
-  // const playonpcHandler = () => {
-  //   window.location.href =
-  //     'https://mc-game-public.s3.eu-central-1.amazonaws.com/MagicCraft+4.27.9109.zip'
-  // }
   const playonsteamHandler = () => {
     window.location.href =
       'https://store.steampowered.com/app/2395760/MagicCraft/'
@@ -95,12 +76,6 @@ function Homepagemcrt() {
   const telegrammagiccrftHandler = () => {
     window.location.href = 'https://t.me/magiccraftgamechat'
   }
-
-  // const navigate = useNavigate()
-
-  // const magicrunnerhandleClick = () => {
-  //   navigate('/magicrunner')
-  // }
 
   const filteredGames = gamesData.filter(
     (game: { title: string }) =>
@@ -166,13 +141,6 @@ function Homepagemcrt() {
              </div>
            
           </section>
-          
-          {/* Crypto Lobbies Section - Moved to prominent position */}
-          {/* <section className="bg-[#020418]">
-            <CryptoLobbies />
-          </section> */}
-          
-          {/*register now */}
 
           <section className="relative flex  flex-col items-center justify-center lg:h-[500px] h-[700px] bg-[#020418] p-4 md:py-2 md:flex-row  ">
             <div className="grid w-full max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-4">
@@ -193,7 +161,7 @@ function Homepagemcrt() {
                     your prowess can pave the path to prosperity.
                   </p>
                 </div>
-                <div className="flex w-full justify-center md:justify-start">
+                <div className="flex w-full justify-center md:justify-items-start">
                   <button
                     onClick={registerHandler}
                     className="rounded-lg border-2 border-[#98FFF9] px-6 py-3 font-bold text-[#98FFF9] "
