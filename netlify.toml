@@ -7,10 +7,11 @@
   command = "npm run build"
   publish = "dist"
 
-# Environment variables should be set in the Netlify dashboard
-# DO NOT add actual environment variable values here
-# This is just a reminder of what variables need to be set
-# [template.environment]
-#   VITE_SANITY_PROJECT_ID = "Sanity project ID"
-#   VITE_SANITY_DATASET = "Sanity dataset name"
-#   VITE_SANITY_API_VERSION = "Sanity API version"
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
