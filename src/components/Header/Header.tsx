@@ -40,7 +40,7 @@ export type NavMenuProps = {
 
 export type SubMenuProps = {
   title: string
-  icon: string
+  icon?: string // Make optional
   path: string
   isXswap?: boolean
 }
@@ -69,26 +69,17 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         title: 'MagicCraft',
           icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
           path: '/magiccraft',
-        
       },
       {
         title: 'Browser Games',
-          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
-          path: 'https://games.magiccraft.io/',
-        
+        icon: gamepad,
+        path: 'https://games.magiccraft.io/',
       },
-      // {
-      //   title: 'MagicRunner',
-      //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173132/hero2_olqlpn.webp',
-      //   path: '/magicrunner',
-      // },
-      // {
-      //   title: 'Magic8Ball',
-      //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717662849/Screenshot_2024-01-05_at_15.03_1_x8sbyh.png',
-      //   path: '/magic8ball',
-      // },
-      
-     
+      {
+        title: 'Game Maker',
+        icon: '/icons/icon-steam.svg',
+        path: 'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/',
+      },
     ],
   },
   {
@@ -192,52 +183,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         },
       ],
     },
-   
 
-  // {
-  //   title: 'NFTs',
-  //   icon: './icons/icon-nft-new.svg',
-  //   submenu: [
-  //     {
-  //       title: 'Marketplace',
-  //       icon: './icons/icon-marketplace.svg',
-  //       path: 'https://app.magiccraft.io/marketplace/explorer',
-  //     },
-  //     {
-  //       title: 'Mint NFTs',
-  //       icon: './icons/icon-mint-nft.svg',
-  //       path: 'https://app.magiccraft.io/nft_mint',
-  //     },
-  //   ],
-  // },
-  // {
-  //   title: 'Pledging',
-  //   icon: './icons/icon-pledging-new.svg',
-  //   path: 'https://app.magiccraft.io/pledging',
-  //   submenu: [],
-  // },
-  
-  // {
-  //   title: 'Help',
-  //   icon: './icons/icon-help.svg',
-  //   submenu: [
-  //     {
-  //       title: 'FAQ',
-  //       icon: './icons/icon-faq.svg',
-  //       path: '/faq',
-  //     },
-  //     {
-  //       title: 'Contact us',
-  //       icon: './icons/icon-contact.svg',
-  //       path: 'https://magiccraft.io/contact-us',
-  //     },
-  //     {
-  //       title: 'Community',
-  //       icon: './icons/icon-community.svg',
-  //       path: 'https://t.me/magiccraftgamechat',
-  //     },
-  //   ],
-  // },
   {
     title: 'Statistics',
     icon: statistics,
