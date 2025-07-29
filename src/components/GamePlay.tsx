@@ -53,7 +53,7 @@ function GamePlay(){
 
 return(
 
-<section className="relative  md:min-h-screen h-[50vh] md:h-full w-full overflow-hidden ">
+<section className="relative md:mb-24 h-[50vh] md:h-full w-full overflow-hidden ">
 {/* Background Image */}
 <div className="absolute inset-0 z-0 h-full w-full object-cover object-center">
   <img
@@ -82,7 +82,7 @@ return(
     /> */}
   </div>
 
-  <div className=" mx-auto md:mt-[170px] mt-4 max-w-6xl px-4">
+  <div className=" mx-auto md:mt-[100px] mt-16 max-w-6xl px-4">
     {/* Title */}
     <h2 className="mb-12 text-center font-serif text-4xl text-white opacity-90">
       GAMEPLAY
@@ -100,7 +100,7 @@ return(
     </div>
 
     {/* Video Thumbnails */}
-    <div className=" m-20 hidden grid-cols-5 gap-4 lg:grid ">
+    <div className=" mt-14 mb-20 hidden grid-cols-5 gap-4 lg:grid ">
       {videos.map((video) => (
         <button
           key={video.id}

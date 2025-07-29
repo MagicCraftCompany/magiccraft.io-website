@@ -144,7 +144,7 @@ function Homepagemcrt() {
 
           <section className="relative flex  flex-col items-center justify-center lg:h-[500px] h-[700px] bg-[#020418] p-4 md:py-2 md:flex-row  ">
             <div className="grid w-full max-w-7xl grid-cols-1 gap-8 md:grid-cols-2 md:gap-4">
-              <div className="mx-auto flex w-full max-w-[400px] flex-col items-center justify-center space-y-6 md:mx-0 md:max-w-none md:items-start mt-10">
+              <div className="mx-auto flex w-full max-w-[400px] flex-col items-center justify-center space-y-6 md:mx-0 md:max-w-none md:items-start mt-20">
                 <div className="space-y-2 text-center md:text-left">
                   <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text  font-serif text-2xl text-transparent drop-shadow-xl ">
                     <div className="text-4xl font-bold ">
@@ -287,6 +287,43 @@ function Homepagemcrt() {
          <section id="gameplay">
           <GamePlay />
           </section>
+
+          {/* Game Maker Banner */}
+          <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 mb-[50px]">
+            <div className="relative w-full rounded-4xl bg-[#080420]">
+              <div className="space-y-5 px-8 pb-6 pt-5 md:px-10">
+                <div className="text-center">
+                  <h3 className="font-serif text-2xl font-bold">
+                    BUILD YOUR GAMES WITH GAME MAKER
+                  </h3>
+                </div>
+                <div className="w-full">
+                  <div className="relative mx-auto w-full max-w-screen-xl">
+                    <div className=''>
+                      <img
+                        src="http://res.cloudinary.com/dfzcr2ch4/image/upload/v1753800048/rksbqhjxphkaeoooqolq.webp"
+                        alt="Game Maker banner"
+                        className="h-auto mb-6 w-full object-cover"
+                      />
+                    </div>
+                    {/* Content overlay using flexbox - positioned on the right */}
+                    <div className="absolute inset-0 mr-4 flex flex-col justify-end items-end p-4 sm:p-6 md:p-8 lg:p-[4rem]">
+                      <div className="space-y-1 sm:space-y-2 text-right">
+                        <h1 className="font-serif text-xs text-white sm:text-lg lg:text-xl">
+                          GAME MAKER
+                        </h1>
+                        <a href="https://store.steampowered.com/app/2395760/MagicCraft/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1 text-xs text-[#98FFF9] transition-colors hover:text-white sm:text-sm">
+                          Read more
+                          <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
           {/*JOIN THE ACTION */}
           <section className=" flex justify-center bg-center p-4 lg:mt-[3em] lg:h-full ">
             <div className="relative max-w-[80em]  rounded-4xl bg-[#0A0424] bg-opacity-70 ">
