@@ -313,7 +313,7 @@ function Homepagemcrt() {
                           GAME MAKER
                         </h1>
                         <a href="https://store.steampowered.com/app/3478810/MCRT_Game_Maker/" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-1 text-xs text-[#98FFF9] transition-colors hover:text-white sm:text-sm">
-                          Read more
+                          Build now
                           <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                         </a>
                       </div>
