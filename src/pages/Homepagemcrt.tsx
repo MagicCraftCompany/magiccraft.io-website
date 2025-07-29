@@ -294,7 +294,7 @@ function Homepagemcrt() {
               <div className="space-y-5 px-8 pb-6 pt-5 md:px-10">
                 <div className="text-center">
                   <h3 className="font-serif text-2xl font-bold">
-                    BUILD YOUR GAMES WITH GAME MAKER
+                    BUILD GAMES WITH GAME MAKER
                   </h3>
                 </div>
                 <div className="w-full">
