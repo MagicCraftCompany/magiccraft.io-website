@@ -300,10 +300,17 @@ function Homepagemcrt() {
                 <div className="w-full">
                   <div className="relative mx-auto w-full max-w-screen-xl">
                     <div className=''>
+                      {/* Desktop/tablet banner - horizontal */}
                       <img
                         src="http://res.cloudinary.com/dfzcr2ch4/image/upload/v1753800048/rksbqhjxphkaeoooqolq.webp"
                         alt="Game Maker banner"
-                        className="h-auto mb-6 w-full object-cover"
+                        className="hidden md:block h-auto mb-6 w-full object-cover"
+                      />
+                      {/* Mobile banner - vertical */}
+                      <img
+                        src="http://res.cloudinary.com/dfzcr2ch4/image/upload/v1754042773/vtnxmvnugebfblvkabwk.webp"
+                        alt="Game Maker banner"
+                        className="block md:hidden h-auto mb-6 w-full object-cover"
                       />
                     </div>
                     {/* Content overlay using flexbox - positioned on the right */}
