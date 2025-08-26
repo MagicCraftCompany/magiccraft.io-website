@@ -66,8 +66,8 @@ function Testimonial() {
         }}
       >
         {testimonials.map((testimonial) => (
-          <SwiperSlide
-            style={{ marginRight: '0 !important' }}
+        <SwiperSlide
+          style={{ marginRight: '0 !important' }}
             className="h-full"
             key={testimonial.id}
           >
@@ -84,12 +84,12 @@ function Testimonial() {
                       <div className={`relative h-10 w-10 rounded-full bg-gradient-to-br ${avatarGradient} flex items-center justify-center border border-white/20 group-hover:border-white/40 transition-all duration-300`}>
                         <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent"></div>
                         <span className="relative text-sm font-bold text-[#03082F]">{testimonial.initials}</span>
-                      </div>
-                    </div>
+                  </div>
+                </div>
                     <div>
                       <h4 className="font-bold text-white group-hover:text-[#98FFF9] transition-colors duration-300">{testimonial.name}</h4>
                       <p className="text-xs text-white/60">Verified Player</p>
-                    </div>
+                  </div>
                   </div>
                   
                   {/* Review text */}
@@ -107,31 +107,31 @@ function Testimonial() {
                           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                         <span className="text-xs font-medium">{testimonial.metrics.views}</span>
-                      </div>
+                  </div>
                       <div className="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
                         </svg>
                         <span className="text-xs font-medium">{testimonial.metrics.shares}</span>
-                      </div>
+                </div>
                       <div className="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300">
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                         </svg>
                         <span className="text-xs font-medium">{testimonial.metrics.likes}</span>
-                      </div>
-                    </div>
+              </div>
+            </div>
                     <div className="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300">
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
                       </svg>
                       <span className="text-xs font-medium">{testimonial.metrics.impressions}</span>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </SwiperSlide>
+          </div>
+        </SwiperSlide>
         ))}
       </Swiper>
       <button className="arrow-left arrow absolute left-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer md:left-0 lg:-left-4 lg:top-1/2">

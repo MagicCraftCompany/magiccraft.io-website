@@ -382,8 +382,6 @@ export default function MagicraftDownload() {
             )}
           </AnimatePresence>
         </div>
-      </div>
-
       {/* XRP Lobby Card */}
       <div className="relative group h-full min-w-0">
         <motion.div 
@@ -512,6 +510,7 @@ export default function MagicraftDownload() {
             </motion.div>
           )}
         </AnimatePresence>
+      {/* End Crypto Lobby Cards grid */}
       </div>
     </div>
   )
