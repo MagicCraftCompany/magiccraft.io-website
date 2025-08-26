@@ -23,12 +23,13 @@ export const ListedPartners = () => {
               href={item.link.includes('http') ? item.link : `https://${item.link}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex h-20 items-center justify-center rounded-xl bg-[#0A1240] p-3 transition-all hover:scale-[1.02] hover:bg-[#111a54] md:h-24"
+              className="group relative flex h-20 items-center justify-center rounded-xl bg-[#0A1240] p-3 transition-all hover:scale-[1.02] hover:bg-[#111a54] md:h-24 min-h-[80px]"
             >
               <img
-                className={`object-contain max-h-full max-w-[140px] opacity-90 group-hover:opacity-100 transition-opacity ${item.name === 'Bitunix' ? 'w-[150px]' : item.name === 'WEEX' ? 'w-[160px]' : ''}`}
+                className="object-contain max-h-full w-full h-full max-w-[120px] max-h-[60px] opacity-90 group-hover:opacity-100 transition-opacity"
                 src={item.icon}
                 alt={item.name}
+                loading="lazy"
               />
             </a>
           )
@@ -58,6 +59,7 @@ const OurPartners = () => {
                   className={`object-contain px-2 max-h-full ${item.name === 'Gaimin' ? 'w-[120px]' : item.name === 'Ultra' ? 'w-[80px]' : item.name === 'Hyperplay' ? 'w-[100px]' : item.name === 'GGEM' ? 'w-[50px]' : ''}`}
                   src={item.icon}
                   alt={item.name}
+                  loading="lazy"
                 />
               </div>
               <div className="mt-3 hidden w-full lg:block">
