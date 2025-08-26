@@ -396,12 +396,14 @@ function Homepagemcrt() {
                               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent"></div>
                               <svg 
                                 className="relative w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 text-[#03082F] drop-shadow-lg group-hover:scale-110 transition-transform duration-300" 
-                                fill="currentColor" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                strokeWidth="2"
                                 viewBox="0 0 24 24"
                               >
-                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2ZM21 9V7L15 4L13.5 7H7V9H13.5L15 12L21 9ZM13.5 5.5C13.1 5.5 12.7 5.3 12.5 5C12.3 4.7 12.3 4.3 12.5 4C12.7 3.7 13.1 3.5 13.5 3.5S14.3 3.7 14.5 4C14.7 4.3 14.7 4.7 14.5 5C14.3 5.3 13.9 5.5 13.5 5.5ZM7 13V11H5V13H3V15H5V17H7V15H9V13H7Z"/>
-                                <path d="M12 8C8.13 8 5 11.13 5 15C5 18.87 8.13 22 12 22C15.87 22 19 18.87 19 15C19 11.13 15.87 8 12 8ZM12 20C9.24 20 7 17.76 7 15C7 12.24 9.24 10 12 10C14.76 10 17 12.24 17 15C17 17.76 14.76 20 12 20Z"/>
-                                <path d="M13.5 13L11 15.5L9.5 14L8.5 15L11 17.5L14.5 14L13.5 13Z"/>
+                                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
                               </svg>
                             </div>
                           </div>
@@ -479,17 +481,18 @@ function Homepagemcrt() {
                               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent"></div>
                               <svg 
                                 className="relative w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 text-[#03082F] drop-shadow-lg group-hover:scale-110 transition-transform duration-300" 
-                                fill="currentColor" 
+                                fill="none" 
+                                stroke="currentColor" 
+                                strokeWidth="2"
                                 viewBox="0 0 24 24"
                               >
                                 <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
                                 <path d="M2 17L12 22L22 17"/>
                                 <path d="M2 12L12 17L22 12"/>
-                                <circle cx="12" cy="7" r="2" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-                                <circle cx="7" cy="12" r="1.5" fill="none" stroke="currentColor" strokeWidth="1"/>
-                                <circle cx="17" cy="12" r="1.5" fill="none" stroke="currentColor" strokeWidth="1"/>
-                                <circle cx="12" cy="17" r="2" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-                                <path d="M8 4L16 4M6 8L18 8M4 12L20 12M6 16L18 16M8 20L16 20" stroke="currentColor" strokeWidth="0.5" opacity="0.3"/>
+                                <circle cx="12" cy="7" r="1.5" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+                                <circle cx="7" cy="12" r="1" fill="none" stroke="currentColor" strokeWidth="1"/>
+                                <circle cx="17" cy="12" r="1" fill="none" stroke="currentColor" strokeWidth="1"/>
+                                <circle cx="12" cy="17" r="1.5" fill="none" stroke="currentColor" strokeWidth="1.5"/>
                               </svg>
                             </div>
                           </div>
