@@ -12,6 +12,29 @@ function GameDeveloper() {
       <Helmet>
         <title>Game Developer - MagicCraft</title>
         <meta name="description" content="Build on MagicCraft's ecosystem and earn $MCRT. Integrate your games, create custom skins, and leverage open-source character rigs." />
+        
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Game Developer - MagicCraft",
+            "description": "Build on MagicCraft's ecosystem and earn $MCRT. Integrate your games, create custom skins, and leverage open-source character rigs.",
+            "url": "https://magiccraft.io/build-on-magiccraft",
+            "mainEntity": {
+              "@type": "SoftwareApplication",
+              "name": "MagicCraft Game Maker",
+              "description": "Create games like Roblox and earn $MCRT tokens",
+              "applicationCategory": "GameDevelopment",
+              "operatingSystem": ["Windows", "macOS"],
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              }
+            }
+          })}
+        </script>
       </Helmet>
       {/* Header */}
       <Header />
@@ -48,7 +71,7 @@ function GameDeveloper() {
             MagicCraft’s ecosystem empowers external developers to integrate
             their games seamlessly, embed MCRT as a universal currency, and
             leverage open-source character rigs to create and sell custom skins
-            as NFTs—all supported by secure smart contracts, scalable
+                            as NFTs all supported by secure smart contracts, scalable
             infrastructure, and intuitive development tools.{' '}
           </p>
           <div className="flex flex-wrap justify-center gap-4">

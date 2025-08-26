@@ -50,6 +50,7 @@ function Hero() {
               }
               alt={character?.name}
               className={`relative hidden h-[600px] lg:h-[700px] bg-cover bg-center lg:block lg:ml-auto`}
+              loading="lazy"
             />
 
             <img
@@ -59,6 +60,7 @@ function Hero() {
               }
               alt={character?.name}
               className="relative hidden h-[600px] md:h-[700px] w-full bg-cover bg-center sm:hidden md:block lg:hidden"
+              loading="lazy"
             />
 
             <img

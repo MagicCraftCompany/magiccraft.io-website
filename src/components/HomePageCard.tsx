@@ -205,6 +205,7 @@ export default function MagicraftDownload() {
                           src={platform.icon}
                           alt={platform.name}
                           className="h-full w-full object-contain"
+                          loading="lazy"
                         />
                       </div>
                       <span className="text-xs lg:text-sm text-white/80 group-hover:text-white transition-colors duration-300 font-medium">{platform.label}</span>
@@ -255,7 +256,7 @@ export default function MagicraftDownload() {
               <div className="flex flex-col items-center justify-center h-full text-center gap-2">
                 <div className="relative flex-shrink-0">
                   <div className={`absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-t ${lobbyData.btc.glowColor} to-transparent blur-[12px] sm:blur-[14px] lg:blur-[16px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[18px]`}/>
-                  <img src={lobbyData.btc.icon} alt="Bitcoin" className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" />
+                  <img src={lobbyData.btc.icon} alt="Bitcoin" className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                 </div>
                 <div className="space-y-1">
                   <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#FFB649] leading-tight">{lobbyData.btc.title}</h3>
@@ -327,7 +328,7 @@ export default function MagicraftDownload() {
               <div className="flex flex-col items-center justify-center h-full text-center gap-2">
                 <div className="relative flex-shrink-0">
                   <div className={`absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-t ${lobbyData.eth.glowColor} to-transparent blur-[12px] sm:blur-[14px] lg:blur-[16px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[18px]`}/>
-                  <img src={lobbyData.eth.icon} alt="Ethereum" className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" />
+                  <img src={lobbyData.eth.icon} alt="Ethereum" className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" loading="lazy" />
                 </div>
                 <div className="space-y-1">
                   <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#bc7af6] leading-tight">{lobbyData.eth.title}</h3>
@@ -398,7 +399,7 @@ export default function MagicraftDownload() {
             <div className="flex flex-col items-center justify-center h-full text-center gap-2">
               <div className="relative flex-shrink-0">
                 <div className={`absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-t ${lobbyData.xrp.glowColor} to-transparent blur-[12px] sm:blur-[14px] lg:blur-[16px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[18px]`}/>
-                <img src={lobbyData.xrp.icon} alt="XRP" className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" />
+                                  <img src={lobbyData.xrp.icon} alt="XRP" className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" loading="lazy" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#51C1F6] leading-tight">{lobbyData.xrp.title}</h3>
@@ -463,7 +464,7 @@ export default function MagicraftDownload() {
             <div className="flex flex-col items-center justify-center h-full text-center gap-2">
               <div className="relative flex-shrink-0">
                 <div className={`absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-t ${lobbyData.sol.glowColor} to-transparent blur-[12px] sm:blur-[14px] lg:blur-[16px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[18px]`}/>
-                <img src={lobbyData.sol.icon} alt="Solana" className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" />
+                                  <img src={lobbyData.sol.icon} alt="Solana" className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" loading="lazy" />
               </div>
               <div className="space-y-1">
                 <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#7CF5C7] leading-tight">{lobbyData.sol.title}</h3>

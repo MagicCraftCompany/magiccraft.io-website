@@ -21,6 +21,7 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
           src={image} 
           alt={title} 
           className={`absolute top-0 left-0 w-full h-full object-cover ${isNewGame ? "opacity-100" : "opacity-100"}`} 
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0E001F] via-transparent to-transparent"></div>
 

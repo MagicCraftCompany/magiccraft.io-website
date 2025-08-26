@@ -229,7 +229,7 @@ function Homepagemcrt() {
                     your prowess can pave the path to prosperity.
                   </p>
                   <p className="text-sm md:text-base text-[#98FFF9] max-w-2xl mx-auto lg:mx-0">
-                    $MCRT is the currency of gaming — powering prediction markets, AI-driven systems, and our core MOBA experience.
+                    $MCRT is the currency of gaming powering prediction markets, AI-driven systems, and our core MOBA experience.
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 pt-1 md:pt-2">
                     <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
