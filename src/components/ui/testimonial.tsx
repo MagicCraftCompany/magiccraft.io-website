@@ -1,496 +1,147 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
-import frame1 from '@/assets/icons/Frame (1).svg'
-import frame2 from '@/assets/icons/Frame (2).svg'
-import frame3 from '@/assets/icons/Frame (3).svg'
-import frame4 from '@/assets/icons/Frame (4).svg'
 import left from '@/assets/icons/left-preview.svg'
 import right from '@/assets/icons/right-preview.svg'
 
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules'
 import 'swiper/css'
+
+// Base testimonials (will be expanded for more slides)
+const baseTestimonials = [
+  {
+    id: 1,
+    name: 'Julius Joseph',
+    initials: 'JJ',
+    review: 'Well, my testimony might not be huge like most here but one thing that is evident is that God has actually use Magiccraft to come through for me at my lowest moment. Best thanks to the Team, Magiccraft to the moon 🌙🌙🌙.',
+    metrics: { views: 73, shares: 52, likes: '1.5k', impressions: '400.6k' },
+  },
+  {
+    id: 2,
+    name: 'Didabban',
+    initials: 'DD',
+    review: 'My game play was seriously affected because I was using a phone with low RAM. But thanks to Magiccraft, I was able to buy a Redmi Note 12 for around $200! Now I can enjoy a better gaming experience and earn more MCRT.',
+    metrics: { views: 83, shares: 61, likes: '2.0k', impressions: '300.2k' },
+  },
+  {
+    id: 3,
+    name: 'Serhii S',
+    initials: 'SS',
+    review: 'MagicCraft is truly a game changer! The integration of $MCRT as the Currency of Gaming is a brilliant move. Can\'t wait to dive into the world of Web3 gaming with real rewards! 🎮 $MCRT',
+    metrics: { views: 42, shares: 5, likes: '105', impressions: '11' },
+  },
+  {
+    id: 4,
+    name: 'CRYPTO ALUCARD',
+    initials: 'CA',
+    review: 'I have played some time MagicCraft on my laptop and I can tell you it\'s very good, for real looks and feels not like a crypto production but like a full flagged AAA title! If you are a fan of League of Legends then you will for real dig that game! $MCRT',
+    metrics: { views: 40, shares: 52, likes: '500', impressions: '200k' },
+  }
+]
+
+// Expand to provide more testimonials to scroll through
+const testimonials = Array.from({ length: 3 }, (_, i) =>
+  baseTestimonials.map((t) => ({ ...t, id: t.id + i * baseTestimonials.length }))
+).flat()
+
+// Brand gradients
+const cardBorderGradient = 'from-[#B591F2] to-[#98FFF9]'
+const avatarGradient = 'from-[#98FFF9] to-[#B591F2]'
+
 function Testimonial() {
   return (
-    <div className="relative mx-auto w-full max-w-[400px] p-4 md:mx-0 md:max-w-[538px] md:p-10 lg:ml-4">
+    <div className="relative mx-auto w-11/12 max-w-screen-xl p-4 md:p-8 lg:p-10">
       <Swiper
         id="1"
-        className="md:w-full "
-        modules={[Navigation, Pagination, Scrollbar, A11y]}
-        spaceBetween={50}
+        className="w-full"
+        modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+        spaceBetween={24}
         slidesPerView={1}
-        onSwiper={(swiper) => console.log(swiper)}
         navigation={{ prevEl: '.arrow-left', nextEl: '.arrow-right' }}
-        autoHeight={true}
+        autoHeight={false}
         pagination={{ clickable: true, dynamicBullets: true }}
+        autoplay={{ delay: 2800, disableOnInteraction: false }}
+        breakpoints={{
+          640: { slidesPerView: 2, spaceBetween: 24 },
+          1024: { slidesPerView: 3, spaceBetween: 28 },
+          1280: { slidesPerView: 4, spaceBetween: 32 },
+        }}
       >
-        <SwiperSlide
-          style={{ marginRight: '0 !important' }}
-          className="h-full w-10/12"
-          key="testimonial-1"
-        >
-          <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
-            <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
-              <div className="  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
-                <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                  <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Julius Joseph`}</div>
-                </button>
-                <div className=" relative z-[3] h-[21px] w-5 " />
-                <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                  <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
-                    Well, my testimony might not be huge like most here but one
-                    thing that is evident is that God has actually use
-                    Magiccraft to come through for me at my lowest moment. Best
-                    thanks to the Team, Magiccraft to the moon 🌙🌙🌙.
+        {testimonials.map((testimonial) => (
+          <SwiperSlide
+            style={{ marginRight: '0 !important' }}
+            className="h-full"
+            key={testimonial.id}
+          >
+            <div className={`group relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-br ${cardBorderGradient} p-px transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#B591F2]/30`}>
+              <div className="relative h-full w-full rounded-2xl bg-gradient-to-br from-[#2A0D4E] to-[#57186D] p-6 md:p-8">
+                {/* Background glow effect */}
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br from-[#98FFF9]/5 to-transparent`}></div>
+                
+                <div className="relative space-y-4 md:space-y-6">
+                  {/* User badge */}
+                  <div className="flex items-center gap-3">
+                    <div className="relative">
+                      <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${avatarGradient} blur-md opacity-60 group-hover:opacity-80 transition-all duration-300`}></div>
+                      <div className={`relative h-10 w-10 rounded-full bg-gradient-to-br ${avatarGradient} flex items-center justify-center border border-white/20 group-hover:border-white/40 transition-all duration-300`}>
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent"></div>
+                        <span className="relative text-sm font-bold text-[#03082F]">{testimonial.initials}</span>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-white group-hover:text-[#98FFF9] transition-colors duration-300">{testimonial.name}</h4>
+                      <p className="text-xs text-white/60">Verified Player</p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-row gap-10 lg:mt-5">
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame1} className="mr-2" alt="Icon" />
-                    73
+                  
+                  {/* Review text */}
+                  <div className="space-y-3">
+                    <p className="text-sm md:text-base text-white/90 leading-relaxed">
+                      "{testimonial.review}"
+                    </p>
                   </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame2} className="mr-2" alt="Icon" />
-                    52
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame3} className="mr-2" alt="Icon" />
-                    1.5k
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame4} className="mr-2" alt="Icon" />
-                    400.6k
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          style={{ marginRight: '0 !important' }}
-          className="h-full w-10/12"
-          key="testimonial-2"
-        >
-          <div className="testimonials flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid">
-            <div className="rounded-3xl bg-[#151149]    bg-opacity-70 bg-gradient-to-r">
-              <div className="   rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
-                <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                  <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Didabban`}</div>
-                </button>
-                <div className=" relative z-[3] h-[21px] w-5 " />
-                <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                  <div className="relative inline-block max-w-full flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
-                    My game play was seriously affected because I was using a
-                    phone with low RAM. But thanks to Magiccraft, I was able to
-                    buy a Redmi Note 12 for around $200! Now I can enjoy a
-                    better gaming experience and earn more MCRT.
-                  </div>
-                </div>
-                <div className="flex flex-row gap-10 lg:mt-5">
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame1} className="mr-2" alt="Icon" />
-                    83
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame2} className="mr-2" alt="Icon" />
-                    61
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame3} className="mr-2" alt="Icon" />
-                    2.0k
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame4} className="mr-2" alt="Icon" />
-                    308.6k
+                  
+                  {/* Engagement metrics */}
+                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <span className="text-xs font-medium">{testimonial.metrics.views}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z"/>
+                        </svg>
+                        <span className="text-xs font-medium">{testimonial.metrics.shares}</span>
+                      </div>
+                      <div className="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                        <span className="text-xs font-medium">{testimonial.metrics.likes}</span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300">
+                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+                      </svg>
+                      <span className="text-xs font-medium">{testimonial.metrics.impressions}</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          style={{ marginRight: '0 !important' }}
-          className="h-full w-10/12"
-          key="testimonial-1"
-        >
-          <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
-            <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
-              <div className="  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
-                <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                  <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Serhii S`}</div>
-                </button>
-                <div className=" relative z-[3] h-[21px] w-5 " />
-                <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                  <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
-                    MagicCraft is truly a game changer! The integration of $MCRT
-                    as the Currency of Gaming is a brilliant move. Can't wait to
-                    dive into the world of Web3 gaming with real rewards! 🎮
-                    $MCRT
-                  </div>
-                </div>
-                <div className="flex flex-row gap-10 lg:mt-5">
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame1} className="mr-2" alt="Icon" />
-                    42
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame2} className="mr-2" alt="Icon" />5
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame3} className="mr-2" alt="Icon" />
-                    105
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame4} className="mr-2" alt="Icon" />
-                    11
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          style={{ marginRight: '0 !important' }}
-          className="h-full w-10/12"
-          key="testimonial-1"
-        >
-          <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
-            <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
-              <div className="  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
-                <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                  <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`CRYPTO ALUCARD`}</div>
-                </button>
-                <div className=" relative z-[3] h-[21px] w-5 " />
-                <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                  <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
-                    I have played some time MagicCraft on my laptop and I can
-                    tell you it`s very good, for real looks and feels not like a
-                    crypto production but like a full flagged AAA title!
-                    Recorded a small gameplay to show you how it looks:) If you
-                    are a fan of League of Legends then you will for real dig
-                    that game! The game is on: - PC - Android - iOS - Steam That
-                    alone is a great achievement! $MCRT
-                  </div>
-                </div>
-                <div className="flex flex-row gap-10 lg:mt-5">
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame1} className="mr-2" alt="Icon" />
-                    40
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame2} className="mr-2" alt="Icon" />
-                    52
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame3} className="mr-2" alt="Icon" />
-                    500
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame4} className="mr-2" alt="Icon" />
-                    100.6k
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          style={{ marginRight: '0 !important' }}
-          className="h-full w-10/12"
-          key="testimonial-1"
-        >
-          <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
-            <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
-              <div className="  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
-                <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                  <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Charlie Boy`}</div>
-                </button>
-                <div className=" relative z-[3] h-[21px] w-5 " />
-                <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                  <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
-                    Had an absolute blast @socialsrising yesterday in the 🎮
-                    game night of @MagicCraftGame Magiccraft was too fun to play
-                    and was fire 🔥.The characters were very cool to play with
-                    their immense fighting style. @MagicCraftGame @socialsrising
-                  </div>
-                </div>
-                <div className="flex flex-row gap-10 lg:mt-5">
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame1} className="mr-2" alt="Icon" />7
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame2} className="mr-2" alt="Icon" />5
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame3} className="mr-2" alt="Icon" />
-                    15
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame4} className="mr-2" alt="Icon" />
-                    3.6k
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          style={{ marginRight: '0 !important' }}
-          className="h-full w-10/12"
-          key="testimonial-1"
-        >
-          <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
-            <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
-              <div className="  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
-                <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                  <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Dopies`}</div>
-                </button>
-                <div className=" relative z-[3] h-[21px] w-5 " />
-                <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                  <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
-                    MagicCraft games and staking are next lvl, I should've
-                    locked longer for a bigger staking bonus, should've,
-                    would've, could've 😝🤑😝🔮 @MagicCraftGame #EARNMCRT $MCRT
-                  </div>
-                </div>
-                <div className="flex flex-row gap-10 lg:mt-5">
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame1} className="mr-2" alt="Icon" />
-                    32
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame2} className="mr-2" alt="Icon" />
-                    53
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame3} className="mr-2" alt="Icon" />
-                    1.0k
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame4} className="mr-2" alt="Icon" />
-                    1.6k
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          style={{ marginRight: '0 !important' }}
-          className="h-full w-10/12"
-          key="testimonial-1"
-        >
-          <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
-            <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
-              <div className="  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
-                <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                  <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Nicco`}</div>
-                </button>
-                <div className=" relative z-[3] h-[21px] w-5 " />
-                <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                  <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
-                    #Magiccraft is definitely one of the best Mobile/Pc games
-                    you can engage with and have fun. But wait, you don't just
-                    have fun but also earn cool money in $MCRT 💰 while playing
-                    🎮😄. GAME ON !! @MagicCraftGame , Niccovirtual awaits 😎
-                  </div>
-                </div>
-                <div className="flex flex-row gap-10 lg:mt-5">
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame1} className="mr-2" alt="Icon" />
-                    83
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame2} className="mr-2" alt="Icon" />
-                    30
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame3} className="mr-2" alt="Icon" />
-                    700
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame4} className="mr-2" alt="Icon" />
-                    4.6k
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          style={{ marginRight: '0 !important' }}
-          className="h-full w-10/12"
-          key="testimonial-1"
-        >
-          <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
-            <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
-              <div className="  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
-                <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                  <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Victor Agunego`}</div>
-                </button>
-                <div className=" relative z-[3] h-[21px] w-5 " />
-                <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                  <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
-                    This is the future of gaming! @MagicCraftGame combines the
-                    thrill of gameplay with real-world rewards and true
-                    ownership of assets, by empowering players through
-                    blockchain, community governance, and a sustainable
-                    ecosystem is a game-changer. #MCRT"
-                  </div>
-                </div>
-                <div className="flex flex-row gap-10 lg:mt-5">
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame1} className="mr-2" alt="Icon" />
-                    33
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame2} className="mr-2" alt="Icon" />
-                    20
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame3} className="mr-2" alt="Icon" />
-                    400
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame4} className="mr-2" alt="Icon" />
-                    2.6k
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          style={{ marginRight: '0 !important' }}
-          className="h-full w-10/12"
-          key="testimonial-1"
-        >
-          <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
-            <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
-              <div className="  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
-                <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                  <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`dominadata`}</div>
-                </button>
-                <div className=" relative z-[3] h-[21px] w-5 " />
-                <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                  <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
-                    magiccraft unlike normal games, embraces crypto via $mcrt.
-                    players earn multi-crypto rewards. not just a moba, it's
-                    your real money maker.
-                  </div>
-                </div>
-                <div className="flex flex-row gap-10 lg:mt-5">
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame1} className="mr-2" alt="Icon" />
-                    23
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame2} className="mr-2" alt="Icon" />
-                    60
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame3} className="mr-2" alt="Icon" />
-                    300
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame4} className="mr-2" alt="Icon" />
-                    2.6k
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          style={{ marginRight: '0 !important' }}
-          className="h-full w-10/12"
-          key="testimonial-1"
-        >
-          <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
-            <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
-              <div className="  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
-                <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                  <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`Jack Lewis`}</div>
-                </button>
-                <div className=" relative z-[3] h-[21px] w-5 " />
-                <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                  <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
-                    With almost 1000 games on CARV Play, it became my go to
-                    place when I want to find a new Web3 game to play 😁. I
-                    recently discovered MagicCraft there and I'm having a lot of
-                    fun!
-                  </div>
-                </div>
-                <div className="flex flex-row gap-10 lg:mt-5">
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame1} className="mr-2" alt="Icon" />
-                    93
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame2} className="mr-2" alt="Icon" />
-                    70
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame3} className="mr-2" alt="Icon" />
-                    3k
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame4} className="mr-2" alt="Icon" />
-                    2k
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide
-          style={{ marginRight: '0 !important' }}
-          className="h-full w-10/12"
-          key="testimonial-1"
-        >
-          <div className="testimonials  flex h-full w-full flex-col items-start justify-start self-stretch rounded-3xl border-[1px] border-solid ">
-            <div className="rounded-3xl bg-[#151149]   bg-opacity-70 bg-gradient-to-r">
-              <div className="  rounded-3xl bg-gradient-to-b from-[#151149]  to-[#190E29] to-80% p-4  md:max-w-none">
-                <button className=" z-[3] flex cursor-pointer flex-row items-start justify-start gap-[9px] rounded-3xl border-[1px] border-solid bg-[transparent] px-[12px] [backdrop-filter:blur(23px)] [background:linear-gradient(97.86deg,_#3f107a,_#740fb1),_linear-gradient(255.08deg,_#57186d,_#2a0d4e),_rgba(45,_44,_134,_0.8)]">
-                  <div className="font-futura relative m-0 inline-block !bg-clip-text p-0 text-right text-base font-medium text-transparent [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))]">{`ReignYerr`}</div>
-                </button>
-                <div className=" relative z-[3] h-[21px] w-5 " />
-                <div className="rounded-39xl z-[3] flex max-w-full flex-row items-start justify-start gap-[9px] self-stretch [backdrop-filter:blur(23px)] ">
-                  <div className="relative inline-block max-w-full  flex-1 !bg-clip-text  font-medium [background:linear-gradient(180deg,_#fff,_rgba(255,_255,_255,_0.75))] lg:mt-4">
-                    Love MOBA games ever since I started playing Dota since 6
-                    years old, and what I love about MagicCraft is its very
-                    unique characters, fun game modes, and definitely the
-                    community. Kudos to @MagicCraftGame $MCRT
-                  </div>
-                </div>
-                <div className="flex flex-row gap-10 lg:mt-5">
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame1} className="mr-2" alt="Icon" />
-                    33
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame2} className="mr-2" alt="Icon" />
-                    77
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame3} className="mr-2" alt="Icon" />
-                    2k
-                  </div>
-                  <div className=" m-2 flex flex-wrap">
-                    <img src={frame4} className="mr-2" alt="Icon" />
-                    1k
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </SwiperSlide>
+          </SwiperSlide>
+        ))}
       </Swiper>
-      <button className="arrow-left arrow  absolute -left-4 top-[40%] z-10 cursor-pointer md:left-0 lg:-left-4 lg:top-[50%] ">
-        <img src={left} alt="MCRT Token" className="cursor-pointer" />
+      <button className="arrow-left arrow absolute left-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer md:left-0 lg:-left-4 lg:top-1/2">
+        <img src={left} alt="Previous" className="cursor-pointer" />
       </button>
-      <button className="arrow-right arrow absolute -right-4 top-[40%] z-10 cursor-pointer md:right-0 lg:-right-4 lg:top-[50%]  ">
-        <img src={right} alt="MCRT Token" className="cursor-pointer" />
+      <button className="arrow-right arrow absolute right-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer md:right-0 lg:-right-4 lg:top-1/2">
+        <img src={right} alt="Next" className="cursor-pointer" />
       </button>
     </div>
   )
 }
+
 export default Testimonial
