@@ -399,11 +399,13 @@ function Homepagemcrt() {
                                 fill="none" 
                                 stroke="currentColor" 
                                 strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 viewBox="0 0 24 24"
                               >
-                                <path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                                <path d="M9 12l2 2 4-4"/>
-                                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                                <path d="M16 11l2 2 4-4"/>
                               </svg>
                             </div>
                           </div>
@@ -484,15 +486,14 @@ function Homepagemcrt() {
                                 fill="none" 
                                 stroke="currentColor" 
                                 strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
                                 viewBox="0 0 24 24"
                               >
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
-                                <path d="M2 17L12 22L22 17"/>
-                                <path d="M2 12L12 17L22 12"/>
-                                <circle cx="12" cy="7" r="1.5" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-                                <circle cx="7" cy="12" r="1" fill="none" stroke="currentColor" strokeWidth="1"/>
-                                <circle cx="17" cy="12" r="1" fill="none" stroke="currentColor" strokeWidth="1"/>
-                                <circle cx="12" cy="17" r="1.5" fill="none" stroke="currentColor" strokeWidth="1.5"/>
+                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                                <circle cx="12" cy="12" r="2"/>
                               </svg>
                             </div>
                           </div>
@@ -662,10 +663,9 @@ function Homepagemcrt() {
                             <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[#8EFF49] to-[#6BCF3A] flex items-center justify-center shadow-lg shadow-[#8EFF49]/20 group-hover:shadow-xl group-hover:shadow-[#8EFF49]/30 transition-all duration-300 border border-[#8EFF49]/20 group-hover:border-[#8EFF49]/40">
                               {/* Inner highlight */}
                               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
                                 <circle cx="12" cy="12" r="3"/>
-                                <path d="M12 1L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 1Z"/>
-                                <path d="M4 12H8M16 12H20M12 4V8M12 16V20" strokeWidth="1.5"/>
                               </svg>
                             </div>
                           </div>
@@ -695,11 +695,10 @@ function Homepagemcrt() {
                             <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[#C09AFF] to-[#A67AFF] flex items-center justify-center shadow-lg shadow-[#C09AFF]/20 group-hover:shadow-xl group-hover:shadow-[#C09AFF]/30 transition-all duration-300 border border-[#C09AFF]/20 group-hover:border-[#C09AFF]/40">
                               {/* Inner highlight */}
                               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                <path d="M20 7H16.18L14.82 5.64C14.25 5.07 13.46 4.75 12.64 4.75H11.36C10.54 4.75 9.75 5.07 9.18 5.64L7.82 7H4C2.9 7 2 7.9 2 9V19C2 20.1 2.9 21 4 21H20C21.1 21 22 20.1 22 19V9C22 7.9 21.1 7 20 7Z"/>
-                                <path d="M12 2L13.5 6L18 6L14.5 9L16 13L12 10L8 13L9.5 9L6 6L10.5 6L12 2Z"/>
-                                <rect x="10" y="9" width="4" height="8" rx="1"/>
-                                <rect x="8" y="11" width="8" height="2" rx="1"/>
+                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                                <rect x="3" y="7" width="18" height="13" rx="2"/>
+                                <path d="M7.5 7v-2a2.5 2.5 0 015 0v2m4 0v-2a2.5 2.5 0 015 0v2"/>
+                                <rect x="10" y="11" width="4" height="5"/>
                               </svg>
                             </div>
                           </div>
@@ -729,18 +728,12 @@ function Homepagemcrt() {
                             <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[#98FFF9] to-[#7de6df] flex items-center justify-center shadow-lg shadow-[#98FFF9]/20 group-hover:shadow-xl group-hover:shadow-[#98FFF9]/30 transition-all duration-300 border border-[#98FFF9]/20 group-hover:border-[#98FFF9]/40">
                               {/* Inner highlight */}
                               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                <rect x="5" y="2" width="14" height="20" rx="2"/>
-                                <rect x="7" y="5" width="10" height="6" rx="1"/>
-                                <circle cx="9" cy="15" r="1.5"/>
-                                <circle cx="15" cy="15" r="1.5"/>
-                                <rect x="11" y="13" width="2" height="1" rx="0.5"/>
-                                <rect x="11" y="16" width="2" height="1" rx="0.5"/>
-                                <rect x="10" y="14.5" width="1" height="2" rx="0.5"/>
-                                <rect x="13" y="14.5" width="1" height="2" rx="0.5"/>
-                                <rect x="8" y="6" width="2" height="2" rx="0.3"/>
-                                <rect x="11" y="6" width="2" height="2" rx="0.3"/>
-                                <rect x="14" y="6" width="2" height="2" rx="0.3"/>
+                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                                <path d="M7 7v10m10-10v10M7 12h10"/>
                               </svg>
                             </div>
                           </div>
