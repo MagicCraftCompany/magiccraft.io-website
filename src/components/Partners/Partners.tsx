@@ -29,7 +29,7 @@ export const ListedPartners = () => {
               <img
                 className={`object-contain w-auto opacity-90 group-hover:opacity-100 transition-opacity ${
                   isSmallMark
-                    ? 'h-[40px] sm:h-[44px] md:h-[48px] lg:h-[52px] max-w-[180px]'
+                    ? 'h-[48px] sm:h-[52px] md:h-[56px] lg:h-[60px] max-w-[200px]'
                     : 'h-[32px] sm:h-[36px] md:h-[40px] lg:h-[44px] max-w-[160px]'
                 }`}
                 src={item.icon}
