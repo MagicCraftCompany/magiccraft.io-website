@@ -237,8 +237,8 @@ export default function MagicraftDownload() {
         </div>
       </div>
 
-      {/* Crypto Lobby Cards - Responsive 2/3/4 columns */}
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 items-stretch gap-2 sm:gap-3 lg:gap-4 xl:gap-5 w-full max-w-[92vw] sm:max-w-[44rem] lg:max-w-[64rem] xl:max-w-[72rem] 2xl:max-w-[80rem] mx-auto px-2 sm:px-0 lg:ml-2 z-10 min-w-0">
+      {/* Crypto Lobby Cards - 2x2 Grid */}
+      <div className="grid grid-cols-2 items-stretch gap-2 sm:gap-3 lg:gap-3 w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-[28rem] mx-auto px-2 sm:px-0 lg:ml-4 z-10">
         {/* BTC Lobby Card */}
         <div className="relative group h-full min-w-0">
           <motion.div 
@@ -247,19 +247,19 @@ export default function MagicraftDownload() {
             transition={{ duration: 0.2 }}
           >
             <div 
-              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-3 sm:p-4 lg:p-5 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#FFB649]/30 border border-transparent hover:border-[#FFB649]/20 min-h-[180px] sm:min-h-[200px] lg:min-h-[220px]"
+              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#FFB649]/30 border border-transparent hover:border-[#FFB649]/20 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px]"
               onClick={() => window.open('https://lobby.magiccraft.io/?crypto=btc', '_blank')}
               onMouseEnter={() => setHoveredLobby('btc')}
               onMouseLeave={() => setHoveredLobby(null)}
             >
-              <div className="flex flex-col items-center justify-center h-full text-center gap-3 sm:gap-4">
+              <div className="flex flex-col items-center justify-center h-full text-center gap-2">
                 <div className="relative flex-shrink-0">
-                  <div className={`absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-t ${lobbyData.btc.glowColor} to-transparent blur-[14px] sm:blur-[16px] lg:blur-[18px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[20px]`}/>
-                  <img src={lobbyData.btc.icon} alt="Bitcoin" className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 z-10 transition-transform duration-300 group-hover:scale-110" />
+                  <div className={`absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-t ${lobbyData.btc.glowColor} to-transparent blur-[12px] sm:blur-[14px] lg:blur-[16px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[18px]`}/>
+                  <img src={lobbyData.btc.icon} alt="Bitcoin" className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" />
                 </div>
-                <div className="space-y-1 sm:space-y-2">
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#FFB649] leading-tight">{lobbyData.btc.title}</h3>
-                  <p className="text-xs sm:text-sm lg:text-base text-white/90 transition-colors duration-300 group-hover:text-white leading-relaxed">{lobbyData.btc.subtitle}</p>
+                <div className="space-y-1">
+                  <h3 className="text-sm sm:text-base lg:text-lg font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#FFB649] leading-tight">{lobbyData.btc.title}</h3>
+                  <p className="text-xs sm:text-sm text-white/90 transition-colors duration-300 group-hover:text-white leading-tight px-2">{lobbyData.btc.subtitle}</p>
                 </div>
               </div>
               
@@ -319,19 +319,19 @@ export default function MagicraftDownload() {
             transition={{ duration: 0.2 }}
           >
             <div 
-              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-3 sm:p-4 lg:p-5 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#bc7af6]/30 border border-transparent hover:border-[#bc7af6]/20 min-h-[180px] sm:min-h-[200px] lg:min-h-[220px]"
+              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#bc7af6]/30 border border-transparent hover:border-[#bc7af6]/20 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px]"
               onClick={() => window.open('https://lobby.magiccraft.io/?crypto=eth', '_blank')}
               onMouseEnter={() => setHoveredLobby('eth')}
               onMouseLeave={() => setHoveredLobby(null)}
             >
-              <div className="flex flex-col items-center justify-center h-full text-center gap-3 sm:gap-4">
+              <div className="flex flex-col items-center justify-center h-full text-center gap-2">
                 <div className="relative flex-shrink-0">
-                  <div className={`absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-t ${lobbyData.eth.glowColor} to-transparent blur-[14px] sm:blur-[16px] lg:blur-[18px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[20px]`}/>
-                  <img src={lobbyData.eth.icon} alt="Ethereum" className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 z-10 transition-transform duration-300 group-hover:scale-110" />
+                  <div className={`absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-t ${lobbyData.eth.glowColor} to-transparent blur-[12px] sm:blur-[14px] lg:blur-[16px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[18px]`}/>
+                  <img src={lobbyData.eth.icon} alt="Ethereum" className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" />
                 </div>
-                <div className="space-y-1 sm:space-y-2">
-                  <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#bc7af6] leading-tight">{lobbyData.eth.title}</h3>
-                  <p className="text-xs sm:text-sm lg:text-base text-white/90 transition-colors duration-300 group-hover:text-white leading-relaxed">{lobbyData.eth.subtitle}</p>
+                <div className="space-y-1">
+                  <h3 className="text-sm sm:text-base lg:text-lg font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#bc7af6] leading-tight">{lobbyData.eth.title}</h3>
+                  <p className="text-xs sm:text-sm text-white/90 transition-colors duration-300 group-hover:text-white leading-tight px-2">{lobbyData.eth.subtitle}</p>
                 </div>
               </div>
               
@@ -391,20 +391,20 @@ export default function MagicraftDownload() {
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
         >
-          <div 
-            className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-3 sm:p-4 lg:p-5 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#51C1F6]/30 border border-transparent hover:border-[#51C1F6]/20 min-h-[180px] sm:min-h-[200px] lg:min-h-[220px]"
+                      <div 
+              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#51C1F6]/30 border border-transparent hover:border-[#51C1F6]/20 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px]"
             onClick={() => window.open('https://lobby.magiccraft.io/?crypto=xrp', '_blank')}
             onMouseEnter={() => setHoveredLobby('xrp')}
             onMouseLeave={() => setHoveredLobby(null)}
           >
-            <div className="flex flex-col items-center justify-center h-full text-center gap-3 sm:gap-4">
+            <div className="flex flex-col items-center justify-center h-full text-center gap-2">
               <div className="relative flex-shrink-0">
-                <div className={`absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-t ${lobbyData.xrp.glowColor} to-transparent blur-[14px] sm:blur-[16px] lg:blur-[18px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[20px]`}/>
-                <img src={lobbyData.xrp.icon} alt="XRP" className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 z-10 transition-transform duration-300 group-hover:scale-110" />
+                <div className={`absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-t ${lobbyData.xrp.glowColor} to-transparent blur-[12px] sm:blur-[14px] lg:blur-[16px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[18px]`}/>
+                <img src={lobbyData.xrp.icon} alt="XRP" className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" />
               </div>
-              <div className="space-y-1 sm:space-y-2">
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#51C1F6] leading-tight">{lobbyData.xrp.title}</h3>
-                <p className="text-xs sm:text-sm lg:text-base text-white/90 transition-colors duration-300 group-hover:text-white leading-relaxed">{lobbyData.xrp.subtitle}</p>
+              <div className="space-y-1">
+                <h3 className="text-sm sm:text-base lg:text-lg font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#51C1F6] leading-tight">{lobbyData.xrp.title}</h3>
+                <p className="text-xs sm:text-sm text-white/90 transition-colors duration-300 group-hover:text-white leading-tight px-2">{lobbyData.xrp.subtitle}</p>
               </div>
             </div>
             <div className="absolute inset-0 rounded-[19px] bg-gradient-to-r from-[#51C1F6]/0 via-[#51C1F6]/5 to-[#51C1F6]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -456,20 +456,20 @@ export default function MagicraftDownload() {
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.2 }}
         >
-          <div 
-            className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-3 sm:p-4 lg:p-5 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#7CF5C7]/30 border border-transparent hover:border-[#7CF5C7]/20 min-h-[180px] sm:min-h-[200px] lg:min-h-[220px]"
+                      <div 
+              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#7CF5C7]/30 border border-transparent hover:border-[#7CF5C7]/20 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px]"
             onClick={() => window.open('https://lobby.magiccraft.io/?crypto=sol', '_blank')}
             onMouseEnter={() => setHoveredLobby('sol')}
             onMouseLeave={() => setHoveredLobby(null)}
           >
-            <div className="flex flex-col items-center justify-center h-full text-center gap-3 sm:gap-4">
+            <div className="flex flex-col items-center justify-center h-full text-center gap-2">
               <div className="relative flex-shrink-0">
-                <div className={`absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-t ${lobbyData.sol.glowColor} to-transparent blur-[14px] sm:blur-[16px] lg:blur-[18px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[20px]`}/>
-                <img src={lobbyData.sol.icon} alt="Solana" className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 z-10 transition-transform duration-300 group-hover:scale-110" />
+                <div className={`absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-t ${lobbyData.sol.glowColor} to-transparent blur-[12px] sm:blur-[14px] lg:blur-[16px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[18px]`}/>
+                <img src={lobbyData.sol.icon} alt="Solana" className="relative w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" />
               </div>
-              <div className="space-y-1 sm:space-y-2">
-                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#7CF5C7] leading-tight">{lobbyData.sol.title}</h3>
-                <p className="text-xs sm:text-sm lg:text-base text-white/90 transition-colors duration-300 group-hover:text-white leading-relaxed">{lobbyData.sol.subtitle}</p>
+              <div className="space-y-1">
+                <h3 className="text-sm sm:text-base lg:text-lg font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#7CF5C7] leading-tight">{lobbyData.sol.title}</h3>
+                <p className="text-xs sm:text-sm text-white/90 transition-colors duration-300 group-hover:text-white leading-tight px-2">{lobbyData.sol.subtitle}</p>
               </div>
             </div>
             <div className="absolute inset-0 rounded-[19px] bg-gradient-to-r from-[#7CF5C7]/0 via-[#7CF5C7]/5 to-[#7CF5C7]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
