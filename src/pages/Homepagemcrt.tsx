@@ -166,7 +166,7 @@ function Homepagemcrt() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
             
             <div className="relative z-10 mx-auto max-w-screen-xl h-full">
-              <div className="grid h-full w-full grid-cols-1 place-items-center gap-4 md:gap-6 pt-16 md:pt-20 pb-48 md:pb-56">
+              <div className="grid h-full w-full grid-cols-1 place-items-center gap-4 md:gap-6 pt-16 md:pt-20 pb-24 md:pb-32">
                 <div className="w-full max-w-[20%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in">
                   <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp"
@@ -199,12 +199,12 @@ function Homepagemcrt() {
 
           {/* Download banner just below hero */}
           <div className="w-full bg-gradient-to-b from-[#0a0524] to-[#050317] relative z-10">
-            <div className="mx-auto max-w-screen-xl px-4 py-4 md:py-6">
+            <div className="mx-auto max-w-screen-xl px-4 py-2 md:py-4">
               <MagicraftDownload/>
             </div>
           </div>
 
-          <section className="relative h-auto min-h-[600px] md:min-h-[700px] lg:min-h-[800px] flex items-center justify-center overflow-hidden">
+          <section className="relative h-auto min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#020418] via-[#0A0424] to-[#1a0d2e]"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#98FFF9]/3 to-transparent"></div>
@@ -364,7 +364,7 @@ function Homepagemcrt() {
           </section>
 
           {/*JOIN THE ACTION */}
-          <section className="flex justify-center bg-center p-4 md:p-6 lg:mt-12 lg:mb-20">
+          <section className="flex justify-center bg-center p-4 md:p-6 lg:mt-8 lg:mb-16">
             <div className="relative max-w-7xl w-full rounded-3xl md:rounded-4xl bg-gradient-to-br from-[#0A0424] via-[#1a0d2e] to-[#2A0D4E] border border-[#B591F2]/30 shadow-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5 rounded-3xl md:rounded-4xl"></div>
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#98FFF9]/2 to-transparent"></div>

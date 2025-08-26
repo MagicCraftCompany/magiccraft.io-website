@@ -180,7 +180,7 @@ export default function MagicraftDownload() {
   }
 
   return (
-    <div className="mx-2 flex flex-col lg:flex-row items-center justify-center gap-4 lg:gap-2 lg:mx-10 xl:mx-20 lg:mb-4">
+    <div className="mx-2 flex flex-col lg:flex-row items-center justify-center gap-2 lg:gap-2 lg:mx-10 xl:mx-20 lg:mb-2">
       <div className="relative mx-auto w-full max-w-5xl lg:mx-0 lg:mt-[25px] lg:max-w-[800px]">
         <div className="rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
@@ -238,7 +238,7 @@ export default function MagicraftDownload() {
       </div>
 
       {/* Crypto Lobby Cards - 2x2 Grid */}
-      <div className="grid grid-cols-2 items-stretch gap-2 sm:gap-3 lg:gap-3 w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-[28rem] mx-auto px-2 sm:px-0 lg:ml-4 z-10">
+      <div className="grid grid-cols-2 items-stretch gap-1 sm:gap-2 lg:gap-2 w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-[28rem] mx-auto px-2 sm:px-0 lg:ml-4 z-10">
         {/* BTC Lobby Card */}
         <div className="relative group h-full min-w-0">
           <motion.div 
@@ -247,7 +247,7 @@ export default function MagicraftDownload() {
             transition={{ duration: 0.2 }}
           >
             <div 
-              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#FFB649]/30 border border-transparent hover:border-[#FFB649]/20 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px]"
+              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#FFB649]/30 border border-transparent hover:border-[#FFB649]/20 min-h-[100px] sm:min-h-[120px] lg:min-h-[140px]"
               onClick={() => window.open('https://lobby.magiccraft.io/?crypto=btc', '_blank')}
               onMouseEnter={() => setHoveredLobby('btc')}
               onMouseLeave={() => setHoveredLobby(null)}
@@ -319,7 +319,7 @@ export default function MagicraftDownload() {
             transition={{ duration: 0.2 }}
           >
             <div 
-              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#bc7af6]/30 border border-transparent hover:border-[#bc7af6]/20 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px]"
+              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#bc7af6]/30 border border-transparent hover:border-[#bc7af6]/20 min-h-[100px] sm:min-h-[120px] lg:min-h-[140px]"
               onClick={() => window.open('https://lobby.magiccraft.io/?crypto=eth', '_blank')}
               onMouseEnter={() => setHoveredLobby('eth')}
               onMouseLeave={() => setHoveredLobby(null)}
@@ -390,7 +390,7 @@ export default function MagicraftDownload() {
           transition={{ duration: 0.2 }}
         >
                       <div 
-              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#51C1F6]/30 border border-transparent hover:border-[#51C1F6]/20 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px]"
+              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#51C1F6]/30 border border-transparent hover:border-[#51C1F6]/20 min-h-[100px] sm:min-h-[120px] lg:min-h-[140px]"
             onClick={() => window.open('https://lobby.magiccraft.io/?crypto=xrp', '_blank')}
             onMouseEnter={() => setHoveredLobby('xrp')}
             onMouseLeave={() => setHoveredLobby(null)}
@@ -455,7 +455,7 @@ export default function MagicraftDownload() {
           transition={{ duration: 0.2 }}
         >
                       <div 
-              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#7CF5C7]/30 border border-transparent hover:border-[#7CF5C7]/20 min-h-[120px] sm:min-h-[140px] lg:min-h-[160px]"
+              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-2 sm:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#7CF5C7]/30 border border-transparent hover:border-[#7CF5C7]/20 min-h-[100px] sm:min-h-[120px] lg:min-h-[140px]"
             onClick={() => window.open('https://lobby.magiccraft.io/?crypto=sol', '_blank')}
             onMouseEnter={() => setHoveredLobby('sol')}
             onMouseLeave={() => setHoveredLobby(null)}
