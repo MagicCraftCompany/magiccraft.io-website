@@ -237,8 +237,8 @@ export default function MagicraftDownload() {
         </div>
       </div>
 
-      {/* Crypto Lobby Cards - Removed gap */}
-      <div className="grid grid-cols-2 items-stretch gap-2 sm:gap-3 lg:gap-4 xl:gap-5 w-full max-w-[90vw] sm:max-w-[40rem] lg:max-w-[48rem] xl:max-w-[56rem] 2xl:max-w-[64rem] mx-auto px-2 sm:px-0 lg:ml-2 z-10 min-w-0">
+      {/* Crypto Lobby Cards - Responsive 2/3/4 columns */}
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-stretch gap-2 sm:gap-3 lg:gap-4 xl:gap-5 w-full max-w-[92vw] sm:max-w-[44rem] lg:max-w-[64rem] xl:max-w-[72rem] 2xl:max-w-[80rem] mx-auto px-2 sm:px-0 lg:ml-2 z-10 min-w-0">
         {/* BTC Lobby Card */}
         <div className="relative group h-full min-w-0">
           <motion.div 
