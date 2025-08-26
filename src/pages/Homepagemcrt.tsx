@@ -166,7 +166,7 @@ function Homepagemcrt() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
             
             <div className="relative z-10 mx-auto max-w-screen-xl h-full">
-              <div className="grid h-full w-full grid-cols-1 place-items-start gap-4 md:gap-6 pt-16 md:pt-20 pb-24 md:pb-32">
+              <div className="grid h-full w-full grid-cols-1 place-items-center justify-end gap-2 sm:gap-4 md:gap-6 pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-16 sm:pb-20 md:pb-24 lg:pb-32">
                 <div className="w-full max-w-[20%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-8 md:mt-12">
                   <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp"
@@ -176,17 +176,17 @@ function Homepagemcrt() {
                   />
                 </div>
                 
-                <div className="text-center space-y-4 md:space-y-6 animate-slide-up mt-16 md:mt-24 lg:mt-32">
-                  <h1 className="max-w-5xl text-balance text-center font-serif text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white drop-shadow-2xl leading-tight">
+                <div className="text-center space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6 animate-slide-up mt-8 sm:mt-12 md:mt-16 lg:mt-24 xl:mt-32">
+                  <h1 className="max-w-5xl text-balance text-center font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-white drop-shadow-2xl leading-tight">
                     <div className="flex justify-center mb-4 md:mb-6">
-                      <img 
-                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"  
-                        alt="MagicCraft Logo"
-                        loading="eager"
-                        className="w-full max-w-md md:max-w-lg lg:max-w-xl h-auto drop-shadow-xl"
-                      />
+                                              <img 
+                          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"  
+                          alt="MagicCraft Logo"
+                          loading="eager"
+                          className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto drop-shadow-xl"
+                        />
                     </div>
-                    <div className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient">
+                    <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient">
                       $MCRT THE CURRENCY OF GAMING
                     </div>
                   </h1>
@@ -664,9 +664,10 @@ function Homepagemcrt() {
                               {/* Inner highlight */}
                               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
                               <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                                <circle cx="12" cy="12" r="3"/>
-                                <path d="M12 9v6M9 12h6"/>
+                                <circle cx="12" cy="12" r="5"/>
+                                <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+                                <path d="M5 5l2.5 2.5M16.5 16.5L19 19M5 19l2.5-2.5M16.5 7.5L19 5"/>
+                                <circle cx="12" cy="12" r="1.5"/>
                               </svg>
                             </div>
                           </div>
@@ -697,11 +698,9 @@ function Homepagemcrt() {
                               {/* Inner highlight */}
                               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
                               <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                                <path d="M20 12V8H6a2 2 0 00-2 2v4m16 0v4a2 2 0 01-2 2H6a2 2 0 01-2-2v-4m16 0h-2m-4 0h-8"/>
-                                <path d="M4 6h16"/>
-                                <path d="M8 12h8"/>
-                                <path d="M12 8v8"/>
-                                <circle cx="12" cy="12" r="2"/>
+                                <rect x="3" y="7" width="18" height="12" rx="2"/>
+                                <path d="M7 7l2-3h6l2 3"/>
+                                <path d="M8 13l3 3 5-5"/>
                               </svg>
                             </div>
                           </div>
@@ -736,7 +735,7 @@ function Homepagemcrt() {
                                 <rect x="14" y="3" width="7" height="7"/>
                                 <rect x="14" y="14" width="7" height="7"/>
                                 <rect x="3" y="14" width="7" height="7"/>
-                                <path d="M7 7v10m10-10v10M7 12h10"/>
+                                <polygon points="6,6 10,8 6,10"/>
                               </svg>
                             </div>
                           </div>
