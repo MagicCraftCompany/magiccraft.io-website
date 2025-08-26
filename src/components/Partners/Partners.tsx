@@ -26,7 +26,7 @@ export const ListedPartners = () => {
               className="group relative flex h-20 items-center justify-center rounded-xl bg-[#0A1240] p-3 transition-all hover:scale-[1.02] hover:bg-[#111a54] md:h-24 min-h-[80px]"
             >
               <img
-                className="object-contain max-h-full w-full h-full max-w-[120px] max-h-[60px] opacity-90 group-hover:opacity-100 transition-opacity"
+                className="object-contain h-[32px] sm:h-[36px] md:h-[40px] lg:h-[44px] w-auto max-w-[160px] opacity-90 group-hover:opacity-100 transition-opacity"
                 src={item.icon}
                 alt={item.name}
                 loading="lazy"
