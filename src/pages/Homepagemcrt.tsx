@@ -662,15 +662,10 @@ function Homepagemcrt() {
                             <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[#8EFF49] to-[#6BCF3A] flex items-center justify-center shadow-lg shadow-[#8EFF49]/20 group-hover:shadow-xl group-hover:shadow-[#8EFF49]/30 transition-all duration-300 border border-[#8EFF49]/20 group-hover:border-[#8EFF49]/40">
                               {/* Inner highlight */}
                               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                {/* MCRT Token Integration Icon */}
-                                <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                                <path d="M12 1L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 1Z" fillOpacity="0.7"/>
-                                <path d="M4 12H8M16 12H20M12 4V8M12 16V20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-                                <circle cx="6" cy="6" r="1.5" fill="currentColor" opacity="0.6"/>
-                                <circle cx="18" cy="6" r="1.5" fill="currentColor" opacity="0.6"/>
-                                <circle cx="6" cy="18" r="1.5" fill="currentColor" opacity="0.6"/>
-                                <circle cx="18" cy="18" r="1.5" fill="currentColor" opacity="0.6"/>
+                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 1Z"/>
+                                <path d="M4 12H8M16 12H20M12 4V8M12 16V20" strokeWidth="1.5"/>
                               </svg>
                             </div>
                           </div>
@@ -700,16 +695,11 @@ function Homepagemcrt() {
                             <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[#C09AFF] to-[#A67AFF] flex items-center justify-center shadow-lg shadow-[#C09AFF]/20 group-hover:shadow-xl group-hover:shadow-[#C09AFF]/30 transition-all duration-300 border border-[#C09AFF]/20 group-hover:border-[#C09AFF]/40">
                               {/* Inner highlight */}
                               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                {/* Monthly Surprises Gift Box Icon */}
+                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                                 <path d="M20 7H16.18L14.82 5.64C14.25 5.07 13.46 4.75 12.64 4.75H11.36C10.54 4.75 9.75 5.07 9.18 5.64L7.82 7H4C2.9 7 2 7.9 2 9V19C2 20.1 2.9 21 4 21H20C21.1 21 22 20.1 22 19V9C22 7.9 21.1 7 20 7Z"/>
-                                <path d="M12 2L13.5 6L18 6L14.5 9L16 13L12 10L8 13L9.5 9L6 6L10.5 6L12 2Z" fillOpacity="0.8"/>
-                                <rect x="10" y="9" width="4" height="8" rx="1" fillOpacity="0.6"/>
-                                <rect x="8" y="11" width="8" height="2" rx="1" fillOpacity="0.4"/>
-                                <circle cx="7" cy="4" r="1" fillOpacity="0.7"/>
-                                <circle cx="17" cy="4" r="1" fillOpacity="0.7"/>
-                                <circle cx="5" cy="16" r="0.5" fillOpacity="0.5"/>
-                                <circle cx="19" cy="16" r="0.5" fillOpacity="0.5"/>
+                                <path d="M12 2L13.5 6L18 6L14.5 9L16 13L12 10L8 13L9.5 9L6 6L10.5 6L12 2Z"/>
+                                <rect x="10" y="9" width="4" height="8" rx="1"/>
+                                <rect x="8" y="11" width="8" height="2" rx="1"/>
                               </svg>
                             </div>
                           </div>
@@ -739,22 +729,18 @@ function Homepagemcrt() {
                             <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[#98FFF9] to-[#7de6df] flex items-center justify-center shadow-lg shadow-[#98FFF9]/20 group-hover:shadow-xl group-hover:shadow-[#98FFF9]/30 transition-all duration-300 border border-[#98FFF9]/20 group-hover:border-[#98FFF9]/40">
                               {/* Inner highlight */}
                               <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24">
-                                {/* Game Portfolio Controller & Grid Icon */}
-                                <path d="M17 2H7C5.9 2 5 2.9 5 4V20C5 21.1 5.9 22 7 22H17C18.1 22 19 21.1 19 20V4C19 2.9 18.1 2 17 2Z" fillOpacity="0.8"/>
-                                <rect x="7" y="5" width="10" height="6" rx="1" fillOpacity="0.9"/>
+                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                                <rect x="5" y="2" width="14" height="20" rx="2"/>
+                                <rect x="7" y="5" width="10" height="6" rx="1"/>
                                 <circle cx="9" cy="15" r="1.5"/>
                                 <circle cx="15" cy="15" r="1.5"/>
                                 <rect x="11" y="13" width="2" height="1" rx="0.5"/>
                                 <rect x="11" y="16" width="2" height="1" rx="0.5"/>
                                 <rect x="10" y="14.5" width="1" height="2" rx="0.5"/>
                                 <rect x="13" y="14.5" width="1" height="2" rx="0.5"/>
-                                <rect x="8" y="6" width="2" height="2" rx="0.3" fillOpacity="0.6"/>
-                                <rect x="11" y="6" width="2" height="2" rx="0.3" fillOpacity="0.6"/>
-                                <rect x="14" y="6" width="2" height="2" rx="0.3" fillOpacity="0.6"/>
-                                <rect x="8" y="8.5" width="2" height="1.5" rx="0.3" fillOpacity="0.4"/>
-                                <rect x="11" y="8.5" width="2" height="1.5" rx="0.3" fillOpacity="0.4"/>
-                                <rect x="14" y="8.5" width="2" height="1.5" rx="0.3" fillOpacity="0.4"/>
+                                <rect x="8" y="6" width="2" height="2" rx="0.3"/>
+                                <rect x="11" y="6" width="2" height="2" rx="0.3"/>
+                                <rect x="14" y="6" width="2" height="2" rx="0.3"/>
                               </svg>
                             </div>
                           </div>
