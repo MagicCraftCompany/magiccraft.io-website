@@ -510,6 +510,7 @@ export default function MagicraftDownload() {
             </motion.div>
           )}
         </AnimatePresence>
+      </div>
       {/* End Crypto Lobby Cards grid */}
       </div>
     </div>
