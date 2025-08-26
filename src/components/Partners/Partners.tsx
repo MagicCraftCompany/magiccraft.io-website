@@ -17,6 +17,7 @@ export const ListedPartners = () => {
       </h3>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {partners.map((item: Partner) => {
+          const isSmallMark = ['WEEX', 'Bitunix', 'biconomy'].includes(item.name)
           return (
             <a
               key={item.name}
@@ -26,7 +27,11 @@ export const ListedPartners = () => {
               className="group relative flex h-20 items-center justify-center rounded-xl bg-[#0A1240] p-3 transition-all hover:scale-[1.02] hover:bg-[#111a54] md:h-24 min-h-[80px]"
             >
               <img
-                className="object-contain h-[32px] sm:h-[36px] md:h-[40px] lg:h-[44px] w-auto max-w-[160px] opacity-90 group-hover:opacity-100 transition-opacity"
+                className={`object-contain w-auto opacity-90 group-hover:opacity-100 transition-opacity ${
+                  isSmallMark
+                    ? 'h-[40px] sm:h-[44px] md:h-[48px] lg:h-[52px] max-w-[180px]'
+                    : 'h-[32px] sm:h-[36px] md:h-[40px] lg:h-[44px] max-w-[160px]'
+                }`}
                 src={item.icon}
                 alt={item.name}
                 loading="lazy"
