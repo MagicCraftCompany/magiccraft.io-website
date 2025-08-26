@@ -17,7 +17,8 @@ export const ListedPartners = () => {
       </h3>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
         {partners.map((item: Partner) => {
-          const isSmallMark = ['WEEX', 'Bitunix', 'biconomy'].includes(item.name)
+          const isSmallMark = ['WEEX', 'biconomy'].includes(item.name)
+          const isBitunix = item.name === 'Bitunix'
           return (
             <a
               key={item.name}
@@ -28,7 +29,9 @@ export const ListedPartners = () => {
             >
               <img
                 className={`object-contain w-auto opacity-90 group-hover:opacity-100 transition-opacity ${
-                  isSmallMark
+                  isBitunix
+                    ? 'h-[72px] sm:h-[76px] md:h-[80px] lg:h-[84px] max-w-[280px]'
+                    : isSmallMark
                     ? 'h-[56px] sm:h-[60px] md:h-[64px] lg:h-[68px] max-w-[220px]'
                     : 'h-[32px] sm:h-[36px] md:h-[40px] lg:h-[44px] max-w-[160px]'
                 }`}
