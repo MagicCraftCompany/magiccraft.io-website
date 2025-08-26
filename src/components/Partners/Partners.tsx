@@ -30,7 +30,7 @@ export const ListedPartners = () => {
               <img
                 className={`object-contain w-auto opacity-90 group-hover:opacity-100 transition-opacity ${
                   isBitunix
-                    ? 'h-[72px] sm:h-[76px] md:h-[80px] lg:h-[84px] max-w-[280px]'
+                    ? 'h-[80px] sm:h-[84px] md:h-[88px] lg:h-[92px] max-w-[320px]'
                     : isSmallMark
                     ? 'h-[56px] sm:h-[60px] md:h-[64px] lg:h-[68px] max-w-[220px]'
                     : 'h-[32px] sm:h-[36px] md:h-[40px] lg:h-[44px] max-w-[160px]'
