@@ -142,6 +142,40 @@ export default function MagicraftDownload() {
           '• Lobbies connect players for instant PvP matches'
         ]
       }
+    },
+    xrp: {
+      title: 'XRP LOBBY',
+      subtitle: 'Win XRP in battles!',
+      icon: xrp,
+      glowColor: 'from-[#51C1F6] via-[#4AA7E6]',
+      tooltip: {
+        title: 'XRP Lobby',
+        description: 'Fast and fluid matches with XRP rewards. Build experiences with our engine and integrate $MCRT payouts.',
+        features: [
+          '• Earn XRP by winning competitive matches',
+          '• Create Roblox-style games with our engine',
+          '• Integrate $MCRT and crypto rewards into maps',
+          '• Build-to-earn: get paid when players enjoy your worlds',
+          '• Instant matchmaking in crypto-enabled lobbies'
+        ]
+      }
+    },
+    sol: {
+      title: 'SOL LOBBY',
+      subtitle: 'Top up your Solana stash!',
+      icon: sol,
+      glowColor: 'from-[#7CF5C7] via-[#5BE0AF]',
+      tooltip: {
+        title: 'Solana Lobby',
+        description: 'High-performance gameplay with SOL rewards on victory. Monetize your creations with $MCRT.',
+        features: [
+          '• Win SOL in fast-paced PvP matches',
+          '• Build custom modes with our game maker',
+          '• Plug $MCRT rewards into your games',
+          '• Earn from popular maps and tournaments',
+          '• Seamless lobbies for crypto battles'
+        ]
+      }
     }
   }
 
@@ -348,6 +382,136 @@ export default function MagicraftDownload() {
             )}
           </AnimatePresence>
         </div>
+      </div>
+
+      {/* XRP Lobby Card */}
+      <div className="relative group h-full min-w-0">
+        <motion.div 
+          className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px]"
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
+        >
+          <div 
+            className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-3 sm:p-4 lg:p-5 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#51C1F6]/30 border border-transparent hover:border-[#51C1F6]/20 min-h-[180px] sm:min-h-[200px] lg:min-h-[220px]"
+            onClick={() => window.open('https://lobby.magiccraft.io/?crypto=xrp', '_blank')}
+            onMouseEnter={() => setHoveredLobby('xrp')}
+            onMouseLeave={() => setHoveredLobby(null)}
+          >
+            <div className="flex flex-col items-center justify-center h-full text-center gap-3 sm:gap-4">
+              <div className="relative flex-shrink-0">
+                <div className={`absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-t ${lobbyData.xrp.glowColor} to-transparent blur-[14px] sm:blur-[16px] lg:blur-[18px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[20px]`}/>
+                <img src={lobbyData.xrp.icon} alt="XRP" className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 z-10 transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <div className="space-y-1 sm:space-y-2">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#51C1F6] leading-tight">{lobbyData.xrp.title}</h3>
+                <p className="text-xs sm:text-sm lg:text-base text-white/90 transition-colors duration-300 group-hover:text-white leading-relaxed">{lobbyData.xrp.subtitle}</p>
+              </div>
+            </div>
+            <div className="absolute inset-0 rounded-[19px] bg-gradient-to-r from-[#51C1F6]/0 via-[#51C1F6]/5 to-[#51C1F6]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          </div>
+        </motion.div>
+
+        <AnimatePresence>
+          {hoveredLobby === 'xrp' && (
+            <motion.div 
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 z-50 w-80"
+            >
+              <div className="relative bg-gradient-to-br from-[#1a0d2e]/95 to-[#2a0d4e]/95 border border-[#B591F2]/40 rounded-xl p-5 shadow-2xl backdrop-blur-md">
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#51C1F6]/10 via-transparent to-[#51C1F6]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-[#51C1F6] animate-pulse"></div>
+                    <h4 className="text-[#51C1F6] font-bold text-lg">{lobbyData.xrp.tooltip.title}</h4>
+                  </div>
+                  <p className="text-white/90 text-sm mb-4 leading-relaxed">{lobbyData.xrp.tooltip.description}</p>
+                  <div className="space-y-2">
+                    {lobbyData.xrp.tooltip.features.map((feature, index) => (
+                      <motion.p 
+                        key={index} 
+                        className="text-white/80 text-xs leading-relaxed"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                      >
+                        {feature}
+                      </motion.p>
+                    ))}
+                  </div>
+                </div>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-6 border-r-6 border-t-6 border-transparent border-t-[#1a0d2e]/95"></div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {/* SOL Lobby Card */}
+      <div className="relative group h-full min-w-0">
+        <motion.div 
+          className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px]"
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.2 }}
+        >
+          <div 
+            className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-3 sm:p-4 lg:p-5 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#7CF5C7]/30 border border-transparent hover:border-[#7CF5C7]/20 min-h-[180px] sm:min-h-[200px] lg:min-h-[220px]"
+            onClick={() => window.open('https://lobby.magiccraft.io/?crypto=sol', '_blank')}
+            onMouseEnter={() => setHoveredLobby('sol')}
+            onMouseLeave={() => setHoveredLobby(null)}
+          >
+            <div className="flex flex-col items-center justify-center h-full text-center gap-3 sm:gap-4">
+              <div className="relative flex-shrink-0">
+                <div className={`absolute bottom-[-20px] left-1/2 transform -translate-x-1/2 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-t ${lobbyData.sol.glowColor} to-transparent blur-[14px] sm:blur-[16px] lg:blur-[18px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[20px]`}/>
+                <img src={lobbyData.sol.icon} alt="Solana" className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 z-10 transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <div className="space-y-1 sm:space-y-2">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#7CF5C7] leading-tight">{lobbyData.sol.title}</h3>
+                <p className="text-xs sm:text-sm lg:text-base text-white/90 transition-colors duration-300 group-hover:text-white leading-relaxed">{lobbyData.sol.subtitle}</p>
+              </div>
+            </div>
+            <div className="absolute inset-0 rounded-[19px] bg-gradient-to-r from-[#7CF5C7]/0 via-[#7CF5C7]/5 to-[#7CF5C7]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          </div>
+        </motion.div>
+
+        <AnimatePresence>
+          {hoveredLobby === 'sol' && (
+            <motion.div 
+              initial={{ opacity: 0, y: 10, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.95 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 z-50 w-80"
+            >
+              <div className="relative bg-gradient-to-br from-[#1a0d2e]/95 to-[#2a0d4e]/95 border border-[#B591F2]/40 rounded-xl p-5 shadow-2xl backdrop-blur-md">
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#7CF5C7]/10 via-transparent to-[#7CF5C7]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="relative z-10">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="w-2 h-2 rounded-full bg-[#7CF5C7] animate-pulse"></div>
+                    <h4 className="text-[#7CF5C7] font-bold text-lg">{lobbyData.sol.tooltip.title}</h4>
+                  </div>
+                  <p className="text-white/90 text-sm mb-4 leading-relaxed">{lobbyData.sol.tooltip.description}</p>
+                  <div className="space-y-2">
+                    {lobbyData.sol.tooltip.features.map((feature, index) => (
+                      <motion.p 
+                        key={index} 
+                        className="text-white/80 text-xs leading-relaxed"
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                      >
+                        {feature}
+                      </motion.p>
+                    ))}
+                  </div>
+                </div>
+                <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-6 border-r-6 border-t-6 border-transparent border-t-[#1a0d2e]/95"></div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   )
