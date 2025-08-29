@@ -196,9 +196,10 @@ export default function MagicraftDownload() {
                     )}
                     <a
                       href={platform.href}
-                      className="group flex flex-col items-center text-center transition-all duration-300 hover:scale-105 min-w-[80px] lg:min-w-[100px] p-2 lg:p-3 rounded-xl bg-black/20 hover:bg-black/40 border border-transparent hover:border-[#B591F2]/30 hover:shadow-lg hover:shadow-[#B591F2]/20"
+                      className="group flex flex-col items-center text-center transition-all duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] min-w-[80px] lg:min-w-[100px] p-2 lg:p-3 rounded-xl bg-black/20 hover:bg-black/40 border border-transparent hover:border-[#B591F2]/30 hover:shadow-lg hover:shadow-[#B591F2]/20"
                       target="_blank"
                       rel="noopener noreferrer"
+                      aria-label={`${platform.label} ${platform.sublabel}`}
                     >
                       <div className="mb-2 lg:mb-3 h-5 w-5 lg:h-7 lg:w-7 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg">
                         <img
@@ -224,9 +225,10 @@ export default function MagicraftDownload() {
                 <a
                   key={social.name}
                   href={social.link}
-                  className="transition-all duration-300 hover:scale-110 hover:opacity-100 p-2 rounded-lg hover:bg-white/10"
+                  className="transition-all duration-300 hover:scale-110 hover:opacity-100 focus:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-2 rounded-lg hover:bg-white/10"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={social.name}
                 >
                   <div className="scale-75 lg:scale-100 transition-transform duration-300">
                     {social.icon}
