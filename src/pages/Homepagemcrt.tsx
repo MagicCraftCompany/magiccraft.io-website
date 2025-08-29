@@ -21,6 +21,7 @@ import Partners from '@/components/Partners/Partners'
 
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
+import bnbLogo from '../assets/icons/bnblogo.png'
 
 
 function Homepagemcrt() {
@@ -354,12 +355,12 @@ function Homepagemcrt() {
                               <div className="absolute bottom-4 left-4 right-4">
                                 <h5 className="text-white font-bold text-sm mb-1">Intense PvP Arena</h5>
                                 <p className="text-white/80 text-xs">5v5 MOBA battles • Earn $MCRT tokens</p>
-                              </div>
+                            </div>
                               <div className="absolute top-4 right-4">
                                 <span className="bg-red-500/80 text-white text-xs px-2 py-1 rounded-full font-bold">LIVE PvP</span>
-                              </div>
                             </div>
-                          </div>
+                            </div>
+                            </div>
 
                           {/* Slide 2 - Team Combat */}
                           <div className="gameplay-slide min-w-full relative">
@@ -374,12 +375,12 @@ function Homepagemcrt() {
                               <div className="absolute bottom-4 left-4 right-4">
                                 <h5 className="text-white font-bold text-sm mb-1">Strategic Team Combat</h5>
                                 <p className="text-white/80 text-xs">Master unique heroes • Dominate opponents</p>
-                              </div>
+                          </div>
                               <div className="absolute top-4 right-4">
                                 <span className="bg-[#98FFF9]/80 text-[#03082F] text-xs px-2 py-1 rounded-full font-bold">STRATEGY</span>
-                              </div>
-                            </div>
-                          </div>
+                        </div>
+                      </div>
+                    </div>
 
                           {/* Slide 3 - Capture The Zone PvP */}
                           <div className="gameplay-slide min-w-full relative">
@@ -394,12 +395,12 @@ function Homepagemcrt() {
                               <div className="absolute bottom-4 left-4 right-4">
                                 <h5 className="text-white font-bold text-sm mb-1">Capture The Zone</h5>
                                 <p className="text-white/80 text-xs">Control objectives • Win tournaments</p>
-                              </div>
+                            </div>
                               <div className="absolute top-4 right-4">
                                 <span className="bg-[#B591F2]/80 text-white text-xs px-2 py-1 rounded-full font-bold">TOURNAMENT</span>
-                              </div>
-                            </div>
                           </div>
+                            </div>
+                            </div>
 
                           {/* Slide 4 - Competitive Ranking */}
                           <div className="gameplay-slide min-w-full relative">
@@ -414,14 +415,14 @@ function Homepagemcrt() {
                               <div className="absolute bottom-4 left-4 right-4">
                                 <h5 className="text-white font-bold text-sm mb-1">Ranked Competition</h5>
                                 <p className="text-white/80 text-xs">Climb leaderboards • Prove your skill</p>
-                              </div>
+                            </div>
                               <div className="absolute top-4 right-4">
                                 <span className="bg-[#FFB649]/80 text-[#03082F] text-xs px-2 py-1 rounded-full font-bold">RANKED</span>
-                              </div>
                             </div>
                           </div>
-                          </div>
-                            </div>
+                        </div>
+                      </div>
+                    </div>
 
                                             {/* Carousel Controls */}
                       <div className="flex justify-center gap-2 mt-4">
@@ -522,59 +523,168 @@ function Homepagemcrt() {
           </section>
 
           {/* Token Info: $BNB and $MCRT */}
-          <section className="section-padding-sm relative mx-auto w-11/12 max-w-screen-xl">
-            <div className="card-gradient overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5" />
-              <div className="relative grid grid-cols-1 md:grid-cols-2 gap-card card-padding">
-                {/* BNB Card */}
-                <div className="card-glass card-padding-sm">
-                  <h4 className="text-card-title font-serif font-bold bg-gradient-to-r from-[#F3BA2F] to-[#FFB649] bg-clip-text text-transparent">$BNB</h4>
-                  <p className="text-body text-gray-300">
+          <section className="section-padding relative mx-auto w-11/12 max-w-screen-xl">
+            {/* Section Header */}
+            <div className="text-center mb-12 md:mb-16">
+              <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent mb-4">
+                DUAL TOKEN ECOSYSTEM
+              </h3>
+              <p className="text-body-large text-gray-300 max-w-3xl mx-auto">
+                Experience the power of two tokens: earn $MCRT through gameplay and compete for $BNB rewards in our exclusive lobbies
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+              {/* BNB Card - Enhanced */}
+              <div className="group relative">
+                {/* Glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#F3BA2F]/20 to-[#FFB649]/20 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-all duration-500"></div>
+                
+                <div className="relative card-glass card-padding overflow-hidden">
+                  {/* Background pattern */}
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
+                    <img src={bnbLogo} alt="" className="w-full h-full object-contain" />
+                  </div>
+                  
+                  {/* Header with icon */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#F3BA2F] to-[#FFB649] p-3 shadow-lg">
+                      <img src={bnbLogo} alt="BNB" className="w-full h-full object-contain" />
+                    </div>
+                    <div>
+                      <h4 className="text-card-title font-serif font-bold bg-gradient-to-r from-[#F3BA2F] to-[#FFB649] bg-clip-text text-transparent">$BNB</h4>
+                      <p className="text-small text-[#F3BA2F]/80">Binance Smart Chain</p>
+                    </div>
+                  </div>
+
+                  <p className="text-body text-gray-300 mb-6">
                     BNB is the native token of Binance and the gas token of BNB Smart Chain. It powers
                     transactions, smart contracts, and DeFi apps. Our BNB Lobby lets players compete for
                     BNB rewards directly inside MagicCraft.
                   </p>
-                  <ul className="gap-element text-body text-white/90">
-                    <li>• Gas token on BNB Smart Chain (BSC)</li>
-                    <li>• Used for fees, staking, and ecosystem utilities</li>
-                    <li>• New BNB Lobby: play and win BNB</li>
-                  </ul>
-                  <div className="flex gap-element flex-wrap">
-                    <a href="https://www.binance.com/en/price/bnb" target="_blank" rel="noopener noreferrer" className="btn-secondary text-small">About BNB</a>
-                    <a href="https://lobby.magiccraft.io/?crypto=bnb" target="_blank" rel="noopener noreferrer" className="btn-primary text-small">Play BNB Lobby</a>
-                  </div>
-                </div>
 
-                {/* MCRT Card with price widget */}
-                <div className="card-glass card-padding-sm">
-                  <h4 className="text-card-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">$MCRT</h4>
-                  <p className="text-body text-gray-300">
+                  {/* Features with icons */}
+                  <div className="space-y-3 mb-8">
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-[#F3BA2F]/20 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-[#F3BA2F]" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <span className="text-body text-white/90">Gas token on BNB Smart Chain (BSC)</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-[#F3BA2F]/20 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-[#F3BA2F]" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <span className="text-body text-white/90">Used for fees, staking, and ecosystem utilities</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-[#F3BA2F]/20 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-[#F3BA2F]" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <span className="text-body text-white/90">New BNB Lobby: play and win BNB</span>
+                    </div>
+                  </div>
+
+                  {/* Action buttons */}
+                  <div className="flex gap-3 flex-wrap">
+                    <a href="https://www.binance.com/en/price/bnb" target="_blank" rel="noopener noreferrer" className="btn-secondary text-small flex-1 min-w-[140px] text-center">
+                      About BNB
+                    </a>
+                    <a href="https://lobby.magiccraft.io/?crypto=bnb" target="_blank" rel="noopener noreferrer" className="btn-primary text-small flex-1 min-w-[140px] text-center">
+                      Play BNB Lobby
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+              {/* MCRT Card - Enhanced */}
+              <div className="group relative">
+                {/* Glow effect */}
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#98FFF9]/20 to-[#B591F2]/20 rounded-2xl blur-xl opacity-60 group-hover:opacity-80 transition-all duration-500"></div>
+                
+                <div className="relative card-glass card-padding overflow-hidden">
+                  {/* Background pattern */}
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#98FFF9]"/>
+                      <text x="50" y="55" textAnchor="middle" className="text-lg font-bold fill-current text-[#98FFF9]">MC</text>
+                    </svg>
+                </div>
+                  
+                  {/* Header with icon */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#98FFF9] to-[#B591F2] p-3 shadow-lg flex items-center justify-center">
+                      <svg viewBox="0 0 100 100" className="w-10 h-10">
+                        <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="3" className="text-white"/>
+                        <text x="50" y="58" textAnchor="middle" className="text-sm font-bold fill-current text-white">MC</text>
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="text-card-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">$MCRT</h4>
+                      <p className="text-small text-[#98FFF9]/80">MagicCraft Utility Token</p>
+                    </div>
+                  </div>
+
+                  <p className="text-body text-gray-300 mb-6">
                     MCRT is MagicCraft's utility token - the currency of gaming in our ecosystem. Earn MCRT by
                     playing matches, creating maps and games with our Game Maker, participating in events, and through
                     pledging and marketplace activity.
                   </p>
-                  <ul className="gap-element text-body text-white/90">
-                    <li>• Rewards for PvP matches and tournaments</li>
-                    <li>• Creator economy: earn from maps, modes, and assets</li>
-                    <li>• Ecosystem utility: pledging, marketplace, VIP lobbies</li>
-                  </ul>
-                  <div className="grid gap-element">
-                    <div className="rounded-xl border border-[#98FFF9]/20 bg-gradient-to-br from-[#0B0F39] to-[#111a4e] card-padding-sm shadow-lg">
-                      {/* CoinGecko compact ticker */}
-                      <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-ticker-widget>
+
+                  {/* Features with icons */}
+                  <div className="space-y-3 mb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-[#98FFF9]/20 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-[#98FFF9]" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <span className="text-body text-white/90">Rewards for PvP matches and tournaments</span>
                     </div>
-                    <div className="rounded-xl border border-[#98FFF9]/20 bg-gradient-to-br from-[#0B0F39] to-[#111a4e] card-padding-sm shadow-lg">
-                      {/* CoinGecko mini chart, auto width for mobile */}
-                      <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="260" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-price-chart-widget>
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-[#98FFF9]/20 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-[#98FFF9]" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <span className="text-body text-white/90">Creator economy: earn from maps, modes, and assets</span>
                     </div>
-                    <div className="flex gap-element flex-wrap">
-                      <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noopener noreferrer" className="btn-secondary text-small">View on CoinMarketCap</a>
-                      <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="btn-primary text-small">Trade on Bybit</a>
+                    <div className="flex items-center gap-3">
+                      <div className="w-6 h-6 rounded-full bg-[#98FFF9]/20 flex items-center justify-center">
+                        <svg className="w-3 h-3 text-[#98FFF9]" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <span className="text-body text-white/90">Ecosystem utility: pledging, marketplace, VIP lobbies</span>
                     </div>
                   </div>
-                </div>
 
-                
+                  {/* Price widgets */}
+                  <div className="space-y-4 mb-6">
+                    <div className="rounded-xl border border-[#98FFF9]/30 bg-gradient-to-br from-[#0B0F39]/80 to-[#111a4e]/80 card-padding-sm shadow-lg backdrop-blur-sm">
+                      <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-ticker-widget>
+                    </div>
+                    <div className="rounded-xl border border-[#98FFF9]/30 bg-gradient-to-br from-[#0B0F39]/80 to-[#111a4e]/80 card-padding-sm shadow-lg backdrop-blur-sm">
+                      <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="240" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-price-chart-widget>
+                    </div>
+                  </div>
+
+                  {/* Action buttons */}
+                  <div className="flex gap-3 flex-wrap">
+                    <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noopener noreferrer" className="btn-secondary text-small flex-1 min-w-[140px] text-center">
+                      View on CMC
+                    </a>
+                    <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="btn-primary text-small flex-1 min-w-[140px] text-center">
+                      Trade on Bybit
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
