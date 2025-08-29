@@ -11,8 +11,9 @@ import {
   FaTiktok,
   FaYoutube,
 } from 'react-icons/fa6'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { createPortal } from 'react-dom'
 
 import btc from '@/assets/icons/btclobby.svg'
 import xrp from '@/assets/icons/xrplobby.svg'
@@ -22,8 +23,32 @@ import bnb from '@/assets/icons/bnblogo-yellow.svg'
 // Use the real MCRT logo used elsewhere on the site
 const mcrtIcon = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
 
+
 export default function MagicraftDownload() {
   const [hoveredLobby, setHoveredLobby] = useState<string | null>(null)
+  const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 })
+  const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
+  
+  useEffect(() => {
+    function updatePosition() {
+      if (hoveredLobby && cardRefs.current[hoveredLobby]) {
+        const rect = cardRefs.current[hoveredLobby]?.getBoundingClientRect()
+        if (rect) {
+          setTooltipPosition({
+            top: rect.top - 12,
+            left: rect.left + rect.width / 2
+          })
+        }
+      }
+    }
+    updatePosition()
+    window.addEventListener('scroll', updatePosition, { passive: true })
+    window.addEventListener('resize', updatePosition)
+    return () => {
+      window.removeEventListener('scroll', updatePosition)
+      window.removeEventListener('resize', updatePosition)
+    }
+  }, [hoveredLobby])
 
   const platforms = [
     {
@@ -211,7 +236,8 @@ export default function MagicraftDownload() {
   }
 
   return (
-    <div className="mx-1 sm:mx-2 flex flex-col lg:flex-row items-start justify-center gap-4 lg:gap-6 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 -mt-2 sm:-mt-3">
+    <>
+    <div className="mx-1 sm:mx-2 flex flex-col lg:flex-row items-start justify-center gap-4 lg:gap-6 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 -mt-2 sm:-mt-3 relative z-50 overflow-visible">
       {/* Platform Download Box */}
       <div className="relative mx-auto w-full lg:w-auto lg:flex-shrink-0 lg:mx-0 lg:mt-[25px]">
         <div className="rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
@@ -267,7 +293,7 @@ export default function MagicraftDownload() {
       </div>
 
       {/* Crypto Lobby Cards - responsive grid, dynamic from data */}
-      <div className="w-full lg:flex-1 lg:ml-6 relative z-20 overflow-visible">
+      <div className="w-full lg:flex-1 lg:ml-6 relative overflow-visible" style={{ zIndex: 100 }}>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-5 lg:gap-6 w-full max-w-5xl lg:max-w-none mx-auto px-2 sm:px-3 overflow-visible">
           {(['btc','bnb','mcrt','eth','xrp','sol'] as const).map((key) => {
             const l = lobbyData[key]
@@ -281,7 +307,9 @@ export default function MagicraftDownload() {
             return (
               <div 
                 key={key} 
-                className="relative group h-full min-w-0 z-50 overflow-visible"
+                ref={(el) => { cardRefs.current[key] = el }}
+                className="relative group h-full min-w-0 overflow-visible"
+                style={{ zIndex: hoveredLobby === key ? 9999 : 'auto' }}
                 onMouseEnter={() => setHoveredLobby(key)}
                 onMouseLeave={() => setHoveredLobby(null)}
               >
@@ -365,75 +393,87 @@ export default function MagicraftDownload() {
                     />
                   </div>
                 </motion.div>
-                <AnimatePresence>
-                  {hoveredLobby === key && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: 10, scale: 0.95 }} 
-                      animate={{ opacity: 1, y: 0, scale: 1 }} 
-                      exit={{ opacity: 0, y: 10, scale: 0.95 }} 
-                      transition={{ duration: 0.3, ease: 'easeOut' }} 
-                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 z-[10000] w-80 max-w-[90vw] pointer-events-auto"
-                      onMouseEnter={() => setHoveredLobby(key)}
-                      onMouseLeave={() => setHoveredLobby(null)}
-                      style={{ zIndex: 9999 }}
-                    >
-                      <div className="relative bg-gradient-to-br from-[#1a0d2e]/98 to-[#2a0d4e]/98 border-2 border-[#98FFF9]/60 rounded-2xl p-6 shadow-2xl backdrop-blur-xl">
-                        {/* Enhanced glow effect */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#98FFF9]/10 to-[#B591F2]/10 rounded-2xl"></div>
-                        
-                        <div className="relative z-10">
-                          <div className="flex items-center gap-3 mb-4">
-                            <div 
-                              className="w-3 h-3 rounded-full animate-pulse"
-                              style={{ backgroundColor: l.glowColor }}
-                            ></div>
-                            <h4 className="text-white font-bold text-xl" style={{ textShadow: `0 0 10px ${l.glowColor}50` }}>
-                              {l.tooltip.title}
-                            </h4>
-                          </div>
-                          
-                          <p className="text-white/95 text-sm mb-5 leading-relaxed font-medium">
-                            {l.tooltip.description}
-                          </p>
-                          
-                          <div className="space-y-3">
-                            <h5 className="text-white/80 text-xs font-bold uppercase tracking-wider mb-2">Features:</h5>
-                            {l.tooltip.features.map((feature, i) => (
-                              <motion.div 
-                                key={i} 
-                                className="flex items-start gap-2" 
-                                initial={{ opacity: 0, x: -10 }} 
-                                animate={{ opacity: 1, x: 0 }} 
-                                transition={{ delay: i * 0.1 }}
-                              >
-                                <div 
-                                  className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                                  style={{ backgroundColor: l.glowColor }}
-                                ></div>
-                                <p className="text-white/85 text-xs leading-relaxed font-medium">
-                                  {feature.replace('• ', '')}
-                                </p>
-                              </motion.div>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        {/* Tooltip arrow */}
-                        <div className="absolute top-full left-1/2 -translate-x-1/2">
-                          <div 
-                            className="w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent"
-                            style={{ borderTopColor: '#98FFF9' }}
-                          ></div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                {/* Tooltip is rendered via a portal at the document root to avoid clipping */}
               </div>
             )
           })}
         </div>
       </div>
     </div>
+    
+    {/* Portal for tooltips to avoid clipping */}
+    {typeof document !== 'undefined' && createPortal(
+      <AnimatePresence>
+        {hoveredLobby && lobbyData[hoveredLobby as keyof typeof lobbyData] && (
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="fixed w-80 max-w-[90vw] pointer-events-auto"
+            style={{
+              zIndex: 99999,
+              top: `${tooltipPosition.top - 350}px`,
+              left: `${tooltipPosition.left}px`,
+              transform: 'translateX(-50%)'
+            }}
+            onMouseEnter={() => setHoveredLobby(hoveredLobby)}
+            onMouseLeave={() => setHoveredLobby(null)}
+          >
+            <div className="relative bg-gradient-to-br from-[#1a0d2e]/98 to-[#2a0d4e]/98 border-2 border-[#98FFF9]/60 rounded-2xl p-6 shadow-2xl backdrop-blur-xl">
+              {/* Enhanced glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#98FFF9]/10 to-[#B591F2]/10 rounded-2xl"></div>
+              
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-4">
+                  <div 
+                    className="w-3 h-3 rounded-full animate-pulse"
+                    style={{ backgroundColor: lobbyData[hoveredLobby as keyof typeof lobbyData].glowColor }}
+                  ></div>
+                  <h4 className="text-white font-bold text-xl" style={{ textShadow: `0 0 10px ${lobbyData[hoveredLobby as keyof typeof lobbyData].glowColor}50` }}>
+                    {lobbyData[hoveredLobby as keyof typeof lobbyData].tooltip.title}
+                  </h4>
+                </div>
+                
+                <p className="text-white/95 text-sm mb-5 leading-relaxed font-medium">
+                  {lobbyData[hoveredLobby as keyof typeof lobbyData].tooltip.description}
+                </p>
+                
+                <div className="space-y-3">
+                  <h5 className="text-white/80 text-xs font-bold uppercase tracking-wider mb-2">Features:</h5>
+                  {lobbyData[hoveredLobby as keyof typeof lobbyData].tooltip.features.map((feature: string, i: number) => (
+                    <motion.div 
+                      key={i} 
+                      className="flex items-start gap-2" 
+                      initial={{ opacity: 0, x: -10 }} 
+                      animate={{ opacity: 1, x: 0 }} 
+                      transition={{ delay: i * 0.1 }}
+                    >
+                      <div 
+                        className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                        style={{ backgroundColor: lobbyData[hoveredLobby as keyof typeof lobbyData].glowColor }}
+                      ></div>
+                      <p className="text-white/85 text-xs leading-relaxed font-medium">
+                        {feature.replace('• ', '')}
+                      </p>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+              
+              {/* Tooltip arrow */}
+              <div className="absolute top-full left-1/2 -translate-x-1/2">
+                <div 
+                  className="w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent"
+                  style={{ borderTopColor: '#98FFF9' }}
+                ></div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>,
+      document.body
+    )}
+    </>
   )
 }
