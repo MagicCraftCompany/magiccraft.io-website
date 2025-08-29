@@ -18,8 +18,7 @@ import btc from '@/assets/icons/btclobby.svg'
 import xrp from '@/assets/icons/xrplobby.svg'
 import sol from '@/assets/icons/sollobby.svg'
 import eth from '@/assets/icons/ethlobby.svg'
-// BNB icon placeholder using BTC icon style until provided
-const bnbIcon = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
+import bnb from '@/assets/icons/bnblobby.svg'
 
 export default function MagicraftDownload() {
   const [hoveredLobby, setHoveredLobby] = useState<string | null>(null)
@@ -131,7 +130,7 @@ export default function MagicraftDownload() {
     bnb: {
       title: 'BNB LOBBY',
       subtitle: 'Compete for BNB!',
-      icon: bnbIcon,
+      icon: bnb,
       glowColor: 'from-[#F3BA2F] via-[#d6a316]',
       tooltip: {
         title: 'BNB Lobby',
