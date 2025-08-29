@@ -1,25 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256" role="img" aria-label="BNB">
   <circle cx="128" cy="128" r="120" fill="#F3BA2F"/>
-  <!-- Binance symbol -->
   <g fill="#FFFFFF">
     <!-- center diamond -->
     <rect x="116" y="116" width="24" height="24" transform="rotate(45 128 128)"/>
-    <!-- top diamond -->
-    <rect x="116" y="72" width="24" height="24" transform="rotate(45 128 84)"/>
-    <!-- bottom diamond -->
-    <rect x="116" y="160" width="24" height="24" transform="rotate(45 128 172)"/>
-    <!-- left diamond -->
-    <rect x="72" y="116" width="24" height="24" transform="rotate(45 84 128)"/>
-    <!-- right diamond -->
-    <rect x="160" y="116" width="24" height="24" transform="rotate(45 172 128)"/>
-
-    <!-- top-left connector -->
-    <rect x="94" y="94" width="24" height="24" transform="rotate(45 106 106)"/>
-    <!-- top-right connector -->
-    <rect x="138" y="94" width="24" height="24" transform="rotate(45 150 106)"/>
-    <!-- bottom-left connector -->
-    <rect x="94" y="138" width="24" height="24" transform="rotate(45 106 150)"/>
-    <!-- bottom-right connector -->
-    <rect x="138" y="138" width="24" height="24" transform="rotate(45 150 150)"/>
+    <!-- north, south, west, east diamonds -->
+    <rect x="116" y="64" width="24" height="24" transform="rotate(45 128 76)"/>
+    <rect x="116" y="168" width="24" height="24" transform="rotate(45 128 180)"/>
+    <rect x="64" y="116" width="24" height="24" transform="rotate(45 76 128)"/>
+    <rect x="168" y="116" width="24" height="24" transform="rotate(45 180 128)"/>
   </g>
 </svg>
