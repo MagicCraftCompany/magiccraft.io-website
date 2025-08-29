@@ -229,6 +229,13 @@ body {
     width: 100%;
     border-radius: 0.75rem;
     overflow: hidden;
+    height: 220px;
+  }
+  @media (min-width: 768px) {
+    .gameplay-carousel { height: 260px; }
+  }
+  @media (min-width: 1024px) {
+    .gameplay-carousel { height: 300px; }
   }
   
   .gameplay-slides {
@@ -241,6 +248,7 @@ body {
     flex: 0 0 16.666667%; /* 100% / 6 slides */
     width: 16.666667%;
     position: relative;
+    height: 100%;
   }
   
   .carousel-dot {

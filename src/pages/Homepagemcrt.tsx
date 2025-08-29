@@ -341,11 +341,11 @@ function Homepagemcrt() {
 
                     {/* Gameplay Footage Carousel */}
                     <div className="relative w-full">
-                      <div className="gameplay-carousel overflow-hidden rounded-xl bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E]">
-                        <div className="gameplay-slides flex transition-transform duration-500 ease-in-out" id="gameplaySlides">
+                      <div className="gameplay-carousel overflow-hidden rounded-xl bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] h-[220px] md:h-[260px] lg:h-[300px]">
+                        <div className="gameplay-slides flex h-full transition-transform duration-500 ease-in-out" id="gameplaySlides">
                           {/* Slide 1 - Legendary Battle Arena */}
-                          <div className="gameplay-slide flex-shrink-0 w-full relative">
-                            <div className="aspect-video relative overflow-hidden">
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
+                            <div className="relative overflow-hidden h-full">
                               <img 
                                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto,w_800,h_450,c_fill/v1735742400/legendary_battle_1.webp" 
                                 alt="MagicCraft Legendary Battle Arena"
@@ -364,8 +364,8 @@ function Homepagemcrt() {
                           </div>
 
                           {/* Slide 2 - Massive Teamfight */}
-                          <div className="gameplay-slide flex-shrink-0 w-full relative">
-                            <div className="aspect-video relative overflow-hidden">
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
+                            <div className="relative overflow-hidden h-full">
                               <img 
                                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto,w_800,h_450,c_fill/v1735742400/legendary_battle_2.webp" 
                                 alt="MagicCraft Massive Teamfight"
@@ -384,8 +384,8 @@ function Homepagemcrt() {
                           </div>
 
                           {/* Slide 3 - PvP Arena Combat */}
-                          <div className="gameplay-slide flex-shrink-0 w-full relative">
-                            <div className="aspect-video relative overflow-hidden">
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
+                            <div className="relative overflow-hidden h-full">
                               <img 
                                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173137/Hero_1_v7qidt.webp" 
                                 alt="MagicCraft PvP Arena Combat"
@@ -404,8 +404,8 @@ function Homepagemcrt() {
                           </div>
 
                           {/* Slide 4 - Strategic Gameplay */}
-                          <div className="gameplay-slide flex-shrink-0 w-full relative">
-                            <div className="aspect-video relative overflow-hidden">
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
+                            <div className="relative overflow-hidden h-full">
                               <img 
                                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173132/hero2_olqlpn.webp" 
                                 alt="MagicCraft Strategic Gameplay"
@@ -422,8 +422,8 @@ function Homepagemcrt() {
                               </div>
                             </div>
                           {/* Slide 5 - Tournament Action */}
-                          <div className="gameplay-slide flex-shrink-0 w-full relative">
-                            <div className="aspect-video relative overflow-hidden">
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
+                            <div className="relative overflow-hidden h-full">
                               <img 
                                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173140/Hero_3_kqxqhd.webp" 
                                 alt="MagicCraft Tournament Action"
@@ -442,8 +442,8 @@ function Homepagemcrt() {
                           </div>
 
                           {/* Slide 6 - Ranked Competition */}
-                          <div className="gameplay-slide flex-shrink-0 w-full relative">
-                            <div className="aspect-video relative overflow-hidden">
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
+                            <div className="relative overflow-hidden h-full">
                               <img 
                                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173135/Hero_4_ywgdqf.webp" 
                                 alt="MagicCraft Ranked Competition"
