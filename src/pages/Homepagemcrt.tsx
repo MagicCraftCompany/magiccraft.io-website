@@ -407,9 +407,13 @@ function Homepagemcrt() {
                     <li>• Ecosystem utility: pledging, marketplace, VIP lobbies</li>
                   </ul>
                   <div className="mt-4 grid gap-3">
-                    <div className="rounded-lg bg-black/30 p-3">
-                      {/* CoinGecko Ticker */}
-                      <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0b0f39" font-color="#ffffff" border-color="#2a2f63"></coingecko-coin-ticker-widget>
+                    <div className="rounded-xl border border-[#98FFF9]/20 bg-gradient-to-br from-[#0B0F39] to-[#111a4e] p-3 md:p-4 shadow-lg">
+                      {/* CoinGecko compact ticker */}
+                      <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-ticker-widget>
+                    </div>
+                    <div className="rounded-xl border border-[#98FFF9]/20 bg-gradient-to-br from-[#0B0F39] to-[#111a4e] p-3 md:p-4 shadow-lg">
+                      {/* CoinGecko mini chart, auto width for mobile */}
+                      <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="260" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-price-chart-widget>
                     </div>
                     <div className="flex gap-2 flex-wrap">
                       <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-[#98FFF9]/60 px-4 py-2 text-[#98FFF9] hover:border-white hover:text-white transition">View on CoinMarketCap</a>
