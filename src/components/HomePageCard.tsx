@@ -268,7 +268,7 @@ export default function MagicraftDownload() {
 
       {/* Crypto Lobby Cards - responsive grid, dynamic from data */}
       <div className="w-full lg:flex-1 lg:ml-6 z-10">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-4 w-full max-w-4xl lg:max-w-none mx-auto px-1 sm:px-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-5 lg:gap-6 w-full max-w-5xl lg:max-w-none mx-auto px-2 sm:px-3">
           {(['btc','bnb','mcrt','eth','xrp','sol'] as const).map((key) => {
             const l = lobbyData[key]
             const colorClass =
@@ -280,21 +280,55 @@ export default function MagicraftDownload() {
             const url = `https://lobby.magiccraft.io/?crypto=${key}`
             return (
               <div key={key} className="relative group h-full min-w-0">
-                <motion.div className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px]" whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                <motion.div 
+                  className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px] shadow-lg hover:shadow-xl transition-all duration-300" 
+                  whileHover={{ scale: 1.03, y: -2 }} 
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  style={{ 
+                    boxShadow: `0 8px 25px rgba(0,0,0,0.3), 0 0 0 1px ${l.glowColor}20`
+                  }}
+                >
                   <div
-                    className={`relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-1.5 sm:p-2 md:p-3 lg:p-4 cursor-pointer transition-all duration-300 min-h-[clamp(96px,12vw,140px)]`}
+                    className="relative h-full w-full overflow-hidden rounded-[19px] bg-gradient-to-br from-[#511569] to-[#3d1052] p-3 sm:p-4 md:p-5 cursor-pointer transition-all duration-300 min-h-[clamp(110px,14vw,160px)] border border-white/10 hover:border-white/20"
                     onClick={() => window.open(url, '_blank')}
                     onMouseEnter={() => setHoveredLobby(key)}
                     onMouseLeave={() => setHoveredLobby(null)}
+                    style={{
+                      background: `linear-gradient(135deg, #511569 0%, #3d1052 100%), radial-gradient(circle at 30% 30%, ${l.glowColor}15 0%, transparent 50%)`
+                    }}
                   >
-                    <div className="flex flex-col items-center justify-center h-full text-center gap-2">
-                      <div className="relative flex-shrink-0">
-                        <div className={`absolute bottom-[-15px] left-1/2 -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-t ${l.glowColor} to-transparent blur-[12px] sm:blur-[14px] lg:blur-[16px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[18px]`} />
-                        <img src={l.icon} alt={l.title} className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" loading="lazy" />
+                    <div className="flex flex-col items-center justify-center h-full text-center gap-2 md:gap-3">
+                      <div className="relative flex-shrink-0 flex items-center justify-center">
+                        {/* Enhanced glow effect */}
+                        <div 
+                          className="absolute inset-0 rounded-full blur-lg opacity-60 transition-all duration-300 group-hover:opacity-90 group-hover:blur-xl"
+                          style={{ 
+                            background: `radial-gradient(circle, ${l.glowColor}40 0%, ${l.glowColor}20 50%, transparent 70%)`,
+                            width: '60px',
+                            height: '60px',
+                            transform: 'translate(-50%, -50%)',
+                            left: '50%',
+                            top: '50%'
+                          }}
+                        />
+                        {/* Standardized logo container */}
+                        <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 transition-all duration-300 group-hover:border-white/40 group-hover:scale-110 group-hover:shadow-lg"
+                             style={{ boxShadow: `0 4px 20px ${l.glowColor}30` }}>
+                          <img 
+                            src={l.icon} 
+                            alt={l.title} 
+                            className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 object-contain transition-all duration-300 group-hover:brightness-110" 
+                            loading="lazy" 
+                            style={{
+                              filter: `drop-shadow(0 2px 8px ${l.glowColor}50)`
+                            }}
+                          />
+                        </div>
                       </div>
                       <div className="space-y-1">
-                        <h3 className={`text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white font-serif transition-colors duration-300 leading-tight`}>{l.title}</h3>
-                        <p className="text-xs sm:text-sm text-white/90 transition-colors duration-300 group-hover:text-white leading-tight px-1 sm:px-2">{l.subtitle}</p>
+                        <h3 className="text-xs sm:text-sm md:text-base font-bold text-white font-serif transition-colors duration-300 leading-tight group-hover:text-white"
+                            style={{ textShadow: `0 0 10px ${l.glowColor}50` }}>{l.title}</h3>
+                        <p className="text-xs text-white/80 transition-colors duration-300 group-hover:text-white/95 leading-tight px-1">{l.subtitle}</p>
                       </div>
                     </div>
                     <div className={`absolute inset-0 rounded-[19px]`} style={{ background: `linear-gradient(90deg, ${colorClass}00, ${colorClass}22, ${colorClass}00)` , opacity: 0 }} />
