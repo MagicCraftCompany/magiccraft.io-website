@@ -216,14 +216,14 @@ export default function MagicraftDownload() {
         <div className="rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
             <div className="flex items-center justify-center">
-              <div className="m-2 sm:m-3 lg:m-6 flex items-center gap-[12px] lg:gap-[20px] overflow-x-auto">
+              <div className="m-2 sm:m-3 lg:m-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-5 overflow-x-hidden">
                 {platforms.map((platform, index) => (
                   <div
                     key={platform.name}
-                    className={`flex items-center flex-shrink-0 ${platform.name === 'Windows' ? 'hidden lg:flex' : ''}`}
+                    className={`flex items-center ${platform.name === 'Windows' ? 'hidden lg:flex' : ''}`}
                   >
                     {index > 0 && (
-                      <div className="mx-[8px] lg:mx-[12px] h-[4em] lg:h-[6em] w-[1px] lg:w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent" />
+                      <div className="hidden lg:block mx-[12px] lg:mx-[16px] h-[4em] lg:h-[6em] w-[1px] lg:w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent" />
                     )}
                     <a
                       href={platform.href}
@@ -251,7 +251,7 @@ export default function MagicraftDownload() {
             </div>
 
             {/* Removed decorative exclamation mark for a cleaner look */}
-            <div className="mx-3 my-3 flex justify-center gap-3 lg:gap-5 rounded-xl border border-[#B591F2]/30 bg-gradient-to-r from-[#6D3190]/80 to-[#642588]/80 py-3 lg:mx-12 lg:px-4 backdrop-blur-sm">
+            <div className="mx-3 my-3 flex flex-wrap md:flex-nowrap justify-center gap-3 lg:gap-5 rounded-xl border border-[#B591F2]/30 bg-gradient-to-r from-[#6D3190]/80 to-[#642588]/80 py-3 lg:mx-12 lg:px-4 backdrop-blur-sm">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -273,7 +273,7 @@ export default function MagicraftDownload() {
 
       {/* Crypto Lobby Cards - responsive grid, dynamic from data */}
       <div className="w-full lg:flex-1 lg:ml-6 z-10">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-3 md:gap-4 w-full max-w-screen-lg mx-auto px-1 sm:px-2">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-3 md:gap-4 w-full max-w-screen-xl xl:max-w-[80rem] mx-auto px-1 sm:px-2">
           {(['btc','bnb','mcrt','eth','xrp','sol'] as const).map((key) => {
             const l = lobbyData[key]
             const colorClass =
@@ -287,7 +287,7 @@ export default function MagicraftDownload() {
               <div key={key} className="relative group h-full min-w-0">
                 <motion.div className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px]" whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
                   <div
-                    className={`relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-1.5 sm:p-2 md:p-3 lg:p-4 cursor-pointer transition-all duration-300 min-h-[100px] md:min-h-[120px] lg:min-h-[140px]`}
+                    className={`relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-1.5 sm:p-2 md:p-3 lg:p-4 cursor-pointer transition-all duration-300 min-h-[clamp(96px,12vw,140px)]`}
                     onClick={() => window.open(url, '_blank')}
                     onMouseEnter={() => setHoveredLobby(key)}
                     onMouseLeave={() => setHoveredLobby(null)}
