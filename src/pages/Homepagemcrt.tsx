@@ -631,10 +631,10 @@ function Homepagemcrt() {
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="rounded-xl border border-[#98FFF9]/30 bg-gradient-to-br from-[#0B0F39]/80 to-[#111a4e]/80 card-padding-sm shadow-lg backdrop-blur-sm">
+                      <div className="widget-card">
                         <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-ticker-widget>
                       </div>
-                      <div className="rounded-xl border border-[#98FFF9]/30 bg-gradient-to-br from-[#0B0F39]/80 to-[#111a4e]/80 card-padding-sm shadow-lg backdrop-blur-sm">
+                      <div className="widget-card">
                         <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="240" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-price-chart-widget>
                       </div>
                     </div>
