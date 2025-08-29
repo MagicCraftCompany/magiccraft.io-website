@@ -484,83 +484,161 @@ div[class*="xswap-modal-container"] {
   background-color: #000000 !important;
 }
 
-/* CoinGecko Widget Font Improvements - Force visible colors */
+/* CoinGecko Widget Styling - Match MagicCraft Design */
 coingecko-coin-ticker-widget,
 coingecko-coin-price-chart-widget {
-  font-family: 'Futura PT', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif !important;
-  filter: brightness(1.2) contrast(1.3) !important;
+  /* Container styling to match card-glass */
+  background: linear-gradient(135deg, rgba(8, 4, 32, 0.95) 0%, rgba(10, 4, 36, 0.95) 100%) !important;
+  border: 2px solid rgba(152, 255, 249, 0.6) !important;
+  border-radius: 16px !important;
+  padding: 20px !important;
+  box-shadow: 
+    0 8px 32px rgba(152, 255, 249, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  font-family: 'Futura PT', 'Nunito', sans-serif !important;
+  filter: brightness(1.3) contrast(1.4) !important;
+  transition: all 0.3s ease !important;
 }
 
-/* Override ALL text in CoinGecko widgets with bright colors */
+/* Glassmorphism background effect */
+coingecko-coin-ticker-widget::before,
+coingecko-coin-price-chart-widget::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  background: linear-gradient(45deg, rgba(152, 255, 249, 0.05) 0%, rgba(181, 145, 242, 0.05) 100%) !important;
+  pointer-events: none !important;
+  z-index: 0 !important;
+}
+
+/* All text elements - base styling */
 coingecko-coin-ticker-widget *,
-coingecko-coin-ticker-widget,
-coingecko-coin-price-chart-widget *,
-coingecko-coin-price-chart-widget {
+coingecko-coin-price-chart-widget * {
   color: #FFFFFF !important;
   font-family: 'Futura PT', 'Nunito', sans-serif !important;
   font-weight: 600 !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+  line-height: 1.4 !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 
-/* Force bright colors for all text elements */
-coingecko-coin-ticker-widget div,
-coingecko-coin-ticker-widget span,
-coingecko-coin-ticker-widget p,
+/* Headings and titles */
 coingecko-coin-ticker-widget h1,
 coingecko-coin-ticker-widget h2,
 coingecko-coin-ticker-widget h3,
 coingecko-coin-ticker-widget h4,
-coingecko-coin-ticker-widget h5,
-coingecko-coin-ticker-widget h6 {
-  color: #FFFFFF !important;
-  font-size: 1.1em !important;
-  font-weight: 700 !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9) !important;
-}
-
-coingecko-coin-price-chart-widget div,
-coingecko-coin-price-chart-widget span,
-coingecko-coin-price-chart-widget p,
+coingecko-coin-ticker-widget .coin-name,
 coingecko-coin-price-chart-widget h1,
 coingecko-coin-price-chart-widget h2,
 coingecko-coin-price-chart-widget h3,
 coingecko-coin-price-chart-widget h4,
-coingecko-coin-price-chart-widget h5,
-coingecko-coin-price-chart-widget h6 {
-  color: #FFFFFF !important;
-  font-size: 1.05em !important;
+coingecko-coin-price-chart-widget .coin-name {
+  color: #98FFF9 !important;
+  font-size: 1.4em !important;
   font-weight: 700 !important;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9) !important;
+  text-shadow: 0 3px 12px rgba(152, 255, 249, 0.6) !important;
+  letter-spacing: 0.5px !important;
+  margin-bottom: 8px !important;
 }
 
-/* Force bright colors for price and percentage changes */
+/* Price values */
 coingecko-coin-ticker-widget [class*="price"],
-coingecko-coin-ticker-widget [class*="change"],
-coingecko-coin-ticker-widget [class*="percent"] {
+coingecko-coin-ticker-widget .price,
+coingecko-coin-price-chart-widget [class*="price"],
+coingecko-coin-price-chart-widget .price {
   color: #98FFF9 !important;
   font-weight: 800 !important;
-  font-size: 1.2em !important;
+  font-size: 1.6em !important;
+  text-shadow: 0 4px 16px rgba(152, 255, 249, 0.7) !important;
+  letter-spacing: 0.8px !important;
 }
 
-/* Ensure widget containers have proper contrast and visibility */
-coingecko-coin-ticker-widget,
-coingecko-coin-price-chart-widget {
-  background: linear-gradient(135deg, #0B0F39 0%, #111a4e 100%) !important;
-  border: 2px solid rgba(152, 255, 249, 0.4) !important;
-  border-radius: 12px !important;
-  padding: 12px !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+/* Percentage changes */
+coingecko-coin-ticker-widget [class*="change"],
+coingecko-coin-ticker-widget [class*="percent"],
+coingecko-coin-ticker-widget .percentage,
+coingecko-coin-price-chart-widget [class*="change"],
+coingecko-coin-price-chart-widget [class*="percent"],
+coingecko-coin-price-chart-widget .percentage {
+  font-weight: 700 !important;
+  font-size: 1.3em !important;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.8) !important;
+  letter-spacing: 0.3px !important;
 }
 
-/* Additional fallback for any missed text */
-coingecko-coin-ticker-widget::after,
-coingecko-coin-price-chart-widget::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, transparent 49%, rgba(255, 255, 255, 0.1) 50%, transparent 51%);
-  pointer-events: none;
+/* Market data labels and values */
+coingecko-coin-ticker-widget div,
+coingecko-coin-ticker-widget span,
+coingecko-coin-ticker-widget p,
+coingecko-coin-price-chart-widget div,
+coingecko-coin-price-chart-widget span,
+coingecko-coin-price-chart-widget p {
+  color: #F3F4F6 !important;
+  font-size: 1.1em !important;
+  font-weight: 600 !important;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Links and interactive elements */
+coingecko-coin-ticker-widget a,
+coingecko-coin-price-chart-widget a {
+  color: #98FFF9 !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  transition: all 0.3s ease !important;
+  border-radius: 8px !important;
+  padding: 4px 8px !important;
+}
+
+coingecko-coin-ticker-widget a:hover,
+coingecko-coin-price-chart-widget a:hover {
+  color: #B591F2 !important;
+  background: rgba(181, 145, 242, 0.1) !important;
+  text-shadow: 0 2px 12px rgba(181, 145, 242, 0.6) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Powered by CoinGecko */
+coingecko-coin-ticker-widget [class*="powered"],
+coingecko-coin-ticker-widget .powered-by,
+coingecko-coin-price-chart-widget [class*="powered"],
+coingecko-coin-price-chart-widget .powered-by {
+  color: #9CA3AF !important;
+  font-size: 0.85em !important;
+  opacity: 0.7 !important;
+  font-weight: 500 !important;
+}
+
+/* Chart elements */
+coingecko-coin-price-chart-widget canvas,
+coingecko-coin-price-chart-widget svg {
+  filter: brightness(1.4) contrast(1.3) saturate(1.2) !important;
+  border-radius: 8px !important;
+}
+
+/* Hover effects for entire widget */
+coingecko-coin-ticker-widget:hover,
+coingecko-coin-price-chart-widget:hover {
+  border-color: rgba(181, 145, 242, 0.8) !important;
+  box-shadow: 
+    0 12px 40px rgba(181, 145, 242, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+  transform: translateY(-3px) !important;
+}
+
+/* Specific targeting for stubborn elements */
+coingecko-coin-ticker-widget .gecko-coin-price,
+coingecko-coin-ticker-widget .gecko-coin-change,
+coingecko-coin-price-chart-widget .gecko-coin-price,
+coingecko-coin-price-chart-widget .gecko-coin-change {
+  color: #98FFF9 !important;
+  font-weight: 800 !important;
+  font-size: 1.4em !important;
 }

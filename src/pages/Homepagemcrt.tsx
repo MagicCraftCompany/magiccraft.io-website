@@ -38,7 +38,7 @@ function Homepagemcrt() {
     
     if (!slides || !dots.length) return
 
-    const totalSlides = 3
+    const totalSlides = 4
     let autoPlayInterval: NodeJS.Timeout
 
     const goToSlide = (slideIndex: number) => {
@@ -341,65 +341,95 @@ function Homepagemcrt() {
                     <div className="relative">
                       <div className="gameplay-carousel overflow-hidden rounded-xl">
                         <div className="gameplay-slides flex transition-transform duration-500 ease-in-out" id="gameplaySlides">
-                          {/* Slide 1 - Battle Scene */}
+                                                    {/* Slide 1 - PvP Arena Battle */}
                           <div className="gameplay-slide min-w-full relative">
                             <div className="aspect-video bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] rounded-xl overflow-hidden relative">
                               <img 
                                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173137/Hero_1_v7qidt.webp" 
-                                alt="MagicCraft Battle Scene"
+                                alt="MagicCraft PvP Arena Battle"
                                 className="w-full h-full object-cover"
                                 loading="lazy"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                               <div className="absolute bottom-4 left-4 right-4">
-                                <h5 className="text-white font-bold text-sm mb-1">Epic PvP Battles</h5>
-                                <p className="text-white/80 text-xs">Fast-paced multiplayer combat</p>
+                                <h5 className="text-white font-bold text-sm mb-1">Intense PvP Arena</h5>
+                                <p className="text-white/80 text-xs">5v5 MOBA battles • Earn $MCRT tokens</p>
+                              </div>
+                              <div className="absolute top-4 right-4">
+                                <span className="bg-red-500/80 text-white text-xs px-2 py-1 rounded-full font-bold">LIVE PvP</span>
+                              </div>
                             </div>
-                            </div>
-                            </div>
+                          </div>
 
-                          {/* Slide 2 - Hero Selection */}
+                          {/* Slide 2 - Team Combat */}
                           <div className="gameplay-slide min-w-full relative">
                             <div className="aspect-video bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] rounded-xl overflow-hidden relative">
                               <img 
                                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173132/hero2_olqlpn.webp" 
-                                alt="MagicCraft Heroes"
+                                alt="MagicCraft Team Combat"
                                 className="w-full h-full object-cover"
                                 loading="lazy"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                               <div className="absolute bottom-4 left-4 right-4">
-                                <h5 className="text-white font-bold text-sm mb-1">Choose Your Hero</h5>
-                                <p className="text-white/80 text-xs">Unique abilities and playstyles</p>
+                                <h5 className="text-white font-bold text-sm mb-1">Strategic Team Combat</h5>
+                                <p className="text-white/80 text-xs">Master unique heroes • Dominate opponents</p>
+                              </div>
+                              <div className="absolute top-4 right-4">
+                                <span className="bg-[#98FFF9]/80 text-[#03082F] text-xs px-2 py-1 rounded-full font-bold">STRATEGY</span>
+                              </div>
                             </div>
                           </div>
-                        </div>
 
-                          {/* Slide 3 - Game Maker */}
+                          {/* Slide 3 - Capture The Zone PvP */}
                           <div className="gameplay-slide min-w-full relative">
                             <div className="aspect-video bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] rounded-xl overflow-hidden relative">
                               <img 
-                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1753800048/rksbqhjxphkaeoooqolq.webp" 
-                                alt="MagicCraft Game Maker"
+                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173140/Hero_3_kqxqhd.webp" 
+                                alt="MagicCraft Capture The Zone"
                                 className="w-full h-full object-cover"
                                 loading="lazy"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                               <div className="absolute bottom-4 left-4 right-4">
-                                <h5 className="text-white font-bold text-sm mb-1">Build Your Games</h5>
-                                <p className="text-white/80 text-xs">Create and earn with Game Maker</p>
-                      </div>
-                    </div>
+                                <h5 className="text-white font-bold text-sm mb-1">Capture The Zone</h5>
+                                <p className="text-white/80 text-xs">Control objectives • Win tournaments</p>
+                              </div>
+                              <div className="absolute top-4 right-4">
+                                <span className="bg-[#B591F2]/80 text-white text-xs px-2 py-1 rounded-full font-bold">TOURNAMENT</span>
+                              </div>
                             </div>
+                          </div>
+
+                          {/* Slide 4 - Competitive Ranking */}
+                          <div className="gameplay-slide min-w-full relative">
+                            <div className="aspect-video bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] rounded-xl overflow-hidden relative">
+                              <img 
+                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173135/Hero_4_ywgdqf.webp" 
+                                alt="MagicCraft Competitive Ranking"
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                              <div className="absolute bottom-4 left-4 right-4">
+                                <h5 className="text-white font-bold text-sm mb-1">Ranked Competition</h5>
+                                <p className="text-white/80 text-xs">Climb leaderboards • Prove your skill</p>
+                              </div>
+                              <div className="absolute top-4 right-4">
+                                <span className="bg-[#FFB649]/80 text-[#03082F] text-xs px-2 py-1 rounded-full font-bold">RANKED</span>
+                              </div>
+                            </div>
+                          </div>
                           </div>
                             </div>
 
-                      {/* Carousel Controls */}
+                                            {/* Carousel Controls */}
                       <div className="flex justify-center gap-2 mt-4">
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60 active" data-slide="0"></button>
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="1"></button>
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="2"></button>
-                            </div>
+                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="3"></button>
+                      </div>
 
                       {/* Auto-play indicator */}
                       <div className="flex items-center justify-center gap-2 mt-3">
