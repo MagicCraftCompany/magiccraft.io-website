@@ -10,8 +10,14 @@ function GameDeveloper() {
   return (
     <div className="min-h-dvh w-full text-white">
       <Helmet>
-        <title>Game Developer - MagicCraft</title>
-        <meta name="description" content="Build on MagicCraft's ecosystem and earn $MCRT. Integrate your games, create custom skins, and leverage open-source character rigs." />
+        <title>Build on MagicCraft – Game Maker | Earn $MCRT</title>
+        <meta name="description" content="Integrate your game with MagicCraft, a crypto gaming ecosystem. Use the Game Maker, earn $MCRT, and publish assets with open-source rigs and marketplace revenue." />
+        <meta name="keywords" content="MagicCraft, Game Maker, $MCRT, crypto gaming, Web3, MOBA, build games, create maps, earn crypto, developer program, marketplace revenue" />
+        <meta property="og:title" content="Build on MagicCraft – Game Maker | Earn $MCRT" />
+        <meta property="og:description" content="Integrate your game, create maps and skins, and earn $MCRT with MagicCraft's developer tools and marketplace." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://magiccraft.io/build-on-magiccraft" />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -45,42 +51,56 @@ function GameDeveloper() {
         <img
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733825996/Image_15_tnvsad.webp"
           className="hidden h-full w-full object-cover lg:block"
-          alt=""
+          alt="MagicCraft Game Maker hero"
+          loading="eager"
+          fetchpriority="high"
         />
 
         {/* Tablet Image */}
         <img
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733825996/Image_16_ukhd4o.webp"
           className="hidden h-[700px] w-full object-cover md:block lg:hidden"
-          alt=""
+          alt="MagicCraft Game Maker hero"
+          loading="eager"
         />
 
         {/* Mobile Image */}
         <img
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733825996/Image_16_ukhd4o.webp"
           className="block h-[500px] w-full object-cover md:hidden"
-          alt=""
+          alt="MagicCraft Game Maker hero"
+          loading="eager"
         />
 
         {/* Overlay Title */}
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-          <h1 className="text-center font-serif text-4xl font-bold md:text-5xl lg:-mt-[10rem]">
-            build on magiccraft <br/> and earn $MCRT
+          <h1 className="text-center font-serif text-4xl md:text-5xl lg:text-6xl font-bold lg:-mt-[10rem] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent drop-shadow-xl">
+            Build on MagicCraft & Earn $MCRT
           </h1>
-          <p className="lg:mx-auto max-w-3xl text-center text-lg text-gray-200 mx-6">
+          <p className="lg:mx-auto max-w-3xl text-center text-base md:text-lg text-gray-200 mx-6">
             MagicCraft’s ecosystem empowers external developers to integrate
             their games seamlessly, embed MCRT as a universal currency, and
             leverage open-source character rigs to create and sell custom skins
                             as NFTs all supported by secure smart contracts, scalable
             infrastructure, and intuitive development tools.{' '}
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <button className="rounded-md bg-[#98FFF9] px-4 py-2 text-black hover:bg-[#98FFF9]/90" onClick={handleApplyClick}>
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+            <button
+              className="rounded-lg md:rounded-xl bg-[#98FFF9] px-5 md:px-6 py-2 md:py-3 text-[#03082F] font-semibold shadow hover:bg-[#98FFF9]/90 transition"
+              onClick={handleApplyClick}
+              aria-label="Apply to the MagicCraft developer program"
+            >
               Apply
             </button>
-            {/* <button className="rounded-md border-[1px] border-solid border-[#98FFF9]  px-4 py-2 text-[#98FFF9]">
-              More Info
-            </button> */}
+            <a
+              href="https://docs.magiccraft.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg md:rounded-xl px-5 md:px-6 py-2 md:py-3 font-semibold text-white border border-[#98FFF9]/70 hover:border-white bg-black/30 backdrop-blur-sm transition"
+              aria-label="Read MagicCraft developer documentation"
+            >
+              Read Docs
+            </a>
           </div>
         </div>
       </div>
@@ -95,6 +115,8 @@ function GameDeveloper() {
             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1734081590/Desktop_-_33_dqmuzd.webp"
             alt="MagicCraft Dashboard"
             className="z-10 mx-auto lg:mt-8 w-full max-w-5xl rounded-lg shadow-lg "
+            loading="lazy"
+            decoding="async"
           />
           <section className="z-20 mx-auto flex h-full max-w-6xl  flex-col gap-[30px] rounded-[30px] bg-[#11113A] p-6 lg:p-10 lg:-mt-[20rem] -mt-[6rem]">
             <div className="">
@@ -115,6 +137,7 @@ function GameDeveloper() {
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735019329/Property_1_005-puzzle_rv8cgj.webp"
                     alt="Harness the Power of Blockchain"
                     className="mb-4 h-12 w-12 text-[#98FFF9]"
+                    loading="lazy"
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
                     Integration SDKs
@@ -128,6 +151,8 @@ function GameDeveloper() {
                   <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735019330/Property_1_001-bitcoin_iqkgsw.webp"
                     className="mb-4 h-12 w-12 "
+                    alt="MCRT currency"
+                    loading="lazy"
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
                     MCRT Currency
@@ -142,6 +167,8 @@ function GameDeveloper() {
                   <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735019330/Property_1_002-status_vjzw05.webp"
                     className="mb-4 h-12 w-12 "
+                    alt="Open-source characters"
+                    loading="lazy"
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
                     Open-Source Characters
@@ -157,6 +184,8 @@ function GameDeveloper() {
                   <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735019343/Property_1_003-revenue-growth_mjzr99.webp"
                     className="mb-4 h-12 w-12 text-[#98FFF9]"
+                    alt="Marketplace revenue"
+                    loading="lazy"
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
                     Marketplace Revenue
@@ -172,6 +201,8 @@ function GameDeveloper() {
                   <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735019329/Property_1_004-vocabulary_a1szte.webp"
                     className="mb-4 h-12 w-12 text-[#98FFF9]"
+                    alt="Developer resources"
+                    loading="lazy"
                   />
                   <h3 className="mb-2 text-xl font-bold text-[#98FFF9]">
                     Developer Resources
