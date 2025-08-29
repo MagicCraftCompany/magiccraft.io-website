@@ -300,33 +300,33 @@ function Homepagemcrt() {
         </section>
 
           {/* Game Maker Banner */}
-          <section className="relative mx-auto w-11/12 max-w-screen-xl mb-8 md:mb-16 px-2 md:px-0">
+          <section className="relative mx-auto w-11/12 max-w-screen-xl mb-4 md:mb-8 px-2 md:px-0">
             <div className="relative w-full rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#080420] via-[#0A0424] to-[#1a0d2e] border border-[#B591F2]/30 shadow-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
-              <div className="relative space-y-6 md:space-y-8 px-4 md:px-8 pb-8 md:pb-10 pt-6 md:pt-8">
-                <div className="text-center space-y-4 md:space-y-6">
-                  <h3 className="font-serif text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent leading-tight">
-                    BUILD GAMES WITH GAME MAKER
-                  </h3>
-                  <p className="text-base md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
-                    Like Roblox, create your own games and maps! Earn <span className="text-[#98FFF9] font-bold">$MCRT tokens</span> for every player who enjoys your creations. 
-                    Build, share, and monetize your gaming ideas in the MagicCraft ecosystem.
-                  </p>
-                </div>
-                
-                <div className="relative min-h-[300px] md:min-h-[400px]">
+                    <div className="relative space-y-4 md:space-y-6 px-4 md:px-8 pb-6 md:pb-8 pt-4 md:pt-6">
+                      <div className="text-center space-y-3 md:space-y-4">
+                        <h3 className="font-serif text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent leading-tight">
+                          BUILD GAMES WITH GAME MAKER
+                        </h3>
+                        <p className="text-base md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
+                          Like Roblox, create your own games and maps! Earn <span className="text-[#98FFF9] font-bold">$MCRT tokens</span> for every player who enjoys your creations. 
+                          Build, share, and monetize your gaming ideas in the MagicCraft ecosystem.
+                        </p>
+                      </div>
+                      
+                      <div className="relative h-auto">
                   {/* Desktop/tablet banner - horizontal */}
                   <img
                     src="http://res.cloudinary.com/dfzcr2ch4/image/upload/v1753800048/rksbqhjxphkaeoooqolq.webp"
                     alt="Game Maker banner"
-                    className="hidden md:block w-full h-full object-cover rounded-xl md:rounded-2xl shadow-2xl"
+                    className="hidden md:block w-full h-auto object-cover rounded-xl md:rounded-2xl shadow-2xl"
                     loading="lazy"
                   />
                   {/* Mobile banner - vertical */}
                   <img
                     src="http://res.cloudinary.com/dfzcr2ch4/image/upload/v1754042773/vtnxmvnugebfblvkabwk.webp"
                     alt="Game Maker banner"
-                    className="block md:hidden w-full h-full object-cover rounded-xl shadow-2xl"
+                    className="block md:hidden w-full h-auto object-cover rounded-xl shadow-2xl"
                     loading="lazy"
                   />
                   
@@ -348,7 +348,7 @@ function Homepagemcrt() {
                         </p>
                       </div>
                       <a 
-                        href="https://store.steam.com/app/3478810/MCRT_Game_Maker/" 
+                        href="https://magiccraft.io/game-maker" 
                         target="_blank" 
                         rel="noopener noreferrer" 
                         className="group inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-[#98FFF9] to-[#7de6df] text-[#03082F] px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-bold transition-all hover:from-[#7de6df] hover:to-[#98FFF9] hover:shadow-lg hover:shadow-[#98FFF9]/25 hover:scale-105 text-sm md:text-base"
@@ -364,12 +364,12 @@ function Homepagemcrt() {
           </section>
 
           {/*JOIN THE ACTION */}
-          <section className="flex justify-center bg-center p-4 md:p-6 lg:mt-8 lg:mb-16">
+          <section className="flex justify-center bg-center p-4 md:p-6 lg:mt-4 lg:mb-8">
             <div className="relative max-w-7xl w-full rounded-3xl md:rounded-4xl bg-gradient-to-br from-[#0A0424] via-[#1a0d2e] to-[#2A0D4E] border border-[#B591F2]/30 shadow-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5 rounded-3xl md:rounded-4xl"></div>
               <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#98FFF9]/2 to-transparent"></div>
-              <div className="relative space-y-8 md:space-y-12 px-6 md:px-10 pb-10 md:pb-16 pt-8 md:pt-12">
-                <div className="text-center space-y-4 md:space-y-6">
+              <div className="relative space-y-6 md:space-y-8 px-6 md:px-10 pb-8 md:pb-12 pt-6 md:pt-10">
+                <div className="text-center space-y-3 md:space-y-4">
                   <h5 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent leading-tight drop-shadow-lg">
                     JOIN THE ACTION, EARN MCRT
                   </h5>
@@ -380,7 +380,7 @@ function Homepagemcrt() {
                   </p>
                 </div>
                 
-                <div className="grid grid-cols-1 gap-8 md:gap-10 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
                   {/* Register Card */}
                   <div className="group overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#B591F2] to-[#98FFF9] p-px transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#B591F2]/30">
                     <div className="relative h-full w-full rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#3D186D] to-[#2A0D4E] cursor-pointer overflow-hidden" onClick={registerHandler}>
