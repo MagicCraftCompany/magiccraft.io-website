@@ -144,7 +144,7 @@ function Homepagemcrt() {
         <Header />
         <main className="-mt-[80px] md:-mt-[80px] scroll-smooth pb-20">
           {/*header*/}
-          <section className="md:min-h-screen relative lg:h-[800px] h-[900px] bg-cover bg-center overflow-hidden">
+          <section className="md:min-h-screen relative h-[750px] sm:h-[820px] lg:h-[800px] bg-cover bg-center overflow-hidden">
             <video
               className="absolute inset-0 h-full w-full object-cover scale-105"
               autoPlay
@@ -186,25 +186,25 @@ function Homepagemcrt() {
                           loading="eager"
                           className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto drop-shadow-xl"
                         />
-                    </div>
+                  </div>
                     <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient">
                       $MCRT THE CURRENCY OF GAMING
                     </div>
-                  </h1>
+                </h1>
                 </div>
               </div>
-            </div>
-            
+              </div>
+           
             {/* Download row moved below hero */}
           </section>
 
           {/* Download banner just below hero */}
           <div className="w-full bg-gradient-to-b from-[#0a0524] to-[#050317] relative z-10">
             <div className="mx-auto max-w-screen-xl px-4 py-2 md:py-4">
-              <MagicraftDownload/>
+               <MagicraftDownload/>
             </div>
-          </div>
-
+             </div>
+           
           <section className="relative h-auto min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#020418] via-[#0A0424] to-[#1a0d2e]"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
@@ -236,29 +236,29 @@ function Homepagemcrt() {
                     <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
                       <svg className="w-4 h-4 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.09 6.26H20l-5.17 3.76L16.91 18 12 14.73 7.09 18l2.08-5.98L4 8.26h5.91L12 2z"/></svg>
                       <span className="text-xs md:text-sm">$MCRT: Currency of Gaming</span>
-                    </div>
+                </div>
                     <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
                       <svg className="w-4 h-4 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zm-1 5h2v5h4v2h-6V8z"/></svg>
                       <span className="text-xs md:text-sm">Prediction Markets</span>
-                    </div>
+                </div>
                     <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
                       <svg className="w-4 h-4 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 14h-2v-2h2v2zm0-4h-2V6h2v6z"/></svg>
                       <span className="text-xs md:text-sm">AI Gameplay Tech</span>
-                    </div>
+              </div>
                     <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
                       <svg className="w-4 h-4 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M6 8h12v8H6V8zm-2 8h16v2H4v-2zm2-10h12v2H6V6z"/></svg>
                       <span className="text-xs md:text-sm">Core MOBA Game</span>
-                    </div>
+                            </div>
                     <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
                       <svg className="w-4 h-4 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                       <span className="text-xs md:text-sm">200k+ Social Followers</span>
-                    </div>
+                          </div>
                     <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
                       <svg className="w-4 h-4 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 11.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
                       <span className="text-xs md:text-sm">17,500+ Token Holders</span>
-                    </div>
-                  </div>
-                </div>
+                            </div>
+                            </div>
+                            </div>
                 <div className="flex w-full justify-center">
                   <button
                     onClick={registerHandler}
@@ -266,9 +266,9 @@ function Homepagemcrt() {
                   >
                     <span className="relative z-10">Register Now</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#7de6df] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                  </button>
-                </div>
-              </div>
+                          </button>
+                            </div>
+                          </div>
               
               <div className="hidden lg:block animate-fade-in">
                 <div className="relative">
@@ -279,24 +279,24 @@ function Homepagemcrt() {
                         <svg className="w-8 h-8 text-[#03082F]" fill="currentColor" viewBox="0 0 24 24">
                           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
-                      </div>
+                            </div>
                       <h4 className="text-xl font-bold text-white">Join Thousands of Players</h4>
                       <p className="text-gray-300">Earn MCRT tokens daily through competitive gameplay</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                            </div>
+                            </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
         </section>
 
         <section className="relative py-12 md:py-16">
           <div className="mx-auto w-11/12 max-w-screen-xl">
             <Testimonial />
-          </div>
-        </section>
-
-        <section id="gameplay">
+            </div>
+          </section>
+          
+         <section id="gameplay">
           <GamePlay />
         </section>
 
@@ -312,26 +312,26 @@ function Homepagemcrt() {
                     <div className="relative space-y-4 md:space-y-6 px-4 md:px-8 pb-6 md:pb-8 pt-4 md:pt-6">
                       <div className="text-center space-y-3 md:space-y-4">
                         <h3 className="font-serif text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent leading-tight">
-                          BUILD GAMES WITH GAME MAKER
-                        </h3>
+                    BUILD GAMES WITH GAME MAKER
+                  </h3>
                         <p className="text-base md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
                           Like Roblox, create your own games and maps! Earn <span className="text-[#98FFF9] font-bold">$MCRT tokens</span> for every player who enjoys your creations. 
                           Build, share, and monetize your gaming ideas in the MagicCraft ecosystem.
                         </p>
-                      </div>
+                </div>
                       
                       <div className="relative h-auto">
-                  {/* Desktop/tablet banner - horizontal */}
-                  <img
-                    src="http://res.cloudinary.com/dfzcr2ch4/image/upload/v1753800048/rksbqhjxphkaeoooqolq.webp"
-                    alt="Game Maker banner"
+                      {/* Desktop/tablet banner - horizontal */}
+                      <img
+                        src="http://res.cloudinary.com/dfzcr2ch4/image/upload/v1753800048/rksbqhjxphkaeoooqolq.webp"
+                        alt="Game Maker banner"
                     className="hidden md:block w-full h-auto object-cover rounded-xl md:rounded-2xl shadow-2xl"
                     loading="lazy"
-                  />
-                  {/* Mobile banner - vertical */}
-                  <img
-                    src="http://res.cloudinary.com/dfzcr2ch4/image/upload/v1754042773/vtnxmvnugebfblvkabwk.webp"
-                    alt="Game Maker banner"
+                      />
+                      {/* Mobile banner - vertical */}
+                      <img
+                        src="http://res.cloudinary.com/dfzcr2ch4/image/upload/v1754042773/vtnxmvnugebfblvkabwk.webp"
+                        alt="Game Maker banner"
                     className="block md:hidden w-full h-auto object-cover rounded-xl shadow-2xl"
                     loading="lazy"
                   />
@@ -340,8 +340,8 @@ function Homepagemcrt() {
                   <div className="absolute inset-0 flex flex-col justify-end items-end p-3 md:p-6 lg:p-8 xl:p-12 pointer-events-none">
                     <div className="space-y-3 md:space-y-4 text-right bg-black/60 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-[#98FFF9]/20 shadow-2xl max-w-[280px] md:max-w-none pointer-events-auto">
                       <h1 className="font-serif text-lg md:text-xl lg:text-2xl font-bold text-white">
-                        GAME MAKER
-                      </h1>
+                          GAME MAKER
+                        </h1>
                       <div className="text-xs md:text-sm text-gray-200 space-y-1 md:space-y-2 max-w-[200px] md:max-w-[250px]">
                         <p className="flex items-center gap-2">
                           <span className="text-[#98FFF9]">•</span> Create games like Roblox
@@ -375,15 +375,15 @@ function Homepagemcrt() {
               <div className="relative space-y-6 md:space-y-8 px-6 md:px-10 pb-8 md:pb-12 pt-6 md:pt-10">
                 <div className="text-center space-y-3 md:space-y-4">
                   <h5 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent leading-tight drop-shadow-lg">
-                    JOIN THE ACTION, EARN MCRT
-                  </h5>
+                  JOIN THE ACTION, EARN MCRT
+                </h5>
                   <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
-                    Jump into MagicCraft matches and compete to win MCRT. Showcase
+                  Jump into MagicCraft matches and compete to win MCRT. Showcase
                     your skills, claim your rewards, and rise through the ranks.
-                    Start your journey to gaming glory now!
-                  </p>
-                </div>
-                
+                  Start your journey to gaming glory now!
+                </p>
+                        </div>
+
                 <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
                   {/* Register Card */}
                   <div className="group overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#B591F2] to-[#98FFF9] p-px transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#B591F2]/30">
@@ -437,34 +437,34 @@ function Homepagemcrt() {
                           <h4 className="font-serif text-xl md:text-2xl lg:text-3xl font-bold">
                             <span className="text-[#FFB649]">DOWNLOAD</span>
                             <br /> THE GAME
-                          </h4>
+                      </h4>
                         </div>
 
                         <div className="grid grid-cols-3 gap-3 md:gap-4">
                           <button
                             className="group/btn flex flex-col items-center p-3 md:p-4 rounded-xl md:rounded-2xl bg-black/30 hover:bg-black/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#FFB649]/20 border border-[#FFB649]/20 hover:border-[#FFB649]/40"
-                            onClick={playonsteamHandler}
-                          >
+                          onClick={playonsteamHandler}
+                        >
                             <img src={steam} className="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3" alt="Steam Icon" loading="lazy" />
                             <span className="text-xs md:text-sm font-medium text-white">Steam</span>
                           </button>
 
                           <button
                             className="group/btn flex flex-col items-center p-3 md:p-4 rounded-xl md:rounded-2xl bg-black/30 hover:bg-black/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#FFB649]/20 border border-[#FFB649]/20 hover:border-[#FFB649]/40"
-                            onClick={playonappleHandler}
-                          >
+                          onClick={playonappleHandler}
+                        >
                             <img src={AppleIcon} className="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3" alt="Apple Icon" loading="lazy" />
                             <span className="text-xs md:text-sm font-medium text-white">App Store</span>
                           </button>
 
                           <button
                             className="group/btn flex flex-col items-center p-3 md:p-4 rounded-xl md:rounded-2xl bg-black/30 hover:bg-black/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#FFB649]/20 border border-[#FFB649]/20 hover:border-[#FFB649]/40"
-                            onClick={getfromgoogleHandler}
-                          >
+                          onClick={getfromgoogleHandler}
+                        >
                             <img src="/icons/icon-playstore.svg" className="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3" alt="Google Play Icon" loading="lazy" />
                             <span className="text-xs md:text-sm font-medium text-white">Google Play</span>
                           </button>
-                        </div>
+                      </div>
                       </div>
                       <div className="absolute -bottom-8 md:-bottom-10 right-3 bg-gradient-to-b from-white/15 to-transparent bg-clip-text font-serif text-5xl md:text-7xl lg:text-8xl leading-none text-transparent group-hover:from-white/20 transition-all duration-300">
                         2
@@ -644,8 +644,8 @@ function Homepagemcrt() {
           <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl space-y-8 md:space-y-12 mb-[50px] min-h-screen">
             <div className="text-center space-y-4 md:space-y-6">
               <h2 className="text-balance bg-gradient-to-b from-white via-[#98FFF9] to-[#B591F2] bg-clip-text text-center font-serif text-3xl md:text-4xl lg:text-5xl text-transparent drop-shadow-xl leading-tight">
-                Join the MagicCraft Ecosystem
-              </h2>
+            Join the MagicCraft Ecosystem
+            </h2>
               <p className="text-base md:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
                 Join us in shaping the future of gaming with MCRT, the cornerstone currency of the gaming world.
               </p>
@@ -677,7 +677,7 @@ function Homepagemcrt() {
                           </div>
                           <h4 className="font-serif text-lg md:text-xl font-bold text-[#8EFF49]">
                             MCRT Integration
-                          </h4>
+                      </h4>
                         </div>
                         <p className="text-sm md:text-base text-gray-200 leading-relaxed">
                           Enhance your gaming experience with seamless MCRT token integration. Earn, spend, and trade within the MagicCraft universe.
@@ -812,8 +812,8 @@ function Homepagemcrt() {
                   </div>
                   <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent to-white/20" />
                 </div>
+                </div>
               </div>
-            </div>
           </section>
           {/*our team */}
           <div className="h-auto bg-[#020418] p-10" id="team">

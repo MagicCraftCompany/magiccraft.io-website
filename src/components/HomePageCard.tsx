@@ -180,12 +180,12 @@ export default function MagicraftDownload() {
   }
 
   return (
-    <div className="mx-1 sm:mx-2 flex flex-col lg:flex-row items-center justify-center gap-1 sm:gap-2 lg:gap-2 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2">
+    <div className="mx-1 sm:mx-2 flex flex-col lg:flex-row items-center justify-center gap-1 sm:gap-2 lg:gap-2 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 -mt-2 sm:-mt-3">
       <div className="relative mx-auto w-full max-w-5xl lg:mx-0 lg:mt-[25px] lg:max-w-[800px]">
         <div className="rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
             <div className="flex items-center justify-center">
-              <div className="m-3 lg:m-6 flex items-center gap-[12px] lg:gap-[20px] overflow-x-auto">
+              <div className="m-2 sm:m-3 lg:m-6 flex items-center gap-[12px] lg:gap-[20px] overflow-x-auto">
                 {platforms.map((platform, index) => (
                   <div
                     key={platform.name}
