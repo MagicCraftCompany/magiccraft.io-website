@@ -31,6 +31,7 @@ const mcrtLogo = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(16)
   const [currentSlide, setCurrentSlide] = useState(0)
+  const TOTAL_SLIDES = 3
 
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
@@ -43,13 +44,12 @@ function Homepagemcrt() {
     
     if (!slides || !dots.length) return
 
-    const totalSlides = 3
     let autoPlayInterval: NodeJS.Timeout
 
     const goToSlide = (slideIndex: number) => {
       setCurrentSlide(slideIndex)
       // Move by a fraction of the full width based on total slides
-      slides.style.transform = `translateX(-${(slideIndex * 100) / totalSlides}%)`
+      slides.style.transform = `translateX(-${(slideIndex * 100) / TOTAL_SLIDES}%)`
       
       // Update dots
       dots.forEach((dot, index) => {
@@ -62,7 +62,7 @@ function Homepagemcrt() {
     }
 
     const nextSlide = () => {
-      const next = (currentSlide + 1) % totalSlides
+      const next = (currentSlide + 1) % TOTAL_SLIDES
       goToSlide(next)
     }
 
@@ -200,7 +200,7 @@ function Homepagemcrt() {
       </Helmet>
       <div className="min-h-dvh w-full text-white">
         <Header />
-        <main className="-mt-[80px] md:-mt-[80px] scroll-smooth pb-20">
+        <main className="md:-mt-[80px] scroll-smooth pb-20">
           {/*header*/}
           <section className="md:min-h-screen relative h-[750px] sm:h-[820px] lg:h-[800px] bg-cover bg-center overflow-hidden">
             <video
@@ -346,9 +346,9 @@ function Homepagemcrt() {
                     {/* Gameplay Footage Carousel */}
                     <div className="relative w-full">
                       <div className="gameplay-carousel overflow-hidden rounded-xl bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] h-[220px] md:h-[260px] lg:h-[300px]">
-                        <div className="gameplay-slides flex h-full transition-transform duration-500 ease-in-out" id="gameplaySlides" style={{ width: `${totalSlides * 100}%` }}>
+                        <div className="gameplay-slides flex h-full transition-transform duration-500 ease-in-out" id="gameplaySlides" style={{ width: `${TOTAL_SLIDES * 100}%` }}>
                           {/* Slide 1 - Battle Image A */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / totalSlides}%`, width: `${100 / totalSlides}%` }}>
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / TOTAL_SLIDES}%`, width: `${100 / TOTAL_SLIDES}%` }}>
                             <div className="relative overflow-hidden h-full">
                               <img 
                                 src={battleOne}
@@ -368,7 +368,7 @@ function Homepagemcrt() {
                             </div>
 
                           {/* Slide 2 - Legendary Battle 2 */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / totalSlides}%`, width: `${100 / totalSlides}%` }}>
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / TOTAL_SLIDES}%`, width: `${100 / TOTAL_SLIDES}%` }}>
                             <div className="relative overflow-hidden h-full">
                               <img 
                                 src={battleTwo}
@@ -388,7 +388,7 @@ function Homepagemcrt() {
                     </div>
 
                           {/* Slide 3 - Legendary Battle 3 */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / totalSlides}%`, width: `${100 / totalSlides}%` }}>
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / TOTAL_SLIDES}%`, width: `${100 / TOTAL_SLIDES}%` }}>
                             <div className="relative overflow-hidden h-full">
                               <img 
                                 src={battleThree}
