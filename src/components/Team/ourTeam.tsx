@@ -202,7 +202,7 @@ export const ourteam = [
   },
   {
     name: 'Mansi',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Mansi&backgroundType=gradientLinear&radius=50',
     work: 'Marketing',
     category: 'Team',
     socialicons: [],
@@ -224,7 +224,7 @@ export const ourteam = [
  
   {
     name: 'Mika',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Mika&backgroundType=gradientLinear&radius=50',
     work: 'Marketing',
     category: 'Team',
     socialicons: [],
@@ -232,7 +232,7 @@ export const ourteam = [
 
   {
     name: 'Alex',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Alex%20Tech&backgroundType=gradientLinear&radius=50',
     work: 'Tech',
     category: 'Team',
     socialicons: [],
@@ -240,7 +240,7 @@ export const ourteam = [
 
   {
     name: 'Emanual',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Emanual&backgroundType=gradientLinear&radius=50',
     work: 'Community & Socials',
     category: 'Team',
     socialicons: [],
@@ -248,7 +248,7 @@ export const ourteam = [
 
   {
     name: 'Timea',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Timea&backgroundType=gradientLinear&radius=50',
     work: 'Unity Designer',
     category: 'Team',
     socialicons: [],
@@ -256,7 +256,7 @@ export const ourteam = [
 
   {
     name: 'Ania',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Ania&backgroundType=gradientLinear&radius=50',
     work: 'AI Video Creator',
     category: 'Team',
     socialicons: [],
@@ -264,7 +264,7 @@ export const ourteam = [
 
   {
     name: 'Vo',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Vo&backgroundType=gradientLinear&radius=50',
     work: 'AI Video Creator',
     category: 'Team',
     socialicons: [],
@@ -272,7 +272,7 @@ export const ourteam = [
 
   {
     name: 'Hassan',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Hassan%20Dev&backgroundType=gradientLinear&radius=50',
     work: 'Unity & Web3 Developer',
     category: 'Team',
     socialicons: [],
@@ -280,7 +280,7 @@ export const ourteam = [
 
   {
     name: 'Ihor',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Ihor%20Web3&backgroundType=gradientLinear&radius=50',
     work: 'Web3 Developer',
     category: 'Team',
     socialicons: [],
@@ -288,7 +288,7 @@ export const ourteam = [
 
   {
     name: 'Dymtry',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Dymtry%20QA&backgroundType=gradientLinear&radius=50',
     work: 'QA',
     category: 'Team',
     socialicons: [],
