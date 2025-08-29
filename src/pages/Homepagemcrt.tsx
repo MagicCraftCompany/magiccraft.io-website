@@ -20,6 +20,7 @@ import Testimonial from '@/components/ui/testimonial'
 import Partners from '@/components/Partners/Partners'
 
 import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
 
 
 function Homepagemcrt() {
@@ -347,15 +348,13 @@ function Homepagemcrt() {
                           <span className="text-[#B591F2]">•</span> Monetize your creativity
                         </p>
                       </div>
-                      <a 
-                        href="https://magiccraft.io/game-maker" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                      <Link 
+                        to="/build-on-magiccraft" 
                         className="group inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-[#98FFF9] to-[#7de6df] text-[#03082F] px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-bold transition-all hover:from-[#7de6df] hover:to-[#98FFF9] hover:shadow-lg hover:shadow-[#98FFF9]/25 hover:scale-105 text-sm md:text-base"
                       >
                         Start Building
                         <ArrowUpRight className="h-3 w-3 md:h-4 md:w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

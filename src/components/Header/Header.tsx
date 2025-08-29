@@ -9,7 +9,7 @@ import Referral from'@/assets/icons/Referral.svg'
 import Whitepaper from '@/assets/icons/whitepaper.svg'
 import lobby from '@/assets/icons/lobby.svg'
 import service from '@/assets/icons/li_shopping-bag.svg'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import bybit from '@/assets/icons/icon-bybit.svg'
 import marketplace from '@/assets/icons/icon-marketplace.svg'
 import leaderboard from '@/assets/icons/icon-leaderboard.svg'
@@ -244,9 +244,9 @@ const Header = () => {
         <header className="relative z-50 w-full bg-[#431269B2] backdrop-blur-md">
         <nav className="flex items-center justify-between h-16 md:h-[70px]">
           <div className="grid shrink-0 place-items-center self-stretch px-3 md:px-6 lg:px-8">
-            <a href="/" rel="noreferrer noopener" className="h-full flex items-center">
+            <Link to="/" className="h-full flex items-center">
               <img className="w-32 sm:w-36 md:w-40 lg:w-48" src={mcLogo} alt="MagicCraft" />
-            </a>
+            </Link>
           </div>
 
           <div className="flex w-full items-center justify-end gap-3 md:gap-6 lg:gap-8 px-4 md:px-6 xl:justify-between">
@@ -259,11 +259,19 @@ const Header = () => {
                  
                   />
                 ) : (
-                  <a key={item.title} href={item.path || '/'}>
-                    <div className="flex items-center justify-center gap-1 md:gap-2">
-                      <p className="text-[13px] text-white whitespace-nowrap md:text-[5px] xl:text-base">{item.title}</p>
-                    </div>
-                  </a>
+                  item.path?.startsWith('http') ? (
+                    <a key={item.title} href={item.path} rel="noreferrer noopener">
+                      <div className="flex items-center justify-center gap-1 md:gap-2">
+                        <p className="text-[13px] text-white whitespace-nowrap md:text-[5px] xl:text-base">{item.title}</p>
+                      </div>
+                    </a>
+                  ) : (
+                    <Link key={item.title} to={item.path || '/'}>
+                      <div className="flex items-center justify-center gap-1 md:gap-2">
+                        <p className="text-[13px] text-white whitespace-nowrap md:text-[5px] xl:text-base">{item.title}</p>
+                      </div>
+                    </Link>
+                  )
                 )
               )}
             </div>
@@ -364,18 +372,32 @@ const Header = () => {
                      
                       />
                     ) : (
-                      <a
-                        key={item.title}
-                        onClick={closeSidebar}
-                        href={item.path || '/'}
-                        rel="noreferrer noopener"
-                      >
-                        <div className="flex items-center gap-2">
-                          <p className="text-[22px] font-normal">
-                            {item.title}
-                          </p>
-                        </div>
-                      </a>
+                      item.path?.startsWith('http') ? (
+                        <a
+                          key={item.title}
+                          onClick={closeSidebar}
+                          href={item.path}
+                          rel="noreferrer noopener"
+                        >
+                          <div className="flex items-center gap-2">
+                            <p className="text-[22px] font-normal">
+                              {item.title}
+                            </p>
+                          </div>
+                        </a>
+                      ) : (
+                        <Link
+                          key={item.title}
+                          onClick={closeSidebar}
+                          to={item.path || '/'}
+                        >
+                          <div className="flex items-center gap-2">
+                            <p className="text-[22px] font-normal">
+                              {item.title}
+                            </p>
+                          </div>
+                        </Link>
+                      )
                     )
                   )}
                 </div>

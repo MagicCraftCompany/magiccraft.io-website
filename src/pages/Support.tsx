@@ -161,7 +161,6 @@ export default function FAQ() {
                               <Link
                                 className="bg-gradient-to-br from-[#9AD4FD] to-[#8DC4FE70] bg-clip-text text-transparent underline decoration-[#8DC4FE70]"
                                 to="/terms"
-                                target="_blank"
                               >
                                 Terms and Conditions
                               </Link>
