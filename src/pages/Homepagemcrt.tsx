@@ -487,14 +487,28 @@ function Homepagemcrt() {
 
           {/* Token Info: $BNB and $MCRT */}
           <section className="section-padding relative mx-auto w-11/12 max-w-screen-xl">
+            {/* Enhanced background effects */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#98FFF9]/3 to-transparent rounded-3xl"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#B591F2]/10 rounded-full blur-3xl"></div>
+            
             {/* Section Header */}
-            <div className="text-center mb-12 md:mb-16">
-              <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent mb-4">
-                DUAL TOKEN ECOSYSTEM
-              </h3>
-              <p className="text-body-large text-gray-300 max-w-3xl mx-auto">
-                Experience the power of two tokens: earn $MCRT through gameplay and compete for $BNB rewards in our exclusive lobbies
+            <div className="relative text-center mb-16 md:mb-20">
+              <div className="inline-flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#98FFF9] to-[#B591F2] flex items-center justify-center shadow-lg">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
+                  DUAL TOKEN ECOSYSTEM
+                </h3>
+              </div>
+              <p className="text-body-large text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                Experience the power of two tokens: earn <span className="text-[#98FFF9] font-semibold">$MCRT</span> through gameplay and compete for <span className="text-[#F3BA2F] font-semibold">$BNB</span> rewards in our exclusive lobbies
               </p>
+              <div className="mt-6 flex justify-center">
+                <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent"></div>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -622,31 +636,65 @@ function Homepagemcrt() {
                     </div>
                   </div>
 
-                  {/* Price widgets */}
-                  <div className="mb-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <h5 className="text-sm font-semibold text-white/90">Live $MCRT Price & Chart</h5>
-                      <span className="text-xs text-white/50">Auto-updating</span>
+                  {/* Enhanced Price widgets section */}
+                  <div className="mb-8">
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#98FFF9] to-[#B591F2] flex items-center justify-center">
+                          <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M13 9V3.5L18.5 9M6 2c-1.11 0-2 .89-2 2v16c0 1.11.89 2 2 2h12c1.11 0 2-.89 2-2V10L14 4H6z"/>
+                          </svg>
+                        </div>
+                        <h5 className="text-lg font-bold bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">Live $MCRT Data</h5>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-[#98FFF9] rounded-full animate-pulse"></div>
+                        <span className="text-xs text-[#98FFF9]/80 font-medium">Real-time</span>
+                      </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="widget-card">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                      <div className="widget-card group hover:scale-[1.02] transition-all duration-300">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#98FFF9]/5 to-[#B591F2]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-ticker-widget>
                       </div>
-                      <div className="widget-card">
+                      <div className="widget-card group hover:scale-[1.02] transition-all duration-300">
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#98FFF9]/5 to-[#B591F2]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                         <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="240" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-price-chart-widget>
                       </div>
                     </div>
                   </div>
 
-                  {/* Action buttons */}
-                  <div className="flex gap-3 flex-wrap justify-center md:justify-start">
-                    <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noopener noreferrer" className="btn-secondary text-small flex-1 min-w-[140px] text-center">
-                      View on CMC
-                    </a>
-                    <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="btn-primary text-small flex-1 min-w-[140px] text-center">
-                      Trade on Bybit
-                    </a>
+                  {/* Enhanced Action buttons */}
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-2 mb-3">
+                      <svg className="w-4 h-4 text-[#98FFF9]" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                      <span className="text-sm font-medium text-white/90">Get Started with $MCRT</span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noopener noreferrer" 
+                         className="group relative overflow-hidden rounded-xl border border-[#98FFF9]/30 bg-gradient-to-r from-[#98FFF9]/10 to-[#B591F2]/10 px-6 py-4 text-center transition-all duration-300 hover:border-[#98FFF9]/50 hover:shadow-lg hover:shadow-[#98FFF9]/20">
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="relative flex items-center justify-center gap-2">
+                          <svg className="w-4 h-4 text-[#98FFF9]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                          </svg>
+                          <span className="text-sm font-medium text-white">View on CMC</span>
+                        </div>
+                      </a>
+                      <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" 
+                         className="group relative overflow-hidden rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-6 py-4 text-center transition-all duration-300 hover:shadow-lg hover:shadow-[#98FFF9]/30 hover:scale-105">
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="relative flex items-center justify-center gap-2">
+                          <svg className="w-4 h-4 text-[#03082F]" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M7 14l5-5 5 5z"/>
+                          </svg>
+                          <span className="text-sm font-bold text-[#03082F]">Trade on Bybit</span>
+                        </div>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
