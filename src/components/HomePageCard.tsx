@@ -372,7 +372,9 @@ export default function MagicraftDownload() {
                       animate={{ opacity: 1, y: 0, scale: 1 }} 
                       exit={{ opacity: 0, y: 10, scale: 0.95 }} 
                       transition={{ duration: 0.3, ease: 'easeOut' }} 
-                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 z-[9999] w-80 max-w-[90vw]"
+                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 z-[10000] w-80 max-w-[90vw] pointer-events-auto"
+                      onMouseEnter={() => setHoveredLobby(key)}
+                      onMouseLeave={() => setHoveredLobby(null)}
                       style={{ zIndex: 9999 }}
                     >
                       <div className="relative bg-gradient-to-br from-[#1a0d2e]/98 to-[#2a0d4e]/98 border-2 border-[#98FFF9]/60 rounded-2xl p-6 shadow-2xl backdrop-blur-xl">
