@@ -357,13 +357,7 @@ function Homepagemcrt() {
                                 loading="lazy"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                              <div className="absolute bottom-4 left-4 right-4">
-                                <h5 className="text-white font-bold text-base mb-2">Legendary Battles</h5>
-                                <p className="text-white/90 text-sm">Epic team clashes • Ultimate abilities unleashed</p>
-                            </div>
-                              <div className="absolute top-4 right-4">
-                                <span className="bg-gradient-to-r from-[#FFB649] to-[#FF8C42] text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">LEGENDARY</span>
-                            </div>
+                              {/* removed overlay text/badges */}
                             </div>
                             </div>
 
@@ -377,13 +371,7 @@ function Homepagemcrt() {
                                 loading="lazy"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                              <div className="absolute bottom-4 left-4 right-4">
-                                <h5 className="text-white font-bold text-base mb-2">Epic Showdowns</h5>
-                                <p className="text-white/90 text-sm">Legendary battles • Ultimate abilities</p>
-                          </div>
-                              <div className="absolute top-4 right-4">
-                                <span className="bg-gradient-to-r from-[#FFB649] to-[#FF8C42] text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">LEGENDARY</span>
-                        </div>
+                              {/* removed overlay text/badges */}
                       </div>
                     </div>
 
@@ -397,13 +385,7 @@ function Homepagemcrt() {
                                 loading="lazy"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                              <div className="absolute bottom-4 left-4 right-4">
-                                <h5 className="text-white font-bold text-base mb-2">Massive Clashes</h5>
-                                <p className="text-white/90 text-sm">Large-scale warfare • Strategic dominance</p>
-                            </div>
-                              <div className="absolute top-4 right-4">
-                                <span className="bg-gradient-to-r from-[#B591F2] to-[#9C88FF] text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">WARFARE</span>
-                          </div>
+                              {/* removed overlay text/badges */}
                             </div>
                             </div>
                             </div>
