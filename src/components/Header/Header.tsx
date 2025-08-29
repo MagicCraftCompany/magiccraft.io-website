@@ -262,13 +262,13 @@ const Header = () => {
                   item.path?.startsWith('http') ? (
                     <a key={item.title} href={item.path} rel="noreferrer noopener">
                       <div className="flex items-center justify-center gap-1 md:gap-2">
-                        <p className="text-[13px] text-white whitespace-nowrap md:text-[5px] xl:text-base">{item.title}</p>
+                        <p className="text-xs md:text-sm lg:text-sm xl:text-base text-white whitespace-nowrap font-medium">{item.title}</p>
                       </div>
                     </a>
                   ) : (
                     <Link key={item.title} to={item.path || '/'}>
                       <div className="flex items-center justify-center gap-1 md:gap-2">
-                        <p className="text-[13px] text-white whitespace-nowrap md:text-[5px] xl:text-base">{item.title}</p>
+                        <p className="text-xs md:text-sm lg:text-sm xl:text-base text-white whitespace-nowrap font-medium">{item.title}</p>
                       </div>
                     </Link>
                   )
@@ -281,15 +281,15 @@ const Header = () => {
                   href="https://lobby.magiccraft.io/"
                   rel="noreferrer noopener"
                 >
-                  <div className="flex w-full items-center justify-center gap-1 md:gap-2 rounded-lg bg-gray-800/40 border border-gray-600/30 hover:bg-gray-700/40 transition-all duration-200 px-4 py-2 text-white">
-                    <p className="text-sm md:text-base font-medium">Play</p>
+                  <div className="flex w-full items-center justify-center gap-2 rounded-full bg-white/10 border border-white/20 hover:bg-white/15 transition-all duration-200 px-4 md:px-5 py-2 md:py-2.5 text-white shadow-sm hover:shadow">
+                    <p className="text-sm md:text-base font-semibold">Play</p>
                   </div>
                 </a>
               </button>
               
               <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap">
-                <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800/40 border border-gray-600/30 hover:bg-gray-700/40 transition-all duration-200">
-                  <p className="text-sm md:text-base font-medium text-white">
+                <div className="flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-white/10 border border-white/20 hover:bg-white/15 transition-all duration-200 text-white shadow-sm hover:shadow">
+                  <p className="text-sm md:text-base font-semibold text-white">
                     Shop
                   </p>
                 </div>
@@ -297,9 +297,9 @@ const Header = () => {
 
               <button
                 onClick={handleBuyMCRT}
-                className="flex cursor-pointer items-center gap-1 whitespace-nowrap px-4 py-1.5 md:py-2 rounded-lg bg-[#98FFF9] hover:bg-[#98FFF9]/90 transition-all duration-200 text-[#03082F] mr-2 md:ml-0"
+                className="flex cursor-pointer items-center gap-2 whitespace-nowrap px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] text-[#03082F] font-bold shadow-lg hover:shadow-xl hover:opacity-95 transition-all duration-200 mr-2 md:ml-0"
               >
-                <p className="text-sm md:text-base font-medium">Buy $MCRT</p>
+                <p className="text-sm md:text-base">Buy $MCRT</p>
               </button>
               <button
                 onClick={openSidebar}
