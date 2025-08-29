@@ -142,7 +142,7 @@ function Homepagemcrt() {
       </Helmet>
       <div className="min-h-dvh w-full text-white">
         <Header />
-        <main className="-mt-[80px] md:-mt-[80px] scroll-smooth pb-32">
+        <main className="-mt-[80px] md:-mt-[80px] scroll-smooth pb-20">
           {/*header*/}
           <section className="md:min-h-screen relative lg:h-[800px] h-[900px] bg-cover bg-center overflow-hidden">
             <video
@@ -167,7 +167,7 @@ function Homepagemcrt() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
             
             <div className="relative z-10 mx-auto max-w-screen-xl h-full">
-              <div className="grid h-full w-full grid-cols-1 place-items-center justify-end gap-2 sm:gap-4 md:gap-6 pt-8 sm:pt-12 md:pt-16 lg:pt-20 pb-16 sm:pb-20 md:pb-24 lg:pb-32">
+              <div className="grid h-full w-full grid-cols-1 place-items-center justify-end gap-2 sm:gap-4 md:gap-6 pt-6 sm:pt-10 md:pt-14 lg:pt-16 pb-10 sm:pb-14 md:pb-16 lg:pb-20">
                 <div className="w-full max-w-[20%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-8 md:mt-12">
                   <img
                     src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp"
@@ -259,7 +259,7 @@ function Homepagemcrt() {
                     </div>
                   </div>
                 </div>
-                <div className="flex w-full justify-center md:justify-start">
+                <div className="flex w-full justify-center">
                   <button
                     onClick={registerHandler}
                     className="group rounded-xl md:rounded-2xl border-2 border-[#98FFF9] px-8 md:px-10 py-4 md:py-5 font-bold text-[#98FFF9] text-lg md:text-xl transition-all duration-300 hover:bg-[#98FFF9] hover:text-[#03082F] hover:shadow-lg hover:shadow-[#98FFF9]/30 hover:scale-105 min-h-[52px] min-w-[160px] relative overflow-hidden"
@@ -299,6 +299,11 @@ function Homepagemcrt() {
         <section id="gameplay">
           <GamePlay />
         </section>
+
+          {/* Exchanges/Partners elevated */}
+          <section className="relative mx-auto w-11/12 max-w-screen-xl mt-10 md:mt-14">
+            <Partners />
+          </section>
 
           {/* Game Maker Banner */}
           <section className="relative mx-auto w-11/12 max-w-screen-xl mb-4 md:mb-8 px-2 md:px-0">
@@ -1000,7 +1005,7 @@ function Homepagemcrt() {
 
          
 
-          <Partners />
+          {/* Partners already shown above for crypto-first visibility */}
         </main>
         <Footer  />
       </div>
