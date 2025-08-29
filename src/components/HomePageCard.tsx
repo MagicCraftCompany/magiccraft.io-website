@@ -211,47 +211,41 @@ export default function MagicraftDownload() {
   }
 
   return (
-    <div className="mx-1 sm:mx-2 flex flex-col lg:flex-row items-start justify-center gap-2 lg:gap-4 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 -mt-2 sm:-mt-3">
-      <div className="relative mx-auto w-full lg:flex-1 lg:mx-0 lg:mt-[25px] lg:max-w-none">
+    <div className="mx-1 sm:mx-2 flex flex-col lg:flex-row items-start justify-center gap-4 lg:gap-6 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 -mt-2 sm:-mt-3">
+      <div className="relative mx-auto w-full lg:flex-1 lg:mx-0 lg:mt-[25px] lg:max-w-md xl:max-w-lg">
         <div className="rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
-            <div className="flex items-center justify-center">
-              <div className="m-2 sm:m-3 lg:m-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4 lg:gap-5 overflow-x-hidden">
-                {platforms.map((platform, index) => (
-                  <div
+            {/* Platform Download Buttons */}
+            <div className="p-4 lg:p-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-4">
+                {platforms.map((platform) => (
+                  <a
                     key={platform.name}
-                    className={`flex items-center ${platform.name === 'Windows' ? 'hidden lg:flex' : ''}`}
+                    href={platform.href}
+                    className={`group flex flex-col items-center text-center transition-all duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-3 lg:p-4 rounded-xl bg-black/20 hover:bg-black/40 border border-transparent hover:border-[#B591F2]/30 hover:shadow-lg hover:shadow-[#B591F2]/20 ${platform.name === 'Windows' ? 'hidden xl:flex' : ''}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${platform.label} ${platform.sublabel}`}
                   >
-                    {index > 0 && (
-                      <div className="hidden lg:block mx-[12px] lg:mx-[16px] h-[4em] lg:h-[6em] w-[1px] lg:w-[2px] bg-gradient-to-t from-transparent via-[#9255E0] to-transparent" />
-                    )}
-                    <a
-                      href={platform.href}
-                      className="group flex flex-col items-center text-center transition-all duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] min-w-[80px] lg:min-w-[100px] p-2 lg:p-3 rounded-xl bg-black/20 hover:bg-black/40 border border-transparent hover:border-[#B591F2]/30 hover:shadow-lg hover:shadow-[#B591F2]/20"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`${platform.label} ${platform.sublabel}`}
-                    >
-                      <div className="mb-2 lg:mb-3 h-5 w-5 lg:h-7 lg:w-7 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg">
-                        <img
-                          src={platform.icon}
-                          alt={platform.name}
-                          className="h-full w-full object-contain"
-                          loading="lazy"
-                        />
-                      </div>
-                      <span className="text-xs lg:text-sm text-white/80 group-hover:text-white transition-colors duration-300 font-medium">{platform.label}</span>
-                      <span className="text-xs lg:text-sm font-bold text-white group-hover:text-[#FFB649] transition-colors duration-300">
-                        {platform.sublabel}
-                      </span>
-                    </a>
-                  </div>
+                    <div className="mb-2 h-6 w-6 lg:h-8 lg:w-8 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg">
+                      <img
+                        src={platform.icon}
+                        alt={platform.name}
+                        className="h-full w-full object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+                    <span className="text-xs text-white/80 group-hover:text-white transition-colors duration-300 font-medium">{platform.label}</span>
+                    <span className="text-xs font-bold text-white group-hover:text-[#FFB649] transition-colors duration-300">
+                      {platform.sublabel}
+                    </span>
+                  </a>
                 ))}
               </div>
             </div>
 
-            {/* Removed decorative exclamation mark for a cleaner look */}
-            <div className="mx-3 my-3 flex flex-wrap md:flex-nowrap justify-center gap-3 lg:gap-5 rounded-xl border border-[#B591F2]/30 bg-gradient-to-r from-[#6D3190]/80 to-[#642588]/80 py-3 lg:mx-12 lg:px-4 backdrop-blur-sm">
+            {/* Social Links */}
+            <div className="mx-4 mb-4 flex justify-center gap-2 lg:gap-3 rounded-xl border border-[#B591F2]/30 bg-gradient-to-r from-[#6D3190]/80 to-[#642588]/80 py-2 lg:py-3 backdrop-blur-sm">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -261,7 +255,7 @@ export default function MagicraftDownload() {
                   rel="noopener noreferrer"
                   aria-label={social.name}
                 >
-                  <div className="scale-75 lg:scale-100 transition-transform duration-300">
+                  <div className="scale-75 transition-transform duration-300">
                     {social.icon}
                   </div>
                 </a>
