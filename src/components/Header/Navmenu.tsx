@@ -8,53 +8,54 @@ const NavMenu = ({ item }: NavMenuProps) => {
   return (
     <div className="relative z-50">
       <div
-        className="flex cursor-pointer select-none items-center gap-1 py-2 text-white"
+        className="flex cursor-pointer select-none items-center gap-1 px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
         onMouseOver={() => setIsMenuOpen(true)}
         onMouseOut={() => setIsMenuOpen(false)}
       >
-        <span className="text-lg font-medium md:text-xs xl:text-base ">{item.title}</span>
+        <span className="text-sm lg:text-sm xl:text-base font-medium">{item.title}</span>
         <LuChevronDown
-          size={18}
-          // className={`transition-all ${isMenuOpen && 'rotate-180'}`}
+          size={16}
+          className={`transition-all duration-200 ${isMenuOpen ? 'rotate-180' : ''}`}
         />
       </div>
 
       <div
-        className={`absolute left-1/2 top-8 z-50 h-0 w-0 translate-x-1/2 border-8 border-x-transparent border-b-blue-950 border-l-transparent border-t-transparent  transition-all duration-300 ${
+        className={`absolute left-1/2 top-9 z-50 h-0 w-0 -translate-x-1/2 border-8 border-x-transparent border-b-[#1a0d2e] border-l-transparent border-t-transparent transition-all duration-300 ${
           isMenuOpen
             ? 'pointer-events-auto opacity-100'
-            : 'pointer-events-none  opacity-0'
+            : 'pointer-events-none opacity-0'
         }`}
         onMouseOver={() => setIsMenuOpen(true)}
         onMouseOut={() => setIsMenuOpen(false)}
       ></div>
 
       <div
-        className={`absolute left-0 top-11 z-50 rounded-2xl border border-blue-950 bg-[#11113A] text-white backdrop-blur-md backdrop-filter  transition-all duration-300 ${
+        className={`absolute left-0 top-12 z-50 rounded-2xl border border-white/20 bg-gradient-to-b from-[#1a0d2e]/95 to-[#2A0D4E]/95 text-white backdrop-blur-xl shadow-2xl transition-all duration-300 ${
           isMenuOpen
-            ? 'pointer-events-auto  opacity-100'
-            : 'pointer-events-none  opacity-0'
+            ? 'pointer-events-auto opacity-100 translate-y-0'
+            : 'pointer-events-none opacity-0 translate-y-2'
         }`}
         onMouseOver={() => setIsMenuOpen(true)}
         onMouseOut={() => setIsMenuOpen(false)}
       >
-        <div className="flex min-w-max flex-col items-start gap-y-4 whitespace-nowrap p-7">
+        <div className="flex min-w-max flex-col items-start gap-y-2 whitespace-nowrap p-6">
           {item.submenu.map((subItem) => {
             return (
               <a
                 href={subItem.path}
                 key={subItem.title}
                 rel="noreferrer noopener"
+                className="w-full group"
               >
-                <div className="flex h-full w-full cursor-pointer items-center gap-2">
-                  <div className="grid w-5 shrink-0 place-items-center">
+                <div className="flex h-full w-full cursor-pointer items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all duration-200">
+                  <div className="grid w-5 h-5 shrink-0 place-items-center">
                     <img
-                      className="max-w-full"
+                      className="w-full h-full object-contain"
                       src={subItem.icon}
                       alt={subItem.title}
                     />
                   </div>
-                  <p className="font-bold drop-shadow-md">{subItem.title}</p>
+                  <p className="font-semibold text-white/90 group-hover:text-white transition-colors duration-200">{subItem.title}</p>
                 </div>
               </a>
             )

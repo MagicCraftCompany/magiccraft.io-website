@@ -241,16 +241,16 @@ const Header = () => {
       {/* <header className="relative z-50 w-full px-3 py-4  md:px-4 md:py-5">
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
           <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 "> */}
-        <header className="relative z-50 w-full bg-[#431269B2] backdrop-blur-md">
-        <nav className="flex items-center justify-between h-16 md:h-[70px]">
-          <div className="grid shrink-0 place-items-center self-stretch px-3 md:px-6 lg:px-8">
-            <Link to="/" className="h-full flex items-center">
-              <img className="w-32 sm:w-36 md:w-40 lg:w-48" src={mcLogo} alt="MagicCraft" />
+        <header className="relative z-50 w-full bg-gradient-to-r from-[#431269]/95 via-[#2A0D4E]/95 to-[#431269]/95 backdrop-blur-xl border-b border-white/10 shadow-lg">
+        <nav className="flex items-center justify-between h-16 md:h-[72px] lg:h-[76px]">
+          <div className="grid shrink-0 place-items-center self-stretch px-4 md:px-6 lg:px-8">
+            <Link to="/" className="h-full flex items-center group">
+              <img className="w-32 sm:w-36 md:w-40 lg:w-48 transition-all duration-300 group-hover:scale-105 drop-shadow-lg" src={mcLogo} alt="MagicCraft" />
             </Link>
           </div>
 
-          <div className="flex w-full items-center justify-end gap-3 md:gap-6 lg:gap-8 px-4 md:px-6 xl:justify-between">
-            <div className="hidden items-center gap-3 md:gap-4 lg:gap-4 xl:flex">
+          <div className="flex w-full items-center justify-end gap-4 md:gap-6 lg:gap-8 px-4 md:px-6 xl:justify-between">
+            <div className="hidden items-center gap-4 md:gap-5 lg:gap-6 xl:flex">
               {commonMenuItemsNew.map((item) =>
                 item?.submenu?.length > 0 ? (
                   <NavMenu 
@@ -260,35 +260,35 @@ const Header = () => {
                   />
                 ) : (
                   item.path?.startsWith('http') ? (
-                    <a key={item.title} href={item.path} rel="noreferrer noopener">
-                      <div className="flex items-center justify-center gap-1 md:gap-2">
-                        <p className="text-xs md:text-sm lg:text-sm xl:text-base text-white whitespace-nowrap font-medium">{item.title}</p>
+                    <a key={item.title} href={item.path} rel="noreferrer noopener" className="group">
+                      <div className="flex items-center justify-center gap-1 md:gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-white/10">
+                        <p className="text-sm lg:text-sm xl:text-base text-white/90 group-hover:text-white whitespace-nowrap font-medium transition-colors duration-200">{item.title}</p>
                       </div>
                     </a>
                   ) : (
-                    <Link key={item.title} to={item.path || '/'}>
-                      <div className="flex items-center justify-center gap-1 md:gap-2">
-                        <p className="text-xs md:text-sm lg:text-sm xl:text-base text-white whitespace-nowrap font-medium">{item.title}</p>
+                    <Link key={item.title} to={item.path || '/'} className="group">
+                      <div className="flex items-center justify-center gap-1 md:gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-white/10">
+                        <p className="text-sm lg:text-sm xl:text-base text-white/90 group-hover:text-white whitespace-nowrap font-medium transition-colors duration-200">{item.title}</p>
                       </div>
                     </Link>
                   )
                 )
               )}
             </div>
-            <div className="flex items-center gap-2 md:gap-4">
-              <button className="hidden md:block">
+            <div className="flex items-center gap-3 md:gap-4">
+              <button className="hidden md:block group">
                 <a
                   href="https://lobby.magiccraft.io/"
                   rel="noreferrer noopener"
                 >
-                  <div className="flex w-full items-center justify-center gap-2 rounded-full bg-white/10 border border-white/20 hover:bg-white/15 transition-all duration-200 px-4 md:px-5 py-2 md:py-2.5 text-white shadow-sm hover:shadow">
+                  <div className="flex w-full items-center justify-center gap-2 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 px-4 md:px-5 py-2.5 md:py-3 text-white shadow-lg hover:shadow-xl backdrop-blur-sm">
                     <p className="text-sm md:text-base font-semibold">Play</p>
                   </div>
                 </a>
               </button>
               
-              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap">
-                <div className="flex items-center gap-2 px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-white/10 border border-white/20 hover:bg-white/15 transition-all duration-200 text-white shadow-sm hover:shadow">
+              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap group">
+                <div className="flex items-center gap-2 px-4 md:px-5 py-2.5 md:py-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 text-white shadow-lg hover:shadow-xl backdrop-blur-sm">
                   <p className="text-sm md:text-base font-semibold text-white">
                     Shop
                   </p>
@@ -297,16 +297,16 @@ const Header = () => {
 
               <button
                 onClick={handleBuyMCRT}
-                className="flex cursor-pointer items-center gap-2 whitespace-nowrap px-4 md:px-5 py-2 md:py-2.5 rounded-full bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] text-[#03082F] font-bold shadow-lg hover:shadow-xl hover:opacity-95 transition-all duration-200 mr-2 md:ml-0"
+                className="flex cursor-pointer items-center gap-2 whitespace-nowrap px-4 md:px-6 py-2.5 md:py-3 rounded-full bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] hover:from-[#B591F2] hover:to-[#98FFF9] text-[#03082F] font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 mr-2 md:ml-0"
               >
                 <p className="text-sm md:text-base">Buy $MCRT</p>
               </button>
               <button
                 onClick={openSidebar}
-                className="block shrink-0 xl:hidden"
+                className="block shrink-0 xl:hidden p-2 rounded-lg hover:bg-white/10 transition-all duration-200 group"
               >
                 <span className="sr-only">Open Menu</span>
-                <img src={menuIcon} alt="Open Menu" className="w-7 md:w-8" />
+                <img src={menuIcon} alt="Open Menu" className="w-6 md:w-7 group-hover:scale-110 transition-transform duration-200" />
               </button>
             </div>
           </div>
@@ -325,42 +325,46 @@ const Header = () => {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'keyframes' }}
-              className="fixed right-0 top-0 z-[999] h-full w-[90%] max-w-lg overflow-auto rounded-bl-xl border-l border-[#9AD4FD] bg-gradient-to-b from-[#161242] to-[#060b31] py-6 pl-10 pr-10 text-white"
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed right-0 top-0 z-[999] h-full w-[90%] max-w-lg overflow-auto rounded-bl-2xl border-l border-[#9AD4FD]/50 bg-gradient-to-b from-[#161242]/95 via-[#2A0D4E]/95 to-[#060b31]/95 backdrop-blur-xl py-6 pl-8 pr-8 text-white shadow-2xl"
             >
               <div className="flex h-full flex-col gap-4">
                 <div className="flex items-center justify-between">
-                  <span className="font-serif text-[22px]">Menu</span>
-                  <X
-                    className="cursor-pointer"
-                    size={35}
+                  <span className="font-serif text-[22px] bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">Menu</span>
+                  <button
+                    className="p-2 rounded-lg hover:bg-white/10 transition-all duration-200 group"
                     onClick={closeSidebar}
-                  />
+                  >
+                    <X
+                      className="cursor-pointer group-hover:rotate-90 transition-transform duration-200"
+                      size={28}
+                    />
+                  </button>
                 </div>
-                <div className="h-[2px] w-full shrink-0 bg-gradient-to-r from-transparent via-[#5377BD] to-transparent" />
+                <div className="h-[2px] w-full shrink-0 bg-gradient-to-r from-transparent via-[#98FFF9]/60 to-transparent" />
 
                 {/* Mobile Shop and Play buttons */}
-                <div className="flex gap-4 py-4">
+                <div className="flex gap-3 py-4">
                   <a
                     href="https://app.magiccraft.io/marketplace/explorer"
                     onClick={closeSidebar}
                     rel="noreferrer noopener"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-800/40 border border-gray-600/30"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 backdrop-blur-sm"
                   >
-                    <p className="text-[22px] font-normal text-white">Shop</p>
+                    <p className="text-lg font-semibold text-white">Shop</p>
                   </a>
                   
                   <a
                     href="https://lobby.magiccraft.io/"
                     onClick={closeSidebar}
                     rel="noreferrer noopener"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gray-800/40 border border-gray-600/30"
+                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 backdrop-blur-sm"
                   >
-                    <p className="text-[22px] font-medium text-white">Play</p>
+                    <p className="text-lg font-semibold text-white">Play</p>
                   </a>
                 </div>
 
-                <div className="h-[2px] w-full shrink-0 bg-gradient-to-r from-transparent via-[#5377BD] to-transparent" />
+                <div className="h-[2px] w-full shrink-0 bg-gradient-to-r from-transparent via-[#98FFF9]/60 to-transparent" />
 
                 <div className="flex flex-col gap-y-8 pt-8">
                   {commonMenuItemsNew.map((item) =>
