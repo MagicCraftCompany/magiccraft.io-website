@@ -661,17 +661,24 @@ function Homepagemcrt() {
                   </div>
 
                   {/* Price widgets */}
-                  <div className="space-y-4 mb-6">
-                    <div className="rounded-xl border border-[#98FFF9]/30 bg-gradient-to-br from-[#0B0F39]/80 to-[#111a4e]/80 card-padding-sm shadow-lg backdrop-blur-sm">
-                      <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-ticker-widget>
+                  <div className="mb-6">
+                    <div className="flex items-center justify-between mb-3">
+                      <h5 className="text-sm font-semibold text-white/90">Live $MCRT Price & Chart</h5>
+                      <span className="text-xs text-white/50">Auto-updating</span>
                     </div>
-                    <div className="rounded-xl border border-[#98FFF9]/30 bg-gradient-to-br from-[#0B0F39]/80 to-[#111a4e]/80 card-padding-sm shadow-lg backdrop-blur-sm">
-                      <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="240" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-price-chart-widget>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="rounded-xl border border-[#98FFF9]/30 bg-gradient-to-br from-[#0B0F39]/80 to-[#111a4e]/80 card-padding-sm shadow-lg backdrop-blur-sm">
+                        <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-ticker-widget>
+                      </div>
+                      <div className="rounded-xl border border-[#98FFF9]/30 bg-gradient-to-br from-[#0B0F39]/80 to-[#111a4e]/80 card-padding-sm shadow-lg backdrop-blur-sm">
+                        <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="240" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-price-chart-widget>
+                      </div>
                     </div>
                   </div>
 
                   {/* Action buttons */}
-                  <div className="flex gap-3 flex-wrap">
+                  <div className="flex gap-3 flex-wrap justify-center md:justify-start">
                     <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noopener noreferrer" className="btn-secondary text-small flex-1 min-w-[140px] text-center">
                       View on CMC
                     </a>
