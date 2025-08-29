@@ -364,23 +364,62 @@ export default function MagicraftDownload() {
                 </motion.div>
                 <AnimatePresence>
                   {hoveredLobby === key && (
-                    <motion.div initial={{ opacity: 0, y: 10, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 10, scale: 0.95 }} transition={{ duration: 0.2, ease: 'easeOut' }} className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-50 w-80">
-                      <div className="relative bg-gradient-to-br from-[#1a0d2e]/95 to-[#2a0d4e]/95 border border-[#B591F2]/40 rounded-xl p-5 shadow-2xl backdrop-blur-md">
+                    <motion.div 
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }} 
+                      animate={{ opacity: 1, y: 0, scale: 1 }} 
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }} 
+                      transition={{ duration: 0.3, ease: 'easeOut' }} 
+                      className="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 z-[9999] w-80 max-w-[90vw] pointer-events-none"
+                      style={{ zIndex: 9999 }}
+                    >
+                      <div className="relative bg-gradient-to-br from-[#1a0d2e]/98 to-[#2a0d4e]/98 border-2 border-[#98FFF9]/60 rounded-2xl p-6 shadow-2xl backdrop-blur-xl">
+                        {/* Enhanced glow effect */}
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#98FFF9]/10 to-[#B591F2]/10 rounded-2xl"></div>
+                        
                         <div className="relative z-10">
-                          <div className="flex items-center gap-2 mb-3">
-                            <div className="w-2 h-2 rounded-full bg-white/70 animate-pulse"></div>
-                            <h4 className="text-white font-bold text-lg">{l.tooltip.title}</h4>
+                          <div className="flex items-center gap-3 mb-4">
+                            <div 
+                              className="w-3 h-3 rounded-full animate-pulse"
+                              style={{ backgroundColor: l.glowColor }}
+                            ></div>
+                            <h4 className="text-white font-bold text-xl" style={{ textShadow: `0 0 10px ${l.glowColor}50` }}>
+                              {l.tooltip.title}
+                            </h4>
                           </div>
-                          <p className="text-white/90 text-sm mb-4 leading-relaxed">{l.tooltip.description}</p>
-                          <div className="space-y-2">
+                          
+                          <p className="text-white/95 text-sm mb-5 leading-relaxed font-medium">
+                            {l.tooltip.description}
+                          </p>
+                          
+                          <div className="space-y-3">
+                            <h5 className="text-white/80 text-xs font-bold uppercase tracking-wider mb-2">Features:</h5>
                             {l.tooltip.features.map((feature, i) => (
-                              <motion.p key={i} className="text-white/80 text-xs leading-relaxed" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }}>
-                                {feature}
-                              </motion.p>
+                              <motion.div 
+                                key={i} 
+                                className="flex items-start gap-2" 
+                                initial={{ opacity: 0, x: -10 }} 
+                                animate={{ opacity: 1, x: 0 }} 
+                                transition={{ delay: i * 0.1 }}
+                              >
+                                <div 
+                                  className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                                  style={{ backgroundColor: l.glowColor }}
+                                ></div>
+                                <p className="text-white/85 text-xs leading-relaxed font-medium">
+                                  {feature.replace('• ', '')}
+                                </p>
+                              </motion.div>
                             ))}
                           </div>
                         </div>
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-6 border-r-6 border-t-6 border-transparent border-t-[#1a0d2e]/95"></div>
+                        
+                        {/* Tooltip arrow */}
+                        <div className="absolute top-full left-1/2 -translate-x-1/2">
+                          <div 
+                            className="w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent"
+                            style={{ borderTopColor: '#98FFF9' }}
+                          ></div>
+                        </div>
                       </div>
                     </motion.div>
                   )}
