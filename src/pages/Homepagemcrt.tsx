@@ -198,11 +198,11 @@ function Homepagemcrt() {
           })}
         </script>
       </Helmet>
-      <div className="min-h-dvh w-full text-white">
+      <div className="min-h-dvh w-full max-w-full text-white overflow-x-hidden">
         <Header />
-        <main className="md:-mt-[80px] scroll-smooth pb-20">
+        <main className="md:-mt-[80px] scroll-smooth pb-20 w-full max-w-full overflow-x-hidden">
           {/*header*/}
-          <section className="md:min-h-screen relative h-[600px] sm:h-[700px] md:h-[750px] lg:h-[800px] bg-cover bg-center overflow-hidden">
+          <section className="md:min-h-screen relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-[750px] xl:h-[800px] bg-cover bg-center overflow-hidden w-full max-w-full">
             <video
               className="absolute inset-0 h-full w-full object-cover scale-105"
               autoPlay
@@ -225,8 +225,8 @@ function Homepagemcrt() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5 animate-pulse-slow"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#03082f]/90 via-transparent to-transparent"></div>
             
-            <div className="relative z-10 mx-auto max-w-screen-xl h-full">
-              <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-8 sm:pb-12 md:pb-16 lg:pb-20">
+            <div className="relative z-10 mx-auto max-w-screen-xl h-full w-full px-2 sm:px-4">
+              <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-6 sm:pb-8 md:pb-12 lg:pb-16">
                 <div className="w-full max-w-[25%] sm:max-w-[20%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-4 sm:mt-6 md:mt-8 lg:mt-12 group">
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 animate-pulse-slow"></div>
@@ -248,7 +248,7 @@ function Homepagemcrt() {
                       className="w-full max-w-[260px] sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-xl"
                     />
                   </div>
-                                    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient max-w-4xl mx-auto tracking-wider drop-shadow-2xl">
+                                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient max-w-4xl mx-auto tracking-wider drop-shadow-2xl leading-tight">
                     $MCRT THE CURRENCY OF GAMING
                   </h1>
                 </div>
@@ -259,8 +259,8 @@ function Homepagemcrt() {
           </section>
 
           {/* Download banner just below hero */}
-          <div className="w-full bg-gradient-to-b from-[#0a0524] via-[#050317] to-[#03082f] relative z-10 shadow-inner">
-            <div className="mx-auto max-w-screen-xl px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4">
+          <div className="w-full max-w-full bg-gradient-to-b from-[#0a0524] via-[#050317] to-[#03082f] relative z-10 shadow-inner overflow-x-hidden">
+            <div className="mx-auto max-w-screen-xl px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 w-full">
                <MagicraftDownload/>
             </div>
              </div>
@@ -426,12 +426,12 @@ function Homepagemcrt() {
         </section>
 
           {/* Exchanges/Partners elevated */}
-          <section className="relative mx-auto w-[94%] sm:w-11/12 max-w-screen-xl mt-6 sm:mt-8 md:mt-10 lg:mt-14 px-2 sm:px-0">
+          <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl mt-4 sm:mt-6 md:mt-8 lg:mt-12 px-1 sm:px-2 md:px-0 overflow-x-hidden">
             <Partners />
           </section>
 
           {/* Game Maker Banner */}
-          <section className="relative mx-auto w-[94%] sm:w-11/12 max-w-screen-xl mb-4 md:mb-8 px-1 sm:px-2 md:px-0">
+          <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl mb-4 md:mb-8 px-1 sm:px-2 md:px-0 overflow-x-hidden">
             <div className="card-gradient overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
               <div className="relative card-padding gap-card">
@@ -493,7 +493,7 @@ function Homepagemcrt() {
           </section>
 
           {/* Token Info: $BNB and $MCRT */}
-          <section className="py-8 sm:py-12 md:py-16 relative mx-auto w-[94%] sm:w-11/12 max-w-screen-xl px-2 sm:px-0">
+          <section className="py-6 sm:py-8 md:py-12 lg:py-16 relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 overflow-x-hidden">
             {/* Enhanced background effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#98FFF9]/3 to-transparent rounded-3xl"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#B591F2]/10 rounded-full blur-3xl"></div>
