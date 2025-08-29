@@ -18,6 +18,8 @@ import btc from '@/assets/icons/btclobby.svg'
 import xrp from '@/assets/icons/xrplobby.svg'
 import sol from '@/assets/icons/sollobby.svg'
 import eth from '@/assets/icons/ethlobby.svg'
+// BNB icon placeholder using BTC icon style until provided
+const bnbIcon = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
 
 export default function MagicraftDownload() {
   const [hoveredLobby, setHoveredLobby] = useState<string | null>(null)
@@ -123,6 +125,23 @@ export default function MagicraftDownload() {
           '• Integrate $MCRT tokens into your custom games',
           '• Earn $MCRT by creating popular games and winning battles',
           '• Lobbies are matchmaking rooms for instant PvP matches'
+        ]
+      }
+    },
+    bnb: {
+      title: 'BNB LOBBY',
+      subtitle: 'Compete for BNB!',
+      icon: bnbIcon,
+      glowColor: 'from-[#F3BA2F] via-[#d6a316]',
+      tooltip: {
+        title: 'BNB Lobby',
+        description: 'Jump into matches for BNB rewards. Build Roblox-like games with our engine and integrate $MCRT payouts.',
+        features: [
+          '• Win BNB in competitive battles',
+          '• Create custom games with our engine',
+          '• Integrate $MCRT and crypto rewards',
+          '• Build-to-earn from popular maps',
+          '• Instant matchmaking in crypto lobbies'
         ]
       }
     },
@@ -240,7 +259,7 @@ export default function MagicraftDownload() {
         </div>
       </div>
 
-      {/* Crypto Lobby Cards - 2x2 Grid */}
+      {/* Crypto Lobby Cards - 2x3 Grid with BNB */}
       <div className="grid grid-cols-2 items-stretch gap-1 sm:gap-2 lg:gap-2 w-full max-w-[18rem] sm:max-w-[20rem] md:max-w-[22rem] lg:max-w-[26rem] xl:max-w-[28rem] mx-auto px-1 sm:px-2 lg:ml-4 z-10">
         {/* BTC Lobby Card */}
         <div className="relative group h-full min-w-0">
@@ -307,6 +326,65 @@ export default function MagicraftDownload() {
                   </div>
                   
                   {/* Arrow */}
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-6 border-r-6 border-t-6 border-transparent border-t-[#1a0d2e]/95"></div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        {/* BNB Lobby Card */}
+        <div className="relative group h-full min-w-0">
+          <motion.div 
+            className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px]"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div 
+              className="relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-1.5 sm:p-2 md:p-3 lg:p-4 cursor-pointer transition-all duration-300 hover:shadow-2xl hover:shadow-[#F3BA2F]/30 border border-transparent hover:border-[#F3BA2F]/20 min-h-[90px] sm:min-h-[100px] md:min-h-[120px] lg:min-h-[140px]"
+              onClick={() => window.open('https://lobby.magiccraft.io/?crypto=bnb', '_blank')}
+              onMouseEnter={() => setHoveredLobby('bnb')}
+              onMouseLeave={() => setHoveredLobby(null)}
+            >
+              <div className="flex flex-col items-center justify-center h-full text-center gap-2">
+                <div className="relative flex-shrink-0">
+                  <div className={`absolute bottom-[-15px] left-1/2 transform -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-t ${lobbyData.bnb.glowColor} to-transparent blur-[12px] sm:blur-[14px] lg:blur-[16px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[18px]`}/>
+                  <img src={lobbyData.bnb.icon} alt="BNB" className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" loading="lazy" />
+                </div>
+                <div className="space-y-1">
+                  <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white font-serif transition-colors duration-300 group-hover:text-[#F3BA2F] leading-tight">{lobbyData.bnb.title}</h3>
+                  <p className="text-xs sm:text-sm text-white/90 transition-colors duration-300 group-hover:text-white leading-tight px-1 sm:px-2">{lobbyData.bnb.subtitle}</p>
+                </div>
+              </div>
+              <div className="absolute inset-0 rounded-[19px] bg-gradient-to-r from-[#F3BA2F]/0 via-[#F3BA2F]/5 to-[#F3BA2F]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </div>
+          </motion.div>
+
+          <AnimatePresence>
+            {hoveredLobby === 'bnb' && (
+              <motion.div 
+                initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-3 z-50 w-80"
+              >
+                <div className="relative bg-gradient-to-br from-[#1a0d2e]/95 to-[#2a0d4e]/95 border border-[#B591F2]/40 rounded-xl p-5 shadow-2xl backdrop-blur-md">
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#F3BA2F]/10 via-transparent to-[#F3BA2F]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="relative z-10">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-2 h-2 rounded-full bg-[#F3BA2F] animate-pulse"></div>
+                      <h4 className="text-[#F3BA2F] font-bold text-lg">{lobbyData.bnb.tooltip.title}</h4>
+                    </div>
+                    <p className="text-white/90 text-sm mb-4 leading-relaxed">{lobbyData.bnb.tooltip.description}</p>
+                    <div className="space-y-2">
+                      {lobbyData.bnb.tooltip.features.map((feature, index) => (
+                        <motion.p key={index} className="text-white/80 text-xs leading-relaxed" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: index * 0.1 }}>
+                          {feature}
+                        </motion.p>
+                      ))}
+                    </div>
+                  </div>
                   <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-6 border-r-6 border-t-6 border-transparent border-t-[#1a0d2e]/95"></div>
                 </div>
               </motion.div>
