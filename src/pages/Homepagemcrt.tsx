@@ -48,7 +48,8 @@ function Homepagemcrt() {
 
     const goToSlide = (slideIndex: number) => {
       setCurrentSlide(slideIndex)
-      slides.style.transform = `translateX(-${slideIndex * 100}%)`
+      // Move by a fraction of the full width based on total slides
+      slides.style.transform = `translateX(-${(slideIndex * 100) / totalSlides}%)`
       
       // Update dots
       dots.forEach((dot, index) => {
@@ -345,9 +346,9 @@ function Homepagemcrt() {
                     {/* Gameplay Footage Carousel */}
                     <div className="relative w-full">
                       <div className="gameplay-carousel overflow-hidden rounded-xl bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] h-[220px] md:h-[260px] lg:h-[300px]">
-                        <div className="gameplay-slides flex h-full transition-transform duration-500 ease-in-out" id="gameplaySlides">
+                        <div className="gameplay-slides flex h-full transition-transform duration-500 ease-in-out" id="gameplaySlides" style={{ width: `${totalSlides * 100}%` }}>
                           {/* Slide 1 - Battle Image A */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / totalSlides}%`, width: `${100 / totalSlides}%` }}>
                             <div className="relative overflow-hidden h-full">
                               <img 
                                 src={battleOne}
@@ -367,7 +368,7 @@ function Homepagemcrt() {
                             </div>
 
                           {/* Slide 2 - Legendary Battle 2 */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / totalSlides}%`, width: `${100 / totalSlides}%` }}>
                             <div className="relative overflow-hidden h-full">
                               <img 
                                 src={battleTwo}
@@ -387,7 +388,7 @@ function Homepagemcrt() {
                     </div>
 
                           {/* Slide 3 - Legendary Battle 3 */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / totalSlides}%`, width: `${100 / totalSlides}%` }}>
                             <div className="relative overflow-hidden h-full">
                               <img 
                                 src={battleThree}
