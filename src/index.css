@@ -141,23 +141,44 @@ body {
   .btn-primary {
     background: linear-gradient(135deg, #98FFF9 0%, #7de6df 100%);
     color: #03082F;
-    font-weight: 600;
+    font-weight: 700;
     padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
-    border-radius: 0.75rem;
+    border-radius: 9999px;
     border: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: 'Futura PT', sans-serif;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.05em;
+  }
+  
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
   }
   
   .btn-primary:hover {
     background: linear-gradient(135deg, #7de6df 0%, #98FFF9 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(152, 255, 249, 0.3);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 12px 35px rgba(152, 255, 249, 0.4);
+  }
+  
+  .btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
   }
   
   .btn-primary:focus {
@@ -200,13 +221,33 @@ body {
     border-radius: 1rem;
     backdrop-filter: blur(10px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-glass::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #98FFF9, #B591F2, #FFB649, #98FFF9);
+    border-radius: 1rem;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
   }
   
   .card-glass:hover {
     border-color: rgba(152, 255, 249, 0.4);
-    box-shadow: 0 12px 40px rgba(152, 255, 249, 0.1);
-    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(152, 255, 249, 0.2);
+    transform: translateY(-6px) scale(1.02);
+  }
+  
+  .card-glass:hover::before {
+    opacity: 0.3;
   }
   
   .card-gradient {
@@ -214,13 +255,30 @@ body {
     border: 1px solid rgba(181, 145, 242, 0.3);
     border-radius: 1rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card-gradient::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(152, 255, 249, 0.2), transparent);
+    transition: left 0.6s ease;
   }
   
   .card-gradient:hover {
     border-color: rgba(181, 145, 242, 0.5);
-    box-shadow: 0 12px 40px rgba(181, 145, 242, 0.1);
-    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(181, 145, 242, 0.15);
+    transform: translateY(-6px) scale(1.02);
+  }
+  
+  .card-gradient:hover::after {
+    left: 100%;
   }
   
   /* Gameplay Carousel Styles */
@@ -522,6 +580,45 @@ body {
   50% {
     background-position: 100% 50%;
   }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(152, 255, 249, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(152, 255, 249, 0.8), 0 0 60px rgba(181, 145, 242, 0.6);
+  }
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
 }
 
 /* XSwap Modal Background Fix */

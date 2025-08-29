@@ -222,17 +222,21 @@ function Homepagemcrt() {
               />
             </video>
             <div className="video-bg-gradient absolute inset-0 h-full w-full bg-gradient-to-b from-black/60 via-black/35 to-black/80"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5 animate-pulse-slow"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#03082f]/90 via-transparent to-transparent"></div>
             
             <div className="relative z-10 mx-auto max-w-screen-xl h-full">
               <div className="grid h-full w-full grid-cols-1 place-items-center justify-end gap-2 sm:gap-4 md:gap-6 pt-6 sm:pt-10 md:pt-14 lg:pt-16 pb-10 sm:pb-14 md:pb-16 lg:pb-20">
-                <div className="w-full max-w-[20%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-8 md:mt-12">
-                  <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp"
-                    alt="MCRT Token"
-                    loading="eager"
-                    className="w-full h-auto drop-shadow-2xl hover:scale-105 transition-transform duration-300"
-                  />
+                <div className="w-full max-w-[20%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-8 md:mt-12 group">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 animate-pulse-slow"></div>
+                    <img
+                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp"
+                      alt="MCRT Token"
+                      loading="eager"
+                      className="relative w-full h-auto drop-shadow-2xl hover:scale-110 transition-all duration-500 hover:rotate-3"
+                    />
+                  </div>
                 </div>
                 
                 <div className="text-center gap-section animate-slide-up mt-8 sm:mt-12 md:mt-16 lg:mt-24 xl:mt-32">
@@ -244,9 +248,9 @@ function Homepagemcrt() {
                       className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto drop-shadow-xl"
                     />
                   </div>
-                  <h1 className="text-section-title font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient max-w-4xl mx-auto">
+                                    <h1 className="text-section-title font-black bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient max-w-4xl mx-auto tracking-wider drop-shadow-2xl">
                     $MCRT THE CURRENCY OF GAMING
-                </h1>
+                  </h1>
                 </div>
               </div>
               </div>
@@ -255,7 +259,7 @@ function Homepagemcrt() {
           </section>
 
           {/* Download banner just below hero */}
-          <div className="w-full bg-gradient-to-b from-[#0a0524] to-[#050317] relative z-10">
+          <div className="w-full bg-gradient-to-b from-[#0a0524] via-[#050317] to-[#03082f] relative z-10 shadow-inner">
             <div className="mx-auto max-w-screen-xl px-4 py-2 md:py-4">
                <MagicraftDownload/>
             </div>

@@ -241,7 +241,7 @@ const Header = () => {
       {/* <header className="relative z-50 w-full px-3 py-4  md:px-4 md:py-5">
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
           <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 "> */}
-        <header className="relative z-50 w-full bg-gradient-to-r from-[#431269]/95 via-[#2A0D4E]/95 to-[#431269]/95 backdrop-blur-xl border-b border-white/10 shadow-lg">
+        <header className="relative z-50 w-full bg-gradient-to-r from-[#431269]/95 via-[#2A0D4E]/95 to-[#431269]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-purple-900/20">
         <nav className="flex items-center justify-between h-16 md:h-[72px] lg:h-[76px]">
           <div className="grid shrink-0 place-items-center self-stretch px-4 md:px-6 lg:px-8">
             <Link to="/" className="h-full flex items-center group">
@@ -262,13 +262,13 @@ const Header = () => {
                   item.path?.startsWith('http') ? (
                     <a key={item.title} href={item.path} rel="noreferrer noopener" className="group">
                       <div className="flex items-center justify-center gap-1 md:gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-white/10">
-                        <p className="text-sm lg:text-sm xl:text-base text-white/90 group-hover:text-white whitespace-nowrap font-medium transition-colors duration-200">{item.title}</p>
+                        <p className="text-sm lg:text-[15px] xl:text-base text-white/90 group-hover:text-white whitespace-nowrap font-semibold tracking-wide transition-colors duration-200 drop-shadow-lg">{item.title}</p>
                       </div>
                     </a>
                   ) : (
                     <Link key={item.title} to={item.path || '/'} className="group">
                       <div className="flex items-center justify-center gap-1 md:gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-white/10">
-                        <p className="text-sm lg:text-sm xl:text-base text-white/90 group-hover:text-white whitespace-nowrap font-medium transition-colors duration-200">{item.title}</p>
+                        <p className="text-sm lg:text-[15px] xl:text-base text-white/90 group-hover:text-white whitespace-nowrap font-semibold tracking-wide transition-colors duration-200 drop-shadow-lg">{item.title}</p>
                       </div>
                     </Link>
                   )
@@ -281,25 +281,40 @@ const Header = () => {
                   href="https://lobby.magiccraft.io/"
                   rel="noreferrer noopener"
                 >
-                  <div className="flex w-full items-center justify-center gap-2 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 px-4 md:px-5 py-2.5 md:py-3 text-white shadow-lg hover:shadow-xl backdrop-blur-sm">
-                    <p className="text-sm md:text-base font-semibold">Play</p>
+                  <div className="relative flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600/20 to-purple-500/20 border border-purple-400/30 hover:from-purple-600/30 hover:to-purple-500/30 hover:border-purple-400/50 transition-all duration-300 px-5 md:px-6 py-2.5 md:py-3 text-white shadow-lg hover:shadow-purple-500/25 hover:shadow-xl backdrop-blur-sm overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M10 3l8 5v5l-8 5-8-5V8l8-5z" opacity="0.3"/>
+                      <path d="M6.5 11.5L9 14l5-5" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    <p className="text-sm md:text-base font-bold tracking-wider relative z-10">PLAY</p>
                   </div>
                 </a>
               </button>
               
               <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap group">
-                <div className="flex items-center gap-2 px-4 md:px-5 py-2.5 md:py-3 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 text-white shadow-lg hover:shadow-xl backdrop-blur-sm">
-                  <p className="text-sm md:text-base font-semibold text-white">
-                    Shop
+                <div className="relative flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 rounded-full bg-gradient-to-r from-indigo-600/20 to-indigo-500/20 border border-indigo-400/30 hover:from-indigo-600/30 hover:to-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300 text-white shadow-lg hover:shadow-indigo-500/25 hover:shadow-xl backdrop-blur-sm overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M3 3h14l-1 9H4L3 3z" opacity="0.3"/>
+                    <path d="M5 3V1h10v2M5 12v7h10v-7" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round"/>
+                  </svg>
+                  <p className="text-sm md:text-base font-bold tracking-wider text-white relative z-10">
+                    SHOP
                   </p>
                 </div>
               </a>
 
               <button
                 onClick={handleBuyMCRT}
-                className="flex cursor-pointer items-center gap-2 whitespace-nowrap px-4 md:px-6 py-2.5 md:py-3 rounded-full bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] hover:from-[#B591F2] hover:to-[#98FFF9] text-[#03082F] font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 mr-2 md:ml-0"
+                className="group relative flex cursor-pointer items-center gap-2 whitespace-nowrap px-5 md:px-7 py-2.5 md:py-3 rounded-full bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] hover:from-[#FFB649] hover:via-[#B591F2] hover:to-[#98FFF9] text-[#03082F] font-black shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 mr-2 md:ml-0 overflow-hidden"
               >
-                <p className="text-sm md:text-base">Buy $MCRT</p>
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                <svg className="w-4 h-4 md:w-5 md:h-5 relative z-10" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm1 13h-2v-2h2v2zm0-4h-2V7h2v4z" opacity="0.3"/>
+                  <path d="M8.5 14.5L10 16l3-3M7 10h6" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round"/>
+                </svg>
+                <p className="text-sm md:text-base font-black tracking-wider relative z-10 drop-shadow-md">BUY $MCRT</p>
               </button>
               <button
                 onClick={openSidebar}
