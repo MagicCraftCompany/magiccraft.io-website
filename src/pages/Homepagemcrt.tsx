@@ -25,10 +25,62 @@ import { Link } from 'react-router-dom'
 
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(16)
+  const [currentSlide, setCurrentSlide] = useState(0)
 
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
   }
+
+  // Gameplay carousel functionality
+  useEffect(() => {
+    const slides = document.getElementById('gameplaySlides')
+    const dots = document.querySelectorAll('.carousel-dot')
+    
+    if (!slides || !dots.length) return
+
+    const totalSlides = 3
+    let autoPlayInterval: NodeJS.Timeout
+
+    const goToSlide = (slideIndex: number) => {
+      setCurrentSlide(slideIndex)
+      slides.style.transform = `translateX(-${slideIndex * 100}%)`
+      
+      // Update dots
+      dots.forEach((dot, index) => {
+        if (index === slideIndex) {
+          dot.classList.add('active')
+        } else {
+          dot.classList.remove('active')
+        }
+      })
+    }
+
+    const nextSlide = () => {
+      const next = (currentSlide + 1) % totalSlides
+      goToSlide(next)
+    }
+
+    // Add click handlers to dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        clearInterval(autoPlayInterval)
+        goToSlide(index)
+        // Restart auto-play after manual interaction
+        autoPlayInterval = setInterval(nextSlide, 4000)
+      })
+    })
+
+    // Auto-play
+    autoPlayInterval = setInterval(nextSlide, 4000)
+
+    // Cleanup
+    return () => {
+      clearInterval(autoPlayInterval)
+      dots.forEach((dot) => {
+        dot.removeEventListener('click', () => {})
+      })
+    }
+  }, [currentSlide])
 
   const loadMore = () => {
     setVisibleCount((prevCount) => prevCount + 4)
@@ -188,7 +240,7 @@ function Homepagemcrt() {
                   </div>
                   <h1 className="text-section-title font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient max-w-4xl mx-auto">
                     $MCRT THE CURRENCY OF GAMING
-                  </h1>
+                </h1>
                 </div>
               </div>
               </div>
@@ -266,27 +318,99 @@ function Homepagemcrt() {
                   >
                     <span className="relative z-10">Register Now</span>
                     <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#7de6df] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                          </button>
-                            </div>
-                          </div>
+                  </button>
+                </div>
+              </div>
               
               <div className="hidden lg:block animate-fade-in">
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/10 to-[#B591F2]/10 rounded-3xl blur-3xl"></div>
-                  <div className="relative bg-gradient-to-br from-[#080420]/50 to-[#0A0424]/50 backdrop-blur-sm rounded-3xl p-8 border border-[#98FFF9]/20">
-                    <div className="text-center space-y-4">
-                      <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#98FFF9] to-[#7de6df] flex items-center justify-center">
+                  <div className="card-glass card-padding overflow-hidden">
+                    {/* Header */}
+                    <div className="text-center mb-6">
+                      <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#98FFF9] to-[#7de6df] flex items-center justify-center mb-4">
                         <svg className="w-8 h-8 text-[#03082F]" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                          <path d="M14,6L10.25,11L13.1,14.8L11.5,16C9.81,13.75 7,10 7,10L1,4V1A1,1 0 0,1 2,0H5L11,6L14,6Z"/>
                         </svg>
                             </div>
-                      <h4 className="text-xl font-bold text-white">Join Thousands of Players</h4>
-                      <p className="text-gray-300">Earn MCRT tokens daily through competitive gameplay</p>
+                      <h4 className="text-card-title font-bold text-white mb-2">Join Thousands of Players</h4>
+                      <p className="text-body text-gray-300">Experience epic MagicCraft gameplay</p>
+                          </div>
+
+                    {/* Gameplay Footage Carousel */}
+                    <div className="relative">
+                      <div className="gameplay-carousel overflow-hidden rounded-xl">
+                        <div className="gameplay-slides flex transition-transform duration-500 ease-in-out" id="gameplaySlides">
+                          {/* Slide 1 - Battle Scene */}
+                          <div className="gameplay-slide min-w-full relative">
+                            <div className="aspect-video bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] rounded-xl overflow-hidden relative">
+                              <img 
+                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173137/Hero_1_v7qidt.webp" 
+                                alt="MagicCraft Battle Scene"
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                              <div className="absolute bottom-4 left-4 right-4">
+                                <h5 className="text-white font-bold text-sm mb-1">Epic PvP Battles</h5>
+                                <p className="text-white/80 text-xs">Fast-paced multiplayer combat</p>
                             </div>
+                            </div>
+                            </div>
+
+                          {/* Slide 2 - Hero Selection */}
+                          <div className="gameplay-slide min-w-full relative">
+                            <div className="aspect-video bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] rounded-xl overflow-hidden relative">
+                              <img 
+                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173132/hero2_olqlpn.webp" 
+                                alt="MagicCraft Heroes"
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                              <div className="absolute bottom-4 left-4 right-4">
+                                <h5 className="text-white font-bold text-sm mb-1">Choose Your Hero</h5>
+                                <p className="text-white/80 text-xs">Unique abilities and playstyles</p>
+                            </div>
+                          </div>
+                        </div>
+
+                          {/* Slide 3 - Game Maker */}
+                          <div className="gameplay-slide min-w-full relative">
+                            <div className="aspect-video bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] rounded-xl overflow-hidden relative">
+                              <img 
+                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1753800048/rksbqhjxphkaeoooqolq.webp" 
+                                alt="MagicCraft Game Maker"
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                              <div className="absolute bottom-4 left-4 right-4">
+                                <h5 className="text-white font-bold text-sm mb-1">Build Your Games</h5>
+                                <p className="text-white/80 text-xs">Create and earn with Game Maker</p>
+                      </div>
+                    </div>
+                            </div>
+                          </div>
+                            </div>
+
+                      {/* Carousel Controls */}
+                      <div className="flex justify-center gap-2 mt-4">
+                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60 active" data-slide="0"></button>
+                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="1"></button>
+                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="2"></button>
+                            </div>
+
+                      {/* Auto-play indicator */}
+                      <div className="flex items-center justify-center gap-2 mt-3">
+                        <div className="w-1 h-1 bg-[#98FFF9] rounded-full animate-pulse"></div>
+                        <span className="text-xs text-white/60">Auto-playing</span>
                             </div>
                             </div>
                           </div>
                         </div>
+                      </div>
+                    </div>
                       </div>
         </section>
 
@@ -889,13 +1013,13 @@ function Homepagemcrt() {
                             <div className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80">
                               <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)]">
                                 <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0d2e]">
-                                  <img
+                              <img
                                     className="w-full h-full object-cover grayscale"
-                                    src={item.icon}
-                                    alt={item.name}
+                                src={item.icon}
+                                alt={item.name}
                                     loading="lazy"
                                     decoding="async"
-                                  />
+                              />
                                 </div>
                               </div>
                               <p className="mt-2 text-white">{item.name}</p>
