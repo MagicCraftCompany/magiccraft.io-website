@@ -212,17 +212,18 @@ export default function MagicraftDownload() {
 
   return (
     <div className="mx-1 sm:mx-2 flex flex-col lg:flex-row items-start justify-center gap-4 lg:gap-6 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 -mt-2 sm:-mt-3">
-      <div className="relative mx-auto w-full lg:flex-1 lg:mx-0 lg:mt-[25px] lg:max-w-md xl:max-w-lg">
+      {/* Platform Download Box */}
+      <div className="relative mx-auto w-full lg:w-auto lg:flex-shrink-0 lg:mx-0 lg:mt-[25px]">
         <div className="rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
             {/* Platform Download Buttons */}
             <div className="p-4 lg:p-6">
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3 lg:gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3 lg:gap-4 w-full max-w-sm mx-auto lg:max-w-none">
                 {platforms.map((platform) => (
                   <a
                     key={platform.name}
                     href={platform.href}
-                    className={`group flex flex-col items-center text-center transition-all duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-3 lg:p-4 rounded-xl bg-black/20 hover:bg-black/40 border border-transparent hover:border-[#B591F2]/30 hover:shadow-lg hover:shadow-[#B591F2]/20 ${platform.name === 'Windows' ? 'hidden xl:flex' : ''}`}
+                    className={`group flex flex-col items-center text-center transition-all duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-3 lg:p-4 rounded-xl bg-black/20 hover:bg-black/40 border border-transparent hover:border-[#B591F2]/30 hover:shadow-lg hover:shadow-[#B591F2]/20 ${platform.name === 'Windows' ? 'hidden' : ''}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${platform.label} ${platform.sublabel}`}
@@ -267,7 +268,7 @@ export default function MagicraftDownload() {
 
       {/* Crypto Lobby Cards - responsive grid, dynamic from data */}
       <div className="w-full lg:flex-1 lg:ml-6 z-10">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-3 md:gap-4 w-full max-w-screen-xl xl:max-w-[80rem] mx-auto px-1 sm:px-2">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-3 md:gap-4 w-full max-w-4xl lg:max-w-none mx-auto px-1 sm:px-2">
           {(['btc','bnb','mcrt','eth','xrp','sol'] as const).map((key) => {
             const l = lobbyData[key]
             const colorClass =
