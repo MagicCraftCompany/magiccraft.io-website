@@ -19,7 +19,7 @@ import xrp from '@/assets/icons/xrplobby.svg'
 import sol from '@/assets/icons/sollobby.svg'
 import eth from '@/assets/icons/ethlobby.svg'
 import bnb from '@/assets/icons/bnblobby.svg'
-import mcrtIcon from '@/assets/icons/magic.svg'
+import mcrtIcon from '@/assets/icons/mcrt-lobby.svg'
 
 export default function MagicraftDownload() {
   const [hoveredLobby, setHoveredLobby] = useState<string | null>(null)
