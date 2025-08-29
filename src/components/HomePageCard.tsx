@@ -117,14 +117,14 @@ export default function MagicraftDownload() {
       icon: btc,
       glowColor: 'from-[#FFB649] via-[#e69a43]',
       tooltip: {
-        title: 'Bitcoin Lobby',
-        description: 'Join fast-paced PvP battles to win real Bitcoin! MagicCraft is like Roblox - you can build your own games using our game engine and integrate $MCRT tokens for earning opportunities.',
+        title: 'Bitcoin (BTC)',
+        description: 'BTC is digital gold — the original PoW network. Play ranked matches to win BTC payouts.',
         features: [
-          '• Real Bitcoin prizes for top players',
-          '• Build games like Roblox with our engine',
-          '• Integrate $MCRT tokens into your custom games',
-          '• Earn $MCRT by creating popular games and winning battles',
-          '• Lobbies are matchmaking rooms for instant PvP matches'
+          '• BTC prize payouts (on‑chain)',
+          '• Scarce supply (21M) and PoW security',
+          '• Global, bankless settlement',
+          '• PvP matchmaking every few minutes',
+          '• Leaderboards and weekly rewards'
         ]
       }
     },
@@ -134,14 +134,14 @@ export default function MagicraftDownload() {
       icon: bnb,
       glowColor: 'from-[#F3BA2F] via-[#d6a316]',
       tooltip: {
-        title: 'BNB Lobby',
-        description: 'Jump into matches for BNB rewards. Build Roblox-like games with our engine and integrate $MCRT payouts.',
+        title: 'BNB (BNB)',
+        description: 'BNB is the gas for BNB Smart Chain (BSC). Win BNB while enjoying low‑fee on‑chain settlement.',
         features: [
-          '• Win BNB in competitive battles',
-          '• Create custom games with our engine',
-          '• Integrate $MCRT and crypto rewards',
-          '• Build-to-earn from popular maps',
-          '• Instant matchmaking in crypto lobbies'
+          '• BNB rewards in ranked queues',
+          '• Low fees on BSC',
+          '• DeFi‑friendly token with wide support',
+          '• Regular bracket events',
+          '• Secure prize distribution'
         ]
       }
     },
@@ -151,14 +151,14 @@ export default function MagicraftDownload() {
       icon: mcrtIcon,
       glowColor: 'from-[#98FFF9] via-[#B591F2]',
       tooltip: {
-        title: 'MCRT Lobby',
-        description: 'Play competitive games to win $MCRT — the currency of gaming in MagicCraft. Build games with our engine and plug in $MCRT rewards.',
+        title: 'MagicCraft (MCRT)',
+        description: 'MCRT is the currency of gaming in MagicCraft — rewards, creator economy, pledging, marketplace, VIP lobbies.',
         features: [
-          '• Win $MCRT from ranked lobbies',
-          '• Creator tools: integrate $MCRT payouts',
-          '• Earn by building popular maps and modes',
-          '• Supports VIP lobbies and tournaments',
-          '• Instant matchmaking for crypto rewards'
+          '• $MCRT prizes from ranked matches',
+          '• Creators earn from maps and assets',
+          '• Use in pledging and marketplace',
+          '• Access VIP lobbies with holdings',
+          '• Core token across the ecosystem'
         ]
       }
     },
@@ -168,14 +168,14 @@ export default function MagicraftDownload() {
       icon: eth,
       glowColor: 'from-[#bc7af6] via-[#ba8ae5]',
       tooltip: {
-        title: 'Ethereum Lobby',
-        description: 'Battle for Ethereum rewards in our competitive lobbies! Create your own games with our Roblox-like engine and earn $MCRT tokens through gameplay and game creation.',
+        title: 'Ethereum (ETH)',
+        description: 'ETH powers the largest smart‑contract ecosystem. Win ETH by climbing the lobby ranks.',
         features: [
-          '• Win Ethereum for dominating battles',
-          '• Build custom games with our game engine',
-          '• Integrate $MCRT rewards into your games',
-          '• Earn $MCRT by creating popular games and winning battles',
-          '• Lobbies connect players for instant PvP matches'
+          '• ETH rewards for top placements',
+          '• Smart‑contract settlement',
+          '• EVM ecosystem compatibility',
+          '• Seasonal ladders and events',
+          '• Anti‑cheat and fair matchmaking'
         ]
       }
     },
@@ -185,14 +185,14 @@ export default function MagicraftDownload() {
       icon: xrp,
       glowColor: 'from-[#51C1F6] via-[#4AA7E6]',
       tooltip: {
-        title: 'XRP Lobby',
-        description: 'Fast and fluid matches with XRP rewards. Build experiences with our engine and integrate $MCRT payouts.',
+        title: 'XRP (XRP)',
+        description: 'XRP Ledger enables fast, low‑cost settlement. XRP lobbies pay out quickly after each match.',
         features: [
-          '• Earn XRP by winning competitive matches',
-          '• Create Roblox-style games with our engine',
-          '• Integrate $MCRT and crypto rewards into maps',
-          '• Build-to-earn: get paid when players enjoy your worlds',
-          '• Instant matchmaking in crypto-enabled lobbies'
+          '• Low‑fee XRP rewards',
+          '• Rapid distribution after games',
+          '• Great for frequent competitive sessions',
+          '• Transparent on‑ledger history',
+          '• Cross‑border friendly token'
         ]
       }
     },
@@ -202,14 +202,14 @@ export default function MagicraftDownload() {
       icon: sol,
       glowColor: 'from-[#7CF5C7] via-[#5BE0AF]',
       tooltip: {
-        title: 'Solana Lobby',
-        description: 'High-performance gameplay with SOL rewards on victory. Monetize your creations with $MCRT.',
+        title: 'Solana (SOL)',
+        description: 'High‑throughput, low‑fee chain built for scale. Earn SOL in fast matches optimized for quick queues.',
         features: [
-          '• Win SOL in fast-paced PvP matches',
-          '• Build custom modes with our game maker',
-          '• Plug $MCRT rewards into your games',
-          '• Earn from popular maps and tournaments',
-          '• Seamless lobbies for crypto battles'
+          '• SOL prizes for wins and streaks',
+          '• High FPS, low latency experience',
+          '• Gas‑efficient payouts',
+          '• Weekend cups and mini‑tournaments',
+          '• Anti‑AFK systems to protect rewards'
         ]
       }
     }

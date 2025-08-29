@@ -371,7 +371,7 @@ function Homepagemcrt() {
           <section className="relative mx-auto w-11/12 max-w-screen-xl my-6 md:my-10">
             <div className="rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#0A0424] via-[#1a0d2e] to-[#2A0D4E] border border-[#B591F2]/30 shadow-2xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5" />
-              <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 p-4 md:p-8">
+              <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 p-4 md:p-8">
                 {/* BNB Card */}
                 <div className="rounded-2xl border border-[#98FFF9]/20 bg-black/20 p-5 md:p-6">
                   <h4 className="font-serif text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#F3BA2F] to-[#FFB649] bg-clip-text text-transparent mb-3">$BNB</h4>
@@ -391,7 +391,7 @@ function Homepagemcrt() {
                   </div>
                 </div>
 
-                {/* MCRT Card with CMC link */}
+                {/* MCRT Card with price widget */}
                 <div className="rounded-2xl border border-[#98FFF9]/20 bg-black/20 p-5 md:p-6">
                   <h4 className="font-serif text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent mb-3">$MCRT</h4>
                   <p className="text-sm md:text-base text-gray-300 leading-relaxed">
@@ -404,11 +404,20 @@ function Homepagemcrt() {
                     <li>• Creator economy: earn from maps, modes, and assets</li>
                     <li>• Ecosystem utility: pledging, marketplace, VIP lobbies</li>
                   </ul>
-                  <div className="mt-4 flex gap-2 flex-wrap">
-                    <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-[#98FFF9]/60 px-4 py-2 text-[#98FFF9] hover:border-white hover:text-white transition">View on CoinMarketCap</a>
-                    <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-[#98FFF9] px-4 py-2 text-[#03082F] font-semibold hover:bg-[#98FFF9]/90 transition">Trade on Bybit</a>
+                  <div className="mt-4 grid gap-3">
+                    <div className="rounded-lg bg-black/30 p-3">
+                      {/* CoinGecko Ticker */}
+                      <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0b0f39" font-color="#ffffff" border-color="#2a2f63"></coingecko-coin-ticker-widget>
+                    </div>
+                    <div className="flex gap-2 flex-wrap">
+                      <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-[#98FFF9]/60 px-4 py-2 text-[#98FFF9] hover:border-white hover:text-white transition">View on CoinMarketCap</a>
+                      <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-[#98FFF9] px-4 py-2 text-[#03082F] font-semibold hover:bg-[#98FFF9]/90 transition">Trade on Bybit</a>
+                    </div>
                   </div>
                 </div>
+
+                {/* Spacer/empty on md to balance grid if needed */}
+                <div className="hidden md:block" />
               </div>
             </div>
           </section>
