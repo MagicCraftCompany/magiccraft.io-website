@@ -22,7 +22,8 @@ import Partners from '@/components/Partners/Partners'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import bnbLogo from '../assets/icons/bnblogo.png'
-
+// Official $MCRT logo for token visuals
+const mcrtLogo = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
 
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(16)
@@ -611,19 +612,13 @@ function Homepagemcrt() {
                 <div className="relative card-glass card-padding overflow-hidden">
                   {/* Background pattern */}
                   <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
-                    <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="2" className="text-[#98FFF9]"/>
-                      <text x="50" y="55" textAnchor="middle" className="text-lg font-bold fill-current text-[#98FFF9]">MC</text>
-                    </svg>
-                </div>
+                    <img src={mcrtLogo} alt="MCRT logo" className="w-full h-full object-contain" loading="lazy" />
+                  </div>
                   
                   {/* Header with icon */}
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#98FFF9] to-[#B591F2] p-3 shadow-lg flex items-center justify-center">
-                      <svg viewBox="0 0 100 100" className="w-10 h-10">
-                        <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" strokeWidth="3" className="text-white"/>
-                        <text x="50" y="58" textAnchor="middle" className="text-sm font-bold fill-current text-white">MC</text>
-                      </svg>
+                      <img src={mcrtLogo} alt="$MCRT" className="w-10 h-10 object-contain" />
                     </div>
                     <div>
                       <h4 className="text-card-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">$MCRT</h4>
