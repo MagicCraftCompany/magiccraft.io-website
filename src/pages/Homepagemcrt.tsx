@@ -40,7 +40,7 @@ function Homepagemcrt() {
     
     if (!slides || !dots.length) return
 
-    const totalSlides = 4
+    const totalSlides = 6
     let autoPlayInterval: NodeJS.Timeout
 
     const goToSlide = (slideIndex: number) => {
@@ -421,6 +421,45 @@ function Homepagemcrt() {
                                 <span className="bg-[#FFB649]/80 text-[#03082F] text-xs px-2 py-1 rounded-full font-bold">RANKED</span>
                             </div>
                           </div>
+                          {/* Slide 5 - Massive Teamfight */}
+                          <div className="gameplay-slide min-w-full relative">
+                            <div className="aspect-video bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] rounded-xl overflow-hidden relative">
+                              <img 
+                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1733160952/image_14_meffcp.webp" 
+                                alt="MagicCraft Massive Teamfight"
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                              <div className="absolute bottom-4 left-4 right-4">
+                                <h5 className="text-white font-bold text-sm mb-1">Massive Team Fight</h5>
+                                <p className="text-white/80 text-xs">Coordinated clashes • Ultimate abilities</p>
+                              </div>
+                              <div className="absolute top-4 right-4">
+                                <span className="bg-[#98FFF9]/80 text-[#03082F] text-xs px-2 py-1 rounded-full font-bold">TEAMFIGHT</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* Slide 6 - Hero Showcase */}
+                          <div className="gameplay-slide min-w-full relative">
+                            <div className="aspect-video bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] rounded-xl overflow-hidden relative">
+                              <img 
+                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173211/bgpatch_nvhjfc.webp" 
+                                alt="MagicCraft Hero Showcase"
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                              <div className="absolute bottom-4 left-4 right-4">
+                                <h5 className="text-white font-bold text-sm mb-1">Epic Hero Moments</h5>
+                                <p className="text-white/80 text-xs">Show-stopping plays • Highlights</p>
+                              </div>
+                              <div className="absolute top-4 right-4">
+                                <span className="bg-[#B591F2]/80 text-white text-xs px-2 py-1 rounded-full font-bold">HIGHLIGHT</span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -431,6 +470,8 @@ function Homepagemcrt() {
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="1"></button>
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="2"></button>
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="3"></button>
+                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="4"></button>
+                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="5"></button>
                       </div>
 
                       {/* Auto-play indicator */}
@@ -613,7 +654,7 @@ function Homepagemcrt() {
                   {/* Background pattern */}
                   <div className="absolute top-0 right-0 w-32 h-32 opacity-10">
                     <img src={mcrtLogo} alt="MCRT logo" className="w-full h-full object-contain" loading="lazy" />
-                  </div>
+                </div>
                   
                   {/* Header with icon */}
                   <div className="flex items-center gap-4 mb-6">
