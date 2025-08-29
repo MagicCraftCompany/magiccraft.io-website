@@ -281,57 +281,85 @@ export default function MagicraftDownload() {
             return (
               <div key={key} className="relative group h-full min-w-0">
                 <motion.div 
-                  className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px] shadow-lg hover:shadow-xl transition-all duration-300" 
-                  whileHover={{ scale: 1.03, y: -2 }} 
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px] shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:from-[#98FFF9] group-hover:to-[#B591F2]" 
+                  whileHover={{ scale: 1.05, y: -4 }} 
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   style={{ 
-                    boxShadow: `0 8px 25px rgba(0,0,0,0.3), 0 0 0 1px ${l.glowColor}20`
+                    boxShadow: hoveredLobby === key 
+                      ? `0 20px 40px ${l.glowColor}40, 0 0 60px ${l.glowColor}30, inset 0 0 20px ${l.glowColor}10`
+                      : `0 8px 25px rgba(0,0,0,0.3), 0 0 0 1px ${l.glowColor}20`
                   }}
                 >
                   <div
-                    className="relative h-full w-full overflow-hidden rounded-[19px] bg-gradient-to-br from-[#511569] to-[#3d1052] p-3 sm:p-4 md:p-5 cursor-pointer transition-all duration-300 min-h-[clamp(110px,14vw,160px)] border border-white/10 hover:border-white/20"
+                    className="relative h-full w-full overflow-hidden rounded-[19px] bg-gradient-to-br from-[#511569] to-[#3d1052] p-3 sm:p-4 md:p-5 cursor-pointer transition-all duration-500 min-h-[clamp(110px,14vw,160px)] border border-white/10 hover:border-white/30 group-hover:from-[#6a1a7a] group-hover:to-[#4e1563]"
                     onClick={() => window.open(url, '_blank')}
                     onMouseEnter={() => setHoveredLobby(key)}
                     onMouseLeave={() => setHoveredLobby(null)}
                     style={{
-                      background: `linear-gradient(135deg, #511569 0%, #3d1052 100%), radial-gradient(circle at 30% 30%, ${l.glowColor}15 0%, transparent 50%)`
+                      background: hoveredLobby === key 
+                        ? `linear-gradient(135deg, #6a1a7a 0%, #4e1563 100%), radial-gradient(circle at 30% 30%, ${l.glowColor}25 0%, transparent 60%)`
+                        : `linear-gradient(135deg, #511569 0%, #3d1052 100%), radial-gradient(circle at 30% 30%, ${l.glowColor}15 0%, transparent 50%)`
                     }}
                   >
+                    {/* Animated shimmer effect */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
+                    </div>
                     <div className="flex flex-col items-center justify-center h-full text-center gap-2 md:gap-3">
                       <div className="relative flex-shrink-0 flex items-center justify-center">
                         {/* Enhanced glow effect */}
                         <div 
-                          className="absolute inset-0 rounded-full blur-lg opacity-60 transition-all duration-300 group-hover:opacity-90 group-hover:blur-xl"
+                          className="absolute inset-0 rounded-full blur-lg opacity-60 transition-all duration-500 group-hover:opacity-100 group-hover:blur-2xl group-hover:animate-pulse"
                           style={{ 
-                            background: `radial-gradient(circle, ${l.glowColor}40 0%, ${l.glowColor}20 50%, transparent 70%)`,
-                            width: '60px',
-                            height: '60px',
+                            background: hoveredLobby === key 
+                              ? `radial-gradient(circle, ${l.glowColor}60 0%, ${l.glowColor}40 30%, ${l.glowColor}20 60%, transparent 80%)`
+                              : `radial-gradient(circle, ${l.glowColor}40 0%, ${l.glowColor}20 50%, transparent 70%)`,
+                            width: hoveredLobby === key ? '80px' : '60px',
+                            height: hoveredLobby === key ? '80px' : '60px',
                             transform: 'translate(-50%, -50%)',
                             left: '50%',
                             top: '50%'
                           }}
                         />
                         {/* Standardized logo container */}
-                        <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 transition-all duration-300 group-hover:border-white/40 group-hover:scale-110 group-hover:shadow-lg"
-                             style={{ boxShadow: `0 4px 20px ${l.glowColor}30` }}>
+                        <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 transition-all duration-500 group-hover:border-white/50 group-hover:scale-125 group-hover:shadow-2xl group-hover:rotate-6"
+                             style={{ 
+                               boxShadow: hoveredLobby === key 
+                                 ? `0 8px 30px ${l.glowColor}50, inset 0 0 20px ${l.glowColor}20`
+                                 : `0 4px 20px ${l.glowColor}30`
+                             }}>
                           <img 
                             src={l.icon} 
                             alt={l.title} 
-                            className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 object-contain transition-all duration-300 group-hover:brightness-110" 
+                            className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 object-contain transition-all duration-500 group-hover:brightness-125 group-hover:scale-110" 
                             loading="lazy" 
                             style={{
-                              filter: `drop-shadow(0 2px 8px ${l.glowColor}50)`
+                              filter: hoveredLobby === key 
+                                ? `drop-shadow(0 4px 12px ${l.glowColor}70) brightness(1.2)`
+                                : `drop-shadow(0 2px 8px ${l.glowColor}50)`
                             }}
                           />
                         </div>
                       </div>
-                      <div className="space-y-1">
-                        <h3 className="text-xs sm:text-sm md:text-base font-bold text-white font-serif transition-colors duration-300 leading-tight group-hover:text-white"
-                            style={{ textShadow: `0 0 10px ${l.glowColor}50` }}>{l.title}</h3>
-                        <p className="text-xs text-white/80 transition-colors duration-300 group-hover:text-white/95 leading-tight px-1">{l.subtitle}</p>
+                      <div className="space-y-1 transition-all duration-500 group-hover:scale-105">
+                        <h3 className="text-xs sm:text-sm md:text-base font-bold text-white font-serif transition-all duration-500 leading-tight group-hover:text-white group-hover:scale-110"
+                            style={{ 
+                              textShadow: hoveredLobby === key 
+                                ? `0 0 15px ${l.glowColor}80, 0 0 25px ${l.glowColor}50`
+                                : `0 0 10px ${l.glowColor}50`
+                            }}>{l.title}</h3>
+                        <p className="text-xs text-white/80 transition-all duration-500 group-hover:text-white group-hover:scale-105 leading-tight px-1">{l.subtitle}</p>
                       </div>
                     </div>
-                    <div className={`absolute inset-0 rounded-[19px]`} style={{ background: `linear-gradient(90deg, ${colorClass}00, ${colorClass}22, ${colorClass}00)` , opacity: 0 }} />
+                    {/* Hover overlay effect */}
+                    <div 
+                      className="absolute inset-0 rounded-[19px] transition-opacity duration-500"
+                      style={{ 
+                        background: `linear-gradient(90deg, ${colorClass}00, ${colorClass}33, ${colorClass}00)`,
+                        opacity: hoveredLobby === key ? 0.4 : 0
+                      }} 
+                    />
                   </div>
                 </motion.div>
                 <AnimatePresence>
