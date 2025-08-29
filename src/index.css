@@ -8,7 +8,22 @@
 
 /* Global font settings */
 body {
-  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Futura PT', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@layer base {
+  h1, h2, h3 {
+    font-family: 'Colus', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+    letter-spacing: 0.01em;
+    font-weight: 700;
+  }
+  h4, h5, h6 {
+    font-family: 'Futura PT', 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    letter-spacing: 0.005em;
+  }
 }
 
 @font-face {
