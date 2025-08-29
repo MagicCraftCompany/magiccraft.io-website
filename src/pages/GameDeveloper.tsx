@@ -53,7 +53,6 @@ function GameDeveloper() {
           className="hidden h-full w-full object-cover lg:block"
           alt="MagicCraft Game Maker hero"
           loading="eager"
-          fetchpriority="high"
         />
 
         {/* Tablet Image */}
