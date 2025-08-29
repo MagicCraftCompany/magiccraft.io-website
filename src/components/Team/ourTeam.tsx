@@ -201,17 +201,11 @@ export const ourteam = [
     ],
   },
   {
-    name: 'Romain "Adam"',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173231/Adam_jikjlw.webp',
-    work: 'CBDO',
+    name: 'Mansi',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    work: 'Marketing',
     category: 'Team',
-    socialicons: [
-      // {
-      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
-      //   socialmedia:
-      //     'https://www.linkedin.com/in/romain-ghibaudo/',
-      // },
-    ],
+    socialicons: [],
   },
   
   // {
@@ -229,16 +223,75 @@ export const ourteam = [
  
  
   {
-    name: 'Tarik ',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173000/Tarik_Yacizi_junzgg.webp',
-    work: 'Game Developer',
+    name: 'Mika',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    work: 'Marketing',
     category: 'Team',
-    socialicons: [
-      // {
-      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
-      //   socialmedia: 'https://www.linkedin.com/in/trk90/',
-      // },
-    ],
+    socialicons: [],
+  },
+
+  {
+    name: 'Alex',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    work: 'Tech',
+    category: 'Team',
+    socialicons: [],
+  },
+
+  {
+    name: 'Emanual',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    work: 'Community & Socials',
+    category: 'Team',
+    socialicons: [],
+  },
+
+  {
+    name: 'Timea',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    work: 'Unity Designer',
+    category: 'Team',
+    socialicons: [],
+  },
+
+  {
+    name: 'Ania',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    work: 'AI Video Creator',
+    category: 'Team',
+    socialicons: [],
+  },
+
+  {
+    name: 'Vo',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    work: 'AI Video Creator',
+    category: 'Team',
+    socialicons: [],
+  },
+
+  {
+    name: 'Hassan',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    work: 'Unity & Web3 Developer',
+    category: 'Team',
+    socialicons: [],
+  },
+
+  {
+    name: 'Ihor',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    work: 'Web3 Developer',
+    category: 'Team',
+    socialicons: [],
+  },
+
+  {
+    name: 'Dymtry',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173202/character2D_yjromf.webp',
+    work: 'QA',
+    category: 'Team',
+    socialicons: [],
   },
  
   
