@@ -406,7 +406,6 @@ function Homepagemcrt() {
                         </div>
                       </div>
                     </div>
-                      </div>
         </section>
 
         <section className="relative py-12 md:py-16">
