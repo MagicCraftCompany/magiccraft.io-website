@@ -92,18 +92,18 @@ function Homepagemcrt() {
         <title>MagicCraft - Play-to-Earn Blockchain Game | Create Games & Earn $MCRT</title>
         <meta
           name="description"
-          content="MagicCraft is a Play-to-Earn blockchain game featuring fast-paced multiplayer battles. Create games like Roblox, earn $MCRT tokens, and monetize your gaming creativity. Join thousands of players and developers."
+          content="MagicCraft is a crypto gaming MOBA (meme online battle arena) where you battle and build games like Roblox to earn $MCRT. Available on PC, iOS, Android, and Steam. Trade $MCRT on Bybit."
         />
         <meta
           name="keywords"
-          content="MagicCraft, blockchain game, P2E, MCRT, MagicCraft Token, MagicCraft Game, MagicCraft PVP, game maker, create games, earn crypto, Roblox alternative, play to earn, NFT gaming, Web3 gaming, crypto gaming, game development, $MCRT token"
+          content="crypto gaming, $MCRT, MagicCraft, MOBA, meme online battle arena, Bybit, blockchain game, P2E, play to earn, NFT gaming, Web3 gaming, game maker, create games, earn crypto, Steam, iOS, Android"
         />
         <meta name="author" content="MagicCraft" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="MagicCraft - Play-to-Earn Blockchain Game | Create Games & Earn $MCRT" />
-        <meta property="og:description" content="Create games like Roblox and earn $MCRT tokens! Join MagicCraft's Play-to-Earn ecosystem where players and developers can monetize their gaming creativity." />
+        <meta property="og:title" content="MagicCraft – Crypto Gaming MOBA | Earn $MCRT" />
+        <meta property="og:description" content="Battle in a crypto MOBA and build games to earn $MCRT. Play on PC, iOS, Android, Steam. Trade on Bybit." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://magiccraft.io" />
         <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
@@ -111,8 +111,8 @@ function Homepagemcrt() {
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="MagicCraft - Create Games & Earn $MCRT" />
-        <meta name="twitter:description" content="Build games like Roblox and earn crypto! Join MagicCraft's Play-to-Earn ecosystem." />
+        <meta name="twitter:title" content="MagicCraft – Crypto Gaming MOBA | Earn $MCRT" />
+        <meta name="twitter:description" content="Battle, build, and earn $MCRT. Play on PC, iOS, Android, Steam. Trade on Bybit." />
         <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
         
         {/* Additional SEO */}
