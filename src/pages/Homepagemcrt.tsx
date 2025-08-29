@@ -20,6 +20,8 @@ import Testimonial from '@/components/ui/testimonial'
 import Partners from '@/components/Partners/Partners'
 
 import { Helmet } from 'react-helmet-async'
+import battleOne from '@/assets/images/image 140.webp'
+import battleTwo from '@/assets/images/image 141.webp'
 import { Link } from 'react-router-dom'
 import bnbLogo from '../assets/icons/bnblogo.png'
 // Official $MCRT logo for token visuals
@@ -40,7 +42,7 @@ function Homepagemcrt() {
     
     if (!slides || !dots.length) return
 
-    const totalSlides = 6
+    const totalSlides = 2
     let autoPlayInterval: NodeJS.Timeout
 
     const goToSlide = (slideIndex: number) => {
@@ -343,12 +345,12 @@ function Homepagemcrt() {
                     <div className="relative w-full">
                       <div className="gameplay-carousel overflow-hidden rounded-xl bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] h-[220px] md:h-[260px] lg:h-[300px]">
                         <div className="gameplay-slides flex h-full transition-transform duration-500 ease-in-out" id="gameplaySlides">
-                          {/* Slide 1 - Legendary Battle Arena */}
+                          {/* Slide 1 - Battle Image A */}
                           <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
                             <div className="relative overflow-hidden h-full">
                               <img 
-                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto,w_800,h_450,c_fill/v1735742400/legendary_battle_1.webp" 
-                                alt="MagicCraft Legendary Battle Arena"
+                                src={battleOne}
+                                alt="MagicCraft Battle"
                                 className="w-full h-full object-cover"
                                 loading="lazy"
                               />
@@ -356,19 +358,19 @@ function Homepagemcrt() {
                               <div className="absolute bottom-4 left-4 right-4">
                                 <h5 className="text-white font-bold text-base mb-2">Legendary Battles</h5>
                                 <p className="text-white/90 text-sm">Epic team clashes • Ultimate abilities unleashed</p>
-                              </div>
+                            </div>
                               <div className="absolute top-4 right-4">
                                 <span className="bg-gradient-to-r from-[#FFB649] to-[#FF8C42] text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">LEGENDARY</span>
-                              </div>
                             </div>
-                          </div>
+                            </div>
+                            </div>
 
-                          {/* Slide 2 - Massive Teamfight */}
+                          {/* Slide 2 - Battle Image B */}
                           <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
                             <div className="relative overflow-hidden h-full">
                               <img 
-                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto,w_800,h_450,c_fill/v1735742400/legendary_battle_2.webp" 
-                                alt="MagicCraft Massive Teamfight"
+                                src={battleTwo}
+                                alt="MagicCraft Battle"
                                 className="w-full h-full object-cover"
                                 loading="lazy"
                               />
@@ -376,102 +378,22 @@ function Homepagemcrt() {
                               <div className="absolute bottom-4 left-4 right-4">
                                 <h5 className="text-white font-bold text-base mb-2">Massive Teamfights</h5>
                                 <p className="text-white/90 text-sm">Coordinated strategies • Champion showdowns</p>
-                              </div>
+                          </div>
                               <div className="absolute top-4 right-4">
                                 <span className="bg-gradient-to-r from-[#98FFF9] to-[#6DD5ED] text-[#03082F] text-xs px-3 py-1 rounded-full font-bold shadow-lg">TEAMFIGHT</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Slide 3 - PvP Arena Combat */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
-                            <div className="relative overflow-hidden h-full">
-                              <img 
-                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173137/Hero_1_v7qidt.webp" 
-                                alt="MagicCraft PvP Arena Combat"
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                              <div className="absolute bottom-4 left-4 right-4">
-                                <h5 className="text-white font-bold text-base mb-2">PvP Arena Combat</h5>
-                                <p className="text-white/90 text-sm">Intense 5v5 battles • Skill-based matchmaking</p>
-                              </div>
-                              <div className="absolute top-4 right-4">
-                                <span className="bg-gradient-to-r from-[#FF4757] to-[#FF3838] text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">LIVE PVP</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Slide 4 - Strategic Gameplay */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
-                            <div className="relative overflow-hidden h-full">
-                              <img 
-                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173132/hero2_olqlpn.webp" 
-                                alt="MagicCraft Strategic Gameplay"
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                              <div className="absolute bottom-4 left-4 right-4">
-                                <h5 className="text-white font-bold text-base mb-2">Strategic Gameplay</h5>
-                                <p className="text-white/90 text-sm">Master unique heroes • Tactical combat</p>
-                              </div>
-                              <div className="absolute top-4 right-4">
-                                <span className="bg-gradient-to-r from-[#B591F2] to-[#9C88FF] text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">STRATEGY</span>
-                              </div>
-                            </div>
-                          {/* Slide 5 - Tournament Action */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
-                            <div className="relative overflow-hidden h-full">
-                              <img 
-                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173140/Hero_3_kqxqhd.webp" 
-                                alt="MagicCraft Tournament Action"
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                              <div className="absolute bottom-4 left-4 right-4">
-                                <h5 className="text-white font-bold text-base mb-2">Tournament Action</h5>
-                                <p className="text-white/90 text-sm">Competitive matches • Prize pools</p>
-                              </div>
-                              <div className="absolute top-4 right-4">
-                                <span className="bg-gradient-to-r from-[#FFB649] to-[#FFA726] text-[#03082F] text-xs px-3 py-1 rounded-full font-bold shadow-lg">TOURNAMENT</span>
-                              </div>
-                            </div>
-                          </div>
-
-                          {/* Slide 6 - Ranked Competition */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
-                            <div className="relative overflow-hidden h-full">
-                              <img 
-                                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173135/Hero_4_ywgdqf.webp" 
-                                alt="MagicCraft Ranked Competition"
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                              <div className="absolute bottom-4 left-4 right-4">
-                                <h5 className="text-white font-bold text-base mb-2">Ranked Competition</h5>
-                                <p className="text-white/90 text-sm">Climb leaderboards • Prove your skill</p>
-                              </div>
-                              <div className="absolute top-4 right-4">
-                                <span className="bg-gradient-to-r from-[#4ECDC4] to-[#44A08D] text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">RANKED</span>
-                              </div>
-                            </div>
-                          </div>
                         </div>
                       </div>
                     </div>
+
+                          {/* Removed other slides to use only provided battle images */}
+                            </div>
+                          </div>
+                            </div>
 
                                             {/* Carousel Controls */}
                       <div className="flex justify-center gap-2 mt-4">
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60 active" data-slide="0"></button>
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="1"></button>
-                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="2"></button>
-                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="3"></button>
-                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="4"></button>
-                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="5"></button>
                       </div>
 
                       {/* Auto-play indicator */}

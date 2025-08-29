@@ -241,12 +241,12 @@ body {
   .gameplay-slides {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    width: 600%; /* 6 slides * 100% */
+    width: 200%; /* 2 slides */
   }
   
   .gameplay-slide {
-    flex: 0 0 16.666667%; /* 100% / 6 slides */
-    width: 16.666667%;
+    flex: 0 0 50%; /* 2 slides */
+    width: 50%;
     position: relative;
     height: 100%;
   }
