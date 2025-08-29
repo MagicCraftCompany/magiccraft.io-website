@@ -385,24 +385,54 @@ body {
   }
 }
 
-/* Coin widget wrapper: stripped visuals per request */
-.widget-card {
-  position: relative;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-  background: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
+/* CoinGecko widget styling - clean integration */
+coingecko-coin-ticker-widget,
+coingecko-coin-price-chart-widget {
+  display: block;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  filter: contrast(1.1) brightness(1.05);
 }
 
-.widget-card::before,
-.widget-card::after {
-  content: none;
+/* Remove widget borders and backgrounds */
+coingecko-coin-ticker-widget > div,
+coingecko-coin-price-chart-widget > div {
+  border: none !important;
+  background: transparent !important;
 }
 
-.widget-card:hover {
-  transform: none;
+/* Style the widget content */
+coingecko-coin-ticker-widget .cg-widget,
+coingecko-coin-price-chart-widget .cg-widget {
+  border: none !important;
+  background: linear-gradient(135deg, #0B0F39 0%, #1a1344 100%) !important;
+  border-radius: 12px !important;
+}
+
+/* Improve text visibility */
+coingecko-coin-ticker-widget *,
+coingecko-coin-price-chart-widget * {
+  color: #FFFFFF !important;
+  font-family: 'Futura PT', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Style specific elements */
+coingecko-coin-ticker-widget .cg-widget-inner-container,
+coingecko-coin-price-chart-widget .cg-widget-inner-container {
+  padding: 16px !important;
+}
+
+/* Price text styling */
+coingecko-coin-ticker-widget .cg-price-text {
+  color: #98FFF9 !important;
+  font-weight: 700 !important;
+  font-size: 1.5rem !important;
+}
+
+/* Chart colors */
+coingecko-coin-price-chart-widget canvas {
+  filter: hue-rotate(180deg) saturate(1.2) brightness(1.1);
 }
 
 @font-face {
