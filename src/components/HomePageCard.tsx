@@ -277,10 +277,67 @@ export default function MagicraftDownload() {
         </div>
       </div>
 
-      {/* Crypto Lobby Cards - responsive grid, maximized width */}
-      <div className="grid grid-cols-2 md:grid-cols-3 items-stretch gap-2 sm:gap-3 lg:gap-4 w-full max-w-[24rem] sm:max-w-[30rem] md:max-w-[36rem] lg:max-w-[44rem] xl:max-w-[52rem] mx-auto px-1 sm:px-2 lg:ml-4 z-10">
-        {/* BTC Lobby Card */}
-        <div className="relative group h-full min-w-0">
+      {/* Crypto Lobby Cards - responsive grid, dynamic from data */}
+      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 items-stretch gap-2 sm:gap-3 lg:gap-4 w-full max-w-[24rem] sm:max-w-[30rem] md:max-w-[44rem] lg:max-w-[64rem] xl:max-w-[80rem] mx-auto px-1 sm:px-2 lg:ml-4 z-10">
+        {(['btc','bnb','mcrt','eth','xrp','sol'] as const).map((key) => {
+          const l = lobbyData[key]
+          const colorClass =
+            key === 'btc' ? '#FFB649' :
+            key === 'bnb' ? '#F3BA2F' :
+            key === 'mcrt' ? '#98FFF9' :
+            key === 'eth' ? '#bc7af6' :
+            key === 'xrp' ? '#51C1F6' : '#7CF5C7'
+          const url = `https://lobby.magiccraft.io/?crypto=${key}`
+          return (
+            <div key={key} className="relative group h-full min-w-0">
+              <motion.div className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px]" whileHover={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+                <div
+                  className={`relative h-full w-full overflow-hidden rounded-[19px] bg-[#511569] p-1.5 sm:p-2 md:p-3 lg:p-4 cursor-pointer transition-all duration-300 min-h-[100px] md:min-h-[120px] lg:min-h-[140px]`}
+                  onClick={() => window.open(url, '_blank')}
+                  onMouseEnter={() => setHoveredLobby(key)}
+                  onMouseLeave={() => setHoveredLobby(null)}
+                >
+                  <div className="flex flex-col items-center justify-center h-full text-center gap-2">
+                    <div className="relative flex-shrink-0">
+                      <div className={`absolute bottom-[-15px] left-1/2 -translate-x-1/2 w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full bg-gradient-to-t ${l.glowColor} to-transparent blur-[12px] sm:blur-[14px] lg:blur-[16px] opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:blur-[18px]`} />
+                      <img src={l.icon} alt={l.title} className="relative w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 z-10 transition-transform duration-300 group-hover:scale-110" loading="lazy" />
+                    </div>
+                    <div className="space-y-1">
+                      <h3 className={`text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white font-serif transition-colors duration-300 leading-tight`}>{l.title}</h3>
+                      <p className="text-xs sm:text-sm text-white/90 transition-colors duration-300 group-hover:text-white leading-tight px-1 sm:px-2">{l.subtitle}</p>
+                    </div>
+                  </div>
+                  <div className={`absolute inset-0 rounded-[19px]`} style={{ background: `linear-gradient(90deg, ${colorClass}00, ${colorClass}22, ${colorClass}00)` , opacity: 0 }} />
+                </div>
+              </motion.div>
+              <AnimatePresence>
+                {hoveredLobby === key && (
+                  <motion.div initial={{ opacity: 0, y: 10, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 10, scale: 0.95 }} transition={{ duration: 0.2, ease: 'easeOut' }} className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 z-50 w-80">
+                    <div className="relative bg-gradient-to-br from-[#1a0d2e]/95 to-[#2a0d4e]/95 border border-[#B591F2]/40 rounded-xl p-5 shadow-2xl backdrop-blur-md">
+                      <div className="relative z-10">
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="w-2 h-2 rounded-full bg-white/70 animate-pulse"></div>
+                          <h4 className="text-white font-bold text-lg">{l.tooltip.title}</h4>
+                        </div>
+                        <p className="text-white/90 text-sm mb-4 leading-relaxed">{l.tooltip.description}</p>
+                        <div className="space-y-2">
+                          {l.tooltip.features.map((feature, i) => (
+                            <motion.p key={i} className="text-white/80 text-xs leading-relaxed" initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }}>
+                              {feature}
+                            </motion.p>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-6 border-r-6 border-t-6 border-transparent border-t-[#1a0d2e]/95"></div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          )
+        })}
+        {/* Individual cards are now generated dynamically above */}
+        <div className="hidden">
           <motion.div 
             className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px]"
             whileHover={{ scale: 1.02 }}
