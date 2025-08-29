@@ -301,13 +301,30 @@ body {
   }
 
   /* iPhone 14 Pro / Pro Max targeted tightening (430 x 932) */
-  @media (width: 430px) and (height: 932px) {
-    .text-hero { font-size: 2.25rem; }
-    .text-section-title { font-size: 1.4rem; }
-    .card-padding { padding: 14px; }
-    .card-padding-sm { padding: 10px; }
-    .btn-primary, .btn-secondary { padding: 0.65rem 1.1rem; }
-    .gameplay-carousel { height: 200px; }
+  @media (max-width: 430px) and (max-height: 932px) {
+    .text-hero { font-size: 2rem; }
+    .text-section-title { font-size: 1.25rem; }
+    .card-padding { padding: 12px; }
+    .card-padding-sm { padding: 8px; }
+    .btn-primary, .btn-secondary { padding: 0.6rem 1rem; font-size: 0.875rem; }
+    .gameplay-carousel { height: 180px; }
+  }
+  
+  /* MacBook Pro 14" (1512 x 982) */
+  @media (min-width: 1400px) and (max-width: 1600px) {
+    .text-hero { font-size: 3.5rem; }
+    .text-section-title { font-size: 2.5rem; }
+    .section-padding { padding: 3rem 0; }
+    .container-padding { padding-left: 2rem; padding-right: 2rem; }
+  }
+  
+  /* General mobile improvements */
+  @media (max-width: 640px) {
+    .text-hero { font-size: clamp(1.75rem, 5vw, 2.5rem); }
+    .text-section-title { font-size: clamp(1.25rem, 4vw, 2rem); }
+    h1 { font-size: clamp(1.5rem, 5vw, 2.5rem); }
+    h2 { font-size: clamp(1.25rem, 4vw, 2rem); }
+    h3 { font-size: clamp(1.125rem, 3vw, 1.5rem); }
   }
   
   .gameplay-slides {

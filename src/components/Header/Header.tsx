@@ -242,14 +242,14 @@ const Header = () => {
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
           <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 "> */}
         <header className="relative z-50 w-full bg-gradient-to-r from-[#431269]/95 via-[#2A0D4E]/95 to-[#431269]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-purple-900/20">
-        <nav className="flex items-center justify-between h-16 md:h-[72px] lg:h-[76px]">
-          <div className="grid shrink-0 place-items-center self-stretch px-4 md:px-6 lg:px-8">
+        <nav className="flex items-center justify-between h-14 sm:h-16 md:h-[72px] lg:h-[76px]">
+          <div className="grid shrink-0 place-items-center self-stretch px-2 sm:px-4 md:px-6 lg:px-8">
             <Link to="/" className="h-full flex items-center group">
-              <img className="w-32 sm:w-36 md:w-40 lg:w-48 transition-all duration-300 group-hover:scale-105 drop-shadow-lg" src={mcLogo} alt="MagicCraft" />
+              <img className="w-28 sm:w-32 md:w-36 lg:w-44 xl:w-48 transition-all duration-300 group-hover:scale-105 drop-shadow-lg" src={mcLogo} alt="MagicCraft" />
             </Link>
           </div>
 
-          <div className="flex w-full items-center justify-end gap-4 md:gap-6 lg:gap-8 px-4 md:px-6 xl:justify-between">
+          <div className="flex w-full items-center justify-end gap-2 sm:gap-3 md:gap-4 lg:gap-6 px-2 sm:px-4 md:px-6 xl:justify-between">
             <div className="hidden items-center gap-4 md:gap-5 lg:gap-6 xl:flex">
               {commonMenuItemsNew.map((item) =>
                 item?.submenu?.length > 0 ? (
@@ -275,7 +275,7 @@ const Header = () => {
                 )
               )}
             </div>
-            <div className="flex items-center gap-3 md:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
               <button className="hidden md:block group">
                 <a
                   href="https://lobby.magiccraft.io/"
@@ -307,14 +307,14 @@ const Header = () => {
 
               <button
                 onClick={handleBuyMCRT}
-                className="group relative flex cursor-pointer items-center gap-2 whitespace-nowrap px-5 md:px-7 py-2.5 md:py-3 rounded-full bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] hover:from-[#FFB649] hover:via-[#B591F2] hover:to-[#98FFF9] text-[#03082F] font-black shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 mr-2 md:ml-0 overflow-hidden"
+                className="group relative flex cursor-pointer items-center gap-1 sm:gap-2 whitespace-nowrap px-3 sm:px-4 md:px-6 lg:px-7 py-2 sm:py-2.5 md:py-3 rounded-full bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] hover:from-[#FFB649] hover:via-[#B591F2] hover:to-[#98FFF9] text-[#03082F] font-black shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 mr-1 sm:mr-2 md:ml-0 overflow-hidden"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 <svg className="w-4 h-4 md:w-5 md:h-5 relative z-10" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm1 13h-2v-2h2v2zm0-4h-2V7h2v4z" opacity="0.3"/>
                   <path d="M8.5 14.5L10 16l3-3M7 10h6" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round"/>
                 </svg>
-                <p className="text-sm md:text-base font-black tracking-wider relative z-10 drop-shadow-md">BUY $MCRT</p>
+                <p className="text-xs sm:text-sm md:text-base font-black tracking-wider relative z-10 drop-shadow-md">BUY $MCRT</p>
               </button>
               <button
                 onClick={openSidebar}
