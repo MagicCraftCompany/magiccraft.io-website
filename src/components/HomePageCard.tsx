@@ -19,7 +19,8 @@ import xrp from '@/assets/icons/xrplobby.svg'
 import sol from '@/assets/icons/sollobby.svg'
 import eth from '@/assets/icons/ethlobby.svg'
 import bnb from '@/assets/icons/bnblobby.svg'
-import mcrtIcon from '@/assets/icons/mcrt-lobby.svg'
+// Use the real MCRT logo used elsewhere on the site
+const mcrtIcon = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
 
 export default function MagicraftDownload() {
   const [hoveredLobby, setHoveredLobby] = useState<string | null>(null)
@@ -112,7 +113,7 @@ export default function MagicraftDownload() {
 
   const lobbyData = {
     btc: {
-      title: 'BTC LOBBY',
+      title: '$BTC LOBBY',
       subtitle: 'Win Bitcoin by playing now!',
       icon: btc,
       glowColor: 'from-[#FFB649] via-[#e69a43]',
@@ -129,7 +130,7 @@ export default function MagicraftDownload() {
       }
     },
     bnb: {
-      title: 'BNB LOBBY',
+      title: '$BNB LOBBY',
       subtitle: 'Compete for BNB!',
       icon: bnb,
       glowColor: 'from-[#F3BA2F] via-[#d6a316]',
@@ -146,7 +147,7 @@ export default function MagicraftDownload() {
       }
     },
     mcrt: {
-      title: 'MCRT LOBBY',
+      title: '$MCRT LOBBY',
       subtitle: 'Earn MCRT in PvP matches!',
       icon: mcrtIcon,
       glowColor: 'from-[#98FFF9] via-[#B591F2]',
@@ -163,7 +164,7 @@ export default function MagicraftDownload() {
       }
     },
     eth: {
-      title: 'ETH LOBBY',
+      title: '$ETH LOBBY',
       subtitle: 'Compete for Ethereum!',
       icon: eth,
       glowColor: 'from-[#bc7af6] via-[#ba8ae5]',
@@ -180,7 +181,7 @@ export default function MagicraftDownload() {
       }
     },
     xrp: {
-      title: 'XRP LOBBY',
+      title: '$XRP LOBBY',
       subtitle: 'Win XRP in battles!',
       icon: xrp,
       glowColor: 'from-[#51C1F6] via-[#4AA7E6]',
@@ -197,7 +198,7 @@ export default function MagicraftDownload() {
       }
     },
     sol: {
-      title: 'SOL LOBBY',
+      title: '$SOL LOBBY',
       subtitle: 'Top up your Solana stash!',
       icon: sol,
       glowColor: 'from-[#7CF5C7] via-[#5BE0AF]',
