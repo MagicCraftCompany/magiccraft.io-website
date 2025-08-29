@@ -20,7 +20,7 @@ import Testimonial from '@/components/ui/testimonial'
 import Partners from '@/components/Partners/Partners'
 
 import { Helmet } from 'react-helmet-async'
-import battleOne from '@/assets/images/image 140.webp'
+import battleOne from '@/assets/images/legendary-battle-1.png'
 import battleTwo from '@/assets/images/legendary-battle-2.webp'
 import battleThree from '@/assets/images/legendary-battle-3.webp'
 import { Link } from 'react-router-dom'
