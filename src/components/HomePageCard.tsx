@@ -217,8 +217,8 @@ export default function MagicraftDownload() {
   }
 
   return (
-    <div className="mx-1 sm:mx-2 flex flex-col lg:flex-row items-center justify-center gap-1 sm:gap-2 lg:gap-2 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 -mt-2 sm:-mt-3">
-      <div className="relative mx-auto w-full max-w-5xl lg:mx-0 lg:mt-[25px] lg:max-w-[800px]">
+    <div className="mx-1 sm:mx-2 flex flex-col lg:flex-row items-start justify-center gap-2 lg:gap-4 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 -mt-2 sm:-mt-3">
+      <div className="relative mx-auto w-full lg:flex-1 lg:mx-0 lg:mt-[25px] lg:max-w-none">
         <div className="rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
             <div className="flex items-center justify-center">
@@ -278,7 +278,8 @@ export default function MagicraftDownload() {
       </div>
 
       {/* Crypto Lobby Cards - responsive grid, dynamic from data */}
-      <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 items-stretch gap-2 sm:gap-3 lg:gap-4 w-full max-w-[24rem] sm:max-w-[30rem] md:max-w-[44rem] lg:max-w-[64rem] xl:max-w-[80rem] mx-auto px-1 sm:px-2 lg:ml-4 z-10">
+      <div className="w-full lg:flex-1 lg:ml-6 z-10">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-3 md:gap-4 w-full max-w-screen-lg mx-auto px-1 sm:px-2">
         {(['btc','bnb','mcrt','eth','xrp','sol'] as const).map((key) => {
           const l = lobbyData[key]
           const colorClass =
@@ -336,8 +337,8 @@ export default function MagicraftDownload() {
             </div>
           )
         })}
-        {/* Individual cards are now generated dynamically above */}
-        <div className="hidden">
+        {/* spacer */}
+        <div className="hidden"></div>
           <motion.div 
             className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px]"
             whileHover={{ scale: 1.02 }}
@@ -660,6 +661,7 @@ export default function MagicraftDownload() {
             </motion.div>
           )}
         </AnimatePresence>
+        </div>
       </div>
 
       {/* SOL Lobby Card */}
