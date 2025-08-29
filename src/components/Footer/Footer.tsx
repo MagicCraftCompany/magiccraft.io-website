@@ -104,6 +104,10 @@ const Footer = () => {
             <img
               src={magiccraftLogo}
               alt="Magiccraft Logo"
+              width="220"
+              height="48"
+              loading="lazy"
+              decoding="async"
               className="max-w-[180px] md:max-w-[220px] transition-transform hover:scale-105"
             />
           </div>
