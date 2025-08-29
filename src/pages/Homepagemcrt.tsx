@@ -493,7 +493,7 @@ function Homepagemcrt() {
           </section>
 
           {/* Token Info: $BNB and $MCRT */}
-          <section className="py-6 sm:py-8 md:py-12 lg:py-16 relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 overflow-x-hidden">
+          <section className="py-6 sm:py-8 md:py-12 lg:py-16 relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 overflow-visible">
             {/* Enhanced background effects */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#98FFF9]/3 to-transparent rounded-3xl"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#B591F2]/10 rounded-full blur-3xl"></div>

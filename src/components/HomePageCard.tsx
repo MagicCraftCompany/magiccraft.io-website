@@ -267,8 +267,8 @@ export default function MagicraftDownload() {
       </div>
 
       {/* Crypto Lobby Cards - responsive grid, dynamic from data */}
-      <div className="w-full lg:flex-1 lg:ml-6 z-10">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-5 lg:gap-6 w-full max-w-5xl lg:max-w-none mx-auto px-2 sm:px-3">
+      <div className="w-full lg:flex-1 lg:ml-6 relative z-20 overflow-visible">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-5 lg:gap-6 w-full max-w-5xl lg:max-w-none mx-auto px-2 sm:px-3 overflow-visible">
           {(['btc','bnb','mcrt','eth','xrp','sol'] as const).map((key) => {
             const l = lobbyData[key]
             const colorClass =
@@ -281,7 +281,7 @@ export default function MagicraftDownload() {
             return (
               <div 
                 key={key} 
-                className="relative group h-full min-w-0"
+                className="relative group h-full min-w-0 z-50 overflow-visible"
                 onMouseEnter={() => setHoveredLobby(key)}
                 onMouseLeave={() => setHoveredLobby(null)}
               >
