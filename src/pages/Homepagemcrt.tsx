@@ -24,7 +24,7 @@ import battleOne from '@/assets/images/image 140.webp'
 import battleTwo from '@/assets/images/legendary-battle-2.webp'
 import battleThree from '@/assets/images/legendary-battle-3.webp'
 import { Link } from 'react-router-dom'
-import bnbLogo from '../assets/icons/bnblogo.png'
+import bnbLogo from '../assets/icons/bnblogo.svg'
 // Official $MCRT logo for token visuals
 const mcrtLogo = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
 
