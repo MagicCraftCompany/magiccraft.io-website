@@ -279,7 +279,12 @@ export default function MagicraftDownload() {
               key === 'xrp' ? '#51C1F6' : '#7CF5C7'
             const url = `https://lobby.magiccraft.io/?crypto=${key}`
             return (
-              <div key={key} className="relative group h-full min-w-0">
+              <div 
+                key={key} 
+                className="relative group h-full min-w-0"
+                onMouseEnter={() => setHoveredLobby(key)}
+                onMouseLeave={() => setHoveredLobby(null)}
+              >
                 <motion.div 
                   className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px] shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:from-[#98FFF9] group-hover:to-[#B591F2]" 
                   whileHover={{ scale: 1.05, y: -4 }} 
@@ -294,8 +299,6 @@ export default function MagicraftDownload() {
                   <div
                     className="relative h-full w-full overflow-hidden rounded-[19px] bg-gradient-to-br from-[#511569] to-[#3d1052] p-3 sm:p-4 md:p-5 cursor-pointer transition-all duration-500 min-h-[clamp(110px,14vw,160px)] border border-white/10 hover:border-white/30 group-hover:from-[#6a1a7a] group-hover:to-[#4e1563]"
                     onClick={() => window.open(url, '_blank')}
-                    onMouseEnter={() => setHoveredLobby(key)}
-                    onMouseLeave={() => setHoveredLobby(null)}
                     style={{
                       background: hoveredLobby === key 
                         ? `linear-gradient(135deg, #6a1a7a 0%, #4e1563 100%), radial-gradient(circle at 30% 30%, ${l.glowColor}25 0%, transparent 60%)`
