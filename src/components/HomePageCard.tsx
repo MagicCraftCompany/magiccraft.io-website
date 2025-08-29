@@ -18,7 +18,7 @@ import btc from '@/assets/icons/btclobby.svg'
 import xrp from '@/assets/icons/xrplobby.svg'
 import sol from '@/assets/icons/sollobby.svg'
 import eth from '@/assets/icons/ethlobby.svg'
-import bnb from '@/assets/icons/bnblogo.svg'
+import bnb from '@/assets/icons/bnblogo-yellow.svg'
 // Use the real MCRT logo used elsewhere on the site
 const mcrtIcon = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
 
