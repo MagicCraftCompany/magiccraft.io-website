@@ -21,7 +21,8 @@ import Partners from '@/components/Partners/Partners'
 
 import { Helmet } from 'react-helmet-async'
 import battleOne from '@/assets/images/image 140.webp'
-import battleTwo from '@/assets/images/image 141.webp'
+import battleTwo from '@/assets/images/legendary-battle-2.webp'
+import battleThree from '@/assets/images/legendary-battle-3.webp'
 import { Link } from 'react-router-dom'
 import bnbLogo from '../assets/icons/bnblogo.png'
 // Official $MCRT logo for token visuals
@@ -42,7 +43,7 @@ function Homepagemcrt() {
     
     if (!slides || !dots.length) return
 
-    const totalSlides = 2
+    const totalSlides = 3
     let autoPlayInterval: NodeJS.Timeout
 
     const goToSlide = (slideIndex: number) => {
@@ -365,43 +366,62 @@ function Homepagemcrt() {
                             </div>
                             </div>
 
-                          {/* Slide 2 - Battle Image B */}
+                          {/* Slide 2 - Legendary Battle 2 */}
                           <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
                             <div className="relative overflow-hidden h-full">
                               <img 
                                 src={battleTwo}
-                                alt="MagicCraft Battle"
+                                alt="MagicCraft Legendary Battle"
                                 className="w-full h-full object-cover"
                                 loading="lazy"
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                               <div className="absolute bottom-4 left-4 right-4">
-                                <h5 className="text-white font-bold text-base mb-2">Massive Teamfights</h5>
-                                <p className="text-white/90 text-sm">Coordinated strategies • Champion showdowns</p>
+                                <h5 className="text-white font-bold text-base mb-2">Epic Showdowns</h5>
+                                <p className="text-white/90 text-sm">Legendary battles • Ultimate abilities</p>
                           </div>
                               <div className="absolute top-4 right-4">
-                                <span className="bg-gradient-to-r from-[#98FFF9] to-[#6DD5ED] text-[#03082F] text-xs px-3 py-1 rounded-full font-bold shadow-lg">TEAMFIGHT</span>
+                                <span className="bg-gradient-to-r from-[#FFB649] to-[#FF8C42] text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">LEGENDARY</span>
                         </div>
                       </div>
                     </div>
 
-                          {/* Removed other slides to use only provided battle images */}
+                          {/* Slide 3 - Legendary Battle 3 */}
+                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative">
+                            <div className="relative overflow-hidden h-full">
+                              <img 
+                                src={battleThree}
+                                alt="MagicCraft Legendary Battle"
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                              <div className="absolute bottom-4 left-4 right-4">
+                                <h5 className="text-white font-bold text-base mb-2">Massive Clashes</h5>
+                                <p className="text-white/90 text-sm">Large-scale warfare • Strategic dominance</p>
                             </div>
+                              <div className="absolute top-4 right-4">
+                                <span className="bg-gradient-to-r from-[#B591F2] to-[#9C88FF] text-white text-xs px-3 py-1 rounded-full font-bold shadow-lg">WARFARE</span>
                           </div>
                             </div>
+                            </div>
+                            </div>
+                            </div>
+                          </div>
 
                                             {/* Carousel Controls */}
                       <div className="flex justify-center gap-2 mt-4">
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60 active" data-slide="0"></button>
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="1"></button>
-                      </div>
+                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="2"></button>
+                        </div>
 
                       {/* Auto-play indicator */}
                       <div className="flex items-center justify-center gap-2 mt-3">
                         <div className="w-1 h-1 bg-[#98FFF9] rounded-full animate-pulse"></div>
                         <span className="text-xs text-white/60">Auto-playing</span>
-                            </div>
-                            </div>
+                      </div>
+                    </div>
                           </div>
                         </div>
                       </div>
