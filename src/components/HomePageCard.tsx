@@ -118,7 +118,7 @@ export default function MagicraftDownload() {
       glowColor: 'from-[#FFB649] via-[#e69a43]',
       tooltip: {
         title: 'Bitcoin (BTC)',
-        description: 'BTC is digital gold — the original PoW network. Play ranked matches to win BTC payouts.',
+        description: 'BTC is digital gold - the original PoW network. Play ranked matches to win BTC payouts.',
         features: [
           '• BTC prize payouts (on‑chain)',
           '• Scarce supply (21M) and PoW security',
@@ -152,7 +152,7 @@ export default function MagicraftDownload() {
       glowColor: 'from-[#98FFF9] via-[#B591F2]',
       tooltip: {
         title: 'MagicCraft (MCRT)',
-        description: 'MCRT is the currency of gaming in MagicCraft — rewards, creator economy, pledging, marketplace, VIP lobbies.',
+        description: 'MCRT is the currency of gaming in MagicCraft - rewards, creator economy, pledging, marketplace, VIP lobbies.',
         features: [
           '• $MCRT prizes from ranked matches',
           '• Creators earn from maps and assets',

@@ -230,7 +230,9 @@ function Homepagemcrt() {
                     your prowess can pave the path to prosperity.
                   </p>
                   <p className="text-sm md:text-base text-[#98FFF9] max-w-2xl mx-auto lg:mx-0">
-                    $MCRT is the currency of gaming powering prediction markets, AI-driven systems, and our core MOBA experience.
+                    MCRT is MagicCraft's utility token - the currency of gaming in our ecosystem. Earn MCRT by
+                    playing matches, creating maps and games with our Game Maker, participating in events, and through
+                    pledging and marketplace activity.
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 pt-1 md:pt-2">
                     <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
@@ -395,7 +397,7 @@ function Homepagemcrt() {
                 <div className="rounded-2xl border border-[#98FFF9]/20 bg-black/20 p-5 md:p-6">
                   <h4 className="font-serif text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent mb-3">$MCRT</h4>
                   <p className="text-sm md:text-base text-gray-300 leading-relaxed">
-                    MCRT is MagicCraft’s utility token — the currency of gaming in our ecosystem. Earn MCRT by
+                    MCRT is MagicCraft's utility token - the currency of gaming in our ecosystem. Earn MCRT by
                     playing matches, creating maps and games with our Game Maker, participating in events, and through
                     pledging and marketplace activity.
                   </p>
