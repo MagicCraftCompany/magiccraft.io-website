@@ -177,20 +177,18 @@ function Homepagemcrt() {
                   />
                 </div>
                 
-                <div className="text-center space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-6 animate-slide-up mt-8 sm:mt-12 md:mt-16 lg:mt-24 xl:mt-32">
-                  <h1 className="max-w-5xl text-balance text-center font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-white drop-shadow-2xl leading-tight">
-                    <div className="flex justify-center mb-4 md:mb-6">
-                                              <img 
-                          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"  
-                          alt="MagicCraft Logo"
-                          loading="eager"
-                          className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto drop-shadow-xl"
-                        />
+                <div className="text-center gap-section animate-slide-up mt-8 sm:mt-12 md:mt-16 lg:mt-24 xl:mt-32">
+                  <div className="flex justify-center mb-4 md:mb-6">
+                    <img 
+                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"  
+                      alt="MagicCraft Logo"
+                      loading="eager"
+                      className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto drop-shadow-xl"
+                    />
                   </div>
-                    <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient">
-                      $MCRT THE CURRENCY OF GAMING
-                    </div>
-                </h1>
+                  <h1 className="text-section-title font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient max-w-4xl mx-auto">
+                    $MCRT THE CURRENCY OF GAMING
+                  </h1>
                 </div>
               </div>
               </div>
@@ -309,17 +307,17 @@ function Homepagemcrt() {
 
           {/* Game Maker Banner */}
           <section className="relative mx-auto w-11/12 max-w-screen-xl mb-4 md:mb-8 px-2 md:px-0">
-            <div className="relative w-full rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#080420] via-[#0A0424] to-[#1a0d2e] border border-[#B591F2]/30 shadow-2xl overflow-hidden">
+            <div className="card-gradient overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
-                    <div className="relative space-y-4 md:space-y-6 px-4 md:px-8 pb-6 md:pb-8 pt-4 md:pt-6">
-                      <div className="text-center space-y-3 md:space-y-4">
-                        <h3 className="font-serif text-2xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent leading-tight">
+              <div className="relative card-padding gap-card">
+                <div className="text-center gap-element">
+                  <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
                     BUILD GAMES WITH GAME MAKER
                   </h3>
-                        <p className="text-base md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-2">
-                          Like Roblox, create your own games and maps! Earn <span className="text-[#98FFF9] font-bold">$MCRT tokens</span> for every player who enjoys your creations. 
-                          Build, share, and monetize your gaming ideas in the MagicCraft ecosystem.
-                        </p>
+                  <p className="text-body-large text-gray-300 max-w-4xl mx-auto">
+                    Like Roblox, create your own games and maps! Earn <span className="text-[#98FFF9] font-bold">$MCRT tokens</span> for every player who enjoys your creations. 
+                    Build, share, and monetize your gaming ideas in the MagicCraft ecosystem.
+                  </p>
                 </div>
                       
                       <div className="relative h-auto">
@@ -357,7 +355,7 @@ function Homepagemcrt() {
                       </div>
                       <Link 
                         to="/build-on-magiccraft" 
-                        className="group inline-flex items-center gap-2 md:gap-3 bg-gradient-to-r from-[#98FFF9] to-[#7de6df] text-[#03082F] px-4 md:px-6 py-2 md:py-3 rounded-lg md:rounded-xl font-bold transition-all hover:from-[#7de6df] hover:to-[#98FFF9] hover:shadow-lg hover:shadow-[#98FFF9]/25 hover:scale-105 text-sm md:text-base"
+                        className="btn-primary gap-2"
                       >
                         Start Building
                         <ArrowUpRight className="h-3 w-3 md:h-4 md:w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -370,54 +368,54 @@ function Homepagemcrt() {
           </section>
 
           {/* Token Info: $BNB and $MCRT */}
-          <section className="relative mx-auto w-11/12 max-w-screen-xl my-6 md:my-10">
-            <div className="rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#0A0424] via-[#1a0d2e] to-[#2A0D4E] border border-[#B591F2]/30 shadow-2xl overflow-hidden">
+          <section className="section-padding-sm relative mx-auto w-11/12 max-w-screen-xl">
+            <div className="card-gradient overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5" />
-              <div className="relative grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 p-4 md:p-8">
+              <div className="relative grid grid-cols-1 md:grid-cols-2 gap-card card-padding">
                 {/* BNB Card */}
-                <div className="rounded-2xl border border-[#98FFF9]/20 bg-black/20 p-5 md:p-6">
-                  <h4 className="font-serif text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#F3BA2F] to-[#FFB649] bg-clip-text text-transparent mb-3">$BNB</h4>
-                  <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+                <div className="card-glass card-padding-sm">
+                  <h4 className="text-card-title font-serif font-bold bg-gradient-to-r from-[#F3BA2F] to-[#FFB649] bg-clip-text text-transparent">$BNB</h4>
+                  <p className="text-body text-gray-300">
                     BNB is the native token of Binance and the gas token of BNB Smart Chain. It powers
                     transactions, smart contracts, and DeFi apps. Our BNB Lobby lets players compete for
                     BNB rewards directly inside MagicCraft.
                   </p>
-                  <ul className="mt-4 space-y-2 text-sm md:text-base text-white/90">
+                  <ul className="gap-element text-body text-white/90">
                     <li>• Gas token on BNB Smart Chain (BSC)</li>
                     <li>• Used for fees, staking, and ecosystem utilities</li>
                     <li>• New BNB Lobby: play and win BNB</li>
                   </ul>
-                  <div className="mt-4 flex gap-2">
-                    <a href="https://www.binance.com/en/price/bnb" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-[#F3BA2F]/50 px-4 py-2 text-[#F3BA2F] hover:border-white hover:text-white transition">About BNB</a>
-                    <a href="https://lobby.magiccraft.io/?crypto=bnb" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-[#F3BA2F] px-4 py-2 text-[#03082F] font-semibold hover:bg-[#F3BA2F]/90 transition">Play BNB Lobby</a>
+                  <div className="flex gap-element flex-wrap">
+                    <a href="https://www.binance.com/en/price/bnb" target="_blank" rel="noopener noreferrer" className="btn-secondary text-small">About BNB</a>
+                    <a href="https://lobby.magiccraft.io/?crypto=bnb" target="_blank" rel="noopener noreferrer" className="btn-primary text-small">Play BNB Lobby</a>
                   </div>
                 </div>
 
                 {/* MCRT Card with price widget */}
-                <div className="rounded-2xl border border-[#98FFF9]/20 bg-black/20 p-5 md:p-6">
-                  <h4 className="font-serif text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent mb-3">$MCRT</h4>
-                  <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+                <div className="card-glass card-padding-sm">
+                  <h4 className="text-card-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">$MCRT</h4>
+                  <p className="text-body text-gray-300">
                     MCRT is MagicCraft's utility token - the currency of gaming in our ecosystem. Earn MCRT by
                     playing matches, creating maps and games with our Game Maker, participating in events, and through
                     pledging and marketplace activity.
                   </p>
-                  <ul className="mt-4 space-y-2 text-sm md:text-base text-white/90">
+                  <ul className="gap-element text-body text-white/90">
                     <li>• Rewards for PvP matches and tournaments</li>
                     <li>• Creator economy: earn from maps, modes, and assets</li>
                     <li>• Ecosystem utility: pledging, marketplace, VIP lobbies</li>
                   </ul>
-                  <div className="mt-4 grid gap-3">
-                    <div className="rounded-xl border border-[#98FFF9]/20 bg-gradient-to-br from-[#0B0F39] to-[#111a4e] p-3 md:p-4 shadow-lg">
+                  <div className="grid gap-element">
+                    <div className="rounded-xl border border-[#98FFF9]/20 bg-gradient-to-br from-[#0B0F39] to-[#111a4e] card-padding-sm shadow-lg">
                       {/* CoinGecko compact ticker */}
                       <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-ticker-widget>
                     </div>
-                    <div className="rounded-xl border border-[#98FFF9]/20 bg-gradient-to-br from-[#0B0F39] to-[#111a4e] p-3 md:p-4 shadow-lg">
+                    <div className="rounded-xl border border-[#98FFF9]/20 bg-gradient-to-br from-[#0B0F39] to-[#111a4e] card-padding-sm shadow-lg">
                       {/* CoinGecko mini chart, auto width for mobile */}
                       <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="260" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-price-chart-widget>
                     </div>
-                    <div className="flex gap-2 flex-wrap">
-                      <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noopener noreferrer" className="rounded-lg border border-[#98FFF9]/60 px-4 py-2 text-[#98FFF9] hover:border-white hover:text-white transition">View on CoinMarketCap</a>
-                      <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="rounded-lg bg-[#98FFF9] px-4 py-2 text-[#03082F] font-semibold hover:bg-[#98FFF9]/90 transition">Trade on Bybit</a>
+                    <div className="flex gap-element flex-wrap">
+                      <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noopener noreferrer" className="btn-secondary text-small">View on CoinMarketCap</a>
+                      <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="btn-primary text-small">Trade on Bybit</a>
                     </div>
                   </div>
                 </div>

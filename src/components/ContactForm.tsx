@@ -58,49 +58,55 @@ const ContactForm = () => {
               </a>
             </div>
           </div>
-        <div className="rounded-3xl bg-[#11113A] p-8 lg:-ml-20">
+        <div className="card-glass card-padding lg:-ml-20">
             <form onSubmit={onSubmit} className="space-y-6">
-                <div className="flex flex-col space-y-2">
-                    <label htmlFor="email" className="text-white">Your email</label>
+                <div className="flex flex-col gap-element">
+                    <label htmlFor="email" className="text-white font-medium">Your email</label>
                     <input
                         id="email"
                         type="email"
                         placeholder="Enter here your email"
                         required
-                        className="rounded-md border border-[#202660] bg-[rgba(68,87,184,0.10)] px-4 py-2 text-[#98FFF9] backdrop-blur-sm"
+                        className="rounded-lg border border-[#98FFF9]/30 bg-[rgba(152,255,249,0.05)] px-4 py-3 text-white placeholder-white/60 backdrop-blur-sm transition-all duration-300 focus:border-[#98FFF9] focus:outline-none focus:ring-2 focus:ring-[#98FFF9]/20"
                     />
                 </div>
-                <div className="flex flex-col space-y-2">
-                    <label htmlFor="name" className="text-white">Your Name</label>
+                <div className="flex flex-col gap-element">
+                    <label htmlFor="name" className="text-white font-medium">Your Name</label>
                     <input
                         id="name"
                         placeholder="Enter here your Name"
                         required
-                        className="rounded-md border border-[#202660] bg-[rgba(68,87,184,0.10)] px-4 py-2 text-[#98FFF9] backdrop-blur-sm"
+                        className="rounded-lg border border-[#98FFF9]/30 bg-[rgba(152,255,249,0.05)] px-4 py-3 text-white placeholder-white/60 backdrop-blur-sm transition-all duration-300 focus:border-[#98FFF9] focus:outline-none focus:ring-2 focus:ring-[#98FFF9]/20"
                     />
                 </div>
-                <div className="flex flex-col space-y-2">
-                    <label htmlFor="question" className="text-white">Your Question</label>
+                <div className="flex flex-col gap-element">
+                    <label htmlFor="question" className="text-white font-medium">Your Question</label>
                     <textarea
                         id="question"
                         placeholder="Enter here your questions or suggestions"
                         required
-                        className="rounded-md border border-[#202660] bg-[rgba(68,87,184,0.10)] px-4 py-2 text-[#98FFF9] backdrop-blur-sm"
+                        rows={4}
+                        className="rounded-lg border border-[#98FFF9]/30 bg-[rgba(152,255,249,0.05)] px-4 py-3 text-white placeholder-white/60 backdrop-blur-sm transition-all duration-300 focus:border-[#98FFF9] focus:outline-none focus:ring-2 focus:ring-[#98FFF9]/20 resize-vertical"
                     />
                 </div>
-                <div className="flex items-center space-x-2">
-                    <input id="privacy" type="checkbox" required />
-                    <label htmlFor="privacy" className="text-sm text-gray-400">
+                <div className="flex items-center gap-element">
+                    <input 
+                        id="privacy" 
+                        type="checkbox" 
+                        required 
+                        className="w-4 h-4 text-[#98FFF9] bg-transparent border-2 border-[#98FFF9]/30 rounded focus:ring-[#98FFF9] focus:ring-2"
+                    />
+                    <label htmlFor="privacy" className="text-small text-white/80">
                         I agree with Privacy Policy
                     </label>
                 </div>
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="text-[19px] w-full rounded-md bg-[#98FFF9] py-4 font-bold text-[#11113A] flex flex-row items-center justify-center"
+                    className="btn-primary w-full gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                                  <ArrowUpRight />
-                                  {isSubmitting ? 'Sending...' : 'Send'}
+                    <ArrowUpRight className="w-5 h-5" />
+                    {isSubmitting ? 'Sending...' : 'Send'}
                 </button>
             </form>
         </div>
