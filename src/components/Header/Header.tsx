@@ -1,5 +1,5 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
-import { X } from 'lucide-react'
+import { X, Gamepad2, ShoppingBag, Coins } from 'lucide-react'
 import NavMenu from './Navmenu'
 import menuIcon from '@/assets/icons/menu-icon.svg'
 import { useState, useEffect } from 'react'
@@ -283,10 +283,7 @@ const Header = () => {
                 >
                   <div className="relative flex w-full items-center justify-center gap-2 rounded-full px-5 md:px-6 h-10 md:h-11 text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15 hover:border-white/25 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M10 3l8 5v5l-8 5-8-5V8l8-5z" opacity="0.3"/>
-                      <path d="M6.5 11.5L9 14l5-5" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                    <Gamepad2 className="w-4 h-4 md:w-5 md:h-5" />
                     <p className="text-sm md:text-base font-bold tracking-wider relative z-10">PLAY</p>
                   </div>
                 </a>
@@ -295,10 +292,7 @@ const Header = () => {
               <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap group" role="button" aria-label="Shop">
                 <div className="relative flex items-center gap-2 px-5 md:px-6 h-10 md:h-11 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#4462d6] to-[#2c3e94] border border-white/15 hover:border-white/25 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                  <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M3 3h14l-1 9H4L3 3z" opacity="0.3"/>
-                    <path d="M5 3V1h10v2M5 12v7h10v-7" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round"/>
-                  </svg>
+                  <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
                   <p className="text-sm md:text-base font-bold tracking-wider text-white relative z-10">
                     SHOP
                   </p>
@@ -313,10 +307,7 @@ const Header = () => {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 {/* Coin icon for BUY */}
-                <svg className="w-4 h-4 md:w-5 md:h-5 relative z-10" viewBox="0 0 24 24" fill="currentColor">
-                  <circle cx="12" cy="12" r="10" opacity="0.35" />
-                  <path d="M12 6v12M8 10h8M8 14h8" stroke="#03082F" strokeWidth="1.6" strokeLinecap="round"/>
-                </svg>
+                <Coins className="w-4 h-4 md:w-5 md:h-5 relative z-10" />
                 <p className="text-sm md:text-base font-black tracking-wider relative z-10 drop-shadow-md">BUY $MCRT</p>
               </button>
               <button
