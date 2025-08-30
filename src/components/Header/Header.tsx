@@ -241,7 +241,7 @@ const Header = () => {
       {/* <header className="relative z-50 w-full px-3 py-4  md:px-4 md:py-5">
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
           <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 "> */}
-        <header className="relative z-50 w-full max-w-full bg-gradient-to-r from-[#431269]/95 via-[#2A0D4E]/95 to-[#431269]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-purple-900/20 overflow-x-hidden">
+        <header className="relative z-[200] w-full max-w-full bg-gradient-to-r from-[#431269]/95 via-[#2A0D4E]/95 to-[#431269]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-purple-900/20 overflow-visible">
         <nav className="flex items-center justify-between h-14 sm:h-16 md:h-[68px] lg:h-[72px] xl:h-[76px] w-full max-w-full px-3 sm:px-4">
           <div className="grid shrink-0 place-items-center self-stretch px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8">
             <Link to="/" className="h-full flex items-center group">
@@ -276,7 +276,7 @@ const Header = () => {
               )}
             </div>
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-              <button className="hidden md:block group">
+              <button className="hidden md:block group" aria-label="Play">
                 <a
                   href="https://lobby.magiccraft.io/"
                   rel="noreferrer noopener"
@@ -292,7 +292,7 @@ const Header = () => {
                 </a>
               </button>
               
-              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap group" role="button">
+              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap group" role="button" aria-label="Shop">
                 <div className="relative flex items-center gap-2 px-5 md:px-6 h-10 md:h-11 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#4462d6] to-[#2c3e94] border border-white/15 hover:border-white/25 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                   <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -312,9 +312,10 @@ const Header = () => {
                 aria-label="Buy $MCRT"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                <svg className="w-4 h-4 md:w-5 md:h-5 relative z-10" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 2C5.58 2 2 5.58 2 10s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm1 13h-2v-2h2v2zm0-4h-2V7h2v4z" opacity="0.3"/>
-                  <path d="M8.5 14.5L10 16l3-3M7 10h6" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round"/>
+                {/* Coin icon for BUY */}
+                <svg className="w-4 h-4 md:w-5 md:h-5 relative z-10" viewBox="0 0 24 24" fill="currentColor">
+                  <circle cx="12" cy="12" r="10" opacity="0.35" />
+                  <path d="M12 6v12M8 10h8M8 14h8" stroke="#03082F" strokeWidth="1.6" strokeLinecap="round"/>
                 </svg>
                 <p className="text-sm md:text-base font-black tracking-wider relative z-10 drop-shadow-md">BUY $MCRT</p>
               </button>

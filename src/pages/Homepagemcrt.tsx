@@ -667,7 +667,7 @@ function Homepagemcrt() {
                         
                         {/* Widget container with clean border */}
                         <div className="relative bg-gradient-to-br from-[#0B0F39]/80 to-[#1a1344]/80 rounded-2xl px-2 pt-3 pb-2 border border-[#98FFF9]/20 group-hover:border-[#98FFF9]/40 transition-all duration-300 overflow-hidden backdrop-blur-sm">
-                          <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0B0F39" font-color="#FFFFFF"></coingecko-coin-ticker-widget>
+                          <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-ticker-widget>
                         </div>
                       </div>
                       
@@ -677,7 +677,7 @@ function Homepagemcrt() {
                         
                         {/* Widget container with clean border */}
                         <div className="relative bg-gradient-to-br from-[#0B0F39]/80 to-[#1a1344]/80 rounded-2xl px-2 pt-3 pb-2 border border-[#B591F2]/20 group-hover:border-[#B591F2]/40 transition-all duration-300 overflow-hidden backdrop-blur-sm">
-                          <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="240" locale="en" background-color="#0B0F39" font-color="#FFFFFF"></coingecko-coin-price-chart-widget>
+                          <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="240" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-price-chart-widget>
                         </div>
                       </div>
                     </div>

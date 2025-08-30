@@ -6,7 +6,7 @@ const NavMenu = ({ item }: NavMenuProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
   return (
-    <div className="relative z-50">
+    <div className="relative z-[300]">
       <div
         className="flex cursor-pointer select-none items-center gap-1 px-3 py-2 rounded-lg text-white/90 hover:text-white hover:bg-white/10 transition-all duration-200"
         onMouseOver={() => setIsMenuOpen(true)}
