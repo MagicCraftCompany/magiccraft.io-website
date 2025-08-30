@@ -281,8 +281,8 @@ const Header = () => {
                   href="https://lobby.magiccraft.io/"
                   rel="noreferrer noopener"
                 >
-                  <div className="relative flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-purple-600/20 to-purple-500/20 border border-purple-400/30 hover:from-purple-600/30 hover:to-purple-500/30 hover:border-purple-400/50 transition-all duration-300 px-5 md:px-6 py-2.5 md:py-3 text-white shadow-lg hover:shadow-purple-500/25 hover:shadow-xl backdrop-blur-sm overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+                  <div className="relative flex w-full items-center justify-center gap-2 rounded-full px-5 md:px-6 h-10 md:h-11 text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15 hover:border-white/25 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
+                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                     <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M10 3l8 5v5l-8 5-8-5V8l8-5z" opacity="0.3"/>
                       <path d="M6.5 11.5L9 14l5-5" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
@@ -292,9 +292,9 @@ const Header = () => {
                 </a>
               </button>
               
-              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap group">
-                <div className="relative flex items-center gap-2 px-5 md:px-6 py-2.5 md:py-3 rounded-full bg-gradient-to-r from-indigo-600/20 to-indigo-500/20 border border-indigo-400/30 hover:from-indigo-600/30 hover:to-indigo-500/30 hover:border-indigo-400/50 transition-all duration-300 text-white shadow-lg hover:shadow-indigo-500/25 hover:shadow-xl backdrop-blur-sm overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap group" role="button">
+                <div className="relative flex items-center gap-2 px-5 md:px-6 h-10 md:h-11 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#4462d6] to-[#2c3e94] border border-white/15 hover:border-white/25 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                   <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M3 3h14l-1 9H4L3 3z" opacity="0.3"/>
                     <path d="M5 3V1h10v2M5 12v7h10v-7" strokeWidth="1.5" stroke="currentColor" fill="none" strokeLinecap="round"/>
@@ -307,7 +307,7 @@ const Header = () => {
 
               <button
                 onClick={handleBuyMCRT}
-                className="group relative inline-flex items-center gap-2 whitespace-nowrap px-4 sm:px-5 md:px-6 lg:px-7 py-2 sm:py-2.5 md:py-3 rounded-full bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] hover:from-[#FFB649] hover:via-[#B591F2] hover:to-[#98FFF9] text-[#03082F] font-black shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 mr-2 sm:mr-3 md:mr-4 lg:mr-0 overflow-visible flex-shrink-0 min-w-[140px]"
+                className="group relative inline-flex items-center gap-2 whitespace-nowrap px-5 md:px-6 h-10 md:h-11 rounded-full bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] hover:from-[#FFB649] hover:via-[#B591F2] hover:to-[#98FFF9] text-[#03082F] font-black shadow-xl hover:shadow-2xl transition-all duration-300 mr-2 sm:mr-3 md:mr-4 lg:mr-0 overflow-visible flex-shrink-0 min-w-[150px] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#98FFF9] focus-visible:ring-offset-[#2A0D4E]"
                 style={{ contain: 'layout paint', transformOrigin: 'center' }}
                 aria-label="Buy $MCRT"
               >
