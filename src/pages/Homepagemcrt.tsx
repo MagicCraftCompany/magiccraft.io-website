@@ -600,8 +600,8 @@ function Homepagemcrt() {
                   
                   {/* Header with icon */}
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#98FFF9] to-[#B591F2] p-3 shadow-lg flex items-center justify-center">
-                      <img src={mcrtLogo} alt="$MCRT" className="w-10 h-10 object-contain" />
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#98FFF9] to-[#B591F2] p-1.5 shadow-lg flex items-center justify-center">
+                      <img src={mcrtLogo} alt="$MCRT" className="w-14 h-14 object-contain" />
                     </div>
                     <div>
                       <h4 className="text-card-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">$MCRT</h4>
