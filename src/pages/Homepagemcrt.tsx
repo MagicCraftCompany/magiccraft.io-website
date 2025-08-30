@@ -461,13 +461,13 @@ function Homepagemcrt() {
                     loading="lazy"
                   />
                   
-                  {/* Enhanced content overlay - Fixed positioning */}
-                  <div className="absolute inset-0 flex flex-col justify-end items-end p-3 md:p-6 lg:p-8 xl:p-12 pointer-events-none">
-                    <div className="space-y-3 md:space-y-4 text-right bg-black/60 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-[#98FFF9]/20 shadow-2xl max-w-[280px] md:max-w-none pointer-events-auto">
-                      <h1 className="font-serif text-lg md:text-xl lg:text-2xl font-bold text-white">
+                  {/* Enhanced content overlay: static on mobile, absolute on md+ */}
+                  <div className="md:absolute md:inset-0 flex flex-col md:justify-end md:items-end p-3 md:p-6 lg:p-8 xl:p-12 mt-3 md:mt-0 md:pointer-events-none">
+                    <div className="space-y-3 md:space-y-4 md:text-right text-center bg-black/60 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-[#98FFF9]/20 shadow-2xl max-w-full md:max-w-none pointer-events-auto mx-auto md:mx-0">
+                      <h1 className="font-serif text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">
                           GAME MAKER
                         </h1>
-                      <div className="text-xs md:text-sm text-gray-200 space-y-1 md:space-y-2 max-w-[200px] md:max-w-[250px]">
+                      <div className="text-xs md:text-sm text-gray-200 space-y-1 md:space-y-2 max-w-[260px] md:max-w-[250px] mx-auto md:mx-0">
                         <p className="flex items-center gap-2">
                           <span className="text-[#98FFF9]">•</span> Create games like Roblox
                         </p>
@@ -480,7 +480,7 @@ function Homepagemcrt() {
                       </div>
                       <Link 
                         to="/build-on-magiccraft" 
-                        className="btn-primary gap-2"
+                        className="btn-primary gap-2 mx-auto md:mx-0"
                       >
                         Start Building
                         <ArrowUpRight className="h-3 w-3 md:h-4 md:w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -666,7 +666,7 @@ function Homepagemcrt() {
                         <div className="absolute -inset-1 bg-gradient-to-r from-[#98FFF9]/10 to-[#B591F2]/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
                         
                         {/* Widget container with clean border */}
-                        <div className="relative bg-gradient-to-br from-[#0B0F39]/80 to-[#1a1344]/80 rounded-2xl p-2 border border-[#98FFF9]/20 group-hover:border-[#98FFF9]/40 transition-all duration-300 overflow-hidden backdrop-blur-sm">
+                        <div className="relative bg-gradient-to-br from-[#0B0F39]/80 to-[#1a1344]/80 rounded-2xl px-2 pt-3 pb-2 border border-[#98FFF9]/20 group-hover:border-[#98FFF9]/40 transition-all duration-300 overflow-hidden backdrop-blur-sm">
                           <coingecko-coin-ticker-widget coin-id="magiccraft" currency="usd" locale="en" background-color="#0B0F39" font-color="#FFFFFF"></coingecko-coin-ticker-widget>
                         </div>
                       </div>
@@ -676,7 +676,7 @@ function Homepagemcrt() {
                         <div className="absolute -inset-1 bg-gradient-to-r from-[#B591F2]/10 to-[#98FFF9]/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
                         
                         {/* Widget container with clean border */}
-                        <div className="relative bg-gradient-to-br from-[#0B0F39]/80 to-[#1a1344]/80 rounded-2xl p-2 border border-[#B591F2]/20 group-hover:border-[#B591F2]/40 transition-all duration-300 overflow-hidden backdrop-blur-sm">
+                        <div className="relative bg-gradient-to-br from-[#0B0F39]/80 to-[#1a1344]/80 rounded-2xl px-2 pt-3 pb-2 border border-[#B591F2]/20 group-hover:border-[#B591F2]/40 transition-all duration-300 overflow-hidden backdrop-blur-sm">
                           <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="240" locale="en" background-color="#0B0F39" font-color="#FFFFFF"></coingecko-coin-price-chart-widget>
                         </div>
                       </div>
