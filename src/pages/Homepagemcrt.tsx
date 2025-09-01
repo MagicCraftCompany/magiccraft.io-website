@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import steam from '@/assets/icons/icon-steam.svg'
@@ -30,6 +30,7 @@ const mcrtLogo = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/
 import ZeusPromo, { ZeusPromoPopup } from '@/components/ui/ZeusPromo'
 
 function Homepagemcrt() {
+  const heroVideoRef = useRef<HTMLVideoElement | null>(null)
   const [visibleCount, setVisibleCount] = useState(16)
   const [currentSlide, setCurrentSlide] = useState(0)
   const TOTAL_SLIDES = 3
@@ -135,6 +136,46 @@ function Homepagemcrt() {
     })
   }, [])
 
+  // Ensure hero background video autoplay/loops reliably across browsers
+  useEffect(() => {
+    const video = heroVideoRef.current
+    if (!video) return
+    try {
+      video.muted = true
+      ;(video as any).playsInline = true
+    } catch {}
+
+    const tryPlay = () => {
+      const p = video.play()
+      if (p && typeof p.catch === 'function') {
+        p.catch(() => {})
+      }
+    }
+
+    const onVisibility = () => {
+      if (!document.hidden) tryPlay()
+    }
+    const onPause = () => {
+      // If it pauses unexpectedly, resume
+      tryPlay()
+    }
+    const onEnded = () => {
+      video.currentTime = 0
+      tryPlay()
+    }
+
+    tryPlay()
+    document.addEventListener('visibilitychange', onVisibility)
+    video.addEventListener('pause', onPause)
+    video.addEventListener('ended', onEnded)
+
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibility)
+      video.removeEventListener('pause', onPause)
+      video.removeEventListener('ended', onEnded)
+    }
+  }, [])
+
   useEffect(() => {
     adjustDividerHeight()
   }, [visibleCount, adjustDividerHeight])
@@ -235,12 +276,16 @@ function Homepagemcrt() {
           {/*header*/}
           <section className="md:min-h-screen relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-[750px] xl:h-[800px] bg-cover bg-center overflow-hidden w-full max-w-full">
             <video
+              ref={heroVideoRef}
               className="absolute inset-0 h-full w-full object-cover scale-105"
               autoPlay
               loop
               muted
               playsInline
-              preload="metadata"
+              preload="auto"
+              controls={false}
+              controlsList="nodownload noplaybackrate noremoteplayback"
+              disablePictureInPicture
               poster="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
             >
               <source

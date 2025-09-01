@@ -135,6 +135,10 @@ export default function ZeusPromo() {
     encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.00 (2).jpeg'),
     encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.00 (3).jpeg'),
     encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.02.jpeg'),
+    // Newly added images (screenshots)
+    '/img/zeus-ss-1.png',
+    '/img/zeus-ss-2.png',
+    '/img/zeus-ss-3.png',
   ], [])
   const [idx, setIdx] = useState(0)
   useEffect(() => {
