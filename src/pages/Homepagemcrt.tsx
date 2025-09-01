@@ -1074,7 +1074,7 @@ function Homepagemcrt() {
                   </div>
                   {/* Where to buy $MCRT micro-section */}
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="card-glass p-4 flex items-center justify-between group">
+                    <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 flex items-center justify-between gap-3 group hover:-translate-y-0.5 transition">
                       <div className="flex items-center gap-3">
                         <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-6" />
                         <div>
@@ -1082,9 +1082,9 @@ function Homepagemcrt() {
                           <p className="text-white font-semibold">Bybit</p>
                         </div>
                       </div>
-                      <span className="btn-secondary px-3 py-1 text-sm">Trade</span>
+                      <span className="btn-secondary px-3 py-1 text-xs md:text-sm">Trade</span>
                     </a>
-                    <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="card-glass p-4 flex items-center justify-between group">
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 flex items-center justify-between gap-3 group hover:-translate-y-0.5 transition">
                       <div className="flex items-center gap-3">
                         <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-6" />
                         <div>
@@ -1092,9 +1092,9 @@ function Homepagemcrt() {
                           <p className="text-white font-semibold">PancakeSwap</p>
                         </div>
                       </div>
-                      <span className="btn-secondary px-3 py-1 text-sm">Swap</span>
+                      <span className="btn-secondary px-3 py-1 text-xs md:text-sm">Swap</span>
                     </a>
-                    <a href="https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12" target="_blank" rel="noopener noreferrer" className="card-glass p-4 flex items-center justify-between group">
+                    <a href="https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 flex items-center justify-between gap-3 group hover:-translate-y-0.5 transition">
                       <div className="flex items-center gap-3">
                         <svg className="h-6 w-6 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 4v6c0 5-3.8 9.7-9 11-5.2-1.3-9-6-9-11V6l9-4zm0 4.2L6 8v3.8c0 3.8 2.7 7.3 6 8.3 3.3-1 6-4.5 6-8.3V8l-6-1.8z"/></svg>
                         <div>
@@ -1102,7 +1102,7 @@ function Homepagemcrt() {
                           <p className="text-white font-semibold">Buy with card</p>
                         </div>
                       </div>
-                      <span className="btn-secondary px-3 py-1 text-sm">Buy</span>
+                      <span className="btn-secondary px-3 py-1 text-xs md:text-sm">Buy</span>
                     </a>
                   </div>
                 </div>

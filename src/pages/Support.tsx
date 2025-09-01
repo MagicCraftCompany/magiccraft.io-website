@@ -62,6 +62,17 @@ export default function FAQ() {
       <Helmet>
         <title>Support - MagicCraft</title>
         <meta name="description" content="Get help and support for MagicCraft. Find answers to frequently asked questions and contact our team." />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            'mainEntity': questions.map((q) => ({
+              '@type': 'Question',
+              'name': q.question,
+              'acceptedAnswer': { '@type': 'Answer', 'text': q.answer },
+            })),
+          })}
+        </script>
       </Helmet>
       <div className="min-h-dvh w-full text-white">
       <Header />
@@ -209,6 +220,11 @@ export default function FAQ() {
                   </Tab>
                 </Tabs>
               </section>
+              {/* Contact CTA */}
+              <div className="mx-auto mt-8 flex flex-col items-center gap-3">
+                <p className="text-white/80">Still need help? Reach us on Telegram.</p>
+                <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="btn-primary">Open Telegram</a>
+              </div>
             </div>
           </section>
         </main>
