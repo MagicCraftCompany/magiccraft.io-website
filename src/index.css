@@ -47,6 +47,13 @@ a:hover {
   text-decoration-thickness: 1px;
 }
 
+/* Do not underline button-styled anchors */
+.no-underline,
+.btn-primary a,
+.btn-secondary a {
+  text-decoration: none !important;
+}
+
 @layer base {
   /* Typography System - Enhanced */
   h1, h2, h3 {

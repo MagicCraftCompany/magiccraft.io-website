@@ -270,6 +270,7 @@ const Header = () => {
                 <a
                   href="https://lobby.magiccraft.io/"
                   rel="noreferrer noopener"
+                  className="no-underline"
                 >
                   <div className="relative flex w-full items-center justify-center gap-2 rounded-[14px] px-5 md:px-6 h-10 md:h-11 text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/20 hover:border-white/30 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
@@ -279,7 +280,7 @@ const Header = () => {
                 </a>
               </button>
               
-              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap group" role="button" aria-label="Shop">
+              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap group no-underline" role="button" aria-label="Shop">
                 <div className="relative flex items-center gap-2 px-5 md:px-6 h-10 md:h-11 rounded-[14px] text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#4462d6] to-[#2c3e94] border border-white/20 hover:border-white/30 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                   <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
