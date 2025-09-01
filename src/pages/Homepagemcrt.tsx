@@ -18,16 +18,16 @@ import { ArrowUpRight } from 'lucide-react'
 import MagicraftDownload from '@/components/HomePageCard'
 import Testimonial from '@/components/ui/testimonial'
 import Partners from '@/components/Partners/Partners'
-
 import { Helmet } from 'react-helmet-async'
 import battleOne from '@/assets/images/legendary-battle-1.png'
 import battleTwo from '@/assets/images/legendary-battle-2.webp'
 import battleThree from '@/assets/images/legendary-battle-3.webp'
 import { Link } from 'react-router-dom'
-import { openTransactionModal } from '@xswap-link/sdk'
 import bnbLogo from '../assets/icons/bnblogo.svg'
+import { openTransactionModal } from '@xswap-link/sdk'
 // Official $MCRT logo for token visuals
 const mcrtLogo = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
+import ZeusPromo, { ZeusPromoPopup } from '@/components/ui/ZeusPromo'
 
 function Homepagemcrt() {
   const [visibleCount, setVisibleCount] = useState(16)
@@ -228,6 +228,8 @@ function Homepagemcrt() {
         </script>
       </Helmet>
       <div className="min-h-dvh w-full max-w-full text-white overflow-x-hidden">
+        {/* Zeus promo popup at the very top */}
+        <ZeusPromoPopup imageUrl={'/img/WhatsApp Image 2025-09-01 at 16.21.00 (1).jpeg'} />
         <Header />
         <main className="md:-mt-[80px] scroll-smooth pb-20 w-full max-w-full overflow-x-hidden">
           {/*header*/}
@@ -668,7 +670,7 @@ function Homepagemcrt() {
             <a href="https://lobby.magiccraft.io/referral" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
               <h4 className="text-lg md:text-xl font-bold mb-1">Referral</h4>
               <p className="text-base md:text-lg text-gray-300">Invite friends and earn.</p>
-              <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
+              <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-80 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                 <p className="text-base md:text-[17px] text-white leading-relaxed">
                   Share your link and receive a percentage of referees' eligible $MCRT winnings. Tiered rewards and
                   seasonal bonuses encourage long‑term growth.
@@ -814,12 +816,15 @@ function Homepagemcrt() {
             </div>
           </section>
 
+          {/* Zeus NFT promo */}
+          <ZeusPromo />
+
           {/* Dev Quickstart */}
           <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl mb-6 md:mb-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <a href="https://store.steampowered.com/app/3478810/MCRT_Game_Maker/" target="_blank" rel="noreferrer noopener" className="card-glass p-5 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#98FFF9]/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M4 14v6h6l10-10-6-6L4 14zm11-9l3 3"/></svg>
+                <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center overflow-hidden">
+                  <img src="/icons/icon-steam.svg" alt="Steam" className="w-6 h-6" loading="lazy" />
                 </div>
                 <div>
                   <p className="text-white font-semibold">Download Game Maker</p>
@@ -827,18 +832,18 @@ function Homepagemcrt() {
                 </div>
               </a>
               <a href="https://docs.magiccraft.io/" target="_blank" rel="noreferrer noopener" className="card-glass p-5 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#B591F2]/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M6 2h9l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
-                      </div>
+                <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center overflow-hidden">
+                  <img src="/icons/icon-help.svg" alt="Docs" className="w-6 h-6" loading="lazy" />
+                </div>
                 <div>
                   <p className="text-white font-semibold">Docs</p>
                   <p className="text-sm text-white/70">Quickstart, APIs, guides</p>
-                    </div>
+                </div>
               </a>
               <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="card-glass p-5 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-[#FFB649]/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm3 8l-5 3V7l5 3z"/></svg>
-                  </div>
+                <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center overflow-hidden">
+                  <svg viewBox="0 0 240 240" className="w-6 h-6" aria-hidden="true"><path fill="#27A7E7" d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0z"/><path fill="#fff" d="M175.9 80.6c-2.2-1.8-5.5-2-8.6-.7l-96.7 39.7c-3.1 1.3-5 3.6-5 6 .1 2.4 2.2 4.5 5.4 5.4l24.5 7.2 9.5 30.3c.8 2.4 2.8 4.3 5.3 4.9 2.5.6 5.2-.1 7-1.9l13.8-13.2 24.7 18.2c1.7 1.2 3.8 1.8 5.9 1.8 1.2 0 2.3-.2 3.4-.6 3-1.1 5.2-3.5 6-6.4l17.5-77.2c.8-3.4 0-6.4-2.2-8.2zm-21.3 12.2l-47.7 45.8c-1.2 1.1-2.1 2.5-2.5 4.1l-3.1 12.5-7-22.4 60.3-40z"/></svg>
+                </div>
                 <div>
                   <p className="text-white font-semibold">Telegram</p>
                   <p className="text-sm text-white/70">Get help and share builds</p>
