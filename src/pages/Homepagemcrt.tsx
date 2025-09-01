@@ -261,14 +261,14 @@ function Homepagemcrt() {
                     <a
                       href="https://lobby.magiccraft.io/"
                       rel="noreferrer noopener"
-                      className="inline-flex items-center justify-center px-5 sm:px-6 h-10 sm:h-11 rounded-xl text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15 shadow-lg hover:shadow-xl hover:border-white/25 transition"
+                      className="inline-flex items-center justify-center px-5 sm:px-6 h-10 sm:h-11 rounded-xl text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15 shadow-lg hover:shadow-xl hover:border-white/25 transition text-sm sm:text-base font-black tracking-wider uppercase drop-shadow-md"
                     >
                       Play Now
                     </a>
                     <a
                       href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
                       rel="noreferrer noopener"
-                      className="inline-flex items-center justify-center px-5 sm:px-6 h-10 sm:h-11 rounded-xl text-[#03082F] font-black bg-gradient-to-b from-[#98FFF9] to-[#B591F2] shadow-xl hover:shadow-2xl transition border border-white/10"
+                      className="inline-flex items-center justify-center px-5 sm:px-6 h-10 sm:h-11 rounded-xl text-[#03082F] font-black bg-gradient-to-b from-[#98FFF9] to-[#B591F2] shadow-xl hover:shadow-2xl transition border border-white/10 text-sm sm:text-base tracking-wider uppercase drop-shadow-md"
                     >
                       Buy $MCRT
                     </a>
@@ -465,7 +465,12 @@ function Homepagemcrt() {
             <a id="refer" href="https://lobby.magiccraft.io/referral" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block hover:scale-[1.02] transition">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-xl bg-[#FFB649]/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .35.07.69.18 1H9.82A3 3 0 0010 8c0-1.66-1.34-3-3-3S4 6.34 4 8s1.34 3 3 3c.35 0 .69-.07 1-.18v2.36C7.69 13.07 7.35 13 7 13c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3c0-.35-.07-.69-.18-1h3.36c-.11.31-.18.65-.18 1 0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3c-.35 0-.69.07-1 .18V10.82c.31.11.65.18 1 .18z"/></svg>
+                  <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M16 11a3 3 0 100-6 3 3 0 000 6z"/>
+                    <path d="M8 11a3 3 0 100-6 3 3 0 000 6z"/>
+                    <path d="M2 19v-1.5C2 15.57 5.13 14 8 14s6 1.57 6 3.5V19H2z"/>
+                    <path d="M21 16l-3-3v2h-2v2h2v2l3-3z"/>
+                  </svg>
                 </div>
                 <h4 className="font-bold">Refer and Earn</h4>
               </div>
