@@ -272,8 +272,8 @@ const Header = () => {
                 className="hidden md:inline-flex header-cta header-cta--play no-underline"
                 aria-label="Play"
               >
-                <Gamepad2 className="w-4 h-4 md:w-5 md:h-5" />
-                <span className="text-sm md:text-base font-extrabold">Play</span>
+                <Gamepad2 className="w-4 h-4" />
+                <span>Play</span>
               </a>
 
               <a
@@ -283,17 +283,17 @@ const Header = () => {
                 role="button"
                 aria-label="Shop"
               >
-                <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
-                <span className="text-sm md:text-base font-extrabold">Shop</span>
+                <ShoppingBag className="w-4 h-4" />
+                <span>Shop</span>
               </a>
 
               <button
                 onClick={handleBuyMCRT}
-                className="header-cta header-cta--buy no-underline mr-2 sm:mr-3 md:mr-4 lg:mr-0 min-w-[150px] font-extrabold"
+                className="header-cta header-cta--buy no-underline mr-2 sm:mr-3 md:mr-4 lg:mr-0 min-w-[150px]"
                 aria-label="Buy $MCRT"
               >
-                <Coins className="w-4 h-4 md:w-5 md:h-5" />
-                <span className="text-sm md:text-base">Buy $MCRT</span>
+                <Coins className="w-4 h-4" />
+                <span>Buy $MCRT</span>
               </button>
               <button
                 onClick={openSidebar}
