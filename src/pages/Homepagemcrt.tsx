@@ -232,12 +232,12 @@ function Homepagemcrt() {
                     <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 animate-pulse-slow"></div>
                     <img
                       src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp"
-                      alt="MCRT Token"
+                    alt="MCRT Token"
                       loading="eager"
                       className="relative w-full h-auto drop-shadow-2xl hover:scale-110 transition-all duration-500 hover:rotate-3"
-                    />
-                  </div>
+                  />
                 </div>
+                  </div>
                 
                 <div className="text-center gap-section animate-slide-up mt-4 sm:mt-6 md:mt-8 lg:mt-12 xl:mt-16 px-4 sm:px-6 md:px-8">
                   <div className="flex justify-center mb-4 md:mb-6">
@@ -250,7 +250,7 @@ function Homepagemcrt() {
                   </div>
                                     <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient max-w-4xl mx-auto tracking-wider drop-shadow-2xl leading-tight">
                     $MCRT THE CURRENCY OF GAMING
-                  </h1>
+                </h1>
                   <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
                     <a href="#earn" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Earn</a>
                     <a href="#create" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Create</a>
@@ -398,8 +398,8 @@ function Homepagemcrt() {
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                               {/* removed overlay text/badges */}
-                      </div>
-                    </div>
+                            </div>
+                            </div>
 
                           {/* Slide 3 - Legendary Battle 3 */}
                           <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / TOTAL_SLIDES}%`, width: `${100 / TOTAL_SLIDES}%` }}>
@@ -412,29 +412,29 @@ function Homepagemcrt() {
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                               {/* removed overlay text/badges */}
-                            </div>
-                            </div>
-                            </div>
-                            </div>
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                            </div>
 
                                             {/* Carousel Controls */}
                       <div className="flex justify-center gap-2 mt-4">
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60 active" data-slide="0"></button>
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="1"></button>
                         <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="2"></button>
-                        </div>
+                          </div>
 
                       {/* Auto-play indicator */}
                       <div className="flex items-center justify-center gap-2 mt-3">
                         <div className="w-1 h-1 bg-[#98FFF9] rounded-full animate-pulse"></div>
                         <span className="text-xs text-white/60">Auto-playing</span>
-                      </div>
-                    </div>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
         </section>
 
         {/* What you can do with $MCRT */}
@@ -442,13 +442,13 @@ function Homepagemcrt() {
           <div className="text-center mb-8 md:mb-10">
             <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">What you can do with $MCRT</h3>
             <p className="text-gray-300 text-sm md:text-base mt-2">Earn, create, pledge and spend across the MagicCraft ecosystem.</p>
-          </div>
+                      </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             <a id="earn" href="https://lobby.magiccraft.io/" className="card-glass card-padding block hover:scale-[1.02] transition" rel="noreferrer noopener">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-xl bg-[#98FFF9]/20 flex items-center justify-center">
                   <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 6 .9-4.5 4.3L18 20l-6-3.2L6 20l1.5-6.8L3 8.9 9 8l3-6z"/></svg>
-                </div>
+                    </div>
                 <h4 className="font-bold">Earn in PvP</h4>
               </div>
               <p className="text-sm text-gray-300">Win matches and tournaments to earn $MCRT.</p>
