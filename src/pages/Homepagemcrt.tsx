@@ -12,8 +12,8 @@ import { ourteam } from '@/components/Team/ourTeam'
 import React from 'react'
 import { LiaTelegramPlane } from 'react-icons/lia'
 import GamePlay from '@/components/GamePlay'
-import GameCard from '@/components/ui/GameCard'
-import { Game, gamesData } from '@/data/game'
+// import GameCard from '@/components/ui/GameCard'
+// import { Game, gamesData } from '@/data/game'
 import { ArrowUpRight } from 'lucide-react'
 import MagicraftDownload from '@/components/HomePageCard'
 import Testimonial from '@/components/ui/testimonial'
@@ -136,14 +136,14 @@ function Homepagemcrt() {
     window.location.href = 'https://t.me/magiccraftgamechat'
   }
 
-  const filteredGames = gamesData.filter(
-    (game: { title: string }) =>
-      game.title === 'magicflutter' ||
-      game.title === 'magicchess' ||
-      game.title === 'tetrablox' ||
-      game.title === 'runescribes' ||
-      game.title === 'magicrunner'
-  )
+  // const filteredGames = gamesData.filter(
+  //   (game: { title: string }) =>
+  //     game.title === 'magicflutter' ||
+  //     game.title === 'magicchess' ||
+  //     game.title === 'tetrablox' ||
+  //     game.title === 'runescribes' ||
+  //     game.title === 'magicrunner'
+  // )
   return (
     <>
       <Helmet>
@@ -1168,181 +1168,7 @@ function Homepagemcrt() {
               </div>
             </div>
           </section>
-          {/**browser game  */}
-          <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl space-y-8 md:space-y-12 mb-[50px] min-h-screen">
-            <div className="text-center space-y-4 md:space-y-6">
-              <h2 className="text-balance bg-gradient-to-b from-white via-[#98FFF9] to-[#B591F2] bg-clip-text text-center font-serif text-3xl md:text-4xl lg:text-5xl text-transparent drop-shadow-xl leading-tight">
-            Join the MagicCraft Ecosystem
-            </h2>
-              <p className="text-base md:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
-                Join us in shaping the future of gaming with MCRT, the cornerstone currency of the gaming world.
-              </p>
-            </div>
-            
-            <div className="relative w-full rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#080420] via-[#0A0424] to-[#1a0d2e] border border-[#B591F2]/20 shadow-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
-              <div className="relative space-y-6 md:space-y-8 px-6 md:px-8 pb-8 md:pb-10 pt-6 md:pt-8">
-                <div className="grid grid-cols-1 place-items-stretch gap-6 md:gap-8 lg:grid-cols-3">
-                  {/* MCRT Integration Card */}
-                  <div className="group overflow-hidden rounded-xl md:rounded-2xl bg-gradient-to-br from-[#B591F2] to-[#98FFF9] p-px transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#B591F2]/25">
-                    <div className="relative h-full w-full overflow-hidden rounded-xl md:rounded-2xl bg-gradient-to-br from-[#3D186D] to-[#2A0D4E] px-6 md:px-8 py-6 md:py-8 flex flex-col justify-between">
-                      <div className="space-y-3 md:space-y-4">
-                        <div className="flex items-center gap-3">
-                          <div className="relative w-12 h-12 md:w-14 md:h-14">
-                            {/* Background glow */}
-                            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#8EFF49] to-[#6BCF3A] blur-md opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
-                            {/* Main icon container */}
-                            <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[#8EFF49] to-[#6BCF3A] flex items-center justify-center shadow-lg shadow-[#8EFF49]/20 group-hover:shadow-xl group-hover:shadow-[#8EFF49]/30 transition-all duration-300 border border-[#8EFF49]/20 group-hover:border-[#8EFF49]/40">
-                              {/* Inner highlight */}
-                              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                                <circle cx="12" cy="12" r="5"/>
-                                <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
-                                <path d="M5 5l2.5 2.5M16.5 16.5L19 19M5 19l2.5-2.5M16.5 7.5L19 5"/>
-                                <circle cx="12" cy="12" r="1.5"/>
-                              </svg>
-                            </div>
-                          </div>
-                          <h4 className="font-serif text-lg md:text-xl font-bold text-[#8EFF49]">
-                            MCRT Integration
-                      </h4>
-                        </div>
-                        <p className="text-sm md:text-base text-gray-200 leading-relaxed">
-                          Enhance your gaming experience with seamless MCRT token integration. Earn, spend, and trade within the MagicCraft universe.
-                        </p>
-                      </div>
-                      <div className="absolute -bottom-8 md:-bottom-10 right-2 bg-gradient-to-b from-white/10 to-transparent bg-clip-text font-serif text-6xl md:text-8xl leading-none text-transparent">
-                        1
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Monthly Surprises Card */}
-                  <div className="group overflow-hidden rounded-xl md:rounded-2xl bg-gradient-to-br from-[#FFB649] to-[#B591F2] p-px transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#FFB649]/25">
-                    <div className="relative h-full w-full overflow-hidden rounded-xl md:rounded-2xl bg-gradient-to-br from-[#2A0D4E] to-[#57186D] px-6 md:px-8 py-6 md:py-8 flex flex-col justify-between">
-                      <div className="space-y-3 md:space-y-4">
-                        <div className="flex items-center gap-3">
-                          <div className="relative w-12 h-12 md:w-14 md:h-14">
-                            {/* Background glow */}
-                            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#C09AFF] to-[#A67AFF] blur-md opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
-                            {/* Main icon container */}
-                            <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[#C09AFF] to-[#A67AFF] flex items-center justify-center shadow-lg shadow-[#C09AFF]/20 group-hover:shadow-xl group-hover:shadow-[#C09AFF]/30 transition-all duration-300 border border-[#C09AFF]/20 group-hover:border-[#C09AFF]/40">
-                              {/* Inner highlight */}
-                              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                                <rect x="3" y="7" width="18" height="12" rx="2"/>
-                                <path d="M7 7l2-3h6l2 3"/>
-                                <path d="M8 13l3 3 5-5"/>
-                              </svg>
-                            </div>
-                          </div>
-                          <h4 className="font-serif text-lg md:text-xl font-bold text-[#C09AFF]">
-                            Monthly Surprises
-                          </h4>
-                        </div>
-                        <p className="text-sm md:text-base text-gray-200 leading-relaxed">
-                          Unlock exclusive rewards every hour with our dynamic reward system. The more you play, the more you earn.
-                        </p>
-                      </div>
-                      <div className="absolute -bottom-8 md:-bottom-10 right-2 bg-gradient-to-b from-white/10 to-transparent bg-clip-text font-serif text-6xl md:text-8xl leading-none text-transparent">
-                        2
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Portfolio Card */}
-                  <div className="group overflow-hidden rounded-xl md:rounded-2xl bg-gradient-to-br from-[#FF49ED] to-[#B591F2] p-px transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#FF49ED]/25">
-                    <div className="relative h-full w-full overflow-hidden rounded-xl md:rounded-2xl bg-gradient-to-br from-[#3D186D] to-[#2A0D4E] px-6 md:px-8 py-6 md:py-8 flex flex-col justify-between">
-                      <div className="space-y-3 md:space-y-4">
-                        <div className="flex items-center gap-3">
-                          <div className="relative w-12 h-12 md:w-14 md:h-14">
-                            {/* Background glow */}
-                            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#98FFF9] to-[#7de6df] blur-md opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
-                            {/* Main icon container */}
-                            <div className="relative w-full h-full rounded-xl bg-gradient-to-br from-[#98FFF9] to-[#7de6df] flex items-center justify-center shadow-lg shadow-[#98FFF9]/20 group-hover:shadow-xl group-hover:shadow-[#98FFF9]/30 transition-all duration-300 border border-[#98FFF9]/20 group-hover:border-[#98FFF9]/40">
-                              {/* Inner highlight */}
-                              <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                              <svg className="relative w-6 h-6 md:w-7 md:h-7 text-[#03082F] drop-shadow-sm group-hover:scale-110 transition-transform duration-300" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                                <rect x="3" y="3" width="7" height="7"/>
-                                <rect x="14" y="3" width="7" height="7"/>
-                                <rect x="14" y="14" width="7" height="7"/>
-                                <rect x="3" y="14" width="7" height="7"/>
-                                <polygon points="6,6 10,8 6,10"/>
-                              </svg>
-                            </div>
-                          </div>
-                          <h4 className="font-serif text-lg md:text-xl font-bold text-[#98FFF9]">
-                            Game Portfolio
-                          </h4>
-                        </div>
-                        <p className="text-sm md:text-base text-gray-200 leading-relaxed">
-                          Discover a growing collection of indie and AA games onboarded to the MagicCraft ecosystem. New titles added regularly.
-                        </p>
-                      </div>
-                      <div className="absolute -bottom-8 md:-bottom-10 right-2 bg-gradient-to-b from-white/10 to-transparent bg-clip-text font-serif text-6xl md:text-8xl leading-none text-transparent">
-                        3
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#080420] to-[#0A0424] border border-[#B591F2]/20 shadow-2xl overflow-hidden">
-              <div className="px-6 md:px-10 py-6 md:py-8">
-                <div className="text-center space-y-4 md:space-y-6">
-                  <h3 className="font-serif text-2xl md:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">
-                    Other Ecosystem Games to Play
-                  </h3>
-                  <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    Explore our diverse collection of games within the MagicCraft ecosystem
-                  </p>
-                </div>
-                <div className="w-full">
-              <div className="relative mx-auto w-full   max-w-screen-xl hidden lg:block">
-              <div className=' '>
-                <img
-                  src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp"
-                  alt="Magiccraft banner showing a wizard character"
-                  className="h-auto  mb-6 w-full object-cover"
-                />
-              </div>
-                {/* Content overlay using flexbox */}
-                <div className="absolute  inset-0 ml-4 flex flex-col justify-end p-4 sm:p-6 md:p-8 lg:p-[4rem]">
-                  <div className="space-y-1 sm:space-y-2">
-                    <h1 className="font-serif text-xs text-white sm:text-lg lg:text-xl">
-                      MAGICCRAFT BROWSER GAMES
-                    </h1>
-                    <a href="https://games.magiccraft.io/" className="group inline-flex items-center gap-1 text-xs text-[#98FFF9] transition-colors hover:text-white sm:text-sm">
-                      Read more
-                      <ArrowUpRight className="h-3 w-3 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-                <div className=" hidden grid-cols-5 gap-4  lg:grid lg:mx-10">
-                  {filteredGames.map((game: Game) => (
-                    <div key={game.id} className=" min-w-[160px] flex-1 ">
-                      <GameCard game={game} />
-                    </div>
-                  ))}
-                </div>
-                <div className="relative overflow-x-auto md:grid-cols-2 lg:hidden lg:grid-cols-3 xl:grid-cols-5">
-                  <div className="grid grid-cols-5 gap-4">
-                    <div className="flex flex-nowrap">
-                      {filteredGames.map((game: Game) => (
-                        <div key={game.id} className="mx-4 min-w-[160px] flex-1 ">
-                          <GameCard game={game} />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-transparent to-white/20" />
-                </div>
-                </div>
-              </div>
-          </section>
+          {/* Removed duplicate 'Join the MagicCraft Ecosystem' section */}
           {/*our team */}
           <div className="h-auto bg-[#020418] p-10" id="team">
             <section className="relative mx-auto max-w-screen-xl space-y-10 p-4 md:space-y-20 min-h-screen">
