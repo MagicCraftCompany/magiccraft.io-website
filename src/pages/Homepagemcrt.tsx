@@ -1079,48 +1079,48 @@ function Homepagemcrt() {
                   </div>
                   {/* Where to buy $MCRT micro-section */}
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition overflow-hidden">
-                      <div className="flex w-full h-full items-center justify-between gap-4">
-                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                    <div className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition">
+                      <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="flex w-full h-full items-center justify-between gap-2">
+                        <div className="flex items-center gap-3 flex-1 overflow-hidden">
                           <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-7 w-7 flex-shrink-0" />
-                          <div className="leading-tight min-w-0 flex-1">
-                            <p className="text-xs text-white/60 whitespace-nowrap">Centralized Exchange</p>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-xs text-white/60 truncate">Centralized Exchange</p>
                             <p className="text-white font-semibold text-sm">Bybit</p>
                           </div>
                         </div>
-                        <div className="flex-shrink-0">
-                          <span className="chip-cta w-16 text-center">Trade</span>
+                        <div className="flex-shrink-0 ml-auto">
+                          <span className="inline-block chip-cta px-3 py-1 text-xs">Trade</span>
                         </div>
-                      </div>
-                    </a>
-                    <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition overflow-hidden">
-                      <div className="flex w-full h-full items-center justify-between gap-4">
-                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                      </a>
+                    </div>
+                    <div className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition">
+                      <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="flex w-full h-full items-center justify-between gap-2">
+                        <div className="flex items-center gap-3 flex-1 overflow-hidden">
                           <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-7 w-7 flex-shrink-0" />
-                          <div className="leading-tight min-w-0 flex-1">
-                            <p className="text-xs text-white/60 whitespace-nowrap">DEX (BSC)</p>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-xs text-white/60 truncate">DEX (BSC)</p>
                             <p className="text-white font-semibold text-sm">PancakeSwap</p>
                           </div>
                         </div>
-                        <div className="flex-shrink-0">
-                          <span className="chip-cta w-16 text-center">Swap</span>
+                        <div className="flex-shrink-0 ml-auto">
+                          <span className="inline-block chip-cta px-3 py-1 text-xs">Swap</span>
                         </div>
-                      </div>
-                    </a>
-                    <a href="https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition overflow-hidden">
-                      <div className="flex w-full h-full items-center justify-between gap-4">
-                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                      </a>
+                    </div>
+                    <div className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition">
+                      <a href="https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12" target="_blank" rel="noopener noreferrer" className="flex w-full h-full items-center justify-between gap-2">
+                        <div className="flex items-center gap-3 flex-1 overflow-hidden">
                           <svg className="h-7 w-7 text-[#98FFF9] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 4v6c0 5-3.8 9.7-9 11-5.2-1.3-9-6-9-11V6l9-4zm0 4.2L6 8v3.8c0 3.8 2.7 7.3 6 8.3 3.3-1 6-4.5 6-8.3V8l-6-1.8z"/></svg>
-                          <div className="leading-tight min-w-0 flex-1">
-                            <p className="text-xs text-white/60 whitespace-nowrap">Card Onramp</p>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-xs text-white/60 truncate">Card Onramp</p>
                             <p className="text-white font-semibold text-sm">Buy with card</p>
                           </div>
                         </div>
-                        <div className="flex-shrink-0">
-                          <span className="chip-cta w-16 text-center">Buy</span>
+                        <div className="flex-shrink-0 ml-auto">
+                          <span className="inline-block chip-cta px-3 py-1 text-xs">Buy</span>
                         </div>
-                      </div>
-                    </a>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
