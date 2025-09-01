@@ -834,16 +834,16 @@ function Homepagemcrt() {
               <a href="https://docs.magiccraft.io/" target="_blank" rel="noreferrer noopener" className="card-glass p-5 flex items-center gap-4">
                 <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center overflow-hidden">
                   <img src="/icons/icon-help.svg" alt="Docs" className="w-6 h-6" loading="lazy" />
-                </div>
+                      </div>
                 <div>
                   <p className="text-white font-semibold">Docs</p>
                   <p className="text-sm text-white/70">Quickstart, APIs, guides</p>
-                </div>
+                    </div>
               </a>
               <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="card-glass p-5 flex items-center gap-4">
                 <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center overflow-hidden">
                   <svg viewBox="0 0 240 240" className="w-6 h-6" aria-hidden="true"><path fill="#27A7E7" d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0z"/><path fill="#fff" d="M175.9 80.6c-2.2-1.8-5.5-2-8.6-.7l-96.7 39.7c-3.1 1.3-5 3.6-5 6 .1 2.4 2.2 4.5 5.4 5.4l24.5 7.2 9.5 30.3c.8 2.4 2.8 4.3 5.3 4.9 2.5.6 5.2-.1 7-1.9l13.8-13.2 24.7 18.2c1.7 1.2 3.8 1.8 5.9 1.8 1.2 0 2.3-.2 3.4-.6 3-1.1 5.2-3.5 6-6.4l17.5-77.2c.8-3.4 0-6.4-2.2-8.2zm-21.3 12.2l-47.7 45.8c-1.2 1.1-2.1 2.5-2.5 4.1l-3.1 12.5-7-22.4 60.3-40z"/></svg>
-                </div>
+                  </div>
                 <div>
                   <p className="text-white font-semibold">Telegram</p>
                   <p className="text-sm text-white/70">Get help and share builds</p>
@@ -1079,35 +1079,47 @@ function Homepagemcrt() {
                   </div>
                   {/* Where to buy $MCRT micro-section */}
                   <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
-                    <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 flex items-center justify-between gap-3 group hover:-translate-y-0.5 transition">
-                      <div className="flex items-center gap-3">
-                        <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-6" />
-                        <div>
-                          <p className="text-sm text-white/80">Centralized Exchange</p>
-                          <p className="text-white font-semibold">Bybit</p>
+                    <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition overflow-hidden">
+                      <div className="flex w-full h-full items-center justify-between gap-4">
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                          <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-7 w-7 flex-shrink-0" />
+                          <div className="leading-tight min-w-0 flex-1">
+                            <p className="text-xs text-white/60 whitespace-nowrap">Centralized Exchange</p>
+                            <p className="text-white font-semibold text-sm">Bybit</p>
+                          </div>
+                        </div>
+                        <div className="flex-shrink-0">
+                          <span className="chip-cta w-16 text-center">Trade</span>
                         </div>
                       </div>
-                      <span className="btn-secondary px-3 py-1 text-xs md:text-sm">Trade</span>
                     </a>
-                    <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 flex items-center justify-between gap-3 group hover:-translate-y-0.5 transition">
-                      <div className="flex items-center gap-3">
-                        <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-6" />
-                        <div>
-                          <p className="text-sm text-white/80">DEX (BSC)</p>
-                          <p className="text-white font-semibold">PancakeSwap</p>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition overflow-hidden">
+                      <div className="flex w-full h-full items-center justify-between gap-4">
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                          <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-7 w-7 flex-shrink-0" />
+                          <div className="leading-tight min-w-0 flex-1">
+                            <p className="text-xs text-white/60 whitespace-nowrap">DEX (BSC)</p>
+                            <p className="text-white font-semibold text-sm">PancakeSwap</p>
+                          </div>
+                        </div>
+                        <div className="flex-shrink-0">
+                          <span className="chip-cta w-16 text-center">Swap</span>
                         </div>
                       </div>
-                      <span className="btn-secondary px-3 py-1 text-xs md:text-sm">Swap</span>
                     </a>
-                    <a href="https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 flex items-center justify-between gap-3 group hover:-translate-y-0.5 transition">
-                      <div className="flex items-center gap-3">
-                        <svg className="h-6 w-6 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 4v6c0 5-3.8 9.7-9 11-5.2-1.3-9-6-9-11V6l9-4zm0 4.2L6 8v3.8c0 3.8 2.7 7.3 6 8.3 3.3-1 6-4.5 6-8.3V8l-6-1.8z"/></svg>
-                        <div>
-                          <p className="text-sm text-white/80">Card Onramp</p>
-                          <p className="text-white font-semibold">Buy with card</p>
+                    <a href="https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition overflow-hidden">
+                      <div className="flex w-full h-full items-center justify-between gap-4">
+                        <div className="flex items-center gap-3 flex-1 min-w-0">
+                          <svg className="h-7 w-7 text-[#98FFF9] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l9 4v6c0 5-3.8 9.7-9 11-5.2-1.3-9-6-9-11V6l9-4zm0 4.2L6 8v3.8c0 3.8 2.7 7.3 6 8.3 3.3-1 6-4.5 6-8.3V8l-6-1.8z"/></svg>
+                          <div className="leading-tight min-w-0 flex-1">
+                            <p className="text-xs text-white/60 whitespace-nowrap">Card Onramp</p>
+                            <p className="text-white font-semibold text-sm">Buy with card</p>
+                          </div>
+                        </div>
+                        <div className="flex-shrink-0">
+                          <span className="chip-cta w-16 text-center">Buy</span>
                         </div>
                       </div>
-                      <span className="btn-secondary px-3 py-1 text-xs md:text-sm">Buy</span>
                     </a>
                   </div>
                 </div>

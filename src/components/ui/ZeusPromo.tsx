@@ -18,8 +18,30 @@ function getTimeLeft(target: number): TimeLeft {
   return { days, hours, minutes, seconds }
 }
 
+function getConfiguredTarget(defaultOffsetDays = 3): number {
+  // If VITE_ZEUS_DROP_UTC is set (e.g., 2025-09-04T17:00:00Z), use that
+  const envTs = (import.meta as any).env?.VITE_ZEUS_DROP_UTC as string | undefined
+  if (envTs) {
+    const parsed = Date.parse(envTs)
+    if (!Number.isNaN(parsed)) return parsed
+  }
+  // Fallback to a persistent localStorage timestamp so all sessions share the same target
+  try {
+    const stored = localStorage.getItem('zeus-drop-utc')
+    if (stored) {
+      const parsed = parseInt(stored, 10)
+      if (!Number.isNaN(parsed)) return parsed
+    }
+    const fallback = Date.now() + defaultOffsetDays * 24 * 60 * 60 * 1000
+    localStorage.setItem('zeus-drop-utc', String(fallback))
+    return fallback
+  } catch {
+    return Date.now() + defaultOffsetDays * 24 * 60 * 60 * 1000
+  }
+}
+
 export function ZeusPromoBanner({ imageUrl }: { imageUrl: string }) {
-  const target = useMemo(() => Date.now() + 3 * 24 * 60 * 60 * 1000, [])
+  const target = useMemo(() => getConfiguredTarget(3), [])
   const [left, setLeft] = useState<TimeLeft>(() => getTimeLeft(target))
 
   useEffect(() => {
@@ -37,7 +59,9 @@ export function ZeusPromoBanner({ imageUrl }: { imageUrl: string }) {
             <p className="text-sm md:text-base font-semibold text-white truncate">Zeus NFT — Web3 in‑game skin. Hold ≥ 1,000,000 $MCRT for airdrop.</p>
           </div>
           <div className="text-xs text-white/70 mt-0.5">
-            Drop in {String(left.days).padStart(2,'0')}d {String(left.hours).padStart(2,'0')}h {String(left.minutes).padStart(2,'0')}m {String(left.seconds).padStart(2,'0')}s
+            {target - Date.now() > 0
+              ? <>Drop in {String(left.days).padStart(2,'0')}d {String(left.hours).padStart(2,'0')}h {String(left.minutes).padStart(2,'0')}m {String(left.seconds).padStart(2,'0')}s</>
+              : <span className="text-[#98FFF9] font-semibold">Live now</span>}
           </div>
         </div>
         <div className="flex items-center gap-2 shrink-0">
@@ -50,7 +74,7 @@ export function ZeusPromoBanner({ imageUrl }: { imageUrl: string }) {
 }
 
 export function ZeusPromoPopup({ imageUrl }: { imageUrl: string }) {
-  const target = useMemo(() => Date.now() + 3 * 24 * 60 * 60 * 1000, [])
+  const target = useMemo(() => getConfiguredTarget(3), [])
   const [left, setLeft] = useState<TimeLeft>(() => getTimeLeft(target))
   const [open, setOpen] = useState<boolean>(() => {
     if (typeof window === 'undefined') return true
@@ -97,7 +121,7 @@ export function ZeusPromoPopup({ imageUrl }: { imageUrl: string }) {
 
 export default function ZeusPromo() {
   // legacy large section kept (not used when banner is mounted at top)
-  const target = useMemo(() => Date.now() + 3 * 24 * 60 * 60 * 1000, [])
+  const target = useMemo(() => getConfiguredTarget(3), [])
   const [left, setLeft] = useState<TimeLeft>(() => getTimeLeft(target))
 
   useEffect(() => {
