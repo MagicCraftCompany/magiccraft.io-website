@@ -266,39 +266,34 @@ const Header = () => {
               )}
             </div>
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-              <button className="hidden md:block group" aria-label="Play">
-                <a
-                  href="https://lobby.magiccraft.io/"
-                  rel="noreferrer noopener"
-                  className="no-underline"
-                >
-                  <div className="relative flex w-full items-center justify-center gap-2 rounded-[14px] px-5 md:px-6 h-10 md:h-11 text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/20 hover:border-white/30 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
-                    <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                    <Gamepad2 className="w-4 h-4 md:w-5 md:h-5" />
-                    <p className="text-sm md:text-base font-semibold tracking-normal relative z-10">Play</p>
-                  </div>
-                </a>
-              </button>
-              
-              <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap group no-underline" role="button" aria-label="Shop">
-                <div className="relative flex items-center gap-2 px-5 md:px-6 h-10 md:h-11 rounded-[14px] text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#4462d6] to-[#2c3e94] border border-white/20 hover:border-white/30 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                  <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
-                  <p className="text-sm md:text-base font-semibold tracking-normal text-white relative z-10">
-                    Shop
-                  </p>
-                </div>
+              <a
+                href="https://lobby.magiccraft.io/"
+                rel="noreferrer noopener"
+                className="hidden md:inline-flex header-cta header-cta--play no-underline"
+                aria-label="Play"
+              >
+                <Gamepad2 className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-sm md:text-base font-extrabold">Play</span>
+              </a>
+
+              <a
+                href="https://app.magiccraft.io/marketplace/explorer"
+                rel="noreferrer noopener"
+                className="hidden md:inline-flex header-cta header-cta--shop no-underline"
+                role="button"
+                aria-label="Shop"
+              >
+                <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-sm md:text-base font-extrabold">Shop</span>
               </a>
 
               <button
                 onClick={handleBuyMCRT}
-                className="group relative inline-flex items-center gap-2 whitespace-nowrap px-5 md:px-6 h-10 md:h-11 rounded-[14px] bg-gradient-to-b from-[#A9FFF6] to-[#82E7E0] text-[#071033] font-extrabold border border-white/20 hover:border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 mr-2 sm:mr-3 md:mr-4 lg:mr-0 overflow-hidden flex-shrink-0 min-w-[150px] focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50"
-                style={{ contain: 'layout paint', transformOrigin: 'center' }}
+                className="header-cta header-cta--buy no-underline mr-2 sm:mr-3 md:mr-4 lg:mr-0 min-w-[150px] font-extrabold"
                 aria-label="Buy $MCRT"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                <Coins className="w-4 h-4 md:w-5 md:h-5 relative z-10" />
-                <p className="text-sm md:text-base font-extrabold tracking-normal relative z-10">Buy $MCRT</p>
+                <Coins className="w-4 h-4 md:w-5 md:h-5" />
+                <span className="text-sm md:text-base">Buy $MCRT</span>
               </button>
               <button
                 onClick={openSidebar}

@@ -54,6 +54,42 @@ a:hover {
   text-decoration: none !important;
 }
 
+/* Professional header CTAs: consistent sizing, gradients, focus, and hover */
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0 1.25rem;
+  height: 2.75rem; /* matches h-11 */
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
+}
+.header-cta::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transform: translateX(-120%);
+  transition: transform 700ms ease;
+}
+.header-cta:hover::after { transform: translateX(120%); }
+.header-cta:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.28); box-shadow: 0 14px 30px rgba(0,0,0,0.35); }
+.header-cta:focus-visible { outline: 2px solid #98FFF9; outline-offset: 2px; }
+
+/* Variants */
+.header-cta--play { background: linear-gradient(180deg, #6b3db2, #41207a); color: #ffffff; }
+.header-cta--shop { background: linear-gradient(180deg, #4462d6, #2c3e94); color: #ffffff; }
+.header-cta--buy { background: linear-gradient(180deg, #A9FFF6, #82E7E0); color: #071033; }
+
 @layer base {
   /* Typography System - Enhanced */
   h1, h2, h3 {
