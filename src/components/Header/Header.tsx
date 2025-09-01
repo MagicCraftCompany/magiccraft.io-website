@@ -90,7 +90,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       {
         title: 'Game Maker',
         icon: '/icons/icon-steam.svg',
-        path: 'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/',
+        path: '/build-on-magiccraft',
       },
       {
         title: 'Heroes',

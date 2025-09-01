@@ -657,7 +657,7 @@ function Homepagemcrt() {
                 </p>
               </div>
             </a>
-            <a href="https://store.steampowered.com/app/3478810/MCRT_Game_Maker/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
+            <a href="/build-on-magiccraft" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
               <h4 className="text-lg md:text-xl font-bold mb-1">Game Maker</h4>
               <p className="text-base md:text-lg text-gray-300">Build maps and modes.</p>
               <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
