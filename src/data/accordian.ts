@@ -13,8 +13,8 @@
     value: '2',
     question: 'How can I create a MagicCraft Account?',
     answer: `To create a MagicCraft Account, visit
-          <a href="lobby.magiccraft.io/register" >
-            -link-
+          <a href="https://lobby.magiccraft.io/register" target="_blank" rel="noreferrer noopener">
+            lobby.magiccraft.io/register
           </a>
           and follow the account creation process. During account creation,
           you will need to connect your wallet (e.g., Metamask or

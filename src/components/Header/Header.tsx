@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Referral from'@/assets/icons/Referral.svg'
 import Whitepaper from '@/assets/icons/whitepaper.svg'
 import lobby from '@/assets/icons/lobby.svg'
-import service from '@/assets/icons/li_shopping-bag.svg'
+
 import { useLocation, Link } from 'react-router-dom'
 import bybit from '@/assets/icons/icon-bybit.svg'
 import marketplace from '@/assets/icons/icon-marketplace.svg'
@@ -17,9 +17,8 @@ import stats from '@/assets/icons/icon-gamestats.svg'
 import currency from '@/assets/icons/icon-currency.svg'
 import faq from '@/assets/icons/icon-faq.svg'
 import gamepad from '@/assets/icons/icon-gamepad.svg'
-import pledge from '@/assets/icons/icon-huobi.svg'
+
 import about from '@/assets/icons/icon-help.svg'
-import statistics from '@/assets/icons/icon-stats.svg'
 import pancakeswap from '@/assets/icons/icon-pancakeswap.svg'
 import huobi from '@/assets/icons/icon-huobi.svg'
 import { openTransactionModal } from "@xswap-link/sdk";
@@ -43,6 +42,7 @@ export type SubMenuProps = {
   icon?: string // Make optional
   path: string
   isXswap?: boolean
+  onClick?: () => void
 }
 const handleBuyMCRT = async () => {
   try {
@@ -59,19 +59,31 @@ const handleBuyMCRT = async () => {
   }
 };
 
+function openGameByDevice() {
+  if (typeof window === 'undefined') return
+  const ua = navigator.userAgent || navigator.vendor || (window as any).opera
+  const isIOS = /iPad|iPhone|iPod/.test(ua)
+  const isAndroid = /Android/.test(ua)
+  const iosUrl = 'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
+  const androidUrl = 'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
+  const pcUrl = 'https://store.steampowered.com/app/2395760/MagicCraft/'
+  const url = isIOS ? iosUrl : isAndroid ? androidUrl : pcUrl
+  window.open(url, '_blank', 'noopener,noreferrer')
+}
+
 const commonMenuItemsNew: NavMenuItemProps[] = [
-  
   {
     title: 'Games',
     icon: gamepad,
     submenu: [
       {
         title: 'MagicCraft',
-          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
-          path: '/magiccraft',
+        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
+        path: '#',
+        onClick: openGameByDevice,
       },
       {
-        title: 'Browser Games',
+        title: 'Ecosystem Games',
         icon: gamepad,
         path: 'https://games.magiccraft.io/',
       },
@@ -80,114 +92,11 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: '/icons/icon-steam.svg',
         path: 'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/',
       },
-    ],
-  },
-  {
-      title: 'Web3',
-      icon: service,
-      submenu: [
-        {
-          title: 'Web3 Lobbies',
-          icon: lobby,
-          path: 'https://lobby.magiccraft.io/',
-        },
-        {
-          title: 'Marketplace',
-          icon: marketplace,
-          path: 'https://app.magiccraft.io/marketplace/explorer',
-        },
-        {
-          title: 'Pledging',
-          icon: pledge,
-          path: 'https://app.magiccraft.io/pledging',
-        },
-        {
-          title: 'Referral System',
-          icon: Referral,
-          path: 'https://lobby.magiccraft.io/referral',
-        },
-      ],
-    },
-    {
-      title: 'About',
-      icon: about,
-      submenu: [
-        // {
-        //   title: 'Heroes',
-        //   icon: '',
-        //   path: ' ',
-        // },
-        {
-          title: 'Whitepaper',
-          icon: Whitepaper,
-          path: 'https://docs.magiccraft.io/',
-        },
-        // {
-        //   title: 'Vision 2024',
-        //   icon: '',
-        //   path: '',
-        // },
-        // {
-        //   title: 'Legal',
-        //   icon: '',
-        //   path: '',
-        // },
-        {
-          title: 'FAQs',
-          icon: faq,
-          path: '/faq',
-        },
-        // {
-        //   title: 'Contact Us',
-        //   icon: './icons/icon-contact.svg',
-        //   path: 'https://magiccraft.io/contact-us',
-        // },
-        
-        {
-          title: 'News',
-          icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1721250180/teenyicons_twitch-solid_m9vixv.svg",
-          path: '/news',
-          
-        },
-      ],
-    },
-    {
-      title: 'Buy $MCRT',
-      icon: currency,
-      submenu: [
-        
-        {
-          title: 'PancakeSwap',
-          icon: pancakeswap,
-          path: 'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f ',
-        },
-        {
-          title: 'Bybit',
-          icon: bybit,
-          path: 'https://www.bybit.com/en/trade/spot/MCRT/USDT',
-        },
-        // {
-        //   title: 'Huobi Global',
-        //   icon: huobi,
-        //   path: 'https://www.huobi.com/en-us/exchange/mcrt_usdt',
-        // },
-        {
-          title: 'HTX',
-          icon: huobi,
-          path: ' https://www.htx.com/trade/mcrt_usdt ',
-        },
-        {
-          title: 'Buy with credit card',
-          icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718968472/648bac0dcb1a13d71ac879ff_Swipelux-Twitter_gfxxae.webp',
-          path: 'https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12',
-        },
-      ],
-    },
-
-  {
-    title: 'Statistics',
-    icon: statistics,
-    submenu: [
+      {
+        title: 'Heroes',
+        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173029/runner_1_tqbhtw.webp',
+        path: '/chooseyourhero',
+      },
       {
         title: 'Leaderboard',
         icon: leaderboard,
@@ -201,20 +110,101 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     ],
   },
   {
-    title: 'Build on MagicCraft',
-    icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1722867433/MCRT_shydrd.webp",
-    path: '/build-on-magiccraft',
-    submenu: [],
+    title: 'Web3',
+    icon: '/icons/icon-web3.svg',
+    submenu: [
+      {
+        title: 'Web3 Lobbies',
+        icon: lobby,
+        path: 'https://lobby.magiccraft.io/',
+      },
+      {
+        title: 'Marketplace',
+        icon: marketplace,
+        path: 'https://app.magiccraft.io/marketplace/explorer',
+      },
+      {
+        title: 'Pledging',
+        icon: '/icons/icon-pledge.svg',
+        path: 'https://app.magiccraft.io/pledging',
+      },
+      {
+        title: 'Referral System',
+        icon: Referral,
+        path: 'https://lobby.magiccraft.io/referral',
+      },
+    ],
   },
   {
-    title: 'Heroes',
-    icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173029/runner_1_tqbhtw.webp",
-    path: '/chooseyourhero',
-    submenu: [],
+    title: 'About',
+    icon: about,
+    submenu: [
+      {
+        title: 'Whitepaper',
+        icon: Whitepaper,
+        path: 'https://docs.magiccraft.io/',
+      },
+      {
+        title: 'MagicCraft 2025',
+        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
+        path: '/magiccraft',
+      },
+      {
+        title: 'FAQs',
+        icon: faq,
+        path: '/faq',
+      },
+      {
+        title: 'News',
+        icon: '/icons/icon-news.svg',
+        path: '/news',
+      },
+    ],
   },
- 
- ]
- 
+  {
+    title: 'Buy $MCRT',
+    icon: currency,
+    submenu: [
+      {
+        title: 'PancakeSwap',
+        icon: pancakeswap,
+        path: 'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f ',
+      },
+      {
+        title: 'Bybit',
+        icon: bybit,
+        path: 'https://www.bybit.com/en/trade/spot/MCRT/USDT',
+      },
+      {
+        title: 'HTX',
+        icon: huobi,
+        path: ' https://www.htx.com/trade/mcrt_usdt ',
+      },
+      {
+        title: 'Buy with credit card',
+        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718968472/648bac0dcb1a13d71ac879ff_Swipelux-Twitter_gfxxae.webp',
+        path: 'https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12',
+      },
+    ],
+  },
+  {
+    title: 'Build',
+    icon: "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1722867433/MCRT_shydrd.webp",
+    submenu: [
+      {
+        title: 'Build on MagicCraft',
+        icon: '/icons/icon-build.svg',
+        path: '/build-on-magiccraft',
+      },
+      {
+        title: 'Bounties',
+        icon: '/icons/icon-bounty.svg',
+        path: '/bounties',
+      },
+    ],
+  },
+]
+
 const Header = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
   const location = useLocation()
@@ -281,33 +271,33 @@ const Header = () => {
                   href="https://lobby.magiccraft.io/"
                   rel="noreferrer noopener"
                 >
-                  <div className="relative flex w-full items-center justify-center gap-2 rounded-full px-5 md:px-6 h-10 md:h-11 text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15 hover:border-white/25 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
+                  <div className="relative flex w-full items-center justify-center gap-2 rounded-[14px] px-5 md:px-6 h-10 md:h-11 text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/20 hover:border-white/30 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
                     <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                     <Gamepad2 className="w-4 h-4 md:w-5 md:h-5" />
-                    <p className="text-sm md:text-base font-bold tracking-wider relative z-10">PLAY</p>
+                    <p className="text-sm md:text-base font-semibold tracking-normal relative z-10">Play</p>
                   </div>
                 </a>
               </button>
               
               <a href="https://app.magiccraft.io/marketplace/explorer" rel="noreferrer noopener" className="hidden md:flex cursor-pointer items-center gap-1 whitespace-nowrap group" role="button" aria-label="Shop">
-                <div className="relative flex items-center gap-2 px-5 md:px-6 h-10 md:h-11 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#4462d6] to-[#2c3e94] border border-white/15 hover:border-white/25 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
+                <div className="relative flex items-center gap-2 px-5 md:px-6 h-10 md:h-11 rounded-[14px] text-white shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden bg-gradient-to-b from-[#4462d6] to-[#2c3e94] border border-white/20 hover:border-white/30 focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50">
                   <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                   <ShoppingBag className="w-4 h-4 md:w-5 md:h-5" />
-                  <p className="text-sm md:text-base font-bold tracking-wider text-white relative z-10">
-                    SHOP
+                  <p className="text-sm md:text-base font-semibold tracking-normal text-white relative z-10">
+                    Shop
                   </p>
                 </div>
               </a>
 
               <button
                 onClick={handleBuyMCRT}
-                className="group relative inline-flex items-center gap-2 whitespace-nowrap px-5 md:px-6 h-10 md:h-11 rounded-2xl bg-gradient-to-b from-[#6bded7] to-[#3ab9b2] text-white font-bold border border-white/15 hover:border-white/25 shadow-lg hover:shadow-xl transition-all duration-300 mr-2 sm:mr-3 md:mr-4 lg:mr-0 overflow-hidden flex-shrink-0 min-w-[150px] focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50"
+                className="group relative inline-flex items-center gap-2 whitespace-nowrap px-5 md:px-6 h-10 md:h-11 rounded-[14px] bg-gradient-to-b from-[#A9FFF6] to-[#82E7E0] text-[#071033] font-extrabold border border-white/20 hover:border-white/30 shadow-lg hover:shadow-xl transition-all duration-300 mr-2 sm:mr-3 md:mr-4 lg:mr-0 overflow-hidden flex-shrink-0 min-w-[150px] focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50"
                 style={{ contain: 'layout paint', transformOrigin: 'center' }}
                 aria-label="Buy $MCRT"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 <Coins className="w-4 h-4 md:w-5 md:h-5 relative z-10" />
-                <p className="text-sm md:text-base font-bold tracking-wider relative z-10">BUY $MCRT</p>
+                <p className="text-sm md:text-base font-extrabold tracking-normal relative z-10">Buy $MCRT</p>
               </button>
               <button
                 onClick={openSidebar}
@@ -334,13 +324,13 @@ const Header = () => {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 z-[999] h-full w-[90%] max-w-lg overflow-auto rounded-bl-2xl border-l border-[#9AD4FD]/50 bg-gradient-to-b from-[#161242]/95 via-[#2A0D4E]/95 to-[#060b31]/95 backdrop-blur-xl py-6 pl-8 pr-8 text-white shadow-2xl"
+              className="fixed right-0 top-0 z[999] h-full w-[90%] max-w-lg overflow-auto rounded-bl-2xl border-l border-[#9AD4FD]/50 bg-gradient-to-b from-[#161242]/95 via-[#2A0D4E]/95 to-[#060b31]/95 backdrop-blur-xl py-6 pl-8 pr-8 text-white shadow-2xl"
             >
               <div className="flex h-full flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <span className="font-serif text-[22px] bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">Menu</span>
                   <button
-                    className="p-2 rounded-lg hover:bg-white/10 transition-all duration-200 group"
+                    className="p-2 rounded-lg hover:bg_white/10 transition-all duration-200 group"
                     onClick={closeSidebar}
                   >
                     <X
@@ -368,7 +358,7 @@ const Header = () => {
                     rel="noreferrer noopener"
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 backdrop-blur-sm"
                   >
-                    <p className="text-lg font-semibold text-white">Play</p>
+                    <p className="text-lg font-semibold text_white">Play</p>
                   </a>
                 </div>
 

@@ -12,7 +12,7 @@ export const faqData = [
   {
     question: 'HOW DO I GET STARTED WITH MAGICCRAFT?',
     answer:
-      'You can download and start playing our game at any time. To become a part of our Web3 P2E gaming experience, set up your account on the MagicCraft Lobby System [Hyperlink to Lobby] and join our Telegram and Discord [Hyperlink to both].',
+      'You can download and start playing our game at any time. To become a part of our Web3 P2E gaming experience, set up your account on the MagicCraft Lobby System and join our Telegram community.',
   },
   {
     question: 'WHAT PLATFORMS DOES MAGICCRAFT SUPPORT?',

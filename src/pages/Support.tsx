@@ -10,6 +10,7 @@ import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import { Helmet } from 'react-helmet-async'
 import { Tabs, Tab } from '@/components/tabs'
+import { useMemo, useState } from 'react'
 
 import web3 from '@/assets/icons/li_help-circle (1).svg'
 import web from '@/assets/icons/li_help-circle.svg'
@@ -23,6 +24,14 @@ import vector from '@/assets/icons/contact-vector.svg'
 import { Link } from 'react-router-dom'
 
 export default function FAQ() {
+  const [query, setQuery] = useState('')
+  const filtered = useMemo(() => {
+    const q = query.trim().toLowerCase()
+    if (!q) return questions
+    return questions.filter((item) =>
+      (item.question + ' ' + item.answer).toLowerCase().includes(q)
+    )
+  }, [query])
   function Question() {
     return (
       <Accordion
@@ -30,7 +39,7 @@ export default function FAQ() {
         collapsible
         className="mx-auto h-full w-full  "
       >
-        {questions.map((question) => (
+        {filtered.map((question) => (
           <AccordionItem
             key={question.value}
             value={question.value}
@@ -81,6 +90,14 @@ export default function FAQ() {
                     icon={web3}
                     iconActive={web}
                   >
+                    <div className="mb-4 flex items-center gap-3">
+                      <input
+                        value={query}
+                        onChange={(e) => setQuery(e.target.value)}
+                        placeholder="Search questions..."
+                        className="w-full max-w-xl rounded-xl border border-white/15 bg-black/20 px-4 py-2 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-[#98FFF9]"
+                      />
+                    </div>
                     <Question />
                   </Tab>
                   {/* <Tab
@@ -170,7 +187,7 @@ export default function FAQ() {
 
                         <div className="flex items-center justify-between">
                           <button
-                            className="m-4 flex flex-wrap items-center justify-center rounded-[6px] bg-[#98FFF9] px-6 py-2 text-[#03082F]"
+                            className="btn-primary m-4"
                             type="button"
                           >
                             <img

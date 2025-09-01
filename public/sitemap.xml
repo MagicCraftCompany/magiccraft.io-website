@@ -5,31 +5,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.magiccraft.io/about-mcrt</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.magiccraft.io/choose-your-hero</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.magiccraft.io/dao</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.magiccraft.io/dashboard</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.magiccraft.io/disclaimer</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.magiccraft.io/game-developer</loc>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.magiccraft.io/game-patch</loc>
+    <loc>https://www.magiccraft.io/magiccraft</loc>
     <priority>0.6</priority>
   </url>
   <url>
@@ -37,15 +13,51 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.magiccraft.io/games</loc>
+    <loc>https://www.magiccraft.io/hero/arthur</loc>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.magiccraft.io/Chooseyourhero</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.magiccraft.io/games/magic8ball</loc>
+    <loc>https://www.magiccraft.io/faq</loc>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.magiccraft.io/games/magicrunner</loc>
+    <loc>https://www.magiccraft.io/patch</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.magiccraft.io/news</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.magiccraft.io/blog/sample-post</loc>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.magiccraft.io/build-on-magiccraft</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.magiccraft.io/server</loc>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.magiccraft.io/terms</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.magiccraft.io/privacypolicy</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.magiccraft.io/disclaimer</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.magiccraft.io/verify</loc>
     <priority>0.5</priority>
   </url>
   <url>
@@ -53,39 +65,19 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.magiccraft.io/news</loc>
+    <loc>https://www.magiccraft.io/topholders</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.magiccraft.io/privacy-policy</loc>
+    <loc>https://www.magiccraft.io/dashboard</loc>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.magiccraft.io/studio</loc>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://www.magiccraft.io/server-status</loc>
-    <priority>0.4</priority>
-  </url>
-  <url>
-    <loc>https://www.magiccraft.io/studios</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.magiccraft.io/support</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.magiccraft.io/terms-and-condition</loc>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.magiccraft.io/top-holders</loc>
+    <loc>https://www.magiccraft.io/bounties</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.magiccraft.io/verify</loc>
-    <priority>0.5</priority>
+    <loc>https://www.magiccraft.io/admin/</loc>
+    <priority>0.3</priority>
   </url>
 </urlset> 

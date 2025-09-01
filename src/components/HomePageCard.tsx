@@ -2,7 +2,6 @@
 
 import {
   FaXTwitter,
-  FaDiscord,
   FaTelegram,
   FaReddit,
   FaInstagram,
@@ -95,9 +94,9 @@ export default function MagicraftDownload() {
       link: 'https://twitter.com/MagicCraftGame',
     },
     {
-      name: 'Discord',
-      icon: <FaDiscord className="text-white opacity-50" size={20} />,
-      link: 'https://discord.gg/c4bgnsqzQR',
+      name: 'Telegram',
+      icon: <FaTelegram className="text-white opacity-50" size={20} />,
+      link: 'https://t.me/magiccraftgamechat',
     },
     {
       name: 'Telegram',
@@ -361,10 +360,11 @@ export default function MagicraftDownload() {
                                  : `0 4px 20px ${l.glowColor}30`
                              }}>
                           <img 
+                            decoding="async"
+                            loading="lazy"
                             src={l.icon} 
                             alt={l.title} 
                             className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 object-contain transition-all duration-500 group-hover:brightness-125 group-hover:scale-110" 
-                            loading="lazy" 
                             style={{
                               filter: hoveredLobby === key 
                                 ? `drop-shadow(0 4px 12px ${l.glowColor}70) brightness(1.2)`
@@ -410,7 +410,7 @@ export default function MagicraftDownload() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
             transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed w-80 max-w-[90vw] pointer-events-auto"
+            className="fixed w-96 md:w-[28rem] max-w-[92vw] pointer-events-auto"
             style={{
               zIndex: 99999,
               top: `${tooltipPosition.top - 350}px`,
@@ -435,12 +435,12 @@ export default function MagicraftDownload() {
                   </h4>
                 </div>
                 
-                <p className="text-white/95 text-sm mb-5 leading-relaxed font-medium">
+                <p className="text-white/95 text-base md:text-[17px] mb-5 leading-relaxed font-medium">
                   {lobbyData[hoveredLobby as keyof typeof lobbyData].tooltip.description}
                 </p>
                 
                 <div className="space-y-3">
-                  <h5 className="text-white/80 text-xs font-bold uppercase tracking-wider mb-2">Features:</h5>
+                  <h5 className="text-white/80 text-sm font-bold uppercase tracking-wider mb-2">Features:</h5>
                   {lobbyData[hoveredLobby as keyof typeof lobbyData].tooltip.features.map((feature: string, i: number) => (
                     <motion.div 
                       key={i} 
@@ -453,7 +453,7 @@ export default function MagicraftDownload() {
                         className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
                         style={{ backgroundColor: lobbyData[hoveredLobby as keyof typeof lobbyData].glowColor }}
                       ></div>
-                      <p className="text-white/85 text-xs leading-relaxed font-medium">
+                      <p className="text-white/90 text-sm md:text-base leading-relaxed font-medium">
                         {feature.replace('• ', '')}
                       </p>
                     </motion.div>

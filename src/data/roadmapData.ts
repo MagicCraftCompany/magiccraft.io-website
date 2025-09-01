@@ -138,23 +138,23 @@ export const roadmapData: RoadmapDataType = [
       {
         card: 1,
         features: [
-          'Game Maker Launch',
-          'Players create and monetize custom maps via Steam',
+          'Game Maker Studio Launch',
+          'Creator economy: Build, publish, and monetize custom maps',
+          'Revenue sharing for popular community content',
         ],
       },
       {
         card: 2,
         features: [
-          'New Mobs & AI Enemies',
-          'Enhanced PvE experience with AI-controlled enemies',
-          'Castle Siege Mode - Large-scale battles with fortified objectives',
+          'Procedural weapon skins and customization system',
         ],
       },
       {
         card: 3,
         features: [
-          'Web3 Lobby System Upgrade - Improved matchmaking and in-game economy',
-          'Multi-Crypto Rewards - Earn MCRT and other tokens directly from gameplay',
+          'Cross-Platform Sync',
+          'Seamless progression across iOS, Android, PC, and Steam',
+          'Universal $MCRT wallet integration',
         ],
       },
     ],
@@ -166,23 +166,30 @@ export const roadmapData: RoadmapDataType = [
       {
         card: 1,
         features: [
-          'Battle Pass & Subscriptions',
-          'New monetization model for progression rewards',
+          'Enhanced PvP Ecosystem',
+          'Ranked seasons with $MCRT prize pools',
+          'Guild wars and territory control mechanics',
+          '20 vs 20 Castle Siege mode',
+          'More lobbies and more cryptos (beyond BTC/USDT/BNB/ETH/XRP/SOL)',
         ],
       },
       {
         card: 2,
         features: [
-          'Tournaments & Competitive Play',
-          'Seasonal events and structured prize pools',
-          'Community Map Marketplace - Trade, sell, and showcase custom maps',
+          'NFT Utility Expansion',
+          'Character abilities tied to Genesis & Revelation NFTs',
+          'Rentable assets for temporary power-ups',
+          'New skins and characters (Merlin, Robin Hood, latest $MCRT drops)',
         ],
       },
       {
         card: 3,
         features: [
-          'NFT Character Integration',
-          'Exclusive perks and in-game earning potential',
+          'Creator Marketplace',
+          'Trade custom maps, skins, and game modes',
+          'Community-driven content curation system',
+          'Craft & Sell Marketplace',
+          'Crafting and NFT crafting for items and skins',
         ],
       },
     ],
@@ -194,22 +201,27 @@ export const roadmapData: RoadmapDataType = [
       {
         card: 1,
         features: [
-          'MagicCraft on Xbox',
-          'Console expansion bringing Web3 gaming to a broader audience',
+          'AI-Powered Features',
+          'Smart matchmaking based on skill and playstyle',
+          'Dynamic difficulty adjustment for optimal engagement',
         ],
       },
       {
         card: 2,
         features: [
-          'New Maps & Game Modes',
-          'Expanding gameplay diversity and player engagement',
+          'Ecosystem Integration Hub',
+          'One-click access to all MagicCraft platforms',
+          'Unified $MCRT rewards across all games and activities',
         ],
       },
       {
         card: 3,
         features: [
-          'Social Features & Streaming Integration',
-          'Built-in tools for content sharing and engagement',
+          'Community Expansion',
+          'Partnerships and cross-promotions to grow player base',
+          'Creator tournaments and seasonal events',
+          'Core game improvements',
+          'Graphics improvements',
         ],
       },
     ],
@@ -221,22 +233,56 @@ export const roadmapData: RoadmapDataType = [
       {
         card: 1,
         features: [
-          'Full Website Overhaul',
-          'New platform experience optimized for players and investors',
+          'Metaverse Foundation',
+          'Persistent virtual worlds built by the community',
+          'Land ownership and development rights via NFTs',
         ],
       },
       {
         card: 2,
         features: [
-          'E-Sports Expansion',
-          'Structured leagues, rankings, and sponsorships',
+          'E-Sports Infrastructure',
+          'Professional leagues with broadcast partnerships',
+          'Spectator modes and betting integration',
         ],
       },
       {
         card: 3,
         features: [
-          'Staking & Economy Revamp',
-          'Enhancing MCRT sustainability and long-term value',
+          'DAO Governance Evolution',
+          'Community-driven development priorities',
+          '$MCRT staking for ecosystem decision-making power',
+        ],
+      },
+    ],
+  },
+  {
+    quarter: 5,
+    variant: 'default',
+    goals: [
+      {
+        card: 1,
+        features: [
+          'Vibe Coding System',
+          'AI-powered map generation and dynamic environments',
+          'Nano Banana Image Gen for Weapons',
+        ],
+      },
+      {
+        card: 2,
+        features: [
+          '$MCRT APIs and SDKs',
+          'Public APIs for marketplace, game stats, and wallets',
+          'Unity/Unreal SDKs for quick integration',
+        ],
+      },
+      {
+        card: 3,
+        features: [
+          'Marketplace & Crafting',
+          'Crafting system with NFT crafting',
+          'Craft & sell marketplace enhancements',
+          'Improvements to Game Maker tooling',
         ],
       },
     ],

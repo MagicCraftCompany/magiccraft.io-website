@@ -69,10 +69,10 @@ const FaqAccordion = () => {
           <a
             className="underline"
             target="_blank"
-            href="https://discord.gg/c4bgnsqzQR"
+            href="https://t.me/magiccraftgamechat"
             rel="noreferrer noopener"
           >
-            Discord
+            Telegram
           </a>
           .
         </AccordionContent>

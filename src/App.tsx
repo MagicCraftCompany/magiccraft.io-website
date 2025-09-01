@@ -23,6 +23,7 @@ import GameDeveloper from "./pages/GameDeveloper";
 import NotFound from "./pages/ErrorPage";
 import BlogPost from "./pages/BlogPost";
 import SanityStudio from "./pages/SanityStudio";
+import Bounties from "./pages/Bounties";
 
 // const handleBuyMCRT = async () => {
 //   try {
@@ -63,6 +64,7 @@ function App() {
         <Route path="/leaderboard" element={<LeaderboardPage />} />
         <Route path="/topholders" element={<HoldersPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/bounties" element={<Bounties />} />
         <Route path="/admin/*" element={<SanityStudio />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

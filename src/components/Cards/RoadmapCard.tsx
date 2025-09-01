@@ -1,7 +1,4 @@
-import { Minus } from 'lucide-react';
 import { titleKeyMaper } from '@/lib/utils';
-import checks from '@/assets/icons/tick.svg';
-import triangle from '@/assets/icons/Rectangle 1585.svg';
 import righttick from '@/assets/icons/rightcheck.svg';
 
 type RoadmapCardType = {
@@ -32,64 +29,52 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
   };
 
   return (
-    <div className="min-w-72 snap-center space-y-6">
+    <div className="min-w-[18rem] snap-center space-y-6">
       <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
         Q{data.quarter} 25
       </h3>
 
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 gap-6">
         {data.goals.map((goal, i) => {
-          const shouldHighlightCard = [1, 2, 3, 6].includes(goal.card);
+          const isDefault = data.variant === 'default'
           return (
             <div
               key={i}
-              className={`relative rounded-4xl p-px ${shouldHighlightCard ? 'bg-gradient-to-b from-[#98FFF9] to-transparent' : 'bg-gradient-to-b from-[#B591F2] to-transparent'}`}
+              className={`group relative rounded-3xl p-px transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl 
+              ${isDefault ? 'bg-gradient-to-b from-[#98FFF9]/40 via-transparent to-transparent' : 'bg-gradient-to-b from-[#B591F2]/40 via-transparent to-transparent'}`}
             >
-              {shouldHighlightCard && (
-                <>
-                  <img
-                    src={checks}
-                    alt="Checkbox"
-                    className="absolute mt-2 left-[16.5em] right-0 transform -translate-x-1/2 rounded-2xl z-10"
-                  />
-                  <img
-                    src={triangle}
-                    alt="Triangle"
-                    className="absolute right-0 left-[16.6em] transform -translate-x-1/2 rounded-tr-3xl"
-                  />
-                </>
-              )}
               <div
-                className={`rounded-4xl space-y-5 bg-gradient-to-r 
-              ${data.variant === 'default' ? 'from-[#3D186D] to-[#2A0D4E]' : 'from-[#2A0D4E] to-[#57186D] '}
-              `}
+                className={`rounded-3xl border border-white/10 bg-gradient-to-br ${isDefault ? 'from-[#3D186D] to-[#2A0D4E]' : 'from-[#2A0D4E] to-[#57186D]'} text-white shadow-xl overflow-hidden`}
               >
-                <div className="bg-black/20 px-7 py-5 rounded-3xl">
-                  <h3 className="text-center font-serif text-2xl">{titleKeyMaper(i)}</h3>
+                <div className="flex items-center justify-between px-6 py-4 bg-black/20">
+                  <span className="text-xs md:text-sm font-semibold tracking-wider text-white/90">{titleKeyMaper(i)}</span>
+                  <span className="text-[10px] md:text-xs text-white/60">Q{data.quarter} · 2025</span>
                 </div>
-                <div className="space-y-2 px-5 pb-6">
-                  {goal.features.map((feature, j) => (
-                    <div key={j} className="flex items-start gap-[10px]">
-                      <div className="shrink-0 py-1">
-                        {getFeatureIcon(data.quarter, goal.card, feature) ? (
-                          // <img src={righttick} className='-mt-[0.5em]' alt="Right Check" />
-                          <Minus size={20} className="text-white/50" />
 
-                        ) : (
-                          <Minus size={20} className="text-white/50" />
-                        )}
+                <div className="px-6 py-5">
+                  {goal.features.map((feature, j) => {
+                    const iconPath = getFeatureIcon(data.quarter, goal.card, feature)
+                    return (
+                      <div key={j} className={`flex items-start gap-3 py-2 ${j !== 0 ? 'border-t border-white/10' : ''}`}>
+                        <div className="pt-1 shrink-0">
+                          {iconPath ? (
+                            <img src={iconPath} alt="" className="w-4 h-4 opacity-80" />
+                          ) : (
+                            <span className="block h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#98FFF9] to-[#B591F2] shadow-[0_0_10px_rgba(152,255,249,0.45)]" />
+                          )}
+                        </div>
+                        <p className="text-sm md:text-base leading-relaxed text-white/90">{feature}</p>
                       </div>
-                      <div className="text-lg">{feature}</div>
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
               </div>
             </div>
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 };
 
 export default RoadmapCard;

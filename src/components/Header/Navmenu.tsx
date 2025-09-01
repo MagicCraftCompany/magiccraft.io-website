@@ -42,10 +42,16 @@ const NavMenu = ({ item }: NavMenuProps) => {
           {item.submenu.map((subItem) => {
             return (
               <a
-                href={subItem.path}
+                href={subItem.onClick ? '#' : subItem.path}
                 key={subItem.title}
                 rel="noreferrer noopener"
                 className="w-full group"
+                onClick={(e) => {
+                  if (subItem.onClick) {
+                    e.preventDefault()
+                    subItem.onClick()
+                  }
+                }}
               >
                 <div className="flex h-full w-full cursor-pointer items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-white/10 transition-all duration-200">
                   <div className="grid w-5 h-5 shrink-0 place-items-center">
