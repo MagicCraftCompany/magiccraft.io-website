@@ -251,6 +251,28 @@ function Homepagemcrt() {
                                     <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient max-w-4xl mx-auto tracking-wider drop-shadow-2xl leading-tight">
                     $MCRT THE CURRENCY OF GAMING
                   </h1>
+                  <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+                    <a href="#earn" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Earn</a>
+                    <a href="#create" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Create</a>
+                    <a href="#pledge" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Pledge</a>
+                    <a href="#spend" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Spend</a>
+                  </div>
+                  <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2 sm:gap-3">
+                    <a
+                      href="https://lobby.magiccraft.io/"
+                      rel="noreferrer noopener"
+                      className="inline-flex items-center justify-center px-5 sm:px-6 h-10 sm:h-11 rounded-xl text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15 shadow-lg hover:shadow-xl hover:border-white/25 transition"
+                    >
+                      Play Now
+                    </a>
+                    <a
+                      href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
+                      rel="noreferrer noopener"
+                      className="inline-flex items-center justify-center px-5 sm:px-6 h-10 sm:h-11 rounded-xl text-[#03082F] font-black bg-gradient-to-b from-[#98FFF9] to-[#B591F2] shadow-xl hover:shadow-2xl transition border border-white/10"
+                    >
+                      Buy $MCRT
+                    </a>
+                  </div>
                 </div>
               </div>
               </div>
@@ -415,6 +437,149 @@ function Homepagemcrt() {
                     </div>
         </section>
 
+        {/* What you can do with $MCRT */}
+        <section id="utility" className="relative py-10 sm:py-12 md:py-16 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0">
+          <div className="text-center mb-8 md:mb-10">
+            <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">What you can do with $MCRT</h3>
+            <p className="text-gray-300 text-sm md:text-base mt-2">Earn, create, pledge and spend across the MagicCraft ecosystem.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+            <a id="earn" href="https://lobby.magiccraft.io/" className="card-glass card-padding block hover:scale-[1.02] transition" rel="noreferrer noopener">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 rounded-xl bg-[#98FFF9]/20 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 6 .9-4.5 4.3L18 20l-6-3.2L6 20l1.5-6.8L3 8.9 9 8l3-6z"/></svg>
+                </div>
+                <h4 className="font-bold">Earn in PvP</h4>
+              </div>
+              <p className="text-sm text-gray-300">Win matches and tournaments to earn $MCRT.</p>
+            </a>
+            <a id="create" href="/build-on-magiccraft" className="card-glass card-padding block hover:scale-[1.02] transition">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 rounded-xl bg-[#B591F2]/20 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M4 14v6h6l10-10-6-6L4 14zm11-9l3 3"/></svg>
+                </div>
+                <h4 className="font-bold">Create with Game Maker</h4>
+              </div>
+              <p className="text-sm text-gray-300">Build modes and maps; earn per player.</p>
+            </a>
+            <a id="refer" href="https://lobby.magiccraft.io/referral" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block hover:scale-[1.02] transition">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 rounded-xl bg-[#FFB649]/20 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .35.07.69.18 1H9.82A3 3 0 0010 8c0-1.66-1.34-3-3-3S4 6.34 4 8s1.34 3 3 3c.35 0 .69-.07 1-.18v2.36C7.69 13.07 7.35 13 7 13c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3c0-.35-.07-.69-.18-1h3.36c-.11.31-.18.65-.18 1 0 1.66 1.34 3 3 3s3-1.34 3-3-1.34-3-3-3c-.35 0-.69.07-1 .18V10.82c.31.11.65.18 1 .18z"/></svg>
+                </div>
+                <h4 className="font-bold">Refer and Earn</h4>
+              </div>
+              <p className="text-sm text-gray-300">Invite friends. Earn a share of their lobby winnings.</p>
+            </a>
+            <a id="spend" href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block hover:scale-[1.02] transition">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 rounded-xl bg-[#7de6df]/20 flex items-center justify-center">
+                  <svg className="w-5 h-5 text-[#7de6df]" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h-2l-3 7v2h2l3-7h10l3 7h2v-2l-3-7h-12zm-1 13c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2h-12z"/></svg>
+                </div>
+                <h4 className="font-bold">Spend in Marketplace</h4>
+              </div>
+              <p className="text-sm text-gray-300">Buy and sell assets using $MCRT.</p>
+            </a>
+          </div>
+        </section>
+
+        {/* Contract Address */}
+        <section className="relative py-8 md:py-12 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0">
+          <div className="card-glass card-padding">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <div>
+                <h4 className="text-lg md:text-xl font-bold">$MCRT Contract (BSC)</h4>
+                <div className="mt-1 flex items-center gap-2 text-xs md:text-sm text-white/80">
+                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/10 border border-white/15">BEP-20</span>
+                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/10 border border-white/15">Chain: BNB Smart Chain</span>
+                </div>
+                <div className="mt-2 font-mono text-[11px] md:text-sm break-all">0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f</div>
+                <div className="mt-2 flex gap-2">
+                  <button onClick={() => navigator.clipboard.writeText('0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f')} className="btn-secondary text-xs">Copy</button>
+                  <a href="https://bscscan.com/token/0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="btn-primary text-xs">View on BscScan</a>
+                </div>
+              </div>
+              <img
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f`}
+                alt="$MCRT contract QR"
+                className="w-24 h-24 rounded-md border border-white/10"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <div className="mt-4 flex items-center gap-4 flex-wrap">
+            <span className="text-xs text-white/70">Traded on:</span>
+            <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-5 opacity-90" loading="lazy" />
+            <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-5 opacity-90" loading="lazy" />
+            <img src="/icons/icon-huobi.svg" alt="Huobi" className="h-5 opacity-90" loading="lazy" />
+          </div>
+        </section>
+
+        {/* Ecosystem Hub */}
+        <section className="relative py-8 md:py-12 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0">
+          <div className="text-center mb-6 md:mb-8">
+            <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">MagicCraft Ecosystem</h3>
+            <p className="text-gray-300 text-sm md:text-base mt-2">Explore everything powered by $MCRT.</p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+            <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block">
+              <h4 className="font-bold mb-1">$MCRT on CoinMarketCap</h4>
+              <p className="text-sm text-gray-300">Price, market cap, supply details.</p>
+            </a>
+            <a href="https://magiccraft.io" className="card-glass card-padding block">
+              <h4 className="font-bold mb-1">Cross-Platform Game</h4>
+              <p className="text-sm text-gray-300">Google Play, App Store, Steam, HyperPlay & more.</p>
+            </a>
+            <a href="https://lobby.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block">
+              <h4 className="font-bold mb-1">Crypto Lobbies</h4>
+              <p className="text-sm text-gray-300">BTC, ETH, BNB & more. Crypto maps and themed skins.</p>
+            </a>
+            <a href="https://bitmarket.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block">
+              <h4 className="font-bold mb-1">Bitmarket (Testnet)</h4>
+              <p className="text-sm text-gray-300">Prediction markets for matches.</p>
+            </a>
+            <a href="https://games.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block">
+              <h4 className="font-bold mb-1">Mini-games</h4>
+              <p className="text-sm text-gray-300">Web3 games in the MagicCraft ecosystem.</p>
+            </a>
+            <a href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block">
+              <h4 className="font-bold mb-1">NFT Marketplace</h4>
+              <p className="text-sm text-gray-300">Trade NFTs; explore Genesis & Revelation utility.</p>
+            </a>
+            <a href="https://app.magiccraft.io/nft_mint" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block">
+              <h4 className="font-bold mb-1">Mint Utility NFTs</h4>
+              <p className="text-sm text-gray-300">Genesis & Revelation collections.</p>
+            </a>
+            <a href="https://app.magiccraft.io/free_mint" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block">
+              <h4 className="font-bold mb-1">Free NFT Collections</h4>
+              <p className="text-sm text-gray-300">Vega, Davinci & more.</p>
+            </a>
+            <a href="https://store.steampowered.com/app/3478810/MCRT_Game_Maker/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block">
+              <h4 className="font-bold mb-1">Game Maker</h4>
+              <p className="text-sm text-gray-300">Roblox-style builder for MagicCraft.</p>
+            </a>
+            <a href="https://lobby.magiccraft.io/referral" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block">
+              <h4 className="font-bold mb-1">Referral</h4>
+              <p className="text-sm text-gray-300">Refer players and earn a share.</p>
+            </a>
+            <a href="https://app.magiccraft.io/dao" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block">
+              <h4 className="font-bold mb-1">DAO</h4>
+              <p className="text-sm text-gray-300">Participate in governance.</p>
+            </a>
+            <div className="card-glass card-padding block opacity-60">
+              <h4 className="font-bold mb-1">NFT Rentals</h4>
+              <p className="text-sm text-gray-300">Coming soon (testnet): rent in-game assets.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Sticky mobile bottom bar */}
+        <div className="fixed bottom-2 inset-x-2 md:hidden z-50">
+          <div className="rounded-2xl bg-[#0B0F39]/80 backdrop-blur border border-white/10 shadow-2xl p-2 flex items-center justify-between gap-2">
+            <a href="https://lobby.magiccraft.io/" rel="noreferrer noopener" className="flex-1 inline-flex items-center justify-center h-11 rounded-xl text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15">Play</a>
+            <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" rel="noreferrer noopener" className="flex-1 inline-flex items-center justify-center h-11 rounded-xl text-[#03082F] font-black bg-gradient-to-b from-[#98FFF9] to-[#B591F2]">Buy</a>
+          </div>
+        </div>
         <section className="relative py-12 md:py-16">
           <div className="mx-auto w-11/12 max-w-screen-xl">
             <Testimonial />
@@ -671,7 +836,13 @@ function Homepagemcrt() {
                         </div>
                       </div>
                       
-                      <div className="relative group">
+                      <details className="relative group open:mb-0">
+                        <summary className="list-none cursor-pointer select-none">
+                          <div className="flex items-center justify-between py-2 px-1">
+                            <span className="text-sm text-white/80">Price Chart</span>
+                            <span className="text-xs text-white/60">Toggle</span>
+                          </div>
+                        </summary>
                         {/* Subtle glow effect */}
                         <div className="absolute -inset-1 bg-gradient-to-r from-[#B591F2]/10 to-[#98FFF9]/10 rounded-2xl blur-lg opacity-0 group-hover:opacity-60 transition-opacity duration-500"></div>
                         
@@ -679,7 +850,7 @@ function Homepagemcrt() {
                         <div className="relative bg-gradient-to-br from-[#0B0F39]/80 to-[#1a1344]/80 rounded-2xl px-2 pt-3 pb-2 border border-[#B591F2]/20 group-hover:border-[#B591F2]/40 transition-all duration-300 overflow-hidden backdrop-blur-sm">
                           <coingecko-coin-price-chart-widget coin-id="magiccraft" currency="usd" height="240" locale="en" background-color="#0B0F39" font-color="#FFFFFF" border-color="#2A2F63"></coingecko-coin-price-chart-widget>
                         </div>
-                      </div>
+                      </details>
                     </div>
                   </div>
 
