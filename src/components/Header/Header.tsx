@@ -301,14 +301,13 @@ const Header = () => {
 
               <button
                 onClick={handleBuyMCRT}
-                className="group relative inline-flex items-center gap-2 whitespace-nowrap px-5 md:px-6 h-10 md:h-11 rounded-full bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] hover:from-[#FFB649] hover:via-[#B591F2] hover:to-[#98FFF9] text-[#03082F] font-black shadow-xl hover:shadow-2xl transition-all duration-300 mr-2 sm:mr-3 md:mr-4 lg:mr-0 overflow-visible flex-shrink-0 min-w-[150px] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#98FFF9] focus-visible:ring-offset-[#2A0D4E]"
+                className="group relative inline-flex items-center gap-2 whitespace-nowrap px-5 md:px-6 h-10 md:h-11 rounded-2xl bg-gradient-to-b from-[#6bded7] to-[#3ab9b2] text-white font-bold border border-white/15 hover:border-white/25 shadow-lg hover:shadow-xl transition-all duration-300 mr-2 sm:mr-3 md:mr-4 lg:mr-0 overflow-hidden flex-shrink-0 min-w-[150px] focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50"
                 style={{ contain: 'layout paint', transformOrigin: 'center' }}
                 aria-label="Buy $MCRT"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                {/* Coin icon for BUY */}
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
                 <Coins className="w-4 h-4 md:w-5 md:h-5 relative z-10" />
-                <p className="text-sm md:text-base font-black tracking-wider relative z-10 drop-shadow-md">BUY $MCRT</p>
+                <p className="text-sm md:text-base font-bold tracking-wider relative z-10">BUY $MCRT</p>
               </button>
               <button
                 onClick={openSidebar}

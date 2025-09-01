@@ -426,7 +426,7 @@ function Homepagemcrt() {
         </section>
 
           {/* Exchanges/Partners elevated */}
-          <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl mt-4 sm:mt-6 md:mt-8 lg:mt-12 px-1 sm:px-2 md:px-0 overflow-x-hidden">
+          <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl mt-4 sm:mt-6 md:mt-8 lg:mt-12 mb-8 sm:mb-10 md:mb-14 lg:mb-16 px-1 sm:px-2 md:px-0 overflow-x-hidden">
             <Partners />
           </section>
 
