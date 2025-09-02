@@ -238,7 +238,7 @@ const Header = () => {
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
           <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 "> */}
         <header className="relative z-[200] w-full max-w-full bg-gradient-to-r from-[#431269]/95 via-[#2A0D4E]/95 to-[#431269]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-purple-900/20 overflow-visible">
-        <nav className="flex items-center justify-between h-14 sm:h-16 md:h-[68px] lg:h-[72px] xl:h-[76px] w-full max-w-full px-3 sm:px-4">
+        <nav className="relative flex items-center justify-between h-14 sm:h-16 md:h-[68px] lg:h-[72px] xl:h-[76px] w-full max-w-full px-3 sm:px-4 overflow-visible">
           <div className="grid shrink-0 place-items-center self-stretch px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8">
             <Link to="/" className="h-full flex items-center group">
               <img className="w-28 sm:w-32 md:w-36 lg:w-40 xl:w-44 transition-all duration-300 group-hover:scale-105 drop-shadow-lg" src={mcLogo} alt="MagicCraft" />
@@ -303,19 +303,20 @@ const Header = () => {
                 <span className="sm:hidden">Buy</span>
               </button>
               
-              {/* Hamburger menu - ALWAYS visible on mobile */}
-              <button
-                onClick={openSidebar}
-                className="flex md:hidden shrink-0 p-2.5 rounded-lg bg-purple-600 border-2 border-white hover:bg-purple-700 transition-all duration-200 min-w-[48px] min-h-[48px] items-center justify-center ml-1"
-                style={{ zIndex: 99999, position: 'relative', display: 'flex !important' }}
-                aria-label="Open menu"
-              >
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              </button>
+              {/* Hamburger shown as absolute on mobile (moved outside group) */}
+              <span className="hidden md:block" />
             </div>
           </div>
+          {/* Absolutely positioned hamburger to avoid layout clipping */}
+          <button
+            onClick={openSidebar}
+            className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 p-2.5 rounded-lg bg-purple-600 border-2 border-white hover:bg-purple-700 transition-all duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center z-[100000]"
+            aria-label="Open menu"
+          >
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </nav>
       </header>
       {/* Mobile menu overlay - simple fallback for iOS */}
