@@ -295,12 +295,11 @@ const Header = () => {
 
               <button
                 onClick={handleBuyMCRT}
-                className="header-cta header-cta--buy no-underline min-w-[120px] md:min-w-[150px]"
+                className="hidden md:inline-flex header-cta header-cta--buy no-underline min-w-[150px]"
                 aria-label="Buy $MCRT"
               >
                 <Coins className="w-4 h-4" />
-                <span className="hidden sm:inline">Buy $MCRT</span>
-                <span className="sm:hidden">Buy</span>
+                <span>Buy $MCRT</span>
               </button>
               
               {/* Hamburger shown as absolute on mobile (moved outside group) */}
