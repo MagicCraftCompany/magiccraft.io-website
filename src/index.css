@@ -519,6 +519,15 @@ a:hover {
     }
   }
 
+  /* Hide XPay floating buy bubble on mobile to prevent overlapping hamburger */
+  @media (max-width: 768px) {
+    #xpay-root,
+    #xpay-init-indicator,
+    #xpay-tx-status {
+      display: none !important;
+    }
+  }
+
   /* Respect prefers-reduced-motion for accessibility */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {

@@ -220,7 +220,7 @@ export const roadmapData: RoadmapDataType = [
           'Community Expansion',
           'Partnerships and cross-promotions to grow player base',
           'Creator tournaments and seasonal events',
-          'Core game improvements',
+          '✅ Core game improvements',
           'Graphics improvements',
         ],
       },
