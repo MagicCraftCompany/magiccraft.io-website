@@ -45,6 +45,12 @@ export type SubMenuProps = {
   onClick?: () => void
 }
 const handleBuyMCRT = async () => {
+  const ua = navigator.userAgent || (navigator as any).vendor
+  const isIOS = /iPad|iPhone|iPod/.test(ua)
+  if (isIOS) {
+    window.location.href = 'https://magiccraft.io/buy'
+    return
+  }
   try {
     await openTransactionModal({
       integratorId: "34808808c1f4ae4533b7",
@@ -313,20 +319,20 @@ const Header = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[999] h-full w-full bg-black/20 backdrop-blur"
+              className="fixed inset-0 z-[999] h-full w-full bg-black/60"
             />
             <motion.nav
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 z[999] h-full w-[90%] max-w-lg overflow-auto rounded-bl-2xl border-l border-[#9AD4FD]/50 bg-gradient-to-b from-[#161242]/95 via-[#2A0D4E]/95 to-[#060b31]/95 backdrop-blur-xl py-6 pl-8 pr-8 text-white shadow-2xl"
+              className="fixed right-0 top-0 z-[1000] h-full w-[90%] max-w-lg overflow-auto rounded-bl-2xl border-l border-[#9AD4FD]/50 bg-gradient-to-b from-[#161242]/95 via-[#2A0D4E]/95 to-[#060b31]/95 backdrop-blur-xl py-6 pl-8 pr-8 text-white shadow-2xl"
             >
               <div className="flex h-full flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <span className="font-serif text-[22px] bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">Menu</span>
                   <button
-                    className="p-2 rounded-lg hover:bg_white/10 transition-all duration-200 group"
+                    className="p-2 rounded-lg hover:bg-white/10 transition-all duration-200 group"
                     onClick={closeSidebar}
                   >
                     <X
@@ -354,7 +360,7 @@ const Header = () => {
                     rel="noreferrer noopener"
                     className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 backdrop-blur-sm"
                   >
-                    <p className="text-lg font-semibold text_white">Play</p>
+                    <p className="text-lg font-semibold text-white">Play</p>
                   </a>
                 </div>
 

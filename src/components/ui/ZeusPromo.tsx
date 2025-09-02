@@ -130,16 +130,28 @@ export default function ZeusPromo() {
   }, [target])
 
   // Zeus art carousel (uses public/img paths)
-  const images = useMemo(() => [
-    encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.00 (1).jpeg'),
-    encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.00 (2).jpeg'),
-    encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.00 (3).jpeg'),
-    encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.02.jpeg'),
-    // Newly added images (screenshots)
-    '/img/zeus-ss-1.png',
-    '/img/zeus-ss-2.png',
-    '/img/zeus-ss-3.png',
-  ], [])
+  const images = useMemo(() => {
+    const art = [
+      encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.00 (1).jpeg'),
+      encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.00 (2).jpeg'),
+      encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.00 (3).jpeg'),
+      encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.02.jpeg'),
+    ]
+    const gameplay = [
+      '/img/zeus-ss-1.png',
+      '/img/zeus-ss-2.png',
+      '/img/zeus-ss-3.png',
+      '/img/zeus-ss-4.png',
+    ]
+    // Interleave art and gameplay for variety
+    const maxLen = Math.max(art.length, gameplay.length)
+    const mixed: string[] = []
+    for (let i = 0; i < maxLen; i++) {
+      if (i < art.length) mixed.push(art[i])
+      if (i < gameplay.length) mixed.push(gameplay[i])
+    }
+    return mixed
+  }, [])
   const [idx, setIdx] = useState(0)
   useEffect(() => {
     const rot = setInterval(() => setIdx((i) => (i + 1) % images.length), 3000)
@@ -179,7 +191,7 @@ export default function ZeusPromo() {
               </div>
             </div>
             <div className="lg:col-span-1 flex items-center justify-center">
-              <div className="w-full h-full min-h-[220px] rounded-2xl bg-gradient-to-br from-[#FFB649]/40 to-[#98FFF9]/20 border border-white/10 p-0 overflow-hidden">
+              <div className="w-full rounded-2xl bg-gradient-to-br from-[#FFB649]/40 to-[#98FFF9]/20 border border-white/10 overflow-hidden aspect-video min-h-[260px] md:min-h-[340px] lg:min-h-[420px]">
                 <img src={images[idx]} alt="Zeus NFT" className="w-full h-full object-cover" />
               </div>
             </div>

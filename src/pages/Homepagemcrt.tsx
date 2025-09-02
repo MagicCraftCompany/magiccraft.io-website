@@ -52,6 +52,13 @@ function Homepagemcrt() {
   }
 
   const handleBuyMCRT = async () => {
+    const ua = navigator.userAgent || navigator.vendor
+    const isIOS = /iPad|iPhone|iPod/.test(ua)
+    // Fallback to dedicated page on iOS Safari where popups might be blocked
+    if (isIOS) {
+      window.location.href = 'https://magiccraft.io/buy'
+      return
+    }
     try {
       await openTransactionModal({
         integratorId: '34808808c1f4ae4533b7',
@@ -393,7 +400,7 @@ function Homepagemcrt() {
                 </div>
                 <div className="card-glass px-3 py-2 rounded-xl text-center">
                   <div className="text-xs text-white/60">Lobbies</div>
-                  <div className="text-sm sm:text-base font-bold text-white">DEX, BTC, ETH, SOL</div>
+                  <div className="text-sm sm:text-base font-bold text-white">BTC, ETH, SOL</div>
                 </div>
                 <div className="card-glass px-3 py-2 rounded-xl text-center">
                   <div className="text-xs text-white/60">Exchanges</div>
@@ -663,7 +670,10 @@ function Homepagemcrt() {
           {/* Core actions (with hover tooltips) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-visible">
             <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-              <h4 className="text-lg md:text-xl font-bold mb-1">$MCRT on CoinMarketCap</h4>
+              <div className="flex items-center gap-3 mb-1">
+                <img src="/icons/icon-currency.svg" alt="CoinMarketCap" className="w-5 h-5 opacity-90" />
+                <h4 className="text-lg md:text-xl font-bold">$MCRT on CoinMarketCap</h4>
+              </div>
               <p className="text-base md:text-lg text-gray-300">Price, market cap, supply details.</p>
               <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                 <p className="text-base md:text-[17px] text-white leading-relaxed">
@@ -673,7 +683,10 @@ function Homepagemcrt() {
               </div>
             </a>
             <a href="https://magiccraft.io/download" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-              <h4 className="text-lg md:text-xl font-bold mb-1">Cross-Platform Game</h4>
+              <div className="flex items-center gap-3 mb-1">
+                <img src="/icons/icon-gamepad.svg" alt="Game" className="w-5 h-5 opacity-90" />
+                <h4 className="text-lg md:text-xl font-bold">Cross-Platform Game</h4>
+              </div>
               <p className="text-base md:text-lg text-gray-300">Play on PC, iOS, Android, Steam.</p>
               <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                 <p className="text-base md:text-[17px] text-white leading-relaxed">
@@ -683,7 +696,10 @@ function Homepagemcrt() {
               </div>
             </a>
             <a href="https://lobby.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-              <h4 className="text-lg md:text-xl font-bold mb-1">Crypto Lobbies</h4>
+              <div className="flex items-center gap-3 mb-1">
+                <img src="/icons/icon-leaderboard.svg" alt="Lobbies" className="w-5 h-5 opacity-90" />
+                <h4 className="text-lg md:text-xl font-bold">Crypto Lobbies</h4>
+              </div>
               <p className="text-base md:text-lg text-gray-300">BTC, ETH, BNB & more.</p>
               <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                 <p className="text-base md:text-[17px] text-white leading-relaxed">
@@ -693,7 +709,10 @@ function Homepagemcrt() {
               </div>
             </a>
             <a href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-              <h4 className="text-lg md:text-xl font-bold mb-1">NFT Marketplace</h4>
+              <div className="flex items-center gap-3 mb-1">
+                <img src="/icons/icon-marketplace.svg" alt="Marketplace" className="w-5 h-5 opacity-90" />
+                <h4 className="text-lg md:text-xl font-bold">NFT Marketplace</h4>
+              </div>
               <p className="text-base md:text-lg text-gray-300">Trade assets and utilities.</p>
               <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                 <p className="text-base md:text-[17px] text-white leading-relaxed">
@@ -703,7 +722,10 @@ function Homepagemcrt() {
               </div>
             </a>
             <a href="/build-on-magiccraft" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-              <h4 className="text-lg md:text-xl font-bold mb-1">Game Maker</h4>
+              <div className="flex items-center gap-3 mb-1">
+                <img src="/icons/icon-pc.svg" alt="Game Maker" className="w-5 h-5 opacity-90" />
+                <h4 className="text-lg md:text-xl font-bold">Game Maker</h4>
+              </div>
               <p className="text-base md:text-lg text-gray-300">Build maps and modes.</p>
               <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                 <p className="text-base md:text-[17px] text-white leading-relaxed">
@@ -713,7 +735,10 @@ function Homepagemcrt() {
               </div>
             </a>
             <a href="https://lobby.magiccraft.io/referral" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-              <h4 className="text-lg md:text-xl font-bold mb-1">Referral</h4>
+              <div className="flex items-center gap-3 mb-1">
+                <img src="/icons/icon-contact.svg" alt="Referral" className="w-5 h-5 opacity-90" />
+                <h4 className="text-lg md:text-xl font-bold">Referral</h4>
+              </div>
               <p className="text-base md:text-lg text-gray-300">Invite friends and earn.</p>
               <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-80 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                 <p className="text-base md:text-[17px] text-white leading-relaxed">
@@ -732,42 +757,60 @@ function Homepagemcrt() {
             </summary>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-4">
               <a href="https://bitmarket.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-                <h4 className="font-bold mb-1">Bitmarket (Testnet)</h4>
+                <div className="flex items-center gap-3 mb-1">
+                  <img src="/icons/icon-stats.svg" alt="Bitmarket" className="w-5 h-5 opacity-90" />
+                  <h4 className="font-bold">Bitmarket (Testnet)</h4>
+                </div>
                 <p className="text-sm text-gray-300">Prediction markets for matches.</p>
                 <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                   <p className="text-base md:text-[17px] text-white leading-relaxed">Place predictions on match outcomes and trade positions on testnet while mainnet launches. On-chain settlement previews with low-stakes play.</p>
                 </div>
               </a>
               <a href="https://games.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-                <h4 className="font-bold mb-1">Mini-games</h4>
+                <div className="flex items-center gap-3 mb-1">
+                  <img src="/icons/icon-gamepad.svg" alt="Mini-games" className="w-5 h-5 opacity-90" />
+                  <h4 className="font-bold">Mini-games</h4>
+                </div>
                 <p className="text-sm text-gray-300">Web3 mini titles.</p>
                 <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                   <p className="text-base md:text-[17px] text-white leading-relaxed">Instant-play browser games with quick sessions. Wallet integration, seasonal events, and on-chain scores coming soon.</p>
                 </div>
               </a>
               <a href="https://app.magiccraft.io/nft_mint" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-                <h4 className="font-bold mb-1">Mint Utility NFTs</h4>
+                <div className="flex items-center gap-3 mb-1">
+                  <img src="/icons/icon-nft-new.svg" alt="Mint NFTs" className="w-5 h-5 opacity-90" />
+                  <h4 className="font-bold">Mint Utility NFTs</h4>
+                </div>
                 <p className="text-sm text-gray-300">Genesis & Revelation.</p>
                 <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                   <p className="text-base md:text-[17px] text-white leading-relaxed">Mint Genesis and Revelation utility NFTs that unlock gameplay perks, boosts, access, and future crafting utilities.</p>
                 </div>
               </a>
               <a href="https://app.magiccraft.io/free_mint" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-                <h4 className="font-bold mb-1">Free NFT Collections</h4>
+                <div className="flex items-center gap-3 mb-1">
+                  <img src="/icons/icon-nft-new.svg" alt="Free NFTs" className="w-5 h-5 opacity-90" />
+                  <h4 className="font-bold">Free NFT Collections</h4>
+                </div>
                 <p className="text-sm text-gray-300">Vega, Davinci & more.</p>
                 <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                   <p className="text-base md:text-[17px] text-white leading-relaxed">Claim limited free collections such as Vega and Davinci. Own them for use in-game and future ecosystem utilities (gas fees may apply).</p>
                 </div>
               </a>
               <a href="https://app.magiccraft.io/dao" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-                <h4 className="font-bold mb-1">DAO</h4>
+                <div className="flex items-center gap-3 mb-1">
+                  <img src="/icons/icon-community.svg" alt="DAO" className="w-5 h-5 opacity-90" />
+                  <h4 className="font-bold">DAO</h4>
+                </div>
                 <p className="text-sm text-gray-300">Participate in governance.</p>
                 <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                   <p className="text-base md:text-[17px] text-white leading-relaxed">Vote on proposals, shape game features, and direct treasury initiatives. Governance designed for players and creators.</p>
                 </div>
               </a>
               <div className="card-glass card-padding block opacity-60 relative group z-10" style={{ overflow: 'visible' }}>
-                <h4 className="font-bold mb-1">NFT Rentals</h4>
+                <div className="flex items-center gap-3 mb-1">
+                  <img src="/icons/icon-help.svg" alt="NFT Rentals" className="w-5 h-5 opacity-90" />
+                  <h4 className="font-bold">NFT Rentals</h4>
+                </div>
                 <p className="text-sm text-gray-300">Coming soon.</p>
                 <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                   <p className="text-base md:text-[17px] text-white leading-relaxed">Peer‑to‑peer NFT lending so players can rent items and creators earn yield. Launching after utility updates.</p>
