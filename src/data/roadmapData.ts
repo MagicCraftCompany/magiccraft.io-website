@@ -201,7 +201,7 @@ export const roadmapData: RoadmapDataType = [
       {
         card: 1,
         features: [
-          'AI-Powered Features',
+          '✅ AI-Powered Features',
           'Smart matchmaking based on skill and playstyle',
           'Dynamic difficulty adjustment for optimal engagement',
         ],
