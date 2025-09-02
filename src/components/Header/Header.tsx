@@ -3,6 +3,7 @@ import { X, Gamepad2, ShoppingBag, Coins } from 'lucide-react'
 import NavMenu from './Navmenu'
 import menuIcon from '@/assets/icons/menu-icon.svg'
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import NavMenuMobile from './NavMenuMobile'
 import { AnimatePresence, motion } from 'framer-motion'
 import Referral from'@/assets/icons/Referral.svg'
@@ -48,7 +49,7 @@ const handleBuyMCRT = async () => {
   const ua = navigator.userAgent || (navigator as any).vendor
   const isIOS = /iPad|iPhone|iPod/.test(ua)
   if (isIOS) {
-    window.location.href = 'https://magiccraft.io/buy'
+    window.location.href = 'https://www.bybit.com/en/trade/spot/MCRT/USDT'
     return
   }
   try {
@@ -314,19 +315,20 @@ const Header = () => {
       </header>
       <AnimatePresence>
         {isSideMenuOpen ? (
-          <header>
+          createPortal(
+          <header className="safe-padded">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[999] h-full w-full bg-black/60"
+              className="fixed inset-0 z-[9999] h-full w-full bg-black/60"
             />
             <motion.nav
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed right-0 top-0 z-[1000] h-full w-[90%] max-w-lg overflow-auto rounded-bl-2xl border-l border-[#9AD4FD]/50 bg-gradient-to-b from-[#161242]/95 via-[#2A0D4E]/95 to-[#060b31]/95 backdrop-blur-xl py-6 pl-8 pr-8 text-white shadow-2xl"
+              className="fixed inset-y-0 right-0 z-[10000] h-full w-[90%] max-w-lg overflow-auto rounded-bl-2xl border-l border-[#9AD4FD]/50 bg-gradient-to-b from-[#161242]/95 via-[#2A0D4E]/95 to-[#060b31]/95 backdrop-blur-xl py-6 pl-8 pr-8 text-white shadow-2xl"
             >
               <div className="flex h-full flex-col gap-4">
                 <div className="flex items-center justify-between">
@@ -408,7 +410,7 @@ const Header = () => {
 
               </div>
             </motion.nav>
-          </header>
+          </header>, document.body)
         ) : null}
       </AnimatePresence>
     </>

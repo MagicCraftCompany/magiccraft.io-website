@@ -56,7 +56,7 @@ function Homepagemcrt() {
     const isIOS = /iPad|iPhone|iPod/.test(ua)
     // Fallback to dedicated page on iOS Safari where popups might be blocked
     if (isIOS) {
-      window.location.href = 'https://magiccraft.io/buy'
+      window.location.href = 'https://www.bybit.com/en/trade/spot/MCRT/USDT'
       return
     }
     try {
@@ -362,7 +362,6 @@ function Homepagemcrt() {
                     <img src="/icons/icon-huobi.svg" alt="HTX" className="h-4 sm:h-5 opacity-90" loading="lazy" />
                   </div>
                   <div className="mt-3 sm:mt-4 flex items-center justify-center gap-2">
-                    <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-full text-xs sm:text-sm bg-white/10 border border-white/15 text-white/90 hover:text-white hover:bg-white/15">Join Telegram</a>
                     <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-full text-xs sm:text-sm bg-white/10 border border-white/15 text-white/90 hover:text-white hover:bg-white/15">Join Telegram</a>
                   </div>
                 </div>
@@ -821,7 +820,7 @@ function Homepagemcrt() {
         </section>
 
         {/* Sticky mobile bottom bar */}
-        <div className="fixed bottom-2 inset-x-2 md:hidden z-50">
+        <div className="fixed bottom-2 inset-x-2 md:hidden z-50 safe-padded">
           <div className="rounded-2xl bg-[#0B0F39]/80 backdrop-blur border border-white/10 shadow-2xl p-2 flex items-center justify-between gap-2">
             <a href="https://lobby.magiccraft.io/" rel="noreferrer noopener" className="flex-1 inline-flex items-center justify-center h-11 rounded-xl text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15">Play</a>
             <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" rel="noreferrer noopener" className="flex-1 inline-flex items-center justify-center h-11 rounded-xl text-[#03082F] font-black bg-gradient-to-b from-[#98FFF9] to-[#B591F2]">Buy</a>
