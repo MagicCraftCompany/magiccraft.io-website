@@ -526,6 +526,11 @@ a:hover {
     #xpay-tx-status {
       display: none !important;
     }
+    /* Fallback for any dynamically injected XPay nodes */
+    [id*="xpay"],
+    [class*="xpay"] {
+      display: none !important;
+    }
   }
 
   /* Respect prefers-reduced-motion for accessibility */
