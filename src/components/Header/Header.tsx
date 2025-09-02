@@ -1,7 +1,6 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
 import { X, Gamepad2, ShoppingBag, Coins } from 'lucide-react'
 import NavMenu from './Navmenu'
-import menuIcon from '@/assets/icons/menu-icon.svg'
 import { useState, useEffect } from 'react'
 
 import NavMenuMobile from './NavMenuMobile'
