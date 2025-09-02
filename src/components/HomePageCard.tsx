@@ -35,24 +35,36 @@ export default function MagicraftDownload() {
         if (rect) {
           const padding = 16
           const viewportWidth = window.innerWidth
+          const viewportHeight = window.innerHeight
           const tooltipWidth = Math.min(viewportWidth * 0.92, viewportWidth >= 768 ? 448 : 384)
           const preferredHeight = 340
+
+          // Vertical positioning: prefer above, clamp inside viewport
           let top = rect.top - preferredHeight
-          if (top < padding) top = rect.bottom + padding
+          if (top < padding) {
+            top = rect.bottom + padding
+          }
+          // Clamp vertically to viewport
+          top = Math.max(padding, Math.min(viewportHeight - preferredHeight - padding, top))
+
+          // Horizontal positioning and clamping
           const centeredLeft = rect.left + rect.width / 2
-          const maxLeft = viewportWidth - tooltipWidth / 2 - padding
-          const minLeft = tooltipWidth / 2 + padding
           let left = centeredLeft
           let transform = 'translateX(-50%)'
-          if (centeredLeft + tooltipWidth / 2 > viewportWidth - padding) {
-            left = rect.right - 2
+
+          const rightOverflow = centeredLeft + tooltipWidth / 2 > viewportWidth - padding
+          const leftOverflow = centeredLeft - tooltipWidth / 2 < padding
+
+          if (rightOverflow) {
+            // Anchor to viewport right edge
+            left = viewportWidth - padding
             transform = 'translateX(-100%)'
-          } else if (centeredLeft - tooltipWidth / 2 < padding) {
-            left = rect.left + 2
+          } else if (leftOverflow) {
+            // Anchor to viewport left edge
+            left = padding
             transform = 'translateX(0)'
-          } else {
-            left = Math.max(minLeft, Math.min(maxLeft, centeredLeft))
           }
+
           setTooltipStyle({ top, left, transform })
         }
       }
