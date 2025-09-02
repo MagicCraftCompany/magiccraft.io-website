@@ -243,7 +243,7 @@ export const roadmapData: RoadmapDataType = [
         features: [
           'E-Sports Infrastructure',
           'Professional leagues with broadcast partnerships',
-          'Spectator modes and betting integration',
+          '✅ Spectator modes and betting integration',
         ],
       },
       {
