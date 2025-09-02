@@ -7,6 +7,9 @@
   command = "npm run build"
   publish = "dist"
 
+[build.environment]
+  VITE_ZEUS_DROP_UTC = "2025-09-05T12:00:00Z"
+
 [[headers]]
   for = "/*"
   [headers.values]
