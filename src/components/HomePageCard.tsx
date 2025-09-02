@@ -25,7 +25,7 @@ const mcrtIcon = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/
 
 export default function MagicraftDownload() {
   const [hoveredLobby, setHoveredLobby] = useState<string | null>(null)
-  const [tooltipPosition, setTooltipPosition] = useState({ top: 0, left: 0 })
+  const [tooltipStyle, setTooltipStyle] = useState<{ top: number; left: number; transform: string }>({ top: 0, left: 0, transform: 'translateX(-50%)' })
   const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   
   useEffect(() => {
@@ -33,10 +33,27 @@ export default function MagicraftDownload() {
       if (hoveredLobby && cardRefs.current[hoveredLobby]) {
         const rect = cardRefs.current[hoveredLobby]?.getBoundingClientRect()
         if (rect) {
-          setTooltipPosition({
-            top: rect.top - 12,
-            left: rect.left + rect.width / 2
-          })
+          const padding = 16
+          const viewportWidth = window.innerWidth
+          const tooltipWidth = Math.min(viewportWidth * 0.92, viewportWidth >= 768 ? 448 : 384)
+          const preferredHeight = 340
+          let top = rect.top - preferredHeight
+          if (top < padding) top = rect.bottom + padding
+          const centeredLeft = rect.left + rect.width / 2
+          const maxLeft = viewportWidth - tooltipWidth / 2 - padding
+          const minLeft = tooltipWidth / 2 + padding
+          let left = centeredLeft
+          let transform = 'translateX(-50%)'
+          if (centeredLeft + tooltipWidth / 2 > viewportWidth - padding) {
+            left = rect.right - 2
+            transform = 'translateX(-100%)'
+          } else if (centeredLeft - tooltipWidth / 2 < padding) {
+            left = rect.left + 2
+            transform = 'translateX(0)'
+          } else {
+            left = Math.max(minLeft, Math.min(maxLeft, centeredLeft))
+          }
+          setTooltipStyle({ top, left, transform })
         }
       }
     }
@@ -413,14 +430,14 @@ export default function MagicraftDownload() {
             className="fixed w-96 md:w-[28rem] max-w-[92vw] pointer-events-auto"
             style={{
               zIndex: 99999,
-              top: `${tooltipPosition.top - 350}px`,
-              left: `${tooltipPosition.left}px`,
-              transform: 'translateX(-50%)'
+              top: `${tooltipStyle.top}px`,
+              left: `${tooltipStyle.left}px`,
+              transform: tooltipStyle.transform
             }}
             onMouseEnter={() => setHoveredLobby(hoveredLobby)}
             onMouseLeave={() => setHoveredLobby(null)}
           >
-            <div className="relative bg-gradient-to-br from-[#1a0d2e]/98 to-[#2a0d4e]/98 border-2 border-[#98FFF9]/60 rounded-2xl p-6 shadow-2xl backdrop-blur-xl">
+            <div className="relative bg-gradient-to-br from-[#0B0F39] to-[#1a0d2e] border-2 border-[#98FFF9]/60 rounded-2xl p-6 shadow-2xl">
               {/* Enhanced glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#98FFF9]/10 to-[#B591F2]/10 rounded-2xl"></div>
               
