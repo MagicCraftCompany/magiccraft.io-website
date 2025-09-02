@@ -251,7 +251,7 @@ export const roadmapData: RoadmapDataType = [
         features: [
           'DAO Governance Evolution',
           'Community-driven development priorities',
-          '$MCRT staking for ecosystem decision-making power',
+          '✅ $MCRT pledging for ecosystem decision-making power',
         ],
       },
     ],
