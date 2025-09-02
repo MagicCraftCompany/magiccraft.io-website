@@ -179,7 +179,7 @@ export const roadmapData: RoadmapDataType = [
           'NFT Utility Expansion',
           'Character abilities tied to Genesis & Revelation NFTs',
           'Rentable assets for temporary power-ups',
-          'New skins and characters (Merlin, Robin Hood, latest $MCRT drops)',
+          '✅ New skins and characters (Merlin, Robin Hood, latest $MCRT drops)',
         ],
       },
       {
