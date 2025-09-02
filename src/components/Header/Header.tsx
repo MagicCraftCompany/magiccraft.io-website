@@ -328,6 +328,7 @@ const Header = () => {
         className={`fixed top-0 right-0 h-full w-[90%] max-w-lg z-[100000] transform transition-transform duration-300 ease-in-out ${
           isSideMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } bg-gradient-to-b from-[#161242] via-[#2A0D4E] to-[#060b31] border-l border-[#9AD4FD]/50 shadow-2xl overflow-auto`}
+        style={{ backdropFilter: 'none', WebkitBackdropFilter: 'none' }}
       >
         <div className="safe-padded py-6 pl-8 pr-8 text-white h-full">
               <div className="flex h-full flex-col gap-4">
