@@ -3,9 +3,9 @@ import { X, Gamepad2, ShoppingBag, Coins } from 'lucide-react'
 import NavMenu from './Navmenu'
 import menuIcon from '@/assets/icons/menu-icon.svg'
 import { useState, useEffect } from 'react'
-import { createPortal } from 'react-dom'
+
 import NavMenuMobile from './NavMenuMobile'
-import { AnimatePresence, motion } from 'framer-motion'
+
 import Referral from'@/assets/icons/Referral.svg'
 import Whitepaper from '@/assets/icons/whitepaper.svg'
 import lobby from '@/assets/icons/lobby.svg'
@@ -246,7 +246,7 @@ const Header = () => {
             </Link>
           </div>
 
-          <div className="flex w-full items-center justify-end gap-2 sm:gap-3 md:gap-4 lg:gap-6 px-2 sm:px-3 md:px-4 lg:px-6 xl:justify-between max-w-full overflow-visible">
+          <div className="flex w-full items-center justify-end gap-2 sm:gap-3 md:gap-4 lg:gap-6 px-2 sm:px-3 md:px-4 lg:px-6 xl:justify-between max-w-full">
             <div className="hidden items-center gap-4 md:gap-5 lg:gap-6 xl:flex">
               {commonMenuItemsNew.map((item) =>
                 item?.submenu?.length > 0 ? (
@@ -296,40 +296,41 @@ const Header = () => {
 
               <button
                 onClick={handleBuyMCRT}
-                className="header-cta header-cta--buy no-underline mr-2 sm:mr-3 md:mr-4 lg:mr-0 min-w-[150px]"
+                className="header-cta header-cta--buy no-underline min-w-[120px] md:min-w-[150px]"
                 aria-label="Buy $MCRT"
               >
                 <Coins className="w-4 h-4" />
-                <span>Buy $MCRT</span>
+                <span className="hidden sm:inline">Buy $MCRT</span>
+                <span className="sm:hidden">Buy</span>
               </button>
+              
+              {/* Hamburger menu - ALWAYS visible on mobile */}
               <button
                 onClick={openSidebar}
-                className="block shrink-0 xl:hidden p-2 rounded-lg hover:bg-white/10 transition-all duration-200 group"
+                className="flex md:hidden shrink-0 p-2.5 rounded-lg bg-purple-600 border-2 border-white hover:bg-purple-700 transition-all duration-200 min-w-[48px] min-h-[48px] items-center justify-center ml-1"
+                style={{ zIndex: 99999, position: 'relative', display: 'flex !important' }}
+                aria-label="Open menu"
               >
-                <span className="sr-only">Open Menu</span>
-                <img src={menuIcon} alt="Open Menu" className="w-6 md:w-7 group-hover:scale-110 transition-transform duration-200" />
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
               </button>
             </div>
           </div>
         </nav>
       </header>
-      <AnimatePresence>
-        {isSideMenuOpen ? (
-          createPortal(
-          <header className="safe-padded">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[9999] h-full w-full bg-black/60"
-            />
-            <motion.nav
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed inset-y-0 right-0 z-[10000] h-full w-[90%] max-w-lg overflow-auto rounded-bl-2xl border-l border-[#9AD4FD]/50 bg-gradient-to-b from-[#161242]/95 via-[#2A0D4E]/95 to-[#060b31]/95 backdrop-blur-xl py-6 pl-8 pr-8 text-white shadow-2xl"
-            >
+      {/* Mobile menu overlay - simple fallback for iOS */}
+      {isSideMenuOpen && (
+        <div className="fixed inset-0 z-[99999] bg-black/60" onClick={closeSidebar} />
+      )}
+      
+      {/* Mobile menu panel - simple slide without animations */}
+      <div 
+        className={`fixed top-0 right-0 h-full w-[90%] max-w-lg z-[100000] transform transition-transform duration-300 ease-in-out ${
+          isSideMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        } bg-gradient-to-b from-[#161242] via-[#2A0D4E] to-[#060b31] border-l border-[#9AD4FD]/50 shadow-2xl overflow-auto`}
+      >
+        <div className="safe-padded py-6 pl-8 pr-8 text-white h-full">
               <div className="flex h-full flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <span className="font-serif text-[22px] bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">Menu</span>
@@ -409,10 +410,8 @@ const Header = () => {
                 </div>
 
               </div>
-            </motion.nav>
-          </header>, document.body)
-        ) : null}
-      </AnimatePresence>
+        </div>
+      </div>
     </>
   )
 }
