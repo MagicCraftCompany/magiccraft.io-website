@@ -2,6 +2,7 @@ import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react'
 
 // Hero data structure
 interface Hero {
@@ -64,6 +65,9 @@ function HeroCard({ hero }: { hero: Hero }) {
 }
 
 export default function ChooseYourHero() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [])
   return (
     <div className="min-h-dvh w-full  text-white">
       <Helmet>

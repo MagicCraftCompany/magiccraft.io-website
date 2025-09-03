@@ -2,6 +2,7 @@ import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import { useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
+import { useEffect } from 'react'
 
 import one from '@/assets/icons/1.svg'
 import heart from '@/assets/icons/li_heart.svg'
@@ -19,6 +20,10 @@ function Hero() {
   const pageTitle = `${character?.name} - ${character?.title}`;
   const pageDescription = character?.description || 'Learn about the character';
   const canonicalUrl = `${window.location.origin}/hero/${heroName}`;
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [])
 
   return (
     <>
