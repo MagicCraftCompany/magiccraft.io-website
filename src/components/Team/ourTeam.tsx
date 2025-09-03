@@ -271,7 +271,7 @@ export const ourteam = [
   },
 
   {
-    name: 'Hasan',
+    name: 'Hassan',
     icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Hassan%20Dev&backgroundType=gradientLinear&radius=50',
     work: 'Unity & Web3 Developer',
     category: 'Team',

@@ -1,8 +1,8 @@
 import magiccraftLogo from '@/assets/images/magiccraft-logo.webp'
 import {
   FaXTwitter,
-  FaDiscord,
   FaTelegram,
+  FaDiscord,
   FaReddit,
   FaInstagram,
   FaMedium,
@@ -18,12 +18,12 @@ const socialLinks = [
     link: 'https://twitter.com/MagicCraftGame',
   },
   {
-    icon: <FaDiscord size={20} />,
-    link: 'https://discord.gg/c4bgnsqzQR',
-  },
-  {
     icon: <FaTelegram size={20} />,
     link: 'https://t.me/magiccraftgamechat',
+  },
+  {
+    icon: <FaDiscord size={20} />,
+    link: 'https://discord.gg/magiccraftgame',
   },
   {
     icon: <FaReddit size={20} />,

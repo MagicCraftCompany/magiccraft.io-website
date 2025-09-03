@@ -3,6 +3,7 @@
 import {
   FaXTwitter,
   FaTelegram,
+  FaDiscord,
   FaReddit,
   FaInstagram,
   FaMedium,
@@ -128,9 +129,9 @@ export default function MagicraftDownload() {
       link: 'https://t.me/magiccraftgamechat',
     },
     {
-      name: 'Telegram',
-      icon: <FaTelegram className="text-white opacity-50" size={20} />,
-      link: 'https://t.me/magiccraftgamechat',
+      name: 'Discord',
+      icon: <FaDiscord className="text-white opacity-50" size={20} />,
+      link: 'https://discord.gg/magiccraftgame',
     },
     {
       name: 'Reddit',
