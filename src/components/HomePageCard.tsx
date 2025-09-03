@@ -181,11 +181,11 @@ export default function MagicraftDownload() {
       glowColor: '#FFB649',
       tooltip: {
         title: 'Bitcoin Lobby',
-        description: 'Join the Bitcoin community in MagicCraft! Create your own Roblox-style games using our game engine and integrate $BTC for earning opportunities.',
+        description: 'Daily-earning lobbies themed around Bitcoin. Win matches and tournaments to earn crypto rewards while you play and create.',
         features: [
-          '• Build custom games with our game engine',
-          '• Integrate $BTC for in-game rewards',
-          '• Earn while you play and create',
+          '• Earn $BTC from winning lobbies every day',
+          '• Creator maps can participate in BTC events',
+          '• Fast payouts via the MagicCraft Lobby System',
           '• Join the Bitcoin gaming community'
         ]
       }
@@ -197,11 +197,11 @@ export default function MagicraftDownload() {
       glowColor: '#F3BA2F',
       tooltip: {
         title: 'Binance Coin Lobby',
-        description: 'Enter the BNB ecosystem! Design your own games with our engine and use $BNB for transactions and rewards.',
+        description: 'Compete in BNB‑themed daily lobbies. Win to earn $BNB and climb seasonal leaderboards.',
         features: [
-          '• Create games with BNB integration',
-          '• Fast and low-cost transactions',
-          '• Earn $BNB through gameplay',
+          '• Earn $BNB in daily lobbies',
+          '• Low fees, quick settlement',
+          '• Seasonal events and leaderboards',
           '• Access to Binance ecosystem'
         ]
       }
@@ -213,12 +213,12 @@ export default function MagicraftDownload() {
       glowColor: '#98FFF9',
       tooltip: {
         title: 'MagicCraft Token Lobby',
-        description: 'The heart of MagicCraft! Use $MCRT to build games, earn rewards, and participate in the ecosystem.',
+        description: 'Core $MCRT lobbies where players can earn rewards daily from wins, events, and creator engagement.',
         features: [
-          '• Native token for game creation',
-          '• Earn $MCRT through gameplay',
-          '• Access exclusive features',
-          '• Governance and staking rewards'
+          '• Daily $MCRT earning lobbies',
+          '• Creator rewards for engaging maps',
+          '• VIP and referral programs',
+          '• Governance and staking integrations'
         ]
       }
     },
@@ -229,10 +229,10 @@ export default function MagicraftDownload() {
       glowColor: '#bc7af6',
       tooltip: {
         title: 'Ethereum Lobby',
-        description: 'Build on Ethereum! Create decentralized games with smart contracts and earn $ETH rewards.',
+        description: 'Win in Ethereum‑themed daily lobbies and earn $ETH. Smart-contract powered competitions and rewards.',
         features: [
-          '• DeFi gaming integration',
-          '• Smart contract rewards',
+          '• Daily $ETH earning opportunities',
+          '• DeFi integrations for advanced play',
           '• NFT marketplace access',
           '• Ethereum ecosystem benefits'
         ]
@@ -245,11 +245,11 @@ export default function MagicraftDownload() {
       glowColor: '#51C1F6',
       tooltip: {
         title: 'Ripple Lobby',
-        description: 'Fast and efficient gaming! Use $XRP for instant transactions and cross-border gaming experiences.',
+        description: 'Play fast‑paced daily lobbies and earn $XRP. Lightning‑quick settlement and low fees.',
         features: [
-          '• Instant transaction processing',
-          '• Cross-border gaming support',
-          '• Low transaction fees',
+          '• Daily $XRP rewards from lobbies',
+          '• Near‑instant processing',
+          '• Low fees for frequent play',
           '• Ripple network benefits'
         ]
       }
@@ -261,11 +261,11 @@ export default function MagicraftDownload() {
       glowColor: '#7CF5C7',
       tooltip: {
         title: 'Solana Lobby',
-        description: 'High-performance gaming! Build games on Solana with fast transactions and low fees.',
+        description: 'High‑performance daily lobbies on Solana. Win matches to earn $SOL with ultra‑low fees.',
         features: [
-          '• High-speed transactions',
-          '• Low-cost gaming fees',
-          '• Scalable game development',
+          '• Daily $SOL earning lobbies',
+          '• High‑speed, low‑fee gameplay',
+          '• Scalable competitions and events',
           '• Solana ecosystem integration'
         ]
       }
