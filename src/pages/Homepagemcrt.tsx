@@ -10,6 +10,7 @@ import { roadmapData } from '../data/roadmapData'
 import RoadmapCard from '../components/Cards/RoadmapCard'
 import { ourteam } from '@/components/Team/ourTeam'
 import React from 'react'
+import GenesisNFTs from '@/components/GenesisNFTs'
 import { LiaTelegramPlane } from 'react-icons/lia'
 import GamePlay from '@/components/GamePlay'
 // import GameCard from '@/components/ui/GameCard'
@@ -627,6 +628,9 @@ function Homepagemcrt() {
           </div>
         </section>
 
+        {/* Genesis NFTs — Earnings Tiers */}
+        <GenesisNFTs />
+
         {/* Contract Address */}
         <section className="relative py-8 md:py-12 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0">
           <div className="card-glass card-padding">
@@ -906,38 +910,7 @@ function Homepagemcrt() {
           {/* Zeus NFT promo */}
           <ZeusPromo />
 
-          {/* Dev Quickstart */}
-          <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl mb-6 md:mb-10">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <a href="https://store.steampowered.com/app/3478810/MCRT_Game_Maker/" target="_blank" rel="noreferrer noopener" className="card-glass p-5 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center overflow-hidden">
-                  <img src="/icons/icon-steam.svg" alt="Steam" className="w-6 h-6" loading="lazy" />
-                </div>
-                <div>
-                  <p className="text-white font-semibold">Download Game Maker</p>
-                  <p className="text-sm text-white/70">Steam — build maps & modes</p>
-                </div>
-              </a>
-              <a href="https://docs.magiccraft.io/" target="_blank" rel="noreferrer noopener" className="card-glass p-5 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center overflow-hidden">
-                  <img src="/icons/icon-help.svg" alt="Docs" className="w-6 h-6" loading="lazy" />
-                      </div>
-                <div>
-                  <p className="text-white font-semibold">Docs</p>
-                  <p className="text-sm text-white/70">Quickstart, APIs, guides</p>
-                    </div>
-              </a>
-              <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="card-glass p-5 flex items-center gap-4">
-                <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center overflow-hidden">
-                  <svg viewBox="0 0 240 240" className="w-6 h-6" aria-hidden="true"><path fill="#27A7E7" d="M120 0C53.7 0 0 53.7 0 120s53.7 120 120 120 120-53.7 120-120S186.3 0 120 0z"/><path fill="#fff" d="M175.9 80.6c-2.2-1.8-5.5-2-8.6-.7l-96.7 39.7c-3.1 1.3-5 3.6-5 6 .1 2.4 2.2 4.5 5.4 5.4l24.5 7.2 9.5 30.3c.8 2.4 2.8 4.3 5.3 4.9 2.5.6 5.2-.1 7-1.9l13.8-13.2 24.7 18.2c1.7 1.2 3.8 1.8 5.9 1.8 1.2 0 2.3-.2 3.4-.6 3-1.1 5.2-3.5 6-6.4l17.5-77.2c.8-3.4 0-6.4-2.2-8.2zm-21.3 12.2l-47.7 45.8c-1.2 1.1-2.1 2.5-2.5 4.1l-3.1 12.5-7-22.4 60.3-40z"/></svg>
-                  </div>
-                <div>
-                  <p className="text-white font-semibold">Telegram</p>
-                  <p className="text-sm text-white/70">Get help and share builds</p>
-                </div>
-              </a>
-            </div>
-          </section>
+          
 
           {/* Token Info: $BNB and $MCRT */}
           <section className="py-6 sm:py-8 md:py-12 lg:py-16 relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 overflow-visible">

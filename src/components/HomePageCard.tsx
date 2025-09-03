@@ -58,16 +58,21 @@ export default function MagicraftDownload() {
           const rightOverflow = centeredLeft + tooltipWidth / 2 > viewportWidth - padding
           const leftOverflow = centeredLeft - tooltipWidth / 2 < padding
 
-          if (rightOverflow) {
-            // Anchor to viewport right edge
-            // Anchor to viewport right edge with extra breathing room
-            left = viewportWidth - padding
+          // If we're on a rightmost card like SOL or MCRT, force expansion to the left of the card
+          const forceLeftOfCard = ['sol', 'mcrt'].includes(hoveredLobby)
+
+          if (rightOverflow || forceLeftOfCard) {
+            // Anchor the tooltip's right edge to the card's right edge so it opens to the left
+            left = Math.min(rect.right, viewportWidth - padding)
             transform = 'translateX(-100%)'
           } else if (leftOverflow) {
-            // Anchor to viewport left edge
-            left = padding
+            left = Math.max(rect.left, padding)
             transform = 'translateX(0)'
           }
+
+          // Final clamp to ensure the tooltip remains inside viewport even during fast hover near edges
+          const halfWidth = tooltipWidth / 2
+          left = Math.max(padding + halfWidth, Math.min(viewportWidth - padding - halfWidth, left))
 
           setTooltipStyle({ top, left, transform })
         }

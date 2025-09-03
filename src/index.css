@@ -69,6 +69,22 @@ a:hover {
   text-decoration: none !important;
 }
 
+/* Smooth animations for all interactive elements */
+@keyframes subtle-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(152, 255, 249, 0.4); }
+  50% { box-shadow: 0 0 30px rgba(152, 255, 249, 0.6), 0 0 40px rgba(181, 145, 242, 0.4); }
+}
+
 /* Professional header CTAs: consistent sizing, gradients, focus, and hover */
 .header-cta {
   display: inline-flex;
@@ -242,28 +258,29 @@ a:hover {
     gap: clamp(0.5rem, 1.5vw, 1rem);
   }
   
-  /* Premium Button Styles */
+  /* Premium Button Styles - Enhanced */
   .btn-primary {
-    background: linear-gradient(180deg, #A9FFF6 0%, #82E7E0 100%);
+    background: linear-gradient(135deg, #A9FFF6 0%, #82E7E0 100%);
     color: #071033;
-    font-weight: 800;
+    font-weight: 700;
     font-size: clamp(0.95rem, 1.6vw, 1.125rem);
-    padding: clamp(0.85rem, 2.1vw, 1.1rem) clamp(1.6rem, 4.2vw, 2.1rem);
-    border-radius: 14px;
-    border: 1px solid rgba(255,255,255,0.25);
+    padding: clamp(0.9rem, 2.2vw, 1.15rem) clamp(1.75rem, 4.5vw, 2.25rem);
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.3);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: 'Futura PT', sans-serif;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     cursor: pointer;
     position: relative;
     overflow: hidden;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
     text-transform: none;
     line-height: 1.2;
-    box-shadow: 0 10px 28px rgba(152, 255, 249, 0.35), inset 0 1px 0 rgba(255,255,255,0.35);
+    box-shadow: 0 12px 32px rgba(152, 255, 249, 0.4), inset 0 2px 0 rgba(255,255,255,0.4);
   }
   
   .btn-primary::before {
@@ -280,9 +297,10 @@ a:hover {
   }
   
   .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 16px 40px rgba(152, 255, 249, 0.45);
-    filter: saturate(1.05);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 18px 45px rgba(152, 255, 249, 0.5), inset 0 2px 0 rgba(255,255,255,0.5);
+    filter: brightness(1.08) saturate(1.1);
+    border-color: rgba(255,255,255,0.4);
   }
   
   .btn-primary:hover::before {
@@ -296,30 +314,33 @@ a:hover {
   }
   
   .btn-secondary {
-    background: linear-gradient(180deg, rgba(152,255,249,0.12), rgba(152,255,249,0.06));
+    background: linear-gradient(135deg, rgba(152,255,249,0.15), rgba(181,145,242,0.1));
     color: #A9FFF6;
-    font-weight: 700;
+    font-weight: 600;
     font-size: clamp(0.95rem, 1.6vw, 1.125rem);
-    padding: clamp(0.85rem, 2.1vw, 1.1rem) clamp(1.6rem, 4.2vw, 2.1rem);
-    border-radius: 14px;
-    border: 1px solid rgba(152, 255, 249, 0.45);
-    transition: all 0.25s ease;
+    padding: clamp(0.9rem, 2.2vw, 1.15rem) clamp(1.75rem, 4.5vw, 2.25rem);
+    border-radius: 16px;
+    border: 1px solid rgba(152, 255, 249, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: 'Futura PT', sans-serif;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    gap: 0.5rem;
     cursor: pointer;
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
     line-height: 1.2;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255,255,255,0.15);
   }
   
   .btn-secondary:hover {
-    background: linear-gradient(180deg, rgba(152,255,249,0.2), rgba(152,255,249,0.1));
-    color: #061033;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 28px rgba(152, 255, 249, 0.3);
+    background: linear-gradient(135deg, rgba(152,255,249,0.25), rgba(181,145,242,0.2));
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 14px 35px rgba(152, 255, 249, 0.35), inset 0 1px 0 rgba(255,255,255,0.25);
+    border-color: rgba(152, 255, 249, 0.6);
+    filter: brightness(1.1);
   }
 
   .btn-primary:active {
@@ -366,14 +387,15 @@ a:hover {
     color: #E6FFFB;
   }
   
-  /* Card Styles - Enhanced Typography */
+  /* Card Styles - Premium Glass Effect */
   .card-glass {
-    background: linear-gradient(135deg, rgba(11, 15, 57, 0.8) 0%, rgba(17, 26, 78, 0.8) 100%);
-    border: 1px solid rgba(152, 255, 249, 0.2);
-    border-radius: var(--radius-base);
-    backdrop-filter: blur(10px);
-    box-shadow: var(--shadow-soft);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(135deg, rgba(11, 15, 57, 0.85) 0%, rgba(17, 26, 78, 0.75) 100%);
+    border: 1px solid rgba(152, 255, 249, 0.18);
+    border-radius: 20px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
   }
@@ -381,25 +403,41 @@ a:hover {
   .card-glass::before {
     content: '';
     position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    background: linear-gradient(45deg, #98FFF9, #B591F2, #FFB649, #98FFF9);
-    border-radius: 1rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(152, 255, 249, 0.5), transparent);
     opacity: 0;
-    z-index: -1;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.4s ease;
+  }
+  
+  .card-glass::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(152, 255, 249, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
   }
   
   .card-glass:hover {
-    border-color: rgba(152, 255, 249, 0.4);
-    box-shadow: 0 20px 50px rgba(152, 255, 249, 0.2);
-    transform: translateY(-6px) scale(1.02);
+    border-color: rgba(152, 255, 249, 0.35);
+    box-shadow: 0 20px 50px rgba(152, 255, 249, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px) scale(1.015);
+    background: linear-gradient(135deg, rgba(11, 15, 57, 0.9) 0%, rgba(17, 26, 78, 0.85) 100%);
   }
   
   .card-glass:hover::before {
-    opacity: 0.3;
+    opacity: 1;
+  }
+  
+  .card-glass:hover::after {
+    opacity: 1;
   }
 
   /* Consistent focus ring across interactive elements */
