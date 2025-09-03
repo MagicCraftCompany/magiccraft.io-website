@@ -335,10 +335,10 @@ function Homepagemcrt() {
                     $MCRT THE CURRENCY OF GAMING
                 </h1>
                   <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-                    <a href="#earn" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Earn</a>
-                    <a href="#create" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Create</a>
+                    <a href="https://lobby.magiccraft.io/" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Earn</a>
+                    <a href="/build-on-magiccraft" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Create</a>
                     <a href="https://app.magiccraft.io/pledging" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Pledge</a>
-                    <a href="#spend" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Spend</a>
+                    <a href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Spend</a>
                   </div>
                   <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2 sm:gap-3">
                     <button
