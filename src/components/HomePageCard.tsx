@@ -34,9 +34,11 @@ export default function MagicraftDownload() {
       if (hoveredLobby && cardRefs.current[hoveredLobby]) {
         const rect = cardRefs.current[hoveredLobby]?.getBoundingClientRect()
         if (rect) {
-          const padding = 16
+          // Add slightly larger padding to ensure we never overflow off-screen
+          const padding = 24
           const viewportWidth = window.innerWidth
           const viewportHeight = window.innerHeight
+          // Estimate tooltip width based on responsive classes (md:w-[28rem], else w-96)
           const tooltipWidth = Math.min(viewportWidth * 0.92, viewportWidth >= 768 ? 448 : 384)
           const preferredHeight = 340
 
@@ -58,6 +60,7 @@ export default function MagicraftDownload() {
 
           if (rightOverflow) {
             // Anchor to viewport right edge
+            // Anchor to viewport right edge with extra breathing room
             left = viewportWidth - padding
             transform = 'translateX(-100%)'
           } else if (leftOverflow) {
