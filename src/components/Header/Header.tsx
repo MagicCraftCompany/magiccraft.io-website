@@ -213,12 +213,35 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
 
 const Header = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
+  const [isDesktop, setIsDesktop] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return true
+    return window.matchMedia('(min-width: 768px)').matches
+  })
   const location = useLocation()
 
   useEffect(() => {
     console.log('Current route:', location.pathname)
     // Add more logs if needed to debug state or props
   }, [location])
+
+  // Track viewport to conditionally render header CTAs only on desktop (md+)
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const mql = window.matchMedia('(min-width: 768px)')
+    const handler = (e: MediaQueryListEvent | MediaQueryList) => {
+      setIsDesktop('matches' in e ? e.matches : (e as MediaQueryList).matches)
+    }
+    // Initial
+    setIsDesktop(mql.matches)
+    // Subscribe
+    mql.addEventListener?.('change', handler as (e: MediaQueryListEvent) => void)
+    // Fallback for older Safari
+    mql.addListener?.(handler as any)
+    return () => {
+      mql.removeEventListener?.('change', handler as (e: MediaQueryListEvent) => void)
+      mql.removeListener?.(handler as any)
+    }
+  }, [])
 
   function closeSidebar() {
     setIsSideMenuOpen(false)
@@ -271,7 +294,8 @@ const Header = () => {
                 )
               )}
             </div>
-            <div className="hidden md:flex items-center gap-2 sm:gap-3 md:gap-4">
+            {isDesktop && (
+            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
               <a
                 href="https://lobby.magiccraft.io/"
                 rel="noreferrer noopener"
@@ -305,6 +329,7 @@ const Header = () => {
               {/* Hamburger shown as absolute on mobile (moved outside group) */}
               <span className="hidden md:block" />
             </div>
+            )}
           </div>
           {/* Absolutely positioned hamburger to avoid layout clipping */}
           <button

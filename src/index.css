@@ -348,7 +348,6 @@ a:hover {
 
 /* Professional header CTAs: consistent sizing, gradients, focus, and hover */
 .header-cta {
-  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
