@@ -58,8 +58,8 @@ export default function MagicraftDownload() {
           const rightOverflow = centeredLeft + tooltipWidth / 2 > viewportWidth - padding
           const leftOverflow = centeredLeft - tooltipWidth / 2 < padding
 
-          // If we're on a rightmost card like SOL or MCRT, force expansion to the left of the card
-          const forceLeftOfCard = ['sol', 'mcrt'].includes(hoveredLobby)
+          // If we're on a rightmost card like SOL or XRP (and MCRT on some widths), force expansion to the left of the card
+          const forceLeftOfCard = ['sol', 'xrp', 'mcrt'].includes(hoveredLobby)
 
           if (rightOverflow || forceLeftOfCard) {
             // Anchor the tooltip's right edge to the card's right edge so it opens to the left
@@ -512,7 +512,7 @@ export default function MagicraftDownload() {
               <div 
                 className={`absolute top-full ${
                   tooltipStyle.transform === 'translateX(-100%)' 
-                    ? 'right-8' // For right-anchored tooltips (SOL, MCRT), position arrow near the right edge
+                    ? 'right-8' // For right-anchored tooltips (SOL/XRP), position arrow near the right edge
                     : tooltipStyle.transform === 'translateX(0)' 
                     ? 'left-8' // For left-anchored tooltips, position arrow near the left edge
                     : 'left-1/2 -translate-x-1/2' // For center-anchored tooltips, keep arrow centered
