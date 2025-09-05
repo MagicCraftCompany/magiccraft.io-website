@@ -892,8 +892,10 @@ a:hover {
     }
   }
 
-  /* Hide XPay floating buy bubble on mobile to prevent overlapping hamburger */
+  /* Hide header CTAs and XPay bubble on mobile to prevent overlap */
   @media (max-width: 768px) {
+    .site-header .header-cta { display: none !important; }
+    .site-header .no-underline.header-cta { display: none !important; }
     #xpay-root,
     #xpay-init-indicator,
     #xpay-tx-status {
