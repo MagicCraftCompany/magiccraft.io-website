@@ -131,11 +131,12 @@ export default function ZeusPromo() {
 
   // Zeus art carousel (uses public/img paths)
   const images = useMemo(() => {
+    // Prefer ASCII-safe filenames to avoid 404s due to spaces/parentheses encoding
     const art = [
-      encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.00 (1).jpeg'),
-      encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.00 (2).jpeg'),
-      encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.00 (3).jpeg'),
-      encodeURI('/img/WhatsApp Image 2025-09-01 at 16.21.02.jpeg'),
+      '/img/zeus-ss-1.png',
+      '/img/zeus-ss-2.png',
+      '/img/zeus-ss-3.png',
+      '/img/zeus-ss-4.png',
     ]
     const gameplay = [
       '/img/zeus-ss-1.png',
@@ -192,7 +193,19 @@ export default function ZeusPromo() {
             </div>
             <div className="lg:col-span-1 flex items-center justify-center">
               <div className="w-full rounded-2xl bg-gradient-to-br from-[#FFB649]/40 to-[#98FFF9]/20 border border-white/10 overflow-hidden aspect-video min-h-[260px] md:min-h-[340px] lg:min-h-[420px]">
-                <img src={images[idx]} alt="Zeus NFT" className="w-full h-full object-cover" />
+                <img 
+                  src={images[idx]} 
+                  alt="Zeus NFT" 
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  onError={(e) => {
+                    const img = e.currentTarget as HTMLImageElement
+                    if (img.src.endsWith('png')) {
+                      img.src = '/img/hero.webp'
+                    }
+                  }}
+                />
               </div>
             </div>
           </div>

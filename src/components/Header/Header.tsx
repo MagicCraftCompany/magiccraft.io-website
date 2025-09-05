@@ -271,7 +271,7 @@ const Header = () => {
                 )
               )}
             </div>
-            <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
+            <div className="hidden md:flex items-center gap-2 sm:gap-3 md:gap-4">
               <a
                 href="https://lobby.magiccraft.io/"
                 rel="noreferrer noopener"

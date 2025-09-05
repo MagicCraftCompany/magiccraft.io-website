@@ -278,7 +278,8 @@ function Homepagemcrt() {
       </Helmet>
       <div className="min-h-dvh w-full max-w-full text-white overflow-x-hidden">
         {/* Zeus promo popup at the very top */}
-        <ZeusPromoPopup imageUrl={'/img/WhatsApp Image 2025-09-01 at 16.21.00 (1).jpeg'} />
+        {/* Use ASCII-safe filename to avoid any browser path parsing issues */}
+        <ZeusPromoPopup imageUrl={'/img/zeus-ss-1.png'} />
         <Header />
         <main className="md:-mt-[80px] scroll-smooth pb-20 w-full max-w-full overflow-x-hidden">
           {/*header*/}
