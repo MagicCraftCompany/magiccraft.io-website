@@ -70,9 +70,18 @@ export default function MagicraftDownload() {
             transform = 'translateX(0)'
           }
 
-          // Final clamp to ensure the tooltip remains inside viewport even during fast hover near edges
-          const halfWidth = tooltipWidth / 2
-          left = Math.max(padding + halfWidth, Math.min(viewportWidth - padding - halfWidth, left))
+          // Final clamp to ensure the tooltip remains inside viewport based on transform mode
+          if (transform === 'translateX(-100%)') {
+            // Right-anchored: ensure the tooltip doesn't go off the left edge
+            left = Math.max(tooltipWidth + padding, left)
+          } else if (transform === 'translateX(0)') {
+            // Left-anchored: ensure the tooltip doesn't go off the right edge
+            left = Math.min(viewportWidth - tooltipWidth - padding, left)
+          } else {
+            // Center-anchored: ensure the tooltip doesn't go off either edge
+            const halfWidth = tooltipWidth / 2
+            left = Math.max(padding + halfWidth, Math.min(viewportWidth - padding - halfWidth, left))
+          }
 
           setTooltipStyle({ top, left, transform })
         }
@@ -499,8 +508,16 @@ export default function MagicraftDownload() {
                 </div>
               </div>
               
-              {/* Tooltip arrow */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2">
+              {/* Tooltip arrow - positioned based on tooltip anchor */}
+              <div 
+                className={`absolute top-full ${
+                  tooltipStyle.transform === 'translateX(-100%)' 
+                    ? 'right-8' // For right-anchored tooltips (SOL, MCRT), position arrow near the right edge
+                    : tooltipStyle.transform === 'translateX(0)' 
+                    ? 'left-8' // For left-anchored tooltips, position arrow near the left edge
+                    : 'left-1/2 -translate-x-1/2' // For center-anchored tooltips, keep arrow centered
+                }`}
+              >
                 <div 
                   className="w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent"
                   style={{ borderTopColor: '#98FFF9' }}

@@ -332,7 +332,7 @@ function Homepagemcrt() {
                       className="w-full max-w-[260px] sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-xl"
                     />
                   </div>
-                                    <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-black bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient max-w-4xl mx-auto tracking-wider drop-shadow-2xl leading-tight">
+                                    <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wider drop-shadow-2xl leading-tight">
                     $MCRT THE CURRENCY OF GAMING
                 </h1>
                   <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
@@ -344,13 +344,15 @@ function Homepagemcrt() {
                   <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2 sm:gap-3">
                     <button
                       onClick={openGameByDevice}
-                      className="inline-flex items-center justify-center px-5 sm:px-6 h-10 sm:h-11 rounded-xl text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15 shadow-lg hover:shadow-xl hover:border-white/25 transition text-sm sm:text-base font-black tracking-wider uppercase drop-shadow-md"
+                      className="header-cta header-cta--play interactive-scale ripple-effect"
+                      aria-label="Play MagicCraft now"
                     >
                       Play Now
                     </button>
                     <button
                       onClick={handleBuyMCRT}
-                      className="inline-flex items-center justify-center px-5 sm:px-6 h-10 sm:h-11 rounded-xl text-[#03082F] font-black bg-gradient-to-b from-[#98FFF9] to-[#B591F2] shadow-xl hover:shadow-2xl transition border border-white/10 text-sm sm:text-base tracking-wider uppercase drop-shadow-md"
+                      className="cta-premium interactive-scale ripple-effect"
+                      aria-label="Buy MCRT tokens"
                     >
                       Buy $MCRT
                     </button>
