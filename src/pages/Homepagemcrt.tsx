@@ -29,6 +29,7 @@ import { openTransactionModal } from '@xswap-link/sdk'
 // Official $MCRT logo for token visuals
 const mcrtLogo = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
 import ZeusPromo, { ZeusPromoPopup } from '@/components/ui/ZeusPromo'
+import { Link } from 'react-router-dom'
 
 function Homepagemcrt() {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null)
@@ -633,6 +634,61 @@ function Homepagemcrt() {
 
         {/* Genesis NFTs — Earnings Tiers */}
         <GenesisNFTs />
+
+        {/* Guilds teaser */}
+        <section className="mt-12">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between">
+              <h2 className="text-section-title">Guilds</h2>
+              <Link to="/guilds" className="chip-cta">Explore</Link>
+            </div>
+            <p className="mt-2 text-white/80 max-w-2xl">Join or create a guild, coordinate with your community, and climb the leaderboard.</p>
+            <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
+              <a href="https://t.me/magiccraftgamechat/769960" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition">
+                <div className="flex w-full items-center justify-between gap-2">
+                  <div className="flex items-center gap-3 flex-1 overflow-hidden">
+                    <img src="/icons/icon-community.svg" alt="Telegram" className="h-7 w-7 flex-shrink-0" />
+                    <div className="min-w-0 flex-1">
+                      <p className="text-xs text-white/60 truncate">Community</p>
+                      <p className="text-white font-semibold text-sm">Submit Guild</p>
+                    </div>
+                  </div>
+                  <div className="flex-shrink-0 ml-auto">
+                    <span className="inline-block chip-cta px-3 py-1 text-xs">Open</span>
+                  </div>
+                </div>
+              </a>
+              <a href="https://lobby.magiccraft.io/leaderboard" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition">
+                <div className="flex w-full items-center justify-between gap-2">
+                  <div className="flex items-center gap-3 flex-1 overflow-hidden">
+                    <img src="/icons/icon-leaderboard.svg" alt="Leaderboard" className="h-7 w-7 flex-shrink-0" />
+                    <div className="min-w-0 flex-1">
+                      <p className="text-xs text-white/60 truncate">Competitive</p>
+                      <p className="text-white font-semibold text-sm">Guild Leaderboard</p>
+                    </div>
+                  </div>
+                  <div className="flex-shrink-0 ml-auto">
+                    <span className="inline-block chip-cta px-3 py-1 text-xs">View</span>
+                  </div>
+                </div>
+              </a>
+              <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer" className="card-glass rounded-2xl p-4 md:p-5 min-h-[100px] group hover:-translate-y-0.5 transition">
+                <div className="flex w-full items-center justify-between gap-2">
+                  <div className="flex items-center gap-3 flex-1 overflow-hidden">
+                    <img src="/icons/icon-gamestats.svg" alt="Lobbies" className="h-7 w-7 flex-shrink-0" />
+                    <div className="min-w-0 flex-1">
+                      <p className="text-xs text-white/60 truncate">Earn</p>
+                      <p className="text-white font-semibold text-sm">Web3 Lobbies</p>
+                    </div>
+                  </div>
+                  <div className="flex-shrink-0 ml-auto">
+                    <span className="inline-block chip-cta px-3 py-1 text-xs">Enter</span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </section>
 
         {/* Contract Address */}
         <section className="relative py-8 md:py-12 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0">

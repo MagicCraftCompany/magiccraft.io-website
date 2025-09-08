@@ -146,6 +146,11 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     icon: about,
     submenu: [
       {
+        title: 'Guilds',
+        icon: '/icons/icon-community.svg',
+        path: '/guilds',
+      },
+      {
         title: 'Whitepaper',
         icon: Whitepaper,
         path: 'https://docs.magiccraft.io/',
