@@ -15,7 +15,7 @@ export const ListedPartners = () => {
       <h3 className="mt-8 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text pt-4 text-center font-serif text-4xl text-transparent drop-shadow-xl">
         $MCRT LISTED ON
       </h3>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {partners.map((item: Partner) => {
           const isSmallMark = ['WEEX', 'biconomy'].includes(item.name)
           const isBitunix = item.name === 'Bitunix'
@@ -54,7 +54,7 @@ const OurPartners = () => {
       <h3 className="m-4 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
         OUR PARTNERS
       </h3>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {otherpartners.map((item: Partner) => {
           const link = item.link.includes('http') ? item.link : `https://${item.link}`
           return (
@@ -70,7 +70,7 @@ const OurPartners = () => {
                   loading="lazy"
                 />
               </div>
-              <div className="mt-3 hidden w-full lg:block">
+              <div className="mt-3 hidden w-full xl:block">
                 <div className="flex h-[3.25em] w-full items-center justify-between rounded-lg bg-gradient-to-r from-[#0C1661] to-[#0A1240] border border-[#B591F2]/20 px-3 shadow-lg backdrop-blur-sm transition-all duration-300 hover:border-[#B591F2]/40 hover:shadow-xl hover:shadow-[#B591F2]/10">
                   <div className="text-left">
                     <div className="hidden text-xs font-bold leading-tight text-white drop-shadow-sm md:block">
