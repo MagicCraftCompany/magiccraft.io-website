@@ -23,13 +23,12 @@ import { Helmet } from 'react-helmet-async'
 import battleOne from '@/assets/images/legendary-battle-1.png'
 import battleTwo from '@/assets/images/legendary-battle-2.webp'
 import battleThree from '@/assets/images/legendary-battle-3.webp'
-import { Link } from 'react-router-dom'
 import bnbLogo from '../assets/icons/bnblogo.svg'
 import { openTransactionModal } from '@xswap-link/sdk'
 // Official $MCRT logo for token visuals
 const mcrtLogo = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
 import ZeusPromo, { ZeusPromoPopup } from '@/components/ui/ZeusPromo'
-import { Link } from 'react-router-dom'
+
 
 function Homepagemcrt() {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null)
