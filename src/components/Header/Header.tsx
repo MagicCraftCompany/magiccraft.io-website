@@ -1,5 +1,5 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
-import { X, Gamepad2, ShoppingBag, Coins } from 'lucide-react'
+import { X, Gamepad2, ShoppingBag } from 'lucide-react'
 import NavMenu from './Navmenu'
 import { useState, useEffect } from 'react'
 
@@ -21,7 +21,7 @@ import gamepad from '@/assets/icons/icon-gamepad.svg'
 import about from '@/assets/icons/icon-help.svg'
 import pancakeswap from '@/assets/icons/icon-pancakeswap.svg'
 import huobi from '@/assets/icons/icon-huobi.svg'
-import { openTransactionModal } from "@xswap-link/sdk";
+// import { openTransactionModal } from "@xswap-link/sdk";
 
 export type NavMenuItemProps = {
   path?: string
@@ -44,26 +44,26 @@ export type SubMenuProps = {
   isXswap?: boolean
   onClick?: () => void
 }
-const handleBuyMCRT = async () => {
-  const ua = navigator.userAgent || (navigator as any).vendor
-  const isIOS = /iPad|iPhone|iPod/.test(ua)
-  if (isIOS) {
-    window.location.href = 'https://www.bybit.com/en/trade/spot/MCRT/USDT'
-    return
-  }
-  try {
-    await openTransactionModal({
-      integratorId: "34808808c1f4ae4533b7",
-      dstChain: "56",
-      dstToken: "0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f",
-      srcChain: "56",
-      srcToken: "0x0000000000000000000000000000000000000000",
-      defaultWalletPicker: true,
-    });
-  } catch (error) {
-    console.error("XPay transaction failed:", error);
-  }
-};
+// const handleBuyMCRT = async () => {
+//   const ua = navigator.userAgent || (navigator as any).vendor
+//   const isIOS = /iPad|iPhone|iPod/.test(ua)
+//   if (isIOS) {
+//     window.location.href = 'https://www.bybit.com/en/trade/spot/MCRT/USDT'
+//     return
+//   }
+//   try {
+//     await openTransactionModal({
+//       integratorId: "34808808c1f4ae4533b7",
+//       dstChain: "56",
+//       dstToken: "0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f",
+//       srcChain: "56",
+//       srcToken: "0x0000000000000000000000000000000000000000",
+//       defaultWalletPicker: true,
+//     });
+//   } catch (error) {
+//     console.error("XPay transaction failed:", error);
+//   }
+// };
 
 function openGameByDevice() {
   if (typeof window === 'undefined') return
@@ -208,6 +208,11 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         path: '/build-on-magiccraft',
       },
       {
+        title: 'Grants',
+        icon: '/icons/icon-bounty.svg',
+        path: '/grants',
+      },
+      {
         title: 'Bounties',
         icon: '/icons/icon-bounty.svg',
         path: '/bounties',
@@ -322,14 +327,7 @@ const Header = () => {
                 <span>Shop</span>
               </a>
 
-              <button
-                onClick={handleBuyMCRT}
-                className="hidden md:inline-flex header-cta header-cta--buy no-underline min-w-[150px]"
-                aria-label="Buy $MCRT"
-              >
-                <Coins className="w-4 h-4" />
-                <span>Buy $MCRT</span>
-              </button>
+              {/* Buy $MCRT CTA removed per mobile overlap request */}
               
               {/* Hamburger shown as absolute on mobile (moved outside group) */}
               <span className="hidden md:block" />

@@ -40,6 +40,22 @@ function getConfiguredTarget(defaultOffsetDays = 3): number {
   }
 }
 
+function formatSnapshot(ts: number): string {
+  try {
+    const fmt = new Intl.DateTimeFormat(undefined, {
+      timeZone: 'Asia/Bangkok',
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+    })
+    return fmt.format(new Date(ts)) + ' (Bangkok)'
+  } catch {
+    return new Date(ts).toUTCString().replace(' GMT', '') + ' UTC'
+  }
+}
+
 export function ZeusPromoBanner({ imageUrl }: { imageUrl: string }) {
   const target = useMemo(() => getConfiguredTarget(3), [])
   const [left, setLeft] = useState<TimeLeft>(() => getTimeLeft(target))
@@ -63,6 +79,9 @@ export function ZeusPromoBanner({ imageUrl }: { imageUrl: string }) {
               ? <>Drop in {String(left.days).padStart(2,'0')}d {String(left.hours).padStart(2,'0')}h {String(left.minutes).padStart(2,'0')}m {String(left.seconds).padStart(2,'0')}s</>
               : <span className="text-[#98FFF9] font-semibold">Live now</span>}
           </div>
+          {target - Date.now() <= 0 && (
+            <div className="text-[10px] text-white/60">Snapshot: {formatSnapshot(target)}</div>
+          )}
         </div>
         <div className="flex items-center gap-2 shrink-0">
           <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="btn-secondary px-3 py-1 text-xs">Updates</a>
@@ -94,10 +113,10 @@ export function ZeusPromoPopup({ imageUrl }: { imageUrl: string }) {
   if (!open || typeof document === 'undefined') return null
 
   return createPortal(
-    <div className="fixed top-2 left-1/2 -translate-x-1/2 z-[9999] w-[94%] max-w-4xl">
+    <div className="fixed top-2 left-1/2 -translate-x-1/2 z-[9999] w-[96%] max-w-4xl">
       <div className="relative rounded-2xl border border-white/15 bg-gradient-to-r from-[#2A0D4E] via-[#0B0F39] to-[#120e3d] shadow-2xl backdrop-blur-md px-3 py-3 md:px-4 md:py-4">
         <button onClick={onClose} aria-label="Close" className="absolute -top-2 -right-2 bg-white/20 hover:bg-white/30 border border-white/30 text-white rounded-full w-7 h-7 flex items-center justify-center">×</button>
-        <div className="flex items-center gap-3 md:gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-3 md:gap-4">
           <img src={encodeURI(imageUrl)} alt="Zeus NFT" className="h-10 w-10 md:h-12 md:w-12 rounded-lg object-cover border border-white/15" />
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2">
@@ -105,10 +124,15 @@ export function ZeusPromoPopup({ imageUrl }: { imageUrl: string }) {
               <p className="text-sm md:text-base font-semibold text-white truncate">Zeus NFT — Web3 in‑game skin. Hold ≥ 1,000,000 $MCRT for airdrop.</p>
             </div>
             <div className="text-[11px] md:text-xs text-white/70 mt-0.5">
-              Drop in {String(left.days).padStart(2,'0')}d {String(left.hours).padStart(2,'0')}h {String(left.minutes).padStart(2,'0')}m {String(left.seconds).padStart(2,'0')}s
+              {target - Date.now() > 0
+                ? <>Drop in {String(left.days).padStart(2,'0')}d {String(left.hours).padStart(2,'0')}h {String(left.minutes).padStart(2,'0')}m {String(left.seconds).padStart(2,'0')}s</>
+                : <span className="text-[#98FFF9] font-semibold">Live now</span>}
             </div>
+            {target - Date.now() <= 0 && (
+              <div className="text-[10px] md:text-xs text-white/60 mt-0.5">Snapshot: {formatSnapshot(target)}</div>
+            )}
           </div>
-          <div className="flex items-center gap-2 shrink-0">
+          <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto justify-between sm:justify-end">
             <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="btn-secondary px-3 py-1 text-xs">Updates</a>
             <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener" className="btn-primary px-3 py-1 text-xs">Get $MCRT</a>
           </div>
@@ -178,15 +202,23 @@ export default function ZeusPromo() {
                 Hold <b>≥ 1,000,000 $MCRT</b> in your wallet to receive the airdrop.
               </p>
               <div className="flex items-center gap-3 md:gap-4">
-                <div className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white/90">
-                  <span className="text-xs md:text-sm uppercase tracking-wide text-white/70">Drop In</span>
-                  <div className="mt-1 flex items-center gap-4 text-lg md:text-2xl font-extrabold">
-                    <span>{String(left.days).padStart(2, '0')}d</span>
-                    <span>{String(left.hours).padStart(2, '0')}h</span>
-                    <span>{String(left.minutes).padStart(2, '0')}m</span>
-                    <span>{String(left.seconds).padStart(2, '0')}s</span>
+                {target - Date.now() > 0 ? (
+                  <div className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white/90">
+                    <span className="text-xs md:text-sm uppercase tracking-wide text-white/70">Drop In</span>
+                    <div className="mt-1 flex items-center gap-4 text-lg md:text-2xl font-extrabold">
+                      <span>{String(left.days).padStart(2, '0')}d</span>
+                      <span>{String(left.hours).padStart(2, '0')}h</span>
+                      <span>{String(left.minutes).padStart(2, '0')}m</span>
+                      <span>{String(left.seconds).padStart(2, '0')}s</span>
+                    </div>
                   </div>
-                </div>
+                ) : (
+                  <div className="rounded-2xl border border-[#98FFF9]/40 bg-[#0B0F39]/60 px-4 py-3 text-white/90">
+                    <span className="text-xs md:text-sm uppercase tracking-wide text-[#98FFF9] font-semibold">Live now</span>
+                    <div className="mt-1 text-lg md:text-2xl font-extrabold text-[#98FFF9]">Zeus Drop</div>
+                    <div className="mt-1 text-xs md:text-sm text-white/70">Snapshot: {formatSnapshot(target)}</div>
+                  </div>
+                )}
                 <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="btn-secondary px-4 py-2 text-sm">Get updates</a>
                 <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener" className="btn-primary px-4 py-2 text-sm">Get $MCRT</a>
               </div>

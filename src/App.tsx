@@ -25,6 +25,7 @@ import BlogPost from "./pages/BlogPost";
 import SanityStudio from "./pages/SanityStudio";
 import Bounties from "./pages/Bounties";
 import Guilds from "./pages/Guilds";
+import Grants from "./pages/Grants";
 
 // const handleBuyMCRT = async () => {
 //   try {
@@ -66,6 +67,7 @@ function App() {
         <Route path="/topholders" element={<HoldersPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/bounties" element={<Bounties />} />
+        <Route path="/grants" element={<Grants />} />
         <Route path="/guilds" element={<Guilds />} />
         <Route path="/admin/*" element={<SanityStudio />} />
         <Route path="*" element={<NotFound />} />

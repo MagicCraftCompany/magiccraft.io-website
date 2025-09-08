@@ -340,6 +340,7 @@ function Homepagemcrt() {
                   <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
                     <a href="https://lobby.magiccraft.io/" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Earn</a>
                     <a href="/build-on-magiccraft" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Create</a>
+                    <a href="/grants" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Grants</a>
                     <a href="https://app.magiccraft.io/pledging" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Pledge</a>
                     <a href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Spend</a>
                   </div>
@@ -600,6 +601,18 @@ function Homepagemcrt() {
                 <p className="text-base md:text-[17px] text-white leading-relaxed">Creators earn $MCRT when players engage with their maps and experiences.</p>
               </div>
             </a>
+            <a id="grants" href="/grants" className="card-glass card-padding block hover:scale-[1.02] transition relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 rounded-xl bg-[#98FFF9]/20 flex items-center justify-center">
+                  <img src="/icons/icon-bounty.svg" alt="Grants" className="w-5 h-5 opacity-90" />
+                </div>
+                <h4 className="text-lg md:text-xl font-bold">Apply for Grants</h4>
+              </div>
+              <p className="text-base md:text-lg text-gray-300">Games, Web3/AI, Crypto — with $MCRT integration.</p>
+              <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-80 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
+                <p className="text-base md:text-[17px] text-white leading-relaxed">Submit your project with a working build. $MCRT‑aligned projects are prioritized.</p>
+              </div>
+            </a>
             <a id="refer" href="https://lobby.magiccraft.io/referral" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block hover:scale-[1.02] transition relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-xl bg-[#FFB649]/20 flex items-center justify-center">
@@ -793,6 +806,18 @@ function Homepagemcrt() {
                 <p className="text-base md:text-[17px] text-white leading-relaxed">
                   Build and publish to Steam. Earn $MCRT from playtime and engagement. Utilize Vibe Coding, AI‑assisted
                   assets (Nano Banana weapon skins), and upcoming APIs/SDKs for deeper integrations.
+                </p>
+              </div>
+            </a>
+            <a href="/grants" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
+              <div className="flex items-center gap-3 mb-1">
+                <img src="/icons/icon-bounty.svg" alt="Grants" className="w-5 h-5 opacity-90" />
+                <h4 className="text-lg md:text-xl font-bold">Grants</h4>
+              </div>
+              <p className="text-base md:text-lg text-gray-300">Apply with a working build; $MCRT prioritized.</p>
+              <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
+                <p className="text-base md:text-[17px] text-white leading-relaxed">
+                  Games, Web3/AI, and Crypto projects welcome. Integrate $MCRT for preference.
                 </p>
               </div>
             </a>

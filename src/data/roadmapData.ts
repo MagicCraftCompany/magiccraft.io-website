@@ -256,36 +256,6 @@ export const roadmapData: RoadmapDataType = [
       },
     ],
   },
-  {
-    quarter: 5,
-    variant: 'default',
-    goals: [
-      {
-        card: 1,
-        features: [
-          'Vibe Coding System',
-          'AI-powered map generation and dynamic environments',
-          'Nano Banana Image Gen for Weapons',
-        ],
-      },
-      {
-        card: 2,
-        features: [
-          '$MCRT APIs and SDKs',
-          'Public APIs for marketplace, game stats, and wallets',
-          'Unity/Unreal SDKs for quick integration',
-        ],
-      },
-      {
-        card: 3,
-        features: [
-          'Marketplace & Crafting',
-          'Crafting system with NFT crafting',
-          'Craft & sell marketplace enhancements',
-          'Improvements to Game Maker tooling',
-        ],
-      },
-    ],
-  },
+  // Q5 removed per product direction
 ];
 
