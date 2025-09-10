@@ -76,27 +76,45 @@ export default function MentionsStrip() {
 
       {mentions && mentions.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {mentions.map((m) => (
-            <div key={m.url} className="card-glass card-padding rounded-2xl overflow-hidden">
-              <div className="text-xs text-white/70 mb-2">@{m.handle}</div>
-              <a 
-                href={m.url} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block rounded-xl overflow-hidden border border-white/10 bg-black/20 hover:border-white/20 transition-colors"
-              >
-                <div className="p-4 min-h-[300px] flex flex-col justify-center items-center text-center">
-                  <div className="mb-4">
-                    <svg className="w-12 h-12 text-white/60" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
+          {mentions.map((m) => {
+            const isSearch = m.handle === 'search' || !/x\.com\/.+\/status\//.test(m.url)
+            const twitframe = `https://twitframe.com/show?url=${encodeURIComponent(m.url)}`
+            return (
+              <div key={m.url} className="card-glass card-padding rounded-2xl overflow-hidden">
+                <div className="text-xs text-white/70 mb-2">@{m.handle}</div>
+                {isSearch ? (
+                  <a
+                    href={m.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block rounded-xl overflow-hidden border border-white/10 bg-black/20 hover:border-white/20 transition-colors"
+                  >
+                    <div className="p-4 min-h-[300px] flex flex-col justify-center items-center text-center">
+                      <div className="mb-4">
+                        <svg className="w-12 h-12 text-white/60" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                      </div>
+                      <div className="text-white/80 text-sm">View on X</div>
+                      <div className="text-white/60 text-xs mt-2">{m.text || '$MCRT'}</div>
+                    </div>
+                  </a>
+                ) : (
+                  <div className="rounded-xl overflow-hidden border border-white/10 bg-black/20">
+                    <iframe
+                      title={`Tweet-${m.url}`}
+                      src={twitframe}
+                      loading="lazy"
+                      className="w-full"
+                      style={{ height: 520, border: 0, overflow: 'hidden' }}
+                      referrerPolicy="no-referrer-when-downgrade"
+                      sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+                    />
                   </div>
-                  <div className="text-white/80 text-sm">View on X</div>
-                  <div className="text-white/60 text-xs mt-2">{m.text || '$MCRT'}</div>
-                </div>
-              </a>
-            </div>
-          ))}
+                )}
+              </div>
+            )
+          })}
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
