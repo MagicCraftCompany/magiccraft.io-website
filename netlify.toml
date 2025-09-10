@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/grants"
-  to = "/grants"
+  to = "/index.html"
   status = 200
   force = true
 
