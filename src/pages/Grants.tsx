@@ -31,7 +31,7 @@ const Grants = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
             <div className="lg:col-span-2 rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-2xl">
               <h2 className="text-xl font-semibold mb-4">Apply for a Grant</h2>
-              <form name="grants" method="POST" action="/grants/success" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-5">
+              <form name="grants" method="POST" action="/.netlify/functions/submit-grants" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-5">
                 <input type="hidden" name="name" value="grants" />
                 <input type="hidden" name="form-name" value="grants" />
                 <input type="hidden" name="page" value="/grants" />
