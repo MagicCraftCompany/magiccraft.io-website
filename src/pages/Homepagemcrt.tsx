@@ -30,7 +30,7 @@ const mcrtLogo = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/
 // Zeus promo removed (event finished)
 // import ZeusPromo, { ZeusPromoPopup } from '@/components/ui/ZeusPromo'
 import { Link } from 'react-router-dom'
-import MentionsStrip from '@/components/ui/MentionsStrip'
+// import MentionsStrip from '@/components/ui/MentionsStrip'
 
 
 function Homepagemcrt() {
@@ -935,8 +935,7 @@ function Homepagemcrt() {
           </details>
         </section>
 
-        {/* Mentions from X (crypto KOLs) */}
-        <MentionsStrip />
+        {/* Mentions removed per request */}
 
         {/* Sticky mobile bottom bar */}
         <div className="fixed bottom-2 inset-x-2 md:hidden z-50 safe-padded">
