@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom'
 function Careers() {
   return (
     <main className="safe-padded container mx-auto container-padding section-padding">
+      <div className="mb-4">
+        <Link to="/" className="chip-cta no-underline inline-flex items-center gap-2" aria-label="Back to Home">
+          <span>←</span>
+          <span>Back to Home</span>
+        </Link>
+      </div>
       <section className="mb-10">
         <h1 className="text-section-title">Careers at MagicCraft</h1>
         <p className="text-body-large max-w-3xl">
