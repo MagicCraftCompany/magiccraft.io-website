@@ -65,17 +65,17 @@ export default function Bounties() {
   }, [])
 
   const toMcrt = (usd: number): string => {
-    if (!mcrtUsd || mcrtUsd <= 0) return '—'
+    if (!mcrtUsd || mcrtUsd <= 0) return '-'
     const tokens = usd / mcrtUsd
     return Math.round(tokens).toLocaleString()
   }
   return (
     <div className="min-h-dvh w-full max-w-full text-white">
       <Helmet>
-        <title>MagicCraft Bounties — Build the $MCRT Ecosystem</title>
+        <title>MagicCraft Bounties - Build the $MCRT Ecosystem</title>
         <meta name="description" content="Complete community bounties to improve the MagicCraft ecosystem and earn rewards paid in $MCRT." />
-        <meta property="og:title" content="MagicCraft Bounties — Build the $MCRT Ecosystem" />
-        <meta property="og:description" content="Create videos, websites, integrations, and content that grows the $MCRT ecosystem. Earn up to $100 in $MCRT per bounty." />
+        <meta property="og:title" content="MagicCraft Bounties - Build the $MCRT Ecosystem" />
+        <meta property="og:description" content="Complete community bounties to improve the MagicCraft ecosystem and earn rewards paid in $MCRT." />
       </Helmet>
 
       <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 pt-8 md:pt-12">
@@ -94,7 +94,7 @@ export default function Bounties() {
           <h1 className="text-2xl md:text-3xl lg:text-4xl font-black bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">MagicCraft Bounties</h1>
           <p className="text-white/80 mt-3 md:mt-4">
             Create <b>videos, websites, integrations, posts, and tools</b> that grow the $MCRT ecosystem. These bounties are
-            <b> decentralized and self‑hosted</b> — you create and host on your own platforms (YouTube, websites, repos),
+            <b> decentralized and self‑hosted</b> - you create and host on your own platforms (YouTube, websites, repos),
             then submit for review. Rewards are <b>paid in $MCRT only</b> (USD shown for reference), up to $100 per bounty
             based on scope and impact.
           </p>
@@ -132,7 +132,7 @@ export default function Bounties() {
               </div>
               <div className="mt-4 flex items-center gap-2">
                 <a
-                  href={`mailto:marketing@magiccraft.io?subject=${encodeURIComponent('MCRT Bounty Application — ' + bounty.title)}`}
+                  href={`mailto:marketing@magiccraft.io?subject=${encodeURIComponent('MCRT Bounty Application - ' + bounty.title)}`}
                   className="btn-primary px-4 py-2 text-sm"
                   rel="noreferrer noopener"
                 >

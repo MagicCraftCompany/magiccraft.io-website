@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1" />
 
     <link rel="icon" href="/favicon.ico" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#05081d" />
+    <meta name="color-scheme" content="dark light" />
     <meta
       name="description"
       content="MagicCraft is a crypto gaming MOBA where you can battle, build games like Roblox, and earn $MCRT. Play on PC, iOS, Android, and Steam. Trade on Bybit and more."
@@ -23,13 +24,13 @@
     <meta property="og:title" content="MagicCraft | Crypto Gaming MOBA – Earn $MCRT" />
     <meta property="og:description" content="Battle in a crypto MOBA and create games to earn $MCRT. Play on PC, iOS, Android, Steam. Trade on Bybit." />
     <meta property="og:url" content="https://magiccraft.io/" />
-    <meta property="og:image" content="/public/img/hero.webp" />
+    <meta property="og:image" content="/img/hero.webp" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="MagicCraft | Crypto Gaming MOBA – Earn $MCRT" />
     <meta name="twitter:description" content="Battle, build, and earn $MCRT. Play on PC, iOS, Android, Steam. Trade on Bybit." />
-    <meta name="twitter:image" content="/public/img/hero.webp" />
+    <meta name="twitter:image" content="/img/hero.webp" />
 
     <!-- Preconnects -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -103,6 +104,28 @@
     </script>
   </head>
   <body>
+    <!-- Netlify form stub to ensure the SPA form is detected at build time -->
+    <form name="grants" netlify netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="grants" />
+      <input type="hidden" name="subject" value="New MagicCraft Grants submission" />
+      <input type="text" name="teamName" />
+      <input type="email" name="email" />
+      <input type="text" name="projectName" />
+      <input type="url" name="url" />
+      <input type="text" name="category" />
+      <input type="number" name="amountUsd" />
+      <input type="number" name="amountMcrt" />
+      <input type="text" name="mcrtPlan" />
+      <input type="text" name="wallet" />
+      <textarea name="description"></textarea>
+      <textarea name="links"></textarea>
+      <input type="checkbox" name="hasBuild" />
+      <input type="text" name="bot-field" />
+    </form>
+    <!-- Success page for Netlify redirect after submission -->
+    <form name="grants-success" hidden>
+      <p>Thank you for your submission.</p>
+    </form>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

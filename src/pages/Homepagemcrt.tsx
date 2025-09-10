@@ -15,7 +15,7 @@ import { LiaTelegramPlane } from 'react-icons/lia'
 import GamePlay from '@/components/GamePlay'
 // import GameCard from '@/components/ui/GameCard'
 // import { Game, gamesData } from '@/data/game'
-import { ArrowUpRight } from 'lucide-react'
+// import { ArrowUpRight } from 'lucide-react'
 import MagicraftDownload from '@/components/HomePageCard'
 import Testimonial from '@/components/ui/testimonial'
 import Partners from '@/components/Partners/Partners'
@@ -27,13 +27,15 @@ import bnbLogo from '../assets/icons/bnblogo.svg'
 import { openTransactionModal } from '@xswap-link/sdk'
 // Official $MCRT logo for token visuals
 const mcrtLogo = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
-import ZeusPromo, { ZeusPromoPopup } from '@/components/ui/ZeusPromo'
+// Zeus promo removed (event finished)
+// import ZeusPromo, { ZeusPromoPopup } from '@/components/ui/ZeusPromo'
 import { Link } from 'react-router-dom'
+import MentionsStrip from '@/components/ui/MentionsStrip'
 
 
 function Homepagemcrt() {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null)
-  const [visibleCount, setVisibleCount] = useState(16)
+  const [visibleCount, setVisibleCount] = useState(8)
   const [currentSlide, setCurrentSlide] = useState(0)
   const TOTAL_SLIDES = 3
 
@@ -278,13 +280,11 @@ function Homepagemcrt() {
         </script>
       </Helmet>
       <div className="min-h-dvh w-full max-w-full text-white overflow-x-hidden">
-        {/* Zeus promo popup at the very top */}
-        {/* Use ASCII-safe filename to avoid any browser path parsing issues */}
-        <ZeusPromoPopup imageUrl={'/img/zeus-ss-1.png'} />
+        {/* Zeus promo removed */}
         <Header />
         <main className="md:-mt-[80px] scroll-smooth pb-20 w-full max-w-full overflow-x-hidden">
           {/*header*/}
-          <section className="md:min-h-screen relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-[750px] xl:h-[800px] bg-cover bg-center overflow-hidden w-full max-w-full">
+          <section className="md:min-h-screen relative h-[550px] sm:h-[650px] md:h-[700px] lg:h-[750px] xl:h-[800px] bg-cover bg-center overflow-hidden w-full max-w-full">
             <video
               ref={heroVideoRef}
               className="absolute inset-0 h-full w-full object-cover scale-105"
@@ -311,9 +311,9 @@ function Homepagemcrt() {
             <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5 animate-pulse-slow"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#03082f]/90 via-transparent to-transparent"></div>
             
-            <div className="relative z-10 mx-auto max-w-screen-xl h-full w-full px-2 sm:px-4">
-              <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 pt-16 sm:pt-20 md:pt-24 lg:pt-28 pb-6 sm:pb-8 md:pb-12 lg:pb-16">
-                <div className="w-full max-w-[25%] sm:max-w-[20%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-4 sm:mt-6 md:mt-8 lg:mt-12 group">
+            <div className="relative z-10 mx-auto max-w-screen-xl h-full w-full px-3 sm:px-4">
+              <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 sm:gap-4 md:gap-4 lg:gap-5 pt-20 sm:pt-24 md:pt-24 lg:pt-28 pb-8 sm:pb-10 md:pb-12 lg:pb-16">
+                <div className="w-full max-w-[30%] sm:max-w-[25%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-2 sm:mt-4 md:mt-8 lg:mt-12 group">
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 animate-pulse-slow"></div>
                     <img
@@ -325,36 +325,36 @@ function Homepagemcrt() {
                 </div>
                   </div>
                 
-                <div className="text-center gap-section animate-slide-up mt-4 sm:mt-6 md:mt-8 lg:mt-12 xl:mt-16 px-4 sm:px-6 md:px-8">
-                  <div className="flex justify-center mb-4 md:mb-6">
+                <div className="text-center gap-section animate-slide-up mt-3 sm:mt-4 md:mt-8 lg:mt-12 xl:mt-16 px-4 sm:px-6 md:px-8">
+                  <div className="flex justify-center mb-3 sm:mb-4 md:mb-6">
                     <img 
                       src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"  
                       alt="MagicCraft Logo"
                       loading="eager"
-                      className="w-full max-w-[260px] sm:max-w-xs md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-xl"
+                      className="w-full max-w-[280px] sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-xl"
                     />
                   </div>
                                     <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wider drop-shadow-2xl leading-tight">
                     $MCRT THE CURRENCY OF GAMING
                 </h1>
-                  <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+                  <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-md mx-auto">
                     <a href="https://lobby.magiccraft.io/" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Earn</a>
                     <a href="/build-on-magiccraft" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Create</a>
                     <a href="/grants" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Grants</a>
                     <a href="https://app.magiccraft.io/pledging" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Pledge</a>
                     <a href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Spend</a>
                   </div>
-                  <div className="mt-4 sm:mt-5 flex items-center justify-center gap-2 sm:gap-3">
+                  <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3">
                     <button
                       onClick={openGameByDevice}
-                      className="header-cta header-cta--play interactive-scale ripple-effect"
+                      className="header-cta header-cta--play interactive-scale ripple-effect w-full sm:w-auto"
                       aria-label="Play MagicCraft now"
                     >
                       Play Now
                     </button>
                     <button
                       onClick={handleBuyMCRT}
-                      className="cta-premium interactive-scale ripple-effect"
+                      className="cta-premium interactive-scale ripple-effect w-full sm:w-auto"
                       aria-label="Buy MCRT tokens"
                     >
                       Buy $MCRT
@@ -422,6 +422,13 @@ function Homepagemcrt() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#98FFF9]/3 to-transparent"></div>
           
           <div className="relative z-10 mx-auto w-11/12 max-w-screen-xl">
+            {/* Exchange badges at very top for instant credibility */}
+            <div className="flex items-center justify-center gap-3 md:gap-4 mb-4 md:mb-6">
+              <span className="text-[10px] sm:text-xs text-white/60">Listed on</span>
+              <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-4 sm:h-5 opacity-90" loading="eager" />
+              <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-4 sm:h-5 opacity-90" loading="eager" />
+              <img src="/icons/icon-huobi.svg" alt="HTX" className="h-4 sm:h-5 opacity-90" loading="eager" />
+            </div>
             <div className="grid gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16 items-center">
               <div className="space-y-6 md:space-y-8 text-center lg:text-left animate-slide-up">
                 <div className="space-y-4 md:space-y-6">
@@ -434,17 +441,38 @@ function Homepagemcrt() {
                     </div>
                   </h3>
                   <p className="text-center text-lg md:text-xl lg:text-2xl opacity-90 md:text-left leading-relaxed text-gray-300 max-w-2xl mx-auto lg:mx-0">
-                    MagicCraft is a Play-to-Earn blockchain game featuring
-                    fast-paced multiplayer battles. Every day, thousands of
-                    players earn our utility token, MCRT, by showcasing their
-                    skills. Join them to step into a new era of gaming where
-                    your prowess can pave the path to prosperity.
+                    MagicCraft is a competitive Web3 game economy where skill converts to on‑chain value. Battle in
+                    fast‑paced multiplayer modes, contribute maps and game content, and earn $MCRT - our ecosystem's
+                    utility token - directly for your performance and creations. Join a growing player‑owned economy
+                    built for gamers, creators, and crypto natives.
                   </p>
                   <p className="text-sm md:text-base text-[#98FFF9] max-w-2xl mx-auto lg:mx-0">
-                    MCRT is MagicCraft's utility token - the currency of gaming in our ecosystem. Earn MCRT by
-                    playing matches, creating maps and games with our Game Maker, participating in events, and through
-                    pledging and marketplace activity.
+                    $MCRT powers gameplay rewards, creator payouts, prediction markets, and in‑game commerce. Earn it in
+                    PvP, publish-to-earn with our Game Maker, participate in events, or pledge to access ecosystem perks
+                    and marketplace yield.
                   </p>
+                  {/* Card Onramp CTA */}
+                  <div className="max-w-2xl mx-auto lg:mx-0">
+                    <div className="mt-3 md:mt-4 rounded-2xl border border-white/15 bg-white/5 p-2.5 md:p-3.5 flex items-center justify-between gap-3 shadow-[0_4px_20px_rgba(152,255,249,0.08)]">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-[#98FFF9]/20 flex items-center justify-center">
+                          <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.8 9.7-8 10-4.2-.3-8-5-8-10V6l8-4zm0 2.2L6 6v5.8c0 3.9 2.9 7.8 6 8 3.1-.2 6-4.1 6-8V6l-6-1.8zM12 8a3 3 0 013 3 3 3 0 11-3-3z"/></svg>
+                </div>
+                        <div>
+                          <div className="text-[11px] md:text-xs text-white/70 leading-tight">Card Onramp</div>
+                          <div className="text-base md:text-lg font-semibold text-white leading-tight">Buy with card</div>
+                        </div>
+                      </div>
+                      <a
+                        href="https://www.bybit.com/en/buy-sell/crypto"
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="px-3.5 py-1.5 md:px-4 md:py-2 rounded-full border border-[#98FFF9]/40 bg-[#98FFF9]/10 text-[#98FFF9] hover:bg-[#98FFF9] hover:text-[#03082F] transition font-semibold"
+                      >
+                        Buy
+                      </a>
+                    </div>
+                  </div>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 pt-1 md:pt-2">
                     <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
                       <svg className="w-4 h-4 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 6 .9-4.5 4.3L18 20l-6-3.2L6 20l1.5-6.8L3 8.9 9 8l3-6z"/></svg>
@@ -608,7 +636,7 @@ function Homepagemcrt() {
                 </div>
                 <h4 className="text-lg md:text-xl font-bold">Apply for Grants</h4>
               </div>
-              <p className="text-base md:text-lg text-gray-300">Games, Web3/AI, Crypto — with $MCRT integration.</p>
+              <p className="text-base md:text-lg text-gray-300">Games, Web3/AI, Crypto - with $MCRT integration.</p>
               <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-80 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                 <p className="text-base md:text-[17px] text-white leading-relaxed">Submit your project with a working build. $MCRT‑aligned projects are prioritized.</p>
               </div>
@@ -907,6 +935,9 @@ function Homepagemcrt() {
           </details>
         </section>
 
+        {/* Mentions from X (crypto KOLs) */}
+        <MentionsStrip />
+
         {/* Sticky mobile bottom bar */}
         <div className="fixed bottom-2 inset-x-2 md:hidden z-50 safe-padded">
           <div className="rounded-2xl bg-[#0B0F39]/80 backdrop-blur border border-white/10 shadow-2xl p-2 flex items-center justify-between gap-2">
@@ -922,79 +953,12 @@ function Homepagemcrt() {
           
          <section id="gameplay">
           <GamePlay />
-        </section>
+          </section>
 
           {/* Exchanges/Partners elevated */}
           <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl mt-4 sm:mt-6 md:mt-8 lg:mt-12 mb-8 sm:mb-10 md:mb-14 lg:mb-16 px-1 sm:px-2 md:px-0 overflow-x-hidden">
             <Partners />
           </section>
-
-          {/* Game Maker Banner */}
-          <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl mb-4 md:mb-8 px-1 sm:px-2 md:px-0 overflow-x-hidden">
-            <div className="card-gradient overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
-              <div className="relative card-padding gap-card">
-                <div className="text-center gap-element">
-                  <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
-                    BUILD GAMES WITH GAME MAKER
-                  </h3>
-                  <p className="text-body-large text-gray-300 max-w-4xl mx-auto">
-                    Like Roblox, create your own games and maps! Earn <span className="text-[#98FFF9] font-bold">$MCRT tokens</span> for every player who enjoys your creations. 
-                    Build, share, and monetize your gaming ideas in the MagicCraft ecosystem.
-                  </p>
-                </div>
-                      
-                      <div className="relative h-auto">
-                      {/* Desktop/tablet banner - horizontal */}
-                      <img
-                        src="http://res.cloudinary.com/dfzcr2ch4/image/upload/v1753800048/rksbqhjxphkaeoooqolq.webp"
-                        alt="Game Maker banner"
-                    className="hidden md:block w-full h-auto object-cover rounded-xl md:rounded-2xl shadow-2xl"
-                    loading="lazy"
-                      />
-                      {/* Mobile banner - vertical */}
-                      <img
-                        src="http://res.cloudinary.com/dfzcr2ch4/image/upload/v1754042773/vtnxmvnugebfblvkabwk.webp"
-                        alt="Game Maker banner"
-                    className="block md:hidden w-full h-auto object-cover rounded-xl shadow-2xl"
-                    loading="lazy"
-                  />
-                  
-                  {/* Enhanced content overlay: static on mobile, absolute on md+ */}
-                  <div className="md:absolute md:inset-0 flex flex-col md:justify-end md:items-end p-3 md:p-6 lg:p-8 xl:p-12 mt-3 md:mt-0 md:pointer-events-none">
-                    <div className="space-y-3 md:space-y-4 md:text-right text-center bg-black/60 backdrop-blur-md rounded-xl md:rounded-2xl p-4 md:p-6 border border-[#98FFF9]/20 shadow-2xl max-w-full md:max-w-none pointer-events-auto mx-auto md:mx-0">
-                      <h1 className="font-serif text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-white">
-                          GAME MAKER
-                        </h1>
-                      <div className="text-xs md:text-sm text-gray-200 space-y-1 md:space-y-2 max-w-[260px] md:max-w-[250px] mx-auto md:mx-0">
-                        <p className="flex items-center gap-2">
-                          <span className="text-[#98FFF9]">•</span> Create games like Roblox
-                        </p>
-                        <p className="flex items-center gap-2">
-                          <span className="text-[#FFB649]">•</span> Earn $MCRT per player
-                        </p>
-                        <p className="flex items-center gap-2">
-                          <span className="text-[#B591F2]">•</span> Monetize your creativity
-                        </p>
-                      </div>
-                      <Link 
-                        to="/build-on-magiccraft" 
-                        className="btn-primary gap-2 mx-auto md:mx-0"
-                      >
-                        Start Building
-                        <ArrowUpRight className="h-3 w-3 md:h-4 md:w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Zeus NFT promo */}
-          <ZeusPromo />
-
-          
 
           {/* Token Info: $BNB and $MCRT */}
           <section className="py-6 sm:py-8 md:py-12 lg:py-16 relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 overflow-visible">
@@ -1012,14 +976,14 @@ function Homepagemcrt() {
                 </div>
                 <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
                   DUAL TOKEN ECOSYSTEM
-                </h3>
-              </div>
+                  </h3>
+                </div>
               <p className="text-body-large text-gray-300 max-w-4xl mx-auto leading-relaxed">
                 Experience the power of two tokens: earn <span className="text-[#98FFF9] font-semibold">$MCRT</span> through gameplay and compete for <span className="text-[#F3BA2F] font-semibold">$BNB</span> rewards in our exclusive lobbies
               </p>
               <div className="mt-6 flex justify-center">
                 <div className="h-px w-24 bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent"></div>
-              </div>
+                    </div>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
@@ -1114,9 +1078,9 @@ function Homepagemcrt() {
                   </div>
 
                   <p className="text-body text-gray-300 mb-6">
-                    MCRT is MagicCraft's utility token - the currency of gaming in our ecosystem. Earn MCRT by
-                    playing matches, creating maps and games with our Game Maker, participating in events, and through
-                    pledging and marketplace activity.
+                    $MCRT is the utility token that fuels MagicCraft's player‑owned economy - rewarding competitive play,
+                    funding creators, and enabling commerce across modes, maps, and marketplace assets. Win matches,
+                    build content, join events, or pledge to unlock utility and long‑term alignment.
                   </p>
 
                   {/* Features with icons */}

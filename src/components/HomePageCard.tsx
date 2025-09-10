@@ -58,16 +58,25 @@ export default function MagicraftDownload() {
           const rightOverflow = centeredLeft + tooltipWidth / 2 > viewportWidth - padding
           const leftOverflow = centeredLeft - tooltipWidth / 2 < padding
 
-          // If we're on a rightmost card like SOL or XRP (and MCRT on some widths), force expansion to the left of the card
-          const forceLeftOfCard = ['sol', 'xrp', 'mcrt'].includes(hoveredLobby)
-
-          if (rightOverflow || forceLeftOfCard) {
+          // Check if we need to force left positioning for rightmost cards
+          // Determine rightmost cards based on viewport width and grid layout
+          // Grid: 2 cols (mobile), 3 cols (sm/md/lg), 6 cols (xl)
+          let rightmostCards: string[] = []
+          if (viewportWidth >= 1280) { // xl: 6 columns
+            rightmostCards = ['sol'] // Only SOL is rightmost in 6-col layout
+          } else if (viewportWidth >= 640) { // sm/md/lg: 3 columns
+            rightmostCards = ['mcrt', 'sol'] // MCRT and SOL are rightmost in 3-col layout
+          } else { // mobile: 2 columns
+            rightmostCards = ['bnb', 'eth', 'sol'] // Even positions are rightmost in 2-col layout
+          }
+          const isRightmostCard = rightmostCards.includes(hoveredLobby)
+          
+          if (rightOverflow || isRightmostCard) {
             // Anchor the tooltip's right edge to the card's right edge so it opens to the left
-            // Nudge a few pixels inward to avoid any visual clipping due to borders/shadows
-            left = Math.min(rect.right - 8, viewportWidth - padding - 8)
+            left = rect.right - 16
             transform = 'translateX(-100%)'
           } else if (leftOverflow) {
-            left = Math.max(rect.left, padding)
+            left = rect.left + 16
             transform = 'translateX(0)'
           }
 
@@ -284,14 +293,14 @@ export default function MagicraftDownload() {
 
   return (
     <>
-    <div className="mx-1 sm:mx-2 flex flex-col lg:flex-row items-start justify-center gap-4 lg:gap-6 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 -mt-2 sm:-mt-3 relative z-50 overflow-visible">
+    <div className="mx-2 sm:mx-4 flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-8 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 mt-4 sm:mt-6 relative z-50 overflow-visible">
       {/* Platform Download Box */}
       <div className="relative mx-auto w-full lg:w-auto lg:flex-shrink-0 lg:mx-0 lg:mt-[25px]">
         <div className="rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
             {/* Platform Download Buttons */}
-            <div className="p-4 lg:p-6">
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-3 lg:gap-4 w-full max-w-sm mx-auto lg:max-w-none">
+            <div className="p-5 lg:p-6">
+              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-4 lg:gap-4 w-full max-w-md mx-auto lg:max-w-none">
                 {platforms.map((platform) => (
                   <a
                     key={platform.name}
@@ -301,7 +310,7 @@ export default function MagicraftDownload() {
                     rel="noopener noreferrer"
                     aria-label={`${platform.label} ${platform.sublabel}`}
                   >
-                    <div className="mb-2 h-6 w-6 lg:h-8 lg:w-8 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg">
+                    <div className="mb-2 h-7 w-7 sm:h-8 sm:w-8 lg:h-8 lg:w-8 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg">
                       <img
                         src={platform.icon}
                         alt={platform.name}
@@ -309,8 +318,8 @@ export default function MagicraftDownload() {
                         loading="lazy"
                       />
                     </div>
-                    <span className="text-xs text-white/80 group-hover:text-white transition-colors duration-300 font-medium">{platform.label}</span>
-                    <span className="text-xs font-bold text-white group-hover:text-[#FFB649] transition-colors duration-300">
+                    <span className="text-xs sm:text-sm text-white/80 group-hover:text-white transition-colors duration-300 font-medium">{platform.label}</span>
+                    <span className="text-xs sm:text-sm font-bold text-white group-hover:text-[#FFB649] transition-colors duration-300">
                       {platform.sublabel}
                     </span>
                   </a>
@@ -319,7 +328,7 @@ export default function MagicraftDownload() {
             </div>
 
             {/* Social Links */}
-            <div className="mx-4 mb-4 flex justify-center gap-2 lg:gap-3 rounded-xl border border-[#B591F2]/30 bg-gradient-to-r from-[#6D3190]/80 to-[#642588]/80 py-2 lg:py-3 backdrop-blur-sm">
+            <div className="mx-4 mb-4 flex justify-center gap-3 lg:gap-3 rounded-xl border border-[#B591F2]/30 bg-gradient-to-r from-[#6D3190]/80 to-[#642588]/80 py-3 lg:py-3 backdrop-blur-sm">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
@@ -341,7 +350,7 @@ export default function MagicraftDownload() {
 
       {/* Crypto Lobby Cards - responsive grid, dynamic from data */}
       <div className="w-full lg:flex-1 lg:ml-6 relative overflow-visible" style={{ zIndex: 100 }}>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 md:gap-5 lg:gap-6 w-full max-w-5xl lg:max-w-none mx-auto px-2 sm:px-3 overflow-visible">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5 lg:gap-6 w-full max-w-5xl lg:max-w-none mx-auto px-1 sm:px-2 overflow-visible">
           {(['btc','bnb','mcrt','eth','xrp','sol'] as const).map((key) => {
             const l = lobbyData[key]
             const colorClass =

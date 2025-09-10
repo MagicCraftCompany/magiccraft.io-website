@@ -71,7 +71,7 @@ const baseTestimonials = [
     id: 8,
     name: 'ArenaFan',
     initials: 'AF',
-    review: 'Crypto lobbies are fun — theme skins and maps are a nice touch. Referral bonus paid in MCRT landed fast.',
+    review: 'Crypto lobbies are fun - theme skins and maps are a nice touch. Referral bonus paid in MCRT landed fast.',
     metrics: { views: 70, shares: 18, likes: '540', impressions: '52k' },
     source: 'Reddit',
     href: 'https://reddit.com/',

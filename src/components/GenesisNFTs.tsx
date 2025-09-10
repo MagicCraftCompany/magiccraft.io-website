@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 
 type Tier = { label: string; requirement: string; multiplier: string; note?: string }
 
@@ -15,12 +15,45 @@ const revelationTiers: Tier[] = [
 ]
 
 const GenesisNFTs: React.FC = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
+
+  // Calculator state
+  const [collection, setCollection] = useState<'genesis' | 'revelation'>('genesis')
+  const [baseReward, setBaseReward] = useState<number>(100)
+  const [mcrtHeld, setMcrtHeld] = useState<number>(100000)
+  const [genesisRarity, setGenesisRarity] = useState<'Rare' | 'Epic' | 'Legendary'>('Rare')
+  const [revelationCount, setRevelationCount] = useState<number>(3)
+
+  const calculator = useMemo(() => {
+    if (collection === 'genesis') {
+      const eligible = mcrtHeld >= 100000
+      let multiplier = 1
+      if (eligible) {
+        if (genesisRarity === 'Epic') multiplier = 2
+        if (genesisRarity === 'Legendary') multiplier = 3
+      }
+      const estimated = Math.max(0, baseReward) * multiplier
+      return { eligibleLabel: 'VIP Lobbies eligibility', eligible, multiplier, estimated }
+    }
+    // revelation
+    const eligible = mcrtHeld >= 50000 && revelationCount >= 3
+    let multiplier = 1
+    if (eligible) {
+      if (revelationCount >= 9) multiplier = 3
+      else if (revelationCount >= 6) multiplier = 2
+      else multiplier = 1
+    } else {
+      multiplier = 0
+    }
+    const estimated = Math.max(0, baseReward) * (multiplier || 0)
+    return { eligibleLabel: 'Weekend Lobbies eligibility', eligible, multiplier: multiplier || 0, estimated }
+  }, [collection, baseReward, mcrtHeld, genesisRarity, revelationCount])
+
   return (
     <section className="relative py-10 md:py-16 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0">
       <div className="text-center mb-6 md:mb-8">
         <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
-          Genesis NFTs — Earnings Tiers
+          Genesis NFTs - Earnings Tiers
         </h3>
         <p className="text-gray-300 text-base md:text-lg mt-2">Boost your eligible rewards with Genesis or Revelation NFTs.</p>
         <button onClick={() => setOpen(!open)} className="mt-3 inline-flex items-center gap-2 rounded-xl border border-white/15 bg-black/20 hover:bg-black/30 px-4 py-2 text-sm text-white/80">
@@ -63,6 +96,107 @@ const GenesisNFTs: React.FC = () => {
           </div>
           <p className="mt-3 text-[11px] md:text-xs text-white/60">Note: Only the MVP on the winning team gets rewarded.</p>
         </div>
+
+        {/* Earnings Calculator */}
+        <div className="card-glass card-padding rounded-2xl mt-6">
+          <h4 className="text-xl md:text-2xl font-bold mb-3">Earnings Calculator</h4>
+          <p className="text-sm md:text-base text-gray-300 mb-4">Estimate your eligible reward based on holdings and tier. Actual distribution depends on lobby rules and match results.</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            <div className="space-y-3">
+              <label className="block">
+                <span className="text-xs text-white/70">Collection</span>
+                <div className="mt-1 grid grid-cols-2 gap-2">
+                  <button
+                    type="button"
+                    className={`px-3 py-2 rounded-lg border ${collection==='genesis' ? 'border-[#98FFF9]/60 bg-[#98FFF9]/10' : 'border-white/15 bg-white/5'} text-sm`}
+                    onClick={() => setCollection('genesis')}
+                  >
+                    Genesis
+                  </button>
+                  <button
+                    type="button"
+                    className={`px-3 py-2 rounded-lg border ${collection==='revelation' ? 'border-[#98FFF9]/60 bg-[#98FFF9]/10' : 'border-white/15 bg-white/5'} text-sm`}
+                    onClick={() => setCollection('revelation')}
+                  >
+                    Revelation
+                  </button>
+                </div>
+              </label>
+
+              <label className="block">
+                <span className="text-xs text-white/70">Base eligible reward (MCRT)</span>
+                <input
+                  type="number"
+                  min={0}
+                  value={baseReward}
+                  onChange={(e) => setBaseReward(Number(e.target.value))}
+                  className="mt-1 w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm outline-none focus:border-[#98FFF9]/60"
+                />
+              </label>
+
+              <label className="block">
+                <span className="text-xs text-white/70">$MCRT held</span>
+                <input
+                  type="number"
+                  min={0}
+                  step={1000}
+                  value={mcrtHeld}
+                  onChange={(e) => setMcrtHeld(Number(e.target.value))}
+                  className="mt-1 w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm outline-none focus:border-[#98FFF9]/60"
+                />
+              </label>
+
+              {collection === 'genesis' ? (
+                <label className="block">
+                  <span className="text-xs text-white/70">Genesis NFT rarity</span>
+                  <select
+                    value={genesisRarity}
+                    onChange={(e) => setGenesisRarity(e.target.value as 'Rare'|'Epic'|'Legendary')}
+                    className="mt-1 w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm outline-none focus:border-[#98FFF9]/60"
+                  >
+                    <option value="Rare">Rare (1×)</option>
+                    <option value="Epic">Epic (2×)</option>
+                    <option value="Legendary">Legendary (3×)</option>
+                  </select>
+                </label>
+              ) : (
+                <label className="block">
+                  <span className="text-xs text-white/70">Revelation NFTs held</span>
+                  <input
+                    type="number"
+                    min={0}
+                    step={1}
+                    value={revelationCount}
+                    onChange={(e) => setRevelationCount(Number(e.target.value))}
+                    className="mt-1 w-full rounded-lg border border-white/15 bg-white/5 px-3 py-2 text-sm outline-none focus:border-[#98FFF9]/60"
+                  />
+                  <span className="block mt-1 text-[11px] text-white/60">3 = 1×, 6 = 2×, 9 = 3× (min 50,000 $MCRT)</span>
+                </label>
+              )}
+            </div>
+
+            <div className="rounded-xl border border-white/15 bg-white/5 p-4 md:p-5">
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-white/70">{calculator.eligibleLabel}</span>
+                <span className={`text-xs px-2 py-1 rounded ${calculator.eligible ? 'bg-emerald-400/15 text-emerald-300' : 'bg-rose-400/15 text-rose-300'}`}>
+                  {calculator.eligible ? 'Eligible' : 'Not eligible'}
+                </span>
+              </div>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                <div className="rounded-lg bg-black/20 border border-white/10 p-3">
+                  <div className="text-xs text-white/60">Multiplier</div>
+                  <div className="text-lg font-semibold">{calculator.multiplier}×</div>
+                </div>
+                <div className="rounded-lg bg-black/20 border border-white/10 p-3">
+                  <div className="text-xs text-white/60">Estimated Reward</div>
+                  <div className="text-lg font-semibold">{calculator.estimated.toLocaleString(undefined, { maximumFractionDigits: 2 })} MCRT</div>
+                </div>
+              </div>
+              <p className="mt-3 text-[11px] text-white/60">Estimates assume eligible base reward input and do not guarantee payout. Only Top 5 on the winning team get rewards; MVP receives 100% of their eligible reward.</p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div className="mt-6 md:mt-8 grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
@@ -93,7 +227,7 @@ const GenesisNFTs: React.FC = () => {
       </div>
 
       <p className="mt-6 text-[11px] md:text-xs text-white/60">
-        Multipliers and eligibility are subject to change during beta. Regional restrictions may apply. Source: Mint pages — Genesis & Revelation collections.
+        Multipliers and eligibility are subject to change during beta. Regional restrictions may apply. Source: Mint pages - Genesis & Revelation collections.
       </p>
     </section>
   )

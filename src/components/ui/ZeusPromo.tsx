@@ -72,7 +72,7 @@ export function ZeusPromoBanner({ imageUrl }: { imageUrl: string }) {
         <div className="flex-1 min-w-0">
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-white/80">New Drop</span>
-            <p className="text-sm md:text-base font-semibold text-white truncate">Zeus NFT — Web3 in‑game skin. Hold ≥ 1,000,000 $MCRT for airdrop.</p>
+            <p className="text-sm md:text-base font-semibold text-white truncate">Zeus NFT - Web3 in‑game skin. Hold ≥ 1,000,000 $MCRT for airdrop.</p>
           </div>
           <div className="text-xs text-white/70 mt-0.5">
             {target - Date.now() > 0
@@ -121,7 +121,7 @@ export function ZeusPromoPopup({ imageUrl }: { imageUrl: string }) {
           <div className="flex-1 min-w-0">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-white/10 border border-white/15 text-white/80">New Drop</span>
-              <p className="text-sm md:text-base font-semibold text-white truncate">Zeus NFT — Web3 in‑game skin. Hold ≥ 1,000,000 $MCRT for airdrop.</p>
+              <p className="text-sm md:text-base font-semibold text-white truncate">Zeus NFT - Web3 in‑game skin. Hold ≥ 1,000,000 $MCRT for airdrop.</p>
             </div>
             <div className="text-[11px] md:text-xs text-white/70 mt-0.5">
               {target - Date.now() > 0
@@ -195,7 +195,7 @@ export default function ZeusPromo() {
                 <span className="text-xs md:text-sm text-white/80">New Drop</span>
               </div>
               <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#FFB649] via-[#FFE5A5] to-[#FFFFFF] bg-clip-text text-transparent leading-tight">
-                Zeus NFT — Web3 In‑Game Skin
+                Zeus NFT - Web3 In‑Game Skin
               </h3>
               <p className="text-base md:text-lg text-white/80 max-w-2xl">
                 Harness the lightning. Some skins will be <b>Rare</b> and <b>Legendary</b>. Snapshot in 3 days.

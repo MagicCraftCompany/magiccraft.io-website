@@ -1,5 +1,6 @@
 // import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from './components/ScrollToTop'
 // import { openTransactionModal } from "@xswap-link/sdk";
 
 import Homepagemcrt from "./pages/Homepagemcrt";
@@ -26,6 +27,9 @@ import SanityStudio from "./pages/SanityStudio";
 import Bounties from "./pages/Bounties";
 import Guilds from "./pages/Guilds";
 import Grants from "./pages/Grants";
+import GrantsSuccess from './pages/GrantsSuccess'
+import { BUILD_REV } from './version'
+import Careers from './pages/Careers'
 
 // const handleBuyMCRT = async () => {
 //   try {
@@ -45,6 +49,7 @@ import Grants from "./pages/Grants";
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Homepagemcrt  />} />
         <Route path="/magiccraft" element={<Homepagegames />} />
@@ -68,10 +73,17 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/bounties" element={<Bounties />} />
         <Route path="/grants" element={<Grants />} />
+        <Route path="/grants/success" element={<GrantsSuccess />} />
+        <Route path="/careers" element={<Careers />} />
         <Route path="/guilds" element={<Guilds />} />
         <Route path="/admin/*" element={<SanityStudio />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <div className="fixed left-2 top-2 z-[100000] pointer-events-none select-none">
+        <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-white/10 border border-white/20 text-white/80 backdrop-blur-md shadow-lg">
+          v{BUILD_REV}
+        </span>
+      </div>
     </BrowserRouter>
   );
 }

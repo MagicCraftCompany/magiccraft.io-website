@@ -146,6 +146,11 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     icon: about,
     submenu: [
       {
+        title: 'Careers',
+        icon: '/icons/icon-help.svg',
+        path: '/careers',
+      },
+      {
         title: 'Guilds',
         icon: '/icons/icon-community.svg',
         path: '/guilds',

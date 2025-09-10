@@ -11,6 +11,7 @@ import {
   FaYoutube,
 } from 'react-icons/fa6'
 import { useNavigate } from 'react-router-dom' // Import useNavigate
+import { BUILD_REV } from '@/version'
 
 const socialLinks = [
   {
@@ -95,6 +96,7 @@ const moreLinks = [
 
 const Footer = () => {
   const navigate = useNavigate()
+  const appVersion = `v${BUILD_REV}`
   return (
     <footer className="text-primary relative z-10 py-12 md:py-16 bg-gradient-to-b from-[#020418] via-[#0A0424] to-[#03082f] border-t border-white/5">
       <div className="mx-auto flex w-11/12 max-w-screen-xl flex-col-reverse justify-between gap-10 md:gap-12 lg:flex-row">
@@ -113,8 +115,11 @@ const Footer = () => {
           </div>
           
           <div className="space-y-6 md:space-y-8">
-            <p className="text-sm md:text-base text-white/70 leading-relaxed font-medium">
-              &copy; 2025 MagicCraft Ltd. All rights reserved
+            <p className="text-sm md:text-base text-white/70 leading-relaxed font-medium flex items-center gap-2">
+              <span>&copy; MagicCraft May 2021 - 2025. All rights reserved</span>
+              <span className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-white/60">
+                {appVersion}
+              </span>
             </p>
             
             <ul className="text-sm md:text-base flex flex-col md:flex-row md:space-x-8 space-y-3 md:space-y-0 text-[#98FFF9] font-semibold">
