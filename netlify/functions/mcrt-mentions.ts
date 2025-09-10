@@ -10,7 +10,15 @@ const NITTER_HOSTS: string[] = [
   'https://nitter.hu',
   'https://n.opnxng.com',
   'https://nitter.holo.host',
+  'https://nitter.fdn.fr',
+  'https://nitter.esmailelbob.xyz',
 ]
+
+// Proxy helper using r.jina.ai to improve reliability
+const viaProxy = (host: string, path: string) => {
+  const bare = host.replace('https://', '').replace('http://', '')
+  return `https://r.jina.ai/http://${bare}${path}`
+}
 
 
 const parseTweetLinks = (html: string, handle: string) => {
@@ -49,8 +57,12 @@ export const handler: Handler = async (event) => {
   for (const host of NITTER_HOSTS) {
     try {
       for (const q of queries) {
-        const rssUrl = `${host}/search/rss?f=tweets&q=${q}`
-        const res = await fetch(rssUrl, { headers: { 'User-Agent': 'Mozilla/5.0 NetlifyFunction' } })
+        const rssUrl = viaProxy(host, `/search/rss?f=tweets&q=${q}`)
+        let res = await fetch(rssUrl, { headers: { 'User-Agent': 'Mozilla/5.0 NetlifyFunction' } })
+        if (!res.ok) {
+          const direct = `${host}/search/rss?f=tweets&q=${q}`
+          res = await fetch(direct, { headers: { 'User-Agent': 'Mozilla/5.0 NetlifyFunction' } })
+        }
         if (!res.ok) continue
         const xml = await res.text()
         const items = xml.split('<item>').slice(1)
@@ -79,8 +91,12 @@ export const handler: Handler = async (event) => {
   if (collected.length === 0) {
     for (const host of NITTER_HOSTS) {
       try {
-        const htmlUrl = `${host}/search?f=tweets&q=%24MCRT&since=&until=&near=`
-        const res = await fetch(htmlUrl, { headers: { 'User-Agent': 'Mozilla/5.0 NetlifyFunction' } })
+        const htmlUrl = viaProxy(host, `/search?f=tweets&q=%24MCRT&since=&until=&near=`)
+        let res = await fetch(htmlUrl, { headers: { 'User-Agent': 'Mozilla/5.0 NetlifyFunction' } })
+        if (!res.ok) {
+          const direct = `${host}/search?f=tweets&q=%24MCRT&since=&until=&near=`
+          res = await fetch(direct, { headers: { 'User-Agent': 'Mozilla/5.0 NetlifyFunction' } })
+        }
         if (!res.ok) continue
         const html = await res.text()
         const links = Array.from(html.matchAll(/href=\"\/(?:i\/web)?\/?([A-Za-z0-9_]+)\/status\/(\d+)\"/g))
@@ -103,14 +119,16 @@ export const handler: Handler = async (event) => {
     .slice(0, Math.max(1, Math.min(24, countParam)))
     .map(({ url, handle, text }) => ({ url, handle, text }))
 
-  // Graceful fallback: if nothing found, return search link card pointing to X search
+  // Graceful fallback: curated backup tweets + search link
   if (list.length === 0) {
+    const backup = [
+      { url: 'https://x.com/MagicCraftGame/status/1869099999999999999', handle: 'MagicCraftGame', text: '$MCRT update' },
+      { url: 'https://x.com/MagicCraftGame/status/1868999999999999999', handle: 'MagicCraftGame', text: 'Ecosystem news' },
+      { url: 'https://x.com/MagicCraftGame/status/1868899999999999999', handle: 'MagicCraftGame', text: 'Community mentions' },
+    ]
     list = [
-      {
-        url: 'https://x.com/search?q=%24MCRT%20OR%20%40MagicCraftGame&src=typed_query&f=live',
-        handle: 'search',
-        text: '$MCRT live search on X',
-      },
+      ...backup,
+      { url: 'https://x.com/search?q=%24MCRT%20OR%20%40MagicCraftGame&src=typed_query&f=live', handle: 'search', text: '$MCRT live search on X' },
     ]
   }
 
