@@ -275,7 +275,7 @@ const Header = () => {
       {/* <header className="relative z-50 w-full px-3 py-4  md:px-4 md:py-5">
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
           <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 "> */}
-        <header className="site-header relative z-[200] w-full max-w-full bg-gradient-to-r from-[#431269]/95 via-[#2A0D4E]/95 to-[#431269]/95 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-purple-900/20 overflow-visible">
+        <header className="site-header relative z-[200] w-full max-w-full bg-[rgba(255,255,255,0.03)] backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.35)] overflow-visible">
         <nav className="relative flex items-center justify-between h-14 sm:h-16 md:h-[68px] lg:h-[72px] xl:h-[76px] w-full max-w-full px-3 sm:px-4 overflow-visible">
           <div className="grid shrink-0 place-items-center self-stretch px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8">
             <Link to="/" className="h-full flex items-center group">
