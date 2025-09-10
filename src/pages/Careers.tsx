@@ -23,7 +23,7 @@ function Careers() {
             <li>Performance, analytics, conversion</li>
             <li>Community - X, Telegram, Discord</li>
           </ul>
-          <a href="mailto:careers@magiccraft.io?subject=Marketer%20Application" className="btn-primary no-underline">Apply</a>
+          <a href="mailto:marketing@magiccraft.io?subject=Marketer%20Application" className="btn-primary no-underline">Apply</a>
         </div>
 
         <div className="card-glass card-padding card-hover-lift">
@@ -37,7 +37,7 @@ function Careers() {
             <li>Solidity or on-chain integrations a plus</li>
             <li>Game dev experience is great, not required</li>
           </ul>
-          <a href="mailto:careers@magiccraft.io?subject=Developer%20Application" className="btn-primary no-underline">Apply</a>
+          <a href="mailto:marketing@magiccraft.io?subject=Developer%20Application" className="btn-primary no-underline">Apply</a>
         </div>
       </section>
 
@@ -64,7 +64,7 @@ function Careers() {
           <h4 className="mb-2">How to apply</h4>
           <p className="text-body mb-3">Email your portfolio or shipped work. Links over CVs.</p>
           <div className="flex gap-3">
-            <a href="mailto:careers@magiccraft.io?subject=Careers" className="btn-secondary no-underline">Email</a>
+            <a href="mailto:marketing@magiccraft.io?subject=Careers" className="btn-secondary no-underline">Email</a>
             <Link to="/grants" className="btn-secondary no-underline">See Grants</Link>
           </div>
         </div>

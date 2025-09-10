@@ -109,7 +109,7 @@ const Partners = () => {
       <OurPartners />
       <div className="flex items-center justify-center mt-8">
         <a
-          href="mailto:adam@magiccraft.io"
+          href="mailto:marketing@magiccraft.io"
           className="relative inline-flex items-center gap-2 rounded-full h-11 px-6 md:px-7 bg-gradient-to-b from-[#0C1661] to-[#0A1240] border border-[#98FFF9]/30 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:border-[#98FFF9]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50"
         >
           <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />

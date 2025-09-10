@@ -63,7 +63,7 @@ const tokenLinks = [
   },
   {
     title: 'Become a partner',
-    link: 'mailto:mateusz@magiccraft.io',
+    link: 'mailto:marketing@magiccraft.io',
   },
   {
     title: 'Roadmap',
