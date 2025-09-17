@@ -921,16 +921,16 @@ function Homepagemcrt() {
                   <p className="text-base md:text-[17px] text-white leading-relaxed">Vote on proposals, shape game features, and direct treasury initiatives. Governance designed for players and creators.</p>
                 </div>
               </a>
-              <div className="card-glass card-padding block opacity-60 relative group z-10" style={{ overflow: 'visible' }}>
+              <a href="https://rent.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
                 <div className="flex items-center gap-3 mb-1">
                   <img src="/icons/icon-help.svg" alt="NFT Rentals" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">NFT Rentals</h4>
+                  <h4 className="font-bold">NFT Rentals (Testnet)</h4>
                 </div>
-                <p className="text-sm text-gray-300">Coming soon.</p>
+                <p className="text-sm text-gray-300">Currently available on testnet.</p>
                 <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
-                  <p className="text-base md:text-[17px] text-white leading-relaxed">Peer‑to‑peer NFT lending so players can rent items and creators earn yield. Launching after utility updates.</p>
+                  <p className="text-base md:text-[17px] text-white leading-relaxed">Peer‑to‑peer NFT lending so players can rent items and creators earn yield. Available now on testnet.</p>
                 </div>
-              </div>
+              </a>
             </div>
           </details>
         </section>

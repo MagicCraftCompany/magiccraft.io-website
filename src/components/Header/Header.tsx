@@ -130,6 +130,11 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         path: 'https://app.magiccraft.io/marketplace/explorer',
       },
       {
+        title: 'Rent (Testnet)',
+        icon: '/icons/icon-marketplace.svg',
+        path: 'https://rent.magiccraft.io/',
+      },
+      {
         title: 'Pledging',
         icon: '/icons/icon-pledge.svg',
         path: 'https://app.magiccraft.io/pledging',

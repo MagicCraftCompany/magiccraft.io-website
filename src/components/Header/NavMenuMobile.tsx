@@ -40,14 +40,14 @@ const NavMenuMobile = ({ item, closeSidebar }: NavMenuProps) => {
                   className="group"
                 >
                   <div className="flex h-full w-full cursor-pointer items-center gap-3 pl-6 py-3 rounded-lg hover:bg-white/10 transition-all duration-200">
-                    <div className="grid w-5 h-5 shrink-0 place-items-center">
+                    <div className="flex w-5 h-5 shrink-0 items-center justify-center">
                       <img
-                        className="w-full h-full object-contain"
+                        className="block w-full h-full object-contain"
                         src={subItem.icon}
                         alt={subItem.title}
                       />
                     </div>
-                    <p className="text-lg font-semibold text-white/80 group-hover:text-white transition-colors duration-200">
+                    <p className="text-lg font-semibold text-white/80 group-hover:text-white transition-colors duration-200 leading-tight">
                       {subItem.title}
                     </p>
                   </div>
