@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, Shield, Users, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Users, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useBattlePass } from '@/hooks/useBattlePass';
 
 export default function BattlePassCard() {
