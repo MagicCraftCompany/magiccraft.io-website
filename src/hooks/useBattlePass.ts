@@ -45,7 +45,7 @@ export const useBattlePass = () => {
       const response = await fetch(`${apiBaseUrl}/battlepass/active`, {
         headers: {
           'Content-Type': 'application/json',
-          'X-API-Key': process.env.REACT_APP_GAMESERVER_API_KEY || 'qwerty123'
+          'X-API-Key': process.env.REACT_APP_GAMESERVER_API_KEY || 'eXcryBck4cMktHY9'
         }
       });
 
