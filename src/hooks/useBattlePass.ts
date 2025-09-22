@@ -41,11 +41,11 @@ export const useBattlePass = () => {
       setLoading(true);
       setError(null);
       
-      const apiBaseUrl = process.env.REACT_APP_GAMESERVER_API_URL || 'https://prod-gameserver.magiccraft.io:8903';
+      const apiBaseUrl = process.env.REACT_APP_GAMESERVER_API_URL || 'http://prod-gameserver.magiccraft.io:8903';
       const response = await fetch(`${apiBaseUrl}/battlepass/active`, {
         headers: {
           'Content-Type': 'application/json',
-          'X-API-Key': process.env.REACT_APP_GAMESERVER_API_KEY || 'qwerty123'
+          'X-API-Key': process.env.REACT_APP_GAMESERVER_API_KEY || 'eXcryBck4cMktHY9'
         }
       });
 
