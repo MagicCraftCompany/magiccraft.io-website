@@ -41,13 +41,14 @@ export const useBattlePass = () => {
       setLoading(true);
       setError(null);
       
-      const apiBaseUrl = process.env.REACT_APP_GAMESERVER_API_URL || 'http://prod-gameserver.magiccraft.io:8903';
-      const response = await fetch(`${apiBaseUrl}/battlepass/active`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'X-API-Key': process.env.REACT_APP_GAMESERVER_API_KEY || 'eXcryBck4cMktHY9'
-        }
-      });
+      const apiBaseUrl = process.env.NODE_ENV === 'development' 
+        ? 'http://prod-gameserver.magiccraft.io:8903'
+        : (process.env.REACT_APP_GAMESERVER_API_URL || '/gameserverapi');
+      const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+      if (!apiBaseUrl.startsWith('/gameserverapi')) {
+        headers['X-API-Key'] = process.env.REACT_APP_GAMESERVER_API_KEY || ''
+      }
+      const response = await fetch(`${apiBaseUrl}/battlepass/active`, { headers });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
