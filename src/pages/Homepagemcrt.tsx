@@ -385,6 +385,43 @@ function Homepagemcrt() {
                <MagicraftDownload/>
             </div>
              </div>
+          {/* $MCRT Payments strip */}
+          <section id="mcrt-payments" className="w-full border-t border-white/5 bg-gradient-to-r from-[#0B0F39] via-[#120e3d] to-[#0B0F39]">
+            <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-4 sm:py-5">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4">
+                <div className="text-center md:text-left">
+                  <div className="text-sm sm:text-base font-semibold text-white/90">$MCRT payments, on‑chain</div>
+                  <div className="text-xs sm:text-sm text-white/70">BEP‑20 on BNB Chain • ~1¢ fees • high TPS • instant player‑to‑player</div>
+                </div>
+                <div className="flex flex-wrap items-center justify-center md:justify-end gap-2 sm:gap-3 text-[11px] sm:text-xs">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-white/80">
+                    <img src={bnbLogo} alt="BNB Chain" className="h-3.5 w-3.5" />
+                    <span>BEP‑20 / BNB Chain</span>
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-white/80">
+                    {/* Speed icon */}
+                    <svg className="h-3.5 w-3.5 text-white/70" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4a8 8 0 1 1-7.938 7H5a7 7 0 1 0 2.05-4.95l1.414 1.415A5 5 0 1 1 17 12h2A7 7 0 0 0 12 4Zm.5 4a1 1 0 0 0-1 1v3.586l-2.207 2.207a1 1 0 1 0 1.414 1.414l2.5-2.5A1 1 0 0 0 13.5 13V9a1 1 0 0 0-1-1Z"/></svg>
+                    <span>Fast finality</span>
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-white/80">
+                    {/* Coin icon */}
+                    <svg className="h-3.5 w-3.5 text-white/70" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 4.239 2 7s4.477 5 10 5 10-2.239 10-5-4.477-5-10-5Zm0 12c-5.523 0-10-2.239-10-5v3c0 2.761 4.477 5 10 5s10-2.239 10-5V9c0 2.761-4.477 5-10 5Zm0 4c-5.523 0-10-2.239-10-5v3c0 2.761 4.477 5 10 5s10-2.239 10-5v-3c0 2.761-4.477 5-10 5Z"/></svg>
+                    <span>~1¢ fees</span>
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-white/80">
+                    {/* TPS icon */}
+                    <svg className="h-3.5 w-3.5 text-white/70" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 5h6v6H4V5Zm10 0h6v6h-6V5ZM4 13h6v6H4v-6Zm10 4h6v2h-6v-2Z"/></svg>
+                    <span>High TPS</span>
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-white/80">
+                    {/* P2P icon */}
+                    <svg className="h-3.5 w-3.5 text-white/70" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm10 0a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM5 17a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v1H5v-1Z"/></svg>
+                    <span>Player ↔ Player</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </section>
           {/* Quick Stats strip for buyers */}
           <div className="w-full bg-gradient-to-r from-[#0B0F39] via-[#120e3d] to-[#0B0F39] border-t border-white/5">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-4 sm:py-6">
