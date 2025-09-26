@@ -280,7 +280,7 @@ const Header = () => {
       {/* <header className="relative z-50 w-full px-3 py-4  md:px-4 md:py-5">
         <nav className="flex items-center justify-between gap-4 rounded-xl bg-[#431269B2] md:gap-12">
           <div className="grid shrink-0 place-items-center self-stretch  px-4  md:px-8 "> */}
-        <header className="site-header relative z-[200] w-full max-w-full bg-[rgba(255,255,255,0.03)] backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.35)] overflow-visible">
+        <header className="site-header relative z-[200] w-full max-w-full glass-surface hairline-bottom overflow-visible">
         <nav className="relative flex items-center justify-between h-14 sm:h-16 md:h-[68px] lg:h-[72px] xl:h-[76px] w-full max-w-full px-3 sm:px-4 overflow-visible">
           <div className="grid shrink-0 place-items-center self-stretch px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8">
             <Link to="/" className="h-full flex items-center group">
@@ -347,7 +347,7 @@ const Header = () => {
           {/* Absolutely positioned hamburger to avoid layout clipping */}
           <button
             onClick={openSidebar}
-            className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 p-2.5 rounded-lg bg-purple-600 border-2 border-white hover:bg-purple-700 transition-all duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center z-[100000]"
+            className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 p-2.5 rounded-xl glass-strong hover:bg-white/10 transition-all duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center z-[100000]"
             aria-label="Open menu"
           >
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -365,8 +365,8 @@ const Header = () => {
       <div 
         className={`fixed top-0 right-0 h-full w-[90%] max-w-lg z-[100000] transform transition-transform duration-300 ease-in-out ${
           isSideMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } bg-gradient-to-b from-[#161242] via-[#2A0D4E] to-[#060b31] border-l border-[#9AD4FD]/50 shadow-2xl overflow-auto`}
-        style={{ backdropFilter: 'none', WebkitBackdropFilter: 'none' }}
+        } glass-strong border-l border-white/20 shadow-2xl overflow-auto`}
+        style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
       >
         <div className="safe-padded py-6 pl-8 pr-8 text-white h-full">
               <div className="flex h-full flex-col gap-4">

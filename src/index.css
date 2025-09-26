@@ -162,6 +162,27 @@ a, button, [role="button"], input, textarea, select {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
+/* Apple-like glass utilities for consistent polish */
+.glass-surface {
+  background: var(--apple-surface);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--apple-hairline);
+  box-shadow: var(--apple-shadow);
+}
+
+.glass-strong {
+  background: var(--apple-surface-strong);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--apple-hairline-strong);
+}
+
+.hairline-top { border-top: 1px solid var(--apple-hairline); }
+.hairline-bottom { border-bottom: 1px solid var(--apple-hairline); }
+.hairline-left { border-left: 1px solid var(--apple-hairline); }
+.hairline-right { border-right: 1px solid var(--apple-hairline); }
+
 .card-hover-lift {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

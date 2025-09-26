@@ -98,8 +98,8 @@ const Footer = () => {
   const navigate = useNavigate()
   const appVersion = `v${BUILD_REV}`
   return (
-    <footer className="text-primary relative z-10 py-12 md:py-16 bg-gradient-to-b from-[#020418] via-[#0A0424] to-[#03082f] border-t border-white/5">
-      <div className="mx-auto flex w-11/12 max-w-screen-xl flex-col-reverse justify-between gap-10 md:gap-12 lg:flex-row">
+    <footer className="text-primary relative z-10 py-12 md:py-16 bg-gradient-to-b from-[#020418] via-[#0A0424] to-[#03082f] hairline-top">
+      <div className="mx-auto flex w-11/12 max-w-screen-xl flex-col-reverse justify-between gap-10 md:gap-12 lg:flex-row glass-surface rounded-2xl px-6 md:px-8 py-8 md:py-10">
         {/* Left Section - Logo & Info */}
         <div className="flex w-full flex-col lg:w-1/2">
           <div className="mb-6">
@@ -257,7 +257,7 @@ const Footer = () => {
 
       {/* Disclaimer Section */}
       <div className="mx-auto lg:w-[43.5em] max-w-4xl text-center px-4">
-        <div className="bg-gradient-to-br from-black/30 to-black/10 rounded-2xl p-6 md:p-8 border border-[#98FFF9]/20 backdrop-blur-sm shadow-2xl">
+        <div className="glass-strong rounded-2xl p-6 md:p-8 shadow-2xl">
           <p className="text-xs md:text-sm text-[#8896AB] leading-relaxed">
             $MCRT is a utility token designed for use within the MagicCraft ecosystem. If you are new to the cryptocurrency space,
             please make sure you thoroughly familiarise yourself with the nature and risks
