@@ -336,9 +336,13 @@ function Homepagemcrt() {
                       className="w-full max-w-[280px] sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-xl"
                     />
                   </div>
-                                    <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wider drop-shadow-2xl leading-tight">
-                    $MCRT THE CURRENCY OF GAMING
-                </h1>
+                  <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wider drop-shadow-2xl leading-tight">
+                    $MCRT: The currency of gaming
+                  </h1>
+                  <p className="mt-3 max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
+                    Fast, low‑fee on‑chain currency on BNB Chain powering rewards, creator payouts,
+                    and in‑game commerce across the MagicCraft universe.
+                  </p>
                   <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-md mx-auto">
                     <a href="https://lobby.magiccraft.io/" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Earn</a>
                     <a href="/build-on-magiccraft" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Create</a>
@@ -377,6 +381,10 @@ function Homepagemcrt() {
               </div>
            
             {/* Download row moved below hero */}
+            {/* Scroll cue */}
+            <a href="#mcrt-payments" className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-6 inline-flex items-center justify-center w-10 h-10 rounded-full glass-strong hover:bg-white/10 border border-white/20" aria-label="Scroll to $MCRT payments">
+              <svg className="w-5 h-5 text-white/85" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 15.5a1 1 0 0 1-.7-.29l-6-6a1 1 0 1 1 1.4-1.42L12 13.08l5.3-5.29a1 1 0 1 1 1.4 1.42l-6 6a1 1 0 0 1-.7.29Z"/></svg>
+            </a>
           </section>
 
           {/* Download banner just below hero */}
@@ -385,6 +393,41 @@ function Homepagemcrt() {
                <MagicraftDownload/>
             </div>
              </div>
+          {/* Value props grid */}
+          <section className="w-full bg-gradient-to-b from-[#03082f] via-[#0a0524] to-[#03082f]">
+            <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-6 sm:py-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
+                <div className="card-glass p-4 rounded-xl">
+                  <div className="flex items-center gap-3 mb-1">
+                    <img src="/icons/icon-gamepad.svg" alt="Earn in PvP" className="w-6 h-6" />
+                    <h4 className="text-card-title m-0">Earn in PvP</h4>
+                  </div>
+                  <p className="text-sm text-white/75">Win matches and tournaments to earn $MCRT.</p>
+                </div>
+                <div className="card-glass p-4 rounded-xl">
+                  <div className="flex items-center gap-3 mb-1">
+                    <img src="/icons/icon-community.svg" alt="Create & monetize" className="w-6 h-6" />
+                    <h4 className="text-card-title m-0">Create & monetize</h4>
+                  </div>
+                  <p className="text-sm text-white/75">Publish maps and game modes via Game Maker.</p>
+                </div>
+                <div className="card-glass p-4 rounded-xl">
+                  <div className="flex items-center gap-3 mb-1">
+                    <img src="/icons/icon-currency.svg" alt="On‑chain payments" className="w-6 h-6" />
+                    <h4 className="text-card-title m-0">On‑chain payments</h4>
+                  </div>
+                  <p className="text-sm text-white/75">USDT‑like speed, ~1¢ fees on BNB Chain.</p>
+                </div>
+                <div className="card-glass p-4 rounded-xl">
+                  <div className="flex items-center gap-3 mb-1">
+                    <img src="/icons/icon-marketplace.svg" alt="Marketplace & pledging" className="w-6 h-6" />
+                    <h4 className="text-card-title m-0">Marketplace & pledging</h4>
+                  </div>
+                  <p className="text-sm text-white/75">Trade assets and access ecosystem yield.</p>
+                </div>
+              </div>
+            </div>
+          </section>
           {/* $MCRT Payments: The currency of gaming */}
           <section id="mcrt-payments" className="w-full border-t border-white/5 bg-gradient-to-b from-[#03082f] via-[#0a0524] to-[#03082f]">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-6 sm:py-8">
