@@ -345,24 +345,17 @@ function Homepagemcrt() {
                     Fast, low‑fee on‑chain currency on BNB Chain powering rewards, creator payouts,
                     and in‑game commerce across the MagicCraft universe.
                   </p>
-                  <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-md mx-auto">
-                    <a href="https://lobby.magiccraft.io/" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Earn</a>
-                    <a href="/build-on-magiccraft" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Create</a>
-                    <a href="/grants" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Grants</a>
-                    <a href="https://app.magiccraft.io/pledging" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Pledge</a>
-                    <a href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs sm:text-sm text-white/90 hover:text-white hover:bg-white/15 transition">Spend</a>
-                  </div>
-                  <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3">
+                  <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                     <button
                       onClick={openGameByDevice}
-                      className="header-cta header-cta--play interactive-scale ripple-effect w-full sm:w-auto"
+                      className="header-cta header-cta--play interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 py-3 text-base sm:text-lg"
                       aria-label="Play MagicCraft now"
                     >
                       Play Now
                     </button>
                     <button
                       onClick={handleBuyMCRT}
-                      className="cta-premium interactive-scale ripple-effect w-full sm:w-auto"
+                      className="cta-premium interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 py-3 text-base sm:text-lg"
                       aria-label="Buy MCRT tokens"
                     >
                       Buy $MCRT
