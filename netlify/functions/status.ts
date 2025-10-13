@@ -129,6 +129,28 @@ export const handler: Handler = async () => {
     { key: 'bybit', label: 'Bybit', type: 'dep', url: 'https://www.bybit.com/' },
     { key: 'pancake', label: 'PancakeSwap', type: 'dep', url: 'https://pancakeswap.finance/' },
 
+    // Token + exchange deep links
+    { key: 'bybit-mcrt', label: 'Bybit MCRT/USDT', type: 'dep', url: 'https://www.bybit.com/en/trade/spot/MCRT/USDT' },
+    { key: 'pancake-mcrt', label: 'PancakeSwap MCRT', type: 'dep', url: 'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f' },
+    { key: 'bscscan-mcrt', label: 'BscScan MCRT', type: 'dep', url: 'https://bscscan.com/token/0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f' },
+    { key: 'cmc-mcrt', label: 'CoinMarketCap MCRT', type: 'dep', url: 'https://coinmarketcap.com/currencies/magiccraft/' },
+
+    // Payments onramps
+    { key: 'swipelux', label: 'Swipelux', type: 'dep', url: 'https://track.swipelux.com/?api-key=c2c64eeb-d657-4692-99de-568f1c822c12' },
+
+    // Community
+    { key: 'telegram', label: 'Telegram', type: 'dep', url: 'https://t.me/magiccraftgamechat' },
+
+    // Other ecosystem properties
+    { key: 'bitmarket', label: 'BitMarket', type: 'dep', url: 'https://bitmarket.magiccraft.io' },
+    { key: 'tokenomics', label: 'Docs Tokenomics', type: 'dep', url: 'https://docs.magiccraft.io/usdmcrt-token/tokenomics' },
+    { key: 'download', label: 'Download Page', type: 'dep', url: 'https://magiccraft.io/download' },
+
+    // App store and platforms
+    { key: 'ios-store', label: 'Apple App Store', type: 'dep', url: 'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525' },
+    { key: 'android-store', label: 'Google Play', type: 'dep', url: 'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en' },
+    { key: 'steam', label: 'Steam', type: 'dep', url: 'https://store.steampowered.com/app/2395760/MagicCraft/' },
+
     // Embeds/CDN
     { key: 'cloudinary', label: 'Cloudinary', type: 'dep', url: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp' },
     { key: 'twitframe', label: 'Twitframe', type: 'dep', url: 'https://twitframe.com/' },
@@ -170,8 +192,7 @@ export const handler: Handler = async () => {
   const results = await Promise.all(targets.map((t) => httpCheck(t)))
 
   const coreOk = results.filter((r) => r.type === 'core').every((r) => r.ok)
-  const anyFail = results.some((r) => !r.ok)
-  const overallOk = coreOk && !anyFail
+  const overallOk = coreOk
 
   return {
     statusCode: 200,
