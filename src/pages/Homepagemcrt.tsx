@@ -361,15 +361,12 @@ function Homepagemcrt() {
                       Buy $MCRT
                     </button>
                   </div>
-                  {/* Trust badges and community join */}
-                  <div className="mt-3 sm:mt-4 flex flex-wrap items-center justify-center gap-3 opacity-90">
-                    <span className="text-[10px] sm:text-xs text-white/60">Trusted on</span>
-                    <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-4 sm:h-5 opacity-90" loading="lazy" />
-                    <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-4 sm:h-5 opacity-90" loading="lazy" />
-                    <img src="/icons/icon-huobi.svg" alt="HTX" className="h-4 sm:h-5 opacity-90" loading="lazy" />
-                  </div>
-                  <div className="mt-3 sm:mt-4 flex items-center justify-center gap-2">
-                    <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-full text-xs sm:text-sm bg-white/10 border border-white/15 text-white/90 hover:text-white hover:bg-white/15">Join Telegram</a>
+                  {/* Trust badges */}
+                  <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3 opacity-90">
+                    <span className="text-xs text-white/70">Listed on</span>
+                    <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-5 sm:h-6 opacity-90" loading="lazy" />
+                    <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-5 sm:h-6 opacity-90" loading="lazy" />
+                    <img src="/icons/icon-huobi.svg" alt="HTX" className="h-5 sm:h-6 opacity-90" loading="lazy" />
                   </div>
                 </div>
               </div>
