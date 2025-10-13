@@ -342,6 +342,14 @@ const Header = () => {
               
               {/* Hamburger shown as absolute on mobile (moved outside group) */}
               <span className="hidden md:block" />
+              <a
+                href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
+                rel="noreferrer noopener"
+                className="hidden md:inline-flex header-cta header-cta--shop no-underline"
+                aria-label="Buy $MCRT"
+              >
+                <span>Buy</span>
+              </a>
               <StatusIndicator />
             </div>
             )}

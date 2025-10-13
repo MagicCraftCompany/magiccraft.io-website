@@ -17,6 +17,8 @@ import GamePlay from '@/components/GamePlay'
 // import { Game, gamesData } from '@/data/game'
 // import { ArrowUpRight } from 'lucide-react'
 import MagicraftDownload from '@/components/HomePageCard'
+import BuyStrip from '@/components/Buy/BuyStrip'
+import BuyFloat from '@/components/Buy/BuyFloat'
 import Testimonial from '@/components/ui/testimonial'
 import Partners from '@/components/Partners/Partners'
 import { Helmet } from 'react-helmet-async'
@@ -428,6 +430,8 @@ function Homepagemcrt() {
               </div>
             </div>
           </section>
+          {/* Conversion-first Buy strip */}
+          <BuyStrip />
           {/* $MCRT Payments: The currency of gaming */}
           <section id="mcrt-payments" className="w-full border-t border-white/5 bg-gradient-to-b from-[#03082f] via-[#0a0524] to-[#03082f]">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-6 sm:py-8">
@@ -479,6 +483,8 @@ function Homepagemcrt() {
               </div>
             </div>
           </section>
+          {/* Floating Buy button */}
+          <BuyFloat />
           {/* Quick Stats strip for buyers */}
           <div className="w-full bg-gradient-to-r from-[#0B0F39] via-[#120e3d] to-[#0B0F39] border-t border-white/5">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-4 sm:py-6">
