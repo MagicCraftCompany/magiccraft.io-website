@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 type ServiceResult = {
   key: string
@@ -39,6 +39,7 @@ export default function StatusIndicator() {
   const [data, setData] = useState<StatusResponse | null>(null)
   const [open, setOpen] = useState(false)
   const [loading, setLoading] = useState(false)
+  const popRef = useRef<HTMLDivElement | null>(null)
 
   const core = useMemo(() => data?.services?.filter((s) => s.type === 'core') || [], [data])
   const deps = useMemo(() => data?.services?.filter((s) => s.type === 'dep') || [], [data])
@@ -56,6 +57,17 @@ export default function StatusIndicator() {
     return () => clearInterval(id)
   }, [])
 
+  // Close when clicking outside
+  useEffect(() => {
+    if (!open) return
+    const onDocClick = (e: MouseEvent) => {
+      if (!popRef.current) return
+      if (!popRef.current.contains(e.target as Node)) setOpen(false)
+    }
+    document.addEventListener('mousedown', onDocClick)
+    return () => document.removeEventListener('mousedown', onDocClick)
+  }, [open])
+
   const overallOk = data?.ok
   const title = overallOk === undefined ? 'Checking…' : overallOk ? 'All systems normal' : 'Issues detected'
 
@@ -63,7 +75,7 @@ export default function StatusIndicator() {
     <div className="relative">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="p-2 rounded-lg glass-strong border border-white/15 hover:bg-white/10 transition-colors inline-flex items-center gap-2"
+        className="p-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/15 transition-colors inline-flex items-center gap-2"
         aria-label="System status"
       >
         <Pill ok={!!overallOk} />
@@ -71,47 +83,47 @@ export default function StatusIndicator() {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-[320px] sm:w-[380px] rounded-xl glass-surface border border-white/15 shadow-xl p-3 sm:p-4 z-[100000]">
+        <div ref={popRef} className="absolute right-0 mt-2 w-[320px] sm:w-[400px] rounded-lg bg-black/75 backdrop-blur-xl border border-white/20 shadow-2xl p-3 sm:p-4 z-[100000]">
           <div className="flex items-center justify-between gap-2 mb-2">
             <div className="flex items-center gap-2">
               <Pill ok={!!overallOk} />
-              <span className="text-sm font-semibold text-white/90">{title}</span>
+              <span className="text-sm sm:text-base font-semibold text-white">{title}</span>
             </div>
-            <button onClick={refresh} disabled={loading} className="text-xs px-2 py-1 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 disabled:opacity-50">{loading ? '…' : 'Refresh'}</button>
+            <button onClick={refresh} disabled={loading} className="text-xs px-2 py-1 rounded-md bg-white/10 border border-white/20 hover:bg-white/20 disabled:opacity-50 text-white">{loading ? '…' : 'Refresh'}</button>
           </div>
 
           <div className="mb-2">
-            <p className="text-[11px] uppercase tracking-wide text-white/50 mb-1">Core</p>
+            <p className="text-[11px] uppercase tracking-wide text-white/60 mb-1">Core</p>
             <ul className="space-y-1">
               {core.map((s) => (
-                <li key={s.key} className="flex items-center justify-between gap-3 rounded-lg px-2 py-1.5 hover:bg-white/5">
+                <li key={s.key} className="flex items-center justify-between gap-3 rounded-md px-2 py-1.5 bg-white/5 hover:bg-white/10">
                   <div className="flex items-center gap-2">
                     <Pill ok={s.ok} />
-                    <span className="text-sm text-white/85">{s.label}</span>
+                    <span className="text-sm text-white">{s.label}</span>
                   </div>
-                  <div className="text-xs text-white/60">{s.status ?? '—'}{s.ms ? ` · ${s.ms}ms` : ''}</div>
+                  <div className="text-xs text-white/80 font-mono">{s.status ?? '—'}{s.ms ? ` · ${s.ms}ms` : ''}</div>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <p className="text-[11px] uppercase tracking-wide text-white/50 mb-1">Dependencies</p>
-            <ul className="max-h-40 overflow-auto space-y-1 pr-1">
+            <p className="text-[11px] uppercase tracking-wide text-white/60 mb-1">Dependencies</p>
+            <ul className="max-h-48 overflow-auto space-y-1 pr-1">
               {deps.map((s) => (
-                <li key={s.key} className="flex items-center justify-between gap-3 rounded-lg px-2 py-1.5 hover:bg-white/5">
+                <li key={s.key} className="flex items-center justify-between gap-3 rounded-md px-2 py-1.5 hover:bg-white/10">
                   <div className="flex items-center gap-2">
                     <Pill ok={s.ok} />
-                    <span className="text-sm text-white/80">{s.label}</span>
+                    <span className="text-sm text-white/90">{s.label}</span>
                   </div>
-                  <div className="text-xs text-white/60">{s.status ?? '—'}{s.ms ? ` · ${s.ms}ms` : ''}</div>
+                  <div className="text-xs text-white/80 font-mono">{s.status ?? '—'}{s.ms ? ` · ${s.ms}ms` : ''}</div>
                 </li>
               ))}
             </ul>
           </div>
 
           {data?.ts && (
-            <div className="mt-2 text-[11px] text-white/50">Checked at {new Date(data.ts).toLocaleTimeString()}</div>
+            <div className="mt-2 text-[11px] text-white/60">Checked at {new Date(data.ts).toLocaleTimeString()}</div>
           )}
         </div>
       )}
