@@ -2,6 +2,7 @@ import mcLogo from '@/assets/images/magiccraft-logo.webp'
 import { X, Gamepad2, ShoppingBag } from 'lucide-react'
 import NavMenu from './Navmenu'
 import { useState, useEffect } from 'react'
+import StatusIndicator from './StatusIndicator'
 
 import NavMenuMobile from './NavMenuMobile'
 
@@ -341,6 +342,7 @@ const Header = () => {
               
               {/* Hamburger shown as absolute on mobile (moved outside group) */}
               <span className="hidden md:block" />
+              <StatusIndicator />
             </div>
             )}
           </div>
