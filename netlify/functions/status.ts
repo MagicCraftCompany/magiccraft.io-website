@@ -98,7 +98,8 @@ const NITTER_HOSTS: string[] = [
   'https://nitter.esmailelbob.xyz',
 ]
 
-export const handler: Handler = async () => {
+export const handler: Handler = async (event) => {
+  const deep = event.queryStringParameters?.deep === '1'
   const baseGameserver = (process.env.GAMESERVER_API_URL || 'http://prod-gameserver.magiccraft.io:8903').replace(/\/$/, '')
   const gameserverKey = process.env.GAMESERVER_API_KEY || ''
   const sanityProjectId = process.env.VITE_SANITY_PROJECT_ID
@@ -189,6 +190,66 @@ export const handler: Handler = async () => {
   ]
 
   // Execute checks in parallel, but cap concurrency if needed (small list, so all at once)
+  // Deep checks (synthetic user flows, light heuristics)
+  if (deep) {
+    const deepTargets: ServiceTarget[] = [
+      {
+        key: 'lobby-register',
+        label: 'Lobby Register page',
+        type: 'dep',
+        note: 'page contains form',
+        customCheck: async () => {
+          const url = 'https://lobby.magiccraft.io/register'
+          try {
+            const res = await withTimeout(fetch(url, { headers: { 'User-Agent': 'MagicCraftStatusBot/1.0' } }), 6000)
+            const html = await res.text()
+            const hasForm = /<form[\s\S]*?>[\s\S]*?<\/form>/i.test(html)
+            return { ok: res.status >= 200 && res.status < 400 && hasForm, status: res.status, note: hasForm ? 'form detected' : 'no form' }
+          } catch (e) {
+            return { ok: false, status: 0 }
+          }
+        },
+      },
+      {
+        key: 'lobby-leaderboard-rows',
+        label: 'Leaderboard rows',
+        type: 'dep',
+        note: 'table rows > 0',
+        customCheck: async () => {
+          const url = 'https://lobby.magiccraft.io/leaderboard'
+          try {
+            const res = await withTimeout(fetch(url, { headers: { 'User-Agent': 'MagicCraftStatusBot/1.0' } }), 6000)
+            const html = await res.text()
+            const rows = (html.match(/<tr[\s>]/g) || []).length
+            const ok = res.status >= 200 && res.status < 400 && rows > 1
+            return { ok, status: res.status, note: `rows:${rows}` }
+          } catch (e) {
+            return { ok: false, status: 0 }
+          }
+        },
+      },
+      {
+        key: 'lobby-stats-scan',
+        label: 'Stats snapshot',
+        type: 'dep',
+        note: 'numbers present',
+        customCheck: async () => {
+          const url = 'https://lobby.magiccraft.io/stats'
+          try {
+            const res = await withTimeout(fetch(url, { headers: { 'User-Agent': 'MagicCraftStatusBot/1.0' } }), 6000)
+            const html = await res.text()
+            const nums = (html.match(/\b\d{2,}\b/g) || []).length
+            const ok = res.status >= 200 && res.status < 400 && nums > 0
+            return { ok, status: res.status, note: `nums:${nums}` }
+          } catch (e) {
+            return { ok: false, status: 0 }
+          }
+        },
+      },
+    ]
+    targets.push(...deepTargets)
+  }
+
   const results = await Promise.all(targets.map((t) => httpCheck(t)))
 
   const coreOk = results.filter((r) => r.type === 'core').every((r) => r.ok)
