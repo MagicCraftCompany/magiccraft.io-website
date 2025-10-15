@@ -339,7 +339,7 @@ function Homepagemcrt() {
                     />
                   </div>
                   <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wider drop-shadow-2xl leading-tight">
-                    $MCRT: The currency of gaming
+                    THE CURRENCY OF GAMING & AI
                   </h1>
                   <p className="mt-3 max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
                     Fast, low‑fee on‑chain currency on BNB Chain powering rewards, creator payouts,
@@ -433,12 +433,12 @@ function Homepagemcrt() {
                       <span>BEP‑20 on BNB Chain</span>
                     </div>
                     <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
-                      The currency of gaming
+                      The currency of gaming & AI
                     </h3>
                     <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed">
-                      $MCRT moves like stablecoin rails with gaming-first utility. On BNB Chain’s BEP‑20 standard,
+                      $MCRT moves like stablecoin rails with gaming-first utility. On BNB Chain's BEP‑20 standard,
                       payments settle fast with fees around a cent and capacity for high transactions per second.
-                      Send value instantly between players and power in‑game commerce across the MagicCraft economy.
+                      Send value instantly between players, power in‑game commerce, and fuel AI-driven experiences across the MagicCraft economy.
                     </p>
                   </div>
                   <div className="flex flex-wrap items-center justify-center lg:justify-end gap-2 sm:gap-3 text-[11px] sm:text-xs">
