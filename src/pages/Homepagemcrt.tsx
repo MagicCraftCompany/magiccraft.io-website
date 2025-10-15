@@ -551,6 +551,90 @@ function Homepagemcrt() {
             </div>
           </section>
 
+          {/* AI Integration Section */}
+          <section className="relative w-full bg-gradient-to-b from-[#050317] via-[#0a0524] to-[#03082f] py-12 md:py-16 lg:py-20">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FFB649]/5 to-[#B591F2]/5"></div>
+            <div className="relative z-10 mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6">
+              <div className="text-center mb-8 md:mb-12">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#FFB649] via-[#B591F2] to-[#98FFF9] bg-clip-text text-transparent mb-4">
+                  AI-POWERED GAMING
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+                  MagicCraft leverages cutting-edge AI to revolutionize gameplay, content creation, and player interaction.
+                </p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                {/* AI Chatbots */}
+                <div className="card-glass p-6 rounded-2xl border-2 border-[#FFB649]/20 hover:border-[#FFB649]/40 transition-all hover:scale-[1.02]">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFB649] to-[#F59E0B] flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-[#03082F]" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                      <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">AI Chatbots</h3>
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    Intelligent in-game assistants powered by advanced language models. Get real-time strategy tips, 
+                    learn game mechanics, and interact with AI companions that understand context and adapt to your playstyle.
+                  </p>
+                </div>
+
+                {/* AI Weapon Generation */}
+                <div className="card-glass p-6 rounded-2xl border-2 border-[#B591F2]/20 hover:border-[#B591F2]/40 transition-all hover:scale-[1.02]">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#B591F2] to-[#9333EA] flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12.5 3L3 7v6c0 5.55 3.84 10.74 9 12 .47-.11.91-.23 1.34-.38L11 22v-7h2v7l2.66-2.38c.43.15.87.27 1.34.38 5.16-1.26 9-6.45 9-12V7l-9.5-4zM12 11.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V9l7-3.11V11.99z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">AI Weapon Generation</h3>
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    Procedurally generate unique weapons with AI-designed stats, visuals, and abilities. Every weapon is 
+                    balanced algorithmically and can be minted as NFTs, creating endless variety and collector value.
+                  </p>
+                </div>
+
+                {/* AI Unity Asset Generation */}
+                <div className="card-glass p-6 rounded-2xl border-2 border-[#98FFF9]/20 hover:border-[#98FFF9]/40 transition-all hover:scale-[1.02]">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#98FFF9] to-[#06B6D4] flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-[#03082F]" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">AI Unity Asset Generation</h3>
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    Generate game-ready Unity assets on-demand using AI. From 3D models and textures to particle effects and 
+                    animations—creators can rapidly prototype and deploy custom content without traditional asset pipelines.
+                  </p>
+                </div>
+
+                {/* AI Game Master */}
+                <div className="card-glass p-6 rounded-2xl border-2 border-[#9255E0]/20 hover:border-[#9255E0]/40 transition-all hover:scale-[1.02]">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#9255E0] to-[#7C3AED] flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">AI Game Master</h3>
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    Dynamic AI-driven events and quests that adapt to player behavior. The AI Game Master creates personalized 
+                    challenges, balances match difficulty, and orchestrates live tournaments with real-time adjustments.
+                  </p>
+                </div>
+              </div>
+
+              {/* Additional Info */}
+              <div className="mt-8 md:mt-12 text-center">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FFB649]/20 bg-[#FFB649]/10 text-[#FFB649] text-sm font-semibold">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18.5c-3.25-.8-6-4.31-6-7.83V8.3l6-3.11v15.31z"/>
+                  </svg>
+                  <span>Powered by $MCRT • Fuel AI experiences across the ecosystem</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section className="relative h-auto min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-[#020418] via-[#0A0424] to-[#1a0d2e]"></div>
           <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
