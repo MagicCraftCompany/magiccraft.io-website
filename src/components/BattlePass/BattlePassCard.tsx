@@ -105,8 +105,9 @@ export default function BattlePassCard() {
         <div className="grid grid-cols-3 gap-3">
           {[...Array(3)].map((_, i) => {
             const playerIndex = currentPlayerIndex + i;
-            const player = battlePassData.winners && battlePassData.winners[playerIndex] ? 
-              battlePassData.winners[playerIndex] : null;
+            // Use topParticipants for active battlepass, winners for completed
+            const participants = battlePassData.isActive ? battlePassData.topParticipants : battlePassData.winners;
+            const player = participants && participants[playerIndex] ? participants[playerIndex] : null;
             
             return (
               <div key={playerIndex} className="bg-[#2A1B3D]/50 rounded-lg p-3 border border-[#9255E0]/10">
@@ -118,7 +119,9 @@ export default function BattlePassCard() {
                     {player?.playerName || "-- No winner yet --"}
                   </div>
                   <div className="text-xs text-gray-400">
-                    {player?.finalScore ? `${player.finalScore.toLocaleString()} pts` : '--'}
+                    {player ? 
+                      ('finalScore' in player ? `${player.finalScore.toLocaleString()} pts` : `${player.currentScore.toLocaleString()} pts`) 
+                      : '--'}
                   </div>
                 </div>
               </div>

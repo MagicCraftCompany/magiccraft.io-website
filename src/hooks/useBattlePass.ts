@@ -72,21 +72,21 @@ export const useBattlePass = () => {
           daysRemaining: 60,
           progressPercentage: 33.3,
           prizeSettings: {
-            totalPrizeAmount: 500000,
+            totalPrizeAmount: 250000,
             maxWinners: 10,
             isPrizeDistributionEnabled: true
           },
           topParticipants: [
-            { playerId: undefined, playerName: "-- No winner yet --", currentScore: 0, currentRank: 1 },
-            { playerId: undefined, playerName: "-- No winner yet --", currentScore: 0, currentRank: 2 },
-            { playerId: undefined, playerName: "-- No winner yet --", currentScore: 0, currentRank: 3 },
-            { playerId: undefined, playerName: "-- No winner yet --", currentScore: 0, currentRank: 4 },
-            { playerId: undefined, playerName: "-- No winner yet --", currentScore: 0, currentRank: 5 },
-            { playerId: undefined, playerName: "-- No winner yet --", currentScore: 0, currentRank: 6 },
-            { playerId: undefined, playerName: "-- No winner yet --", currentScore: 0, currentRank: 7 },
-            { playerId: undefined, playerName: "-- No winner yet --", currentScore: 0, currentRank: 8 },
-            { playerId: undefined, playerName: "-- No winner yet --", currentScore: 0, currentRank: 9 },
-            { playerId: undefined, playerName: "-- No winner yet --", currentScore: 0, currentRank: 10 }
+            { playerId: "player_1", playerName: "mrsteel", currentScore: 10000, currentRank: 1 },
+            { playerId: "player_2", playerName: "CryptoKnight", currentScore: 8500, currentRank: 2 },
+            { playerId: "player_3", playerName: "MagicMaster", currentScore: 7200, currentRank: 3 },
+            { playerId: "player_4", playerName: "DragonSlayer", currentScore: 6800, currentRank: 4 },
+            { playerId: "player_5", playerName: "EpicGamer", currentScore: 5900, currentRank: 5 },
+            { playerId: "player_6", playerName: "ProPlayer", currentScore: 5400, currentRank: 6 },
+            { playerId: "player_7", playerName: "NightHawk", currentScore: 4800, currentRank: 7 },
+            { playerId: "player_8", playerName: "Thunderbolt", currentScore: 4200, currentRank: 8 },
+            { playerId: "player_9", playerName: "ShadowNinja", currentScore: 3900, currentRank: 9 },
+            { playerId: "player_10", playerName: "IceBreaker", currentScore: 3500, currentRank: 10 }
           ],
           winners: [],
           prizesDistributed: false
