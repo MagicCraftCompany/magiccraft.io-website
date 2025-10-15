@@ -14,12 +14,12 @@ export default function BuyStrip() {
     <section className="w-full border-t border-white/5 bg-gradient-to-r from-[#04071F] via-[#0b0f39] to-[#04071F]">
       <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-4 sm:py-5">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3 text-center sm:text-left">
-            <div className="rounded-lg bg-white/5 border border-white/10 px-2.5 py-1.5">
+          <div className="flex items-center gap-3 text-center sm:text-left w-full sm:w-auto">
+            <div className="rounded-lg bg-white/5 border border-white/10 px-2.5 py-1.5 flex-shrink-0">
               <span className="text-xs text-white/70">MCRT</span>
             </div>
-            <div className="text-sm sm:text-base text-white/85">
-              Live price: <span className="font-semibold text-white">{priceText}</span>
+            <div className="text-sm sm:text-base text-white/85 truncate">
+              Live price: <span className="font-semibold text-white whitespace-nowrap">{priceText}</span>
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto">

@@ -529,7 +529,7 @@ function Homepagemcrt() {
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                 {/* AI Chatbots */}
                 <div className="card-glass p-6 rounded-2xl border-2 border-[#FFB649]/20 hover:border-[#FFB649]/40 transition-all hover:scale-[1.02]">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFB649] to-[#F59E0B] flex items-center justify-center mb-4">
@@ -608,10 +608,10 @@ function Homepagemcrt() {
           <div className="relative z-10 mx-auto w-11/12 max-w-screen-xl">
             {/* Exchange badges at very top for instant credibility */}
             <div className="flex items-center justify-center gap-3 md:gap-4 mb-4 md:mb-6">
-              <span className="text-[10px] sm:text-xs text-white/60">Listed on</span>
-              <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-4 sm:h-5 opacity-90" loading="eager" />
-              <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-4 sm:h-5 opacity-90" loading="eager" />
-              <img src="/icons/icon-huobi.svg" alt="HTX" className="h-4 sm:h-5 opacity-90" loading="eager" />
+              <span className="text-xs text-white/70">Listed on</span>
+              <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-5 sm:h-6 opacity-90" loading="eager" />
+              <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-5 sm:h-6 opacity-90" loading="eager" />
+              <img src="/icons/icon-huobi.svg" alt="HTX" className="h-5 sm:h-6 opacity-90" loading="eager" />
             </div>
             <div className="grid gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16 items-center">
               <div className="space-y-6 md:space-y-8 text-center lg:text-left animate-slide-up">
@@ -850,7 +850,7 @@ function Homepagemcrt() {
                   <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/10 border border-white/15">BEP-20</span>
                   <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/10 border border-white/15">Chain: BNB Smart Chain</span>
                 </div>
-                <div className="mt-2 font-mono text-[11px] md:text-sm break-all">0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f</div>
+                <div className="mt-2 font-mono text-xs md:text-sm break-words">0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f</div>
                 <div className="mt-2 flex gap-2">
                   <button onClick={() => navigator.clipboard.writeText('0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f')} className="btn-secondary text-xs">Copy</button>
                   <a href="https://bscscan.com/token/0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="btn-primary text-xs">View on BscScan</a>
