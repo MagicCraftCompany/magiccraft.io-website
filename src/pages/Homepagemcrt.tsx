@@ -385,41 +385,6 @@ function Homepagemcrt() {
                <MagicraftDownload/>
             </div>
              </div>
-          {/* Value props grid */}
-          <section className="w-full bg-gradient-to-b from-[#03082f] via-[#0a0524] to-[#03082f]">
-            <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-6 sm:py-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
-                <div className="card-glass p-4 rounded-xl">
-                  <div className="flex items-center gap-3 mb-1">
-                    <img src="/icons/icon-gamepad.svg" alt="Earn in PvP" className="w-6 h-6" />
-                    <h4 className="text-card-title m-0">Earn in PvP</h4>
-                  </div>
-                  <p className="text-sm text-white/75">Win matches and tournaments to earn $MCRT.</p>
-                </div>
-                <div className="card-glass p-4 rounded-xl">
-                  <div className="flex items-center gap-3 mb-1">
-                    <img src="/icons/icon-community.svg" alt="Create & monetize" className="w-6 h-6" />
-                    <h4 className="text-card-title m-0">Create & monetize</h4>
-                  </div>
-                  <p className="text-sm text-white/75">Publish maps and game modes via Game Maker.</p>
-                </div>
-                <div className="card-glass p-4 rounded-xl">
-                  <div className="flex items-center gap-3 mb-1">
-                    <img src="/icons/icon-currency.svg" alt="On‑chain payments" className="w-6 h-6" />
-                    <h4 className="text-card-title m-0">On‑chain payments</h4>
-                  </div>
-                  <p className="text-sm text-white/75">USDT‑like speed, ~1¢ fees on BNB Chain.</p>
-                </div>
-                <div className="card-glass p-4 rounded-xl">
-                  <div className="flex items-center gap-3 mb-1">
-                    <img src="/icons/icon-marketplace.svg" alt="Marketplace & pledging" className="w-6 h-6" />
-                    <h4 className="text-card-title m-0">Marketplace & pledging</h4>
-                  </div>
-                  <p className="text-sm text-white/75">Trade assets and access ecosystem yield.</p>
-                </div>
-              </div>
-            </div>
-          </section>
           {/* Conversion-first Buy strip */}
           <BuyStrip />
           {/* $MCRT Payments: The currency of gaming */}
@@ -817,81 +782,6 @@ function Homepagemcrt() {
                         </div>
         </section>
 
-        {/* What you can do with $MCRT */}
-        <section id="utility" className="relative py-6 sm:py-8 md:py-10 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 overflow-visible">
-          <div className="text-center mb-6 md:mb-8">
-            <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">What you can do with $MCRT</h3>
-            <p className="text-gray-300 text-base md:text-lg mt-2">Earn, create, pledge and spend across the MagicCraft ecosystem.</p>
-                      </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-4 overflow-visible">
-            <a id="earn" href="https://lobby.magiccraft.io/" className="card-glass card-padding-sm block hover:scale-[1.02] transition relative group z-10 hover:z-50" rel="noreferrer noopener" style={{ overflow: 'visible' }}>
-              <div className="flex items-center gap-3 mb-1">
-                <div className="w-8 h-8 rounded-lg bg-[#98FFF9]/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 6 .9-4.5 4.3L18 20l-6-3.2L6 20l1.5-6.8L3 8.9 9 8l3-6z"/></svg>
-                    </div>
-                <h4 className="text-base md:text-lg font-bold">Earn in PvP</h4>
-              </div>
-              <p className="hidden sm:block text-sm md:text-base text-gray-300">Win matches and tournaments to earn $MCRT.</p>
-              <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-80 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
-                <p className="text-base md:text-[17px] text-white leading-relaxed">$MCRT rewards flow from PvP wins and events into your in-game balance.</p>
-              </div>
-            </a>
-            <a id="create" href="/build-on-magiccraft" className="card-glass card-padding-sm block hover:scale-[1.02] transition relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-              <div className="flex items-center gap-3 mb-1">
-                <div className="w-8 h-8 rounded-lg bg-[#B591F2]/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M4 14v6h6l10-10-6-6L4 14zm11-9l3 3"/></svg>
-                </div>
-                <h4 className="text-base md:text-lg font-bold">Create with Game Maker</h4>
-              </div>
-              <p className="hidden sm:block text-sm md:text-base text-gray-300">Build modes and maps; earn per player.</p>
-              <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-80 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
-                <p className="text-base md:text-[17px] text-white leading-relaxed">Creators earn $MCRT when players engage with their maps and experiences.</p>
-              </div>
-            </a>
-            <a id="grants" href="/grants" className="card-glass card-padding-sm block hover:scale-[1.02] transition relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-              <div className="flex items-center gap-3 mb-1">
-                <div className="w-8 h-8 rounded-lg bg-[#98FFF9]/20 flex items-center justify-center">
-                  <img src="/icons/icon-bounty.svg" alt="Grants" className="w-5 h-5 opacity-90" />
-                </div>
-                <h4 className="text-base md:text-lg font-bold">Apply for Grants</h4>
-              </div>
-              <p className="hidden sm:block text-sm md:text-base text-gray-300">Games, Web3/AI, Crypto - with $MCRT integration.</p>
-              <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-80 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
-                <p className="text-base md:text-[17px] text-white leading-relaxed">Submit your project with a working build. $MCRT‑aligned projects are prioritized.</p>
-              </div>
-            </a>
-            <a id="refer" href="https://lobby.magiccraft.io/referral" target="_blank" rel="noreferrer noopener" className="card-glass card-padding-sm block hover:scale-[1.02] transition relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-              <div className="flex items-center gap-3 mb-1">
-                <div className="w-8 h-8 rounded-lg bg-[#FFB649]/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M16 11a3 3 0 100-6 3 3 0 000 6z"/>
-                    <path d="M8 11a3 3 0 100-6 3 3 0 000 6z"/>
-                    <path d="M2 19v-1.5C2 15.57 5.13 14 8 14s6 1.57 6 3.5V19H2z"/>
-                    <path d="M21 16l-3-3v2h-2v2h2v2l3-3z"/>
-                  </svg>
-                </div>
-                <h4 className="text-base md:text-lg font-bold">Refer and Earn</h4>
-              </div>
-              <p className="hidden sm:block text-sm md:text-base text-gray-300">Invite friends. Earn a share of their lobby winnings.</p>
-              <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-80 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
-                <p className="text-base md:text-[17px] text-white leading-relaxed">Earn a percentage of referees' $MCRT earnings from eligible lobbies.</p>
-              </div>
-            </a>
-            <a id="spend" href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="card-glass card-padding-sm block hover:scale-[1.02] transition relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
-              <div className="flex items-center gap-3 mb-1">
-                <div className="w-8 h-8 rounded-lg bg-[#7de6df]/20 flex items-center justify-center">
-                  <svg className="w-5 h-5 text-[#7de6df]" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h-2l-3 7v2h2l3-7h10l3 7h2v-2l-3-7h-12zm-1 13c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2h-12z"/></svg>
-                </div>
-                <h4 className="text-base md:text-lg font-bold">Spend in Marketplace</h4>
-              </div>
-              <p className="hidden sm:block text-sm md:text-base text-gray-300">Buy and sell assets using $MCRT.</p>
-              <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-80 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
-                <p className="text-base md:text-[17px] text-white leading-relaxed">Use $MCRT to acquire items and utilities that unlock in-game benefits.</p>
-              </div>
-            </a>
-          </div>
-        </section>
-
         {/* Genesis NFTs — Earnings Tiers */}
         <GenesisNFTs />
 
@@ -991,6 +881,18 @@ function Homepagemcrt() {
 
           {/* Core actions (with hover tooltips) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-visible">
+            <a id="earn" href="https://lobby.magiccraft.io/" className="card-glass card-padding block relative group z-10 hover:z-50" rel="noreferrer noopener" style={{ overflow: 'visible' }}>
+              <div className="flex items-center gap-3 mb-1">
+                <img src="/icons/icon-gamepad.svg" alt="Earn in PvP" className="w-5 h-5 opacity-90" />
+                <h4 className="text-lg md:text-xl font-bold">Earn in PvP</h4>
+              </div>
+              <p className="text-base md:text-lg text-gray-300">Win matches and tournaments to earn $MCRT.</p>
+              <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
+                <p className="text-base md:text-[17px] text-white leading-relaxed">
+                  $MCRT rewards flow from PvP wins and events into your in-game balance. Battle in crypto-themed lobbies (BTC, ETH, SOL) and climb leaderboards.
+                </p>
+              </div>
+            </a>
             <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
               <div className="flex items-center gap-3 mb-1">
                 <img src="/icons/icon-currency.svg" alt="CoinMarketCap" className="w-5 h-5 opacity-90" />
