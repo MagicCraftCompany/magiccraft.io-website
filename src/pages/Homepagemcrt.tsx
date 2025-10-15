@@ -19,7 +19,6 @@ import GamePlay from '@/components/GamePlay'
 import MagicraftDownload from '@/components/HomePageCard'
 import BuyStrip from '@/components/Buy/BuyStrip'
 import BuyFloat from '@/components/Buy/BuyFloat'
-import Testimonial from '@/components/ui/testimonial'
 import Partners from '@/components/Partners/Partners'
 import { Helmet } from 'react-helmet-async'
 import battleOne from '@/assets/images/legendary-battle-1.png'
@@ -600,188 +599,6 @@ function Homepagemcrt() {
             </div>
           </section>
 
-          <section className="relative h-auto min-h-[500px] md:min-h-[600px] lg:min-h-[700px] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#020418] via-[#0A0424] to-[#1a0d2e]"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#98FFF9]/3 to-transparent"></div>
-          
-          <div className="relative z-10 mx-auto w-11/12 max-w-screen-xl">
-            {/* Exchange badges at very top for instant credibility */}
-            <div className="flex items-center justify-center gap-3 md:gap-4 mb-4 md:mb-6">
-              <span className="text-xs text-white/70">Listed on</span>
-              <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-5 sm:h-6 opacity-90" loading="eager" />
-              <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-5 sm:h-6 opacity-90" loading="eager" />
-              <img src="/icons/icon-huobi.svg" alt="HTX" className="h-5 sm:h-6 opacity-90" loading="eager" />
-            </div>
-            <div className="grid gap-8 md:gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-              <div className="space-y-6 md:space-y-8 text-center lg:text-left animate-slide-up">
-                <div className="space-y-4 md:space-y-6">
-                  <h3 className="font-serif text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                    <div className="text-white/90 mb-2 md:mb-4">
-                      A NEW ERA IN GAMING
-                    </div>
-                    <div className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent animate-gradient">
-                      WITH MAGICCRAFT
-                    </div>
-                  </h3>
-                  <p className="text-center text-lg md:text-xl lg:text-2xl opacity-90 md:text-left leading-relaxed text-gray-300 max-w-2xl mx-auto lg:mx-0">
-                    MagicCraft is a competitive Web3 game economy where skill converts to on‑chain value. Battle in
-                    fast‑paced multiplayer modes, contribute maps and game content, and earn $MCRT - our ecosystem's
-                    utility token - directly for your performance and creations. Join a growing player‑owned economy
-                    built for gamers, creators, and crypto natives.
-                  </p>
-                  <p className="text-sm md:text-base text-[#98FFF9] max-w-2xl mx-auto lg:mx-0">
-                    $MCRT powers gameplay rewards, creator payouts, prediction markets, and in‑game commerce. Earn it in
-                    PvP, publish-to-earn with our Game Maker, participate in events, or pledge to access ecosystem perks
-                    and marketplace yield.
-                  </p>
-                  {/* Card Onramp CTA */}
-                  <div className="max-w-2xl mx-auto lg:mx-0">
-                    <div className="mt-3 md:mt-4 rounded-2xl border border-white/15 bg-white/5 p-2.5 md:p-3.5 flex items-center justify-between gap-3 shadow-[0_4px_20px_rgba(152,255,249,0.08)]">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-[#98FFF9]/20 flex items-center justify-center">
-                          <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.8 9.7-8 10-4.2-.3-8-5-8-10V6l8-4zm0 2.2L6 6v5.8c0 3.9 2.9 7.8 6 8 3.1-.2 6-4.1 6-8V6l-6-1.8zM12 8a3 3 0 013 3 3 3 0 11-3-3z"/></svg>
-                </div>
-                        <div>
-                          <div className="text-[11px] md:text-xs text-white/70 leading-tight">Card Onramp</div>
-                          <div className="text-base md:text-lg font-semibold text-white leading-tight">Buy with card</div>
-                        </div>
-                      </div>
-                      <a
-                        href="https://www.bybit.com/en/buy-sell/crypto"
-                        target="_blank"
-                        rel="noreferrer noopener"
-                        className="px-3.5 py-1.5 md:px-4 md:py-2 rounded-full border border-[#98FFF9]/40 bg-[#98FFF9]/10 text-[#98FFF9] hover:bg-[#98FFF9] hover:text-[#03082F] transition font-semibold"
-                      >
-                        Buy
-                      </a>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 pt-1 md:pt-2">
-                    <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
-                      <svg className="w-4 h-4 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 6 6 .9-4.5 4.3L18 20l-6-3.2L6 20l1.5-6.8L3 8.9 9 8l3-6z"/></svg>
-                      <span className="text-xs md:text-sm">$MCRT: Currency of Gaming</span>
-                </div>
-                    <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
-                      <svg className="w-4 h-4 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 100 18 9 9 0 000-18zm-1 5h2v5h4v2h-6V8z"/></svg>
-                      <span className="text-xs md:text-sm">Prediction Markets</span>
-                </div>
-                    <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
-                      <svg className="w-4 h-4 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 14h-2v-2h2v2zm0-4h-2V6h2v6z"/></svg>
-                      <span className="text-xs md:text-sm">AI Gameplay Tech</span>
-              </div>
-                    <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
-                      <svg className="w-4 h-4 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M6 8h12v8H6V8zm-2 8h16v2H4v-2zm2-10h12v2H6V6z"/></svg>
-                      <span className="text-xs md:text-sm">Core MOBA Game</span>
-                            </div>
-                    <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
-                      <svg className="w-4 h-4 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                      <span className="text-xs md:text-sm">200k+ Social Followers</span>
-                          </div>
-                    <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
-                      <svg className="w-4 h-4 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 11.5a2.5 2.5 0 110-5 2.5 2.5 0 010 5z"/></svg>
-                      <span className="text-xs md:text-sm">17,500+ Token Holders</span>
-                            </div>
-                    <div className="flex items-center gap-2 rounded-xl border border-[#98FFF9]/20 bg-black/20 px-3 py-2">
-                      <svg className="w-4 h-4 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M3 7h18v2H3V7zm2 4h14v2H5v-2zm-2 4h18v2H3v-2z"/></svg>
-                      <span className="text-xs md:text-sm">4,700 NFTs Sold</span>
-                    </div>
-                            </div>
-                            </div>
-                <div className="flex w-full justify-center">
-                  <button
-                    onClick={registerHandler}
-                    className="group rounded-xl md:rounded-2xl border-2 border-[#98FFF9] px-8 md:px-10 py-4 md:py-5 font-bold text-[#98FFF9] text-lg md:text-xl transition-all duration-300 hover:bg-[#98FFF9] hover:text-[#03082F] hover:shadow-lg hover:shadow-[#98FFF9]/30 hover:scale-105 min-h-[52px] min-w-[160px] relative overflow-hidden"
-                  >
-                    <span className="relative z-10">Register Now</span>
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#7de6df] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                  </button>
-                </div>
-              </div>
-              
-              <div className="hidden xl:block animate-fade-in">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/10 to-[#B591F2]/10 rounded-3xl blur-3xl"></div>
-                  <div className="card-glass card-padding overflow-hidden">
-                    {/* Header */}
-                    <div className="text-center mb-6">
-                      <div className="w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-[#98FFF9] to-[#7de6df] flex items-center justify-center mb-4">
-                        <svg className="w-8 h-8 text-[#03082F]" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M14,6L10.25,11L13.1,14.8L11.5,16C9.81,13.75 7,10 7,10L1,4V1A1,1 0 0,1 2,0H5L11,6L14,6Z"/>
-                        </svg>
-                            </div>
-                      <h4 className="text-card-title font-bold text-white mb-2">Join Thousands of Players</h4>
-                      <p className="text-body text-gray-300">Experience epic MagicCraft gameplay</p>
-                          </div>
-
-                    {/* Gameplay Footage Carousel */}
-                    <div className="relative w-full">
-                      <div className="gameplay-carousel overflow-hidden rounded-xl bg-gradient-to-br from-[#1a0d2e] to-[#2A0D4E] h-[200px] md:h-[240px] lg:h-[280px] xl:h-[300px]">
-                        <div className="gameplay-slides flex h-full transition-transform duration-500 ease-in-out" id="gameplaySlides" style={{ width: `${TOTAL_SLIDES * 100}%` }}>
-                          {/* Slide 1 - Battle Image A */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / TOTAL_SLIDES}%`, width: `${100 / TOTAL_SLIDES}%` }}>
-                            <div className="relative overflow-hidden h-full">
-                              <img 
-                                src={battleOne}
-                                alt="MagicCraft Battle"
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                              {/* removed overlay text/badges */}
-                            </div>
-                            </div>
-
-                          {/* Slide 2 - Legendary Battle 2 */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / TOTAL_SLIDES}%`, width: `${100 / TOTAL_SLIDES}%` }}>
-                            <div className="relative overflow-hidden h-full">
-                              <img 
-                                src={battleTwo}
-                                alt="MagicCraft Legendary Battle"
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                              {/* removed overlay text/badges */}
-                            </div>
-                            </div>
-
-                          {/* Slide 3 - Legendary Battle 3 */}
-                          <div className="gameplay-slide flex-shrink-0 w-full h-full relative" style={{ flex: `0 0 ${100 / TOTAL_SLIDES}%`, width: `${100 / TOTAL_SLIDES}%` }}>
-                            <div className="relative overflow-hidden h-full">
-                              <img 
-                                src={battleThree}
-                                alt="MagicCraft Legendary Battle"
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                              {/* removed overlay text/badges */}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                            </div>
-
-                                            {/* Carousel Controls */}
-                      <div className="flex justify-center gap-2 mt-4">
-                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60 active" data-slide="0"></button>
-                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="1"></button>
-                        <button className="carousel-dot w-2 h-2 rounded-full bg-white/30 transition-all duration-300 hover:bg-white/60" data-slide="2"></button>
-                          </div>
-
-                      {/* Auto-play indicator */}
-                      <div className="flex items-center justify-center gap-2 mt-3">
-                        <div className="w-1 h-1 bg-[#98FFF9] rounded-full animate-pulse"></div>
-                        <span className="text-xs text-white/60">Auto-playing</span>
-                            </div>
-                            </div>
-                            </div>
-                            </div>
-                          </div>
-                        </div>
-        </section>
-
         {/* Genesis NFTs — Earnings Tiers */}
         <GenesisNFTs />
 
@@ -863,12 +680,6 @@ function Homepagemcrt() {
                 loading="lazy"
               />
             </div>
-          </div>
-          <div className="mt-4 flex items-center gap-4 flex-wrap">
-            <span className="text-xs text-white/70">Traded on:</span>
-            <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-5 opacity-90" loading="lazy" />
-            <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-5 opacity-90" loading="lazy" />
-            <img src="/icons/icon-huobi.svg" alt="Huobi" className="h-5 opacity-90" loading="lazy" />
           </div>
         </section>
 
@@ -1065,11 +876,6 @@ function Homepagemcrt() {
             <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" rel="noreferrer noopener" className="flex-1 inline-flex items-center justify-center h-11 rounded-xl text-[#03082F] font-black bg-gradient-to-b from-[#98FFF9] to-[#B591F2]">Buy</a>
           </div>
         </div>
-        <section className="relative py-12 md:py-16">
-          <div className="mx-auto w-11/12 max-w-screen-xl">
-            <Testimonial />
-            </div>
-          </section>
           
          <section id="gameplay">
           <GamePlay />
