@@ -1,7 +1,7 @@
 /// <reference types="node" />
 import type { Handler } from '@netlify/functions'
 
-const DEFAULT_BASE_URL = 'http://prod-gameserver.magiccraft.io:8903'
+const DEFAULT_BASE_URL = 'http://prod-gameserver.magiccraft.io:8913'
 
 export const handler: Handler = async () => {
   const baseUrl = process.env.GAMESERVER_API_URL || process.env.REACT_APP_GAMESERVER_API_URL || DEFAULT_BASE_URL

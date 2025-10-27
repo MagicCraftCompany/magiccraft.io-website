@@ -24,7 +24,7 @@
   # Battlepass API Configuration  
   REACT_APP_GAMESERVER_API_URL = "/gameserverapi"
   # Function environment (backend proxy)
-  GAMESERVER_API_URL = "http://prod-gameserver.magiccraft.io:8903"
+  GAMESERVER_API_URL = "http://prod-gameserver.magiccraft.io:8913"
   GAMESERVER_API_KEY = "eXcryBck4cMktHY9"
 
 [[headers]]

@@ -100,7 +100,7 @@ const NITTER_HOSTS: string[] = [
 
 export const handler: Handler = async (event) => {
   const deep = event.queryStringParameters?.deep === '1'
-  const baseGameserver = (process.env.GAMESERVER_API_URL || 'http://prod-gameserver.magiccraft.io:8903').replace(/\/$/, '')
+  const baseGameserver = (process.env.GAMESERVER_API_URL || 'http://prod-gameserver.magiccraft.io:8913').replace(/\/$/, '')
   const gameserverKey = process.env.GAMESERVER_API_KEY || ''
   const sanityProjectId = process.env.VITE_SANITY_PROJECT_ID
   const sanityDataset = process.env.VITE_SANITY_DATASET || 'production'

@@ -42,7 +42,7 @@ export const useBattlePass = () => {
       setError(null);
       
       const apiBaseUrl = process.env.NODE_ENV === 'development' 
-        ? 'http://prod-gameserver.magiccraft.io:8903'
+        ? 'http://prod-gameserver.magiccraft.io:8913'
         : (process.env.REACT_APP_GAMESERVER_API_URL || '/gameserverapi');
       const headers: Record<string, string> = { 'Content-Type': 'application/json' }
       if (!apiBaseUrl.startsWith('/gameserverapi')) {
