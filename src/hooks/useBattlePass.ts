@@ -1,5 +1,18 @@
 import { useState, useEffect } from 'react';
 
+export type Region = 'europe' | 'asia' | 'america';
+
+export interface RegionConfig {
+  id: Region;
+  name: string;
+}
+
+export const REGIONS: RegionConfig[] = [
+  { id: 'europe', name: 'Europe' },
+  { id: 'asia', name: 'Asia' },
+  { id: 'america', name: 'America' },
+];
+
 interface BattlePassData {
   id: string;
   name: string;
@@ -25,13 +38,14 @@ interface BattlePassData {
     playerName: string;
     finalRank: number;
     prizeAmount: number;
-    wonAt: string;
+    wonAt?: string;
     finalScore: number;
   }>;
   prizesDistributed: boolean;
+  region?: Region;
 }
 
-export const useBattlePass = () => {
+export const useBattlePass = (selectedRegion: Region = 'europe') => {
   const [battlePassData, setBattlePassData] = useState<BattlePassData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -41,26 +55,25 @@ export const useBattlePass = () => {
       setLoading(true);
       setError(null);
       
-      const apiBaseUrl = process.env.NODE_ENV === 'development' 
-        ? 'http://prod-gameserver.magiccraft.io:8913'
-        : (process.env.REACT_APP_GAMESERVER_API_URL || '/gameserverapi');
+      const apiBaseUrl = '/gameserverapi';
+      
       const headers: Record<string, string> = { 'Content-Type': 'application/json' }
-      if (!apiBaseUrl.startsWith('/gameserverapi')) {
-        headers['X-API-Key'] = process.env.REACT_APP_GAMESERVER_API_KEY || ''
-      }
-      const response = await fetch(`${apiBaseUrl}/battlepass/active`, { headers });
+      const url = apiBaseUrl.startsWith('/gameserverapi')
+        ? `${apiBaseUrl}/battlepass/active?region=${encodeURIComponent(selectedRegion)}`
+        : `${apiBaseUrl}/battlepass/active`;
+      const response = await fetch(url, { headers });
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const data = await response.json();
-      setBattlePassData(data);
+      setBattlePassData({ ...data, region: selectedRegion });
     } catch (err) {
       console.error('Error fetching battlepass data:', err);
       setError('Failed to load battlepass data');
       
-      if (process.env.NODE_ENV === 'development' && process.env.REACT_APP_USE_MOCK_BATTLEPASS === 'true') {
+      if (process.env.NODE_ENV === 'development' && import.meta.env.VITE_USE_MOCK_BATTLEPASS === 'true') {
         console.warn('Using mock battlepass data for development');
         setBattlePassData({
           id: "battlepass_season_1",
@@ -103,7 +116,7 @@ export const useBattlePass = () => {
     const interval = setInterval(fetchBattlePassData, 30000);
     
     return () => clearInterval(interval);
-  }, []);
+  }, [selectedRegion]); 
 
   return {
     battlePassData,

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Users, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useBattlePass } from '@/hooks/useBattlePass';
+import { Users, Clock, ChevronLeft, ChevronRight, Globe } from 'lucide-react';
+import { useBattlePass, REGIONS, Region } from '@/hooks/useBattlePass';
 
 export default function BattlePassCard() {
-  const { battlePassData, loading, error } = useBattlePass();
+  const [selectedRegion, setSelectedRegion] = useState<Region>('europe');
+  const { battlePassData, loading, error } = useBattlePass(selectedRegion);
   const [timeLeft, setTimeLeft] = useState('');
   const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
 
@@ -80,6 +81,22 @@ export default function BattlePassCard() {
           <div className="flex items-center gap-2">
             <Users className="w-4 h-4 text-[#98FFF9]" />
             <span className="text-sm font-bold text-white">TOP {battlePassData.prizeSettings.maxWinners} PLAYERS</span>
+            
+            {/* Region Selector */}
+            <div className="relative ml-2">
+              <select
+                value={selectedRegion}
+                onChange={(e) => setSelectedRegion(e.target.value as Region)}
+                className="appearance-none bg-[#2A1B3D]/80 border border-[#9255E0]/30 text-white text-xs rounded-lg px-3 py-1.5 pr-8 cursor-pointer hover:border-[#9255E0]/60 transition-all focus:outline-none focus:border-[#9255E0]"
+              >
+                {REGIONS.map((region) => (
+                  <option key={region.id} value={region.id} className="bg-[#1A0E2E]">
+                    {region.name}
+                  </option>
+                ))}
+              </select>
+              <Globe className="w-3 h-3 text-[#98FFF9] absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none" />
+            </div>
           </div>
           
           {/* Navigation arrows */}
@@ -105,8 +122,9 @@ export default function BattlePassCard() {
         <div className="grid grid-cols-3 gap-3">
           {[...Array(3)].map((_, i) => {
             const playerIndex = currentPlayerIndex + i;
-            // Use topParticipants for active battlepass, winners for completed
-            const participants = battlePassData.isActive ? battlePassData.topParticipants : battlePassData.winners;
+            const participants = battlePassData.prizesDistributed && battlePassData.winners.length > 0
+              ? battlePassData.winners 
+              : battlePassData.topParticipants;
             const player = participants && participants[playerIndex] ? participants[playerIndex] : null;
             
             return (

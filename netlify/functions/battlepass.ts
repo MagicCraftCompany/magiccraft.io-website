@@ -1,11 +1,19 @@
 /// <reference types="node" />
 import type { Handler } from '@netlify/functions'
 
-const DEFAULT_BASE_URL = 'http://prod-gameserver.magiccraft.io:8913'
+type Region = 'europe' | 'asia' | 'america'
 
-export const handler: Handler = async () => {
-  const baseUrl = process.env.GAMESERVER_API_URL || process.env.REACT_APP_GAMESERVER_API_URL || DEFAULT_BASE_URL
-  const apiKey = process.env.GAMESERVER_API_KEY || process.env.REACT_APP_GAMESERVER_API_KEY || ''
+const REGION_IPS: Record<Region, string> = {
+  europe: '5.9.111.150',
+  asia: '51.79.230.134',
+  america: '51.222.44.25',
+}
+
+export const handler: Handler = async (event) => {
+  const region = (event.queryStringParameters?.region as Region) || 'europe'
+  const port = process.env.GAMESERVER_API_PORT || '8913'
+  const apiKey = process.env.GAMESERVER_API_KEY || ''
+  const baseUrl = `http://${REGION_IPS[region]}:${port}`
 
   try {
     const targetUrl = `${baseUrl.replace(/\/$/, '')}/battlepass/active`

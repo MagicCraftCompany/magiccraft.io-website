@@ -98,9 +98,19 @@ const NITTER_HOSTS: string[] = [
   'https://nitter.esmailelbob.xyz',
 ]
 
+type Region = 'europe' | 'asia' | 'america'
+
+const REGION_IPS: Record<Region, string> = {
+  europe: '5.9.111.150',
+  asia: '51.79.230.134',
+  america: '51.222.44.25',
+}
+
 export const handler: Handler = async (event) => {
   const deep = event.queryStringParameters?.deep === '1'
-  const baseGameserver = (process.env.GAMESERVER_API_URL || 'http://prod-gameserver.magiccraft.io:8913').replace(/\/$/, '')
+  const region = (event.queryStringParameters?.region as Region) || 'europe'
+  const port = process.env.GAMESERVER_API_PORT || '8913'
+  const baseGameserver = (`http://${REGION_IPS[region]}:${port}`).replace(/\/$/, '')
   const gameserverKey = process.env.GAMESERVER_API_KEY || ''
   const sanityProjectId = process.env.VITE_SANITY_PROJECT_ID
   const sanityDataset = process.env.VITE_SANITY_DATASET || 'production'
