@@ -344,14 +344,14 @@ function Homepagemcrt() {
                   <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                     <button
                       onClick={openGameByDevice}
-                      className="header-cta header-cta--play interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 py-3 text-base sm:text-lg"
+                      className="header-cta header-cta--play interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 text-base sm:text-lg"
                       aria-label="Play MagicCraft now"
                     >
                       Play Now
                     </button>
                     <button
                       onClick={handleBuyMCRT}
-                      className="cta-premium interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 py-3 text-base sm:text-lg"
+                      className="header-cta header-cta--buy interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 text-base sm:text-lg"
                       aria-label="Buy MCRT tokens"
                     >
                       Buy $MCRT
