@@ -1,5 +1,4 @@
 import { titleKeyMaper } from '@/lib/utils';
-import righttick from '@/assets/icons/rightcheck.svg';
 
 type RoadmapCardType = {
   data: {
@@ -11,13 +10,6 @@ type RoadmapCardType = {
     }[];
   };
 };
-
-const RoadmapCard = ({ data }: RoadmapCardType) => {
-  const getFeatureIcon = (_quarter: number, _card: number, feature: string) => {
-    // If a feature is prefixed with "✅ ", we show a consistent check icon
-    if (feature.trim().startsWith('✅')) return righttick
-    return null
-  }
 
   return (
     <div className="min-w-[18rem] snap-center space-y-6">
@@ -44,19 +36,14 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
 
                 <div className="px-6 py-5">
                   {goal.features.map((feature, j) => {
-                    const isChecked = feature.trim().startsWith('✅')
-                    const cleaned = isChecked ? feature.replace(/^✅\s*/, '') : feature
-                    const iconPath = getFeatureIcon(data.quarter, goal.card, feature)
+                    const isCompleted = feature.trim().startsWith('✅')
+                    const cleaned = isCompleted ? feature.replace(/^✅\s*/, '') : feature
                     return (
                       <div key={j} className={`flex items-start gap-3 py-2 ${j !== 0 ? 'border-t border-white/10' : ''}`}>
                         <div className="pt-1 shrink-0">
-                          {iconPath ? (
-                            <img src={iconPath} alt="" className="w-4 h-4 opacity-80" />
-                          ) : (
-                            <span className="block h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#98FFF9] to-[#B591F2] shadow-[0_0_10px_rgba(152,255,249,0.45)]" />
-                          )}
+                          <span className="block h-2.5 w-2.5 rounded-full bg-gradient-to-br from-[#98FFF9] to-[#B591F2] shadow-[0_0_10px_rgba(152,255,249,0.45)]" />
                         </div>
-                        <p className={`text-sm md:text-base leading-relaxed ${isChecked ? 'text-white' : 'text-white/90'}`}>{cleaned}</p>
+                        <p className={`text-sm md:text-base leading-relaxed ${isCompleted ? 'text-white' : 'text-white/90'}`}>{cleaned}</p>
                       </div>
                     )
                   })}
