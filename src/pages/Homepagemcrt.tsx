@@ -397,8 +397,8 @@ function Homepagemcrt() {
                       The currency of gaming & AI
                     </h3>
                     <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed">
-                      $MCRT moves like stablecoin rails with gaming-first utility. On BNB Chain's BEP‑20 standard,
-                      payments settle fast with fees around a cent and capacity for high transactions per second.
+                      $MCRT is built for speed and scale. On BNB Chain's BEP‑20 standard,
+                      payments settle in seconds with fees around a cent and capacity for thousands of transactions per second.
                       Send value instantly between players, power in‑game commerce, and fuel AI-driven experiences across the MagicCraft economy.
                     </p>
                   </div>
@@ -449,8 +449,8 @@ function Homepagemcrt() {
                   <span><strong>20+ dev team</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
-                  <span><strong>$10M+ raised</strong></span>
+                  <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                  <span><strong>17,500+ holders</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
@@ -667,14 +667,14 @@ function Homepagemcrt() {
                     </div>
                   </a>
 
-                  {/* BitMarket */}
+                  {/* Polibilities */}
                   <a href="https://bitmarket.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border-2 border-[#FFB649]/30 hover:border-[#FFB649]/60 transition-all hover:scale-[1.02] group">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFB649] to-[#F59E0B] flex items-center justify-center text-2xl">
                         📊
                       </div>
                       <div>
-                        <h4 className="text-xl font-bold text-white group-hover:text-[#FFB649] transition-colors">BitMarket</h4>
+                        <h4 className="text-xl font-bold text-white group-hover:text-[#FFB649] transition-colors">Polibilities</h4>
                         <span className="text-xs text-[#98FFF9] font-medium">AI Prediction Markets</span>
                       </div>
                     </div>
@@ -909,10 +909,10 @@ function Homepagemcrt() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-4">
               <a href="https://bitmarket.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
                 <div className="flex items-center gap-3 mb-1">
-                  <img src="/icons/icon-stats.svg" alt="Bitmarket" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">Bitmarket (Testnet)</h4>
+                  <img src="/icons/icon-stats.svg" alt="Polibilities" className="w-5 h-5 opacity-90" />
+                  <h4 className="font-bold">Polibilities (Testnet)</h4>
                 </div>
-                <p className="text-sm text-gray-300">Prediction markets for matches.</p>
+                <p className="text-sm text-gray-300">AI prediction markets.</p>
                 <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                   <p className="text-base md:text-[17px] text-white leading-relaxed">Place predictions on match outcomes and trade positions on testnet while mainnet launches. On-chain settlement previews with low-stakes play.</p>
                 </div>
