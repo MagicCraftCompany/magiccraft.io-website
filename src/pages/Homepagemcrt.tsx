@@ -436,38 +436,69 @@ function Homepagemcrt() {
           </section>
           {/* Floating Buy button */}
           <BuyFloat />
+          {/* Credibility Bar - Building since 2021 */}
+          <div className="w-full bg-gradient-to-r from-[#98FFF9]/10 via-[#B591F2]/10 to-[#FFB649]/10 border-t border-b border-white/10">
+            <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-3 sm:py-4">
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-10 text-sm sm:text-base text-white/90">
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/></svg>
+                  <span><strong>Building since 2021</strong></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                  <span><strong>20+ dev team</strong></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                  <span><strong>$10M+ raised</strong></span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                  <span><strong>400K+ community</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Quick Stats strip for buyers */}
           <div className="w-full bg-gradient-to-r from-[#0B0F39] via-[#120e3d] to-[#0B0F39] border-t border-white/5">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-4 sm:py-6">
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
                 <div className="card-glass px-3 py-2 rounded-xl text-center">
-                  <div className="text-xs text-white/60">Community</div>
-                  <div className="text-sm sm:text-base font-bold text-white">200k+</div>
-                </div>
-                <div className="card-glass px-3 py-2 rounded-xl text-center">
-                  <div className="text-xs text-white/60">Holders</div>
+                  <div className="text-xs text-white/60">Token Holders</div>
                   <div className="text-sm sm:text-base font-bold text-white">17,500+</div>
                 </div>
                 <div className="card-glass px-3 py-2 rounded-xl text-center">
                   <div className="text-xs text-white/60">Downloads</div>
-                  <div className="text-sm sm:text-base font-bold text-white">180,000</div>
+                  <div className="text-sm sm:text-base font-bold text-white">100,000+</div>
                 </div>
                 <div className="card-glass px-3 py-2 rounded-xl text-center">
-                  <div className="text-xs text-white/60">New players / week</div>
-                  <div className="text-sm sm:text-base font-bold text-white">6,000+</div>
+                  <div className="text-xs text-white/60">Daily Active</div>
+                  <div className="text-sm sm:text-base font-bold text-white">10,000+</div>
                 </div>
                 <div className="card-glass px-3 py-2 rounded-xl text-center">
-                  <div className="text-xs text-white/60">Lobbies</div>
+                  <div className="text-xs text-white/60">Crypto Lobbies</div>
                   <div className="text-sm sm:text-base font-bold text-white">BTC, ETH, SOL</div>
                 </div>
                 <div className="card-glass px-3 py-2 rounded-xl text-center">
+                  <div className="text-xs text-white/60">Platforms</div>
+                  <div className="text-sm sm:text-base font-bold text-white">iOS, Android, PC</div>
+                </div>
+                <div className="card-glass px-3 py-2 rounded-xl text-center">
                   <div className="text-xs text-white/60">Exchanges</div>
-                  <div className="text-sm sm:text-base font-bold text-white">Bybit, MEXC, HTX</div>
+                  <div className="text-sm sm:text-base font-bold text-white">Bybit, HTX, MEXC</div>
                 </div>
               </div>
-              <div className="mt-2 text-center text-xs sm:text-sm text-white/70">Circulating supply: <span className="font-semibold text-white">5,000,000,000 $MCRT</span></div>
+              <div className="mt-3 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                <span className="text-xs sm:text-sm text-white/60">Also on:</span>
+                <span className="text-xs sm:text-sm text-white/90 font-medium">Gate.io</span>
+                <span className="text-white/30">•</span>
+                <span className="text-xs sm:text-sm text-white/90 font-medium">Bitmart</span>
+                <span className="text-white/30">•</span>
+                <span className="text-xs sm:text-sm text-white/90 font-medium">PancakeSwap</span>
+              </div>
             </div>
-             </div>
+          </div>
                      {/* BattlePass Section */}
           <section className="relative w-full bg-gradient-to-b from-[#03082f] via-[#0a0524] to-[#050317] py-12 md:py-16 lg:py-20">
             <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
@@ -518,79 +549,154 @@ function Homepagemcrt() {
             <div className="relative z-10 mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6">
               <div className="text-center mb-8 md:mb-12">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#FFB649] via-[#B591F2] to-[#98FFF9] bg-clip-text text-transparent mb-4">
-                  AI-POWERED GAMING
+                  AI-POWERED ECOSYSTEM
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-                  MagicCraft leverages cutting-edge AI to revolutionize gameplay, content creation, and player interaction.
+                  $MCRT powers a suite of AI tools—from in-game assistants to prediction markets and beyond.
                 </p>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                {/* AI Chatbots */}
-                <div className="card-glass p-6 rounded-2xl border-2 border-[#FFB649]/20 hover:border-[#FFB649]/40 transition-all hover:scale-[1.02]">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFB649] to-[#F59E0B] flex items-center justify-center mb-4">
-                    <svg className="w-7 h-7 text-[#03082F]" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
-                      <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
-                    </svg>
+              {/* In-Game AI Features */}
+              <div className="mb-8">
+                <h3 className="text-lg sm:text-xl font-semibold text-white/80 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-[2px] bg-gradient-to-r from-[#FFB649] to-transparent"></span>
+                  In-Game AI
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                  {/* AI Chatbots */}
+                  <div className="card-glass p-5 rounded-2xl border border-[#FFB649]/20 hover:border-[#FFB649]/40 transition-all hover:scale-[1.02]">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#FFB649] to-[#F59E0B] flex items-center justify-center mb-3">
+                      <svg className="w-5 h-5 text-[#03082F]" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+                        <path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/>
+                      </svg>
+                    </div>
+                    <h4 className="text-lg font-bold text-white mb-1">AI Chatbots</h4>
+                    <p className="text-sm text-gray-400 leading-relaxed">
+                      Real-time strategy tips and adaptive companions that learn your playstyle.
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">AI Chatbots</h3>
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    Intelligent in-game assistants powered by advanced language models. Get real-time strategy tips, 
-                    learn game mechanics, and interact with AI companions that understand context and adapt to your playstyle.
-                  </p>
-                </div>
 
-                {/* AI Weapon Generation */}
-                <div className="card-glass p-6 rounded-2xl border-2 border-[#B591F2]/20 hover:border-[#B591F2]/40 transition-all hover:scale-[1.02]">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#B591F2] to-[#9333EA] flex items-center justify-center mb-4">
-                    <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12.5 3L3 7v6c0 5.55 3.84 10.74 9 12 .47-.11.91-.23 1.34-.38L11 22v-7h2v7l2.66-2.38c.43.15.87.27 1.34.38 5.16-1.26 9-6.45 9-12V7l-9.5-4zM12 11.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V9l7-3.11V11.99z"/>
-                    </svg>
+                  {/* AI Weapon Generation */}
+                  <div className="card-glass p-5 rounded-2xl border border-[#B591F2]/20 hover:border-[#B591F2]/40 transition-all hover:scale-[1.02]">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#B591F2] to-[#9333EA] flex items-center justify-center mb-3">
+                      <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.5 3L3 7v6c0 5.55 3.84 10.74 9 12 .47-.11.91-.23 1.34-.38L11 22v-7h2v7l2.66-2.38c.43.15.87.27 1.34.38 5.16-1.26 9-6.45 9-12V7l-9.5-4zM12 11.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V9l7-3.11V11.99z"/>
+                      </svg>
+                    </div>
+                    <h4 className="text-lg font-bold text-white mb-1">AI Weapon Gen</h4>
+                    <p className="text-sm text-gray-400 leading-relaxed">
+                      Procedurally generated weapons with AI-designed stats, mintable as NFTs.
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">AI Weapon Generation</h3>
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    Procedurally generate unique weapons with AI-designed stats, visuals, and abilities. Every weapon is 
-                    balanced algorithmically and can be minted as NFTs, creating endless variety and collector value.
-                  </p>
-                </div>
 
-                {/* AI Unity Asset Generation */}
-                <div className="card-glass p-6 rounded-2xl border-2 border-[#98FFF9]/20 hover:border-[#98FFF9]/40 transition-all hover:scale-[1.02]">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#98FFF9] to-[#06B6D4] flex items-center justify-center mb-4">
-                    <svg className="w-7 h-7 text-[#03082F]" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-                    </svg>
+                  {/* AI Unity Assets */}
+                  <div className="card-glass p-5 rounded-2xl border border-[#98FFF9]/20 hover:border-[#98FFF9]/40 transition-all hover:scale-[1.02]">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#98FFF9] to-[#06B6D4] flex items-center justify-center mb-3">
+                      <svg className="w-5 h-5 text-[#03082F]" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                      </svg>
+                    </div>
+                    <h4 className="text-lg font-bold text-white mb-1">AI Unity Assets</h4>
+                    <p className="text-sm text-gray-400 leading-relaxed">
+                      Generate game-ready 3D models, textures, and animations on-demand.
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">AI Unity Asset Generation</h3>
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    Generate game-ready Unity assets on-demand using AI. From 3D models and textures to particle effects and 
-                    animations—creators can rapidly prototype and deploy custom content without traditional asset pipelines.
-                  </p>
-                </div>
 
-                {/* AI Game Master */}
-                <div className="card-glass p-6 rounded-2xl border-2 border-[#9255E0]/20 hover:border-[#9255E0]/40 transition-all hover:scale-[1.02]">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#9255E0] to-[#7C3AED] flex items-center justify-center mb-4">
-                    <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"/>
-                    </svg>
+                  {/* AI Game Master */}
+                  <div className="card-glass p-5 rounded-2xl border border-[#9255E0]/20 hover:border-[#9255E0]/40 transition-all hover:scale-[1.02]">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#9255E0] to-[#7C3AED] flex items-center justify-center mb-3">
+                      <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"/>
+                      </svg>
+                    </div>
+                    <h4 className="text-lg font-bold text-white mb-1">AI Game Master</h4>
+                    <p className="text-sm text-gray-400 leading-relaxed">
+                      Dynamic events and quests that adapt to player behavior in real-time.
+                    </p>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">AI Game Master</h3>
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    Dynamic AI-driven events and quests that adapt to player behavior. The AI Game Master creates personalized 
-                    challenges, balances match difficulty, and orchestrates live tournaments with real-time adjustments.
-                  </p>
+                </div>
+              </div>
+
+              {/* External AI Products */}
+              <div className="mb-8">
+                <h3 className="text-lg sm:text-xl font-semibold text-white/80 mb-4 flex items-center gap-2">
+                  <span className="w-8 h-[2px] bg-gradient-to-r from-[#98FFF9] to-transparent"></span>
+                  AI Product Suite
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                  {/* MerlinAI */}
+                  <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border-2 border-[#9255E0]/30 hover:border-[#9255E0]/60 transition-all hover:scale-[1.02] group">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#9255E0] to-[#6366F1] flex items-center justify-center text-2xl">
+                        🔮
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-white group-hover:text-[#B591F2] transition-colors">Merlin AI</h4>
+                        <span className="text-xs text-[#98FFF9] font-medium">merlintheai.com</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-300 leading-relaxed mb-3">
+                      Advanced AI assistant with voice chat, image generation, investment tracking, and smart routing across multiple AI models (GPT, Grok, Gemini).
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">Voice Chat</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">Image Gen</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">Market Tracking</span>
+                    </div>
+                  </a>
+
+                  {/* DocAI */}
+                  <a href="https://docai.live" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border-2 border-[#10B981]/30 hover:border-[#10B981]/60 transition-all hover:scale-[1.02] group">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#10B981] to-[#059669] flex items-center justify-center text-2xl">
+                        🩺
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-white group-hover:text-[#10B981] transition-colors">DocAI</h4>
+                        <span className="text-xs text-[#98FFF9] font-medium">docai.live</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-300 leading-relaxed mb-3">
+                      AI-powered wellness assistant providing 24/7 health consultations. Personalized advice trained on thousands of medical cases.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">24/7 Care</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">Wellness</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">Multi-language</span>
+                    </div>
+                  </a>
+
+                  {/* BitMarket */}
+                  <a href="https://bitmarket.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border-2 border-[#FFB649]/30 hover:border-[#FFB649]/60 transition-all hover:scale-[1.02] group">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFB649] to-[#F59E0B] flex items-center justify-center text-2xl">
+                        📊
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-white group-hover:text-[#FFB649] transition-colors">BitMarket</h4>
+                        <span className="text-xs text-[#98FFF9] font-medium">AI Prediction Markets</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-300 leading-relaxed mb-3">
+                      Predict match outcomes and compete for rewards. AI-powered odds, real-time updates, and crypto payouts in $MCRT.
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">Predictions</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">AI Odds</span>
+                      <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">$MCRT Rewards</span>
+                    </div>
+                  </a>
                 </div>
               </div>
 
               {/* Additional Info */}
-              <div className="mt-8 md:mt-12 text-center">
+              <div className="text-center">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#FFB649]/20 bg-[#FFB649]/10 text-[#FFB649] text-sm font-semibold">
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18.5c-3.25-.8-6-4.31-6-7.83V8.3l6-3.11v15.31z"/>
                   </svg>
-                  <span>Powered by $MCRT • Fuel AI experiences across the ecosystem</span>
+                  <span>Powered by $MCRT • Integrating AI + Crypto since 2021</span>
                 </div>
               </div>
             </div>
@@ -753,16 +859,17 @@ function Homepagemcrt() {
                 </p>
               </div>
             </a>
-            <a href="/build-on-magiccraft" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
+            <a href="https://store.steampowered.com/app/3478810/MCRT_Game_Maker/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50 border border-[#98FFF9]/20" style={{ overflow: 'visible' }}>
               <div className="flex items-center gap-3 mb-1">
-                <img src="/icons/icon-pc.svg" alt="Game Maker" className="w-5 h-5 opacity-90" />
-                <h4 className="text-lg md:text-xl font-bold">Game Maker</h4>
+                <img src={steam} alt="Game Maker" className="w-5 h-5 opacity-90" />
+                <h4 className="text-lg md:text-xl font-bold">$MCRT Game Maker</h4>
+                <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#98FFF9]/20 text-[#98FFF9] font-bold">STEAM</span>
               </div>
-              <p className="text-base md:text-lg text-gray-300">Build maps and modes.</p>
+              <p className="text-base md:text-lg text-gray-300">Design maps, earn $MCRT.</p>
               <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
                 <p className="text-base md:text-[17px] text-white leading-relaxed">
-                  Build and publish to Steam. Earn $MCRT from playtime and engagement. Utilize Vibe Coding, AI‑assisted
-                  assets (Nano Banana weapon skins), and upcoming APIs/SDKs for deeper integrations.
+                  Now on Steam! Build and publish custom maps. Earn $MCRT from playtime and engagement. AI-assisted
+                  asset generation and upcoming APIs/SDKs for deeper integrations.
                 </p>
               </div>
             </a>
@@ -1636,3 +1743,4 @@ function Homepagemcrt() {
   )
 }
 export default Homepagemcrt
+
