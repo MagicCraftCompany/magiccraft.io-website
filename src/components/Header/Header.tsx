@@ -371,93 +371,129 @@ const Header = () => {
         <div className="fixed inset-0 z-[99999] bg-black/60" onClick={closeSidebar} />
       )}
       
-      {/* Mobile menu panel - simple slide without animations */}
+      {/* Mobile menu panel - premium glass design */}
       <div 
-        className={`fixed top-0 right-0 h-full w-[90%] max-w-lg z-[100000] transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-[85%] max-w-[380px] z-[100000] transform transition-transform duration-300 ease-out ${
           isSideMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } glass-strong border-l border-white/20 shadow-2xl overflow-auto`}
-        style={{ backdropFilter: 'blur(16px)', WebkitBackdropFilter: 'blur(16px)' }}
+        } bg-[#0a0e2e]/95 border-l border-white/10 shadow-2xl overflow-auto`}
+        style={{ backdropFilter: 'blur(20px)', WebkitBackdropFilter: 'blur(20px)' }}
       >
-        <div className="safe-padded py-6 pl-8 pr-8 text-white h-full">
-              <div className="flex h-full flex-col gap-4">
-                <div className="flex items-center justify-between">
-                  <span className="font-serif text-[22px] bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">Menu</span>
-                  <button
-                    className="p-2 rounded-lg hover:bg-white/10 transition-all duration-200 group"
-                    onClick={closeSidebar}
-                  >
-                    <X
-                      className="cursor-pointer group-hover:rotate-90 transition-transform duration-200"
-                      size={28}
-                    />
-                  </button>
-                </div>
-                <div className="h-[2px] w-full shrink-0 bg-gradient-to-r from-transparent via-[#98FFF9]/60 to-transparent" />
-
-                {/* Mobile Shop and Play buttons */}
-                <div className="flex gap-3 py-4">
-                  <a
-                    href="https://app.magiccraft.io/marketplace/explorer"
-                    onClick={closeSidebar}
-                    rel="noreferrer noopener"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 backdrop-blur-sm"
-                  >
-                    <p className="text-lg font-semibold text-white">Shop</p>
-                  </a>
-                  
-                  <a
-                    href="https://lobby.magiccraft.io/"
-                    onClick={closeSidebar}
-                    rel="noreferrer noopener"
-                    className="flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 backdrop-blur-sm"
-                  >
-                    <p className="text-lg font-semibold text-white">Play</p>
-                  </a>
-                </div>
-
-                <div className="h-[2px] w-full shrink-0 bg-gradient-to-r from-transparent via-[#98FFF9]/60 to-transparent" />
-
-                <div className="flex flex-col gap-y-8 pt-8">
-                  {commonMenuItemsNew.map((item) =>
-                    item?.submenu?.length > 0 ? (
-                      <NavMenuMobile
-                        key={item.title}
-                        item={item}
-                        closeSidebar={closeSidebar}
-                     
-                      />
-                    ) : (
-                      item.path?.startsWith('http') ? (
-                        <a
-                          key={item.title}
-                          onClick={closeSidebar}
-                          href={item.path}
-                          rel="noreferrer noopener"
-                        >
-                          <div className="flex items-center gap-2">
-                            <p className="text-[22px] font-normal">
-                              {item.title}
-                            </p>
-                          </div>
-                        </a>
-                      ) : (
-                        <Link
-                          key={item.title}
-                          onClick={closeSidebar}
-                          to={item.path || '/'}
-                        >
-                          <div className="flex items-center gap-2">
-                            <p className="text-[22px] font-normal">
-                              {item.title}
-                            </p>
-                          </div>
-                        </Link>
-                      )
-                    )
-                  )}
-                </div>
-
+        <div className="py-5 px-5 text-white h-full">
+          <div className="flex h-full flex-col">
+            {/* Header */}
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <img src={mcLogo} alt="MagicCraft" className="h-8" />
               </div>
+              <button
+                className="p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-200 group"
+                onClick={closeSidebar}
+              >
+                <X className="cursor-pointer group-hover:rotate-90 transition-transform duration-200 w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Primary CTAs */}
+            <div className="grid grid-cols-2 gap-2 mb-5">
+              <a
+                href="https://lobby.magiccraft.io/"
+                onClick={closeSidebar}
+                rel="noreferrer noopener"
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] text-[#03082F] font-bold text-sm hover:opacity-90 transition-opacity"
+              >
+                <Gamepad2 className="w-4 h-4" />
+                <span>Play Now</span>
+              </a>
+              <a
+                href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
+                onClick={closeSidebar}
+                rel="noreferrer noopener"
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-sm hover:bg-white/15 transition-all"
+              >
+                <span>Buy $MCRT</span>
+              </a>
+            </div>
+
+            {/* Quick Links */}
+            <div className="flex gap-2 mb-5">
+              <a
+                href="https://app.magiccraft.io/marketplace/explorer"
+                onClick={closeSidebar}
+                rel="noreferrer noopener"
+                className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/80 text-sm hover:bg-white/10 transition-all"
+              >
+                <ShoppingBag className="w-4 h-4" />
+                <span>Shop</span>
+              </a>
+              <a
+                href="https://lobby.magiccraft.io/leaderboard"
+                onClick={closeSidebar}
+                rel="noreferrer noopener"
+                className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/80 text-sm hover:bg-white/10 transition-all"
+              >
+                <img src={leaderboard} alt="" className="w-4 h-4 opacity-80" />
+                <span>Ranks</span>
+              </a>
+              <a
+                href="https://lobby.magiccraft.io/stats"
+                onClick={closeSidebar}
+                rel="noreferrer noopener"
+                className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/80 text-sm hover:bg-white/10 transition-all"
+              >
+                <img src={stats} alt="" className="w-4 h-4 opacity-80" />
+                <span>Stats</span>
+              </a>
+            </div>
+
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent mb-4" />
+
+            {/* Navigation Sections */}
+            <div className="flex-1 overflow-auto space-y-1">
+              {commonMenuItemsNew.map((item) =>
+                item?.submenu?.length > 0 ? (
+                  <NavMenuMobile
+                    key={item.title}
+                    item={item}
+                    closeSidebar={closeSidebar}
+                  />
+                ) : (
+                  item.path?.startsWith('http') ? (
+                    <a
+                      key={item.title}
+                      onClick={closeSidebar}
+                      href={item.path}
+                      rel="noreferrer noopener"
+                      className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all"
+                    >
+                      <img src={item.icon} alt="" className="w-5 h-5 opacity-70" />
+                      <p className="text-base font-medium text-white/90">{item.title}</p>
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.title}
+                      onClick={closeSidebar}
+                      to={item.path || '/'}
+                      className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all"
+                    >
+                      <img src={item.icon} alt="" className="w-5 h-5 opacity-70" />
+                      <p className="text-base font-medium text-white/90">{item.title}</p>
+                    </Link>
+                  )
+                )
+              )}
+            </div>
+
+            {/* Footer */}
+            <div className="mt-4 pt-4 border-t border-white/10">
+              <div className="flex items-center justify-center gap-4 text-xs text-white/50">
+                <a href="/privacy-policy" onClick={closeSidebar} className="hover:text-white/70">Privacy</a>
+                <span>•</span>
+                <a href="/terms" onClick={closeSidebar} className="hover:text-white/70">Terms</a>
+                <span>•</span>
+                <a href="/faq" onClick={closeSidebar} className="hover:text-white/70">FAQ</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
