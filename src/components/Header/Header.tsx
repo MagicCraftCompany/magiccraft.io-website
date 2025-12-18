@@ -1,8 +1,45 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
-import { X, Gamepad2, ShoppingBag } from 'lucide-react'
+import { X, Gamepad2, ShoppingBag, Globe, ChevronDown } from 'lucide-react'
 import NavMenu from './Navmenu'
 import { useState, useEffect } from 'react'
 import StatusIndicator from './StatusIndicator'
+
+// Language options (codes match Google Translate)
+const languages = [
+  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'es', name: 'Español', flag: '🇪🇸' },
+  { code: 'pt', name: 'Português', flag: '🇧🇷' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+  { code: 'zh-CN', name: '中文', flag: '🇨🇳' },
+  { code: 'ja', name: '日本語', flag: '🇯🇵' },
+  { code: 'ko', name: '한국어', flag: '🇰🇷' },
+  { code: 'ar', name: 'العربية', flag: '🇸🇦' },
+  { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
+  { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
+  { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
+  { code: 'th', name: 'ไทย', flag: '🇹🇭' },
+  { code: 'id', name: 'Indonesia', flag: '🇮🇩' },
+]
+
+// Trigger Google Translate
+function triggerGoogleTranslate(langCode: string) {
+  const select = document.querySelector('.goog-te-combo') as HTMLSelectElement
+  if (select) {
+    select.value = langCode
+    select.dispatchEvent(new Event('change'))
+  } else {
+    // Fallback: try after a short delay if translate hasn't loaded
+    setTimeout(() => {
+      const retrySelect = document.querySelector('.goog-te-combo') as HTMLSelectElement
+      if (retrySelect) {
+        retrySelect.value = langCode
+        retrySelect.dispatchEvent(new Event('change'))
+      }
+    }, 1000)
+  }
+}
 
 import NavMenuMobile from './NavMenuMobile'
 
@@ -238,7 +275,25 @@ const Header = () => {
     if (typeof window === 'undefined') return true
     return window.matchMedia('(min-width: 768px)').matches
   })
+  const [currentLang, setCurrentLang] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return localStorage.getItem('preferredLang') || 'en'
+    }
+    return 'en'
+  })
+  const [isLangOpen, setIsLangOpen] = useState(false)
   const location = useLocation()
+
+  const handleLanguageChange = (code: string) => {
+    setCurrentLang(code)
+    setIsLangOpen(false)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('preferredLang', code)
+      triggerGoogleTranslate(code)
+    }
+  }
+
+  const currentLanguage = languages.find(l => l.code === currentLang) || languages[0]
 
   useEffect(() => {
     console.log('Current route:', location.pathname)
@@ -483,8 +538,45 @@ const Header = () => {
               )}
             </div>
 
-            {/* Footer */}
+            {/* Language Selector */}
             <div className="mt-4 pt-4 border-t border-white/10">
+              <div className="relative">
+                <button
+                  onClick={() => setIsLangOpen(!isLangOpen)}
+                  className="w-full flex items-center justify-between gap-2 p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
+                >
+                  <div className="flex items-center gap-2">
+                    <Globe className="w-4 h-4 text-white/60" />
+                    <span className="text-sm text-white/80">{currentLanguage.flag} {currentLanguage.name}</span>
+                  </div>
+                  <ChevronDown className={`w-4 h-4 text-white/50 transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {isLangOpen && (
+                  <div className="absolute bottom-full left-0 right-0 mb-2 max-h-[280px] overflow-auto rounded-xl bg-[#0a0e2e] border border-white/20 shadow-2xl">
+                    <div className="p-2 grid grid-cols-2 gap-1">
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => handleLanguageChange(lang.code)}
+                          className={`flex items-center gap-2 p-2.5 rounded-lg text-left transition-all ${
+                            currentLang === lang.code 
+                              ? 'bg-[#98FFF9]/20 text-white' 
+                              : 'hover:bg-white/10 text-white/70'
+                          }`}
+                        >
+                          <span className="text-base">{lang.flag}</span>
+                          <span className="text-xs font-medium truncate">{lang.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* Footer Links */}
+            <div className="mt-3 pb-2">
               <div className="flex items-center justify-center gap-4 text-xs text-white/50">
                 <a href="/privacy-policy" onClick={closeSidebar} className="hover:text-white/70">Privacy</a>
                 <span>•</span>

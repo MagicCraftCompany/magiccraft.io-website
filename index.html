@@ -60,6 +60,25 @@
     <script src="https://widgets.coingecko.com/coingecko-coin-ticker-widget.js" defer></script>
     <script src="https://widgets.coingecko.com/coingecko-coin-price-chart-widget.js" defer></script>
     
+    <!-- Google Translate -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({
+          pageLanguage: 'en',
+          includedLanguages: 'en,es,pt,fr,de,ru,zh-CN,ja,ko,ar,hi,tr,vi,th,id',
+          layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          autoDisplay: false
+        }, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" defer></script>
+    <style>
+      /* Hide Google Translate bar */
+      .goog-te-banner-frame, .skiptranslate { display: none !important; }
+      body { top: 0 !important; }
+      #google_translate_element { display: none; }
+    </style>
+    
     <!-- Structured Data: Organization & WebSite -->
     <script type="application/ld+json">
       {
@@ -126,6 +145,7 @@
     <form name="grants-success" hidden>
       <p>Thank you for your submission.</p>
     </form>
+    <div id="google_translate_element"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
