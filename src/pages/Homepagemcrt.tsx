@@ -484,11 +484,11 @@ function Homepagemcrt() {
               </div>
               <div className="mt-3 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                 <span className="text-xs sm:text-sm text-white/60">Also on:</span>
-                <span className="text-xs sm:text-sm text-white/90 font-medium">Gate.io</span>
+                <a href="https://www.gate.io/trade/MCRT_USDT" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">Gate.io</a>
                 <span className="text-white/30">•</span>
-                <span className="text-xs sm:text-sm text-white/90 font-medium">Bitmart</span>
+                <a href="https://www.bitmart.com/trade/en-US?symbol=MCRT_USDT" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">Bitmart</a>
                 <span className="text-white/30">•</span>
-                <span className="text-xs sm:text-sm text-white/90 font-medium">PancakeSwap</span>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">PancakeSwap</a>
               </div>
             </div>
           </div>
