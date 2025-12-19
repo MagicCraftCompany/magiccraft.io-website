@@ -20,7 +20,6 @@ import xrp from '@/assets/icons/xrplobby.svg'
 import sol from '@/assets/icons/sollobby.svg'
 import eth from '@/assets/icons/ethlobby.svg'
 import bnb from '@/assets/icons/bnblogo-yellow.svg'
-// Use the real MCRT logo used elsewhere on the site
 const mcrtIcon = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
 
 
@@ -34,23 +33,18 @@ export default function MagicraftDownload() {
       if (hoveredLobby && cardRefs.current[hoveredLobby]) {
         const rect = cardRefs.current[hoveredLobby]?.getBoundingClientRect()
         if (rect) {
-          // Add padding/margin so tooltip never touches viewport edge
           const padding = 32
           const viewportWidth = window.innerWidth
           const viewportHeight = window.innerHeight
-          // Estimate tooltip width based on responsive classes (md:w-[28rem], else w-96)
-          const tooltipWidth = Math.min(viewportWidth * 0.92, viewportWidth >= 768 ? 448 : 384)
-          const preferredHeight = 340
+          const tooltipWidth = Math.min(viewportWidth * 0.92, viewportWidth >= 768 ? 380 : 340)
+          const preferredHeight = 280
 
-          // Vertical positioning: prefer above, clamp inside viewport
-          let top = rect.top - preferredHeight
+          let top = rect.top - preferredHeight - 16
           if (top < padding) {
-            top = rect.bottom + padding
+            top = rect.bottom + 16
           }
-          // Clamp vertically to viewport
           top = Math.max(padding, Math.min(viewportHeight - preferredHeight - padding, top))
 
-          // Horizontal positioning and clamping
           const centeredLeft = rect.left + rect.width / 2
           let left = centeredLeft
           let transform = 'translateX(-50%)'
@@ -58,21 +52,17 @@ export default function MagicraftDownload() {
           const rightOverflow = centeredLeft + tooltipWidth / 2 > viewportWidth - padding
           const leftOverflow = centeredLeft - tooltipWidth / 2 < padding
 
-          // Check if we need to force left positioning for rightmost cards
-          // Determine rightmost cards based on viewport width and grid layout
-          // Grid: 2 cols (mobile), 3 cols (sm/md/lg), 6 cols (xl)
           let rightmostCards: string[] = []
-          if (viewportWidth >= 1280) { // xl: 6 columns
-            rightmostCards = ['sol'] // Only SOL is rightmost in 6-col layout
-          } else if (viewportWidth >= 640) { // sm/md/lg: 3 columns
-            rightmostCards = ['mcrt', 'sol'] // MCRT and SOL are rightmost in 3-col layout
-          } else { // mobile: 2 columns
-            rightmostCards = ['bnb', 'eth', 'sol'] // Even positions are rightmost in 2-col layout
+          if (viewportWidth >= 1280) {
+            rightmostCards = ['sol']
+          } else if (viewportWidth >= 640) {
+            rightmostCards = ['mcrt', 'sol']
+          } else {
+            rightmostCards = ['bnb', 'eth', 'sol']
           }
           const isRightmostCard = rightmostCards.includes(hoveredLobby)
           
           if (rightOverflow || isRightmostCard) {
-            // Anchor the tooltip's right edge to the card's right edge so it opens to the left
             left = rect.right - 16
             transform = 'translateX(-100%)'
           } else if (leftOverflow) {
@@ -80,15 +70,11 @@ export default function MagicraftDownload() {
             transform = 'translateX(0)'
           }
 
-          // Final clamp to ensure the tooltip remains inside viewport based on transform mode
           if (transform === 'translateX(-100%)') {
-            // Right-anchored: ensure the tooltip doesn't go off the left edge
             left = Math.max(tooltipWidth + padding, left)
           } else if (transform === 'translateX(0)') {
-            // Left-anchored: ensure the tooltip doesn't go off the right edge
             left = Math.min(viewportWidth - tooltipWidth - padding, left)
           } else {
-            // Center-anchored: ensure the tooltip doesn't go off either edge
             const halfWidth = tooltipWidth / 2
             left = Math.max(padding + halfWidth, Math.min(viewportWidth - padding - halfWidth, left))
           }
@@ -195,97 +181,109 @@ export default function MagicraftDownload() {
   const lobbyData = {
     btc: {
       icon: btc,
-      title: '$BTC LOBBY',
+      title: '$BTC',
       subtitle: 'Bitcoin',
-      glowColor: '#FFB649',
+      glowColor: '#F7931A',
+      bgGradient: 'from-[#F7931A]/20 to-[#F7931A]/5',
+      borderColor: 'border-[#F7931A]/40',
       tooltip: {
         title: 'Bitcoin Lobby',
-        description: 'Daily-earning lobbies themed around Bitcoin. Win matches and tournaments to earn crypto rewards while you play and create.',
+        tagline: 'Play & Earn BTC',
         features: [
-          '• Earn $BTC from winning lobbies every day',
-          '• Creator maps can participate in BTC events',
-          '• Fast payouts via the MagicCraft Lobby System',
-          '• Join the Bitcoin gaming community'
+          'Daily BTC prize pools',
+          'Instant withdrawals',
+          'Competitive matchmaking',
+          'Pro tournaments'
         ]
       }
     },
     bnb: {
       icon: bnb,
-      title: '$BNB LOBBY',
-      subtitle: 'Binance Coin',
+      title: '$BNB',
+      subtitle: 'BNB Chain',
       glowColor: '#F3BA2F',
+      bgGradient: 'from-[#F3BA2F]/20 to-[#F3BA2F]/5',
+      borderColor: 'border-[#F3BA2F]/40',
       tooltip: {
-        title: 'Binance Coin Lobby',
-        description: 'Compete in BNB‑themed daily lobbies. Win to earn $BNB and climb seasonal leaderboards.',
+        title: 'BNB Chain Lobby',
+        tagline: 'Low Fees, Fast Games',
         features: [
-          '• Earn $BNB in daily lobbies',
-          '• Low fees, quick settlement',
-          '• Seasonal events and leaderboards',
-          '• Access to Binance ecosystem'
+          'Minimal gas fees',
+          'Quick settlements',
+          'Daily leaderboards',
+          'BSC ecosystem'
         ]
       }
     },
     mcrt: {
       icon: mcrtIcon,
-      title: '$MCRT LOBBY',
-      subtitle: 'MagicCraft Token',
+      title: '$MCRT',
+      subtitle: 'MagicCraft',
       glowColor: '#98FFF9',
+      bgGradient: 'from-[#98FFF9]/20 to-[#98FFF9]/5',
+      borderColor: 'border-[#98FFF9]/40',
       tooltip: {
-        title: 'MagicCraft Token Lobby',
-        description: 'Core $MCRT lobbies where players can earn rewards daily from wins, events, and creator engagement.',
+        title: 'MCRT Lobby',
+        tagline: 'Native Token Rewards',
         features: [
-          '• Daily $MCRT earning lobbies',
-          '• Creator rewards for engaging maps',
-          '• VIP and referral programs',
-          '• Governance and staking integrations'
+          'Highest reward rates',
+          'Staking bonuses',
+          'VIP benefits',
+          'Governance power'
         ]
       }
     },
     eth: {
       icon: eth,
-      title: '$ETH LOBBY',
+      title: '$ETH',
       subtitle: 'Ethereum',
-      glowColor: '#bc7af6',
+      glowColor: '#627EEA',
+      bgGradient: 'from-[#627EEA]/20 to-[#627EEA]/5',
+      borderColor: 'border-[#627EEA]/40',
       tooltip: {
         title: 'Ethereum Lobby',
-        description: 'Win in Ethereum‑themed daily lobbies and earn $ETH. Smart-contract powered competitions and rewards.',
+        tagline: 'Premium Competition',
         features: [
-          '• Daily $ETH earning opportunities',
-          '• DeFi integrations for advanced play',
-          '• NFT marketplace access',
-          '• Ethereum ecosystem benefits'
+          'High-stakes matches',
+          'NFT integrations',
+          'DeFi rewards',
+          'Elite tournaments'
         ]
       }
     },
     xrp: {
       icon: xrp,
-      title: '$XRP LOBBY',
+      title: '$XRP',
       subtitle: 'Ripple',
-      glowColor: '#51C1F6',
+      glowColor: '#23292F',
+      bgGradient: 'from-[#51C1F6]/20 to-[#51C1F6]/5',
+      borderColor: 'border-[#51C1F6]/40',
       tooltip: {
         title: 'Ripple Lobby',
-        description: 'Play fast‑paced daily lobbies and earn $XRP. Lightning‑quick settlement and low fees.',
+        tagline: 'Lightning Fast',
         features: [
-          '• Daily $XRP rewards from lobbies',
-          '• Near‑instant processing',
-          '• Low fees for frequent play',
-          '• Ripple network benefits'
+          'Instant transfers',
+          'Micro-fee gaming',
+          '24/7 active pools',
+          'Global liquidity'
         ]
       }
     },
     sol: {
       icon: sol,
-      title: '$SOL LOBBY',
+      title: '$SOL',
       subtitle: 'Solana',
-      glowColor: '#7CF5C7',
+      glowColor: '#9945FF',
+      bgGradient: 'from-[#9945FF]/20 to-[#14F195]/5',
+      borderColor: 'border-[#9945FF]/40',
       tooltip: {
         title: 'Solana Lobby',
-        description: 'High‑performance daily lobbies on Solana. Win matches to earn $SOL with ultra‑low fees.',
+        tagline: 'Speed & Scale',
         features: [
-          '• Daily $SOL earning lobbies',
-          '• High‑speed, low‑fee gameplay',
-          '• Scalable competitions and events',
-          '• Solana ecosystem integration'
+          'Sub-second finality',
+          'Lowest fees',
+          'Mass tournaments',
+          'SPL rewards'
         ]
       }
     }
@@ -348,109 +346,103 @@ export default function MagicraftDownload() {
         </div>
       </div>
 
-      {/* Crypto Lobby Cards - responsive grid, dynamic from data */}
+      {/* Crypto Lobby Cards */}
       <div className="w-full lg:flex-1 lg:ml-6 relative overflow-visible" style={{ zIndex: 100 }}>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5 lg:gap-6 w-full max-w-5xl lg:max-w-none mx-auto px-1 sm:px-2 overflow-visible">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5 w-full max-w-5xl lg:max-w-none mx-auto px-1 sm:px-2 overflow-visible">
           {(['btc','bnb','mcrt','eth','xrp','sol'] as const).map((key) => {
             const l = lobbyData[key]
-            const colorClass =
-              key === 'btc' ? '#FFB649' :
-              key === 'bnb' ? '#F3BA2F' :
-              key === 'mcrt' ? '#98FFF9' :
-              key === 'eth' ? '#bc7af6' :
-              key === 'xrp' ? '#51C1F6' : '#7CF5C7'
             const url = `https://lobby.magiccraft.io/?crypto=${key}`
+            const isHovered = hoveredLobby === key
+            
             return (
               <div 
                 key={key} 
                 ref={(el) => { cardRefs.current[key] = el }}
                 className="relative group h-full min-w-0 overflow-visible"
-                style={{ zIndex: hoveredLobby === key ? 9999 : 'auto' }}
+                style={{ zIndex: isHovered ? 9999 : 'auto' }}
                 onMouseEnter={() => setHoveredLobby(key)}
                 onMouseLeave={() => setHoveredLobby(null)}
               >
-                <motion.div 
-                  className="rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-[2px] shadow-lg hover:shadow-2xl transition-all duration-500 group-hover:from-[#98FFF9] group-hover:to-[#B591F2]" 
-                  whileHover={{ scale: 1.05, y: -4 }} 
+                <motion.a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`block relative rounded-2xl p-[1px] transition-all duration-300 ${l.borderColor} border-2 ${isHovered ? 'border-opacity-100' : 'border-opacity-40'}`}
+                  whileHover={{ scale: 1.04, y: -6 }} 
                   whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 20 }}
                   style={{ 
-                    boxShadow: hoveredLobby === key 
-                      ? `0 20px 40px ${l.glowColor}40, 0 0 60px ${l.glowColor}30, inset 0 0 20px ${l.glowColor}10`
-                      : `0 8px 25px rgba(0,0,0,0.3), 0 0 0 1px ${l.glowColor}20`
+                    boxShadow: isHovered 
+                      ? `0 20px 50px ${l.glowColor}50, 0 0 40px ${l.glowColor}30`
+                      : `0 4px 20px rgba(0,0,0,0.3)`
                   }}
                 >
                   <div
-                    className="relative h-full w-full overflow-hidden rounded-[19px] bg-gradient-to-br from-[#511569] to-[#3d1052] p-3 sm:p-4 md:p-5 cursor-pointer transition-all duration-500 min-h-[clamp(110px,14vw,160px)] border border-white/10 hover:border-white/30 group-hover:from-[#6a1a7a] group-hover:to-[#4e1563]"
-                    onClick={() => window.open(url, '_blank')}
+                    className={`relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br ${l.bgGradient} backdrop-blur-sm p-4 sm:p-5 min-h-[130px] sm:min-h-[150px]`}
                     style={{
-                      background: hoveredLobby === key 
-                        ? `linear-gradient(135deg, #6a1a7a 0%, #4e1563 100%), radial-gradient(circle at 30% 30%, ${l.glowColor}25 0%, transparent 60%)`
-                        : `linear-gradient(135deg, #511569 0%, #3d1052 100%), radial-gradient(circle at 30% 30%, ${l.glowColor}15 0%, transparent 50%)`
+                      background: `linear-gradient(135deg, rgba(30,20,60,0.95) 0%, rgba(20,10,40,0.98) 100%)`
                     }}
                   >
-                    {/* Animated shimmer effect */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></div>
-                    </div>
-                    <div className="flex flex-col items-center justify-center h-full text-center gap-2 md:gap-3">
-                      <div className="relative flex-shrink-0 flex items-center justify-center">
-                        {/* Enhanced glow effect */}
+                    {/* Colored top accent bar */}
+                    <div 
+                      className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
+                      style={{ background: `linear-gradient(90deg, ${l.glowColor}, ${l.glowColor}80)` }}
+                    />
+                    
+                    {/* Content */}
+                    <div className="flex flex-col items-center justify-center h-full text-center gap-3">
+                      {/* Icon container */}
+                      <div className="relative">
                         <div 
-                          className="absolute inset-0 rounded-full blur-lg opacity-60 transition-all duration-500 group-hover:opacity-100 group-hover:blur-2xl group-hover:animate-pulse"
+                          className="absolute inset-0 rounded-full blur-xl opacity-50 transition-all duration-300"
                           style={{ 
-                            background: hoveredLobby === key 
-                              ? `radial-gradient(circle, ${l.glowColor}60 0%, ${l.glowColor}40 30%, ${l.glowColor}20 60%, transparent 80%)`
-                              : `radial-gradient(circle, ${l.glowColor}40 0%, ${l.glowColor}20 50%, transparent 70%)`,
-                            width: hoveredLobby === key ? '80px' : '60px',
-                            height: hoveredLobby === key ? '80px' : '60px',
-                            transform: 'translate(-50%, -50%)',
-                            left: '50%',
-                            top: '50%'
+                            background: `radial-gradient(circle, ${l.glowColor}60 0%, transparent 70%)`,
+                            transform: isHovered ? 'scale(1.5)' : 'scale(1)',
+                            opacity: isHovered ? 0.8 : 0.4
                           }}
                         />
-                        {/* Standardized logo container */}
-                        <div className="relative w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/20 transition-all duration-500 group-hover:border-white/50 group-hover:scale-125 group-hover:shadow-2xl group-hover:rotate-6"
-                             style={{ 
-                               boxShadow: hoveredLobby === key 
-                                 ? `0 8px 30px ${l.glowColor}50, inset 0 0 20px ${l.glowColor}20`
-                                 : `0 4px 20px ${l.glowColor}30`
-                             }}>
+                        <div 
+                          className={`relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-xl transition-all duration-300 ${isHovered ? 'scale-110' : ''}`}
+                          style={{ 
+                            background: `linear-gradient(135deg, ${l.glowColor}20 0%, ${l.glowColor}05 100%)`,
+                            border: `1px solid ${l.glowColor}40`
+                          }}
+                        >
                           <img 
-                            decoding="async"
-                            loading="lazy"
                             src={l.icon} 
                             alt={l.title} 
-                            className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 lg:w-10 lg:h-10 object-contain transition-all duration-500 group-hover:brightness-125 group-hover:scale-110" 
+                            className="w-7 h-7 sm:w-8 sm:h-8 object-contain transition-all duration-300" 
+                            loading="lazy"
                             style={{
-                              filter: hoveredLobby === key 
-                                ? `drop-shadow(0 4px 12px ${l.glowColor}70) brightness(1.2)`
-                                : `drop-shadow(0 2px 8px ${l.glowColor}50)`
+                              filter: isHovered ? `drop-shadow(0 0 8px ${l.glowColor})` : 'none'
                             }}
                           />
                         </div>
                       </div>
-                      <div className="space-y-1 transition-all duration-500 group-hover:scale-105">
-                        <h3 className="text-xs sm:text-sm md:text-base font-bold text-white font-serif transition-all duration-500 leading-tight group-hover:text-white group-hover:scale-110"
-                            style={{ 
-                              textShadow: hoveredLobby === key 
-                                ? `0 0 15px ${l.glowColor}80, 0 0 25px ${l.glowColor}50`
-                                : `0 0 10px ${l.glowColor}50`
-                            }}>{l.title}</h3>
-                        <p className="text-xs text-white/80 transition-all duration-500 group-hover:text-white group-hover:scale-105 leading-tight px-1">{l.subtitle}</p>
+                      
+                      {/* Text */}
+                      <div className="space-y-0.5">
+                        <h3 
+                          className="text-base sm:text-lg font-bold text-white tracking-wide"
+                          style={{ 
+                            textShadow: isHovered ? `0 0 20px ${l.glowColor}` : 'none'
+                          }}
+                        >
+                          {l.title}
+                        </h3>
+                        <p className="text-xs text-white/60">{l.subtitle}</p>
                       </div>
                     </div>
-                    {/* Hover overlay effect */}
-                    <div 
-                      className="absolute inset-0 rounded-[19px] transition-opacity duration-500"
-                      style={{ 
-                        background: `linear-gradient(90deg, ${colorClass}00, ${colorClass}33, ${colorClass}00)`,
-                        opacity: hoveredLobby === key ? 0.4 : 0
-                      }} 
-                    />
+                    
+                    {/* Hover shimmer */}
+                    <div className={`absolute inset-0 transition-opacity duration-500 pointer-events-none ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+                      <div 
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full animate-shimmer"
+                        style={{ animationDuration: '1.5s' }}
+                      />
+                    </div>
                   </div>
-                </motion.div>
-                {/* Tooltip is rendered via a portal at the document root to avoid clipping */}
+                </motion.a>
               </div>
             )
           })}
@@ -458,16 +450,16 @@ export default function MagicraftDownload() {
       </div>
     </div>
     
-    {/* Portal for tooltips to avoid clipping */}
+    {/* Portal for tooltips */}
     {typeof document !== 'undefined' && createPortal(
       <AnimatePresence>
         {hoveredLobby && lobbyData[hoveredLobby as keyof typeof lobbyData] && (
           <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            initial={{ opacity: 0, y: 8, scale: 0.96 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed w-96 md:w-[28rem] max-w-[92vw] pointer-events-auto"
+            exit={{ opacity: 0, y: 8, scale: 0.96 }}
+            transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
+            className="fixed w-[340px] md:w-[380px] max-w-[92vw] pointer-events-auto"
             style={{
               zIndex: 99999,
               top: `${tooltipStyle.top}px`,
@@ -477,63 +469,93 @@ export default function MagicraftDownload() {
             onMouseEnter={() => setHoveredLobby(hoveredLobby)}
             onMouseLeave={() => setHoveredLobby(null)}
           >
-            <div className="relative bg-gradient-to-br from-[#0B0F39] to-[#1a0d2e] border-2 border-[#98FFF9]/60 rounded-2xl p-6 shadow-2xl">
-              {/* Enhanced glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#98FFF9]/10 to-[#B591F2]/10 rounded-2xl"></div>
-              
-              <div className="relative z-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div 
-                    className="w-3 h-3 rounded-full animate-pulse"
-                    style={{ backgroundColor: lobbyData[hoveredLobby as keyof typeof lobbyData].glowColor }}
-                  ></div>
-                  <h4 className="text-white font-bold text-xl" style={{ textShadow: `0 0 10px ${lobbyData[hoveredLobby as keyof typeof lobbyData].glowColor}50` }}>
-                    {lobbyData[hoveredLobby as keyof typeof lobbyData].tooltip.title}
-                  </h4>
-                </div>
-                
-                <p className="text-white/95 text-base md:text-[17px] mb-5 leading-relaxed font-medium">
-                  {lobbyData[hoveredLobby as keyof typeof lobbyData].tooltip.description}
-                </p>
-                
-                <div className="space-y-3">
-                  <h5 className="text-white/80 text-sm font-bold uppercase tracking-wider mb-2">Features:</h5>
-                  {lobbyData[hoveredLobby as keyof typeof lobbyData].tooltip.features.map((feature: string, i: number) => (
-                    <motion.div 
-                      key={i} 
-                      className="flex items-start gap-2" 
-                      initial={{ opacity: 0, x: -10 }} 
-                      animate={{ opacity: 1, x: 0 }} 
-                      transition={{ delay: i * 0.1 }}
-                    >
-                      <div 
-                        className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                        style={{ backgroundColor: lobbyData[hoveredLobby as keyof typeof lobbyData].glowColor }}
-                      ></div>
-                      <p className="text-white/90 text-sm md:text-base leading-relaxed font-medium">
-                        {feature.replace('• ', '')}
-                      </p>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Tooltip arrow - positioned based on tooltip anchor */}
-              <div 
-                className={`absolute top-full ${
-                  tooltipStyle.transform === 'translateX(-100%)' 
-                    ? 'right-8' // For right-anchored tooltips (SOL/XRP), position arrow near the right edge
-                    : tooltipStyle.transform === 'translateX(0)' 
-                    ? 'left-8' // For left-anchored tooltips, position arrow near the left edge
-                    : 'left-1/2 -translate-x-1/2' // For center-anchored tooltips, keep arrow centered
-                }`}
-              >
+            {(() => {
+              const l = lobbyData[hoveredLobby as keyof typeof lobbyData]
+              return (
                 <div 
-                  className="w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent"
-                  style={{ borderTopColor: '#98FFF9' }}
-                ></div>
-              </div>
-            </div>
+                  className="relative overflow-hidden rounded-2xl"
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(15,10,35,0.98) 0%, rgba(25,15,50,0.98) 100%)',
+                    border: `2px solid ${l.glowColor}50`,
+                    boxShadow: `0 25px 60px rgba(0,0,0,0.5), 0 0 40px ${l.glowColor}20`
+                  }}
+                >
+                  {/* Top accent bar */}
+                  <div 
+                    className="h-1.5 w-full"
+                    style={{ background: `linear-gradient(90deg, ${l.glowColor}, ${l.glowColor}60)` }}
+                  />
+                  
+                  <div className="p-5">
+                    {/* Header */}
+                    <div className="flex items-center gap-3 mb-4">
+                      <div 
+                        className="w-10 h-10 rounded-xl flex items-center justify-center"
+                        style={{ 
+                          background: `linear-gradient(135deg, ${l.glowColor}30 0%, ${l.glowColor}10 100%)`,
+                          border: `1px solid ${l.glowColor}40`
+                        }}
+                      >
+                        <img src={l.icon} alt="" className="w-6 h-6 object-contain" />
+                      </div>
+                      <div>
+                        <h4 className="text-white font-bold text-lg">{l.tooltip.title}</h4>
+                        <p className="text-sm" style={{ color: l.glowColor }}>{l.tooltip.tagline}</p>
+                      </div>
+                    </div>
+                    
+                    {/* Features Grid */}
+                    <div className="grid grid-cols-2 gap-2 mb-4">
+                      {l.tooltip.features.map((feature: string, i: number) => (
+                        <motion.div 
+                          key={i}
+                          className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5"
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: i * 0.05 }}
+                        >
+                          <div 
+                            className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                            style={{ backgroundColor: l.glowColor }}
+                          />
+                          <span className="text-white/80 text-xs font-medium">{feature}</span>
+                        </motion.div>
+                      ))}
+                    </div>
+                    
+                    {/* CTA Button */}
+                    <motion.button
+                      onClick={() => window.open(`https://lobby.magiccraft.io/?crypto=${hoveredLobby}`, '_blank')}
+                      className="w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 hover:scale-[1.02]"
+                      style={{ 
+                        background: `linear-gradient(135deg, ${l.glowColor} 0%, ${l.glowColor}90 100%)`,
+                        color: ['btc', 'bnb', 'mcrt'].includes(hoveredLobby) ? '#000' : '#fff'
+                      }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      Join {l.title} Lobby →
+                    </motion.button>
+                  </div>
+                  
+                  {/* Arrow */}
+                  <div 
+                    className={`absolute top-full ${
+                      tooltipStyle.transform === 'translateX(-100%)' 
+                        ? 'right-8'
+                        : tooltipStyle.transform === 'translateX(0)' 
+                        ? 'left-8'
+                        : 'left-1/2 -translate-x-1/2'
+                    }`}
+                  >
+                    <div 
+                      className="w-0 h-0 border-l-[10px] border-r-[10px] border-t-[10px] border-transparent"
+                      style={{ borderTopColor: l.glowColor + '50' }}
+                    />
+                  </div>
+                </div>
+              )
+            })()}
           </motion.div>
         )}
       </AnimatePresence>,
