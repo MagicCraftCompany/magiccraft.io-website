@@ -460,18 +460,14 @@ function Homepagemcrt() {
           {/* Quick Stats strip for buyers */}
           <div className="w-full bg-gradient-to-r from-[#0B0F39] via-[#120e3d] to-[#0B0F39] border-t border-white/5">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-4 sm:py-6">
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 md:gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
                 <div className="card-glass px-3 py-2 rounded-xl text-center">
                   <div className="text-xs text-white/60">Token Holders</div>
                   <div className="text-sm sm:text-base font-bold text-white">17,500+</div>
                 </div>
                 <div className="card-glass px-3 py-2 rounded-xl text-center">
                   <div className="text-xs text-white/60">Downloads</div>
-                  <div className="text-sm sm:text-base font-bold text-white">100,000+</div>
-                </div>
-                <div className="card-glass px-3 py-2 rounded-xl text-center">
-                  <div className="text-xs text-white/60">Daily Active</div>
-                  <div className="text-sm sm:text-base font-bold text-white">10,000+</div>
+                  <div className="text-sm sm:text-base font-bold text-white">50,000+</div>
                 </div>
                 <div className="card-glass px-3 py-2 rounded-xl text-center">
                   <div className="text-xs text-white/60">Crypto Lobbies</div>
