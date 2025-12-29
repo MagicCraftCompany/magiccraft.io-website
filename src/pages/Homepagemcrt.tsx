@@ -3,7 +3,6 @@ import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
-import pc from '@/assets/icons/icon-pc.svg'
 import down from '@/assets/icons/li_chevron-down.svg'
 import { Tabs, Tab } from '@/components/tabs'
 import { roadmapData } from '../data/roadmapData'
@@ -206,12 +205,6 @@ function Homepagemcrt() {
   const getfromgoogleHandler = () => {
     window.location.href =
       'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
-  }
-  const discordmagiccraftHandler = () => {
-    window.location.href = 'https://t.me/magiccraftgamechat'
-  }
-  const telegrammagiccrftHandler = () => {
-    window.location.href = 'https://t.me/magiccraftgamechat'
   }
 
   // const filteredGames = gamesData.filter(
@@ -661,14 +654,14 @@ function Homepagemcrt() {
                   </a>
 
                   {/* Polibilities */}
-                  <a href="https://bitmarket.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border-2 border-[#FFB649]/30 hover:border-[#FFB649]/60 transition-all hover:scale-[1.02] group">
+                  <a href="https://polibilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border-2 border-[#FFB649]/30 hover:border-[#FFB649]/60 transition-all hover:scale-[1.02] group">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#FFB649] to-[#F59E0B] flex items-center justify-center text-2xl">
                         📊
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#FFB649] transition-colors">Polibilities</h4>
-                        <span className="text-xs text-[#98FFF9] font-medium">AI Prediction Markets</span>
+                        <span className="text-xs text-[#98FFF9] font-medium">polibilities.com</span>
                       </div>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed mb-3">
@@ -698,29 +691,13 @@ function Homepagemcrt() {
         {/* Genesis NFTs — Earnings Tiers */}
         <GenesisNFTs />
 
-        {/* Contract Address */}
-        <section className="relative py-8 md:py-12 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0">
-          <div className="card-glass card-padding">
-            <div className="flex items-center justify-between flex-wrap gap-4">
-              <div>
-                <h4 className="text-lg md:text-xl font-bold">$MCRT Contract (BSC)</h4>
-                <div className="mt-1 flex items-center gap-2 text-xs md:text-sm text-white/80">
-                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/10 border border-white/15">BEP-20</span>
-                  <span className="inline-flex items-center gap-1 px-2 py-1 rounded bg-white/10 border border-white/15">Chain: BNB Smart Chain</span>
-                </div>
-                <div className="mt-2 font-mono text-xs md:text-sm break-words">0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f</div>
-                <div className="mt-2 flex gap-2">
-                  <button onClick={() => navigator.clipboard.writeText('0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f')} className="btn-secondary text-xs">Copy</button>
-                  <a href="https://bscscan.com/token/0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="btn-primary text-xs">View on BscScan</a>
-                </div>
-              </div>
-              <img
-                src={`https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f`}
-                alt="$MCRT contract QR"
-                className="w-24 h-24 rounded-md border border-white/10"
-                loading="lazy"
-              />
-            </div>
+        {/* Contract Address - Compact */}
+        <section className="relative py-4 md:py-6 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0">
+          <div className="flex flex-wrap items-center justify-center gap-3 text-sm">
+            <span className="text-white/60">$MCRT Contract:</span>
+            <code className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 font-mono text-xs text-white/90">0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f</code>
+            <button onClick={() => navigator.clipboard.writeText('0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f')} className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs text-white/80 hover:bg-white/15 transition-colors">Copy</button>
+            <a href="https://bscscan.com/token/0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#98FFF9]/20 to-[#B591F2]/20 border border-[#98FFF9]/30 text-xs text-[#98FFF9] hover:from-[#98FFF9]/30 hover:to-[#B591F2]/30 transition-colors">BscScan →</a>
           </div>
         </section>
 
@@ -845,14 +822,14 @@ function Homepagemcrt() {
               <svg className="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.086l3.71-3.856a.75.75 0 111.08 1.04l-4.24 4.41a.75.75 0 01-1.08 0l-4.24-4.41a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
             </summary>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-4">
-              <a href="https://bitmarket.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
+              <a href="https://polibilities.com" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
                 <div className="flex items-center gap-3 mb-1">
                   <img src="/icons/icon-stats.svg" alt="Polibilities" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">Polibilities (Testnet)</h4>
+                  <h4 className="font-bold">Polibilities</h4>
                 </div>
                 <p className="text-sm text-gray-300">AI prediction markets.</p>
                 <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-6 -translate-y-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-96 rounded-xl border border-[#98FFF9]/50 bg-[#0B0F39] backdrop-blur-sm p-4 shadow-2xl z-[99999]">
-                  <p className="text-base md:text-[17px] text-white leading-relaxed">Place predictions on match outcomes and trade positions on testnet while mainnet launches. On-chain settlement previews with low-stakes play.</p>
+                  <p className="text-base md:text-[17px] text-white leading-relaxed">Place predictions on match outcomes and compete for $MCRT rewards. AI-powered odds with real-time updates.</p>
                 </div>
               </a>
               <a href="https://games.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding block relative group z-10 hover:z-50" style={{ overflow: 'visible' }}>
@@ -1108,96 +1085,54 @@ function Homepagemcrt() {
 
           {/*roadmap */}
 
-          {/*connect */}
-          <section className="relative m-[10em] mx-auto flex w-11/12 max-w-screen-xl flex-wrap items-center justify-center space-y-10 md:space-y-20 lg:space-y-0  ">
-            <div className=" relative rounded-2xl border-[2px] border-solid bg-opacity-70 bg-gradient-to-r from-[#173B52] to-[#557e91] to-80% p-4 lg:h-[280px] lg:w-5/12 ">
-              <img
-                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/blahbla_wvvyzg.webp"
-                className="absolute -top-10 right-0     block h-[400px] rounded-lg object-cover  md:hidden "
-                alt="blahbla"
-              />
-
-              <img
-                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173208/character_imeoab.webp"
-                alt="character"
-                className="  absolute  inset-0 -top-20  left-[200px] hidden rounded-lg  object-cover p-10 md:block  md:w-7/12 lg:w-[350px]  "
-              />
-              <div className=" p-4 text-left ">
-                <h3 className=" mt-40 bg-gradient-to-b from-white to-white/75  bg-clip-text font-serif text-4xl text-transparent drop-shadow-xl md:mt-10 md:text-5xl  lg:mt-0 lg:text-3xl ">
-                  <p>CONNECT,</p>
-                  <p>COLLABORATE,</p>
-                  <p>CONQUER</p>
-                </h3>
-                <div className="m-2 block  h-px w-5/12 bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent " />
-                <p className="p-2 text-[#98FFF9] font-serif font-bold md:text-2xl">join us!</p>
-                <p className="block md:mt-40  lg:hidden ">
-                  Step into a world where gamers thrive together! Join our
-                  Discord and Telegram channels to connect with players
-                  worldwide, share strategies, and receive exclusive updates and
-                  support. Be part of a community that plays, earns, and grows
-                  together.
-                </p>
-                <div
-                  className=" block flex-row flex-wrap items-center lg:hidden"
-                  onClick={discordmagiccraftHandler}
-                >
-                  <div className="flex flex-wrap  ">
-                    <img src={pc} alt="PC Icon" className="m-4"></img>
-                    <span className="mt-4 text-2xl ">
-                      Join MagicCraft's
-                      <br />
-                      <p className="text-2xl font-bold"> Discord</p>
-                    </span>
+          {/* Community Section */}
+          <section className="relative py-12 md:py-16 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl">
+            <div className="card-glass rounded-2xl border border-white/10 overflow-hidden">
+              <div className="relative p-6 md:p-8 lg:p-10">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#98FFF9]/5 via-transparent to-[#B591F2]/5"></div>
+                <div className="relative z-10">
+                  <div className="text-center mb-6 md:mb-8">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent mb-2">
+                      Join 400K+ Players
+                    </h3>
+                    <p className="text-sm sm:text-base text-white/70 max-w-xl mx-auto">
+                      Connect with players worldwide, share strategies, and get exclusive updates.
+                    </p>
                   </div>
-                  <div className="hidden h-10 w-px bg-gradient-to-r from-transparent via-[#556DE0] to-transparent md:block " />
-                  <div
-                    className="flex flex-wrap "
-                    onClick={telegrammagiccrftHandler}
-                  >
-                    {/* <img src={AppleIcon} className=" m-4"></img> */}
-                    <LiaTelegramPlane
-                      style={{ width: '2em', height: '3em', margin: '10px' }}
-                    />
-
-                    <span className="mt-4 text-2xl ">
-                      Join MagicCraft's
-                      <br />
-                      <p className="text-2xl font-bold"> Telegram</p>
-                    </span>
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                    <a
+                      href="https://discord.gg/magiccraft"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-xl bg-[#5865F2] hover:bg-[#4752C4] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#5865F2]/30"
+                    >
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                      </svg>
+                      <span className="font-semibold">Discord</span>
+                    </a>
+                    <a
+                      href="https://t.me/magiccraftgamechat"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-xl bg-[#0088cc] hover:bg-[#006699] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-[#0088cc]/30"
+                    >
+                      <LiaTelegramPlane className="w-5 h-5" />
+                      <span className="font-semibold">Telegram</span>
+                    </a>
+                    <a
+                      href="https://twitter.com/MagicCraftGame"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-xl bg-black hover:bg-zinc-900 border border-white/10 transition-all duration-300 hover:scale-105"
+                    >
+                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                      </svg>
+                      <span className="font-semibold">Twitter</span>
+                    </a>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className=" hidden w-5/12  rounded-2xl bg-[#08061C] bg-opacity-70 px-10 pt-10  lg:block">
-              <p>
-                Step into a world where gamers thrive together! Join our Discord
-                and Telegram channels to connect with players worldwide, share
-                strategies, and receive exclusive updates and support. Be part
-                of a community that plays, earns, and grows together.
-              </p>
-              <div className="flex flex-wrap items-center">
-                <img src={pc} alt="PC Icon"></img>
-                <span
-                  className=" cursor-pointer p-4"
-                  onClick={discordmagiccraftHandler}
-                >
-                  Join MagicCraft's
-                  <br />
-                  <p className="text-2xl font-bold"> Discord</p>
-                </span>
-
-                <div className="mx-4 block h-[4em] w-[2px] bg-gradient-to-t from-transparent via-[#2F3A80] to-transparent " />
-                {/* <img src={AppleIcon} className=" pl-4"></img> */}
-                <LiaTelegramPlane style={{ width: '2em', height: '3em' }} />
-                <span
-                  className=" cursor-pointer p-4"
-                  onClick={telegrammagiccrftHandler}
-                >
-                  Join MagicCraft's
-                  <br />
-                  <p className="text-2xl font-bold"> Telegram</p>
-                </span>
               </div>
             </div>
           </section>
