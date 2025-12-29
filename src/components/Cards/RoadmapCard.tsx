@@ -3,6 +3,7 @@ import { titleKeyMaper } from '@/lib/utils';
 type RoadmapCardType = {
   data: {
     quarter: number | 'LIVE';
+    year?: number;
     variant: 'default' | 'purple' | 'live';
     goals: {
       card: number;
@@ -13,11 +14,12 @@ type RoadmapCardType = {
 
 const RoadmapCard = ({ data }: RoadmapCardType) => {
   const isLive = data.quarter === 'LIVE';
+  const yearDisplay = data.year ? String(data.year).slice(-2) : '25';
   
   return (
     <div className="min-w-[18rem] snap-center space-y-6">
       <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
-        {isLive ? '🟢 LIVE' : `Q${data.quarter} 25`}
+        {isLive ? '🟢 LIVE' : `Q${data.quarter} ${yearDisplay}`}
       </h3>
 
       <div className="grid grid-cols-1 gap-6">
@@ -48,7 +50,7 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
                     {isLiveVariant ? 'LAUNCHED' : titleKeyMaper(i)}
                   </span>
                   <span className="text-[10px] md:text-xs text-white/60">
-                    {isLive ? 'Live Now' : `Q${data.quarter} · 2025`}
+                    {isLive ? 'Live Now' : `Q${data.quarter} · ${data.year || 2025}`}
                   </span>
                 </div>
 

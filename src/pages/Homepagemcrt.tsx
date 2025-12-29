@@ -1070,7 +1070,7 @@ function Homepagemcrt() {
                   Roadmap
                 </h2>
                 <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
-                  2025
+                  2025 – 2026
                 </div>
               </div>
               <div className="flex items-center justify-center ">

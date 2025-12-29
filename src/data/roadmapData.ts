@@ -1,5 +1,6 @@
 type RoadmapDataType = {
   quarter: number | 'LIVE'
+  year?: number
   variant: 'default' | 'purple' | 'live'
   goals: {
     card: number,
@@ -27,7 +28,8 @@ export const roadmapData: RoadmapDataType = [
     ],
   },
   {
-    quarter: 1,
+    quarter: 4,
+    year: 2025,
     variant: 'default',
     goals: [
       {
@@ -55,7 +57,8 @@ export const roadmapData: RoadmapDataType = [
     ],
   },
   {
-    quarter: 2,
+    quarter: 1,
+    year: 2026,
     variant: 'purple',
     goals: [
       {
@@ -89,7 +92,8 @@ export const roadmapData: RoadmapDataType = [
     ],
   },
   {
-    quarter: 3,
+    quarter: 2,
+    year: 2026,
     variant: 'default',
     goals: [
       {
@@ -121,7 +125,8 @@ export const roadmapData: RoadmapDataType = [
     ],
   },
   {
-    quarter: 4,
+    quarter: 3,
+    year: 2026,
     variant: 'purple',
     goals: [
       {
