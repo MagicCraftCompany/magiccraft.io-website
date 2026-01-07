@@ -24,7 +24,7 @@
 
 
   GAMESERVER_API_PORT = "8913"
-  GAMESERVER_API_KEY = "eXcryBck4cMktHY9"
+  GAMESERVER_API_KEY = "45AXiLa77sqkcfT0"
 
 [[headers]]
   for = "/*"
