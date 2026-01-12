@@ -25,7 +25,7 @@ import { openTransactionModal } from '@xswap-link/sdk'
 // Zeus promo removed (event finished)
 // import ZeusPromo, { ZeusPromoPopup } from '@/components/ui/ZeusPromo'
 // import MentionsStrip from '@/components/ui/MentionsStrip'
-import BattlePassCard from '@/components/BattlePass/BattlePassCard'
+// BattlePass removed - API not consistently loading
 
 
 
@@ -485,49 +485,6 @@ function Homepagemcrt() {
               </div>
             </div>
           </div>
-                     {/* BattlePass Section */}
-          <section className="relative w-full bg-gradient-to-b from-[#03082f] via-[#0a0524] to-[#050317] py-12 md:py-16 lg:py-20">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
-            <div className="relative z-10 mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6">
-              <div className="text-center mb-8 md:mb-12">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent mb-4">
-                  MAGICCRAFT BATTLEPASS
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-                  The 90-Day Challenge Has Begun! Stay at the top and collect $MCRT!
-                </p>
-              </div>
-              
-              <div className="flex justify-center">
-                <div className="w-full max-w-md sm:max-w-lg lg:max-w-xl">
-                  <BattlePassCard />
-                </div>
-              </div>
-              
-              {/* Call to Action */}
-              <div className="text-center mt-8">
-                <p className="text-sm text-gray-400 mb-4">
-                  Join over 200,000 players worldwide competing for $MCRT rewards
-                </p>
-                <div className="flex flex-wrap justify-center gap-3">
-                  <a 
-                    href="https://lobby.magiccraft.io" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="px-6 py-2 bg-gradient-to-r from-[#98FFF9] to-[#9255E0] text-white rounded-lg hover:opacity-90 transition text-sm font-semibold"
-                  >
-                    Play Now
-                  </a>
-                  <a 
-                    href="/leaderboard" 
-                    className="px-6 py-2 border border-[#9255E0] text-[#9255E0] rounded-lg hover:bg-[#9255E0]/10 transition text-sm font-semibold"
-                  >
-                    View Leaderboard
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
 
           {/* AI Integration Section */}
           <section className="relative w-full bg-gradient-to-b from-[#050317] via-[#0a0524] to-[#03082f] py-12 md:py-16 lg:py-20">
