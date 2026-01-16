@@ -18,11 +18,18 @@ export const roadmapData: RoadmapDataType = [
         features: [
           'MagicCraft MOBA on iOS, Android, PC & Steam',
           'Crypto Lobbies with BTC/USDT/BNB/ETH/XRP/SOL',
-          'NFT Marketplace & Genesis/Revelation Collections',
-          'MerlinTheAI.com - AI chatbot powered by $MCRT',
-          'DocAI.live - AI document assistant',
-          'Polibilities.com - Prediction markets',
           '$MCRT Game Maker on Steam',
+        ],
+      },
+      {
+        card: 2,
+        features: [
+          'NFT Marketplace + Genesis/Revelation NFTs',
+          'Merlin AI (merlintheai.com)',
+          'DocAI (docai.live)',
+          'Polibilities (polibilities.com)',
+          'SocialMM (socialmm.com)',
+          'DragonList (dragonlist.ai)',
         ],
       },
     ],
@@ -66,7 +73,7 @@ export const roadmapData: RoadmapDataType = [
         features: [
           'Enhanced PvP Ecosystem',
           'Ranked seasons with $MCRT prize pools',
-          'Guild wars and territory control mechanics',
+          'Tournament tools and seasonal events',
           '20 vs 20 Castle Siege mode',
           'More lobbies and more cryptos',
         ],
@@ -102,6 +109,7 @@ export const roadmapData: RoadmapDataType = [
           'AI-Powered Features',
           'Smart matchmaking based on skill and playstyle',
           'Dynamic difficulty adjustment for optimal engagement',
+          'In-game AI assistants and coaching',
         ],
       },
       {
@@ -110,6 +118,7 @@ export const roadmapData: RoadmapDataType = [
           'Ecosystem Integration Hub',
           'One-click access to all MagicCraft platforms',
           'Unified $MCRT rewards across all games and activities',
+          'Partner SDK / API access',
         ],
       },
       {
