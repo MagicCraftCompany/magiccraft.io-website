@@ -102,7 +102,10 @@ export const handler: Handler = async (event) => {
     const deep = event.queryStringParameters?.deep === '1'
     const region = (event.queryStringParameters?.region as Region) || 'europe'
     const port = process.env.GAMESERVER_API_PORT || '8913'
-    const baseGameserver = (`http://${REGION_IPS[region]}:${port}`).replace(/\/$/, '')
+    const baseGameserverOverride = process.env.GAMESERVER_API_URL
+    const baseGameserver = baseGameserverOverride
+      ? baseGameserverOverride.replace(/\/$/, '')
+      : (`http://${REGION_IPS[region]}:${port}`).replace(/\/$/, '')
     const gameserverKey = process.env.GAMESERVER_API_KEY || ''
     const sanityProjectId = process.env.VITE_SANITY_PROJECT_ID
     const sanityDataset = process.env.VITE_SANITY_DATASET || 'production'
@@ -117,19 +120,30 @@ export const handler: Handler = async (event) => {
         label: 'GameServer API', 
         type: 'core', 
         customCheck: async () => {
-          try {
-            const res = await withTimeout(
-              fetch(`${baseGameserver}/battlepass/active`, {
-                headers: { 'X-API-Key': gameserverKey, 'Content-Type': 'application/json' }
-              }),
-              DEFAULT_TIMEOUT_MS
-            )
-            // Even 401/403 means server is up, just bad key
-            const ok = res.status >= 200 && res.status < 500
-            return { ok, status: res.status, note: ok ? 'online' : 'error' }
-          } catch (e: any) {
-            return { ok: false, status: 0, note: e?.message || 'unreachable' }
+          const candidates = baseGameserverOverride
+            ? [{ base: baseGameserverOverride.replace(/\/$/, ''), region: 'custom' }]
+            : (Object.entries(REGION_IPS).map(([r, ip]) => ({
+                base: `http://${ip}:${port}`,
+                region: r,
+              })))
+
+          for (const target of candidates) {
+            try {
+              const res = await withTimeout(
+                fetch(`${target.base.replace(/\/$/, '')}/battlepass/active`, {
+                  headers: { 'X-API-Key': gameserverKey, 'Content-Type': 'application/json' }
+                }),
+                DEFAULT_TIMEOUT_MS
+              )
+              // Even 401/403 means server is up, just bad key
+              const ok = res.status >= 200 && res.status < 500
+              if (ok) return { ok: true, status: res.status, note: `online (${target.region})` }
+            } catch {
+              // try next region
+            }
           }
+
+          return { ok: false, status: 0, note: 'timeout (all regions)' }
         }
       },
 
