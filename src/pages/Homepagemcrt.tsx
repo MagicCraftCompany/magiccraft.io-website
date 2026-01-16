@@ -302,8 +302,8 @@ function Homepagemcrt() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#03082f]/90 via-transparent to-transparent"></div>
             
             <div className="relative z-10 mx-auto max-w-screen-xl h-full w-full px-3 sm:px-4">
-              <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 sm:gap-4 md:gap-4 lg:gap-5 pt-20 sm:pt-24 md:pt-24 lg:pt-28 pb-8 sm:pb-10 md:pb-12 lg:pb-16">
-                <div className="w-full max-w-[30%] sm:max-w-[25%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-2 sm:mt-4 md:mt-8 lg:mt-12 group">
+              <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 sm:gap-4 md:gap-4 lg:gap-5 pt-14 sm:pt-16 md:pt-18 lg:pt-20 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
+                <div className="w-full max-w-[30%] sm:max-w-[25%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-1 sm:mt-2 md:mt-3 lg:mt-4 group">
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 animate-pulse-slow"></div>
                     <img
@@ -315,7 +315,7 @@ function Homepagemcrt() {
                 </div>
                   </div>
                 
-                <div className="text-center gap-section animate-slide-up mt-3 sm:mt-4 md:mt-8 lg:mt-12 xl:mt-16 px-4 sm:px-6 md:px-8">
+                <div className="text-center gap-section animate-slide-up mt-2 sm:mt-3 md:mt-5 lg:mt-6 xl:mt-8 px-4 sm:px-6 md:px-8">
                   <div className="flex justify-center mb-3 sm:mb-4 md:mb-6">
                     <img 
                       src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"  
