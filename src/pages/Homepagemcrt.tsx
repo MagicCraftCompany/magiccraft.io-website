@@ -350,9 +350,15 @@ function Homepagemcrt() {
                   {/* Trust badges */}
                   <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3 opacity-90">
                     <span className="text-xs text-white/70">Listed on</span>
-                    <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-5 sm:h-6 opacity-90" loading="lazy" />
-                    <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-5 sm:h-6 opacity-90" loading="lazy" />
-                    <img src="/icons/icon-huobi.svg" alt="HTX" className="h-5 sm:h-6 opacity-90" loading="lazy" />
+                    <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 transition-opacity">
+                      <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-5 sm:h-6 opacity-90" loading="lazy" />
+                    </a>
+                    <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 transition-opacity">
+                      <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-5 sm:h-6 opacity-90" loading="lazy" />
+                    </a>
+                    <a href="https://www.htx.com/trade/mcrt_usdt" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 transition-opacity">
+                      <img src="/icons/icon-huobi.svg" alt="HTX" className="h-5 sm:h-6 opacity-90" loading="lazy" />
+                    </a>
                   </div>
                 </div>
               </div>
