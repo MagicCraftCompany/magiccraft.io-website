@@ -740,155 +740,86 @@ function Homepagemcrt() {
             <Partners />
           </section>
 
-          {/*JOIN THE ACTION */}
+          {/* JOIN THE ACTION */}
           <section className="flex justify-center bg-center p-4 md:p-6 lg:mt-4 lg:mb-8">
-            <div className="relative max-w-7xl w-full rounded-3xl md:rounded-4xl bg-gradient-to-br from-[#0A0424] via-[#1a0d2e] to-[#2A0D4E] border border-[#B591F2]/30 shadow-2xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5 rounded-3xl md:rounded-4xl"></div>
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#98FFF9]/2 to-transparent"></div>
-              <div className="relative space-y-6 md:space-y-8 px-6 md:px-10 pb-8 md:pb-12 pt-6 md:pt-10">
-                <div className="text-center space-y-3 md:space-y-4">
-                  <h5 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent leading-tight drop-shadow-lg">
-                  JOIN THE ACTION, EARN MCRT
-                </h5>
-                  <p className="text-base md:text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
-                  Jump into MagicCraft matches and compete to win MCRT. Showcase
-                    your skills, claim your rewards, and rise through the ranks.
-                  Start your journey to gaming glory now!
-                </p>
-                        </div>
+            <div className="relative max-w-7xl w-full rounded-xl bg-gradient-to-br from-[#0A0424] via-[#1a0d2e] to-[#2A0D4E] border border-white/10 shadow-xl overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5"></div>
+              <div className="relative space-y-6 md:space-y-8 px-6 md:px-10 pb-8 md:pb-10 pt-6 md:pt-8">
+                <div className="text-center space-y-3">
+                  <h5 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent leading-tight">
+                    JOIN THE ACTION, EARN MCRT
+                  </h5>
+                  <p className="text-base md:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                    Play, win, and earn. Climb the ranks and collect $MCRT across matches and events.
+                  </p>
+                </div>
 
                 <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
                   {/* Register Card */}
-                  <div className="group overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#B591F2] to-[#98FFF9] p-px transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#B591F2]/30">
-                    <div className="relative h-full w-full rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#3D186D] to-[#2A0D4E] cursor-pointer overflow-hidden" onClick={registerHandler}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#8EFF49]/5 to-transparent"></div>
-                      <div className="relative flex flex-col items-center p-6 md:p-8">
-                        <div className="flex-shrink-0 mb-4 md:mb-6">
-                          <div className="relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28">
-                            {/* Background glow */}
-                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#8EFF49] to-[#6BCF3A] blur-lg opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
-                            {/* Main icon container */}
-                            <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-[#8EFF49] to-[#6BCF3A] flex items-center justify-center shadow-lg shadow-[#8EFF49]/30 group-hover:shadow-xl group-hover:shadow-[#8EFF49]/40 transition-all duration-300 border border-[#8EFF49]/20 group-hover:border-[#8EFF49]/40">
-                              {/* Inner highlight */}
-                              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                              <svg 
-                                className="relative w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 text-[#03082F] drop-shadow-lg group-hover:scale-110 transition-transform duration-300" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                viewBox="0 0 24 24"
-                              >
-                                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-                                <circle cx="12" cy="7" r="4"/>
-                                <path d="M16 11l2 2 4-4"/>
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="text-center space-y-2 md:space-y-3">
-                          <h4 className="font-serif text-xl md:text-2xl lg:text-3xl font-bold">
-                            <span className="text-[#8EFF49]">REGISTER</span>
-                            <br /> AN $MCRT <br /> ACCOUNT
-                          </h4>
-                          <p className="text-sm md:text-base text-gray-300">Start earning $MCRT today!</p>
-                        </div>
+                  <button onClick={registerHandler} className="group text-left rounded-xl border border-white/10 bg-gradient-to-br from-[#2A0D4E] to-[#3D186D] p-6 md:p-7 transition-all duration-300 hover:border-[#8EFF49]/50 hover:shadow-lg hover:shadow-[#8EFF49]/15">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#8EFF49] to-[#6BCF3A] flex items-center justify-center">
+                        <svg className="w-6 h-6 text-[#03082F]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
+                          <circle cx="12" cy="7" r="4"/>
+                          <path d="M16 11l2 2 4-4"/>
+                        </svg>
                       </div>
-                      <div className="absolute -bottom-8 md:-bottom-10 right-3 bg-gradient-to-b from-white/15 to-transparent bg-clip-text font-serif text-5xl md:text-7xl lg:text-8xl leading-none text-transparent group-hover:from-white/20 transition-all duration-300">
-                        1
+                      <div>
+                        <h4 className="font-serif text-lg md:text-xl font-bold text-white">Register</h4>
+                        <p className="text-sm text-white/70">Create your $MCRT account.</p>
                       </div>
                     </div>
-                  </div>
+                    <span className="inline-flex items-center gap-2 text-xs text-[#8EFF49]">Get started <span aria-hidden="true">→</span></span>
+                  </button>
 
                   {/* Download Card */}
-                  <div className="group overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#FFB649] to-[#B591F2] p-px transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#FFB649]/30">
-                    <div className="relative h-full rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#2A0D4E] to-[#57186D] overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#FFB649]/5 to-transparent"></div>
-                      <div className="relative p-6 md:p-8">
-                        <div className="text-center mb-6 md:mb-8">
-                          <h4 className="font-serif text-xl md:text-2xl lg:text-3xl font-bold">
-                            <span className="text-[#FFB649]">DOWNLOAD</span>
-                            <br /> THE GAME
-                      </h4>
-                        </div>
-
-                        <div className="grid grid-cols-3 gap-3 md:gap-4">
-                          <button
-                            className="group/btn flex flex-col items-center p-3 md:p-4 rounded-xl md:rounded-2xl bg-black/30 hover:bg-black/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#FFB649]/20 border border-[#FFB649]/20 hover:border-[#FFB649]/40"
-                          onClick={playonsteamHandler}
-                        >
-                            <img src={steam} className="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3" alt="Steam Icon" loading="lazy" />
-                            <span className="text-xs md:text-sm font-medium text-white">Steam</span>
-                          </button>
-
-                          <button
-                            className="group/btn flex flex-col items-center p-3 md:p-4 rounded-xl md:rounded-2xl bg-black/30 hover:bg-black/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#FFB649]/20 border border-[#FFB649]/20 hover:border-[#FFB649]/40"
-                          onClick={playonappleHandler}
-                        >
-                            <img src={AppleIcon} className="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3" alt="Apple Icon" loading="lazy" />
-                            <span className="text-xs md:text-sm font-medium text-white">App Store</span>
-                          </button>
-
-                          <button
-                            className="group/btn flex flex-col items-center p-3 md:p-4 rounded-xl md:rounded-2xl bg-black/30 hover:bg-black/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-[#FFB649]/20 border border-[#FFB649]/20 hover:border-[#FFB649]/40"
-                          onClick={getfromgoogleHandler}
-                        >
-                            <img src="/icons/icon-playstore.svg" className="w-8 h-8 md:w-10 md:h-10 mb-2 md:mb-3" alt="Google Play Icon" loading="lazy" />
-                            <span className="text-xs md:text-sm font-medium text-white">Google Play</span>
-                          </button>
+                  <div className="rounded-xl border border-white/10 bg-gradient-to-br from-[#2A0D4E] to-[#57186D] p-6 md:p-7">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#FFB649] to-[#F59E0B] flex items-center justify-center">
+                        <svg className="w-6 h-6 text-[#03082F]" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm1 5v5l4 2-1 1-4-2V7h1z"/>
+                        </svg>
                       </div>
+                      <div>
+                        <h4 className="font-serif text-lg md:text-xl font-bold text-white">Download the Game</h4>
+                        <p className="text-sm text-white/70">PC, iOS, Android, Steam.</p>
                       </div>
-                      <div className="absolute -bottom-8 md:-bottom-10 right-3 bg-gradient-to-b from-white/15 to-transparent bg-clip-text font-serif text-5xl md:text-7xl lg:text-8xl leading-none text-transparent group-hover:from-white/20 transition-all duration-300">
-                        2
-                      </div>
+                    </div>
+                    <div className="grid grid-cols-3 gap-3">
+                      <button className="flex flex-col items-center gap-2 rounded-lg border border-white/10 bg-black/20 px-3 py-3 text-xs text-white/90 hover:border-[#FFB649]/40 hover:text-white transition-colors" onClick={playonsteamHandler}>
+                        <img src={steam} className="w-6 h-6" alt="Steam Icon" loading="lazy" />
+                        Steam
+                      </button>
+                      <button className="flex flex-col items-center gap-2 rounded-lg border border-white/10 bg-black/20 px-3 py-3 text-xs text-white/90 hover:border-[#FFB649]/40 hover:text-white transition-colors" onClick={playonappleHandler}>
+                        <img src={AppleIcon} className="w-6 h-6" alt="Apple Icon" loading="lazy" />
+                        App Store
+                      </button>
+                      <button className="flex flex-col items-center gap-2 rounded-lg border border-white/10 bg-black/20 px-3 py-3 text-xs text-white/90 hover:border-[#FFB649]/40 hover:text-white transition-colors" onClick={getfromgoogleHandler}>
+                        <img src="/icons/icon-playstore.svg" className="w-6 h-6" alt="Google Play Icon" loading="lazy" />
+                        Google Play
+                      </button>
                     </div>
                   </div>
 
                   {/* Web3 Lobby Card */}
-                  <div className="group overflow-hidden rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#FF49ED] to-[#B591F2] p-px transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-[#FF49ED]/30">
-                    <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer" className="block h-full">
-                      <div className="relative h-full rounded-2xl md:rounded-3xl bg-gradient-to-br from-[#57186D] to-[#2A0D4E] overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-br from-[#FF49ED]/5 to-transparent"></div>
-                        <div className="relative flex flex-col items-center p-6 md:p-8">
-                          <div className="relative w-20 h-20 md:w-24 md:h-24 lg:w-28 lg:h-28 mb-4 md:mb-6">
-                            {/* Background glow */}
-                            <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FF49ED] to-[#B591F2] blur-lg opacity-60 group-hover:opacity-80 transition-all duration-300"></div>
-                            {/* Main icon container */}
-                            <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-[#FF49ED] to-[#B591F2] flex items-center justify-center shadow-lg shadow-[#FF49ED]/30 group-hover:shadow-xl group-hover:shadow-[#FF49ED]/40 transition-all duration-300 border border-[#FF49ED]/20 group-hover:border-[#FF49ED]/40">
-                              {/* Inner highlight */}
-                              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/20 to-transparent"></div>
-                              <svg 
-                                className="relative w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 text-[#03082F] drop-shadow-lg group-hover:scale-110 transition-transform duration-300" 
-                                fill="none" 
-                                stroke="currentColor" 
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                viewBox="0 0 24 24"
-                              >
-                                <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                                <line x1="12" y1="22.08" x2="12" y2="12"/>
-                                <circle cx="12" cy="12" r="2"/>
-                              </svg>
-                            </div>
-                          </div>
-                          <div className="text-center space-y-2 md:space-y-3">
-                            <h3 className="font-serif text-xl md:text-2xl lg:text-3xl font-bold">
-                              <span className="text-[#FF49ED]">JUMP</span> INTO
-                              <br />A WEB3 <br />
-                              LOBBY
-                            </h3>
-                            <p className="text-sm md:text-base text-gray-300">Join crypto battles & earn rewards</p>
-                          </div>
-                        </div>
-                        <div className="absolute -bottom-8 md:-bottom-10 right-3 bg-gradient-to-b from-white/15 to-transparent bg-clip-text font-serif text-5xl md:text-7xl lg:text-8xl leading-none text-transparent group-hover:from-white/20 transition-all duration-300">
-                          3
-                        </div>
+                  <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer" className="group rounded-xl border border-white/10 bg-gradient-to-br from-[#57186D] to-[#2A0D4E] p-6 md:p-7 transition-all duration-300 hover:border-[#FF49ED]/50 hover:shadow-lg hover:shadow-[#FF49ED]/15">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#FF49ED] to-[#B591F2] flex items-center justify-center">
+                        <svg className="w-6 h-6 text-[#03082F]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                          <line x1="12" y1="22.08" x2="12" y2="12"/>
+                          <circle cx="12" cy="12" r="2"/>
+                        </svg>
                       </div>
-                    </a>
-                  </div>
+                      <div>
+                        <h4 className="font-serif text-lg md:text-xl font-bold text-white">Join a Web3 Lobby</h4>
+                        <p className="text-sm text-white/70">BTC, ETH, BNB & more.</p>
+                      </div>
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-xs text-[#FF49ED]">Enter lobby <span aria-hidden="true">→</span></span>
+                  </a>
                 </div>
               </div>
             </div>
