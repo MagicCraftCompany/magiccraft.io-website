@@ -15,44 +15,65 @@ import { BUILD_REV } from '@/version'
 
 const socialLinks = [
   {
-    icon: <FaXTwitter size={20} />,
+    label: 'X',
+    icon: <FaXTwitter size={18} />,
     link: 'https://twitter.com/MagicCraftGame',
   },
   {
-    icon: <FaTelegram size={20} />,
+    label: 'Telegram',
+    icon: <FaTelegram size={18} />,
     link: 'https://t.me/magiccraftgamechat',
   },
   {
-    icon: <FaDiscord size={20} />,
+    label: 'Discord',
+    icon: <FaDiscord size={18} />,
     link: 'https://discord.gg/magiccraftgame',
   },
   {
-    icon: <FaReddit size={20} />,
+    label: 'Reddit',
+    icon: <FaReddit size={18} />,
     link: 'https://www.reddit.com/r/magiccraftgame/',
   },
   {
-    icon: <FaInstagram size={20} />,
+    label: 'Instagram',
+    icon: <FaInstagram size={18} />,
     link: 'https://www.instagram.com/magiccraftgame/',
   },
   {
-    icon: <FaMedium size={20} />,
+    label: 'Medium',
+    icon: <FaMedium size={18} />,
     link: 'https://medium.com/@MagicCraftGame',
   },
   {
-    icon: <FaLinkedin size={20} />,
+    label: 'LinkedIn',
+    icon: <FaLinkedin size={18} />,
     link: 'https://www.linkedin.com/company/magiccraft',
   },
   {
-    icon: <FaTiktok size={20} />,
+    label: 'TikTok',
+    icon: <FaTiktok size={18} />,
     link: 'https://www.tiktok.com/@magiccraftgame',
   },
   {
-    icon: <FaYoutube size={20} />,
+    label: 'YouTube',
+    icon: <FaYoutube size={18} />,
     link: 'https://www.youtube.com/@MagicCraftGame',
   },
 ]
 
 const tokenLinks = [
+  {
+    title: 'Buy $MCRT (Bybit)',
+    link: 'https://www.bybit.com/en/trade/spot/MCRT/USDT',
+  },
+  {
+    title: 'PancakeSwap',
+    link: 'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f',
+  },
+  {
+    title: 'HTX',
+    link: 'https://www.htx.com/trade/mcrt_usdt',
+  },
   {
     title: 'Pledging',
     link: 'https://app.magiccraft.io/pledging',
@@ -61,10 +82,9 @@ const tokenLinks = [
     title: 'Marketplace',
     link: 'https://app.magiccraft.io/marketplace/explorer',
   },
-  {
-    title: 'Become a partner',
-    link: 'mailto:marketing@magiccraft.io',
-  },
+];
+
+const moreLinks = [
   {
     title: 'Roadmap',
     link: '/#roadmap',
@@ -73,9 +93,6 @@ const tokenLinks = [
     title: 'Team',
     link: '/#team',
   },
-];
-
-const moreLinks = [
   {
     title: 'FAQ',
     link: '/faq',
@@ -85,12 +102,12 @@ const moreLinks = [
     link: 'https://app.magiccraft.io/verify',
   },
   {
-    title: '$MCRT',
-    link: '/magiccraft',
-  },
-  {
     title: 'Whitepaper',
     link: 'https://docs.magiccraft.io/',
+  },
+  {
+    title: 'Become a partner',
+    link: 'mailto:marketing@magiccraft.io',
   },
 ]
 
@@ -99,7 +116,7 @@ const Footer = () => {
   const appVersion = `v${BUILD_REV}`
   return (
     <footer className="text-primary relative z-10 py-12 md:py-16 bg-gradient-to-b from-[#020418] via-[#0A0424] to-[#03082f] hairline-top">
-      <div className="mx-auto flex w-11/12 max-w-screen-xl flex-col-reverse justify-between gap-10 md:gap-12 lg:flex-row glass-surface rounded-2xl px-6 md:px-8 py-8 md:py-10">
+      <div className="mx-auto flex w-11/12 max-w-screen-xl flex-col-reverse justify-between gap-10 md:gap-12 lg:flex-row glass-surface rounded-md px-6 md:px-8 py-8 md:py-10 border border-white/10">
         {/* Left Section - Logo & Info */}
         <div className="flex w-full flex-col lg:w-1/2">
           <div className="mb-6">
@@ -110,13 +127,13 @@ const Footer = () => {
               height="48"
               loading="lazy"
               decoding="async"
-              className="max-w-[180px] md:max-w-[220px] transition-all duration-300 hover:scale-105 drop-shadow-2xl hover:drop-shadow-[0_0_25px_rgba(152,255,249,0.3)]"
+              className="max-w-[180px] md:max-w-[220px] drop-shadow-2xl"
             />
           </div>
           
           <div className="space-y-6 md:space-y-8">
             <p className="text-sm md:text-base text-white/70 leading-relaxed font-medium flex items-center gap-2">
-              <span>&copy; MagicCraft May 2021 - 2025. All rights reserved</span>
+              <span>&copy; MagicCraft May 2021 - 2026. All rights reserved</span>
               <span className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-white/60">
                 {appVersion}
               </span>
@@ -125,19 +142,19 @@ const Footer = () => {
             <ul className="text-sm md:text-base flex flex-col md:flex-row md:space-x-8 space-y-3 md:space-y-0 text-[#98FFF9] font-semibold">
               <li
                 onClick={() => navigate('/privacypolicy')}
-                className="cursor-pointer hover:text-white transition-all duration-300 hover:scale-105 inline-block hover:drop-shadow-lg"
+                className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
               >
                 Privacy Policy
               </li>
               <li 
                 onClick={() => navigate('/terms')} 
-                className="cursor-pointer hover:text-white transition-all duration-300 hover:scale-105 inline-block hover:drop-shadow-lg"
+                className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
               >
                 Terms and Conditions
               </li>
               <li
                 onClick={() => navigate('/disclaimer')}
-                className="cursor-pointer hover:text-white transition-all duration-300 hover:scale-105 inline-block hover:drop-shadow-lg"
+                className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
               >
                 Disclaimer
               </li>
@@ -151,15 +168,17 @@ const Footer = () => {
           </div>
           
           {/* Social Media Icons */}
-          <div className="flex flex-wrap gap-4 md:gap-6 pt-8 md:pt-10">
+          <div className="flex flex-wrap gap-3 md:gap-4 pt-8 md:pt-10">
             {socialLinks.map((item, i) => {
               return (
                 <a 
                   key={i} 
                   rel="noreferrer noopener" 
                   href={item.link}
-                  className="group p-2.5 rounded-xl bg-gradient-to-br from-white/5 to-white/10 hover:from-[#98FFF9]/20 hover:to-[#B591F2]/20 border border-white/10 hover:border-[#98FFF9]/30 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-[#98FFF9]/20"
-                  aria-label={`Visit MagicCraft on ${item.icon.type.name}`}
+                  className="group p-2.5 rounded-md bg-white/5 border border-white/10 hover:border-[#98FFF9]/40 hover:bg-white/10 transition-colors duration-200"
+                  aria-label={`Visit MagicCraft on ${item.label}`}
+                  title={item.label}
+                  target="_blank"
                 >
                   <div className="text-white/60 group-hover:text-[#98FFF9] transition-colors duration-300">
                     {item.icon}
@@ -181,11 +200,12 @@ const Footer = () => {
               {tokenLinks.map((item, i) => {
                 return (
                   <li key={i}>
-                    {item.link.startsWith('http') ? (
+                    {item.link.startsWith('http') || item.link.startsWith('mailto') ? (
                       <a 
                         href={item.link} 
                         rel="noreferrer noopener"
-                        className="hover:text-white transition-all duration-300 hover:translate-x-1 hover:drop-shadow-lg inline-block font-medium"
+                        target="_blank"
+                        className="hover:text-white transition-colors duration-200 inline-block font-medium"
                       >
                         {item.title}
                       </a>
@@ -205,7 +225,7 @@ const Footer = () => {
                             navigate(item.link)
                           }
                         }}
-                        className="cursor-pointer hover:text-white transition-all duration-300 hover:scale-105 inline-block hover:drop-shadow-lg"
+                        className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
                       >
                         {item.title}
                       </a>
@@ -225,11 +245,12 @@ const Footer = () => {
               {moreLinks.map((item, i) => {
                 return (
                   <li key={i}>
-                    {item.link.startsWith('http') ? (
+                    {item.link.startsWith('http') || item.link.startsWith('mailto') ? (
                       <a 
                         href={item.link} 
                         rel="noreferrer noopener"
-                        className="hover:text-white transition-all duration-300 hover:translate-x-1 hover:drop-shadow-lg inline-block font-medium"
+                        target="_blank"
+                        className="hover:text-white transition-colors duration-200 inline-block font-medium"
                       >
                         {item.title}
                       </a>
@@ -239,7 +260,7 @@ const Footer = () => {
                           window.scrollTo(0, 0)
                           navigate(item.link)
                         }}
-                        className="cursor-pointer hover:text-white transition-all duration-300 hover:scale-105 inline-block hover:drop-shadow-lg"
+                        className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
                       >
                         {item.title}
                       </a>
@@ -257,13 +278,13 @@ const Footer = () => {
 
       {/* Disclaimer Section */}
       <div className="mx-auto lg:w-[43.5em] max-w-4xl text-center px-4">
-        <div className="glass-strong rounded-2xl p-6 md:p-8 shadow-2xl">
+        <div className="glass-strong rounded-md p-6 md:p-8 shadow-2xl border border-white/10">
           <p className="text-xs md:text-sm text-[#8896AB] leading-relaxed">
             $MCRT is a utility token designed for use within the MagicCraft ecosystem. If you are new to the cryptocurrency space,
             please make sure you thoroughly familiarise yourself with the nature and risks
             associated with $MCRT as per our{' '}
             <a
-              className="text-primary text-[#98FFF9] underline hover:text-white transition-colors duration-300 hover:scale-105 inline-block"
+              className="text-primary text-[#98FFF9] underline hover:text-white transition-colors duration-200 inline-block"
               target="_blank"
               rel="noopener noreferrer"
               href="https://docs.magiccraft.io/usdmcrt-token/tokenomics"
