@@ -72,7 +72,7 @@ return(
       </p>
     </div>
 
-    <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 md:gap-6">
+    <div className="grid grid-cols-1 gap-4 md:gap-5">
       {/* Main Video Player */}
       <div className="rounded-md border border-white/10 bg-black/70 overflow-hidden shadow-xl">
         <div className="aspect-video w-full">
@@ -90,7 +90,7 @@ return(
       </div>
 
       {/* Video Thumbnails */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-1 gap-3">
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3">
         {videos.map((video) => (
           <button
             key={video.id}
@@ -111,8 +111,8 @@ return(
                 {video.duration}
               </div>
             </div>
-            <div className="px-2.5 py-2">
-              <p className="text-xs sm:text-sm text-white/80 line-clamp-2">{video.title}</p>
+            <div className="px-2 py-1.5">
+              <p className="text-[11px] text-white/75 line-clamp-1">{video.title}</p>
             </div>
           </button>
         ))}
