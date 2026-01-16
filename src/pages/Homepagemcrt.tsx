@@ -460,23 +460,23 @@ function Homepagemcrt() {
           <div className="w-full bg-gradient-to-r from-[#0B0F39] via-[#120e3d] to-[#0B0F39] border-t border-white/5">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-4 sm:py-6">
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
-                <div className="card-glass px-3 py-2 rounded-xl text-center">
+                <div className="card-glass px-3 py-2 rounded-md text-center">
                   <div className="text-xs text-white/60">Token Holders</div>
                   <div className="text-sm sm:text-base font-bold text-white">17,500+</div>
                 </div>
-                <div className="card-glass px-3 py-2 rounded-xl text-center">
+                <div className="card-glass px-3 py-2 rounded-md text-center">
                   <div className="text-xs text-white/60">Downloads</div>
                   <div className="text-sm sm:text-base font-bold text-white">50,000+</div>
                 </div>
-                <div className="card-glass px-3 py-2 rounded-xl text-center">
+                <div className="card-glass px-3 py-2 rounded-md text-center">
                   <div className="text-xs text-white/60">Crypto Lobbies</div>
                   <div className="text-sm sm:text-base font-bold text-white">BTC, ETH, SOL</div>
                 </div>
-                <div className="card-glass px-3 py-2 rounded-xl text-center">
+                <div className="card-glass px-3 py-2 rounded-md text-center">
                   <div className="text-xs text-white/60">Platforms</div>
                   <div className="text-sm sm:text-base font-bold text-white">iOS, Android, PC</div>
                 </div>
-                <div className="card-glass px-3 py-2 rounded-xl text-center">
+                <div className="card-glass px-3 py-2 rounded-md text-center">
                   <div className="text-xs text-white/60">Exchanges</div>
                   <div className="text-sm sm:text-base font-bold text-white">
                     <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="hover:text-[#98FFF9] transition-colors">Bybit</a>
@@ -739,9 +739,9 @@ function Homepagemcrt() {
 
         {/* Sticky mobile bottom bar */}
         <div className="fixed bottom-2 inset-x-2 md:hidden z-50 safe-padded">
-          <div className="rounded-2xl bg-[#0B0F39]/80 backdrop-blur border border-white/10 shadow-2xl p-2 flex items-center justify-between gap-2">
-            <a href="https://lobby.magiccraft.io/" rel="noreferrer noopener" className="flex-1 inline-flex items-center justify-center h-11 rounded-xl text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15">Play</a>
-            <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" rel="noreferrer noopener" className="flex-1 inline-flex items-center justify-center h-11 rounded-xl text-[#03082F] font-black bg-gradient-to-b from-[#98FFF9] to-[#B591F2]">Buy</a>
+          <div className="rounded-md bg-[#0B0F39]/80 backdrop-blur border border-white/10 shadow-2xl p-2 flex items-center justify-between gap-2">
+            <a href="https://lobby.magiccraft.io/" rel="noreferrer noopener" className="flex-1 inline-flex items-center justify-center h-11 rounded-md text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15">Play</a>
+            <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" rel="noreferrer noopener" className="flex-1 inline-flex items-center justify-center h-11 rounded-md text-[#03082F] font-black bg-gradient-to-b from-[#98FFF9] to-[#B591F2]">Buy</a>
           </div>
         </div>
           
