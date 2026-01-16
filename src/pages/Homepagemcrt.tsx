@@ -516,7 +516,7 @@ function Homepagemcrt() {
                     </div>
                     <h4 className="text-lg font-bold text-white mb-1">AI Chatbots</h4>
                     <p className="text-sm text-gray-400 leading-relaxed">
-                      Real-time strategy tips and adaptive companions that learn your playstyle.
+                      Real-time strategy tips and companions that adapt to your playstyle.
                     </p>
                   </div>
 
@@ -529,7 +529,7 @@ function Homepagemcrt() {
                     </div>
                     <h4 className="text-lg font-bold text-white mb-1">AI Weapon Gen</h4>
                     <p className="text-sm text-gray-400 leading-relaxed">
-                      Procedurally generated weapons with AI-designed stats, mintable as NFTs.
+                      AI-designed weapons with unique stats, mintable as NFTs.
                     </p>
                   </div>
 
@@ -555,7 +555,7 @@ function Homepagemcrt() {
                     </div>
                     <h4 className="text-lg font-bold text-white mb-1">AI Game Master</h4>
                     <p className="text-sm text-gray-400 leading-relaxed">
-                      Dynamic events and quests that adapt to player behavior in real-time.
+                      Dynamic quests and events that adapt in real time.
                     </p>
                   </div>
                 </div>
@@ -580,7 +580,7 @@ function Homepagemcrt() {
                       </div>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed mb-3">
-                      Advanced AI assistant with voice chat, image generation, investment tracking, and smart routing across multiple AI models (GPT, Grok, Gemini).
+                      AI assistant with voice, image gen, investing tools, and smart model routing.
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">Voice Chat</span>
@@ -601,7 +601,7 @@ function Homepagemcrt() {
                       </div>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed mb-3">
-                      AI-powered wellness assistant providing 24/7 health consultations. Personalized advice trained on thousands of medical cases.
+                      24/7 AI wellness assistant with personalized guidance.
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">24/7 Care</span>
@@ -622,7 +622,7 @@ function Homepagemcrt() {
                       </div>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed mb-3">
-                      Predict match outcomes and compete for rewards. AI-powered odds, real-time updates, and crypto payouts in $MCRT.
+                      Prediction markets with AI odds, real-time updates, and $MCRT rewards.
                     </p>
                     <div className="flex flex-wrap gap-2">
                       <span className="text-xs px-2 py-1 rounded-full bg-white/10 text-white/70">Predictions</span>
@@ -639,7 +639,7 @@ function Homepagemcrt() {
                   <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5zm0 18.5c-3.25-.8-6-4.31-6-7.83V8.3l6-3.11v15.31z"/>
                   </svg>
-                  <span>Powered by $MCRT • Integrating AI + Crypto since 2021</span>
+                  <span>Powered by $MCRT • AI + Crypto since 2021</span>
                 </div>
               </div>
             </div>
