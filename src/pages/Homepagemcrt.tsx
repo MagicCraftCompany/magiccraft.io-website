@@ -744,21 +744,21 @@ function Homepagemcrt() {
           <section className="flex justify-center bg-center p-4 md:p-6 lg:mt-4 lg:mb-8">
             <div className="relative max-w-7xl w-full rounded-md bg-[#0B0F39] border border-white/10 shadow-xl overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/30"></div>
-              <div className="relative space-y-5 md:space-y-7 px-6 md:px-10 pb-8 md:pb-10 pt-6 md:pt-8">
+              <div className="relative space-y-4 md:space-y-6 px-6 md:px-10 pb-6 md:pb-8 pt-6 md:pt-7">
                 <div className="text-center space-y-3">
                   <h5 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent leading-tight">
                     Join the action, earn $MCRT
                   </h5>
-                  <p className="text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                    Play, win, and earn. Climb the ranks and collect $MCRT across matches and events.
+                  <p className="text-sm md:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    Play, win, and earn across matches and events.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
                   {/* Register Card */}
-                  <button onClick={registerHandler} className="group text-left rounded-md border border-white/10 bg-white/5 p-6 md:p-7 transition-all duration-300 hover:border-[#8EFF49]/50 hover:bg-white/[0.07]">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-11 h-11 rounded-md bg-[#8EFF49]/20 border border-[#8EFF49]/40 flex items-center justify-center">
+                  <button onClick={registerHandler} className="group text-left rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#8EFF49]/50 hover:bg-white/[0.07]">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-md bg-[#8EFF49]/20 border border-[#8EFF49]/40 flex items-center justify-center">
                         <svg className="w-5 h-5 text-[#8EFF49]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                           <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
                           <circle cx="12" cy="7" r="4"/>
@@ -774,9 +774,9 @@ function Homepagemcrt() {
                   </button>
 
                   {/* Download Card */}
-                  <div className="rounded-md border border-white/10 bg-white/5 p-6 md:p-7">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-11 h-11 rounded-md bg-[#FFB649]/15 border border-[#FFB649]/40 flex items-center justify-center">
+                  <div className="rounded-md border border-white/10 bg-white/5 p-5 md:p-6">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-md bg-[#FFB649]/15 border border-[#FFB649]/40 flex items-center justify-center">
                         <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm1 5v5l4 2-1 1-4-2V7h1z"/>
                         </svg>
@@ -786,26 +786,31 @@ function Homepagemcrt() {
                         <p className="text-sm text-white/70">PC, iOS, Android, Steam.</p>
                       </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-3">
-                      <button className="flex flex-col items-center gap-2 rounded-md border border-white/10 bg-black/20 px-3 py-3 text-xs text-white/90 hover:border-[#FFB649]/40 hover:text-white transition-colors" onClick={playonsteamHandler}>
-                        <img src={steam} className="w-6 h-6" alt="Steam Icon" loading="lazy" />
-                        Steam
+                    <div className="flex flex-wrap items-center gap-3">
+                      <button className="inline-flex items-center justify-center rounded-md border border-white/10 bg-black/20 px-4 py-2 text-xs text-white/90 hover:border-[#FFB649]/40 hover:text-white transition-colors" onClick={openGameByDevice}>
+                        Download
                       </button>
-                      <button className="flex flex-col items-center gap-2 rounded-md border border-white/10 bg-black/20 px-3 py-3 text-xs text-white/90 hover:border-[#FFB649]/40 hover:text-white transition-colors" onClick={playonappleHandler}>
-                        <img src={AppleIcon} className="w-6 h-6" alt="Apple Icon" loading="lazy" />
-                        App Store
-                      </button>
-                      <button className="flex flex-col items-center gap-2 rounded-md border border-white/10 bg-black/20 px-3 py-3 text-xs text-white/90 hover:border-[#FFB649]/40 hover:text-white transition-colors" onClick={getfromgoogleHandler}>
-                        <img src="/icons/icon-playstore.svg" className="w-6 h-6" alt="Google Play Icon" loading="lazy" />
-                        Google Play
-                      </button>
+                      <div className="flex items-center gap-3 text-xs text-white/70">
+                        <button className="inline-flex items-center gap-2 hover:text-white transition-colors" onClick={playonsteamHandler}>
+                          <img src={steam} className="w-4 h-4" alt="Steam Icon" loading="lazy" />
+                          Steam
+                        </button>
+                        <button className="inline-flex items-center gap-2 hover:text-white transition-colors" onClick={playonappleHandler}>
+                          <img src={AppleIcon} className="w-4 h-4" alt="Apple Icon" loading="lazy" />
+                          App Store
+                        </button>
+                        <button className="inline-flex items-center gap-2 hover:text-white transition-colors" onClick={getfromgoogleHandler}>
+                          <img src="/icons/icon-playstore.svg" className="w-4 h-4" alt="Google Play Icon" loading="lazy" />
+                          Google Play
+                        </button>
+                      </div>
                     </div>
                   </div>
 
                   {/* Web3 Lobby Card */}
-                  <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer" className="group rounded-md border border-white/10 bg-white/5 p-6 md:p-7 transition-all duration-300 hover:border-[#B591F2]/60 hover:bg-white/[0.07]">
-                    <div className="flex items-center gap-4 mb-4">
-                      <div className="w-11 h-11 rounded-md bg-[#B591F2]/20 border border-[#B591F2]/40 flex items-center justify-center">
+                  <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer" className="group rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#B591F2]/60 hover:bg-white/[0.07]">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-md bg-[#B591F2]/20 border border-[#B591F2]/40 flex items-center justify-center">
                         <svg className="w-5 h-5 text-[#B591F2]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
                           <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
                           <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
