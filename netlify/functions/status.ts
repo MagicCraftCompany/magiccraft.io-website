@@ -227,11 +227,26 @@ export const handler: Handler = async (event) => {
       targets.push(...deepTargets)
     }
 
+    const apiKeys = new Set([
+      'lobby-root',
+      'app-market',
+      'gameserver',
+      'lobby-leaderboard',
+      'lobby-stats',
+      'lobby-referral',
+      'pledging',
+      'rent',
+    ])
+
     // Execute all checks in parallel
     const results = await Promise.all(targets.map((t) => httpCheck(t)))
 
     const coreOk = results.filter((r) => r.type === 'core').every((r) => r.ok)
-    const overallOk = coreOk
+    const apiResults = results.filter((r) => apiKeys.has(r.key))
+    const apiOk = apiResults.filter((r) => r.ok).length
+    const apiTotal = apiResults.length
+    const apiHealthy = apiTotal === 0 ? coreOk : apiOk >= Math.max(1, apiTotal - 1)
+    const overallOk = coreOk || apiHealthy
 
     return {
       statusCode: 200,
@@ -240,7 +255,14 @@ export const handler: Handler = async (event) => {
         'Cache-Control': 'no-store',
         'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({ ts: new Date().toISOString(), ok: overallOk, coreOk, services: results }),
+      body: JSON.stringify({
+        ts: new Date().toISOString(),
+        ok: overallOk,
+        coreOk,
+        apiOk,
+        apiTotal,
+        services: results,
+      }),
     }
   } catch (err: any) {
     // Catch-all error handler

@@ -16,6 +16,8 @@ type StatusResponse = {
   ts: string
   ok: boolean
   coreOk: boolean
+  apiOk?: number
+  apiTotal?: number
   services: ServiceResult[]
 }
 
@@ -71,7 +73,8 @@ export default function StatusIndicator() {
   }, [open])
 
   const overallOk = data?.ok
-  const title = overallOk === undefined ? 'Checking…' : overallOk ? 'All systems normal' : 'Issues detected'
+  const apiSummary = data?.apiTotal ? `${data.apiOk ?? 0}/${data.apiTotal} APIs active` : null
+  const title = overallOk === undefined ? 'Checking…' : apiSummary || (overallOk ? 'All systems normal' : 'Issues detected')
 
   async function detectWallet() {
     const eth = (window as any).ethereum
