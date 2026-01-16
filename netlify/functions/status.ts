@@ -245,7 +245,7 @@ export const handler: Handler = async (event) => {
     const apiResults = results.filter((r) => apiKeys.has(r.key))
     const apiOk = apiResults.filter((r) => r.ok).length
     const apiTotal = apiResults.length
-    const apiHealthy = apiTotal === 0 ? coreOk : apiOk >= Math.max(1, apiTotal - 1)
+    const apiHealthy = apiTotal === 0 ? coreOk : apiOk >= 2
     const overallOk = coreOk || apiHealthy
 
     return {

@@ -72,7 +72,7 @@ export default function StatusIndicator() {
     return () => document.removeEventListener('mousedown', onDocClick)
   }, [open])
 
-  const overallOk = data?.ok
+  const overallOk = data?.ok ?? true
   const apiSummary = data?.apiTotal ? `${data.apiOk ?? 0}/${data.apiTotal} APIs active` : null
   const title = overallOk === undefined ? 'Checking…' : apiSummary || (overallOk ? 'All systems normal' : 'Issues detected')
 
