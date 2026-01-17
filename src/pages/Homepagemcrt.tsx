@@ -507,7 +507,7 @@ function Homepagemcrt() {
                   AI-POWERED ECOSYSTEM
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-                  $MCRT powers in-game AI and the MagicCraft AI product suite.
+                  $MCRT powers in-game AI and the MagicCraft AI product suite, led by Akyn and Merlin.
                 </p>
               </div>
               
@@ -517,7 +517,23 @@ function Homepagemcrt() {
                   <span className="w-8 h-[2px] bg-gradient-to-r from-[#98FFF9] to-transparent"></span>
                   AI Product Suite
                 </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+                  {/* Akyn */}
+                  <a href="https://www.akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#98FFF9]/30 hover:border-[#98FFF9]/60 transition-colors group">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-md bg-gradient-to-br from-[#98FFF9] to-[#38BDF8] flex items-center justify-center text-2xl">
+                        🧠
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-white group-hover:text-[#98FFF9] transition-colors">Akyn</h4>
+                        <span className="text-xs text-[#98FFF9] font-medium">akyn.pro</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-300 leading-relaxed">
+                      AI intelligence layer for research, memory, and workflow automation.
+                    </p>
+                  </a>
+
                   {/* MerlinAI */}
                   <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#9255E0]/30 hover:border-[#9255E0]/60 transition-colors group">
                     <div className="flex items-center gap-3 mb-3">
@@ -530,7 +546,7 @@ function Homepagemcrt() {
                       </div>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
-                      AI assistant with voice, image gen, investing tools, and smart model routing.
+                      AI assistant with voice, image gen, investing tools, and smart routing.
                     </p>
                   </a>
 
