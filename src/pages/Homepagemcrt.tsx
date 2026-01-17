@@ -55,6 +55,23 @@ function Homepagemcrt() {
     }
   }
 
+  useEffect(() => {
+    try {
+      const params = new URLSearchParams(window.location.search)
+      if (params.get('mindmap_reset') === '1') {
+        localStorage.removeItem('mc_seen_mindmap')
+        setMindMapSeen(false)
+      }
+      if (params.get('mindmap') === '1' || params.get('mindmap_test') === '1') {
+        setMindMapOpen(true)
+        markMindMapSeen()
+      }
+    } catch {
+      // ignore
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
   }
