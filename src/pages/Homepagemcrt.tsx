@@ -18,6 +18,7 @@ import GamePlay from '@/components/GamePlay'
 import MagicraftDownload from '@/components/HomePageCard'
 import BuyStrip from '@/components/Buy/BuyStrip'
 import BuyFloat from '@/components/Buy/BuyFloat'
+import EcosystemMindMap from '@/components/EcosystemMindMap'
 import Partners from '@/components/Partners/Partners'
 import { Helmet } from 'react-helmet-async'
 import bnbLogo from '../assets/icons/bnblogo.svg'
@@ -31,9 +32,28 @@ import { openTransactionModal } from '@xswap-link/sdk'
 
 function Homepagemcrt() {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null)
+  const [mindMapOpen, setMindMapOpen] = useState(false)
+  const [mindMapSeen, setMindMapSeen] = useState(false)
   const [visibleCount, setVisibleCount] = useState(8)
   const [currentSlide, setCurrentSlide] = useState(0)
   const TOTAL_SLIDES = 3
+
+  useEffect(() => {
+    try {
+      setMindMapSeen(localStorage.getItem('mc_seen_mindmap') === '1')
+    } catch {
+      // ignore
+    }
+  }, [])
+
+  const markMindMapSeen = () => {
+    setMindMapSeen(true)
+    try {
+      localStorage.setItem('mc_seen_mindmap', '1')
+    } catch {
+      // ignore
+    }
+  }
 
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
@@ -300,6 +320,25 @@ function Homepagemcrt() {
             <div className="video-bg-gradient absolute inset-0 h-full w-full bg-gradient-to-b from-black/60 via-black/35 to-black/80"></div>
             <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5 animate-pulse-slow"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-[#03082f]/90 via-transparent to-transparent"></div>
+
+            {/* Ecosystem mind map (first visit: hover/tap the hero to open) */}
+            {!mindMapSeen && (
+              <button
+                onClick={() => { setMindMapOpen(true); markMindMapSeen() }}
+                onMouseEnter={() => { setMindMapOpen(true); markMindMapSeen() }}
+                className="absolute left-1/2 -translate-x-1/2 top-20 sm:top-24 z-20 px-3 py-1.5 rounded-md bg-white/10 border border-white/15 text-xs text-white/85 backdrop-blur hover:bg-white/15 transition-colors"
+              >
+                Explore ecosystem map
+              </button>
+            )}
+            {mindMapSeen && (
+              <button
+                onClick={() => setMindMapOpen(true)}
+                className="absolute right-3 top-20 sm:top-24 z-20 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-xs text-white/70 backdrop-blur hover:bg-white/10 hover:text-white transition-colors"
+              >
+                Map
+              </button>
+            )}
             
             <div className="relative z-10 mx-auto max-w-screen-xl h-full w-full px-3 sm:px-4">
               <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 sm:gap-4 md:gap-4 lg:gap-5 pt-14 sm:pt-16 md:pt-18 lg:pt-20 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
@@ -370,6 +409,7 @@ function Homepagemcrt() {
               <svg className="w-5 h-5 text-white/85" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 15.5a1 1 0 0 1-.7-.29l-6-6a1 1 0 1 1 1.4-1.42L12 13.08l5.3-5.29a1 1 0 1 1 1.4 1.42l-6 6a1 1 0 0 1-.7.29Z"/></svg>
             </a>
           </section>
+          <EcosystemMindMap open={mindMapOpen} onClose={() => setMindMapOpen(false)} onSeen={markMindMapSeen} />
 
           {/* Download banner just below hero */}
           <div className="w-full max-w-full bg-gradient-to-b from-[#0a0524] via-[#050317] to-[#03082f] relative z-10 shadow-inner overflow-visible">
