@@ -54,7 +54,7 @@ function Homepagegames() {
       game.title === 'runescribes' ||
       game.title === 'magicrunner'
   )
-  const canonical = 'https://www.magiccraft.io/games'
+  const canonical = 'https://magiccraft.io/magiccraft'
   return (
     <>
       <Helmet>

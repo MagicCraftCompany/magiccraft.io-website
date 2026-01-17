@@ -48,7 +48,7 @@ const BackButton = styled.button`
 `;
 
 function PrivacyPolicy() {
-  const canonical = 'https://www.magiccraft.io/privacy-policy';
+  const canonical = 'https://magiccraft.io/privacypolicy';
   
   const handleBack = () => {
     window.history.back();

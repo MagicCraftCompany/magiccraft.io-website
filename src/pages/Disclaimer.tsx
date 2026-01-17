@@ -83,7 +83,7 @@ const disclaimerSections = [
 ]
 
 export default function Disclaimer() {
-  const canonical = 'https://www.magiccraft.io/disclaimer';
+  const canonical = 'https://magiccraft.io/disclaimer';
   
   const handleBack = () => {
     window.history.back();

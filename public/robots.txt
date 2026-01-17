@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.magiccraft.io/sitemap.xml 
+Disallow: /admin/
+Disallow: /dashboard
+Disallow: /grants/success
+
+Sitemap: https://magiccraft.io/sitemap.xml

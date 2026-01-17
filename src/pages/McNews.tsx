@@ -4,7 +4,7 @@ import Header from "@/components/Header/Header";
 import { Helmet } from 'react-helmet-async';
 
 export default function NewsPage() {
-  const canonical = 'https://www.magiccraft.io/news';
+  const canonical = 'https://magiccraft.io/news';
   return (
     <>
       <Helmet>

@@ -48,7 +48,7 @@ const BackButton = styled.button`
 `;
 
 export default function TermsAndConditions() {
-  const canonical = 'https://www.magiccraft.io/terms-and-condition';
+  const canonical = 'https://magiccraft.io/terms';
   
   const handleBack = () => {
     window.history.back();
