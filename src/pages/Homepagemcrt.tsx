@@ -274,7 +274,7 @@ function Homepagemcrt() {
         <Header />
         <main className="md:-mt-[80px] scroll-smooth pb-20 w-full max-w-full overflow-x-hidden">
           {/*header*/}
-          <section className="md:min-h-screen relative h-[550px] sm:h-[650px] md:h-[700px] lg:h-[750px] xl:h-[800px] bg-cover bg-center overflow-hidden w-full max-w-full">
+          <section className="md:min-h-screen relative min-h-[560px] sm:min-h-[650px] md:min-h-[700px] lg:min-h-[750px] xl:min-h-[800px] h-auto bg-cover bg-center overflow-hidden w-full max-w-full">
             <video
               ref={heroVideoRef}
               className="absolute inset-0 h-full w-full object-cover scale-105"
