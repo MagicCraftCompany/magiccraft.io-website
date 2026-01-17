@@ -72,6 +72,16 @@ function Homepagemcrt() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
+  useEffect(() => {
+    if (mindMapSeen) return
+    const id = window.setTimeout(() => {
+      setMindMapOpen(true)
+      markMindMapSeen()
+    }, 700)
+    return () => window.clearTimeout(id)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mindMapSeen])
+
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
   }
@@ -339,23 +349,13 @@ function Homepagemcrt() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#03082f]/90 via-transparent to-transparent"></div>
 
             {/* Ecosystem mind map (first visit: hover/tap the hero to open) */}
-            {!mindMapSeen && (
-              <button
-                onClick={() => { setMindMapOpen(true); markMindMapSeen() }}
-                onMouseEnter={() => { setMindMapOpen(true); markMindMapSeen() }}
-                className="absolute left-1/2 -translate-x-1/2 top-20 sm:top-24 z-20 px-3 py-1.5 rounded-md bg-white/10 border border-white/15 text-xs text-white/85 backdrop-blur hover:bg-white/15 transition-colors"
-              >
-                Explore ecosystem map
-              </button>
-            )}
-            {mindMapSeen && (
-              <button
-                onClick={() => setMindMapOpen(true)}
-                className="absolute right-3 top-20 sm:top-24 z-20 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-xs text-white/70 backdrop-blur hover:bg-white/10 hover:text-white transition-colors"
-              >
-                Map
-              </button>
-            )}
+            <button
+              onClick={() => { setMindMapOpen(true); markMindMapSeen() }}
+              onMouseEnter={() => { if (!mindMapSeen) { setMindMapOpen(true); markMindMapSeen() } }}
+              className="absolute right-3 top-20 sm:top-24 z-20 px-3 py-1.5 rounded-md bg-white/5 border border-white/10 text-xs text-white/70 backdrop-blur hover:bg-white/10 hover:text-white transition-colors"
+            >
+              Map
+            </button>
             
             <div className="relative z-10 mx-auto max-w-screen-xl h-full w-full px-3 sm:px-4">
               <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 sm:gap-4 md:gap-4 lg:gap-5 pt-14 sm:pt-16 md:pt-18 lg:pt-20 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
