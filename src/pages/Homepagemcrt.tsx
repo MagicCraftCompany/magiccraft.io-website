@@ -578,8 +578,8 @@ function Homepagemcrt() {
                   {/* Akyn */}
                   <a href="https://www.akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#98FFF9]/30 hover:border-[#98FFF9]/60 transition-colors group">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-md bg-gradient-to-br from-[#98FFF9] to-[#38BDF8] flex items-center justify-center text-2xl">
-                        🧠
+                      <div className="w-12 h-12 rounded-md bg-white/10 border border-white/10 flex items-center justify-center">
+                        <img src="https://logo.clearbit.com/akyn.pro" alt="Akyn" className="h-6 w-6 object-contain" loading="lazy" />
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#98FFF9] transition-colors">Akyn</h4>
@@ -594,8 +594,8 @@ function Homepagemcrt() {
                   {/* MerlinAI */}
                   <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#9255E0]/30 hover:border-[#9255E0]/60 transition-colors group">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-md bg-gradient-to-br from-[#9255E0] to-[#6366F1] flex items-center justify-center text-2xl">
-                        🔮
+                      <div className="w-12 h-12 rounded-md bg-white/10 border border-white/10 flex items-center justify-center">
+                        <img src="https://logo.clearbit.com/merlintheai.com" alt="Merlin AI" className="h-6 w-6 object-contain" loading="lazy" />
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#B591F2] transition-colors">Merlin AI</h4>
@@ -610,8 +610,8 @@ function Homepagemcrt() {
                   {/* DocAI */}
                   <a href="https://docai.live" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#10B981]/30 hover:border-[#10B981]/60 transition-colors group">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-md bg-gradient-to-br from-[#10B981] to-[#059669] flex items-center justify-center text-2xl">
-                        🩺
+                      <div className="w-12 h-12 rounded-md bg-white/10 border border-white/10 flex items-center justify-center">
+                        <img src="https://logo.clearbit.com/docai.live" alt="DocAI" className="h-6 w-6 object-contain" loading="lazy" />
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#10B981] transition-colors">DocAI</h4>
@@ -626,8 +626,8 @@ function Homepagemcrt() {
                   {/* Polibilities */}
                   <a href="https://polibilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#FFB649]/30 hover:border-[#FFB649]/60 transition-colors group">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="w-12 h-12 rounded-md bg-gradient-to-br from-[#FFB649] to-[#F59E0B] flex items-center justify-center text-2xl">
-                        📊
+                      <div className="w-12 h-12 rounded-md bg-white/10 border border-white/10 flex items-center justify-center">
+                        <img src="https://logo.clearbit.com/polibilities.com" alt="Polibilities" className="h-6 w-6 object-contain" loading="lazy" />
                       </div>
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#FFB649] transition-colors">Polibilities</h4>
