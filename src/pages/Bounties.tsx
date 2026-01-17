@@ -132,7 +132,7 @@ export default function Bounties() {
               </div>
               <div className="mt-4 flex items-center gap-2">
                 <a
-                  href={`mailto:marketing@magiccraft.io?subject=${encodeURIComponent('MCRT Bounty Application - ' + bounty.title)}`}
+                  href={`mailto:contact@magiccraft.io?subject=${encodeURIComponent('MCRT Bounty Application - ' + bounty.title)}`}
                   className="btn-primary px-4 py-2 text-sm"
                   rel="noreferrer noopener"
                 >

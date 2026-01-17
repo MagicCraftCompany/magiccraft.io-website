@@ -43,11 +43,11 @@ const ContactForm = () => {
             </h2>
             <div className="space-y-2">
               <a
-                href="mailto:marketing@magiccraft.io"
+                href="mailto:contact@magiccraft.io"
                 className="flex items-center text-white transition-colors "
               >
                 <span className="mr-2">✉</span>
-                marketing@magiccraft.io
+                contact@magiccraft.io
               </a>
             </div>
           </div>

@@ -8,7 +8,7 @@ export default function GrantsSuccess() {
       <main className="flex-1 safe-padded">
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center">
           <h1 className="font-serif text-3xl md:text-4xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent mb-4">Thanks for applying</h1>
-          <p className="text-white/80">We received your submission. Our team will contact you from marketing@magiccraft.io.</p>
+          <p className="text-white/80">We received your submission. Our team will contact you from contact@magiccraft.io.</p>
           <a href="/" className="inline-block mt-8 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#7A3DF0] to-[#9F65FF] border border-white/20">Back to Home</a>
         </section>
       </main>

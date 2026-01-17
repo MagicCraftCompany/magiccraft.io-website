@@ -107,7 +107,7 @@ const moreLinks = [
   },
   {
     title: 'Become a partner',
-    link: 'mailto:marketing@magiccraft.io',
+    link: 'mailto:contact@magiccraft.io',
   },
 ]
 

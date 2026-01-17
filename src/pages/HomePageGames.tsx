@@ -709,18 +709,18 @@ function Homepagegames() {
                   </h2>
                   <div className="space-y-2">
                     <a
-                      href="mailto:marketing@magiccraft.io"
+                      href="mailto:contact@magiccraft.io"
                       className="flex items-center text-cyan-400 transition-colors hover:text-cyan-300"
                     >
                       <span className="mr-2">✉</span>
-                      marketing@magiccraft.io
+                      contact@magiccraft.io
                     </a>
                     <a
-                      href="mailto:marketing@magicraft.io"
+                      href="mailto:contact@magiccraft.io"
                       className="flex items-center text-cyan-400 transition-colors hover:text-cyan-300"
                     >
                       <span className="mr-2">✉</span>
-                      marketing@magicraft.io
+                      contact@magiccraft.io
                     </a>
                   </div>
                 </div>

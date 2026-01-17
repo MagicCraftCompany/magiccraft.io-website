@@ -298,8 +298,8 @@ function PrivacyPolicy() {
           <h2>12. Contact Us</h2>
           <p>
             If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please feel free to contact us Email:{' '}
-            <a href="mailto:legal@magiccraft.io" style={{ color: '#98FFF9', textDecoration: 'underline' }}>
-              legal@magiccraft.io
+            <a href="mailto:contact@magiccraft.io" style={{ color: '#98FFF9', textDecoration: 'underline' }}>
+              contact@magiccraft.io
             </a>
             .
           </p>
