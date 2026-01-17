@@ -8,6 +8,30 @@ import {
 
 export const ourteam = [
   {
+    name: 'Muqsit',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173052/Muqsit_u7eecu.webp',
+    work: 'CEO',
+    category: 'Team',
+    socialicons: [
+      // {
+      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
+      //   socialmedia: 'https://www.linkedin.com/in/muqsit-haider-ali-591911183/',
+      // },
+    ],
+  },
+  {
+    name: 'Mateusz',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173060/Matt_ehx3cu.webp',
+    work: 'COO',
+    category: 'Team',
+    socialicons: [
+      // {
+      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
+      //   socialmedia: 'https://linkedin.com/in/mateuszgorecki8/',
+      // },
+    ],
+  },
+  {
     name: 'James CryptoGuru',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173109/James_bww2be.webp',
     work: 'Advisor',
@@ -150,30 +174,6 @@ export const ourteam = [
         icons: <FaTwitter style={{ color: 'grey' }} />,
         socialmedia: 'https://twitter.com/TheDustyBC',
       },
-    ],
-  },
-  {
-    name: 'Muqsit ',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173052/Muqsit_u7eecu.webp',
-    work: 'CEO',
-    category: 'Team',
-    socialicons: [
-      // {
-      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
-      //   socialmedia: 'https://www.linkedin.com/in/muqsit-haider-ali-591911183/',
-      // },
-    ],
-  },
-  {
-    name: 'Mateusz ',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173060/Matt_ehx3cu.webp',
-    work: 'COO',
-    category: 'Team',
-    socialicons: [
-      // {
-      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
-      //   socialmedia: 'https://linkedin.com/in/mateuszgorecki8/',
-      // },
     ],
   },
   // {
