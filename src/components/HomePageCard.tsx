@@ -291,11 +291,11 @@ export default function MagicraftDownload() {
 
   return (
     <>
-    <div className="mx-2 sm:mx-4 flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-8 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 mt-4 sm:mt-6 relative z-50 overflow-visible">
+    <div className="mx-2 sm:mx-4 flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-8 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 mt-2 sm:mt-3 relative z-50 overflow-visible">
       {/* Platform Download Box */}
-      <div className="relative mx-auto w-full lg:w-auto lg:flex-shrink-0 lg:mx-0 lg:mt-[25px]">
-        <div className="rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
+      <div className="relative mx-auto w-full lg:w-auto lg:flex-shrink-0 lg:mx-0">
+        <div className="rounded-md bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
+          <div className="relative overflow-hidden rounded-md bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
             {/* Platform Download Buttons */}
             <div className="p-5 lg:p-6">
               <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-4 lg:gap-4 w-full max-w-md mx-auto lg:max-w-none">
@@ -303,12 +303,12 @@ export default function MagicraftDownload() {
                   <a
                     key={platform.name}
                     href={platform.href}
-                    className={`group flex flex-col items-center text-center transition-all duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-3 lg:p-4 rounded-xl bg-black/20 hover:bg-black/40 border border-transparent hover:border-[#B591F2]/30 hover:shadow-lg hover:shadow-[#B591F2]/20 ${platform.name === 'Windows' ? 'hidden' : ''}`}
+                    className={`group flex flex-col items-center text-center transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-3 lg:p-4 rounded-md bg-black/20 hover:bg-black/40 border border-transparent hover:border-[#B591F2]/30 ${platform.name === 'Windows' ? 'hidden' : ''}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${platform.label} ${platform.sublabel}`}
                   >
-                    <div className="mb-2 h-7 w-7 sm:h-8 sm:w-8 lg:h-8 lg:w-8 transition-transform duration-300 group-hover:scale-110 group-hover:drop-shadow-lg">
+                    <div className="mb-2 h-7 w-7 sm:h-8 sm:w-8 lg:h-8 lg:w-8">
                       <img
                         src={platform.icon}
                         alt={platform.name}
@@ -326,17 +326,17 @@ export default function MagicraftDownload() {
             </div>
 
             {/* Social Links */}
-            <div className="mx-4 mb-4 flex justify-center gap-3 lg:gap-3 rounded-xl border border-[#B591F2]/30 bg-gradient-to-r from-[#6D3190]/80 to-[#642588]/80 py-3 lg:py-3 backdrop-blur-sm">
+            <div className="mx-4 mb-4 flex justify-center gap-3 lg:gap-3 rounded-md border border-[#B591F2]/30 bg-gradient-to-r from-[#6D3190]/80 to-[#642588]/80 py-3 lg:py-3 backdrop-blur-sm">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.link}
-                  className="transition-all duration-300 hover:scale-110 hover:opacity-100 focus:scale-110 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-2 rounded-lg hover:bg-white/10"
+                  className="transition-colors duration-200 hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-2 rounded-md hover:bg-white/10"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
                 >
-                  <div className="scale-75 transition-transform duration-300">
+                  <div className="scale-75">
                     {social.icon}
                   </div>
                 </a>
@@ -367,8 +367,8 @@ export default function MagicraftDownload() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`block relative rounded-2xl p-[1px] transition-all duration-300 ${l.borderColor} border-2 ${isHovered ? 'border-opacity-100' : 'border-opacity-40'}`}
-                  whileHover={{ scale: 1.04, y: -6 }} 
+                  className={`block relative rounded-md p-[1px] transition-all duration-300 ${l.borderColor} border-2 ${isHovered ? 'border-opacity-100' : 'border-opacity-40'}`}
+                  whileHover={{ scale: 1.02, y: -4 }} 
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 20 }}
                   style={{ 
@@ -378,14 +378,14 @@ export default function MagicraftDownload() {
                   }}
                 >
                   <div
-                    className={`relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br ${l.bgGradient} backdrop-blur-sm p-4 sm:p-5 min-h-[130px] sm:min-h-[150px]`}
+                    className={`relative h-full w-full overflow-hidden rounded-md bg-gradient-to-br ${l.bgGradient} backdrop-blur-sm p-4 sm:p-5 min-h-[120px] sm:min-h-[140px]`}
                     style={{
                       background: `linear-gradient(135deg, rgba(30,20,60,0.95) 0%, rgba(20,10,40,0.98) 100%)`
                     }}
                   >
                     {/* Colored top accent bar */}
                     <div 
-                      className="absolute top-0 left-0 right-0 h-1 rounded-t-xl"
+                      className="absolute top-0 left-0 right-0 h-[2px]"
                       style={{ background: `linear-gradient(90deg, ${l.glowColor}, ${l.glowColor}80)` }}
                     />
                     
