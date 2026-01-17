@@ -530,7 +530,7 @@ function Homepagemcrt() {
                       </div>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
-                      AI intelligence layer for research, memory, and workflow automation.
+                      AI shorts & video maker for social content.
                     </p>
                   </a>
 
