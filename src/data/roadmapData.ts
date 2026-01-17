@@ -25,6 +25,8 @@ export const roadmapData: RoadmapDataType = [
         card: 2,
         features: [
           'NFT Marketplace + Genesis/Revelation NFTs',
+          'Craft & Sell Marketplace',
+          'Akyn (akyn.pro)',
           'Merlin AI (merlintheai.com)',
           'DocAI (docai.live)',
           'Polibilities (polibilities.com)',
@@ -93,7 +95,6 @@ export const roadmapData: RoadmapDataType = [
           'Creator Marketplace',
           'Trade custom maps, skins, and game modes',
           'Community-driven content curation system',
-          'Craft & Sell Marketplace',
         ],
       },
     ],
