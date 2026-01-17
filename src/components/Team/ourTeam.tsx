@@ -34,7 +34,7 @@ export const ourteam = [
   {
     name: 'James CryptoGuru',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173109/James_bww2be.webp',
-    work: 'Advisor',
+    work: 'YouTuber / Advisor',
     category: 'KOL',
     socialicons: [
       {
@@ -55,7 +55,7 @@ export const ourteam = [
   {
     name: 'Davinci Jeremi',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173167/Davinci_qef5tv.webp',
-    work: 'Media Advisor',
+    work: 'YouTuber / Advisor',
     category: 'KOL',
     socialicons: [
       {
@@ -71,7 +71,7 @@ export const ourteam = [
   {
     name: 'The Moon Carl',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173055/Mooncarl_e89xkz.webp',
-    work: ' Advisor',
+    work: 'YouTuber / Advisor',
     category: 'KOL',
     socialicons: [
       {
@@ -87,7 +87,7 @@ export const ourteam = [
   {
     name: 'ChrisMMCrypto',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173187/Chris_crhibl.webp',
-    work: ' Advisor',
+    work: 'YouTuber / Advisor',
     category: 'KOL',
     socialicons: [
       {
