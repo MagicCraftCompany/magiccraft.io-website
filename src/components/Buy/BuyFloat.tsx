@@ -19,7 +19,7 @@ export default function BuyFloat() {
   if (!visible) return null
   
   return (
-    <div className="fixed right-3 bottom-3 sm:right-5 sm:bottom-5 z-[50000]">
+    <div className="hidden md:block fixed right-3 bottom-3 sm:right-5 sm:bottom-5 z-[50000]">
       <button onClick={() => setOpen((v) => !v)} className="px-4 py-2.5 sm:px-5 sm:py-3 rounded-full bg-gradient-to-b from-[#98FFF9] to-[#B591F2] text-[#03082F] font-bold shadow-2xl border border-white/30 text-sm sm:text-base hover:scale-105 transition-transform">
         Buy $MCRT{price?.usd ? ` · $${price.usd.toFixed(5)}` : ''}
       </button>
