@@ -149,8 +149,8 @@ export default function EcosystemMindMap() {
     const centerY = height / 2
     const simNodes: SimNode[] = nodes.map((n, idx) => {
       const angle = (idx / nodes.length) * Math.PI * 2
-      const radius = n.id === 'mcrt' ? 0 : 56 + (idx % 5) * 18
-      const r = n.id === 'mcrt' ? 18 : 12
+      const radius = n.id === 'mcrt' ? 0 : 80 + (idx % 5) * 26
+      const r = n.id === 'mcrt' ? 20 : 14
       return {
         ...n,
         x: centerX + Math.cos(angle) * radius + (Math.random() - 0.5) * 20,
@@ -168,10 +168,10 @@ export default function EcosystemMindMap() {
 
     simRef.current = { nodes: simNodes, links: simLinks }
 
-    const REPULSION = 600
-    const LINK_DIST = 55
+    const REPULSION = 800
+    const LINK_DIST = 90
     const LINK_STRENGTH = 0.02
-    const CENTER_PULL = 0.008
+    const CENTER_PULL = 0.006
     const DAMP = 0.85
 
     function tick() {
@@ -186,8 +186,8 @@ export default function EcosystemMindMap() {
         const dyC = centerY - n.y
         n.vx += dxC * CENTER_PULL
         n.vy += dyC * CENTER_PULL
-        n.vx += (clamp(n.x, 20, width - 20) - n.x) * 0.03
-        n.vy += (clamp(n.y, 20, height - 20) - n.y) * 0.03
+        n.vx += (clamp(n.x, 10, width - 10) - n.x) * 0.03
+        n.vy += (clamp(n.y, 10, height - 10) - n.y) * 0.03
       }
 
       for (let i = 0; i < ns.length; i++) {
@@ -230,7 +230,7 @@ export default function EcosystemMindMap() {
 
       ctx2d.clearRect(0, 0, width, height)
 
-      ctx2d.lineWidth = 0.5
+      ctx2d.lineWidth = 0.8
       ctx2d.strokeStyle = 'rgba(255,255,255,0.08)'
       ctx2d.beginPath()
       for (const l of ls) {
@@ -251,7 +251,7 @@ export default function EcosystemMindMap() {
         ctx2d.fill()
         ctx2d.stroke()
 
-      ctx2d.font = n.id === 'mcrt' ? '600 14px system-ui' : '500 12px system-ui'
+      ctx2d.font = n.id === 'mcrt' ? '600 15px system-ui' : '500 13px system-ui'
         ctx2d.fillStyle = isHovered ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.5)'
         ctx2d.textAlign = 'center'
         ctx2d.textBaseline = 'top'
