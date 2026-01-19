@@ -32,6 +32,39 @@ export const ourteam = [
     ],
   },
   {
+    name: 'Harsh ',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173140/Harsh2_gtpvom.webp',
+    work: 'CFO',
+    category: 'Team',
+    socialicons: [
+      // {
+      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
+      //   socialmedia: 'https://www.linkedin.com/in/itsharshjoshi/',
+      // },
+    ],
+  },
+  {
+    name: 'Ivan ',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173112/Ivan_btfbal.webp',
+    work: 'Executive Assistant',
+    category: 'Team',
+    socialicons: [],
+  },
+  {
+    name: 'Oleh ',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173049/Oleh_idwukn.webp',
+    work: 'Media Manager',
+    category: 'Team',
+    socialicons: [],
+  },
+  {
+    name: 'Hassan',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Hassan%20Dev&backgroundType=gradientLinear&radius=50',
+    work: 'Unity & Web3 Developer',
+    category: 'Team',
+    socialicons: [],
+  },
+  {
     name: 'James CryptoGuru',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173109/James_bww2be.webp',
     work: 'YouTuber / Advisor',
@@ -188,32 +221,6 @@ export const ourteam = [
   //     },
   //   ],
   // },
-  {
-    name: 'Harsh ',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173140/Harsh2_gtpvom.webp',
-    work: 'CFO',
-    category: 'Team',
-    socialicons: [
-      // {
-      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
-      //   socialmedia: 'https://www.linkedin.com/in/itsharshjoshi/',
-      // },
-    ],
-  },
-  {
-    name: 'Ivan ',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173112/Ivan_btfbal.webp',
-    work: 'Executive Assistant',
-    category: 'Team',
-    socialicons: [],
-  },
-  {
-    name: 'Oleh ',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173049/Oleh_idwukn.webp',
-    work: 'Media Manager',
-    category: 'Team',
-    socialicons: [],
-  },
 {
     name: 'Vincent',
     icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Vincent&backgroundType=gradientLinear&radius=50',
@@ -254,13 +261,6 @@ export const ourteam = [
     socialicons: [],
   },
 
-  {
-    name: 'Hassan',
-    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Hassan%20Dev&backgroundType=gradientLinear&radius=50',
-    work: 'Unity & Web3 Developer',
-    category: 'Team',
-    socialicons: [],
-  },
 
   {
     name: 'Ihor',
