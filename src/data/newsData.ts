@@ -14,7 +14,7 @@ export const newsArticles: NewsArticle[] = [
     type: 'News',
     category: 'Announcement',
     title: 'MagicCraft Website Gets Major Upgrade',
-    description: 'Homepage streamlined with tighter messaging, premium layout, and expanded AI suite including Merlin AI, DocAI, Polibilities, SocialMM, DragonList & Akyn.',
+    description: 'Homepage streamlined with tighter messaging, premium layout, and expanded AI suite including Merlin AI, DocAI, Polybilities, SocialMM, DragonList & Akyn.',
     image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1726232450/Frame_307825_il8ahq.webp',
     readMoreLink: 'https://x.com/MagicCraftGame'
   },
@@ -32,7 +32,7 @@ export const newsArticles: NewsArticle[] = [
     type: 'News',
     category: 'AI Products',
     title: 'MagicCraft AI Suite Expands',
-    description: 'Meet Merlin AI, DocAI, Polibilities, SocialMM, DragonList and Akyn — AI-powered products built on the $MCRT ecosystem.',
+    description: 'Meet Merlin AI, DocAI, Polybilities, SocialMM, DragonList and Akyn — AI-powered products built on the $MCRT ecosystem.',
     image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
     readMoreLink: 'https://merlintheai.com'
   },

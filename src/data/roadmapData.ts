@@ -29,7 +29,7 @@ export const roadmapData: RoadmapDataType = [
           'Akyn (akyn.pro)',
           'Merlin AI (merlintheai.com)',
           'DocAI (docai.live)',
-          'Polibilities (polibilities.com)',
+          'Polybilities (polybilities.com)',
           'SocialMM (socialmm.com)',
           'DragonList (dragonlist.ai)',
         ],

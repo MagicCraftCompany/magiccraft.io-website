@@ -72,7 +72,7 @@ export default function EcosystemMindMap() {
       { id: 'akyn', label: 'Akyn', group: 'ai', url: 'https://www.akyn.pro' },
       { id: 'merlin', label: 'Merlin AI', group: 'ai', url: 'https://merlintheai.com' },
       { id: 'docai', label: 'DocAI', group: 'ai', url: 'https://docai.live' },
-      { id: 'polibilities', label: 'Polibilities', group: 'ai', url: 'https://www.polibilities.com' },
+      { id: 'polybilities', label: 'Polybilities', group: 'ai', url: 'https://polybilities.com' },
       { id: 'socialmm', label: 'SocialMM', group: 'ai', url: 'https://socialmm.com' },
       { id: 'dragonlist', label: 'DragonList', group: 'ai', url: 'https://dragonlist.ai' },
 
@@ -101,7 +101,7 @@ export default function EcosystemMindMap() {
       { source: 'mcrt', target: 'akyn' },
       { source: 'mcrt', target: 'merlin' },
       { source: 'mcrt', target: 'docai' },
-      { source: 'mcrt', target: 'polibilities' },
+      { source: 'mcrt', target: 'polybilities' },
       { source: 'mcrt', target: 'socialmm' },
       { source: 'mcrt', target: 'dragonlist' },
 

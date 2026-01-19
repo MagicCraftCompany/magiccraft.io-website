@@ -570,13 +570,13 @@ function Homepagemcrt() {
                     </p>
                   </a>
 
-                  {/* Polibilities */}
-                  <a href="https://www.polibilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#FFB649]/30 hover:border-[#FFB649]/60 transition-colors group">
+                  {/* Polybilities */}
+                  <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#FFB649]/30 hover:border-[#FFB649]/60 transition-colors group">
                     <div className="flex items-center gap-3 mb-3">
-                      <img src="https://www.polibilities.com/favicon.ico" alt="Polibilities" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
+                      <img src="https://polybilities.com/favicon.ico" alt="Polybilities" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
                       <div>
-                        <h4 className="text-xl font-bold text-white group-hover:text-[#FFB649] transition-colors">Polibilities</h4>
-                        <span className="text-xs text-[#98FFF9] font-medium">polibilities.com</span>
+                        <h4 className="text-xl font-bold text-white group-hover:text-[#FFB649] transition-colors">Polybilities</h4>
+                        <span className="text-xs text-[#98FFF9] font-medium">polybilities.com</span>
                       </div>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
@@ -677,11 +677,11 @@ function Homepagemcrt() {
               <svg className="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.086l3.71-3.856a.75.75 0 111.08 1.04l-4.24 4.41a.75.75 0 01-1.08 0l-4.24-4.41a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
             </summary>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-4">
-              <a href="https://www.polibilities.com" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden">
+              <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden">
                 <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
                 <div className="flex items-center gap-3 mb-1">
-                  <img src="/icons/icon-stats.svg" alt="Polibilities" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">Polibilities</h4>
+                  <img src="/icons/icon-stats.svg" alt="Polybilities" className="w-5 h-5 opacity-90" />
+                  <h4 className="font-bold">Polybilities</h4>
                 </div>
                 <p className="text-sm text-gray-300">AI prediction markets.</p>
                 <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open app <span aria-hidden="true">→</span></span>
