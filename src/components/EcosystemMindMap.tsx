@@ -149,30 +149,32 @@ export default function EcosystemMindMap({ open, onClose, onSeen }: Props) {
     if (!open) return
     onSeen?.()
 
-    const wrap = wrapRef.current
-    const canvas = canvasRef.current
-    if (!wrap || !canvas) return
+    const wrapEl = wrapRef.current
+    const canvasEl = canvasRef.current
+    if (!wrapEl || !canvasEl) return
 
-    const ctx = canvas.getContext('2d')
+    const ctx = canvasEl.getContext('2d')
     if (!ctx) return
+    const ctx2d = ctx
 
     const dpr = window.devicePixelRatio || 1
     let width = 0
     let height = 0
 
     function resize() {
-      const rect = wrap.getBoundingClientRect()
+      if (!wrapEl || !canvasEl) return
+      const rect = wrapEl.getBoundingClientRect()
       width = Math.max(320, Math.floor(rect.width))
       height = Math.max(280, Math.floor(rect.height))
-      canvas.width = Math.floor(width * dpr)
-      canvas.height = Math.floor(height * dpr)
-      canvas.style.width = `${width}px`
-      canvas.style.height = `${height}px`
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+      canvasEl.width = Math.floor(width * dpr)
+      canvasEl.height = Math.floor(height * dpr)
+      canvasEl.style.width = `${width}px`
+      canvasEl.style.height = `${height}px`
+      ctx2d.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
 
     const ro = new ResizeObserver(resize)
-    ro.observe(wrap)
+    ro.observe(wrapEl)
     resize()
 
     // init sim
@@ -267,37 +269,37 @@ export default function EcosystemMindMap({ open, onClose, onSeen }: Props) {
       }
 
       // draw
-      ctx.clearRect(0, 0, width, height)
+      ctx2d.clearRect(0, 0, width, height)
 
       // links
-      ctx.lineWidth = 1
-      ctx.strokeStyle = 'rgba(255,255,255,0.10)'
-      ctx.beginPath()
+      ctx2d.lineWidth = 1
+      ctx2d.strokeStyle = 'rgba(255,255,255,0.10)'
+      ctx2d.beginPath()
       for (const l of ls) {
-        ctx.moveTo(l.a.x, l.a.y)
-        ctx.lineTo(l.b.x, l.b.y)
+        ctx2d.moveTo(l.a.x, l.a.y)
+        ctx2d.lineTo(l.b.x, l.b.y)
       }
-      ctx.stroke()
+      ctx2d.stroke()
 
       // nodes
       const hovered = hoveredId ? nodeById.get(hoveredId) : null
       for (const n of ns) {
         const color = GROUP_COLORS[n.group]
         const isHovered = hovered?.id === n.id
-        ctx.beginPath()
-        ctx.fillStyle = isHovered ? color : 'rgba(255,255,255,0.08)'
-        ctx.strokeStyle = isHovered ? 'rgba(255,255,255,0.45)' : color + '55'
-        ctx.lineWidth = isHovered ? 2 : 1
-        ctx.arc(n.x, n.y, isHovered ? n.r + 2 : n.r, 0, Math.PI * 2)
-        ctx.fill()
-        ctx.stroke()
+        ctx2d.beginPath()
+        ctx2d.fillStyle = isHovered ? color : 'rgba(255,255,255,0.08)'
+        ctx2d.strokeStyle = isHovered ? 'rgba(255,255,255,0.45)' : color + '55'
+        ctx2d.lineWidth = isHovered ? 2 : 1
+        ctx2d.arc(n.x, n.y, isHovered ? n.r + 2 : n.r, 0, Math.PI * 2)
+        ctx2d.fill()
+        ctx2d.stroke()
 
         // label
-        ctx.font = n.id === 'mcrt' ? '700 13px system-ui' : '600 11px system-ui'
-        ctx.fillStyle = isHovered ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.7)'
-        ctx.textAlign = 'center'
-        ctx.textBaseline = 'top'
-        ctx.fillText(n.label, n.x, n.y + n.r + 6)
+        ctx2d.font = n.id === 'mcrt' ? '700 13px system-ui' : '600 11px system-ui'
+        ctx2d.fillStyle = isHovered ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.7)'
+        ctx2d.textAlign = 'center'
+        ctx2d.textBaseline = 'top'
+        ctx2d.fillText(n.label, n.x, n.y + n.r + 6)
       }
 
       rafRef.current = requestAnimationFrame(tick)
