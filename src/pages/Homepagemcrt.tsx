@@ -947,19 +947,19 @@ function Homepagemcrt() {
           </section>
           {/* Removed duplicate 'Join the MagicCraft Ecosystem' section */}
           {/*our team */}
-          <div className="h-auto bg-[#020418] p-10" id="team">
-            <section className="relative mx-auto max-w-screen-xl space-y-10 p-4 md:space-y-20 min-h-screen">
-              <h3 className="-mb-10 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-5 text-center font-serif text-4xl text-transparent drop-shadow-xl">
+          <div className="h-auto bg-[#020418] px-6 py-10 md:px-8 md:py-14" id="team">
+            <section className="relative mx-auto max-w-screen-xl space-y-8 p-4 md:space-y-12">
+              <h3 className="-mb-6 text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text p-3 text-center font-serif text-4xl text-transparent drop-shadow-xl">
                 Our team
               </h3>
               <div className="flex items-center justify-center">
                 <Tabs type="team">
                   <Tab id="ALL" label="ALL" className="w-full max-w-screen-xl">
                     <div className="w-full space-y-4">
-                      <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                      <div className="relative my-4 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-10">
                         {ourteam.slice(0, visibleCount).map((item, index) => (
                           <React.Fragment key={item.name}>
-                            <div className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80">
+                            <div className="flex flex-col items-center justify-center bg-[#020418] text-center">
                               <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)]">
                                 <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0d2e]">
                               <img
@@ -1017,17 +1017,23 @@ function Homepagemcrt() {
                     className="w-full max-w-screen-xl"
                   >
                     <div className="w-full space-y-4 ">
-                      <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                      <div className="relative my-4 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-10">
                         {kolTeam.slice(0, visibleCount).map((item) => (
                           <div
                             key={item.name}
-                            className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
+                            className="flex flex-col items-center justify-center bg-[#020418] text-center"
                           >
-                            <img
-                              className="max:w-[12.5em] max:h-[12.5em]"
-                              src={item.icon}
-                              alt={item.name}
-                            />
+                            <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)]">
+                              <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0d2e]">
+                                <img
+                                  className="w-full h-full object-cover grayscale"
+                                  src={item.icon}
+                                  alt={item.name}
+                                  loading="lazy"
+                                  decoding="async"
+                                />
+                              </div>
+                            </div>
                             <p className="mt-2 text-white">{item.name}</p>
                             {item.work && (
                               <>
@@ -1057,17 +1063,23 @@ function Homepagemcrt() {
 
                   <Tab id="Team" label="Team" className="w-full max-w-screen-xl">
                     <div className="w-full space-y-4 ">
-                      <div className="relative my-4 grid grid-cols-2 gap-12 md:grid-cols-4">
+                      <div className="relative my-4 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-10">
                         {teamMembers.slice(0, visibleCount).map((item) => (
                           <div
                             key={item.name}
-                            className="flex flex-col items-center justify-center bg-[#020418] text-center md:h-80"
+                            className="flex flex-col items-center justify-center bg-[#020418] text-center"
                           >
-                            <img
-                              className="max:w-[12.5em] max:h-[12.5em]"
-                              src={item.icon}
-                              alt={item.name}
-                            />
+                            <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)]">
+                              <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0d2e]">
+                                <img
+                                  className="w-full h-full object-cover grayscale"
+                                  src={item.icon}
+                                  alt={item.name}
+                                  loading="lazy"
+                                  decoding="async"
+                                />
+                              </div>
+                            </div>
                             <p className="mt-2 text-white">{item.name}</p>
                             {item.work && (
                               <>
