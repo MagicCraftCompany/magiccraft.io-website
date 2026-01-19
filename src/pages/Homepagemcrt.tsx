@@ -307,7 +307,7 @@ function Homepagemcrt() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#03082f]/90 via-transparent to-transparent"></div>
 
             {/* Embedded Ecosystem Mind Map - bottom left of hero */}
-            <div className="absolute left-0 sm:left-2 md:left-4 bottom-0 sm:bottom-8 md:bottom-16 z-10 w-[280px] sm:w-[380px] md:w-[500px] h-[240px] sm:h-[320px] md:h-[420px] overflow-hidden pointer-events-auto opacity-40 sm:opacity-60 md:opacity-90">
+            <div className="hidden sm:block absolute left-0 sm:left-2 md:left-4 bottom-0 sm:bottom-8 md:bottom-16 z-30 w-[364px] sm:w-[494px] md:w-[650px] h-[312px] sm:h-[416px] md:h-[546px] pointer-events-auto opacity-70 md:opacity-100">
               <EcosystemMindMap />
             </div>
             
@@ -379,6 +379,16 @@ function Homepagemcrt() {
             <a href="#mcrt-payments" className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-6 inline-flex items-center justify-center w-10 h-10 rounded-full glass-strong hover:bg-white/10 border border-white/20" aria-label="Scroll to $MCRT payments">
               <svg className="w-5 h-5 text-white/85" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 15.5a1 1 0 0 1-.7-.29l-6-6a1 1 0 1 1 1.4-1.42L12 13.08l5.3-5.29a1 1 0 1 1 1.4 1.42l-6 6a1 1 0 0 1-.7.29Z"/></svg>
             </a>
+          </section>
+
+          {/* Mobile mind map section */}
+          <section className="sm:hidden w-full bg-gradient-to-b from-[#0a0524] via-[#050317] to-[#03082f] border-t border-white/5">
+            <div className="mx-auto max-w-screen-xl px-3 py-4">
+              <div className="text-sm font-semibold text-white/80 mb-2">Ecosystem Map</div>
+              <div className="w-full h-[300px] rounded-md overflow-hidden border border-white/10 bg-black/20">
+                <EcosystemMindMap />
+              </div>
+            </div>
           </section>
 
           {/* Download banner just below hero */}
