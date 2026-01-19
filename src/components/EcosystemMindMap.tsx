@@ -149,8 +149,8 @@ export default function EcosystemMindMap() {
     const centerY = height / 2
     const simNodes: SimNode[] = nodes.map((n, idx) => {
       const angle = (idx / nodes.length) * Math.PI * 2
-      const radius = n.id === 'mcrt' ? 0 : 40 + (idx % 5) * 12
-      const r = n.id === 'mcrt' ? 14 : 8
+      const radius = n.id === 'mcrt' ? 0 : 44 + (idx % 5) * 14
+      const r = n.id === 'mcrt' ? 16 : 10
       return {
         ...n,
         x: centerX + Math.cos(angle) * radius + (Math.random() - 0.5) * 20,
@@ -251,7 +251,7 @@ export default function EcosystemMindMap() {
         ctx2d.fill()
         ctx2d.stroke()
 
-        ctx2d.font = n.id === 'mcrt' ? '600 10px system-ui' : '500 8px system-ui'
+      ctx2d.font = n.id === 'mcrt' ? '600 12px system-ui' : '500 10px system-ui'
         ctx2d.fillStyle = isHovered ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.5)'
         ctx2d.textAlign = 'center'
         ctx2d.textBaseline = 'top'

@@ -379,9 +379,9 @@ function Homepagemcrt() {
 
           {/* Mobile mind map section */}
           <section className="sm:hidden w-full bg-gradient-to-b from-[#0a0524] via-[#050317] to-[#03082f] border-t border-white/5">
-            <div className="mx-auto max-w-screen-xl px-3 py-4">
+            <div className="mx-auto max-w-screen-xl px-2 py-4">
               <div className="text-sm font-semibold text-white/80 mb-2 text-center">Ecosystem Map</div>
-              <div className="mx-auto w-full max-w-[360px] h-[260px] rounded-md overflow-hidden border border-white/10 bg-black/20">
+              <div className="mx-auto w-full h-[360px] rounded-md overflow-hidden border border-white/10 bg-black/20">
                 <EcosystemMindMap />
               </div>
             </div>
