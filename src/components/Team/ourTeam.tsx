@@ -201,6 +201,20 @@ export const ourteam = [
     ],
   },
   {
+    name: 'Ivan ',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173112/Ivan_btfbal.webp',
+    work: 'Executive Assistant',
+    category: 'Team',
+    socialicons: [],
+  },
+  {
+    name: 'Oleh ',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173049/Oleh_idwukn.webp',
+    work: 'Media Manager',
+    category: 'Team',
+    socialicons: [],
+  },
+  {
     name: 'Mansi',
     icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Mansi&backgroundType=gradientLinear&radius=50',
     work: 'Marketing',
@@ -295,30 +309,6 @@ export const ourteam = [
   },
  
   
-  {
-    name: 'Ivan ',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173112/Ivan_btfbal.webp',
-    work: 'Excutive Assistant',
-    category: 'Team',
-    socialicons: [
-      // {
-      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
-      //   socialmedia: 'https://www.linkedin.com/in/gladshark1/',
-      // },
-    ],
-  },
-  {
-    name: 'Oleh ',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173049/Oleh_idwukn.webp',
-    work: 'Media Manager',
-    category: 'Team',
-    socialicons: [
-      // {
-      //   icons: <FaLinkedin style={{ color: 'grey' }} />,
-      //   socialmedia: 'https://www.linkedin.com/in/oleh-chulanov/',
-      // },
-    ],
-  },
   
   
  
