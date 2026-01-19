@@ -559,7 +559,7 @@ function Homepagemcrt() {
                   {/* DocAI */}
                   <a href="https://docai.live" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#10B981]/30 hover:border-[#10B981]/60 transition-colors group">
                     <div className="flex items-center gap-3 mb-3">
-                      <img src="https://docai.live/favicon.ico" alt="DocAI" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
+                      <img src="https://docai.live/fabicon.png" alt="DocAI" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#10B981] transition-colors">DocAI</h4>
                         <span className="text-xs text-[#98FFF9] font-medium">docai.live</span>
