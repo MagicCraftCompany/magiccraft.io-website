@@ -51,7 +51,7 @@ export default function EcosystemMindMap() {
   const { nodes, links } = useMemo(() => {
     const mcrtContract = '0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f'
     const base: MapNode[] = [
-      { id: 'mcrt', label: '$MCRT', group: 'token', url: 'https://magiccraft.io', description: 'BNB Chain token powering MagicCraft + AI.' },
+      { id: 'mcrt', label: '$MCRT', group: 'token', url: 'https://coinmarketcap.com/currencies/magiccraft/', description: 'BNB Chain token powering MagicCraft + AI.' },
 
       { id: 'tokenomics', label: 'Tokenomics', group: 'token', url: 'https://docs.magiccraft.io/usdmcrt-token/tokenomics' },
       { id: 'bsc', label: 'BNB Chain', group: 'tech', url: 'https://bscscan.com/token/' + mcrtContract },
