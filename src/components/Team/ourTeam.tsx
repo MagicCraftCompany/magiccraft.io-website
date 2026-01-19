@@ -214,31 +214,9 @@ export const ourteam = [
     category: 'Team',
     socialicons: [],
   },
-  {
-    name: 'Mansi',
-    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Mansi&backgroundType=gradientLinear&radius=50',
-    work: 'Marketing',
-    category: 'Team',
-    socialicons: [],
-  },
-  
-  // {
-  //   name: 'Dariia Silkina',
-  //   icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173164/Dori_cukbdf.webp',
-  //   work: 'Design Lead',
-  //   category: 'Team',
-  //   socialicons: [
-  //     {
-  //       icons: <FaLinkedin style={{ color: 'grey' }} />,
-  //       socialmedia: 'https://lonkedin.com/in/dariia-sikina-755bb71aa/',
-  //     },
-  //   ],
-  // },
- 
- 
-  {
-    name: 'Mika',
-    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Mika&backgroundType=gradientLinear&radius=50',
+{
+    name: 'Vincent',
+    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Vincent&backgroundType=gradientLinear&radius=50',
     work: 'Marketing',
     category: 'Team',
     socialicons: [],
@@ -248,14 +226,6 @@ export const ourteam = [
     name: 'Alex',
     icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Alex%20Tech&backgroundType=gradientLinear&radius=50',
     work: 'Tech',
-    category: 'Team',
-    socialicons: [],
-  },
-
-  {
-    name: 'Emanual',
-    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Emanual&backgroundType=gradientLinear&radius=50',
-    work: 'Community & Socials',
     category: 'Team',
     socialicons: [],
   },
