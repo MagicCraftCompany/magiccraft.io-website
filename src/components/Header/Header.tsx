@@ -204,7 +204,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         path: 'https://docs.magiccraft.io/',
       },
       {
-        title: 'MagicCraft 2025',
+        title: 'MagicCraft Vision',
         icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
         path: '/magiccraft',
       },

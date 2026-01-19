@@ -71,7 +71,7 @@ export default function EcosystemMindMap({ open, onClose, onSeen }: Props) {
       { id: 'bitmart', label: 'Bitmart', group: 'exchanges', url: 'https://www.bitmart.com/trade/en-US?symbol=MCRT_USDT' },
       { id: 'pancake', label: 'PancakeSwap', group: 'exchanges', url: `https://pancakeswap.finance/swap?outputCurrency=${mcrtContract}` },
 
-      { id: 'game', label: 'MagicCraft MOBA', group: 'game', url: 'https://magiccraft.io/download' },
+      { id: 'game', label: 'MagicCraft MOBA', group: 'game', url: 'https://magiccraft.io/#download-section' },
       { id: 'lobbies', label: 'Crypto Lobbies', group: 'game', url: 'https://lobby.magiccraft.io/' },
       { id: 'market', label: 'Marketplace', group: 'game', url: 'https://app.magiccraft.io/marketplace/explorer' },
       { id: 'mint', label: 'Genesis / Revelation NFTs', group: 'game', url: 'https://app.magiccraft.io/nft_mint' },
@@ -81,7 +81,7 @@ export default function EcosystemMindMap({ open, onClose, onSeen }: Props) {
       { id: 'akyn', label: 'Akyn', group: 'ai', url: 'https://www.akyn.pro', description: 'AI shorts & video maker for social content.' },
       { id: 'merlin', label: 'Merlin AI', group: 'ai', url: 'https://merlintheai.com' },
       { id: 'docai', label: 'DocAI', group: 'ai', url: 'https://docai.live' },
-      { id: 'polibilities', label: 'Polibilities', group: 'ai', url: 'https://polibilities.com' },
+      { id: 'polibilities', label: 'Polibilities', group: 'ai', url: 'https://www.polibilities.com' },
       { id: 'socialmm', label: 'SocialMM', group: 'ai', url: 'https://socialmm.com' },
       { id: 'dragonlist', label: 'DragonList', group: 'ai', url: 'https://dragonlist.ai' },
 

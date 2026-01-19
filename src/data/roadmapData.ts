@@ -37,14 +37,14 @@ export const roadmapData: RoadmapDataType = [
     ],
   },
   {
-    quarter: 4,
-    year: 2025,
+    quarter: 1,
+    year: 2026,
     variant: 'default',
     goals: [
       {
         card: 1,
         features: [
-          'Game Maker Studio Launch',
+          'Game Maker Studio Expansion',
           'Creator economy: Build, publish, and monetize custom maps',
           'Revenue sharing for popular community content',
         ],
@@ -53,48 +53,15 @@ export const roadmapData: RoadmapDataType = [
         card: 2,
         features: [
           'Procedural weapon skins and customization system',
+          'Cross-Platform Sync enhancements',
         ],
       },
       {
         card: 3,
-        features: [
-          'Cross-Platform Sync',
-          'Seamless progression across iOS, Android, PC, and Steam',
-          'Universal $MCRT wallet integration',
-        ],
-      },
-    ],
-  },
-  {
-    quarter: 1,
-    year: 2026,
-    variant: 'purple',
-    goals: [
-      {
-        card: 1,
         features: [
           'Enhanced PvP Ecosystem',
           'Ranked seasons with $MCRT prize pools',
           'Tournament tools and seasonal events',
-          '20 vs 20 Castle Siege mode',
-          'More lobbies and more cryptos',
-        ],
-      },
-      {
-        card: 2,
-        features: [
-          'NFT Utility Expansion',
-          'Character abilities tied to Genesis & Revelation NFTs',
-          'Rentable assets for temporary power-ups',
-          'New skins and characters',
-        ],
-      },
-      {
-        card: 3,
-        features: [
-          'Creator Marketplace',
-          'Trade custom maps, skins, and game modes',
-          'Community-driven content curation system',
         ],
       },
     ],
