@@ -307,7 +307,7 @@ function Homepagemcrt() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#03082f]/90 via-transparent to-transparent"></div>
 
             {/* Embedded Ecosystem Mind Map - bottom left of hero */}
-            <div className="hidden sm:block absolute left-0 sm:left-2 md:left-4 bottom-0 sm:bottom-8 md:bottom-16 z-30 w-[364px] sm:w-[494px] md:w-[650px] h-[312px] sm:h-[416px] md:h-[546px] pointer-events-auto opacity-70 md:opacity-100">
+            <div className="hidden sm:block absolute left-[-150px] sm:left-[-150px] md:left-[-150px] bottom-[-110px] sm:bottom-[-110px] md:bottom-[-110px] z-30 w-[364px] sm:w-[494px] md:w-[650px] h-[312px] sm:h-[416px] md:h-[546px] pointer-events-auto opacity-70 md:opacity-100">
               <EcosystemMindMap />
             </div>
             
