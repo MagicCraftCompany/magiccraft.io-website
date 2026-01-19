@@ -3,7 +3,6 @@ import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
-import down from '@/assets/icons/li_chevron-down.svg'
 import { Tabs, Tab } from '@/components/tabs'
 import { roadmapData } from '../data/roadmapData'
 import RoadmapCard from '../components/Cards/RoadmapCard'
@@ -32,7 +31,7 @@ import { openTransactionModal } from '@xswap-link/sdk'
 
 function Homepagemcrt() {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null)
-  const [visibleCount, setVisibleCount] = useState(8)
+  const [visibleCount] = useState(ourteam.length)
   const [currentSlide, setCurrentSlide] = useState(0)
   const TOTAL_SLIDES = 3
 
@@ -130,9 +129,6 @@ function Homepagemcrt() {
     }
   }, [currentSlide])
 
-  const loadMore = () => {
-    setVisibleCount((prevCount) => prevCount + 4)
-  }
 
   const kolTeam = ourteam.filter((member) => member.category === 'KOL')
   const teamMembers = ourteam.filter((member) => member.category === 'Team')
@@ -1012,20 +1008,6 @@ function Homepagemcrt() {
                           </React.Fragment>
                         ))}
                       </div>
-                      {visibleCount < ourteam.length && (
-                        <div className="mt-4 flex justify-center text-center">
-                          <button
-                            onClick={() => {
-                              loadMore()
-                              setTimeout(adjustDividerHeight, 0)
-                            }}
-                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
-                          >
-                            <img src={down} className="m-1" alt="Down arrow" />{' '}
-                            Load More
-                          </button>
-                        </div>
-                      )}
                     </div>
                   </Tab>
 
@@ -1070,19 +1052,6 @@ function Homepagemcrt() {
                           </div>
                         ))}
                       </div>
-                      {visibleCount < kolTeam.length && (
-                        <div className="mt-4 flex justify-center text-center">
-                          <button
-                            onClick={() => {
-                              loadMore()
-                            }}
-                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
-                          >
-                            <img src={down} className="m-1" alt="Down arrow" />{' '}
-                            Load More
-                          </button>
-                        </div>
-                      )}
                     </div>
                   </Tab>
 
@@ -1123,19 +1092,6 @@ function Homepagemcrt() {
                           </div>
                         ))}
                       </div>
-                      {visibleCount < teamMembers.length && (
-                        <div className="mt-4 flex justify-center text-center">
-                          <button
-                            onClick={() => {
-                              loadMore()
-                            }}
-                            className="flex flex-wrap rounded-full px-5 py-3 text-lg text-[#98FFF9] backdrop-blur"
-                          >
-                            <img src={down} className="m-1" alt="Down arrow" />{' '}
-                            Load More
-                          </button>
-                        </div>
-                      )}
                     </div>
                   </Tab>
                 </Tabs>
