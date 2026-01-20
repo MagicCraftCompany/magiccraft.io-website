@@ -30,13 +30,29 @@ function triggerGoogleTranslate(langCode: string) {
   const maxTries = 12
   const intervalMs = 350
 
+  const applyLang = (select: HTMLSelectElement, code: string) => {
+    select.value = code
+    // Dispatch like a real user change (bubbling helps some GT builds)
+    select.dispatchEvent(new Event('input', { bubbles: true }))
+    select.dispatchEvent(new Event('change', { bubbles: true }))
+  }
+
   const tick = () => {
     const select = document.querySelector('.goog-te-combo') as HTMLSelectElement | null
     if (select) {
-      select.value = langCode
-      // Dispatch like a real user change (bubbling helps some GT builds)
-      select.dispatchEvent(new Event('input', { bubbles: true }))
-      select.dispatchEvent(new Event('change', { bubbles: true }))
+      if (langCode === 'en') {
+        applyLang(select, langCode)
+        return
+      }
+
+      // Force re-translate on SPA route changes by briefly resetting to English.
+      if (select.value === langCode) {
+        applyLang(select, 'en')
+        setTimeout(() => applyLang(select, langCode), 50)
+        return
+      }
+
+      applyLang(select, langCode)
       return
     }
 
@@ -313,7 +329,7 @@ const Header = () => {
       // Ensure translation applies consistently (Google Translate relies on cookies + DOM mutation).
       setTimeout(() => {
         try {
-          window.location.reload()
+          window.location.assign(window.location.href)
         } catch {}
       }, 120)
     }
@@ -333,7 +349,10 @@ const Header = () => {
       setCurrentLang(saved)
       return
     }
+    setGoogTransCookie(currentLang)
     triggerGoogleTranslate(currentLang)
+    // Retry once for SPA route updates where GT initializes later.
+    setTimeout(() => triggerGoogleTranslate(currentLang), 800)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname, currentLang])
 
