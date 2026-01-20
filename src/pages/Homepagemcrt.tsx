@@ -762,10 +762,22 @@ function Homepagemcrt() {
         {/* Mentions removed per request */}
 
         {/* Sticky mobile bottom bar */}
-        <div className="fixed bottom-2 inset-x-2 md:hidden z-50 safe-padded">
-          <div className="rounded-md bg-[#0B0F39]/80 backdrop-blur border border-white/10 shadow-2xl p-2 flex items-center justify-between gap-2">
-            <a href="https://lobby.magiccraft.io/" rel="noreferrer noopener" className="flex-1 inline-flex items-center justify-center h-11 rounded-md text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15">Play</a>
-            <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" rel="noreferrer noopener" className="flex-1 inline-flex items-center justify-center h-11 rounded-md text-[#03082F] font-black bg-gradient-to-b from-[#98FFF9] to-[#B591F2]">Buy</a>
+        <div className="fixed bottom-0 inset-x-0 md:hidden z-50 px-2 pb-[max(env(safe-area-inset-bottom),8px)]">
+          <div className="mx-auto max-w-screen-sm rounded-md bg-[#0B0F39]/85 backdrop-blur border border-white/10 shadow-2xl p-1.5 flex items-center justify-between gap-1.5">
+            <a
+              href="https://lobby.magiccraft.io/"
+              rel="noreferrer noopener"
+              className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-sm text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15"
+            >
+              Play
+            </a>
+            <a
+              href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
+              rel="noreferrer noopener"
+              className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-sm text-[#03082F] font-black bg-gradient-to-b from-[#98FFF9] to-[#B591F2]"
+            >
+              Buy
+            </a>
           </div>
         </div>
           
