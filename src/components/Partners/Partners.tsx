@@ -19,10 +19,12 @@ export const ListedPartners = () => {
         {partners.map((item: Partner) => {
           const isSmallMark = ['WEEX', 'biconomy'].includes(item.name)
           const isBitunix = item.name === 'Bitunix'
+          const rawLink = (item.link || '').trim()
+          const href = rawLink.startsWith('http') ? rawLink : `https://${rawLink}`
           return (
             <a
               key={item.name}
-              href={item.link.includes('http') ? item.link : `https://${item.link}`}
+              href={href}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative flex h-20 items-center justify-center rounded-md border border-white/10 bg-[#0A1240] p-3 transition-all hover:border-[#98FFF9]/40 hover:bg-[#111a54] md:h-24 min-h-[80px] no-underline hover:no-underline"
@@ -56,7 +58,8 @@ const OurPartners = () => {
       </h3>
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6">
         {otherpartners.map((item: Partner) => {
-          const link = item.link.includes('http') ? item.link : `https://${item.link}`
+          const rawLink = (item.link || '').trim()
+          const link = rawLink.startsWith('http') ? rawLink : `https://${rawLink}`
           return (
             <a
               key={item.name}
@@ -97,7 +100,7 @@ const Partners = () => {
       <div className="flex items-center justify-center mt-8">
         <a
           href="mailto:contact@magiccraft.io"
-          className="relative inline-flex items-center gap-2 rounded-full h-11 px-6 md:px-7 bg-gradient-to-b from-[#0C1661] to-[#0A1240] border border-[#98FFF9]/30 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:border-[#98FFF9]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50"
+          className="group relative inline-flex items-center gap-2 rounded-full h-11 px-6 md:px-7 bg-gradient-to-b from-[#0C1661] to-[#0A1240] border border-[#98FFF9]/30 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:border-[#98FFF9]/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9]/50"
         >
           <span className="absolute inset-0 rounded-full bg-gradient-to-r from-white/0 via-white/10 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
           Become a Partner

@@ -169,7 +169,7 @@
     {
       name:'GGEM',
       icon:'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1739438020/5VrITu7p_400x400-removebg-preview_xipruw.png',
-      link:'app.ggem.gg ',
+      link:'app.ggem.gg',
       type:'Gaming Ecosystem'
     },
   ]

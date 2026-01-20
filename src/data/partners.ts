@@ -9,24 +9,24 @@ const partners = [
   {
     name: 'Bybit',
     icon: bybit,
-    link:'https://www.bybit.com/en/trade/spot/MCRT/USDT '
+    link:'https://www.bybit.com/en/trade/spot/MCRT/USDT'
   },
   {
     name: 'HTX',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717705783/Screenshot_2024-06-04_at_10.31_1_ntlhip.webp',
-    link:'https://www.htx.com/trade/mcrt_usdt '
+    link:'https://www.htx.com/trade/mcrt_usdt'
   },
 
   
   {
     name: 'Pancakeswap',
     icon: pancakeswap,
-    link:'https://pancakeswap.finance/?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f'
+    link:'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f'
   },
   {
     name: 'Mexc Global',
     icon: mexc,
-    link:'https://www.mexc.com/exchange/MCRT_USDT '
+    link:'https://www.mexc.com/exchange/MCRT_USDT'
 
   },
  
