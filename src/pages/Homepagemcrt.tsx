@@ -332,7 +332,7 @@ function Homepagemcrt() {
                   </div>
                   <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wider drop-shadow-2xl leading-tight">
                     THE CURRENCY OF GAMING & AI
-                  </h1>
+                </h1>
                   <p className="mt-3 max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
                     Fast, low‑fee on‑chain currency on BNB Chain powering rewards, creator payouts,
                     and in‑game commerce across the MagicCraft universe.
@@ -352,7 +352,7 @@ function Homepagemcrt() {
                     >
                       Buy $MCRT
                     </button>
-                  </div>
+              </div>
                   {/* Trust badges */}
                   <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3 opacity-90">
                     <span className="text-xs text-white/70">Listed on</span>
@@ -365,10 +365,10 @@ function Homepagemcrt() {
                     <a href="https://www.htx.com/trade/mcrt_usdt" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 transition-opacity">
                       <img src="/icons/icon-huobi.svg" alt="HTX" className="h-5 sm:h-6 opacity-90" loading="lazy" />
                     </a>
-                  </div>
+            </div>
                 </div>
               </div>
-              </div>
+             </div>
            
             {/* Download row moved below hero */}
             {/* Scroll cue */}
@@ -383,7 +383,7 @@ function Homepagemcrt() {
               <div className="text-sm font-semibold text-white/80 mb-2 text-center">Ecosystem Map</div>
               <div className="mx-auto w-full h-[360px] rounded-md overflow-hidden border border-white/10 bg-black/20">
                 <EcosystemMindMap />
-              </div>
+                    </div>
             </div>
           </section>
 
@@ -407,13 +407,13 @@ function Homepagemcrt() {
                     </div>
                     <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
                       The currency of gaming & AI
-                    </h3>
+                  </h3>
                     <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed">
                       $MCRT is built for speed and scale. On BNB Chain's BEP‑20 standard,
                       payments settle in seconds with fees around a cent and capacity for thousands of transactions per second.
                       Send value instantly between players, power in‑game commerce, and fuel AI-driven experiences across the MagicCraft economy.
-                    </p>
-                  </div>
+                  </p>
+                </div>
                   <div className="flex flex-wrap items-center justify-center lg:justify-end gap-2 sm:gap-3 text-[11px] sm:text-xs">
                     <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-white/80">
                       {/* Speed icon */}
@@ -435,16 +435,16 @@ function Homepagemcrt() {
                       <svg className="h-3.5 w-3.5 text-white/70" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm10 0a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM5 17a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v1H5v-1Z"/></svg>
                       <span>Player ↔ Player</span>
                     </span>
-                  </div>
                 </div>
+              </div>
                 <div className="mt-4 flex items-center justify-center lg:justify-start gap-3">
                   <button onClick={handleBuyMCRT} className="btn-primary interactive-scale">
                     Get $MCRT
-                  </button>
+                          </button>
                   <a href="/build-on-magiccraft" className="btn-secondary">Learn more</a>
-                </div>
-              </div>
-            </div>
+                            </div>
+                          </div>
+                            </div>
           </section>
           {/* Floating Buy button */}
           <BuyFloat />
@@ -455,22 +455,22 @@ function Homepagemcrt() {
                 <div className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/></svg>
                   <span><strong>Building since 2021</strong></span>
-                </div>
+                            </div>
                 <div className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
                   <span><strong>10 team members</strong></span>
-                </div>
+                            </div>
                 <div className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
                   <span><strong>17,500+ holders</strong></span>
-                </div>
+                            </div>
                 <div className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                   <span><strong>400K+ community</strong></span>
-                </div>
-              </div>
-            </div>
-          </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
           {/* Quick Stats strip for buyers */}
           <div className="w-full bg-gradient-to-r from-[#0B0F39] via-[#120e3d] to-[#0B0F39] border-t border-white/5">
@@ -479,19 +479,19 @@ function Homepagemcrt() {
                 <div className="card-glass px-3 py-2 rounded-md text-center">
                   <div className="text-xs text-white/60">Token Holders</div>
                   <div className="text-sm sm:text-base font-bold text-white">17,500+</div>
-                </div>
+                            </div>
                 <div className="card-glass px-3 py-2 rounded-md text-center">
                   <div className="text-xs text-white/60">Downloads</div>
                   <div className="text-sm sm:text-base font-bold text-white">50,000+</div>
-                </div>
+                          </div>
                 <div className="card-glass px-3 py-2 rounded-md text-center">
                   <div className="text-xs text-white/60">Crypto Lobbies</div>
                   <div className="text-sm sm:text-base font-bold text-white">BTC, ETH, SOL</div>
-                </div>
+                            </div>
                 <div className="card-glass px-3 py-2 rounded-md text-center">
                   <div className="text-xs text-white/60">Platforms</div>
                   <div className="text-sm sm:text-base font-bold text-white">iOS, Android, PC</div>
-                </div>
+                            </div>
                 <div className="card-glass px-3 py-2 rounded-md text-center">
                   <div className="text-xs text-white/60">Exchanges</div>
                   <div className="text-sm sm:text-base font-bold text-white">
@@ -500,9 +500,9 @@ function Homepagemcrt() {
                     <a href="https://www.htx.com/trade/mcrt_usdt" target="_blank" rel="noopener noreferrer" className="hover:text-[#98FFF9] transition-colors">HTX</a>
                     <span className="text-white/30 mx-1">•</span>
                     <a href="https://www.mexc.com/exchange/MCRT_USDT" target="_blank" rel="noopener noreferrer" className="hover:text-[#98FFF9] transition-colors">MEXC</a>
-                  </div>
-                </div>
-              </div>
+                            </div>
+                            </div>
+                          </div>
               <div className="mt-3 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                 <span className="text-xs sm:text-sm text-white/60">Also on:</span>
                 <a href="https://www.gate.io/trade/MCRT_USDT" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">Gate.io</a>
@@ -510,9 +510,9 @@ function Homepagemcrt() {
                 <a href="https://www.bitmart.com/trade/en-US?symbol=MCRT_USDT" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">Bitmart</a>
                 <span className="text-white/30">•</span>
                 <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">PancakeSwap</a>
-              </div>
-            </div>
-          </div>
+                        </div>
+                      </div>
+                    </div>
 
           {/* AI Integration Section */}
           <section className="relative w-full bg-gradient-to-b from-[#050317] via-[#0a0524] to-[#03082f] py-12 md:py-16 lg:py-20">
@@ -525,14 +525,14 @@ function Homepagemcrt() {
                 <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
                   $MCRT powers in-game AI and the MagicCraft AI product suite, led by Akyn and Merlin.
                 </p>
-              </div>
+            </div>
               
               {/* External AI Products */}
               <div className="mb-6">
                 <h3 className="text-lg sm:text-xl font-semibold text-white/80 mb-4 flex items-center gap-2">
                   <span className="w-8 h-[2px] bg-gradient-to-r from-[#98FFF9] to-transparent"></span>
                   AI Product Suite
-                </h3>
+                  </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                   {/* Akyn */}
                   <a href="https://www.akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#98FFF9]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
@@ -541,7 +541,7 @@ function Homepagemcrt() {
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#98FFF9] transition-colors">Akyn</h4>
                         <span className="text-xs text-[#98FFF9] font-medium">akyn.pro</span>
-                      </div>
+                </div>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
                       AI shorts & video maker for social content.
@@ -569,8 +569,8 @@ function Homepagemcrt() {
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#10B981] transition-colors">DocAI</h4>
                         <span className="text-xs text-[#98FFF9] font-medium">docai.live</span>
-                      </div>
-                    </div>
+                  </div>
+                </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
                       24/7 AI wellness assistant with personalized guidance.
                     </p>
@@ -607,7 +607,7 @@ function Homepagemcrt() {
             <code className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 font-mono text-xs text-white/90">0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f</code>
             <button onClick={() => navigator.clipboard.writeText('0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f')} className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs text-white/80 hover:bg-white/15 transition-colors">Copy</button>
             <a href="https://bscscan.com/token/0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#98FFF9]/20 to-[#B591F2]/20 border border-[#98FFF9]/30 text-xs text-[#98FFF9] hover:from-[#98FFF9]/30 hover:to-[#B591F2]/30 transition-colors">BscScan →</a>
-          </div>
+                        </div>
         </section>
 
         {/* Ecosystem Hub */}
@@ -615,7 +615,7 @@ function Homepagemcrt() {
           <div className="text-center mb-6 md:mb-8">
             <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">MagicCraft Ecosystem</h3>
             <p className="text-gray-300 text-base md:text-lg mt-2">Core experiences and tools powered by $MCRT.</p>
-          </div>
+                        </div>
 
           {/* Core actions */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
@@ -624,7 +624,7 @@ function Homepagemcrt() {
               <div className="flex items-center gap-3 mb-1">
                 <img src="/icons/icon-gamepad.svg" alt="Earn in PvP" className="w-5 h-5 opacity-90" />
                 <h4 className="text-lg md:text-xl font-bold">Earn in PvP</h4>
-              </div>
+                      </div>
               <p className="text-sm md:text-base text-gray-300">Win matches and tournaments to earn $MCRT.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Play now <span aria-hidden="true">→</span></span>
             </a>
@@ -633,7 +633,7 @@ function Homepagemcrt() {
               <div className="flex items-center gap-3 mb-1">
                 <img src="/icons/icon-currency.svg" alt="CoinMarketCap" className="w-5 h-5 opacity-90" />
                 <h4 className="text-lg md:text-xl font-bold">$MCRT on CoinMarketCap</h4>
-              </div>
+                      </div>
               <p className="text-sm md:text-base text-gray-300">Price, market cap, and supply details.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">View stats <span aria-hidden="true">→</span></span>
             </a>
@@ -642,7 +642,7 @@ function Homepagemcrt() {
               <div className="flex items-center gap-3 mb-1">
                 <img src="/icons/icon-gamepad.svg" alt="Game" className="w-5 h-5 opacity-90" />
                 <h4 className="text-lg md:text-xl font-bold">Cross-Platform Game</h4>
-              </div>
+                    </div>
               <p className="text-sm md:text-base text-gray-300">Play on PC, iOS, Android, Steam.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Get the game <span aria-hidden="true">→</span></span>
             </a>
@@ -651,7 +651,7 @@ function Homepagemcrt() {
               <div className="flex items-center gap-3 mb-1">
                 <img src="/icons/icon-leaderboard.svg" alt="Lobbies" className="w-5 h-5 opacity-90" />
                 <h4 className="text-lg md:text-xl font-bold">Crypto Lobbies</h4>
-              </div>
+                  </div>
               <p className="text-sm md:text-base text-gray-300">BTC, ETH, BNB & more.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Enter lobbies <span aria-hidden="true">→</span></span>
             </a>
@@ -790,7 +790,7 @@ function Homepagemcrt() {
                   <p className="text-sm md:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
                     Play, win, and earn across matches and events.
                   </p>
-                </div>
+                      </div>
 
                 <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
                   {/* Register Card */}
@@ -806,8 +806,8 @@ function Homepagemcrt() {
                       <div>
                         <h4 className="font-serif text-lg md:text-xl font-bold text-white">Register</h4>
                         <p className="text-sm text-white/70">Create your $MCRT account.</p>
-                      </div>
                     </div>
+                  </div>
                     <span className="inline-flex items-center gap-2 text-xs text-[#8EFF49]">Get started <span aria-hidden="true">→</span></span>
                   </button>
 
@@ -818,12 +818,12 @@ function Homepagemcrt() {
                         <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor">
                           <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm1 5v5l4 2-1 1-4-2V7h1z"/>
                         </svg>
-                      </div>
+                          </div>
                       <div>
                         <h4 className="font-serif text-lg md:text-xl font-bold text-white">Download the Game</h4>
                         <p className="text-sm text-white/70">PC, iOS, Android, Steam.</p>
-                      </div>
-                    </div>
+                        </div>
+                        </div>
                     <div className="flex flex-wrap items-center gap-3">
                       <button className="inline-flex items-center justify-center rounded-md border border-white/10 bg-black/20 px-4 py-2 text-xs text-white/90 hover:border-[#FFB649]/40 hover:text-white transition-colors" onClick={openGameByDevice}>
                         Download
@@ -842,8 +842,8 @@ function Homepagemcrt() {
                           Google Play
                         </button>
                       </div>
-                    </div>
                   </div>
+                </div>
 
                   {/* Web3 Lobby Card */}
                   <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer" className="group rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#B591F2]/60 hover:bg-white/[0.07] hover:shadow-lg hover:shadow-black/30">
@@ -903,7 +903,7 @@ function Homepagemcrt() {
                   <div className="text-center mb-6 md:mb-8">
                     <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent mb-2">
                       Join 400K+ Players
-                    </h3>
+                </h3>
                     <p className="text-sm sm:text-base text-white/70 max-w-xl mx-auto">
                       Connect with players worldwide, share strategies, and get exclusive updates.
                     </p>
@@ -942,8 +942,8 @@ function Homepagemcrt() {
                     </a>
                   </div>
                 </div>
+                </div>
               </div>
-            </div>
           </section>
           {/* Removed duplicate 'Join the MagicCraft Ecosystem' section */}
           {/*our team */}
@@ -1025,13 +1025,13 @@ function Homepagemcrt() {
                           >
                             <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)]">
                               <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0d2e]">
-                                <img
+                            <img
                                   className="w-full h-full object-cover grayscale"
-                                  src={item.icon}
-                                  alt={item.name}
+                              src={item.icon}
+                              alt={item.name}
                                   loading="lazy"
                                   decoding="async"
-                                />
+                            />
                               </div>
                             </div>
                             <p className="mt-2 text-white">{item.name}</p>
@@ -1071,13 +1071,13 @@ function Homepagemcrt() {
                           >
                             <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)]">
                               <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0d2e]">
-                                <img
+                            <img
                                   className="w-full h-full object-cover grayscale"
-                                  src={item.icon}
-                                  alt={item.name}
+                              src={item.icon}
+                              alt={item.name}
                                   loading="lazy"
                                   decoding="async"
-                                />
+                            />
                               </div>
                             </div>
                             <p className="mt-2 text-white">{item.name}</p>

@@ -25,20 +25,26 @@ const languages = [
 
 // Trigger Google Translate
 function triggerGoogleTranslate(langCode: string) {
-  const select = document.querySelector('.goog-te-combo') as HTMLSelectElement
-  if (select) {
-    select.value = langCode
-    select.dispatchEvent(new Event('change'))
-  } else {
-    // Fallback: try after a short delay if translate hasn't loaded
-    setTimeout(() => {
-      const retrySelect = document.querySelector('.goog-te-combo') as HTMLSelectElement
-      if (retrySelect) {
-        retrySelect.value = langCode
-        retrySelect.dispatchEvent(new Event('change'))
-      }
-    }, 1000)
+  // Google Translate element sometimes loads async; poll briefly.
+  let tries = 0
+  const maxTries = 12
+  const intervalMs = 350
+
+  const tick = () => {
+    const select = document.querySelector('.goog-te-combo') as HTMLSelectElement | null
+    if (select) {
+      select.value = langCode
+      // Dispatch like a real user change (bubbling helps some GT builds)
+      select.dispatchEvent(new Event('input', { bubbles: true }))
+      select.dispatchEvent(new Event('change', { bubbles: true }))
+      return
+    }
+
+    tries += 1
+    if (tries < maxTries) setTimeout(tick, intervalMs)
   }
+
+  tick()
 }
 
 import NavMenuMobile from './NavMenuMobile'
@@ -299,6 +305,18 @@ const Header = () => {
     console.log('Current route:', location.pathname)
     // Add more logs if needed to debug state or props
   }, [location])
+
+  // Apply saved language on load / route changes (Google Translate works on DOM, not router state)
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const saved = localStorage.getItem('preferredLang') || 'en'
+    if (saved && saved !== currentLang) {
+      setCurrentLang(saved)
+      return
+    }
+    triggerGoogleTranslate(currentLang)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname, currentLang])
 
   // Track viewport to conditionally render header CTAs only on desktop (md+)
   useEffect(() => {
