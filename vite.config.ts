@@ -23,6 +23,17 @@ export default defineConfig({
       protocolImports: true,
     }),
   ],
+  server: {
+    proxy: {
+      // Dev-only: avoid CoinGecko CORS by proxying through Vite.
+      '/api/mcrt-price': {
+        target: 'https://api.coingecko.com',
+        changeOrigin: true,
+        rewrite: () =>
+          '/api/v3/simple/price?ids=magiccraft&vs_currencies=usd&include_24hr_change=true',
+      },
+    },
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

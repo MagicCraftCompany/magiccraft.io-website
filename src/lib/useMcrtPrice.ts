@@ -14,7 +14,7 @@ export function useMcrtPrice(refreshMs: number = 60_000) {
     setLoading(true)
     setError(null)
     try {
-      const url = 'https://api.coingecko.com/api/v3/simple/price?ids=magiccraft&vs_currencies=usd&include_24hr_change=true'
+      const url = '/api/mcrt-price'
       const res = await fetch(url, { cache: 'no-store' })
       if (!res.ok) throw new Error(`HTTP ${res.status}`)
       const json = await res.json()

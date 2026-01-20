@@ -50,7 +50,7 @@ export default function Bounties() {
     let canceled = false
     const fetchPrice = async () => {
       try {
-        const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=magiccraft&vs_currencies=usd')
+        const res = await fetch('/api/mcrt-price')
         const json = await res.json()
         const price = json?.magiccraft?.usd
         if (!canceled && typeof price === 'number' && price > 0) {
