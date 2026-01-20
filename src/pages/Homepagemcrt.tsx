@@ -535,7 +535,7 @@ function Homepagemcrt() {
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
                   {/* Akyn */}
-                  <a href="https://www.akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#98FFF9]/30 hover:border-[#98FFF9]/60 transition-colors group no-underline hover:no-underline">
+                  <a href="https://www.akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#98FFF9]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
                     <div className="flex items-center gap-3 mb-3">
                       <img src="https://akyn.pro/favicon.ico" alt="Akyn" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
                       <div>
@@ -549,7 +549,7 @@ function Homepagemcrt() {
                   </a>
 
                   {/* MerlinAI */}
-                  <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#9255E0]/30 hover:border-[#9255E0]/60 transition-colors group no-underline hover:no-underline">
+                  <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#B591F2]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
                     <div className="flex items-center gap-3 mb-3">
                       <img src="https://merlintheai.com/favicon.ico" alt="Merlin AI" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
                       <div>
@@ -563,7 +563,7 @@ function Homepagemcrt() {
                   </a>
 
                   {/* DocAI */}
-                  <a href="https://docai.live" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#10B981]/30 hover:border-[#10B981]/60 transition-colors group no-underline hover:no-underline">
+                  <a href="https://docai.live" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#10B981]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
                     <div className="flex items-center gap-3 mb-3">
                       <img src="https://docai.live/fabicon.png" alt="DocAI" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
                       <div>
@@ -577,7 +577,7 @@ function Homepagemcrt() {
                   </a>
 
                   {/* Polybilities */}
-                  <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border-2 border-[#FFB649]/30 hover:border-[#FFB649]/60 transition-colors group no-underline hover:no-underline">
+                  <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#FFB649]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
                     <div className="flex items-center gap-3 mb-3">
                       <img src="https://polybilities.com/favicon.ico" alt="Polybilities" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
                       <div>
@@ -794,7 +794,7 @@ function Homepagemcrt() {
 
                 <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
                   {/* Register Card */}
-                  <button onClick={registerHandler} className="group text-left rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#8EFF49]/50 hover:bg-white/[0.07]">
+                  <button onClick={registerHandler} className="group text-left rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#8EFF49]/50 hover:bg-white/[0.07] hover:shadow-lg hover:shadow-black/30">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-md bg-[#8EFF49]/20 border border-[#8EFF49]/40 flex items-center justify-center">
                         <svg className="w-5 h-5 text-[#8EFF49]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -812,7 +812,7 @@ function Homepagemcrt() {
                   </button>
 
                   {/* Download Card */}
-                  <div className="rounded-md border border-white/10 bg-white/5 p-5 md:p-6">
+                  <div className="rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#FFB649]/40 hover:bg-white/[0.07] hover:shadow-lg hover:shadow-black/30">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-md bg-[#FFB649]/15 border border-[#FFB649]/40 flex items-center justify-center">
                         <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor">
@@ -846,7 +846,7 @@ function Homepagemcrt() {
                   </div>
 
                   {/* Web3 Lobby Card */}
-                  <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer" className="group rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#B591F2]/60 hover:bg-white/[0.07]">
+                  <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer" className="group rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#B591F2]/60 hover:bg-white/[0.07] hover:shadow-lg hover:shadow-black/30">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-md bg-[#B591F2]/20 border border-[#B591F2]/40 flex items-center justify-center">
                         <svg className="w-5 h-5 text-[#B591F2]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
