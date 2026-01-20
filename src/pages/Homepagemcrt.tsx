@@ -800,11 +800,11 @@ function Homepagemcrt() {
                     Join the action, earn $MCRT
                   </h5>
                   <p className="text-sm md:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                    Play, win, and earn across matches and events.
+                    Play‑to‑earn with a real level‑up system — grind vs bots, burn $MCRT to level heroes, and craft stronger weapons.
                   </p>
                       </div>
 
-                <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-3">
+                <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-4">
                   {/* Register Card */}
                   <button onClick={registerHandler} className="group text-left rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#8EFF49]/50 hover:bg-white/[0.07] hover:shadow-lg hover:shadow-black/30">
                     <div className="flex items-center gap-3 mb-3">
@@ -875,6 +875,22 @@ function Homepagemcrt() {
                     </div>
                     <span className="inline-flex items-center gap-2 text-xs text-[#B591F2]">Enter lobby <span aria-hidden="true">→</span></span>
                   </a>
+
+                  {/* Level Up Card */}
+                  <div className="rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#98FFF9]/50 hover:bg-white/[0.07] hover:shadow-lg hover:shadow-black/30">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-10 h-10 rounded-md bg-[#98FFF9]/15 border border-[#98FFF9]/40 flex items-center justify-center">
+                        <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2 4 5v6c0 5 3.5 9.4 8 11 4.5-1.6 8-6 8-11V5l-8-3Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 10.6c-1.9-.7-3.6-2.1-4.6-4 .9-.7 2.7-1.6 4.6-1.6s3.7.9 4.6 1.6c-1 1.9-2.7 3.3-4.6 4Z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="font-serif text-lg md:text-xl font-bold text-white">Level Up & Craft</h4>
+                        <p className="text-sm text-white/70">Burn $MCRT to level heroes and forge better weapons.</p>
+                      </div>
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-xs text-[#98FFF9]">Power up <span aria-hidden="true">→</span></span>
+                  </div>
                 </div>
               </div>
             </div>
