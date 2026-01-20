@@ -233,7 +233,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       {
         title: 'PancakeSwap',
         icon: pancakeswap,
-        path: 'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f ',
+        path: 'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f',
       },
       {
         title: 'Bybit',
@@ -243,7 +243,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       {
         title: 'HTX',
         icon: huobi,
-        path: ' https://www.htx.com/trade/mcrt_usdt ',
+        path: 'https://www.htx.com/trade/mcrt_usdt',
       },
       {
         title: 'Buy with credit card',
@@ -322,8 +322,7 @@ const Header = () => {
   const currentLanguage = languages.find(l => l.code === currentLang) || languages[0]
 
   useEffect(() => {
-    console.log('Current route:', location.pathname)
-    // Add more logs if needed to debug state or props
+    // route-change hook reserved for future header state needs
   }, [location])
 
   // Apply saved language on load / route changes (Google Translate works on DOM, not router state)
@@ -394,14 +393,14 @@ const Header = () => {
                 ) : (
                   item.path?.startsWith('http') ? (
                     <a key={item.title} href={item.path} rel="noreferrer noopener" className="group">
-                      <div className="flex items-center justify-center gap-1 md:gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-white/10">
-                        <p className="text-sm lg:text-[15px] xl:text-base text-white/90 group-hover:text-white whitespace-nowrap font-semibold tracking-wide transition-colors duration-200 drop-shadow-lg">{item.title}</p>
+                      <div className="flex items-center justify-center gap-1 md:gap-2 px-3 py-2 rounded-md transition-all duration-200 hover:bg-white/10">
+                        <p className="text-sm lg:text-[15px] xl:text-base text-white/85 group-hover:text-white whitespace-nowrap font-semibold tracking-wide transition-colors duration-200">{item.title}</p>
                       </div>
                     </a>
                   ) : (
                     <Link key={item.title} to={item.path || '/'} className="group">
-                      <div className="flex items-center justify-center gap-1 md:gap-2 px-3 py-2 rounded-lg transition-all duration-200 hover:bg-white/10">
-                        <p className="text-sm lg:text-[15px] xl:text-base text-white/90 group-hover:text-white whitespace-nowrap font-semibold tracking-wide transition-colors duration-200 drop-shadow-lg">{item.title}</p>
+                      <div className="flex items-center justify-center gap-1 md:gap-2 px-3 py-2 rounded-md transition-all duration-200 hover:bg-white/10">
+                        <p className="text-sm lg:text-[15px] xl:text-base text-white/85 group-hover:text-white whitespace-nowrap font-semibold tracking-wide transition-colors duration-200">{item.title}</p>
                       </div>
                     </Link>
                   )
@@ -438,7 +437,7 @@ const Header = () => {
               <a
                 href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
                 rel="noreferrer noopener"
-                className="hidden md:inline-flex header-cta header-cta--shop no-underline"
+                className="hidden md:inline-flex header-cta header-cta--buy no-underline"
                 aria-label="Buy $MCRT"
               >
                 <span>Buy</span>
