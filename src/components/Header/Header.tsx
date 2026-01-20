@@ -290,12 +290,32 @@ const Header = () => {
   const [isLangOpen, setIsLangOpen] = useState(false)
   const location = useLocation()
 
+  function setGoogTransCookie(langCode: string) {
+    if (typeof document === 'undefined') return
+    const value = `/en/${langCode || 'en'}`
+    const base = `googtrans=${value};path=/;max-age=31536000;SameSite=Lax`
+    document.cookie = base
+    // Also set for apex domain in production so it persists across subdomains.
+    try {
+      if (window.location.hostname.endsWith('magiccraft.io')) {
+        document.cookie = `${base};domain=.magiccraft.io`
+      }
+    } catch {}
+  }
+
   const handleLanguageChange = (code: string) => {
     setCurrentLang(code)
     setIsLangOpen(false)
     if (typeof window !== 'undefined') {
       localStorage.setItem('preferredLang', code)
+      setGoogTransCookie(code)
       triggerGoogleTranslate(code)
+      // Ensure translation applies consistently (Google Translate relies on cookies + DOM mutation).
+      setTimeout(() => {
+        try {
+          window.location.reload()
+        } catch {}
+      }, 120)
     }
   }
 
