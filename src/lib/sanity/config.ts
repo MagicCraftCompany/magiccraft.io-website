@@ -4,3 +4,6 @@ export const sanityConfig = {
     apiVersion: import.meta.env.VITE_SANITY_API_VERSION || '2023-05-03', // Use a date that works for you
     useCdn: true,
   }; 
+
+export const isSanityConfigured =
+  !!sanityConfig.projectId && sanityConfig.projectId !== 'your-project-id'

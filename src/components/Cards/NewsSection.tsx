@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { fetchBlogPosts, testSanityConnection } from '../../lib/sanity/client'
+import { fetchBlogPosts } from '../../lib/sanity/client'
+import { isSanityConfigured } from '../../lib/sanity/config'
 import { newsArticles, NewsArticle } from '../../data/newsData'
 
 type FilterType = 'All' | 'News' | 'Patch Notes'
@@ -30,15 +31,14 @@ export function NewsSection() {
   useEffect(() => {
     async function loadPosts() {
       try {
-        // First test the connection
-        await testSanityConnection();
-        
-        // Then fetch the actual posts
+        if (!isSanityConfigured) {
+          setUseFallbackData(true)
+          return
+        }
+
         const data = await fetchBlogPosts()
-        console.log("Posts from Sanity:", data);
         setPosts(data || [])
       } catch (error) {
-        console.error('Error fetching blog posts:', error)
         // If Sanity fetch fails, use the static data as fallback
         setUseFallbackData(true)
       } finally {
@@ -73,7 +73,6 @@ export function NewsSection() {
 
   // Convert blog post to news article format
   const convertToArticle = (post: BlogPost): NewsArticle => {
-    console.log("Converting post to article:", post);
     return {
       id: post._id,
       type: post.type as 'News' | 'Patch Notes',
