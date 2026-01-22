@@ -402,7 +402,7 @@ a:hover {
   transition: transform 700ms ease;
 }
 .header-cta:hover::after { transform: translateX(120%); }
-.header-cta:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.28); box-shadow: 0 14px 30px rgba(0,0,0,0.35); }
+.header-cta:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.28); box-shadow: 0 12px 26px rgba(0,0,0,0.32); }
 .header-cta:focus-visible { outline: 2px solid #98FFF9; outline-offset: 2px; }
 
 /* Enhanced CTA variants for better conversion */

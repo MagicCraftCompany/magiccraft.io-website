@@ -30,7 +30,7 @@ const NavMenu = ({ item }: NavMenuProps) => {
       ></div>
 
       <div
-        className={`absolute left-0 top-12 z-50 rounded-2xl border border-white/20 bg-gradient-to-b from-[#1a0d2e]/95 to-[#2A0D4E]/95 text-white backdrop-blur-xl shadow-2xl transition-all duration-300 ${
+        className={`absolute left-0 top-12 z-50 rounded-lg border border-white/20 bg-gradient-to-b from-[#1a0d2e]/95 to-[#2A0D4E]/95 text-white backdrop-blur-xl shadow-2xl transition-all duration-300 ${
           isMenuOpen
             ? 'pointer-events-auto opacity-100 translate-y-0'
             : 'pointer-events-none opacity-0 translate-y-2'

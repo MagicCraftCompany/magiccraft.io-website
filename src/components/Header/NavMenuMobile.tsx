@@ -7,16 +7,16 @@ const NavMenuMobile = ({ item, closeSidebar }: NavMenuProps) => {
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false)
   
   return (
-    <div className="rounded-xl overflow-hidden">
+    <div className="rounded-lg overflow-hidden">
       <button
-        className={`w-full flex items-center justify-between gap-3 p-3 rounded-xl transition-all duration-200 ${
+        className={`w-full flex items-center justify-between gap-3 p-3 rounded-lg transition-all duration-200 ${
           isSubmenuOpen ? 'bg-white/10' : 'hover:bg-white/5'
         }`}
         onClick={() => setIsSubmenuOpen(!isSubmenuOpen)}
       >
         <div className="flex items-center gap-3">
           {item.icon && (
-            <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-md bg-white/5 flex items-center justify-center">
               <img src={item.icon} alt="" className="w-4 h-4 opacity-80" />
             </div>
           )}
@@ -53,7 +53,7 @@ const NavMenuMobile = ({ item, closeSidebar }: NavMenuProps) => {
                   className="group flex items-center gap-3 p-2.5 rounded-lg hover:bg-white/5 transition-all duration-150"
                 >
                   {subItem.icon && (
-                    <div className="w-7 h-7 rounded-md bg-white/5 flex items-center justify-center flex-shrink-0">
+                    <div className="w-7 h-7 rounded bg-white/5 flex items-center justify-center flex-shrink-0">
                       <img
                         className="w-4 h-4 object-contain opacity-70 group-hover:opacity-100 transition-opacity"
                         src={subItem.icon}

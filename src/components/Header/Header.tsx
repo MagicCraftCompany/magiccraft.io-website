@@ -1,7 +1,7 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
 import { X, Gamepad2, ShoppingBag, Globe, ChevronDown } from 'lucide-react'
 import NavMenu from './Navmenu'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import StatusIndicator from './StatusIndicator'
 
 // Language options (codes match Google Translate)
@@ -304,6 +304,8 @@ const Header = () => {
     return 'en'
   })
   const [isLangOpen, setIsLangOpen] = useState(false)
+  const [isDesktopLangOpen, setIsDesktopLangOpen] = useState(false)
+  const desktopLangRef = useRef<HTMLDivElement | null>(null)
   const location = useLocation()
 
   function setGoogTransCookie(langCode: string) {
@@ -341,6 +343,19 @@ const Header = () => {
     // route-change hook reserved for future header state needs
   }, [location])
 
+  // Close desktop language popover on outside click
+  useEffect(() => {
+    if (!isDesktopLangOpen) return
+    const onDown = (e: MouseEvent) => {
+      const el = desktopLangRef.current
+      if (!el) return
+      if (e.target instanceof Node && el.contains(e.target)) return
+      setIsDesktopLangOpen(false)
+    }
+    document.addEventListener('mousedown', onDown)
+    return () => document.removeEventListener('mousedown', onDown)
+  }, [isDesktopLangOpen])
+
   // Apply saved language on load / route changes (Google Translate works on DOM, not router state)
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -377,11 +392,14 @@ const Header = () => {
 
   function closeSidebar() {
     setIsSideMenuOpen(false)
+    setIsLangOpen(false)
+    setIsDesktopLangOpen(false)
     document.body.style.overflow = 'unset'
   }
 
   function openSidebar() {
     setIsSideMenuOpen(true)
+    setIsDesktopLangOpen(false)
     if (typeof window != 'undefined' && window.document) {
       document.body.style.overflow = 'hidden'
     }
@@ -461,6 +479,47 @@ const Header = () => {
               >
                 <span>Buy</span>
               </a>
+
+              {/* Desktop language selector */}
+              <div ref={desktopLangRef} className="relative hidden md:block">
+                <button
+                  type="button"
+                  onClick={() => setIsDesktopLangOpen((v) => !v)}
+                  className="inline-flex items-center gap-2 h-11 px-3 rounded-md bg-white/5 border border-white/10 text-white/85 hover:bg-white/10 hover:border-white/20 transition-all"
+                  aria-label="Change language"
+                  aria-haspopup="menu"
+                  aria-expanded={isDesktopLangOpen}
+                >
+                  <Globe className="w-4 h-4 text-white/70" />
+                  <span className="text-sm font-semibold">{currentLanguage.flag}</span>
+                  <ChevronDown className={`w-4 h-4 text-white/60 transition-transform ${isDesktopLangOpen ? 'rotate-180' : ''}`} />
+                </button>
+
+                {isDesktopLangOpen && (
+                  <div className="absolute right-0 top-full mt-2 w-[280px] max-h-[320px] overflow-auto rounded-lg bg-[#0a0e2e]/95 border border-white/20 shadow-2xl backdrop-blur-xl p-2">
+                    <div className="grid grid-cols-2 gap-1">
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          type="button"
+                          onClick={() => {
+                            handleLanguageChange(lang.code)
+                            setIsDesktopLangOpen(false)
+                          }}
+                          className={`flex items-center gap-2 p-2.5 rounded-md text-left transition-all ${
+                            currentLang === lang.code
+                              ? 'bg-[#98FFF9]/20 text-white'
+                              : 'hover:bg-white/10 text-white/75'
+                          }`}
+                        >
+                          <span className="text-base">{lang.flag}</span>
+                          <span className="text-xs font-semibold truncate">{lang.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
               <StatusIndicator />
             </div>
             )}
