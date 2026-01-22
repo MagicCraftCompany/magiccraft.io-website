@@ -67,13 +67,13 @@
     {
       name: 'Devoted Studios',
       icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110992/Vector_1_nykjmb.svg',
-       link:'devotedstudios.com',
+       link:'https://devotedstudios.com/',
       type:'Production company'
     },
     {
       name: 'Whimsy Games',
       icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1718110992/Whimsy_Games_LOGO_1_cqjhhs.svg',
-       link:'whimsygames.co',
+       link:'https://whimsygames.co/',
       type:'Game Studio'
     },
     {

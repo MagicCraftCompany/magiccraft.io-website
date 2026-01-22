@@ -28,7 +28,7 @@ function Studios() {
               </div>
               <div className="flex flex-row justify-between p-4">
                 <h2 className="text-xl font-bold">DEVOTED STUDIOS</h2>
-                <a href="#" className="text-[#98FFF9] hover:underline">
+                <a href="https://devotedstudios.com/" target="_blank" rel="noreferrer noopener" className="text-[#98FFF9] hover:underline">
                   View their projects
                 </a>
               </div>
@@ -125,7 +125,7 @@ function Studios() {
               />
               <div className="flex flex-row justify-between p-4">
                 <h2 className="text-xl font-bold">WHIMSY STUDIO</h2>
-                <a href="#" className="text-[#98FFF9] hover:underline">
+                <a href="https://whimsygames.co/" target="_blank" rel="noreferrer noopener" className="text-[#98FFF9] hover:underline">
                   View their projects
                 </a>
               </div>
