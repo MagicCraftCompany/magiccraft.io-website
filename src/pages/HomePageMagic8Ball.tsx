@@ -247,7 +247,7 @@ const magicrunnerhandleClick = () => {
                     modules={[Navigation, Pagination, Scrollbar, A11y]}
                     spaceBetween={50}
                     slidesPerView={1}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    onSwiper={() => {}}
                     navigation={{
                       prevEl: '.arrow-left',
                       nextEl: '.arrow-right',

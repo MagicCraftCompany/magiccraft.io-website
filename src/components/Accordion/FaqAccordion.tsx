@@ -34,7 +34,7 @@ const FaqAccordion = () => {
         <AccordionContent className="px-[30px] pb-[30px] text-lg md:text-2xl">
           You can play the MagicCraft game right now! Get started by downloading
           it on iOS, Android, or Steam. New updates are coming to MagicCraft in
-          2025, with fresh storyline development, new characters, and maps.
+          2026, with fresh storyline development, new characters, and maps.
         </AccordionContent>
       </AccordionItem>
 

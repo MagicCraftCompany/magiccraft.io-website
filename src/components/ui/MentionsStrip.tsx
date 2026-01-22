@@ -30,19 +30,16 @@ export default function MentionsStrip() {
             { url: 'https://x.com/AltcoinGordon/status/1868690123467473154', handle: 'AltcoinGordon', text: '$MCRT' },
             { url: 'https://x.com/CryptoBirb/status/1868652789283635568', handle: 'CryptoBirb', text: '$MCRT' }
           ]
-          console.log('Using backup tweet data for local development')
           setMentions(backupTweets.slice(0, 4))
           return
         }
         
         const url = `/.netlify/functions/mcrt-mentions?search=${encodeURIComponent(SEARCH_TERM)}&count=8&ts=${Date.now()}`
-        console.log('Fetching mentions from:', url)
         const res = await fetch(url, {
           signal: controller.signal,
         })
         if (!res.ok) throw new Error(`HTTP ${res.status}`)
         const data = await res.json()
-        console.log('Received mentions:', data)
         const list = (data.tweets as Mention[]) || []
         if (!list.length) {
           // production fallback list

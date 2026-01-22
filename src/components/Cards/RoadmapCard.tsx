@@ -50,7 +50,7 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
                     {isLiveVariant ? 'LAUNCHED' : titleKeyMaper(i)}
                   </span>
                   <span className="text-[10px] md:text-xs text-white/60">
-                    {isLive ? 'Live Now' : `Q${data.quarter} · ${data.year || 2025}`}
+                    {isLive ? 'Live Now' : `Q${data.quarter} · ${data.year || 2026}`}
                   </span>
                 </div>
 
