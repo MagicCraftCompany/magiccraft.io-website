@@ -891,7 +891,11 @@ a:hover {
   
   /* General mobile improvements */
   @media (max-width: 640px) {
-    .text-hero { font-size: clamp(1.75rem, 5vw, 2.25rem); }
+    .text-hero { 
+      font-size: clamp(1.5rem, 8vw, 2rem);
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
     .text-section-title { font-size: clamp(1.25rem, 4vw, 1.75rem); }
     h1 { font-size: clamp(1.25rem, 4vw, 2rem); }
     h2 { font-size: clamp(1.25rem, 3.5vw, 1.9rem); }

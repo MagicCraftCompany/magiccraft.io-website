@@ -330,7 +330,7 @@ function Homepagemcrt() {
                       className="w-full max-w-[280px] sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-xl"
                     />
                   </div>
-                  <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wider drop-shadow-2xl leading-tight">
+                  <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wide drop-shadow-2xl leading-tight break-words hyphens-none">
                     THE CURRENCY OF GAMING & AI
                 </h1>
                   <p className="mt-3 max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
