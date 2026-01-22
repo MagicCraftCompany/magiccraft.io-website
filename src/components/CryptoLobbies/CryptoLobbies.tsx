@@ -33,7 +33,7 @@ const EthereumIcon = ({ className = "w-4 h-4" }: { className?: string }) => (
 
 export const CryptoLobbies = () => {
   const handleJoinLobby = (type: 'btc' | 'eth') => {
-    window.open(`https://lobby.magiccraft.io/?crypto=${type}`, '_blank')
+    window.open(`https://lobby.magiccraft.io/?crypto=${type}`, '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -57,7 +57,7 @@ export const CryptoLobbies = () => {
             </span>
           </div>
           <button
-            onClick={() => window.open('https://lobby.magiccraft.io/', '_blank')}
+            onClick={() => window.open('https://lobby.magiccraft.io/', '_blank', 'noopener,noreferrer')}
             className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#98FFF9] to-[#7de6df] px-6 py-2.5 font-bold text-[#03082F] transition-all duration-300 hover:shadow-lg hover:shadow-[#98FFF9]/25"
           >
             <span>Join Crypto Lobbies</span>

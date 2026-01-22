@@ -4,7 +4,7 @@ import { ArrowUpRight, Zap, TrendingUp } from 'lucide-react'
 const CryptoLobbyBanner = () => {
 
   const handleJoinLobby = () => {
-    window.open('https://lobby.magiccraft.io/', '_blank')
+    window.open('https://lobby.magiccraft.io/', '_blank', 'noopener,noreferrer')
   }
 
   return (

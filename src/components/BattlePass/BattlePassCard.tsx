@@ -151,7 +151,7 @@ export default function BattlePassCard() {
       {/* Action Button */}
       <div className="p-6 pt-2">
         <button 
-          onClick={() => window.open('https://lobby.magiccraft.io', '_blank')}
+          onClick={() => window.open('https://lobby.magiccraft.io', '_blank', 'noopener,noreferrer')}
           className="w-full bg-gradient-to-r from-[#6B3FA0] to-[#9255E0] hover:from-[#7B4FB0] hover:to-[#A265F0] text-white font-bold py-3 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
         >
           JOIN NOW AND EARN MCRT
