@@ -525,7 +525,13 @@ export default function MagicraftDownload() {
                     
                     {/* CTA Button */}
                     <motion.button
-                      onClick={() => window.open(`https://lobby.magiccraft.io/?crypto=${hoveredLobby}`, '_blank')}
+                      onClick={() =>
+                        window.open(
+                          `https://lobby.magiccraft.io/?crypto=${hoveredLobby}`,
+                          '_blank',
+                          'noopener,noreferrer',
+                        )
+                      }
                       className="w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 hover:scale-[1.02]"
                       style={{ 
                         background: `linear-gradient(135deg, ${l.glowColor} 0%, ${l.glowColor}90 100%)`,
