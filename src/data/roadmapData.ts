@@ -30,7 +30,7 @@ export const roadmapData: RoadmapDataType = [
           'Merlin AI (merlintheai.com)',
           'DocAI (docai.live)',
           'Polybilities (polybilities.com)',
-          'SocialMM (socialmm.com)',
+          'SocialMM (socialmm.ai)',
           'DragonList (dragonlist.ai)',
         ],
       },

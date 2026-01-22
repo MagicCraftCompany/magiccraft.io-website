@@ -73,7 +73,7 @@ export default function EcosystemMindMap() {
       { id: 'merlin', label: 'Merlin AI', group: 'ai', url: 'https://merlintheai.com' },
       { id: 'docai', label: 'DocAI', group: 'ai', url: 'https://docai.live' },
       { id: 'polybilities', label: 'Polybilities', group: 'ai', url: 'https://polybilities.com' },
-      { id: 'socialmm', label: 'SocialMM', group: 'ai', url: 'https://socialmm.com' },
+      { id: 'socialmm', label: 'SocialMM', group: 'ai', url: 'https://socialmm.ai/' },
       { id: 'dragonlist', label: 'DragonList', group: 'ai', url: 'https://dragonlist.ai' },
 
       { id: 'discord', label: 'Discord', group: 'community', url: 'https://discord.gg/magiccraftgame' },
