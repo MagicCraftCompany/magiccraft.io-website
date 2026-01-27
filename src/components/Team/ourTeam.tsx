@@ -270,18 +270,4 @@ export const ourteam = [
     socialicons: [],
   },
 
-  {
-    name: 'Dymtry',
-    icon: 'https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=Dymtry%20QA&backgroundType=gradientLinear&radius=50',
-    work: 'QA',
-    category: 'Team',
-    socialicons: [],
-  },
- 
-  
-  
-  
- 
-
- 
 ]
