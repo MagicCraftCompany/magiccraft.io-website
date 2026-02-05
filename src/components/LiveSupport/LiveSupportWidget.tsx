@@ -38,6 +38,7 @@ function saveStored(messages: ChatMessage[]) {
 
 export default function LiveSupportWidget() {
   const [open, setOpen] = useState(false)
+  const [showFloating, setShowFloating] = useState(true)
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState('')
   const [busy, setBusy] = useState(false)
@@ -85,6 +86,30 @@ export default function LiveSupportWidget() {
     const onOpen = () => setOpen(true)
     window.addEventListener('mc:live-support:open', onOpen as EventListener)
     return () => window.removeEventListener('mc:live-support:open', onOpen as EventListener)
+  }, [])
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const mq = window.matchMedia('(min-width: 640px)') // tailwind sm
+
+    const update = () => {
+      if (mq.matches) {
+        setShowFloating(true)
+        return
+      }
+      // On mobile, avoid overlapping the hero CTAs: show after scrolling past hero.
+      setShowFloating(window.scrollY > window.innerHeight * 0.9)
+    }
+
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    mq.addEventListener?.('change', update)
+    return () => {
+      window.removeEventListener('scroll', update)
+      window.removeEventListener('resize', update)
+      mq.removeEventListener?.('change', update)
+    }
   }, [])
 
   const canSend = useMemo(() => !busy && clampText(input, 2000).length > 0, [busy, input])
@@ -153,15 +178,18 @@ export default function LiveSupportWidget() {
   return (
     <>
       {/* Floating button */}
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className="hidden sm:inline-flex fixed bottom-4 right-4 z-[100000] items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-3 text-sm font-semibold text-white/90 backdrop-blur-md shadow-lg hover:bg-white/15 hover:border-white/25 active:scale-[0.98]"
-        aria-label="Open Live Support chat"
-      >
-        <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#98FFF9]" />
-        Live Support
-      </button>
+      {showFloating && (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className="fixed bottom-[calc(env(safe-area-inset-bottom)+1rem)] left-4 z-[100000] inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-sm font-semibold text-white/90 backdrop-blur-md shadow-lg hover:bg-white/15 hover:border-white/25 active:scale-[0.98] sm:bottom-4 sm:left-auto sm:right-4 sm:px-4 sm:py-3"
+          aria-label="Open Live Support chat"
+        >
+          <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#98FFF9]" />
+          <span className="sm:hidden">Support</span>
+          <span className="hidden sm:inline">Live Support</span>
+        </button>
+      )}
 
       {/* Modal */}
       {open && (
