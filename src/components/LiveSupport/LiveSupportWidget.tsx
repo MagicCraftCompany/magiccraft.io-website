@@ -182,7 +182,7 @@ export default function LiveSupportWidget() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="fixed bottom-[calc(env(safe-area-inset-bottom)+1rem)] left-4 z-[100000] inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-sm font-semibold text-white/90 backdrop-blur-md shadow-lg hover:bg-white/15 hover:border-white/25 active:scale-[0.98] sm:bottom-4 sm:left-auto sm:right-4 sm:px-4 sm:py-3"
+          className="fixed bottom-[calc(env(safe-area-inset-bottom)+1rem)] left-4 z-[100000] inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-sm font-semibold text-white/90 backdrop-blur-md shadow-lg hover:bg-white/15 hover:border-white/25 active:scale-[0.98] sm:bottom-4 sm:px-4 sm:py-3"
           aria-label="Open Live Support chat"
         >
           <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#98FFF9]" />
@@ -200,7 +200,7 @@ export default function LiveSupportWidget() {
             aria-hidden="true"
           />
 
-          <div className="absolute bottom-4 right-4 left-4 sm:left-auto sm:w-[420px]">
+          <div className="absolute bottom-4 right-4 left-4 sm:right-auto sm:left-4 sm:w-[420px]">
             <div className="card-glass rounded-2xl overflow-hidden border border-white/15">
               <div className="flex items-center justify-between px-4 py-3 hairline-bottom">
                 <div className="flex items-center gap-2">
