@@ -342,32 +342,50 @@ function Homepagemcrt() {
                     Fast, low‑fee on‑chain currency on BNB Chain powering rewards, creator payouts,
                     and in‑game commerce across the MagicCraft universe.
                   </p>
-                  <div className="mt-4 sm:mt-5 flex flex-row flex-nowrap items-center justify-center gap-2 sm:gap-4 w-full max-w-[520px] mx-auto">
+                  {/* Mobile: compact 3-CTA row */}
+                  <div className="mt-4 sm:mt-5 w-full max-w-[520px] mx-auto sm:hidden">
+                    <div className="grid grid-cols-3 gap-2">
+                      <button
+                        onClick={openGameByDevice}
+                        className="h-10 rounded-md bg-gradient-to-b from-[#6b3db2] to-[#41207a] text-white text-sm font-semibold border border-white/15 shadow-lg active:scale-[0.99]"
+                        aria-label="Play MagicCraft now"
+                      >
+                        Play
+                      </button>
+                      <button
+                        onClick={openLiveSupport}
+                        className="h-10 rounded-md bg-white/10 text-white text-sm font-semibold border border-white/15 backdrop-blur-md shadow-lg active:scale-[0.99]"
+                        aria-label="Open Live Support chat"
+                      >
+                        Live Chat
+                      </button>
+                      <button
+                        onClick={handleBuyMCRT}
+                        className="h-10 rounded-md bg-gradient-to-b from-[#A9FFF6] to-[#82E7E0] text-[#071033] text-sm font-semibold border border-white/20 shadow-lg active:scale-[0.99]"
+                        aria-label="Buy MCRT tokens"
+                      >
+                        Buy
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Tablet/Desktop: original CTAs */}
+                  <div className="hidden sm:flex mt-4 sm:mt-5 flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                     <button
                       onClick={openGameByDevice}
-                      className="header-cta header-cta--play interactive-scale ripple-effect flex-1 min-w-0 px-3 sm:flex-none sm:min-w-[180px] sm:px-8"
+                      className="header-cta header-cta--play interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 text-base sm:text-lg"
                       aria-label="Play MagicCraft now"
                     >
-                      <span className="sm:hidden">Play</span>
-                      <span className="hidden sm:inline">Play Now</span>
+                      Play Now
                     </button>
                     <button
                       onClick={handleBuyMCRT}
-                      className="header-cta header-cta--buy interactive-scale ripple-effect flex-1 min-w-0 px-3 sm:flex-none sm:min-w-[180px] sm:px-8"
+                      className="header-cta header-cta--buy interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 text-base sm:text-lg"
                       aria-label="Buy MCRT tokens"
                     >
-                      <span className="sm:hidden">Buy</span>
-                      <span className="hidden sm:inline">Buy $MCRT</span>
+                      Buy $MCRT
                     </button>
-                    <button
-                      onClick={openLiveSupport}
-                      className="header-cta header-cta--shop interactive-scale ripple-effect flex-1 min-w-0 px-3 sm:flex-none sm:min-w-[180px] sm:px-8"
-                      aria-label="Open Live Support"
-                    >
-                      <span className="sm:hidden">Help</span>
-                      <span className="hidden sm:inline">Live Support</span>
-                    </button>
-              </div>
+                  </div>
                   {/* Trust badges */}
                   <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3 opacity-90">
                     <span className="text-xs text-white/70">Listed on</span>
