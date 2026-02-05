@@ -18,6 +18,13 @@ type FaqItem = {
   answer?: string
 }
 
+const SOURCES = {
+  magiccraft: 'https://magiccraft.io',
+  magiccraftFaq: 'https://magiccraft.io/faq',
+  coingeckoCoin: 'https://www.coingecko.com/en/coins/magiccraft',
+  coinmarketcapCoin: 'https://coinmarketcap.com/currencies/magiccraft/',
+} as const
+
 function stripHtml(input: string) {
   return String(input || '')
     .replace(/<br\s*\/?>/gi, '\n')
@@ -58,6 +65,59 @@ async function getMarketSnapshot() {
   }
 }
 
+async function getCoinGeckoProfile() {
+  // Broader project context (trimmed) to answer ecosystem questions.
+  const url =
+    'https://api.coingecko.com/api/v3/coins/magiccraft?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false'
+  const res = await safeFetchText(url, { headers: { accept: 'application/json' } })
+  if (!res.ok) return null
+  try {
+    const json = JSON.parse(res.text)
+    const out = {
+      id: json?.id,
+      symbol: json?.symbol,
+      name: json?.name,
+      categories: Array.isArray(json?.categories) ? json.categories.slice(0, 8) : [],
+      description_en: clamp(String(json?.description?.en || ''), 2000),
+      links: {
+        homepage: Array.isArray(json?.links?.homepage) ? json.links.homepage.filter(Boolean).slice(0, 2) : [],
+        twitter_screen_name: json?.links?.twitter_screen_name || null,
+        telegram_channel_identifier: json?.links?.telegram_channel_identifier || null,
+        github: Array.isArray(json?.links?.repos_url?.github)
+          ? json.links.repos_url.github.filter(Boolean).slice(0, 3)
+          : [],
+      },
+      platforms: json?.platforms && typeof json.platforms === 'object' ? json.platforms : {},
+    }
+    return out
+  } catch {
+    return null
+  }
+}
+
+async function getMagiccraftHomepageMeta() {
+  // Best-effort: homepage is an SPA; we mainly extract meta for grounding.
+  const res = await safeFetchText(SOURCES.magiccraft, {
+    headers: {
+      'user-agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122 Safari/537.36',
+      accept: 'text/html,application/xhtml+xml',
+    },
+  })
+  if (!res.ok) return null
+  const html = res.text
+  const get = (re: RegExp) => {
+    const m = html.match(re)
+    return m?.[1] ? clamp(m[1], 500) : null
+  }
+  return {
+    title: get(/<title[^>]*>([^<]+)<\/title>/i),
+    description: get(/<meta\s+name=["']description["']\s+content=["']([^"']+)["'][^>]*>/i),
+    ogTitle: get(/<meta\s+property=["']og:title["']\s+content=["']([^"']+)["'][^>]*>/i),
+    ogDescription: get(/<meta\s+property=["']og:description["']\s+content=["']([^"']+)["'][^>]*>/i),
+  }
+}
+
 async function getCoinMarketCapJsonLd() {
   // Best-effort: may be blocked by CMC protections.
   const url = 'https://coinmarketcap.com/currencies/magiccraft/'
@@ -89,6 +149,8 @@ function systemPrompt(opts: {
   faqText: string
   market: { usd: number; usd_24h_change: number | null; source: string } | null
   cmcJsonLd: string | null
+  cgProfile: unknown | null
+  siteMeta: unknown | null
 }) {
   const marketLine = opts.market
     ? `Market snapshot (${opts.market.source}): $MCRT ≈ $${opts.market.usd}${
@@ -99,6 +161,8 @@ function systemPrompt(opts: {
     : 'Market snapshot: unavailable right now.'
 
   const cmcBlock = opts.cmcJsonLd ? `\n\nCoinMarketCap JSON-LD (best-effort, may be partial):\n${opts.cmcJsonLd}` : ''
+  const cgBlock = opts.cgProfile ? `\n\nCoinGecko project profile (trimmed):\n${clamp(JSON.stringify(opts.cgProfile), 5000)}` : ''
+  const siteBlock = opts.siteMeta ? `\n\nmagiccraft.io homepage meta (best-effort):\n${clamp(JSON.stringify(opts.siteMeta), 1500)}` : ''
 
   return `
 You are MagicCraft Live Support, an AI assistant for MagicCraft and $MCRT.
@@ -113,11 +177,20 @@ Hard rules:
 - Never ask for seed phrases or private keys.
 - Do not invent partnerships, listings, contract addresses, or tokenomics. If not present in provided context, ask user to confirm or point to official sources.
 
+Response format (always):
+- Start with a short answer.
+- End with a section:
+  Sources:
+  - <url>
+  - <url>
+
 Context you can rely on:
 ${marketLine}
 
 MagicCraft FAQ (from magiccraft.io site bundle):
 ${opts.faqText}
+${siteBlock}
+${cgBlock}
 ${cmcBlock}
 `.trim()
 }
@@ -176,10 +249,15 @@ export const handler: Handler = async (event) => {
     .slice(-12)
     .map((m) => ({ role: m.role, content: clamp(m.content, 1500) }))
 
-  const [market, cmcJsonLd] = await Promise.all([getMarketSnapshot(), getCoinMarketCapJsonLd()])
+  const [market, cgProfile, siteMeta, cmcJsonLd] = await Promise.all([
+    getMarketSnapshot(),
+    getCoinGeckoProfile(),
+    getMagiccraftHomepageMeta(),
+    getCoinMarketCapJsonLd(),
+  ])
   const faqText = buildFaqText()
 
-  const sys = systemPrompt({ faqText, market, cmcJsonLd })
+  const sys = systemPrompt({ faqText, market, cmcJsonLd, cgProfile, siteMeta })
 
   try {
     const orRes = await fetch('https://openrouter.ai/api/v1/chat/completions', {
@@ -214,13 +292,23 @@ export const handler: Handler = async (event) => {
       json?.choices?.[0]?.delta?.content ||
       ''
 
+    const raw = String(content || '').trim()
+    const hasSources =
+      /\bSources\b\s*:/i.test(raw) ||
+      /\bSource\b\s*:/i.test(raw) ||
+      /(https?:\/\/[^\s)]+)/i.test(raw)
+
+    const appended = hasSources
+      ? raw
+      : `${raw}\n\nSources:\n- ${SOURCES.magiccraft}\n- ${SOURCES.magiccraftFaq}\n- ${SOURCES.coingeckoCoin}\n- ${SOURCES.coinmarketcapCoin}`.trim()
+
     return {
       statusCode: 200,
       headers: {
         'content-type': 'application/json; charset=utf-8',
         'cache-control': 'no-store',
       },
-      body: JSON.stringify({ message: String(content || '').trim() }),
+      body: JSON.stringify({ message: appended }),
     }
   } catch (e: unknown) {
     return {
