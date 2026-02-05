@@ -30,6 +30,7 @@ import Grants from "./pages/Grants";
 import GrantsSuccess from './pages/GrantsSuccess'
 import { BUILD_REV } from './version'
 import Careers from './pages/Careers'
+import LiveSupportWidget from './components/LiveSupport/LiveSupportWidget'
 
 // const handleBuyMCRT = async () => {
 //   try {
@@ -84,6 +85,7 @@ function App() {
           v{BUILD_REV}
         </span>
       </div>
+      <LiveSupportWidget />
     </BrowserRouter>
   );
 }

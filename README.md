@@ -1,3 +1,16 @@
+## Live Support (AI Chat)
+
+This site includes a floating **Live Support** button that opens an AI chat.
+
+### Configure on Netlify
+
+Set environment variables:
+
+- `OPENROUTER_API_KEY`: OpenRouter API key (required)
+- `OPENROUTER_MODEL`: optional override (defaults to a fast/cheap/smart model)
+
+Do **not** commit real API keys. Use `.env.example` as a template.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
