@@ -141,7 +141,7 @@
   </head>
   <body>
     <!-- Netlify form stub to ensure the SPA form is detected at build time -->
-    <form name="grants" netlify netlify-honeypot="bot-field" hidden>
+    <form name="grants" netlify netlify-honeypot="bot-field" hidden aria-hidden="true">
       <input type="hidden" name="form-name" value="grants" />
       <input type="hidden" name="subject" value="New MagicCraft Grants submission" />
       <input type="text" name="teamName" />
@@ -159,8 +159,8 @@
       <input type="text" name="bot-field" />
     </form>
     <!-- Success page for Netlify redirect after submission -->
-    <form name="grants-success" hidden>
-      <p>Thank you for your submission.</p>
+    <form name="grants-success" hidden aria-hidden="true">
+      <p aria-hidden="true">Thank you for your submission.</p>
     </form>
     <div id="google_translate_element"></div>
     <div id="root"></div>

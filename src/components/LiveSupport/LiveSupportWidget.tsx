@@ -125,6 +125,13 @@ export default function LiveSupportWidget() {
 
       const data = await res.json().catch(() => ({}))
       if (!res.ok) {
+        const isLocal =
+          typeof window !== 'undefined' && /localhost|127\.0\.0\.1/.test(window.location.hostname)
+        if (isLocal && res.status === 404) {
+          throw new Error(
+            'Live chat backend is not running locally. Use production, or run Netlify dev to enable functions.',
+          )
+        }
         throw new Error(data?.error || `HTTP ${res.status}`)
       }
 
