@@ -584,7 +584,16 @@ function Homepagemcrt() {
                   {/* MerlinAI */}
                   <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#B591F2]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
                     <div className="flex items-center gap-3 mb-3">
-                      <img src="https://merlintheai.com/favicon.ico" alt="Merlin AI" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
+                      <img
+                        src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://merlintheai.com&size=128"
+                        alt="Merlin AI"
+                        className="w-12 h-12 rounded-md object-contain"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          e.currentTarget.src = '/favicon.ico'
+                        }}
+                      />
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#B591F2] transition-colors">Merlin AI</h4>
                         <span className="text-xs text-[#98FFF9] font-medium">merlintheai.com</span>
