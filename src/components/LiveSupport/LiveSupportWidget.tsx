@@ -44,6 +44,7 @@ export default function LiveSupportWidget() {
   const [error, setError] = useState<string | null>(null)
   const listRef = useRef<HTMLDivElement | null>(null)
   const abortRef = useRef<AbortController | null>(null)
+  const inputRef = useRef<HTMLTextAreaElement | null>(null)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -61,6 +62,8 @@ export default function LiveSupportWidget() {
     requestAnimationFrame(() => {
       listRef.current?.scrollTo({ top: listRef.current.scrollHeight })
     })
+    // focus input for faster typing
+    requestAnimationFrame(() => inputRef.current?.focus())
   }, [open])
 
   useEffect(() => {
@@ -76,6 +79,12 @@ export default function LiveSupportWidget() {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  useEffect(() => {
+    const onOpen = () => setOpen(true)
+    window.addEventListener('mc:live-support:open', onOpen as EventListener)
+    return () => window.removeEventListener('mc:live-support:open', onOpen as EventListener)
   }, [])
 
   const canSend = useMemo(() => !busy && clampText(input, 2000).length > 0, [busy, input])
@@ -231,6 +240,7 @@ export default function LiveSupportWidget() {
               <div className="px-4 py-3 hairline-top">
                 <div className="flex items-end gap-2">
                   <textarea
+                    ref={inputRef}
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     onKeyDown={(e) => {

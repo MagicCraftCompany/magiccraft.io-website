@@ -78,6 +78,11 @@ function Homepagemcrt() {
     }
   }
 
+  const openLiveSupport = () => {
+    if (typeof window === 'undefined') return
+    window.dispatchEvent(new CustomEvent('mc:live-support:open'))
+  }
+
   // Gameplay carousel functionality
   useEffect(() => {
     const slides = document.getElementById('gameplaySlides')
@@ -337,20 +342,30 @@ function Homepagemcrt() {
                     Fast, low‑fee on‑chain currency on BNB Chain powering rewards, creator payouts,
                     and in‑game commerce across the MagicCraft universe.
                   </p>
-                  <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+                  <div className="mt-4 sm:mt-5 flex flex-row flex-nowrap items-center justify-center gap-2 sm:gap-4 w-full max-w-[520px] mx-auto">
                     <button
                       onClick={openGameByDevice}
-                      className="header-cta header-cta--play interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 text-base sm:text-lg"
+                      className="header-cta header-cta--play interactive-scale ripple-effect flex-1 min-w-0 px-3 sm:flex-none sm:min-w-[180px] sm:px-8"
                       aria-label="Play MagicCraft now"
                     >
-                      Play Now
+                      <span className="sm:hidden">Play</span>
+                      <span className="hidden sm:inline">Play Now</span>
                     </button>
                     <button
                       onClick={handleBuyMCRT}
-                      className="header-cta header-cta--buy interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 text-base sm:text-lg"
+                      className="header-cta header-cta--buy interactive-scale ripple-effect flex-1 min-w-0 px-3 sm:flex-none sm:min-w-[180px] sm:px-8"
                       aria-label="Buy MCRT tokens"
                     >
-                      Buy $MCRT
+                      <span className="sm:hidden">Buy</span>
+                      <span className="hidden sm:inline">Buy $MCRT</span>
+                    </button>
+                    <button
+                      onClick={openLiveSupport}
+                      className="header-cta header-cta--shop interactive-scale ripple-effect flex-1 min-w-0 px-3 sm:flex-none sm:min-w-[180px] sm:px-8"
+                      aria-label="Open Live Support"
+                    >
+                      <span className="sm:hidden">Help</span>
+                      <span className="hidden sm:inline">Live Support</span>
                     </button>
               </div>
                   {/* Trust badges */}
