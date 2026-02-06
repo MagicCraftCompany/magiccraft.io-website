@@ -140,23 +140,32 @@ const Footer = () => {
             </p>
             
             <ul className="text-sm md:text-base flex flex-col md:flex-row md:space-x-8 space-y-3 md:space-y-0 text-[#98FFF9] font-semibold">
-              <li
-                onClick={() => navigate('/privacypolicy')}
-                className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
-              >
-                Privacy Policy
+              <li>
+                <button
+                  type="button"
+                  onClick={() => navigate('/privacypolicy')}
+                  className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
+                >
+                  Privacy Policy
+                </button>
               </li>
-              <li 
-                onClick={() => navigate('/terms')} 
-                className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
-              >
-                Terms and Conditions
+              <li>
+                <button
+                  type="button"
+                  onClick={() => navigate('/terms')}
+                  className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
+                >
+                  Terms and Conditions
+                </button>
               </li>
-              <li
-                onClick={() => navigate('/disclaimer')}
-                className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
-              >
-                Disclaimer
+              <li>
+                <button
+                  type="button"
+                  onClick={() => navigate('/disclaimer')}
+                  className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
+                >
+                  Disclaimer
+                </button>
               </li>
             </ul>
 

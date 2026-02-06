@@ -124,11 +124,12 @@ function Testimonial() {
       >
         {testimonials.map((testimonial) => (
         <SwiperSlide
-          style={{ marginRight: '0 !important' }}
             className="h-full"
             key={testimonial.id}
           >
-            <div className={`group relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-br ${cardBorderGradient} p-px transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#B591F2]/30`}>
+            <div
+              className={`group relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-br ${cardBorderGradient} p-px transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-[#98FFF9]/15`}
+            >
               <div className="relative h-full w-full rounded-2xl bg-gradient-to-br from-[#2A0D4E] to-[#57186D] p-6 md:p-8">
                 {/* Background glow effect */}
                 <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br from-[#98FFF9]/5 to-transparent`}></div>
@@ -198,11 +199,19 @@ function Testimonial() {
         </SwiperSlide>
         ))}
       </Swiper>
-      <button className="arrow-left arrow absolute left-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer md:left-0 lg:-left-4 lg:top-1/2">
-        <img src={left} alt="Previous" className="cursor-pointer" />
+      <button
+        type="button"
+        aria-label="Previous testimonials"
+        className="arrow-left arrow absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 bg-black/30 backdrop-blur-md p-2 shadow-lg hover:bg-black/40 hover:border-white/25 active:scale-[0.98] md:left-0 lg:-left-4"
+      >
+        <img src={left} alt="" className="h-8 w-8" aria-hidden="true" />
       </button>
-      <button className="arrow-right arrow absolute right-2 top-1/2 z-10 -translate-y-1/2 cursor-pointer md:right-0 lg:-right-4 lg:top-1/2">
-        <img src={right} alt="Next" className="cursor-pointer" />
+      <button
+        type="button"
+        aria-label="Next testimonials"
+        className="arrow-right arrow absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/15 bg-black/30 backdrop-blur-md p-2 shadow-lg hover:bg-black/40 hover:border-white/25 active:scale-[0.98] md:right-0 lg:-right-4"
+      >
+        <img src={right} alt="" className="h-8 w-8" aria-hidden="true" />
       </button>
     </div>
   )

@@ -200,8 +200,8 @@ export default function LiveSupportWidget() {
             aria-hidden="true"
           />
 
-          <div className="absolute bottom-4 right-4 left-4 sm:right-auto sm:left-4 sm:w-[420px]">
-            <div className="card-glass rounded-2xl overflow-hidden border border-white/15">
+          <div className="absolute bottom-4 right-4 left-4 sm:right-auto sm:left-4 sm:w-[420px] animate-fade-in">
+            <div className="glass-surface glass-strong rounded-2xl overflow-hidden animate-slide-up">
               <div className="flex items-center justify-between px-4 py-3 hairline-bottom">
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#98FFF9]" />
@@ -215,7 +215,7 @@ export default function LiveSupportWidget() {
                     type="button"
                     onClick={clearChat}
                     disabled={busy}
-                    className="text-[11px] px-2 py-1 rounded-md border border-white/15 text-white/70 hover:text-white hover:border-white/25 disabled:opacity-50"
+                    className="text-[11px] px-2 py-1 rounded-md border border-white/15 bg-white/5 text-white/70 hover:text-white hover:border-white/25 hover:bg-white/10 disabled:opacity-50"
                   >
                     Clear
                   </button>
@@ -223,7 +223,7 @@ export default function LiveSupportWidget() {
                     type="button"
                     onClick={() => setOpen(false)}
                     disabled={busy}
-                    className="text-[11px] px-2 py-1 rounded-md border border-white/15 text-white/70 hover:text-white hover:border-white/25 disabled:opacity-50"
+                    className="text-[11px] px-2 py-1 rounded-md border border-white/15 bg-white/5 text-white/70 hover:text-white hover:border-white/25 hover:bg-white/10 disabled:opacity-50"
                     aria-label="Close Live Support"
                   >
                     Close
@@ -292,7 +292,7 @@ export default function LiveSupportWidget() {
                     type="button"
                     onClick={send}
                     disabled={!canSend}
-                    className="rounded-xl px-4 py-2 text-sm font-semibold text-[#03082f] bg-gradient-to-r from-[#98FFF9] to-[#B591F2] disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="rounded-xl px-4 py-2 text-sm font-semibold text-[#03082f] bg-gradient-to-r from-[#98FFF9] to-[#B591F2] hover:brightness-110 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     Send
                   </button>

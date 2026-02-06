@@ -327,21 +327,21 @@ function Homepagemcrt() {
                     <div className="grid grid-cols-3 gap-2">
                       <button
                         onClick={openGameByDevice}
-                        className="h-10 rounded-md bg-gradient-to-b from-[#6b3db2] to-[#41207a] text-white text-sm font-semibold border border-white/15 shadow-lg active:scale-[0.99]"
+                        className="h-10 rounded-md bg-gradient-to-b from-[#6b3db2] to-[#41207a] text-white text-sm font-semibold border border-white/15 shadow-lg hover:brightness-110 active:scale-[0.99] ripple-effect"
                         aria-label="Play MagicCraft now"
                       >
                         Play
                       </button>
                       <button
                         onClick={openLiveSupport}
-                        className="h-10 rounded-md bg-white/10 text-white text-sm font-semibold border border-white/15 backdrop-blur-md shadow-lg active:scale-[0.99]"
+                        className="h-10 rounded-md bg-white/10 text-white text-sm font-semibold border border-white/15 backdrop-blur-md shadow-lg hover:bg-white/15 active:scale-[0.99]"
                         aria-label="Open Live Support chat"
                       >
                         Live Chat
                       </button>
                       <button
                         onClick={handleBuyMCRT}
-                        className="h-10 rounded-md bg-gradient-to-b from-[#A9FFF6] to-[#82E7E0] text-[#071033] text-sm font-semibold border border-white/20 shadow-lg active:scale-[0.99]"
+                        className="h-10 rounded-md bg-gradient-to-b from-[#A9FFF6] to-[#82E7E0] text-[#071033] text-sm font-semibold border border-white/20 shadow-lg hover:brightness-105 active:scale-[0.99] ripple-effect"
                         aria-label="Buy MCRT tokens"
                       >
                         Buy
@@ -953,12 +953,23 @@ function Homepagemcrt() {
                   2025 – 2026
                 </div>
               </div>
-              <div className="flex items-center justify-center ">
-                <div className=" grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain touch-pan-x px-4 lg:max-w-screen-xl">
-                  {roadmapData.map((data) => (
-                    <RoadmapCard data={data} key={data.quarter} />
-                  ))}
+              <div className="flex items-center justify-center">
+                <div className="relative w-full lg:max-w-screen-xl">
+                  {/* edge fades hint that the row scrolls */}
+                  <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#03082f] to-transparent" />
+                  <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#03082f] to-transparent" />
+
+                  <div className="grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain touch-pan-x px-4 scrollbar-none">
+                    {roadmapData.map((data) => (
+                      <RoadmapCard data={data} key={data.quarter} />
+                    ))}
+                  </div>
                 </div>
+              </div>
+
+              <div className="mt-4 flex items-center justify-center gap-2 text-xs text-white/60 lg:hidden">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#98FFF9]/70" />
+                <span>Swipe to explore the roadmap</span>
               </div>
             </div>
           </section>
