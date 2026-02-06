@@ -25,8 +25,7 @@ const ContactForm = () => {
             );
             alert('Email sent successfully!');
             form.reset();
-        } catch (error) {
-            console.error('Failed to send email:', error);
+        } catch {
             alert('Failed to send email. Please try again.');
         } finally {
             setIsSubmitting(false);

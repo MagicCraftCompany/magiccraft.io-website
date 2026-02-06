@@ -42,27 +42,21 @@ export default function BlogPost() {
 
   // Redirect to news page if no slug
   if (!slug || slug === 'null') {
-    console.error("Invalid slug:", slug);
     return <Navigate to="/news" replace />;
   }
 
   useEffect(() => {
-    // Log the actual slug for debugging
-    console.log("Current route: /blog/" + slug);
-    
     async function loadPost() {
-      if (!slug) return; // Extra safety check
+      if (!slug) return;
       
       try {
         const data = await fetchBlogPostBySlug(slug);
-        console.log("Blog post data:", data);
         if (data) {
           setPost(data);
         } else {
           setError(`Blog post with slug "${slug}" not found`);
         }
       } catch (err) {
-        console.error('Error fetching blog post:', err);
         setError(`Failed to load blog post: ${err instanceof Error ? err.message : 'Unknown error'}`);
       } finally {
         setLoading(false);

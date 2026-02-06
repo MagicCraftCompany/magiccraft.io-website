@@ -50,6 +50,7 @@ const videos = [
   ]
 function GamePlay(){
   const [activeVideo, setActiveVideo] = useState(videos[0])
+  const [videoError, setVideoError] = useState(false)
 
 return(
 
@@ -76,13 +77,25 @@ return(
       {/* Main Video Player */}
       <div className="rounded-md border border-white/10 bg-black/70 overflow-hidden shadow-xl">
         <div className="aspect-video w-full">
-          <ReactPlayer
-            url={activeVideo.url}
-            width="100%"
-            height="100%"
-            controls
-            playing={false}
-          />
+          {videoError ? (
+            <div className="flex h-full w-full items-center justify-center bg-black/80 text-center">
+              <div>
+                <p className="text-white/70 text-sm mb-2">Video failed to load.</p>
+                <a href={activeVideo.url} target="_blank" rel="noopener noreferrer" className="text-[#98FFF9] text-sm underline">
+                  Watch on YouTube
+                </a>
+              </div>
+            </div>
+          ) : (
+            <ReactPlayer
+              url={activeVideo.url}
+              width="100%"
+              height="100%"
+              controls
+              playing={false}
+              onError={() => setVideoError(true)}
+            />
+          )}
         </div>
         <div className="px-3 py-2 border-t border-white/10 bg-black/40">
           <p className="text-sm text-white/80">{activeVideo.title}</p>
@@ -94,7 +107,7 @@ return(
         {videos.map((video) => (
           <button
             key={video.id}
-            onClick={() => setActiveVideo(video)}
+            onClick={() => { setVideoError(false); setActiveVideo(video) }}
             className={cn(
               'group flex flex-col rounded-md border border-white/10 bg-black/40 overflow-hidden text-left hover:border-[#98FFF9]/50 transition-colors',
               activeVideo.id === video.id && 'border-[#98FFF9] shadow-[0_0_0_1px_rgba(152,255,249,0.4)]'

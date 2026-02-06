@@ -67,9 +67,12 @@ function Homepagegames() {
         <meta property="og:description" content="Explore our portfolio of Web3 games and start earning $MCRT." />
         <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="MagicCraft Games – Play & Earn with $MCRT" />
+        <meta name="twitter:description" content="Explore our portfolio of Web3 games and start earning $MCRT." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp" />
       </Helmet>
       <div className="min-h-dvh w-full text-white">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="flex h-24 items-center justify-center"><span className="text-white/50 text-sm">Loading…</span></div>}>
           <Header />
         </Suspense>
         <main className="scroll-smooth pb-32">
@@ -790,7 +793,7 @@ function Homepagegames() {
             </section>
           </div>
         </main>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="flex h-24 items-center justify-center"><span className="text-white/50 text-sm">Loading…</span></div>}>
           <Footer />
         </Suspense>
       </div>

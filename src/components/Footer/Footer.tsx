@@ -163,7 +163,7 @@ const Footer = () => {
             <p className="text-sm md:text-base text-white/50 leading-relaxed max-w-2xl font-light">
               MagicCraft Services and MCRT Token are not available in the United
               States or other prohibited jurisdictions. Services for this
-              product are facilitated though MagicCraft Ltd.
+              product are facilitated through MagicCraft Ltd.
             </p>
           </div>
           

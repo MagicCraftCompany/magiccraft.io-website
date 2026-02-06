@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import steam from '@/assets/icons/icon-steam.svg'
@@ -7,13 +7,9 @@ import { Tabs, Tab } from '@/components/tabs'
 import { roadmapData } from '../data/roadmapData'
 import RoadmapCard from '../components/Cards/RoadmapCard'
 import { ourteam } from '@/components/Team/ourTeam'
-import React from 'react'
 import GenesisNFTs from '@/components/GenesisNFTs'
 import { LiaTelegramPlane } from 'react-icons/lia'
 import GamePlay from '@/components/GamePlay'
-// import GameCard from '@/components/ui/GameCard'
-// import { Game, gamesData } from '@/data/game'
-// import { ArrowUpRight } from 'lucide-react'
 import MagicraftDownload from '@/components/HomePageCard'
 import BuyStrip from '@/components/Buy/BuyStrip'
 import BuyFloat from '@/components/Buy/BuyFloat'
@@ -22,10 +18,6 @@ import Partners from '@/components/Partners/Partners'
 import { Helmet } from 'react-helmet-async'
 import bnbLogo from '../assets/icons/bnblogo.svg'
 import { openTransactionModal } from '@xswap-link/sdk'
-// Zeus promo removed (event finished)
-// import ZeusPromo, { ZeusPromoPopup } from '@/components/ui/ZeusPromo'
-// import MentionsStrip from '@/components/ui/MentionsStrip'
-// BattlePass removed - API not consistently loading
 
 
 
@@ -35,9 +27,6 @@ function Homepagemcrt() {
   const [currentSlide, setCurrentSlide] = useState(0)
   const TOTAL_SLIDES = 3
 
-  useEffect(() => {
-    // placeholder for any init logic
-  }, [])
 
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
@@ -72,8 +61,7 @@ function Homepagemcrt() {
         srcToken: '0x0000000000000000000000000000000000000000',
         defaultWalletPicker: true,
       })
-    } catch (e) {
-      console.error('Buy modal failed', e)
+    } catch {
       window.open('https://www.bybit.com/en/trade/spot/MCRT/USDT', '_blank', 'noopener,noreferrer')
     }
   }
@@ -213,14 +201,6 @@ function Homepagemcrt() {
       'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
   }
 
-  // const filteredGames = gamesData.filter(
-  //   (game: { title: string }) =>
-  //     game.title === 'magicflutter' ||
-  //     game.title === 'magicchess' ||
-  //     game.title === 'tetrablox' ||
-  //     game.title === 'runescribes' ||
-  //     game.title === 'magicrunner'
-  // )
   return (
     <>
       <Helmet>
@@ -570,7 +550,14 @@ function Homepagemcrt() {
                   {/* Akyn */}
                   <a href="https://www.akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#98FFF9]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
                     <div className="flex items-center gap-3 mb-3">
-                      <img src="https://akyn.pro/favicon.ico" alt="Akyn" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
+                      <img
+                        src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://akyn.pro&size=128"
+                        alt="Akyn"
+                        className="w-12 h-12 rounded-md object-contain"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => { e.currentTarget.src = '/favicon.ico' }}
+                      />
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#98FFF9] transition-colors">Akyn</h4>
                         <span className="text-xs text-[#98FFF9] font-medium">akyn.pro</span>
@@ -607,7 +594,14 @@ function Homepagemcrt() {
                   {/* DocAI */}
                   <a href="https://docai.live" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#10B981]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
                     <div className="flex items-center gap-3 mb-3">
-                      <img src="https://docai.live/fabicon.png" alt="DocAI" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
+                      <img
+                        src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://docai.live&size=128"
+                        alt="DocAI"
+                        className="w-12 h-12 rounded-md object-contain"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => { e.currentTarget.src = '/favicon.ico' }}
+                      />
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#10B981] transition-colors">DocAI</h4>
                         <span className="text-xs text-[#98FFF9] font-medium">docai.live</span>
@@ -621,7 +615,14 @@ function Homepagemcrt() {
                   {/* Polybilities */}
                   <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#FFB649]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
                     <div className="flex items-center gap-3 mb-3">
-                      <img src="https://polybilities.com/favicon.ico" alt="Polybilities" className="w-12 h-12 rounded-md object-contain" loading="lazy" />
+                      <img
+                        src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://polybilities.com&size=128"
+                        alt="Polybilities"
+                        className="w-12 h-12 rounded-md object-contain"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => { e.currentTarget.src = '/favicon.ico' }}
+                      />
                       <div>
                         <h4 className="text-xl font-bold text-white group-hover:text-[#FFB649] transition-colors">Polybilities</h4>
                         <span className="text-xs text-[#98FFF9] font-medium">polybilities.com</span>
@@ -1028,7 +1029,7 @@ function Homepagemcrt() {
                     <div className="w-full space-y-4">
                       <div className="relative my-4 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-10">
                         {ourteam.slice(0, visibleCount).map((item, index) => (
-                          <React.Fragment key={item.name}>
+                          <Fragment key={item.name}>
                             <div className="flex flex-col items-center justify-center bg-[#020418] text-center">
                               <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)]">
                                 <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0d2e]">
@@ -1075,7 +1076,7 @@ function Homepagemcrt() {
                                 <div className="divider absolute left-[75%] top-0 hidden w-px bg-gradient-to-t from-transparent via-[#0D1233] to-transparent lg:block"></div>
                               </>
                             )}
-                          </React.Fragment>
+                          </Fragment>
                         ))}
                       </div>
                     </div>
