@@ -19,7 +19,7 @@ export default function BuyStrip() {
               <span className="text-xs text-white/70">MCRT</span>
             </div>
             <div className="text-sm sm:text-base text-white/85 truncate">
-              Live price: <span className="font-semibold text-white whitespace-nowrap">{priceText}</span>
+              Live price: <span className="font-semibold text-[#98FFF9] whitespace-nowrap drop-shadow-sm">{priceText}</span>
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto">

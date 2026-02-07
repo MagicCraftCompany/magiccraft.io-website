@@ -952,6 +952,9 @@ function Homepagemcrt() {
                 <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
                   2025 – 2026
                 </div>
+                <p className="mx-auto mt-4 max-w-2xl text-center text-xs font-medium tracking-wider text-white/50 uppercase">
+                  Our devs are non-stop coding with Cursor, Gemini Pro 3, ChatGPT 5.3 & Opus 4.6
+                </p>
               </div>
               <div className="flex items-center justify-center">
                 <div className="relative w-full lg:max-w-screen-xl">
