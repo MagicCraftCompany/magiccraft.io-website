@@ -17,7 +17,7 @@ const bounties: Bounty[] = [
   { id: 'b1', title: 'MagicCraft gameplay shorts series', category: 'Content', description: 'Create 10+ engaging 30-60s gameplay shorts showcasing PvP action, $MCRT rewards, and crypto lobbies. Upload to your own YouTube/TikTok.', rewardUsdMax: 150, difficulty: 'Easy' },
   { id: 'b11', title: 'Twitter thread series', category: 'Content', description: 'Create engaging Twitter threads about MagicCraft features, $MCRT utility, gaming tips. 10+ threads with visuals.', rewardUsdMax: 50, difficulty: 'Easy' },
   { id: 'b13', title: 'Reddit community content', category: 'Content', description: 'Create high-quality posts, guides, AMAs for gaming and crypto subreddits. Build MagicCraft awareness.', rewardUsdMax: 50, difficulty: 'Easy' },
-  { id: 'b12', title: 'LinkedIn article series', category: 'Content', description: 'Write professional articles about blockchain gaming, $MCRT tokenomics, play-to-earn. 5+ detailed posts.', rewardUsdMax: 75, difficulty: 'Easy' },
+  { id: 'b12', title: 'LinkedIn article series', category: 'Content', description: 'Write professional articles about blockchain gaming, $MCRT tokenomics, play-and-earn. 5+ detailed posts.', rewardUsdMax: 75, difficulty: 'Easy' },
   { id: 'b7', title: 'Discord $MCRT price bot', category: 'Dev', description: 'Create bot with live price, alerts, portfolio tracking. Open-source with self-host guide and demo server.', rewardUsdMax: 75, difficulty: 'Easy' },
   { id: 'b8', title: 'Telegram $MCRT alerts bot', category: 'Dev', description: 'Build Telegram bot for price alerts, news updates, lobby notifications. Self-hostable with clear setup instructions.', rewardUsdMax: 75, difficulty: 'Easy' },
 

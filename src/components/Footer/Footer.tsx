@@ -296,7 +296,7 @@ const Footer = () => {
               className="text-primary text-[#98FFF9] underline hover:text-white transition-colors duration-200 inline-block"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://docs.magiccraft.io/usdmcrt-token/tokenomics"
+              href="https://docs.magiccraft.io/"
             >
               Whitepaper
             </a>

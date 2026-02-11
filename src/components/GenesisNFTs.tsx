@@ -21,7 +21,7 @@ const GenesisNFTs: React.FC = () => {
     <section className="relative py-6 md:py-8 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0">
       <div className="text-center mb-4 md:mb-5">
         <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
-          Genesis NFTs - Earnings Tiers
+          Genesis NFTs - Reward Tiers
         </h3>
         <p className="text-gray-300 text-sm md:text-base mt-1.5">Boost eligible rewards with Genesis or Revelation NFTs.</p>
         <button onClick={() => setOpen(!open)} className="mt-2.5 inline-flex items-center gap-2 rounded-xl border border-white/15 bg-black/20 hover:bg-black/30 px-3 py-1.5 text-xs text-white/80">

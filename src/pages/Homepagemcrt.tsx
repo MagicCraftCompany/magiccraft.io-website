@@ -204,14 +204,14 @@ function Homepagemcrt() {
   return (
     <>
       <Helmet>
-        <title>MagicCraft - Play-to-Earn Blockchain Game | Create Games & Earn $MCRT</title>
+        <title>MagicCraft - Web3 Gaming | Create Games & Earn $MCRT</title>
         <meta
           name="description"
           content="MagicCraft is a crypto gaming MOBA (meme online battle arena) where you battle and build games like Roblox to earn $MCRT. Available on PC, iOS, Android, and Steam. Trade $MCRT on Bybit."
         />
         <meta
           name="keywords"
-          content="crypto gaming, $MCRT, MagicCraft, MOBA, meme online battle arena, Bybit, blockchain game, P2E, play to earn, NFT gaming, Web3 gaming, game maker, create games, earn crypto, Steam, iOS, Android"
+          content="crypto gaming, $MCRT, MagicCraft, MOBA, meme online battle arena, Bybit, blockchain game, P2E, play and earn, NFT gaming, Web3 gaming, game maker, create games, earn crypto, Steam, iOS, Android"
         />
         <meta name="author" content="MagicCraft" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -240,10 +240,10 @@ function Homepagemcrt() {
             "@context": "https://schema.org",
             "@type": "VideoGame",
             "name": "MagicCraft",
-            "description": "Play-to-Earn blockchain game where players can create games and earn $MCRT tokens",
+            "description": "Play-and-Earn blockchain game where players can create games and earn $MCRT tokens",
             "url": "https://magiccraft.io",
             "image": "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp",
-            "genre": ["Action", "Strategy", "Blockchain", "Play-to-Earn"],
+            "genre": ["Action", "Strategy", "Blockchain", "Web3 Gaming"],
             "platform": ["PC", "Mobile", "Steam"],
             "publisher": "MagicCraft",
             "offers": {
