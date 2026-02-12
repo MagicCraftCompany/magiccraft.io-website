@@ -71,7 +71,7 @@ export default function MagicraftDownload() {
           }
 
           if (transform === 'translateX(-100%)') {
-            left = Math.max(tooltipWidth + padding, left)
+            left = Math.max(tooltipWidth + padding, Math.min(viewportWidth - padding, left))
           } else if (transform === 'translateX(0)') {
             left = Math.min(viewportWidth - tooltipWidth - padding, left)
           } else {
