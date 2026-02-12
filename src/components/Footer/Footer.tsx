@@ -202,7 +202,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16">
           {/* Token Links */}
           <div className="w-full space-y-6 md:space-y-8">
-            <h5 className="text-xl md:text-2xl text-white font-black tracking-wider border-b-2 border-gradient-to-r from-[#98FFF9]/40 to-transparent pb-3 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">
+            <h5 className="text-xl md:text-2xl text-white font-black tracking-wider border-b-2 border-white/15 pb-3 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">
               TOKEN
             </h5>
             <ul className="space-y-3 md:space-y-4 text-sm md:text-base text-[#98FFF9]">
@@ -247,7 +247,7 @@ const Footer = () => {
 
           {/* More Links */}
           <div className="w-full space-y-6 md:space-y-8">
-            <h5 className="text-xl md:text-2xl text-white font-black tracking-wider border-b-2 border-gradient-to-r from-[#B591F2]/40 to-transparent pb-3 bg-gradient-to-r from-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
+            <h5 className="text-xl md:text-2xl text-white font-black tracking-wider border-b-2 border-white/15 pb-3 bg-gradient-to-r from-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
               MORE
             </h5>
             <ul className="space-y-3 md:space-y-4 text-sm md:text-base text-[#98FFF9]">

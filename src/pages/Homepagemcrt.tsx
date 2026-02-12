@@ -24,8 +24,7 @@ import { openTransactionModal } from '@xswap-link/sdk'
 function Homepagemcrt() {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null)
   const [visibleCount] = useState(ourteam.length)
-  const [currentSlide, setCurrentSlide] = useState(0)
-  const TOTAL_SLIDES = 3
+  const [contractCopied, setContractCopied] = useState(false)
 
 
   const registerHandler = () => {
@@ -70,58 +69,6 @@ function Homepagemcrt() {
     if (typeof window === 'undefined') return
     window.dispatchEvent(new CustomEvent('mc:live-support:open'))
   }
-
-  // Gameplay carousel functionality
-  useEffect(() => {
-    const slides = document.getElementById('gameplaySlides')
-    const dots = document.querySelectorAll('.carousel-dot')
-    
-    if (!slides || !dots.length) return
-
-    let autoPlayInterval: NodeJS.Timeout
-
-    const goToSlide = (slideIndex: number) => {
-      setCurrentSlide(slideIndex)
-      // Move by a fraction of the full width based on total slides
-      slides.style.transform = `translateX(-${(slideIndex * 100) / TOTAL_SLIDES}%)`
-      
-      // Update dots
-      dots.forEach((dot, index) => {
-        if (index === slideIndex) {
-          dot.classList.add('active')
-        } else {
-          dot.classList.remove('active')
-        }
-      })
-    }
-
-    const nextSlide = () => {
-      const next = (currentSlide + 1) % TOTAL_SLIDES
-      goToSlide(next)
-    }
-
-    // Add click handlers to dots
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        clearInterval(autoPlayInterval)
-        goToSlide(index)
-        // Restart auto-play after manual interaction
-        autoPlayInterval = setInterval(nextSlide, 4000)
-      })
-    })
-
-    // Auto-play
-    autoPlayInterval = setInterval(nextSlide, 4000)
-
-    // Cleanup
-    return () => {
-      clearInterval(autoPlayInterval)
-      dots.forEach((dot) => {
-        dot.removeEventListener('click', () => {})
-      })
-    }
-  }, [currentSlide])
-
 
   const kolTeam = ourteam.filter((member) => member.category === 'KOL')
   const teamMembers = ourteam.filter((member) => member.category === 'Team')
@@ -199,6 +146,16 @@ function Homepagemcrt() {
   const getfromgoogleHandler = () => {
     window.location.href =
       'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
+  }
+
+  const copyContractAddress = async () => {
+    try {
+      await navigator.clipboard.writeText('0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f')
+      setContractCopied(true)
+      window.setTimeout(() => setContractCopied(false), 1800)
+    } catch {
+      setContractCopied(false)
+    }
   }
 
   return (
@@ -293,7 +250,7 @@ function Homepagemcrt() {
             </div>
             
             <div className="relative z-10 mx-auto max-w-screen-xl h-full w-full px-3 sm:px-4">
-              <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 sm:gap-4 md:gap-4 lg:gap-5 pt-14 sm:pt-16 md:pt-18 lg:pt-20 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
+              <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 sm:gap-4 md:gap-4 lg:gap-5 pt-14 sm:pt-16 md:pt-[4.5rem] lg:pt-20 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
                 <div className="w-full max-w-[30%] sm:max-w-[25%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-1 sm:mt-2 md:mt-3 lg:mt-4 group">
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 animate-pulse-slow"></div>
@@ -648,7 +605,7 @@ function Homepagemcrt() {
           <div className="flex flex-wrap items-center justify-center gap-3 text-sm">
             <span className="text-white/60">$MCRT Contract:</span>
             <code className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 font-mono text-xs text-white/90">0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f</code>
-            <button onClick={() => navigator.clipboard.writeText('0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f')} className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs text-white/80 hover:bg-white/15 transition-colors">Copy</button>
+            <button onClick={copyContractAddress} className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs text-white/80 hover:bg-white/15 transition-colors">{contractCopied ? 'Copied!' : 'Copy'}</button>
             <a href="https://bscscan.com/token/0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#98FFF9]/20 to-[#B591F2]/20 border border-[#98FFF9]/30 text-xs text-[#98FFF9] hover:from-[#98FFF9]/30 hover:to-[#B591F2]/30 transition-colors">BscScan →</a>
                         </div>
         </section>
@@ -665,10 +622,10 @@ function Homepagemcrt() {
             <a id="earn" href="https://lobby.magiccraft.io/" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline" rel="noreferrer noopener">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
               <div className="flex items-center gap-3 mb-1">
-                <img src="/icons/icon-gamepad.svg" alt="Earn in PvP" className="w-5 h-5 opacity-90" />
-                <h4 className="text-lg md:text-xl font-bold">Earn in PvP</h4>
+                <img src="/icons/icon-gamepad.svg" alt="Compete in PvP" className="w-5 h-5 opacity-90" />
+                <h4 className="text-lg md:text-xl font-bold">Compete in PvP</h4>
                       </div>
-              <p className="text-sm md:text-base text-gray-300">Win matches and tournaments to earn $MCRT.</p>
+              <p className="text-sm md:text-base text-gray-300">Win matches and tournaments to unlock $MCRT rewards.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Play now <span aria-hidden="true">→</span></span>
             </a>
             <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
@@ -680,7 +637,7 @@ function Homepagemcrt() {
               <p className="text-sm md:text-base text-gray-300">Price, market cap, and supply details.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">View stats <span aria-hidden="true">→</span></span>
             </a>
-            <a href="#download" onClick={(e) => { e.preventDefault(); document.getElementById('download-section')?.scrollIntoView({ behavior: 'smooth' }); }} className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden cursor-pointer no-underline hover:no-underline">
+            <a href="#download-section" onClick={(e) => { e.preventDefault(); document.getElementById('download-section')?.scrollIntoView({ behavior: 'smooth' }); }} className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden cursor-pointer no-underline hover:no-underline">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
               <div className="flex items-center gap-3 mb-1">
                 <img src="/icons/icon-gamepad.svg" alt="Game" className="w-5 h-5 opacity-90" />
@@ -807,17 +764,17 @@ function Homepagemcrt() {
         {/* Sticky mobile bottom bar */}
         <div className="fixed bottom-0 inset-x-0 md:hidden z-50 pb-[max(env(safe-area-inset-bottom),4px)]">
           <div className="w-full bg-[#0B0F39]/92 backdrop-blur border-t border-white/10 px-2 py-0.5 flex items-center gap-2">
-            <a
+                <a
               href="https://lobby.magiccraft.io/"
               rel="noreferrer noopener"
-              className="flex-1 inline-flex items-center justify-center h-8 rounded text-[12px] font-semibold text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15"
+                  className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-semibold text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15"
             >
               Play
             </a>
             <a
               href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
               rel="noreferrer noopener"
-              className="flex-1 inline-flex items-center justify-center h-8 rounded text-[12px] font-black text-[#03082F] bg-gradient-to-b from-[#98FFF9] to-[#B591F2]"
+                  className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-black text-[#03082F] bg-gradient-to-b from-[#98FFF9] to-[#B591F2]"
             >
               Buy
             </a>
@@ -843,7 +800,7 @@ function Homepagemcrt() {
                     Join the action, earn $MCRT
                   </h5>
                   <p className="text-sm md:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                    Play‑to‑earn with a real level‑up system — grind vs bots, burn $MCRT to level heroes, and craft stronger weapons.
+                    Play-and-earn with a real level-up system - grind vs bots, burn $MCRT to level heroes, and craft stronger weapons.
                   </p>
                       </div>
 
@@ -995,7 +952,7 @@ function Homepagemcrt() {
                   </div>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
                     <a
-                      href="https://discord.gg/magiccraft"
+                      href="https://discord.gg/magiccraftgame"
                       target="_blank"
                       rel="noreferrer noopener"
                       className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-md bg-[#5865F2] hover:bg-[#4752C4] transition-colors duration-200"

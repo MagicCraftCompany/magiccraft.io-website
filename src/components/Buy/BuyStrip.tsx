@@ -1,12 +1,24 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useMcrtPrice } from '@/lib/useMcrtPrice'
 
 export default function BuyStrip() {
   const { price, loading, refresh } = useMcrtPrice(120_000)
+  const [copied, setCopied] = useState(false)
+
   useEffect(() => {
     const id = setInterval(refresh, 120_000)
     return () => clearInterval(id)
   }, [refresh])
+
+  const copyContract = async () => {
+    try {
+      await navigator.clipboard.writeText('0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f')
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1800)
+    } catch {
+      setCopied(false)
+    }
+  }
 
   const priceText = price ? `$${price.usd.toFixed(5)}${price.usd_24h_change !== undefined ? ` (${price.usd_24h_change >= 0 ? '+' : ''}${price.usd_24h_change.toFixed(2)}%)` : ''}` : loading ? '—' : '—'
 
@@ -25,7 +37,7 @@ export default function BuyStrip() {
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto">
             <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener" className="btn-primary flex-1 sm:flex-none min-w-[140px] text-center">Buy on Bybit</a>
             <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="btn-secondary flex-1 sm:flex-none min-w-[140px] text-center">PancakeSwap</a>
-            <button onClick={() => navigator.clipboard.writeText('0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f')} className="px-3 py-2 rounded-lg bg-white/10 border border-white/15 hover:bg-white/15 text-white text-sm whitespace-nowrap">Copy Contract</button>
+            <button onClick={copyContract} className="px-3 py-2 rounded-lg bg-white/10 border border-white/15 hover:bg-white/15 text-white text-sm whitespace-nowrap">{copied ? 'Copied!' : 'Copy Contract'}</button>
           </div>
         </div>
       </div>

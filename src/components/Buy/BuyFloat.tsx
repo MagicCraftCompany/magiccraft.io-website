@@ -4,6 +4,7 @@ import { useMcrtPrice } from '@/lib/useMcrtPrice'
 export default function BuyFloat() {
   const [open, setOpen] = useState(false)
   const [visible, setVisible] = useState(false)
+  const [copied, setCopied] = useState(false)
   const { price } = useMcrtPrice(180_000)
   
   useEffect(() => {
@@ -15,6 +16,12 @@ export default function BuyFloat() {
     handleScroll() // Check initial position
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    if (!copied) return
+    const id = window.setTimeout(() => setCopied(false), 1800)
+    return () => window.clearTimeout(id)
+  }, [copied])
   
   if (!visible) return null
   
@@ -37,11 +44,12 @@ export default function BuyFloat() {
             <button
               onClick={() => {
                 navigator.clipboard.writeText('0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f')
+                setCopied(true)
                 setOpen(false)
               }}
               className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/15 hover:bg-white/15 text-white text-sm active:scale-[0.99]"
             >
-              Copy Contract
+              {copied ? 'Copied!' : 'Copy Contract'}
             </button>
           </div>
         </div>

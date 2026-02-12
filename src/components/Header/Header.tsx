@@ -693,7 +693,7 @@ const Header = () => {
             {/* Footer Links */}
             <div className="mt-3 pb-2">
               <div className="flex items-center justify-center gap-4 text-xs text-white/50">
-                <a href="/privacy-policy" onClick={closeSidebar} className="hover:text-white/70">Privacy</a>
+                <a href="/privacypolicy" onClick={closeSidebar} className="hover:text-white/70">Privacy</a>
                 <span>•</span>
                 <a href="/terms" onClick={closeSidebar} className="hover:text-white/70">Terms</a>
                 <span>•</span>

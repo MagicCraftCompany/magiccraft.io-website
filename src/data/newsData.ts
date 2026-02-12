@@ -62,6 +62,6 @@ export const newsArticles: NewsArticle[] = [
     title: 'Join the MagicCraft Community',
     description: 'Connect with over 100K players on Discord, follow updates on X, and participate in tournaments and seasonal events.',
     image: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1726232450/Frame_307825_il8ahq.webp',
-    readMoreLink: 'https://discord.gg/magiccraft'
+    readMoreLink: 'https://discord.gg/magiccraftgame'
   }
 ]
