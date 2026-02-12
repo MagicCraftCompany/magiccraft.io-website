@@ -25,7 +25,12 @@ const mcrtIcon = 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/
 
 export default function MagicraftDownload() {
   const [hoveredLobby, setHoveredLobby] = useState<string | null>(null)
-  const [tooltipStyle, setTooltipStyle] = useState<{ top: number; left: number; transform: string }>({ top: 0, left: 0, transform: 'translateX(-50%)' })
+  const [tooltipStyle, setTooltipStyle] = useState<{
+    top: number
+    left: number
+    width: number
+    arrow: 'left' | 'center' | 'right'
+  }>({ top: 0, left: 0, width: 340, arrow: 'center' })
   const cardRefs = useRef<{ [key: string]: HTMLDivElement | null }>({})
   
   useEffect(() => {
@@ -46,8 +51,8 @@ export default function MagicraftDownload() {
           top = Math.max(padding, Math.min(viewportHeight - preferredHeight - padding, top))
 
           const centeredLeft = rect.left + rect.width / 2
-          let left = centeredLeft
-          let transform = 'translateX(-50%)'
+          let left = centeredLeft - tooltipWidth / 2
+          let arrow: 'left' | 'center' | 'right' = 'center'
 
           const rightOverflow = centeredLeft + tooltipWidth / 2 > viewportWidth - padding
           const leftOverflow = centeredLeft - tooltipWidth / 2 < padding
@@ -63,23 +68,15 @@ export default function MagicraftDownload() {
           const isRightmostCard = rightmostCards.includes(hoveredLobby)
           
           if (rightOverflow || isRightmostCard) {
-            left = rect.right - 16
-            transform = 'translateX(-100%)'
+            left = rect.right - tooltipWidth - 16
+            arrow = 'right'
           } else if (leftOverflow) {
             left = rect.left + 16
-            transform = 'translateX(0)'
+            arrow = 'left'
           }
 
-          if (transform === 'translateX(-100%)') {
-            left = Math.max(tooltipWidth + padding, Math.min(viewportWidth - padding, left))
-          } else if (transform === 'translateX(0)') {
-            left = Math.min(viewportWidth - tooltipWidth - padding, left)
-          } else {
-            const halfWidth = tooltipWidth / 2
-            left = Math.max(padding + halfWidth, Math.min(viewportWidth - padding - halfWidth, left))
-          }
-
-          setTooltipStyle({ top, left, transform })
+          left = Math.max(padding, Math.min(viewportWidth - tooltipWidth - padding, left))
+          setTooltipStyle({ top, left, width: tooltipWidth, arrow })
         }
       }
     }
@@ -459,12 +456,12 @@ export default function MagicraftDownload() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 8, scale: 0.96 }}
             transition={{ duration: 0.2, ease: [0.4, 0, 0.2, 1] }}
-            className="fixed w-[340px] md:w-[380px] max-w-[92vw] pointer-events-auto"
+            className="fixed pointer-events-auto"
             style={{
               zIndex: 99999,
               top: `${tooltipStyle.top}px`,
               left: `${tooltipStyle.left}px`,
-              transform: tooltipStyle.transform
+              width: `${tooltipStyle.width}px`
             }}
             onMouseEnter={() => setHoveredLobby(hoveredLobby)}
             onMouseLeave={() => setHoveredLobby(null)}
@@ -547,9 +544,9 @@ export default function MagicraftDownload() {
                   {/* Arrow */}
                   <div 
                     className={`absolute top-full ${
-                      tooltipStyle.transform === 'translateX(-100%)' 
+                      tooltipStyle.arrow === 'right'
                         ? 'right-8'
-                        : tooltipStyle.transform === 'translateX(0)' 
+                        : tooltipStyle.arrow === 'left'
                         ? 'left-8'
                         : 'left-1/2 -translate-x-1/2'
                     }`}
