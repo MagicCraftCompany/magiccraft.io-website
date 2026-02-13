@@ -694,7 +694,7 @@ function Homepagegames() {
                   </div>
                 </div>
               <div className="flex items-center justify-center ">
-                <div className=" grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain touch-pan-x px-4 lg:max-w-screen-xl">
+                <div className=" grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain touch-auto px-4 lg:max-w-screen-xl">
                     {roadmapData.map((data) => (
                       <RoadmapCard data={data} key={data.quarter} />
                     ))}

@@ -919,7 +919,7 @@ function Homepagemcrt() {
                   <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#03082f] to-transparent" />
                   <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#03082f] to-transparent" />
 
-                  <div className="grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain touch-pan-x px-4 scrollbar-none">
+                  <div className="grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain touch-auto px-4 scrollbar-none">
                     {roadmapData.map((data) => (
                       <RoadmapCard data={data} key={data.quarter} />
                     ))}
