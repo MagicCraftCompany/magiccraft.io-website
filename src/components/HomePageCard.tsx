@@ -224,7 +224,7 @@ export default function MagicraftDownload() {
         tagline: 'Native Token Rewards',
         features: [
           'Highest reward rates',
-          'Staking bonuses',
+          'Pledging bonuses',
           'VIP benefits',
           'Governance power'
         ]
@@ -241,7 +241,7 @@ export default function MagicraftDownload() {
         title: 'Ethereum Lobby',
         tagline: 'Premium Competition',
         features: [
-          'High-stakes matches',
+          'High-intensity matches',
           'NFT integrations',
           'DeFi rewards',
           'Elite tournaments'

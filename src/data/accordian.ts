@@ -63,7 +63,7 @@
         This process is seamless. As you play and pledge your locked MCRT tokens, they automatically
         get converted to unlocked tokens, regardless of whether you win or lose the game. Unlocked Balance 
         is your available MCRT token balance that you've deposited, won in paid games, or converted from your
-        locked balance by staking in the games. You are free to withdraw this balance anytime you want. Keep
+        locked balance by pledging in the games. You are free to withdraw this balance anytime you want. Keep
         in mind that only the 'Unlocked' balance is available for withdrawal. This distinction is vital to note 
         when managing your MCRT tokens. We believe this feature enhances gameplay and sustains a thriving and active
         gaming community. For any additional questions, reach out to our support team.

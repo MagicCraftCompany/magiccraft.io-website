@@ -94,7 +94,7 @@ const Grants = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm text-white/80 mb-1">$MCRT Integration Plan</label>
-                    <input name="mcrtPlan" placeholder="Payments, rewards, staking, etc." className="w-full rounded-lg bg-black/30 border border-white/15 px-3 py-2" />
+                    <input name="mcrtPlan" placeholder="Payments, rewards, pledging, etc." className="w-full rounded-lg bg-black/30 border border-white/15 px-3 py-2" />
                   </div>
                   <div>
                     <label className="block text-sm text-white/80 mb-1">Wallet Address (BSC)</label>

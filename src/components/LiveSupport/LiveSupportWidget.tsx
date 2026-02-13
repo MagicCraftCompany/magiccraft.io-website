@@ -234,7 +234,7 @@ export default function LiveSupportWidget() {
               <div ref={listRef} className="max-h-[55vh] sm:max-h-[520px] overflow-y-auto px-4 py-3 space-y-3">
                 {messages.length === 0 ? (
                   <div className="text-sm text-white/70">
-                    Ask anything about <span className="text-white">$MCRT</span>, MagicCraft, lobbies, staking/locked balance, and more.
+                    Ask anything about <span className="text-white">$MCRT</span>, MagicCraft, lobbies, pledging/locked balance, and more.
                     <div className="mt-2 text-[12px] text-white/50">
                       Tip: try “What is locked balance?” or “Where can I buy $MCRT?”
                     </div>

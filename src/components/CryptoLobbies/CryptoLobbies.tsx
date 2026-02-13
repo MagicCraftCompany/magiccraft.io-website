@@ -101,7 +101,7 @@ export const CryptoLobbies = () => {
 
                 <p className="text-lg md:text-xl text-gray-300 max-w-2xl mb-8">
                   Join exclusive crypto lobbies and compete for Bitcoin and Ethereum rewards. 
-                  Stake your crypto, showcase your skills, and win big!
+                  Pledge your tokens, showcase your skills, and win big!
                 </p>
 
                 {/* Action Buttons */}

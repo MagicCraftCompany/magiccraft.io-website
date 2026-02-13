@@ -25,7 +25,7 @@ const bounties: Bounty[] = [
   { id: 'b5', title: 'MagicCraft fan site', category: 'Content', description: 'Create comprehensive fan website with guides, news, character builds, meta analysis. Self-hosted with $MCRT integration.', rewardUsdMax: 150, difficulty: 'Medium' },
   { id: 'b6', title: 'Leaderboard tracker site', category: 'Dev', description: 'Build website tracking top players, guild rankings, tournament results. Historical data and player profiles.', rewardUsdMax: 100, difficulty: 'Easy' },
   { id: 'b4', title: 'Community stats dashboard', category: 'Dev', description: 'Build a self-hosted dashboard showing $MCRT metrics, player stats, lobby activity. Real-time data with clean UI.', rewardUsdMax: 200, difficulty: 'Medium' },
-  { id: 'b9', title: '$MCRT portfolio tracker', category: 'Dev', description: 'Web app for tracking $MCRT holdings, staking rewards, transaction history. Connect wallet, export data.', rewardUsdMax: 150, difficulty: 'Medium' },
+  { id: 'b9', title: '$MCRT portfolio tracker', category: 'Dev', description: 'Web app for tracking $MCRT holdings, pledging rewards, transaction history. Connect wallet, export data.', rewardUsdMax: 150, difficulty: 'Medium' },
 
   // Deeper content
   { id: 'b2', title: 'Tutorial video series', category: 'Content', description: 'Produce comprehensive video guides: getting started, earning $MCRT, using Game Maker, crypto lobbies. Self-hosted or personal channel.', rewardUsdMax: 200, difficulty: 'Medium' },
