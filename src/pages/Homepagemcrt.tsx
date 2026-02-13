@@ -376,7 +376,7 @@ function Homepagemcrt() {
                       <span>BEP‑20 on BNB Chain</span>
                     </div>
                     <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
-                      The currency of gaming & AI
+                      Payments and utility on BNB Chain
                   </h3>
                     <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed">
                       $MCRT is built for speed and scale. On BNB Chain's BEP‑20 standard,
@@ -605,7 +605,13 @@ function Homepagemcrt() {
           <div className="flex flex-wrap items-center justify-center gap-3 text-sm">
             <span className="text-white/60">$MCRT Contract:</span>
             <code className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 font-mono text-xs text-white/90">0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f</code>
-            <button onClick={copyContractAddress} className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs text-white/80 hover:bg-white/15 transition-colors">{contractCopied ? 'Copied!' : 'Copy'}</button>
+            <button
+              onClick={copyContractAddress}
+              aria-label={contractCopied ? 'Contract address copied' : 'Copy contract address'}
+              className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs text-white/80 hover:bg-white/15 transition-colors"
+            >
+              {contractCopied ? 'Copied!' : 'Copy'}
+            </button>
             <a href="https://bscscan.com/token/0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#98FFF9]/20 to-[#B591F2]/20 border border-[#98FFF9]/30 text-xs text-[#98FFF9] hover:from-[#98FFF9]/30 hover:to-[#B591F2]/30 transition-colors">BscScan →</a>
                         </div>
         </section>
@@ -763,18 +769,18 @@ function Homepagemcrt() {
 
         {/* Sticky mobile bottom bar */}
         <div className="fixed bottom-0 inset-x-0 md:hidden z-50 pb-[max(env(safe-area-inset-bottom),4px)]">
-          <div className="w-full bg-[#0B0F39]/92 backdrop-blur border-t border-white/10 px-2 py-0.5 flex items-center gap-2">
+          <div className="w-full bg-[#0B0F39]/82 backdrop-blur border-t border-white/10 px-2 py-0.5 flex items-center gap-2">
                 <a
               href="https://lobby.magiccraft.io/"
               rel="noreferrer noopener"
-                  className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-semibold text-white bg-gradient-to-b from-[#6b3db2] to-[#41207a] border border-white/15"
+                  className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-semibold text-white bg-white/10 border border-white/20"
             >
               Play
             </a>
             <a
               href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
               rel="noreferrer noopener"
-                  className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-black text-[#03082F] bg-gradient-to-b from-[#98FFF9] to-[#B591F2]"
+                  className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-semibold text-[#03082F] bg-gradient-to-b from-[#A9FFF6] to-[#8EECE6] border border-white/20"
             >
               Buy
             </a>
@@ -910,7 +916,7 @@ function Homepagemcrt() {
                   2025 – 2026
                 </div>
                 <p className="mx-auto mt-4 max-w-2xl text-center text-xs font-medium tracking-wider text-white/50 uppercase">
-                  Our devs are non-stop coding with Cursor, Gemini Pro 3, ChatGPT 5.3 & Opus 4.6
+                  Actively in development with modern AI-assisted workflows
                 </p>
               </div>
               <div className="flex items-center justify-center">

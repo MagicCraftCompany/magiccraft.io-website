@@ -215,6 +215,7 @@ export default function LiveSupportWidget() {
                     type="button"
                     onClick={clearChat}
                     disabled={busy}
+                    aria-label="Clear chat history"
                     className="text-[11px] px-2 py-1 rounded-md border border-white/15 bg-white/5 text-white/70 hover:text-white hover:border-white/25 hover:bg-white/10 disabled:opacity-50"
                   >
                     Clear

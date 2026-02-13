@@ -27,7 +27,7 @@ export const roadmapData: RoadmapDataType = [
           'NFT Marketplace + Genesis/Revelation NFTs',
           'Craft & Sell Marketplace',
           'AI agents live across the ecosystem',
-          'AI products live (Akyn, Merlin AI, DocAI, Polybilities, SocialMM, DragonList)',
+          'AI products live across the ecosystem',
           'AI wallet integrations live for utility and gameplay',
           'OpenClaw wrapped technologies live',
           'Akyn (akyn.pro)',
