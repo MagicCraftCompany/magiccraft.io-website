@@ -26,6 +26,10 @@ export const roadmapData: RoadmapDataType = [
         features: [
           'NFT Marketplace + Genesis/Revelation NFTs',
           'Craft & Sell Marketplace',
+          'AI agents live across the ecosystem',
+          'AI products live (Akyn, Merlin AI, DocAI, Polybilities, SocialMM, DragonList)',
+          'AI wallet integrations live for utility and gameplay',
+          'OpenClaw wrapped technologies live',
           'Akyn (akyn.pro)',
           'Merlin AI (merlintheai.com)',
           'DocAI (docai.live)',
@@ -78,6 +82,10 @@ export const roadmapData: RoadmapDataType = [
           'Smart matchmaking based on skill and playstyle',
           'Dynamic difficulty adjustment for optimal engagement',
           'In-game AI assistants and coaching',
+          'AI agents for gameplay, support, and creator workflows',
+          'AI products suite growth (Akyn, Merlin, DocAI, Polybilities)',
+          'AI wallet experiences for pledging and in-game utility',
+          'OpenClaw wrapped technologies rollout',
         ],
       },
       {
