@@ -591,6 +591,22 @@ function Homepagemcrt() {
                   </a>
                 </div>
               </div>
+              <div className="mt-6 rounded-2xl border border-[#98FFF9]/25 bg-gradient-to-r from-[#0b1138]/85 via-[#151042]/80 to-[#1f124a]/80 p-4 sm:p-5 md:p-6">
+                <div className="flex flex-col gap-2 sm:gap-3">
+                  <p className="text-[11px] sm:text-xs uppercase tracking-[0.18em] text-[#98FFF9]/80">
+                    Internal AI Operations
+                  </p>
+                  <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
+                    MerlinTheAI + Merlinbot powered by OpenClaw enterprise-grade AI agents
+                  </h4>
+                  <p className="text-sm sm:text-base text-white/80 leading-relaxed">
+                    Our team runs <span className="text-white font-semibold">merlintheai.com</span> and
+                    <span className="text-white font-semibold"> Merlinbot</span> directly in internal chats and team groups as AI teammates.
+                    These agents help coordinate operations, schedule meetings automatically across multiple chats,
+                    route tasks, and keep execution moving.
+                  </p>
+                </div>
+              </div>
               <div className="text-center text-xs text-white/60">
                 Powered by $MCRT • AI + Crypto since 2021
               </div>
