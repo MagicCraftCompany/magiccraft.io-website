@@ -30,21 +30,6 @@ const Careers = lazy(() => import("./pages/Careers"));
 import { BUILD_REV } from './version'
 import LiveSupportWidget from './components/LiveSupport/LiveSupportWidget'
 
-// const handleBuyMCRT = async () => {
-//   try {
-//     const transactions = await openTransactionModal({
-//       integratorId: "34808808c1f4ae4533b7",
-//       dstChain: "56",
-//       dstToken: "0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f",
-//       srcChain: "56",
-//       srcToken: "0x0000000000000000000000000000000000000000",
-//       defaultWalletPicker: true,
-//     });
-//   } catch (error) {
-//     console.error("XPay transaction failed:", error);
-//   }
-// };
-
 function App() {
   return (
     <BrowserRouter>

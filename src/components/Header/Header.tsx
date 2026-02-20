@@ -104,38 +104,9 @@ export type SubMenuProps = {
   isXswap?: boolean
   onClick?: () => void
 }
-// const handleBuyMCRT = async () => {
-//   const ua = navigator.userAgent || (navigator as any).vendor
-//   const isIOS = /iPad|iPhone|iPod/.test(ua)
-//   if (isIOS) {
-//     window.location.href = 'https://www.bybit.com/en/trade/spot/MCRT/USDT'
-//     return
-//   }
-//   try {
-//     await openTransactionModal({
-//       integratorId: "34808808c1f4ae4533b7",
-//       dstChain: "56",
-//       dstToken: "0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f",
-//       srcChain: "56",
-//       srcToken: "0x0000000000000000000000000000000000000000",
-//       defaultWalletPicker: true,
-//     });
-//   } catch (error) {
-//     console.error("XPay transaction failed:", error);
-//   }
-// };
+// Unused XSwap import removed
 
-function openGameByDevice() {
-  if (typeof window === 'undefined') return
-  const ua = navigator.userAgent || navigator.vendor || (window as any).opera
-  const isIOS = /iPad|iPhone|iPod/.test(ua)
-  const isAndroid = /Android/.test(ua)
-  const iosUrl = 'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
-  const androidUrl = 'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
-  const pcUrl = 'https://store.steampowered.com/app/2395760/MagicCraft/'
-  const url = isIOS ? iosUrl : isAndroid ? androidUrl : pcUrl
-  window.open(url, '_blank', 'noopener,noreferrer')
-}
+import { openGameByDevice } from '@/lib/gameActions'
 
 const commonMenuItemsNew: NavMenuItemProps[] = [
   {

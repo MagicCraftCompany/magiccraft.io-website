@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useMcrtPrice } from '@/lib/useMcrtPrice'
+import { useCopyToClipboard } from '@/hooks/useCopyToClipboard'
+import { MCRT_CONTRACT, BYBIT_URL, PANCAKESWAP_URL } from '@/constants'
 
 export default function BuyFloat() {
   const [open, setOpen] = useState(false)
   const [visible, setVisible] = useState(false)
-  const [copied, setCopied] = useState(false)
+  const { copied, copy } = useCopyToClipboard()
   const { price } = useMcrtPrice(180_000)
   
   useEffect(() => {
@@ -16,12 +18,6 @@ export default function BuyFloat() {
     handleScroll() // Check initial position
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  useEffect(() => {
-    if (!copied) return
-    const id = window.setTimeout(() => setCopied(false), 1800)
-    return () => window.clearTimeout(id)
-  }, [copied])
   
   if (!visible) return null
   
@@ -39,12 +35,11 @@ export default function BuyFloat() {
         <div className="absolute right-0 bottom-full mb-2 w-[280px] sm:w-[320px] rounded-xl glass-surface glass-strong shadow-2xl p-3 animate-fade-in">
           <div className="text-sm text-white/85 mb-2 font-semibold">Choose where to buy</div>
           <div className="grid grid-cols-1 gap-2">
-            <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener" className="btn-primary w-full text-center">Bybit (Spot)</a>
-            <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="btn-secondary w-full text-center">PancakeSwap</a>
+            <a href={BYBIT_URL} target="_blank" rel="noreferrer noopener" className="btn-primary w-full text-center">Bybit (Spot)</a>
+            <a href={PANCAKESWAP_URL} target="_blank" rel="noreferrer noopener" className="btn-secondary w-full text-center">PancakeSwap</a>
             <button
               onClick={() => {
-                navigator.clipboard.writeText('0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f')
-                setCopied(true)
+                copy(MCRT_CONTRACT)
                 setOpen(false)
               }}
               className="w-full px-3 py-2 rounded-lg bg-white/10 border border-white/15 hover:bg-white/15 text-white text-sm active:scale-[0.99]"

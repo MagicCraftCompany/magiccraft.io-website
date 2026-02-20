@@ -1,0 +1,6 @@
+export const MCRT_CONTRACT = '0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f'
+export const BYBIT_URL = 'https://www.bybit.com/en/trade/spot/MCRT/USDT'
+export const PANCAKESWAP_URL = 'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f'
+export const IOS_APP_URL = 'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
+export const ANDROID_APP_URL = 'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
+export const PC_GAME_URL = 'https://store.steampowered.com/app/2395760/MagicCraft/'

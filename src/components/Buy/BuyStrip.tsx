@@ -1,24 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useMcrtPrice } from '@/lib/useMcrtPrice'
+import { useCopyToClipboard } from '@/hooks/useCopyToClipboard'
+import { MCRT_CONTRACT } from '@/constants'
 
 export default function BuyStrip() {
   const { price, loading, refresh } = useMcrtPrice(120_000)
-  const [copied, setCopied] = useState(false)
+  const { copied, copy } = useCopyToClipboard()
 
   useEffect(() => {
     const id = setInterval(refresh, 120_000)
     return () => clearInterval(id)
   }, [refresh])
 
-  const copyContract = async () => {
-    try {
-      await navigator.clipboard.writeText('0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f')
-      setCopied(true)
-      window.setTimeout(() => setCopied(false), 1800)
-    } catch {
-      setCopied(false)
-    }
-  }
+  const copyContract = () => copy(MCRT_CONTRACT)
 
   const priceText = price ? `$${price.usd.toFixed(5)}${price.usd_24h_change !== undefined ? ` (${price.usd_24h_change >= 0 ? '+' : ''}${price.usd_24h_change.toFixed(2)}%)` : ''}` : loading ? '—' : '—'
 

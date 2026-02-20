@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useRef, useState } from 'react'
+import { Fragment, useCallback, useEffect, useState } from 'react'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import steam from '@/assets/icons/icon-steam.svg'
@@ -17,57 +17,21 @@ import EcosystemMindMap from '@/components/EcosystemMindMap'
 import Partners from '@/components/Partners/Partners'
 import { Helmet } from 'react-helmet-async'
 import bnbLogo from '../assets/icons/bnblogo.svg'
-import { openTransactionModal } from '@xswap-link/sdk'
-import { openExternalLink } from '@/lib/utils'
+import { openGameByDevice, handleBuyMCRT } from '@/lib/gameActions'
+import { useCopyToClipboard } from '@/hooks/useCopyToClipboard'
+import { MCRT_CONTRACT } from '@/constants'
+
+import AIIntegrationSection from '@/components/Home/AIIntegrationSection'
+import HeroSection from '@/components/Home/HeroSection'
 
 function Homepagemcrt() {
-  const heroVideoRef = useRef<HTMLVideoElement | null>(null)
   const [visibleCount] = useState(ourteam.length)
-  const [contractCopied, setContractCopied] = useState(false)
-
+  const { copied: contractCopied, copy: copyContractAction } = useCopyToClipboard()
 
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
   }
 
-  const openGameByDevice = () => {
-    if (typeof window === 'undefined') return
-    const ua = navigator.userAgent || navigator.vendor || (window as any).opera
-    const isIOS = /iPad|iPhone|iPod/.test(ua)
-    const isAndroid = /Android/.test(ua)
-    const iosUrl = 'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
-    const androidUrl = 'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
-    const pcUrl = 'https://store.steampowered.com/app/2395760/MagicCraft/'
-    const url = isIOS ? iosUrl : isAndroid ? androidUrl : pcUrl
-    openExternalLink(url)
-  }
-
-  const handleBuyMCRT = async () => {
-    const ua = navigator.userAgent || navigator.vendor
-    const isIOS = /iPad|iPhone|iPod/.test(ua)
-    // Fallback to dedicated page on iOS Safari where popups might be blocked
-    if (isIOS) {
-      window.location.href = 'https://www.bybit.com/en/trade/spot/MCRT/USDT'
-      return
-    }
-    try {
-      await openTransactionModal({
-        integratorId: '34808808c1f4ae4533b7',
-        dstChain: '56',
-        dstToken: '0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f',
-        srcChain: '56',
-        srcToken: '0x0000000000000000000000000000000000000000',
-        defaultWalletPicker: true,
-      })
-    } catch {
-      openExternalLink('https://www.bybit.com/en/trade/spot/MCRT/USDT')
-    }
-  }
-
-  const openLiveSupport = () => {
-    if (typeof window === 'undefined') return
-    window.dispatchEvent(new CustomEvent('mc:live-support:open'))
-  }
 
   const kolTeam = ourteam.filter((member) => member.category === 'KOL')
   const teamMembers = ourteam.filter((member) => member.category === 'Team')
@@ -83,45 +47,6 @@ function Homepagemcrt() {
     })
   }, [])
 
-  // Ensure hero background video autoplay/loops reliably across browsers
-  useEffect(() => {
-    const video = heroVideoRef.current
-    if (!video) return
-    try {
-      video.muted = true
-      ;(video as any).playsInline = true
-    } catch {}
-
-    const tryPlay = () => {
-      const p = video.play()
-      if (p && typeof p.catch === 'function') {
-        p.catch(() => {})
-      }
-    }
-
-    const onVisibility = () => {
-      if (!document.hidden) tryPlay()
-    }
-    const onPause = () => {
-      // If it pauses unexpectedly, resume
-      tryPlay()
-    }
-    const onEnded = () => {
-      video.currentTime = 0
-      tryPlay()
-    }
-
-    tryPlay()
-    document.addEventListener('visibilitychange', onVisibility)
-    video.addEventListener('pause', onPause)
-    video.addEventListener('ended', onEnded)
-
-    return () => {
-      document.removeEventListener('visibilitychange', onVisibility)
-      video.removeEventListener('pause', onPause)
-      video.removeEventListener('ended', onEnded)
-    }
-  }, [])
 
   useEffect(() => {
     adjustDividerHeight()
@@ -147,15 +72,7 @@ function Homepagemcrt() {
       'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
   }
 
-  const copyContractAddress = async () => {
-    try {
-      await navigator.clipboard.writeText('0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f')
-      setContractCopied(true)
-      window.setTimeout(() => setContractCopied(false), 1800)
-    } catch {
-      setContractCopied(false)
-    }
-  }
+  const copyContractAddress = () => copyContractAction(MCRT_CONTRACT)
 
   return (
     <>
@@ -216,135 +133,7 @@ function Homepagemcrt() {
         <Header />
         <main className="md:-mt-[80px] scroll-smooth pb-20 w-full max-w-full overflow-x-hidden">
           {/*header*/}
-          <section className="md:min-h-screen relative min-h-[560px] sm:min-h-[650px] md:min-h-[700px] lg:min-h-[750px] xl:min-h-[800px] h-auto bg-cover bg-center overflow-hidden w-full max-w-full">
-            <video
-              ref={heroVideoRef}
-              className="absolute inset-0 h-full w-full object-cover scale-105"
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              controls={false}
-              controlsList="nodownload noplaybackrate noremoteplayback"
-              disablePictureInPicture
-              poster="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
-            >
-              <source
-                src="https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto,q_auto/v1717166775/video_gokp2f.mp4"
-                type="video/mp4"
-              />
-              <source
-                src="https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto,q_auto/v1717166775/video_gokp2f.webm"
-                type="video/webm"
-              />
-            </video>
-            <div className="video-bg-gradient absolute inset-0 h-full w-full bg-gradient-to-b from-black/60 via-black/35 to-black/80"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5 animate-pulse-slow"></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#03082f]/90 via-transparent to-transparent"></div>
-
-            {/* Embedded Ecosystem Mind Map - bottom left of hero */}
-            <div className="hidden sm:block absolute left-[-150px] sm:left-[-150px] md:left-[-90px] bottom-[-110px] sm:bottom-[-110px] md:bottom-[-110px] z-30 w-[364px] sm:w-[494px] md:w-[650px] h-[312px] sm:h-[416px] md:h-[546px] pointer-events-auto opacity-70 md:opacity-100">
-              <EcosystemMindMap />
-            </div>
-            
-            <div className="relative z-10 mx-auto max-w-screen-xl h-full w-full px-3 sm:px-4">
-              <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 sm:gap-4 md:gap-4 lg:gap-5 pt-14 sm:pt-16 md:pt-[4.5rem] lg:pt-20 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
-                <div className="w-full max-w-[30%] sm:max-w-[25%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-1 sm:mt-2 md:mt-3 lg:mt-4 group">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 animate-pulse-slow"></div>
-                    <img
-                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp"
-                    alt="MCRT Token"
-                      loading="eager"
-                      className="relative w-full h-auto drop-shadow-2xl hover:scale-110 transition-all duration-500 hover:rotate-3"
-                  />
-                </div>
-                  </div>
-                
-                <div className="text-center gap-section animate-slide-up mt-2 sm:mt-3 md:mt-5 lg:mt-6 xl:mt-8 px-4 sm:px-6 md:px-8">
-                  <div className="flex justify-center mb-3 sm:mb-4 md:mb-6">
-                    <img 
-                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"  
-                      alt="MagicCraft Logo"
-                      loading="eager"
-                      className="w-full max-w-[280px] sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-xl"
-                    />
-                  </div>
-                  <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wide drop-shadow-2xl leading-tight break-words hyphens-none">
-                    THE CURRENCY OF GAMING & AI
-                </h1>
-                  <p className="mt-3 max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
-                    Fast, low‑fee on‑chain currency on BNB Chain powering rewards, creator payouts,
-                    and in‑game commerce across the MagicCraft universe.
-                  </p>
-                  {/* Mobile: compact 3-CTA row */}
-                  <div className="mt-4 sm:mt-5 w-full max-w-[520px] mx-auto sm:hidden">
-                    <div className="grid grid-cols-3 gap-2">
-                      <button
-                        onClick={openGameByDevice}
-                        className="h-10 rounded-md bg-gradient-to-b from-[#6b3db2] to-[#41207a] text-white text-sm font-semibold border border-white/15 shadow-lg hover:brightness-110 active:scale-[0.99] ripple-effect"
-                        aria-label="Play MagicCraft now"
-                      >
-                        Play
-                      </button>
-                      <button
-                        onClick={openLiveSupport}
-                        className="h-10 rounded-md bg-white/10 text-white text-sm font-semibold border border-white/15 backdrop-blur-md shadow-lg hover:bg-white/15 active:scale-[0.99]"
-                        aria-label="Open Live Support chat"
-                      >
-                        Live Chat
-                      </button>
-                      <button
-                        onClick={handleBuyMCRT}
-                        className="h-10 rounded-md bg-gradient-to-b from-[#A9FFF6] to-[#82E7E0] text-[#071033] text-sm font-semibold border border-white/20 shadow-lg hover:brightness-105 active:scale-[0.99] ripple-effect"
-                        aria-label="Buy MCRT tokens"
-                      >
-                        Buy
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Tablet/Desktop: original CTAs */}
-                  <div className="hidden sm:flex mt-4 sm:mt-5 flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                    <button
-                      onClick={openGameByDevice}
-                      className="header-cta header-cta--play interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 text-base sm:text-lg"
-                      aria-label="Play MagicCraft now"
-                    >
-                      Play Now
-                    </button>
-                    <button
-                      onClick={handleBuyMCRT}
-                      className="header-cta header-cta--buy interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 text-base sm:text-lg"
-                      aria-label="Buy MCRT tokens"
-                    >
-                      Buy $MCRT
-                    </button>
-                  </div>
-                  {/* Trust badges */}
-                  <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3 opacity-90">
-                    <span className="text-xs text-white/70">Listed on</span>
-                    <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 transition-opacity">
-                      <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-5 sm:h-6 opacity-90" loading="lazy" />
-                    </a>
-                    <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 transition-opacity">
-                      <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-5 sm:h-6 opacity-90" loading="lazy" />
-                    </a>
-                    <a href="https://www.htx.com/trade/mcrt_usdt" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 transition-opacity">
-                      <img src="/icons/icon-huobi.svg" alt="HTX" className="h-5 sm:h-6 opacity-90" loading="lazy" />
-                    </a>
-            </div>
-                </div>
-              </div>
-             </div>
-           
-            {/* Download row moved below hero */}
-            {/* Scroll cue */}
-            <a href="#mcrt-payments" className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-6 inline-flex items-center justify-center w-10 h-10 rounded-full glass-strong hover:bg-white/10 border border-white/20" aria-label="Scroll to $MCRT payments">
-              <svg className="w-5 h-5 text-white/85" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 15.5a1 1 0 0 1-.7-.29l-6-6a1 1 0 1 1 1.4-1.42L12 13.08l5.3-5.29a1 1 0 1 1 1.4 1.42l-6 6a1 1 0 0 1-.7.29Z"/></svg>
-            </a>
-          </section>
+          <HeroSection />
 
           {/* Mobile mind map section */}
           <section className="sm:hidden w-full bg-gradient-to-b from-[#0a0524] via-[#050317] to-[#03082f] border-t border-white/5">
@@ -484,133 +273,7 @@ function Homepagemcrt() {
                     </div>
 
           {/* AI Integration Section */}
-          <section className="relative w-full bg-gradient-to-b from-[#050317] via-[#0a0524] to-[#03082f] py-12 md:py-16 lg:py-20">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FFB649]/5 to-[#B591F2]/5"></div>
-            <div className="relative z-10 mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6">
-              <div className="text-center mb-6 md:mb-8">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#FFB649] via-[#B591F2] to-[#98FFF9] bg-clip-text text-transparent mb-4">
-                  AI-POWERED ECOSYSTEM
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-                  $MCRT powers in-game AI and the MagicCraft AI product suite, led by Akyn and Merlin.
-                </p>
-            </div>
-              
-              {/* External AI Products */}
-              <div className="mb-6">
-                <h3 className="text-lg sm:text-xl font-semibold text-white/80 mb-4 flex items-center gap-2">
-                  <span className="w-8 h-[2px] bg-gradient-to-r from-[#98FFF9] to-transparent"></span>
-                  AI Product Suite
-                  </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-                  {/* Akyn */}
-                  <a href="https://www.akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#98FFF9]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <img
-                        src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://akyn.pro&size=128"
-                        alt="Akyn"
-                        className="w-12 h-12 rounded-md object-contain"
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                        onError={(e) => { e.currentTarget.src = '/favicon.ico' }}
-                      />
-                      <div>
-                        <h4 className="text-xl font-bold text-white group-hover:text-[#98FFF9] transition-colors">Akyn</h4>
-                        <span className="text-xs text-[#98FFF9] font-medium">akyn.pro</span>
-                </div>
-                    </div>
-                    <p className="text-sm text-gray-300 leading-relaxed">
-                      AI shorts & video maker for social content.
-                    </p>
-                  </a>
-
-                  {/* MerlinAI */}
-                  <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#B591F2]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <img
-                        src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://merlintheai.com&size=128"
-                        alt="Merlin AI"
-                        className="w-12 h-12 rounded-md object-contain"
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                        onError={(e) => {
-                          e.currentTarget.src = '/favicon.ico'
-                        }}
-                      />
-                      <div>
-                        <h4 className="text-xl font-bold text-white group-hover:text-[#B591F2] transition-colors">Merlin AI</h4>
-                        <span className="text-xs text-[#98FFF9] font-medium">merlintheai.com</span>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-300 leading-relaxed">
-                      AI assistant with voice, image gen, investing tools, and smart routing.
-                    </p>
-                  </a>
-
-                  {/* DocAI */}
-                  <a href="https://docai.live" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#10B981]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <img
-                        src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://docai.live&size=128"
-                        alt="DocAI"
-                        className="w-12 h-12 rounded-md object-contain"
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                        onError={(e) => { e.currentTarget.src = '/favicon.ico' }}
-                      />
-                      <div>
-                        <h4 className="text-xl font-bold text-white group-hover:text-[#10B981] transition-colors">DocAI</h4>
-                        <span className="text-xs text-[#98FFF9] font-medium">docai.live</span>
-                  </div>
-                </div>
-                    <p className="text-sm text-gray-300 leading-relaxed">
-                      24/7 AI wellness assistant with personalized guidance.
-                    </p>
-                  </a>
-
-                  {/* Polybilities */}
-                  <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#FFB649]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <img
-                        src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://polybilities.com&size=128"
-                        alt="Polybilities"
-                        className="w-12 h-12 rounded-md object-contain"
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                        onError={(e) => { e.currentTarget.src = '/favicon.ico' }}
-                      />
-                      <div>
-                        <h4 className="text-xl font-bold text-white group-hover:text-[#FFB649] transition-colors">Polybilities</h4>
-                        <span className="text-xs text-[#98FFF9] font-medium">polybilities.com</span>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-300 leading-relaxed">
-                      Prediction markets with AI odds, real-time updates, and $MCRT rewards.
-                    </p>
-                  </a>
-                </div>
-              </div>
-              <div className="mt-6 rounded-2xl border border-[#98FFF9]/25 bg-gradient-to-r from-[#0b1138]/85 via-[#151042]/80 to-[#1f124a]/80 p-4 sm:p-5 md:p-6">
-                <div className="flex flex-col gap-2 sm:gap-3">
-                  <p className="text-[11px] sm:text-xs uppercase tracking-[0.18em] text-[#98FFF9]/80">
-                    Internal AI Operations
-                  </p>
-                  <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
-                    MerlinTheAI + Merlinbot powered by OpenClaw enterprise-grade AI agents
-                  </h4>
-                  <p className="text-sm sm:text-base text-white/80 leading-relaxed">
-                    Our team runs <span className="text-white font-semibold">merlintheai.com</span> and
-                    <span className="text-white font-semibold"> Merlinbot</span> directly in internal chats and team groups as AI teammates.
-                    These agents help coordinate operations, schedule meetings automatically across multiple chats,
-                    route tasks, and keep execution moving.
-                  </p>
-                </div>
-              </div>
-              <div className="text-center text-xs text-white/60">
-                Powered by $MCRT • AI + Crypto since 2021
-              </div>
-            </div>
-          </section>
+          <AIIntegrationSection />
 
         {/* Genesis NFTs — Earnings Tiers */}
         <GenesisNFTs />
