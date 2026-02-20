@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header"
 import { LobbyChart } from "@/components/ui/lobbyChart"
 import { SmallChart } from "@/components/ui/small-chart"
 import { StatRow, StatsCard } from "@/components/ui/stats"
+import { Helmet } from 'react-helmet-async'
 
 
 // Sample data - replace with real data
@@ -48,6 +49,10 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-dvh w-full text-white ">
+      <Helmet>
+        <title>Dashboard | MagicCraft Statistics</title>
+        <meta name="description" content="View live statistics, lobby data, user pledges, and ecosystem analytics for MagicCraft." />
+      </Helmet>
       <Header/>
 
       {/* Banner Section */}
@@ -57,7 +62,7 @@ export default function Dashboard() {
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732728187/Image_4_a6xltr.webp"
           className="hidden lg:block"
           alt="verify banner"
-         
+          loading="lazy"
         />
 
         {/* Tablet Image */}
@@ -65,7 +70,7 @@ export default function Dashboard() {
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732728036/Image_6_mts4sr.webp"
           className="hidden md:block lg:hidden"
           alt="verify banner"
-        
+          loading="lazy"
         />
 
         {/* Mobile Image */}
@@ -73,7 +78,7 @@ export default function Dashboard() {
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732728028/Image_5_caa7pl.webp"
           className="block md:hidden"
           alt="verify banner"
-          
+          loading="lazy"
         />
 
         {/* Overlay Title */}

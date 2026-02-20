@@ -407,8 +407,8 @@ export default function MagicraftDownload() {
                         >
                             <img 
                               src={l.icon} 
-                              alt="" 
-                              aria-hidden="true"
+                              alt={l.tooltip.title || 'Feature icon'} 
+                              aria-hidden="false"
                               className="w-7 h-7 sm:w-8 sm:h-8 object-contain transition-all duration-300" 
                               loading="lazy"
                               style={{

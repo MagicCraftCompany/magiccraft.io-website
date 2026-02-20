@@ -1,9 +1,14 @@
 import Header from "@/components/Header/Header";
 import HoldersTable from "@/components/TopHoldersTable";
+import { Helmet } from 'react-helmet-async'
 
 function HoldersPage(){
     return(
         <div className="min-h-dvh w-full text-white ">
+        <Helmet>
+          <title>Top Holders | MagicCraft</title>
+          <meta name="description" content="View the top $MCRT token holders. Community members who hold the most MCRT are entitled to fight for the title." />
+        </Helmet>
         <Header />
         <div className="relative">
         {/* Desktop Image */}
@@ -11,7 +16,7 @@ function HoldersPage(){
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732780930/Image_9_rqkm4a.webp"
           className="hidden lg:block"
           alt="verify banner"
-         
+          loading="lazy"
         />
 
         {/* Tablet Image */}
@@ -19,7 +24,7 @@ function HoldersPage(){
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732780930/Image_10_iorpxg.webp"
           className="hidden md:block lg:hidden"
           alt="verify banner"
-        
+          loading="lazy"
         />
 
         {/* Mobile Image */}
@@ -27,7 +32,7 @@ function HoldersPage(){
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732780930/Image_11_fmkaef.webp"
           className="block md:hidden"
           alt="verify banner"
-          
+          loading="lazy"
         />
 
         {/* Overlay Title */}

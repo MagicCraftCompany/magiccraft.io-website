@@ -53,7 +53,9 @@ export default function MentionsStrip() {
           setMentions(list)
         }
       } catch (e: any) {
-        console.error('Error loading mentions:', e)
+        if (import.meta.env.DEV) {
+          console.error('Error loading mentions:', e)
+        }
         setError(e?.message || 'Failed to load mentions')
       }
     }

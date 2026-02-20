@@ -1,8 +1,19 @@
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 
 function Careers() {
   return (
     <main className="safe-padded container mx-auto container-padding section-padding">
+      <Helmet>
+        <title>Careers at MagicCraft – Join Our Team</title>
+        <meta name="description" content="Join MagicCraft's team. We're hiring marketers and developers who are crypto-native, AI-first, and product-minded." />
+        <link rel="canonical" href="https://magiccraft.io/careers" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://magiccraft.io/careers" />
+        <meta property="og:title" content="Careers at MagicCraft" />
+        <meta property="og:description" content="Join MagicCraft's team. We're hiring marketers and developers." />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Helmet>
       <div className="mb-4">
         <Link to="/" className="chip-cta no-underline inline-flex items-center gap-2" aria-label="Back to Home">
           <span>←</span>

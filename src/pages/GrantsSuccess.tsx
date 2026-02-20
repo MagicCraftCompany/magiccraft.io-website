@@ -1,9 +1,14 @@
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
+import { Helmet } from 'react-helmet-async'
 
 export default function GrantsSuccess() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#0A0726] via-[#120a3a] to-[#0A0726] text-white">
+      <Helmet>
+        <title>Application Received | MagicCraft Grants</title>
+        <meta name="description" content="Thank you for applying to the MagicCraft grants program. Our team will review your submission and contact you shortly." />
+      </Helmet>
       <Header />
       <main className="flex-1 safe-padded">
         <section className="max-w-3xl mx-auto px-4 sm:px-6 py-16 text-center">
