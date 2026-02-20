@@ -24,7 +24,11 @@ export default function BuyStrip() {
             <div className="rounded-lg bg-white/5 border border-white/10 px-2.5 py-1.5 flex-shrink-0">
               <span className="text-xs text-white/70">MCRT</span>
             </div>
-            <div className="text-sm sm:text-base text-white/85 min-w-0">
+            <div className="flex items-center gap-2 text-sm sm:text-base text-white/85 min-w-0">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#98FFF9] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#98FFF9]"></span>
+              </span>
               Live price:{' '}
               <span className="font-semibold text-[#98FFF9] drop-shadow-sm" title={priceText}>
                 {priceText}

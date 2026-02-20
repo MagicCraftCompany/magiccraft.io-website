@@ -92,7 +92,7 @@ export default function HeroSection() {
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp"
               alt="MCRT Token"
                 loading="eager"
-                className="relative w-full h-auto drop-shadow-2xl hover:scale-110 transition-all duration-500 hover:rotate-3"
+                className="relative w-full h-auto drop-shadow-2xl animate-float hover:scale-110 transition-all duration-500 hover:rotate-3"
             />
           </div>
             </div>
@@ -118,7 +118,7 @@ export default function HeroSection() {
               <div className="grid grid-cols-3 gap-2">
                 <button
                   onClick={openGameByDevice}
-                  className="h-10 rounded-md bg-gradient-to-b from-[#6b3db2] to-[#41207a] text-white text-sm font-semibold border border-white/15 shadow-lg hover:brightness-110 active:scale-[0.99] ripple-effect"
+                  className="h-10 rounded-md bg-gradient-to-r from-[#98FFF9] to-[#B591F2] text-[#03082F] text-sm font-bold border border-white/15 shadow-[0_0_15px_rgba(152,255,249,0.3)] hover:brightness-110 active:scale-[0.99] ripple-effect"
                   aria-label="Play MagicCraft now"
                 >
                   Play
@@ -141,17 +141,17 @@ export default function HeroSection() {
             </div>
 
             {/* Tablet/Desktop: original CTAs */}
-            <div className="hidden sm:flex mt-4 sm:mt-5 flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <div className="hidden sm:flex mt-6 sm:mt-8 flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <button
                 onClick={openGameByDevice}
-                className="header-cta header-cta--play interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 text-base sm:text-lg"
+                className="cta-premium shadow-[0_0_30px_rgba(152,255,249,0.3)] w-full sm:w-auto min-w-[220px]"
                 aria-label="Play MagicCraft now"
               >
                 Play Now
               </button>
               <button
                 onClick={handleBuyMCRT}
-                className="header-cta header-cta--buy interactive-scale ripple-effect w-full sm:w-auto min-w-[180px] px-8 text-base sm:text-lg"
+                className="btn-secondary w-full sm:w-auto min-w-[220px] py-4 text-lg border border-white/20 hover:border-[#98FFF9]/50"
                 aria-label="Buy MCRT tokens"
               >
                 Buy $MCRT
