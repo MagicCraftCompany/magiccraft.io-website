@@ -18,6 +18,7 @@ interface SanityBlock {
   _type: string;
   children?: SanityTextChild[];
   style?: string;
+  alt?: string;
   asset?: {
     _ref: string;
   };
@@ -162,8 +163,9 @@ export default function BlogPost() {
                     <div key={i} className="my-8">
                       <img 
                         src={imageUrl} 
-                        alt="Blog content" 
+                        alt={block.alt || `Blog post image ${i + 1}`} 
                         className="rounded-lg w-full h-auto max-h-[600px] object-contain"
+                        loading="lazy"
                       />
                     </div>
                   );

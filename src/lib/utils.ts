@@ -9,3 +9,11 @@ export function titleKeyMaper(i: number){
   if(i===1) return 'Game Content'
   if(i===2) return 'WEB3 SERVICES'
 }
+
+export const openExternalLink = (url: string, target: '_blank' | '_self' = '_blank') => {
+  if (target === '_blank') {
+    window.open(url, target, 'noopener,noreferrer')
+  } else {
+    window.location.href = url
+  }
+}

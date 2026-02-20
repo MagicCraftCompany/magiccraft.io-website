@@ -405,15 +405,16 @@ export default function MagicraftDownload() {
                             border: `1px solid ${l.glowColor}40`
                           }}
                         >
-                          <img 
-                            src={l.icon} 
-                            alt={l.title} 
-                            className="w-7 h-7 sm:w-8 sm:h-8 object-contain transition-all duration-300" 
-                            loading="lazy"
-                            style={{
-                              filter: isHovered ? `drop-shadow(0 0 8px ${l.glowColor})` : 'none'
-                            }}
-                          />
+                            <img 
+                              src={l.icon} 
+                              alt="" 
+                              aria-hidden="true"
+                              className="w-7 h-7 sm:w-8 sm:h-8 object-contain transition-all duration-300" 
+                              loading="lazy"
+                              style={{
+                                filter: isHovered ? `drop-shadow(0 0 8px ${l.glowColor})` : 'none'
+                              }}
+                            />
                         </div>
                       </div>
                       

@@ -601,7 +601,7 @@ const Header = () => {
                 rel="noreferrer noopener"
                 className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/80 text-sm hover:bg-white/10 transition-all"
               >
-                <img src={leaderboard} alt="" className="w-4 h-4 opacity-80" />
+                <img src={leaderboard} alt="" className="w-4 h-4 opacity-80" aria-hidden="true" />
                 <span>Ranks</span>
               </a>
               <a
@@ -610,7 +610,7 @@ const Header = () => {
                 rel="noreferrer noopener"
                 className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/80 text-sm hover:bg-white/10 transition-all"
               >
-                <img src={stats} alt="" className="w-4 h-4 opacity-80" />
+                <img src={stats} alt="" className="w-4 h-4 opacity-80" aria-hidden="true" />
                 <span>Stats</span>
               </a>
             </div>
@@ -635,7 +635,7 @@ const Header = () => {
                       rel="noreferrer noopener"
                       className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all"
                     >
-                      <img src={item.icon} alt="" className="w-5 h-5 opacity-70" />
+                      <img src={item.icon} alt="" className="w-5 h-5 opacity-70" aria-hidden="true" />
                       <p className="text-base font-medium text-white/90">{item.title}</p>
                     </a>
                   ) : (
@@ -645,7 +645,7 @@ const Header = () => {
                       to={item.path || '/'}
                       className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all"
                     >
-                      <img src={item.icon} alt="" className="w-5 h-5 opacity-70" />
+                      <img src={item.icon} alt="" className="w-5 h-5 opacity-70" aria-hidden="true" />
                       <p className="text-base font-medium text-white/90">{item.title}</p>
                     </Link>
                   )

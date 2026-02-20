@@ -73,6 +73,8 @@ export default function ChooseYourHero() {
       <Helmet>
         <title>Choose Your Hero - Hero Selector</title>
         <meta name="description" content="Select your hero for epic battles in the game." />
+        <meta property="og:description" content="Browse and select from diverse heroes with unique abilities in MagicCraft. Each hero offers distinct playstyles and devastating ultimates." />
+        <meta name="twitter:description" content="Browse and select from diverse heroes with unique abilities in MagicCraft." />
       </Helmet>
       <Header />
       <main className="scroll-smooth pb-32">

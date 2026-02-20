@@ -17,7 +17,7 @@ const NavMenuMobile = ({ item, closeSidebar }: NavMenuProps) => {
         <div className="flex items-center gap-3">
           {item.icon && (
             <div className="w-8 h-8 rounded-md bg-white/5 flex items-center justify-center">
-              <img src={item.icon} alt="" className="w-4 h-4 opacity-80" />
+              <img src={item.icon} alt="" className="w-4 h-4 opacity-80" aria-hidden="true" />
             </div>
           )}
           <span className="text-base font-semibold text-white/90">{item.title}</span>

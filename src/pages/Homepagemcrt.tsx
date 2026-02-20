@@ -18,8 +18,7 @@ import Partners from '@/components/Partners/Partners'
 import { Helmet } from 'react-helmet-async'
 import bnbLogo from '../assets/icons/bnblogo.svg'
 import { openTransactionModal } from '@xswap-link/sdk'
-
-
+import { openExternalLink } from '@/lib/utils'
 
 function Homepagemcrt() {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null)
@@ -40,7 +39,7 @@ function Homepagemcrt() {
     const androidUrl = 'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
     const pcUrl = 'https://store.steampowered.com/app/2395760/MagicCraft/'
     const url = isIOS ? iosUrl : isAndroid ? androidUrl : pcUrl
-    window.open(url, '_blank', 'noopener,noreferrer')
+    openExternalLink(url)
   }
 
   const handleBuyMCRT = async () => {
@@ -61,7 +60,7 @@ function Homepagemcrt() {
         defaultWalletPicker: true,
       })
     } catch {
-      window.open('https://www.bybit.com/en/trade/spot/MCRT/USDT', '_blank', 'noopener,noreferrer')
+      openExternalLink('https://www.bybit.com/en/trade/spot/MCRT/USDT')
     }
   }
 
