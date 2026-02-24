@@ -106,20 +106,39 @@ export default function AIIntegrationSection() {
             </a>
           </div>
         </div>
-        <div className="mt-6 rounded-2xl border border-[#98FFF9]/25 bg-gradient-to-r from-[#0b1138]/85 via-[#151042]/80 to-[#1f124a]/80 p-4 sm:p-5 md:p-6">
-          <div className="flex flex-col gap-2 sm:gap-3">
-            <p className="text-[11px] sm:text-xs uppercase tracking-[0.18em] text-[#98FFF9]/80">
-              Internal AI Operations
-            </p>
-            <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white">
-              MerlinTheAI + Merlinbot powered by OpenClaw enterprise-grade AI agents
-            </h4>
-            <p className="text-sm sm:text-base text-white/80 leading-relaxed">
-              Our team runs <span className="text-white font-semibold">merlintheai.com</span> and
-              <span className="text-white font-semibold"> Merlinbot</span> directly in internal chats and team groups as AI teammates.
-              These agents help coordinate operations, schedule meetings automatically across multiple chats,
-              route tasks, and keep execution moving.
-            </p>
+        <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
+          {/* Internal AI Operations */}
+          <div className="rounded-2xl border border-[#98FFF9]/25 bg-gradient-to-br from-[#0b1138]/85 via-[#151042]/80 to-[#1f124a]/80 p-5 md:p-6 hover:border-[#98FFF9]/40 transition-all duration-300 hover:shadow-[0_0_20px_rgba(152,255,249,0.1)] hover:-translate-y-1">
+            <div className="flex flex-col gap-2 sm:gap-3 h-full">
+              <p className="text-[11px] sm:text-xs uppercase tracking-[0.18em] text-[#98FFF9]/80 font-bold">
+                Internal AI Operations
+              </p>
+              <h4 className="text-lg sm:text-xl font-bold text-white">
+                OpenClaw Enterprise-Grade AI Agents
+              </h4>
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed">
+                Our team runs <span className="text-white font-semibold">merlintheai.com</span> and
+                <span className="text-white font-semibold"> Merlinbot</span> directly in internal chats and team groups as AI teammates.
+                These agents help coordinate operations, schedule meetings automatically across multiple chats,
+                route tasks, and keep execution moving.
+              </p>
+            </div>
+          </div>
+
+          {/* Game Development */}
+          <div className="rounded-2xl border border-[#B591F2]/25 bg-gradient-to-br from-[#12082b]/85 via-[#1a0b38]/80 to-[#220d47]/80 p-5 md:p-6 hover:border-[#B591F2]/40 transition-all duration-300 hover:shadow-[0_0_20px_rgba(181,145,242,0.1)] hover:-translate-y-1">
+            <div className="flex flex-col gap-2 sm:gap-3 h-full">
+              <p className="text-[11px] sm:text-xs uppercase tracking-[0.18em] text-[#B591F2]/80 font-bold">
+                Game Development
+              </p>
+              <h4 className="text-lg sm:text-xl font-bold text-white">
+                Next-Gen AI on a Proven Foundation
+              </h4>
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed">
+                MagicCraft is being built with the latest AI models on top of the old <span className="text-white font-semibold">$2M source (original MagicCraft game) code in Unity</span>. 
+                All our devs are non-stop coding using <span className="text-white font-semibold">Cursor, Codex, or Claude Code</span> with the latest models: <span className="text-white font-semibold">ChatGPT 5.3, Opus 4.6, and Gemini 3.1 Pro</span>.
+              </p>
+            </div>
           </div>
         </div>
         <div className="text-center text-xs text-white/60">

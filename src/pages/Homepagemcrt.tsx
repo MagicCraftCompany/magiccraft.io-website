@@ -161,13 +161,13 @@ function Homepagemcrt() {
                   <div className="text-center lg:text-left max-w-3xl">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[11px] text-white/70 mb-3">
                       <img src={bnbLogo} alt="BNB Chain" className="h-3.5 w-3.5" />
-                      <span>BEP‑20 on BNB Chain</span>
+                      <span>Built on BNB Chain</span>
                     </div>
                     <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
-                      Payments and utility on BNB Chain
+                      Seamless Payments & Ecosystem Utility
                   </h3>
                     <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed">
-                      $MCRT is built for speed and scale. On BNB Chain's BEP‑20 standard,
+                      $MCRT is engineered for speed and scale. Operating on the BEP‑20 standard,
                       payments settle in seconds with fees around a cent and capacity for thousands of transactions per second.
                       Send value instantly between players, power in‑game commerce, and fuel AI-driven experiences across the MagicCraft economy.
                   </p>
@@ -206,29 +206,29 @@ function Homepagemcrt() {
           </section>
           {/* Floating Buy button */}
           <BuyFloat />
-          {/* Credibility Bar - Building since 2021 */}
+          {/* Credibility Bar */}
           <div className="w-full bg-gradient-to-r from-[#98FFF9]/10 via-[#B591F2]/10 to-[#FFB649]/10 border-t border-b border-white/10">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-3 sm:py-4">
               <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-10 text-sm sm:text-base text-white/90">
                 <div className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/></svg>
                   <span><strong>Building since 2021</strong></span>
-                            </div>
+                </div>
                 <div className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                  <span><strong>10 team members</strong></span>
-                            </div>
+                  <span><strong>Global Team</strong></span>
+                </div>
                 <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
-                  <span><strong>17,500+ holders</strong></span>
-                            </div>
+                  <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+                  <span><strong>$2M+ Unity Core</strong></span>
+                </div>
                 <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-                  <span><strong>400K+ community</strong></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                  <span><strong>Next-Gen AI Powered</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Quick Stats strip for buyers */}
           <div className="w-full bg-gradient-to-r from-[#0B0F39] via-[#120e3d] to-[#0B0F39] border-t border-white/5">
@@ -594,7 +594,7 @@ function Homepagemcrt() {
                   2025 – 2026
                 </div>
                 <p className="mx-auto mt-4 max-w-2xl text-center text-xs font-medium tracking-wider text-white/50 uppercase">
-                  Actively in development with modern AI-assisted workflows
+                  Major Milestones & Expansion
                 </p>
               </div>
               <div className="flex items-center justify-center">
