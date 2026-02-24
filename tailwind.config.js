@@ -59,7 +59,7 @@ module.exports = {
         'custom-fade': '#fff',
       },
       fontFamily: {
-        sans: ["'Futura PT'", '"Nunito"', ...defaultTheme.fontFamily.sans],
+        sans: ["'Outfit'", ...defaultTheme.fontFamily.sans],
         serif: ["'Colus'", ...defaultTheme.fontFamily.serif],
         ancient: ['"Font-The Ancient"', ...defaultTheme.fontFamily.serif],
       },

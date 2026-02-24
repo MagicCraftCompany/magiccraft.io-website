@@ -49,7 +49,7 @@ function GamePatch() {
                     GAME UPDATES
                   </span>
                   <div className="mt-4 md:mt-0 md:ml-20 flex flex-row justify-between md:w-6/12 md:justify-end md:text-right">
-                    <span className="font-Futura p-2   text-xl md:w-5/12  md:justify-end md:text-right md:text-2xl">
+                    <span className="font-sans p-2   text-xl md:w-5/12  md:justify-end md:text-right md:text-2xl">
                       v4.20.8577
                     </span>
                     <span className="  items-center justify-center gap-[8px] rounded-[66px] bg-[#20255B] p-2 text-right text-[#98FFF9]  md:px-4 md:ml-7">
@@ -184,7 +184,7 @@ function GamePatch() {
                     GAME UPDATES
                   </span>
                   <div className="mt-4 md:mt-0 md:ml-20 flex flex-row justify-between md:w-6/12 md:justify-end md:text-right">
-                    <span className="font-Futura p-2   text-xl md:w-5/12  md:justify-end md:text-right md:text-2xl">
+                    <span className="font-sans p-2   text-xl md:w-5/12  md:justify-end md:text-right md:text-2xl">
                       v4.20.8577
                     </span>
                     <span className="  items-center justify-center gap-[8px] rounded-[66px] bg-[#20255B] p-2 text-right text-[#98FFF9]  md:px-4 md:ml-7">
