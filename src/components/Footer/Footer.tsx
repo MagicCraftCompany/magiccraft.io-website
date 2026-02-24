@@ -119,7 +119,7 @@ const Footer = () => {
       <div className="mx-auto flex w-11/12 max-w-screen-xl flex-col-reverse justify-between gap-10 md:gap-12 lg:flex-row glass-surface rounded-md px-6 md:px-8 py-8 md:py-10 border border-white/10">
         {/* Left Section - Logo & Info */}
         <div className="flex w-full flex-col lg:w-1/2">
-          <div className="mb-6">
+          <div className="mb-6 md:mb-8">
             <img
               src={magiccraftLogo}
               alt="Magiccraft Logo"
@@ -127,7 +127,7 @@ const Footer = () => {
               height="48"
               loading="lazy"
               decoding="async"
-              className="max-w-[180px] md:max-w-[220px] drop-shadow-2xl"
+              className="max-w-[200px] md:max-w-[240px] drop-shadow-2xl hover:scale-105 transition-transform duration-300"
             />
           </div>
           
@@ -177,19 +177,19 @@ const Footer = () => {
           </div>
           
           {/* Social Media Icons */}
-          <div className="flex flex-wrap gap-3 md:gap-4 pt-8 md:pt-10">
+          <div className="flex flex-wrap gap-4 pt-8 md:pt-10">
             {socialLinks.map((item, i) => {
               return (
                 <a 
                   key={i} 
                   rel="noreferrer noopener" 
                   href={item.link}
-                  className="group p-2.5 rounded-md bg-white/5 border border-white/10 hover:border-[#98FFF9]/40 hover:bg-white/10 transition-colors duration-200"
+                  className="group p-3 rounded-xl bg-white/5 border border-white/10 hover:border-[#98FFF9]/40 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 shadow-lg"
                   aria-label={`Visit MagicCraft on ${item.label}`}
                   title={item.label}
                   target="_blank"
                 >
-                  <div className="text-white/60 group-hover:text-[#98FFF9] transition-colors duration-300">
+                  <div className="text-white/70 group-hover:text-[#98FFF9] transition-colors duration-300">
                     {item.icon}
                   </div>
                 </a>
@@ -286,14 +286,14 @@ const Footer = () => {
       <div className="mx-auto my-8 h-[2px] w-11/12 bg-gradient-to-r from-transparent via-[#98FFF9]/30 to-transparent"></div>
 
       {/* Disclaimer Section */}
-      <div className="mx-auto lg:w-[43.5em] max-w-4xl text-center px-4">
-        <div className="glass-strong rounded-md p-6 md:p-8 shadow-2xl border border-white/10">
-          <p className="text-xs md:text-sm text-[#8896AB] leading-relaxed">
+      <div className="mx-auto lg:w-[48em] max-w-5xl text-center px-4">
+        <div className="glass-strong rounded-xl p-6 md:p-8 shadow-2xl border border-white/10 hover:border-white/20 transition-colors">
+          <p className="text-sm md:text-base text-[#8896AB] leading-relaxed">
             $MCRT is a utility token designed for use within the MagicCraft ecosystem. If you are new to the cryptocurrency space,
             please make sure you thoroughly familiarise yourself with the nature and risks
             associated with $MCRT as per our{' '}
             <a
-              className="text-primary text-[#98FFF9] underline hover:text-white transition-colors duration-200 inline-block"
+              className="text-primary text-[#98FFF9] underline hover:text-white transition-colors duration-200 inline-block font-medium"
               target="_blank"
               rel="noopener noreferrer"
               href="https://docs.magiccraft.io/"

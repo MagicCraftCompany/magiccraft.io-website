@@ -294,27 +294,27 @@ export default function MagicraftDownload() {
         <div className="rounded-md bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
           <div className="relative overflow-hidden rounded-md bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
             {/* Platform Download Buttons */}
-            <div className="p-5 lg:p-6">
-              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-4 lg:gap-4 w-full max-w-md mx-auto lg:max-w-none">
+            <div className="p-6 lg:p-8">
+              <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-4 lg:gap-5 w-full max-w-md mx-auto lg:max-w-none">
                 {platforms.map((platform) => (
                   <a
                     key={platform.name}
                     href={platform.href}
-                    className={`group flex flex-col items-center text-center transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-3 lg:p-4 rounded-md bg-black/20 hover:bg-black/40 border border-transparent hover:border-[#B591F2]/30 ${platform.name === 'Windows' ? 'hidden' : ''}`}
+                    className={`group flex flex-col items-center justify-center text-center transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-4 lg:p-5 rounded-xl bg-black/20 hover:bg-black/40 border border-white/5 hover:border-[#B591F2]/50 hover:scale-[1.02] shadow-lg ${platform.name === 'Windows' ? 'hidden' : ''}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`${platform.label} ${platform.sublabel}`}
                   >
-                    <div className="mb-2 h-7 w-7 sm:h-8 sm:w-8 lg:h-8 lg:w-8">
+                    <div className="mb-3 h-8 w-8 sm:h-10 sm:w-10 lg:h-10 lg:w-10 transform group-hover:-translate-y-1 transition-transform duration-300">
                       <img
                         src={platform.icon}
                         alt={platform.name}
-                        className="h-full w-full object-contain"
+                        className="h-full w-full object-contain drop-shadow-md"
                         loading="lazy"
                       />
                     </div>
-                    <span className="text-xs sm:text-sm text-white/80 group-hover:text-white transition-colors duration-300 font-medium">{platform.label}</span>
-                    <span className="text-xs sm:text-sm font-bold text-white group-hover:text-[#FFB649] transition-colors duration-300">
+                    <span className="text-xs sm:text-sm text-white/70 group-hover:text-white transition-colors duration-300 font-medium mb-0.5">{platform.label}</span>
+                    <span className="text-sm sm:text-base font-bold text-white group-hover:text-[#FFB649] transition-colors duration-300">
                       {platform.sublabel}
                     </span>
                   </a>
@@ -323,17 +323,17 @@ export default function MagicraftDownload() {
             </div>
 
             {/* Social Links */}
-            <div className="mx-4 mb-4 flex justify-center gap-3 lg:gap-3 rounded-md border border-[#B591F2]/30 bg-gradient-to-r from-[#6D3190]/80 to-[#642588]/80 py-3 lg:py-3 backdrop-blur-sm">
+            <div className="mx-4 mb-4 flex justify-center gap-3 lg:gap-4 rounded-xl border border-[#B591F2]/30 bg-gradient-to-r from-[#6D3190]/80 to-[#642588]/80 py-3 lg:py-4 backdrop-blur-sm shadow-inner">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}
                   href={social.link}
-                  className="transition-colors duration-200 hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-2 rounded-md hover:bg-white/10"
+                  className="transition-all duration-300 hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-2.5 rounded-lg hover:bg-white/10 hover:scale-110 hover:-translate-y-0.5"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={social.name}
                 >
-                  <div className="scale-75">
+                  <div className="scale-90">
                     {social.icon}
                   </div>
                 </a>
@@ -345,7 +345,7 @@ export default function MagicraftDownload() {
 
       {/* Crypto Lobby Cards */}
       <div className="w-full lg:flex-1 lg:ml-6 relative overflow-visible" style={{ zIndex: 100 }}>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-5 w-full max-w-5xl lg:max-w-none mx-auto px-1 sm:px-2 overflow-visible">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-4 sm:gap-5 md:gap-6 w-full max-w-5xl lg:max-w-none mx-auto px-2 sm:px-4 overflow-visible">
           {(['btc','bnb','mcrt','eth','xrp','sol'] as const).map((key) => {
             const l = lobbyData[key]
             const url = `https://lobby.magiccraft.io/?crypto=${key}`

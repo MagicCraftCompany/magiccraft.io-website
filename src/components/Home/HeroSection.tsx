@@ -109,30 +109,30 @@ export default function HeroSection() {
             <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wide drop-shadow-2xl leading-tight break-words hyphens-none">
               THE CURRENCY OF GAMING & AI
           </h1>
-            <p className="mt-3 max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
+            <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
               Fast, low‑fee on‑chain currency on BNB Chain powering rewards, creator payouts,
               and in‑game commerce across the MagicCraft universe.
             </p>
             {/* Mobile: compact 3-CTA row */}
-            <div className="mt-4 sm:mt-5 w-full max-w-[520px] mx-auto sm:hidden">
-              <div className="grid grid-cols-3 gap-2">
+            <div className="mt-5 sm:mt-6 w-full max-w-[520px] mx-auto sm:hidden">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
                 <button
                   onClick={openGameByDevice}
-                  className="h-10 rounded-md bg-gradient-to-r from-[#98FFF9] to-[#B591F2] text-[#03082F] text-sm font-bold border border-white/15 shadow-[0_0_15px_rgba(152,255,249,0.3)] hover:brightness-110 active:scale-[0.99] ripple-effect"
+                  className="h-12 rounded-lg bg-gradient-to-r from-[#98FFF9] to-[#B591F2] text-[#03082F] text-sm font-bold border border-white/15 shadow-[0_0_15px_rgba(152,255,249,0.3)] hover:brightness-110 active:scale-[0.98] transition-all ripple-effect"
                   aria-label="Play MagicCraft now"
                 >
                   Play
                 </button>
                 <button
                   onClick={openLiveSupport}
-                  className="h-10 rounded-md bg-white/10 text-white text-sm font-semibold border border-white/15 backdrop-blur-md shadow-lg hover:bg-white/15 active:scale-[0.99]"
+                  className="h-12 rounded-lg bg-white/10 text-white text-sm font-semibold border border-white/15 backdrop-blur-md shadow-lg hover:bg-white/15 active:scale-[0.98] transition-all"
                   aria-label="Open Live Support chat"
                 >
                   Live Chat
                 </button>
                 <button
                   onClick={handleBuyMCRT}
-                  className="h-10 rounded-md bg-gradient-to-b from-[#A9FFF6] to-[#82E7E0] text-[#071033] text-sm font-semibold border border-white/20 shadow-lg hover:brightness-105 active:scale-[0.99] ripple-effect"
+                  className="h-12 rounded-lg bg-gradient-to-b from-[#A9FFF6] to-[#82E7E0] text-[#071033] text-sm font-semibold border border-white/20 shadow-lg hover:brightness-105 active:scale-[0.98] transition-all ripple-effect"
                   aria-label="Buy MCRT tokens"
                 >
                   Buy
@@ -158,26 +158,26 @@ export default function HeroSection() {
               </button>
             </div>
             {/* Trust badges */}
-            <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3 opacity-90">
-              <span className="text-xs text-white/70">Listed on</span>
-              <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 transition-opacity">
+            <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4 opacity-90">
+              <span className="text-xs sm:text-sm text-white/70 font-medium tracking-wide">Listed on</span>
+              <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 hover:scale-105 transition-all">
                 <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-5 sm:h-6 opacity-90" loading="lazy" />
               </a>
-              <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 transition-opacity">
+              <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 hover:scale-105 transition-all">
                 <img src="/icons/icon-pancakeswap.svg" alt="PancakeSwap" className="h-5 sm:h-6 opacity-90" loading="lazy" />
               </a>
-              <a href="https://www.htx.com/trade/mcrt_usdt" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 transition-opacity">
+              <a href="https://www.htx.com/trade/mcrt_usdt" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 hover:scale-105 transition-all">
                 <img src="/icons/icon-huobi.svg" alt="HTX" className="h-5 sm:h-6 opacity-90" loading="lazy" />
               </a>
-      </div>
+            </div>
           </div>
         </div>
        </div>
      
       {/* Download row moved below hero */}
       {/* Scroll cue */}
-      <a href="#mcrt-payments" className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-6 inline-flex items-center justify-center w-10 h-10 rounded-full glass-strong hover:bg-white/10 border border-white/20" aria-label="Scroll to $MCRT payments">
-        <svg className="w-5 h-5 text-white/85" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 15.5a1 1 0 0 1-.7-.29l-6-6a1 1 0 1 1 1.4-1.42L12 13.08l5.3-5.29a1 1 0 1 1 1.4 1.42l-6 6a1 1 0 0 1-.7.29Z"/></svg>
+      <a href="#mcrt-payments" className="absolute left-1/2 -translate-x-1/2 bottom-4 sm:bottom-6 inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full glass-strong hover:bg-white/15 border border-white/20 hover:scale-110 transition-all animate-bounce" aria-label="Scroll to $MCRT payments">
+        <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white/85" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 15.5a1 1 0 0 1-.7-.29l-6-6a1 1 0 1 1 1.4-1.42L12 13.08l5.3-5.29a1 1 0 1 1 1.4 1.42l-6 6a1 1 0 0 1-.7.29Z"/></svg>
       </a>
     </section>
   )

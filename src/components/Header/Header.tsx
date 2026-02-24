@@ -420,7 +420,7 @@ const Header = () => {
               <a
                 href="https://lobby.magiccraft.io/"
                 rel="noreferrer noopener"
-                className="hidden md:inline-flex header-cta header-cta--play no-underline"
+                className="hidden md:inline-flex header-cta header-cta--play no-underline h-11 items-center"
                 aria-label="Play"
               >
                 <Gamepad2 className="w-4 h-4" />
@@ -430,7 +430,7 @@ const Header = () => {
               <a
                 href="https://app.magiccraft.io/marketplace/explorer"
                 rel="noreferrer noopener"
-                className="hidden md:inline-flex header-cta header-cta--shop no-underline"
+                className="hidden md:inline-flex header-cta header-cta--shop no-underline h-11 items-center"
                 role="button"
                 aria-label="Shop"
               >
@@ -445,7 +445,7 @@ const Header = () => {
               <a
                 href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
                 rel="noreferrer noopener"
-                className="hidden md:inline-flex header-cta header-cta--buy no-underline"
+                className="hidden md:inline-flex header-cta header-cta--buy no-underline h-11 items-center"
                 aria-label="Buy $MCRT"
               >
                 <span>Buy</span>
@@ -498,7 +498,7 @@ const Header = () => {
           {/* Absolutely positioned hamburger to avoid layout clipping */}
           <button
             onClick={openSidebar}
-            className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 p-2.5 rounded-xl glass-strong hover:bg-white/10 transition-all duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center z-[100000]"
+            className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 p-2.5 rounded-xl glass-strong hover:bg-white/10 transition-all duration-200 min-w-[48px] min-h-[48px] flex items-center justify-center z-[100000]"
             aria-label="Open menu"
           >
             <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
