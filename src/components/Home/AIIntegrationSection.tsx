@@ -106,6 +106,114 @@ export default function AIIntegrationSection() {
             </a>
           </div>
         </div>
+
+        {/* MagicAds — Featured Product */}
+        <div className="mt-8 mb-6">
+          <a href="https://magicads.dev" target="_blank" rel="noreferrer noopener" className="block group no-underline hover:no-underline">
+            <div className="relative rounded-3xl overflow-hidden border border-[#FFB649]/30 hover:border-[#FFB649]/60 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_60px_rgba(255,182,73,0.2)]">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1a0d00]/90 via-[#0f0824]/95 to-[#0a0524]/95"></div>
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#FFB649] via-[#FF8C00] to-[#FFB649]"></div>
+              <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#FFB649]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+              <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12">
+                <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-10">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FFB649]/20 to-[#FF8C00]/10 border border-[#FFB649]/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                        <svg className="w-7 h-7 text-[#FFB649]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                          <rect x="2" y="3" width="20" height="14" rx="2" />
+                          <path d="M8 21h8" />
+                          <path d="M12 17v4" />
+                          <path d="M7 8h2m2 0h2m2 0h2" />
+                          <path d="M7 11h10" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white group-hover:text-[#FFB649] transition-colors duration-300">MagicAds</h3>
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-[#FFB649]/20 text-[#FFB649] font-bold border border-[#FFB649]/30 uppercase tracking-wider">New</span>
+                        </div>
+                        <span className="text-sm text-[#FFB649]/80 font-medium">magicads.dev</span>
+                      </div>
+                    </div>
+
+                    <p className="text-lg sm:text-xl text-white/90 font-medium leading-relaxed mb-3">
+                      The AI-native cross-banner ad network for the modern web.
+                    </p>
+                    <p className="text-sm sm:text-base text-white/70 leading-relaxed max-w-2xl">
+                      MagicAds is a plug-and-play advertising platform that lets <span className="text-white font-semibold">hosts monetize</span> any website or app with intelligent, context-aware banner ads, and gives <span className="text-white font-semibold">advertisers</span> instant access to a growing cross-site network. Powered by AI targeting and real-time bidding, campaigns optimize themselves automatically for maximum ROI.
+                    </p>
+
+                    <div className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-xl">
+                      <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-xl bg-white/5 border border-white/10">
+                        <svg className="w-4 h-4 mt-0.5 text-[#FFB649] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <div>
+                          <span className="text-sm font-semibold text-white">AI-Optimized Targeting</span>
+                          <p className="text-xs text-white/60 mt-0.5">Smart placement and audience matching via API</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-xl bg-white/5 border border-white/10">
+                        <svg className="w-4 h-4 mt-0.5 text-[#FFB649] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <div>
+                          <span className="text-sm font-semibold text-white">Cross-Banner Network</span>
+                          <p className="text-xs text-white/60 mt-0.5">One integration, reach across the entire network</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-xl bg-white/5 border border-white/10">
+                        <svg className="w-4 h-4 mt-0.5 text-[#98FFF9] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <div>
+                          <span className="text-sm font-semibold text-white">$MCRT Payments</span>
+                          <p className="text-xs text-white/60 mt-0.5">Pay for ads with $MCRT or earn $MCRT as a host</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-2.5 px-3 py-2.5 rounded-xl bg-white/5 border border-white/10">
+                        <svg className="w-4 h-4 mt-0.5 text-[#B591F2] flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <div>
+                          <span className="text-sm font-semibold text-white">Stripe Integration</span>
+                          <p className="text-xs text-white/60 mt-0.5">Fiat on-ramp for advertisers who prefer card payments</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col items-center gap-4 lg:flex-shrink-0">
+                    <div className="flex flex-col items-center gap-2 px-6 py-5 rounded-2xl bg-gradient-to-br from-[#FFB649]/10 to-[#FF8C00]/5 border border-[#FFB649]/20">
+                      <span className="text-xs uppercase tracking-wider text-[#FFB649]/80 font-bold">For Hosts</span>
+                      <p className="text-sm text-white/80 text-center max-w-[200px]">Embed a single script, start earning from day one.</p>
+                    </div>
+                    <div className="flex flex-col items-center gap-2 px-6 py-5 rounded-2xl bg-gradient-to-br from-[#B591F2]/10 to-[#7B68EE]/5 border border-[#B591F2]/20">
+                      <span className="text-xs uppercase tracking-wider text-[#B591F2]/80 font-bold">For Advertisers</span>
+                      <p className="text-sm text-white/80 text-center max-w-[200px]">Launch AI-targeted campaigns in minutes, not days.</p>
+                    </div>
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[#FFB649] group-hover:gap-3 transition-all duration-300">
+                      Explore MagicAds <span aria-hidden="true">→</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="mt-6 pt-5 border-t border-white/10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-white/50">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FFB649]"></span>
+                    Easy API Integration
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#98FFF9]"></span>
+                    Real-Time Analytics Dashboard
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#B591F2]"></span>
+                    $MCRT + Stripe Dual Settlement
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+                    No Minimum Traffic Required
+                  </span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+
         <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           {/* Internal AI Operations */}
           <div className="rounded-2xl border border-[#98FFF9]/25 bg-gradient-to-br from-[#0b1138]/85 via-[#151042]/80 to-[#1f124a]/80 p-5 md:p-6 hover:border-[#98FFF9]/40 transition-all duration-300 hover:shadow-[0_0_20px_rgba(152,255,249,0.1)] hover:-translate-y-1">
@@ -141,7 +249,7 @@ export default function AIIntegrationSection() {
             </div>
           </div>
         </div>
-        <div className="text-center text-xs text-white/60">
+        <div className="mt-4 text-center text-xs text-white/60">
           Powered by $MCRT • AI + Crypto since 2021
         </div>
       </div>
