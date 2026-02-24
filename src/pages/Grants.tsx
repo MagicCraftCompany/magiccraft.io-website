@@ -18,18 +18,18 @@ const Grants = () => {
       <Header />
 
       <main className="flex-1 safe-padded">
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-14">
-          <div className="mb-8 md:mb-10">
-            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl tracking-tight bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16 pb-20 md:pb-28">
+          <div className="mb-8 md:mb-12 text-center max-w-4xl mx-auto">
+            <h1 className="font-serif text-3xl md:text-5xl lg:text-6xl tracking-tight bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">
               MagicCraft Grants
             </h1>
-            <p className="mt-3 text-white/80 max-w-3xl">
+            <p className="mt-4 text-white/80 text-base md:text-lg">
               Grants for teams building Games, Web3/AI products, or Crypto tools in the MagicCraft ecosystem. You must already have a working version. Projects that integrate $MCRT are prioritized.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-            <div className="lg:col-span-2 rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-2xl">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+            <div className="lg:col-span-2 rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xl p-6 md:p-8 shadow-2xl hover:border-white/25 transition-all duration-300">
               <h2 className="text-xl font-semibold mb-4">Apply for a Grant</h2>
               <form name="grants" method="POST" action="/.netlify/functions/submit-grants" data-netlify="true" data-netlify-honeypot="bot-field" className="space-y-5">
                 <input type="hidden" name="name" value="grants" />
@@ -117,15 +117,15 @@ const Grants = () => {
                   <label htmlFor="hasBuild" className="text-white/90">We have a working version build/demo</label>
                 </div>
 
-                <div className="pt-2">
-                  <button type="submit" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#7A3DF0] to-[#9F65FF] border border-white/20 hover:from-[#6b33d6] hover:to-[#8c54eb] transition-colors">
+                <div className="pt-4">
+                  <button type="submit" className="inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] text-[#03082F] border border-white/20 hover:scale-105 hover:shadow-[0_0_20px_rgba(152,255,249,0.3)] transition-all duration-300">
                     <span>Submit Application</span>
                   </button>
                 </div>
               </form>
             </div>
 
-            <aside className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xl p-6 md:p-8">
+            <aside className="rounded-2xl border border-white/15 bg-white/5 backdrop-blur-xl p-6 md:p-8 hover:border-white/25 transition-all duration-300">
               <h3 className="text-lg font-semibold mb-3">Guidelines</h3>
               <ul className="space-y-2 text-white/80 text-sm">
                 <li>• Must have a working version or playable build</li>

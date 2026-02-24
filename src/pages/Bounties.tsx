@@ -78,12 +78,12 @@ export default function Bounties() {
         <meta property="og:description" content="Complete community bounties to improve the MagicCraft ecosystem and earn rewards paid in $MCRT." />
       </Helmet>
 
-      <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 pt-8 md:pt-12">
+      <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 pt-8 md:pt-12 pb-16 md:pb-24">
         {/* Back to main site */}
         <div className="mb-4 md:mb-6">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm text-white/90 hover:bg-white/10 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm text-white/90 hover:bg-white/15 hover:text-white transition-all duration-300 hover:scale-105 hover:-translate-x-1"
           >
             <span className="text-white/70">←</span>
             <span>Back to MagicCraft</span>
@@ -111,7 +111,7 @@ export default function Bounties() {
 
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {bounties.map((bounty) => (
-            <div key={bounty.id} className="card-glass card-padding flex flex-col justify-between">
+            <div key={bounty.id} className="card-glass card-padding flex flex-col justify-between hover:-translate-y-1 hover:border-[#98FFF9]/30 hover:shadow-[0_8px_30px_rgba(152,255,249,0.15)] transition-all duration-300">
               <div>
                 <div className="flex items-center justify-between gap-3">
                   <h3 className="font-bold text-lg">{bounty.title}</h3>
@@ -130,10 +130,10 @@ export default function Bounties() {
                 </div>
                 <div className="text-xs text-white/60">{bounty.difficulty}</div>
               </div>
-              <div className="mt-4 flex items-center gap-2">
+              <div className="mt-4 flex flex-wrap items-center gap-2">
                 <a
                   href={`mailto:contact@magiccraft.io?subject=${encodeURIComponent('MCRT Bounty Application - ' + bounty.title)}`}
-                  className="btn-primary px-4 py-2 text-sm"
+                  className="btn-primary px-5 py-2.5 text-sm hover:scale-105 transition-all"
                   rel="noreferrer noopener"
                 >
                   Apply (Email)
@@ -142,7 +142,7 @@ export default function Bounties() {
                   href="https://docs.magiccraft.io/" 
                   target="_blank" 
                   rel="noreferrer noopener" 
-                  className="btn-secondary px-4 py-2 text-sm"
+                  className="btn-secondary px-5 py-2.5 text-sm hover:scale-105 transition-all"
                 >
                   Read Docs
                 </a>

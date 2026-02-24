@@ -72,7 +72,7 @@ export default function FAQ() {
       </Helmet>
       <div className="min-h-dvh w-full text-white">
       <Header />
-      <main className="scroll-smooth pb-32">
+      <main className="scroll-smooth pb-16 md:pb-24">
       <section className="relative bg-faqtab bg-contain bg-no-repeat lg:-top-[100px] lg:bg-supportbg min-h-[90vh]  ">
         <div className="absolute inset-0 w-full hero-bg-gradient h-[94vh]"></div>
             <div
@@ -81,7 +81,7 @@ export default function FAQ() {
                 ' relative flex flex-col gap-4  '
               )}
             >
-              <div className="relative mt-40 text-center font-serif text-4xl font-bold text-white md:text-6xl">
+              <div className="relative mt-24 md:mt-32 text-center font-serif text-4xl font-bold text-white md:text-5xl lg:text-6xl drop-shadow-xl tracking-tight">
                 SUPPORT
                 <div className="mt-4 block h-px w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent"></div>
               </div>
@@ -217,9 +217,9 @@ export default function FAQ() {
                 </Tabs>
               </section>
               {/* Contact CTA */}
-              <div className="mx-auto mt-8 flex flex-col items-center gap-3">
-                <p className="text-white/80">Still need help? Reach us on Telegram.</p>
-                <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="btn-primary">Open Telegram</a>
+              <div className="mx-auto mt-12 md:mt-16 flex flex-col items-center gap-4">
+                <p className="text-white/80 text-lg">Still need help? Reach us on Telegram.</p>
+                <a href="https://t.me/magiccraftgamechat" target="_blank" rel="noreferrer noopener" className="btn-primary hover:scale-105 hover:shadow-[0_0_20px_rgba(152,255,249,0.3)] transition-all duration-300 px-8 py-3 text-lg">Open Telegram</a>
               </div>
             </div>
           </section>

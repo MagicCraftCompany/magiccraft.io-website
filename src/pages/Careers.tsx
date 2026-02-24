@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async'
 
 function Careers() {
   return (
-    <main className="safe-padded container mx-auto container-padding section-padding">
+    <main className="safe-padded container mx-auto container-padding section-padding pb-16 md:pb-24">
       <Helmet>
         <title>Careers at MagicCraft – Join Our Team</title>
         <meta name="description" content="Join MagicCraft's team. We're hiring marketers and developers who are crypto-native, AI-first, and product-minded." />
@@ -14,8 +14,8 @@ function Careers() {
         <meta property="og:description" content="Join MagicCraft's team. We're hiring marketers and developers." />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
-      <div className="mb-4">
-        <Link to="/" className="chip-cta no-underline inline-flex items-center gap-2" aria-label="Back to Home">
+      <div className="mb-6 md:mb-8">
+        <Link to="/" className="chip-cta no-underline inline-flex items-center gap-2 hover:-translate-x-1 transition-transform duration-300 hover:bg-white/15" aria-label="Back to Home">
           <span>←</span>
           <span>Back to Home</span>
         </Link>
@@ -40,7 +40,7 @@ function Careers() {
             <li>Performance, analytics, conversion</li>
             <li>Community - X, Telegram, Discord</li>
           </ul>
-          <a href="mailto:contact@magiccraft.io?subject=Marketer%20Application" className="btn-primary no-underline">Apply</a>
+          <a href="mailto:contact@magiccraft.io?subject=Marketer%20Application" className="btn-primary no-underline hover:scale-105 transition-all duration-300">Apply</a>
         </div>
 
         <div className="card-glass card-padding card-hover-lift">
@@ -54,7 +54,7 @@ function Careers() {
             <li>Solidity or on-chain integrations a plus</li>
             <li>Game dev experience is great, not required</li>
           </ul>
-          <a href="mailto:contact@magiccraft.io?subject=Developer%20Application" className="btn-primary no-underline">Apply</a>
+          <a href="mailto:contact@magiccraft.io?subject=Developer%20Application" className="btn-primary no-underline hover:scale-105 transition-all duration-300">Apply</a>
         </div>
       </section>
 
@@ -80,9 +80,9 @@ function Careers() {
         <div className="highlight-box">
           <h4 className="mb-2">How to apply</h4>
           <p className="text-body mb-3">Email your portfolio or shipped work. Links over CVs.</p>
-          <div className="flex gap-3">
-            <a href="mailto:contact@magiccraft.io?subject=Careers" className="btn-secondary no-underline">Email</a>
-            <Link to="/grants" className="btn-secondary no-underline">See Grants</Link>
+          <div className="flex gap-3 mt-4">
+            <a href="mailto:contact@magiccraft.io?subject=Careers" className="btn-secondary no-underline hover:scale-105 transition-all duration-300">Email</a>
+            <Link to="/grants" className="btn-secondary no-underline hover:scale-105 transition-all duration-300">See Grants</Link>
           </div>
         </div>
       </section>
