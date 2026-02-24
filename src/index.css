@@ -47,7 +47,7 @@ body {
   text-rendering: optimizeLegibility;
   font-size: 16px;
   line-height: 1.6;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.015em;
   color: rgba(255, 255, 255, 0.95);
 }
 
@@ -155,12 +155,17 @@ a, button, [role="button"], input, textarea, select {
 }
 
 /* Enhanced card styles for consistency */
-.card-glass {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
+  .card-glass {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
 
 /* Apple-like glass utilities for consistent polish */
 .glass-surface {
@@ -379,7 +384,7 @@ a:hover {
   gap: 0.5rem;
   padding: 0 1.25rem;
   height: 2.75rem; /* matches h-11 */
-  border-radius: 8px;
+  border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
   font-family: 'Futura PT', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -430,7 +435,7 @@ a:hover {
   background: linear-gradient(135deg, #98FFF9 0%, #B591F2 50%, #7B68EE 100%);
   color: #03082F;
   padding: 1rem 2rem;
-  border-radius: 16px;
+  border-radius: 9999px;
   font-weight: 700;
   font-size: 1.125rem;
   border: 2px solid rgba(255, 255, 255, 0.3);
@@ -601,14 +606,14 @@ a:hover {
   
   /* Premium Button Styles - Enhanced */
   .btn-primary {
-    background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+    background: linear-gradient(135deg, rgba(152, 255, 249, 0.2), rgba(181, 145, 242, 0.2));
     color: #ffffff;
     font-weight: 700;
     font-size: clamp(0.95rem, 1.6vw, 1.125rem);
     padding: clamp(0.9rem, 2.2vw, 1.1rem) clamp(1.6rem, 4vw, 2rem);
-    border-radius: 14px;
-    border: 1px solid var(--apple-hairline-strong);
-    transition: all 0.25s ease;
+    border-radius: 9999px;
+    border: 1px solid rgba(152, 255, 249, 0.4);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: 'Futura PT', sans-serif;
     text-decoration: none;
     display: inline-flex;
@@ -621,7 +626,7 @@ a:hover {
     letter-spacing: 0.02em;
     text-transform: none;
     line-height: 1.2;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.1);
   }
   
   .btn-primary::before {
@@ -632,16 +637,15 @@ a:hover {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(152, 255, 249, 0.4);
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
   }
   
   .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 16px 36px rgba(0,0,0,0.4);
-    filter: brightness(1.05);
-    border-color: var(--apple-hairline);
+    box-shadow: 0 16px 36px rgba(152, 255, 249, 0.35);
+    border-color: rgba(152, 255, 249, 0.7);
   }
   
   .btn-primary:hover::before {
@@ -655,14 +659,14 @@ a:hover {
   }
   
   .btn-secondary {
-    background: var(--apple-surface-strong);
+    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
     color: #E6FFFB;
     font-weight: 600;
     font-size: clamp(0.95rem, 1.6vw, 1.125rem);
     padding: clamp(0.9rem, 2.2vw, 1.1rem) clamp(1.6rem, 4vw, 2rem);
-    border-radius: 14px;
-    border: 1px solid var(--apple-hairline);
-    transition: all 0.25s ease;
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-family: 'Futura PT', sans-serif;
     text-decoration: none;
     display: inline-flex;
@@ -677,10 +681,11 @@ a:hover {
   }
   
   .btn-secondary:hover {
-    background: rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.1);
     transform: translateY(-2px);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
-    border-color: var(--apple-hairline-strong);
+    border-color: rgba(152, 255, 249, 0.4);
+    color: #ffffff;
   }
 
   .btn-primary:active {
@@ -729,12 +734,12 @@ a:hover {
   
   /* Card Styles - Premium Glass Effect */
   .card-glass {
-    background: linear-gradient(135deg, rgba(11, 15, 57, 0.85) 0%, rgba(17, 26, 78, 0.75) 100%);
-    border: 1px solid rgba(152, 255, 249, 0.18);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
@@ -747,7 +752,7 @@ a:hover {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(152, 255, 249, 0.5), transparent);
+    background: linear-gradient(90deg, transparent, rgba(152, 255, 249, 0.3), transparent);
     opacity: 0;
     transition: opacity 0.4s ease;
   }
@@ -759,17 +764,17 @@ a:hover {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(152, 255, 249, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(152, 255, 249, 0.05) 0%, transparent 70%);
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
   }
   
   .card-glass:hover {
-    border-color: rgba(152, 255, 249, 0.35);
-    box-shadow: 0 20px 50px rgba(152, 255, 249, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    transform: translateY(-5px) scale(1.015);
-    background: linear-gradient(135deg, rgba(11, 15, 57, 0.9) 0%, rgba(17, 26, 78, 0.85) 100%);
+    border-color: rgba(152, 255, 249, 0.25);
+    box-shadow: 0 20px 40px rgba(152, 255, 249, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px) scale(1.01);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
   }
   
   .card-glass:hover::before {
