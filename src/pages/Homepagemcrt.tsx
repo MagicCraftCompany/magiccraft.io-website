@@ -220,7 +220,7 @@ function Homepagemcrt() {
                 </div>
                 <div className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-                  <span><strong>$2M+ Unity Core</strong></span>
+                  <span><strong>$10m+ Unity Core</strong></span>
                 </div>
                 <div className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
