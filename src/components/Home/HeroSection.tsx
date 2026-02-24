@@ -98,12 +98,12 @@ export default function HeroSection() {
             </div>
           
           <div className="text-center gap-section animate-slide-up mt-2 sm:mt-3 md:mt-5 lg:mt-6 xl:mt-8 px-4 sm:px-6 md:px-8">
-            <div className="flex justify-center mb-3 sm:mb-4 md:mb-6">
+            <div className="flex justify-center mb-3 sm:mb-4 md:mb-6 group">
               <img 
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"  
                 alt="MagicCraft Logo"
                 loading="eager"
-                className="w-full max-w-[280px] sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-xl"
+                className="w-full max-w-[280px] sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:scale-105 transition-transform duration-700 group-hover:drop-shadow-[0_0_40px_rgba(255,255,255,0.4)]"
               />
             </div>
             <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wide drop-shadow-2xl leading-tight break-words hyphens-none">

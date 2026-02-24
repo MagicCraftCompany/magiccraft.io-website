@@ -156,7 +156,7 @@ function Homepagemcrt() {
           {/* $MCRT Payments: The currency of gaming */}
           <section id="mcrt-payments" className="w-full border-t border-white/5 bg-gradient-to-b from-[#03082f] via-[#0a0524] to-[#03082f]">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-6 sm:py-8">
-              <div className="card-glass/50 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm px-4 sm:px-6 md:px-8 py-5 sm:py-7">
+              <div className="card-glass rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm px-4 sm:px-6 md:px-8 py-5 sm:py-7 shadow-[0_0_30px_rgba(152,255,249,0.1)]">
                 <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-5 md:gap-6">
                   <div className="text-center lg:text-left max-w-3xl">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[11px] text-white/70 mb-3">
@@ -234,23 +234,23 @@ function Homepagemcrt() {
           <div className="w-full bg-gradient-to-r from-[#0B0F39] via-[#120e3d] to-[#0B0F39] border-t border-white/5">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-4 sm:py-6">
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
-                <div className="card-glass px-3 py-2 rounded-md text-center">
+                <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
                   <div className="text-xs text-white/60">Token Holders</div>
                   <div className="text-sm sm:text-base font-bold text-white">17,500+</div>
                             </div>
-                <div className="card-glass px-3 py-2 rounded-md text-center">
+                <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
                   <div className="text-xs text-white/60">Downloads</div>
                   <div className="text-sm sm:text-base font-bold text-white">50,000+</div>
                           </div>
-                <div className="card-glass px-3 py-2 rounded-md text-center">
+                <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
                   <div className="text-xs text-white/60">Crypto Lobbies</div>
                   <div className="text-sm sm:text-base font-bold text-white">BTC, ETH, SOL</div>
                             </div>
-                <div className="card-glass px-3 py-2 rounded-md text-center">
+                <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
                   <div className="text-xs text-white/60">Platforms</div>
                   <div className="text-sm sm:text-base font-bold text-white">iOS, Android, PC</div>
                             </div>
-                <div className="card-glass px-3 py-2 rounded-md text-center">
+                <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
                   <div className="text-xs text-white/60">Exchanges</div>
                   <div className="text-sm sm:text-base font-bold text-white">
                     <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="hover:text-[#98FFF9] transition-colors">Bybit</a>
@@ -303,7 +303,7 @@ function Homepagemcrt() {
 
           {/* Core actions */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            <a id="earn" href="https://lobby.magiccraft.io/" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline" rel="noreferrer noopener">
+            <a id="earn" href="https://lobby.magiccraft.io/" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1" rel="noreferrer noopener">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
               <div className="flex items-center gap-3 mb-1">
                 <img src="/icons/icon-gamepad.svg" alt="Compete in PvP" className="w-5 h-5 opacity-90" />
@@ -312,7 +312,7 @@ function Homepagemcrt() {
               <p className="text-sm md:text-base text-gray-300">Win matches and tournaments to unlock $MCRT rewards.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Play now <span aria-hidden="true">→</span></span>
             </a>
-            <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+            <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
               <div className="flex items-center gap-3 mb-1">
                 <img src="/icons/icon-currency.svg" alt="CoinMarketCap" className="w-5 h-5 opacity-90" />
@@ -330,7 +330,7 @@ function Homepagemcrt() {
               <p className="text-sm md:text-base text-gray-300">Play on PC, iOS, Android, Steam.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Get the game <span aria-hidden="true">→</span></span>
             </a>
-            <a href="https://lobby.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+            <a href="https://lobby.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
               <div className="flex items-center gap-3 mb-1">
                 <img src="/icons/icon-leaderboard.svg" alt="Lobbies" className="w-5 h-5 opacity-90" />
@@ -339,7 +339,7 @@ function Homepagemcrt() {
               <p className="text-sm md:text-base text-gray-300">BTC, ETH, BNB & more.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Enter lobbies <span aria-hidden="true">→</span></span>
             </a>
-            <a href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+            <a href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
               <div className="flex items-center gap-3 mb-1">
                 <img src="/icons/icon-marketplace.svg" alt="Marketplace" className="w-5 h-5 opacity-90" />
@@ -348,7 +348,7 @@ function Homepagemcrt() {
               <p className="text-sm md:text-base text-gray-300">Trade assets and utilities.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Browse items <span aria-hidden="true">→</span></span>
             </a>
-            <a href="https://store.steampowered.com/app/3478810/MCRT_Game_Maker/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+            <a href="https://store.steampowered.com/app/3478810/MCRT_Game_Maker/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
               <div className="flex items-center gap-3 mb-1">
                 <img src={steam} alt="Game Maker" className="w-5 h-5 opacity-90" />
@@ -367,7 +367,7 @@ function Homepagemcrt() {
               <svg className="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.086l3.71-3.856a.75.75 0 111.08 1.04l-4.24 4.41a.75.75 0 01-1.08 0l-4.24-4.41a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
             </summary>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-4">
-              <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+              <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
                 <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
                 <div className="flex items-center gap-3 mb-1">
                   <img src="/icons/icon-stats.svg" alt="Polybilities" className="w-5 h-5 opacity-90" />
@@ -376,7 +376,7 @@ function Homepagemcrt() {
                 <p className="text-sm text-gray-300">AI prediction markets.</p>
                 <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open app <span aria-hidden="true">→</span></span>
               </a>
-              <a href="https://games.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+              <a href="https://games.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
                 <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
                 <div className="flex items-center gap-3 mb-1">
                   <img src="/icons/icon-gamepad.svg" alt="Mini-games" className="w-5 h-5 opacity-90" />
@@ -385,7 +385,7 @@ function Homepagemcrt() {
                 <p className="text-sm text-gray-300">Web3 mini titles.</p>
                 <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Play now <span aria-hidden="true">→</span></span>
               </a>
-              <a href="https://app.magiccraft.io/nft_mint" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+              <a href="https://app.magiccraft.io/nft_mint" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
                 <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
                 <div className="flex items-center gap-3 mb-1">
                   <img src="/icons/icon-nft-new.svg" alt="Mint NFTs" className="w-5 h-5 opacity-90" />
@@ -394,7 +394,7 @@ function Homepagemcrt() {
                 <p className="text-sm text-gray-300">Genesis & Revelation.</p>
                 <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Mint now <span aria-hidden="true">→</span></span>
               </a>
-              <a href="https://app.magiccraft.io/free_mint" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+              <a href="https://app.magiccraft.io/free_mint" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
                 <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
                 <div className="flex items-center gap-3 mb-1">
                   <img src="/icons/icon-nft-new.svg" alt="Free NFTs" className="w-5 h-5 opacity-90" />
@@ -403,7 +403,7 @@ function Homepagemcrt() {
                 <p className="text-sm text-gray-300">Vega, Davinci & more.</p>
                 <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Claim free <span aria-hidden="true">→</span></span>
               </a>
-              <a href="https://app.magiccraft.io/dao" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+              <a href="https://app.magiccraft.io/dao" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
                 <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
                 <div className="flex items-center gap-3 mb-1">
                   <img src="/icons/icon-community.svg" alt="DAO" className="w-5 h-5 opacity-90" />
@@ -412,7 +412,7 @@ function Homepagemcrt() {
                 <p className="text-sm text-gray-300">Participate in governance.</p>
                 <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Vote now <span aria-hidden="true">→</span></span>
               </a>
-              <a href="https://rent.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+              <a href="https://rent.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
                 <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
                 <div className="flex items-center gap-3 mb-1">
                   <img src="/icons/icon-help.svg" alt="NFT Rentals" className="w-5 h-5 opacity-90" />
@@ -421,7 +421,7 @@ function Homepagemcrt() {
                 <p className="text-sm text-gray-300">Currently available on testnet.</p>
                 <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">View rentals <span aria-hidden="true">→</span></span>
               </a>
-              <a href="/grants" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+              <a href="/grants" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
                 <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
                 <div className="flex items-center gap-3 mb-1">
                   <img src="/icons/icon-bounty.svg" alt="Grants" className="w-5 h-5 opacity-90" />
@@ -430,7 +430,7 @@ function Homepagemcrt() {
                 <p className="text-sm text-gray-300">Apply with a working build.</p>
                 <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Apply <span aria-hidden="true">→</span></span>
               </a>
-              <a href="https://lobby.magiccraft.io/referral" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden no-underline hover:no-underline">
+              <a href="https://lobby.magiccraft.io/referral" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
                 <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
                 <div className="flex items-center gap-3 mb-1">
                   <img src="/icons/icon-contact.svg" alt="Referral" className="w-5 h-5 opacity-90" />
@@ -490,7 +490,7 @@ function Homepagemcrt() {
 
                 <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-4">
                   {/* Register Card */}
-                  <button onClick={registerHandler} className="group text-left rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#8EFF49]/50 hover:bg-white/[0.07] hover:shadow-lg hover:shadow-black/30">
+                  <button onClick={registerHandler} className="group text-left rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#8EFF49]/50 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(142,255,73,0.2)]">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-md bg-[#8EFF49]/20 border border-[#8EFF49]/40 flex items-center justify-center">
                         <svg className="w-5 h-5 text-[#8EFF49]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -508,7 +508,7 @@ function Homepagemcrt() {
                   </button>
 
                   {/* Download Card */}
-                  <div className="rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#FFB649]/40 hover:bg-white/[0.07] hover:shadow-lg hover:shadow-black/30">
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#FFB649]/40 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(255,182,73,0.2)]">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-md bg-[#FFB649]/15 border border-[#FFB649]/40 flex items-center justify-center">
                         <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor">
@@ -542,7 +542,7 @@ function Homepagemcrt() {
                 </div>
 
                   {/* Web3 Lobby Card */}
-                  <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer" className="group rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#B591F2]/60 hover:bg-white/[0.07] hover:shadow-lg hover:shadow-black/30">
+                  <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#B591F2]/60 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(181,145,242,0.2)]">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-md bg-[#B591F2]/20 border border-[#B591F2]/40 flex items-center justify-center">
                         <svg className="w-5 h-5 text-[#B591F2]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -561,7 +561,7 @@ function Homepagemcrt() {
                   </a>
 
                   {/* Level Up Card */}
-                  <div className="rounded-md border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#98FFF9]/50 hover:bg-white/[0.07] hover:shadow-lg hover:shadow-black/30">
+                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#98FFF9]/50 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(152,255,249,0.2)]">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-10 h-10 rounded-md bg-[#98FFF9]/15 border border-[#98FFF9]/40 flex items-center justify-center">
                         <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor">
@@ -639,7 +639,7 @@ function Homepagemcrt() {
                       href="https://discord.gg/magiccraftgame"
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-md bg-[#5865F2] hover:bg-[#4752C4] transition-colors duration-200"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-2xl bg-[#5865F2] hover:bg-[#4752C4] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(88,101,242,0.4)]"
                     >
                       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
@@ -650,7 +650,7 @@ function Homepagemcrt() {
                       href="https://t.me/magiccraftgamechat"
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-md bg-[#0088cc] hover:bg-[#006699] transition-colors duration-200"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-2xl bg-[#0088cc] hover:bg-[#006699] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,136,204,0.4)]"
                     >
                       <LiaTelegramPlane className="w-5 h-5" />
                       <span className="font-semibold">Telegram</span>
@@ -659,7 +659,7 @@ function Homepagemcrt() {
                       href="https://twitter.com/MagicCraftGame"
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-md bg-black hover:bg-zinc-900 border border-white/10 transition-colors duration-200"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-2xl bg-black hover:bg-zinc-900 border border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]"
                     >
                       <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -685,8 +685,8 @@ function Homepagemcrt() {
                       <div className="relative my-4 grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-10">
                         {ourteam.slice(0, visibleCount).map((item, index) => (
                           <Fragment key={item.name}>
-                            <div className="flex flex-col items-center justify-center bg-[#020418] text-center">
-                              <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)]">
+                            <div className="flex flex-col items-center justify-center bg-[#020418] text-center group">
+                              <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)] group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(125,230,223,0.4)] transition-all duration-300">
                                 <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0d2e]">
                               <img
                                     className="w-full h-full object-cover grayscale"
@@ -697,7 +697,7 @@ function Homepagemcrt() {
                               />
                                 </div>
                               </div>
-                              <p className="mt-2 text-white">{item.name}</p>
+                              <p className="mt-2 text-white group-hover:text-[#98FFF9] transition-colors duration-300 font-medium">{item.name}</p>
                               {item.work && (
                                 <>
                                   <p className="mt-1 text-[#98FFF9]">
@@ -747,9 +747,9 @@ function Homepagemcrt() {
                         {kolTeam.slice(0, visibleCount).map((item) => (
                           <div
                             key={item.name}
-                            className="flex flex-col items-center justify-center bg-[#020418] text-center"
+                            className="flex flex-col items-center justify-center bg-[#020418] text-center group"
                           >
-                            <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)]">
+                            <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)] group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(125,230,223,0.4)] transition-all duration-300">
                               <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0d2e]">
                             <img
                                   className="w-full h-full object-cover grayscale"
@@ -760,7 +760,7 @@ function Homepagemcrt() {
                             />
                               </div>
                             </div>
-                            <p className="mt-2 text-white">{item.name}</p>
+                            <p className="mt-2 text-white group-hover:text-[#98FFF9] transition-colors duration-300 font-medium">{item.name}</p>
                             {item.work && (
                               <>
                                 <p className="mt-1 text-[#98FFF9]">
@@ -793,9 +793,9 @@ function Homepagemcrt() {
                         {teamMembers.slice(0, visibleCount).map((item) => (
                           <div
                             key={item.name}
-                            className="flex flex-col items-center justify-center bg-[#020418] text-center"
+                            className="flex flex-col items-center justify-center bg-[#020418] text-center group"
                           >
-                            <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)]">
+                            <div className="relative w-28 h-28 md:w-36 md:h-36 rounded-full p-[3px] bg-gradient-to-br from-[#7de6df] to-[#2aa9a9] shadow-[0_0_0_4px_rgba(0,0,0,0.25)] group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(125,230,223,0.4)] transition-all duration-300">
                               <div className="w-full h-full rounded-full overflow-hidden bg-[#0a0d2e]">
                             <img
                                   className="w-full h-full object-cover grayscale"
@@ -806,7 +806,7 @@ function Homepagemcrt() {
                             />
                               </div>
                             </div>
-                            <p className="mt-2 text-white">{item.name}</p>
+                            <p className="mt-2 text-white group-hover:text-[#98FFF9] transition-colors duration-300 font-medium">{item.name}</p>
                             {item.work && (
                               <>
                                 <p className="mt-1 text-[#98FFF9]">

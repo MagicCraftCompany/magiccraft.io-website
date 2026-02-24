@@ -32,12 +32,12 @@ const GenesisNFTs: React.FC = () => {
 
       <div className={`${open ? 'block' : 'hidden'}`}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 md:gap-4">
-          <div className="card-glass rounded-xl p-4">
+          <div className="card-glass rounded-2xl p-5 md:p-6 hover:shadow-[0_0_20px_rgba(152,255,249,0.1)] transition-all duration-300">
             <h4 className="text-lg font-bold mb-2">Genesis Collection (VIP Lobbies)</h4>
             <p className="text-xs text-gray-300 mb-3">Unlocks Genesis VIP Lobbies.</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               {genesisTiers.map((t) => (
-                <div key={t.label} className="rounded-lg border border-white/15 bg-white/5 p-2.5">
+                <div key={t.label} className="rounded-xl border border-white/10 bg-white/5 p-3 hover:bg-white/10 transition-colors">
                   <div className="flex items-center justify-between mb-0.5">
                     <span className="font-semibold text-sm">{t.label}</span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/10 border border-white/15">{t.multiplier}</span>
@@ -48,12 +48,12 @@ const GenesisNFTs: React.FC = () => {
             </div>
           </div>
 
-          <div className="card-glass rounded-xl p-4">
+          <div className="card-glass rounded-2xl p-5 md:p-6 hover:shadow-[0_0_20px_rgba(152,255,249,0.1)] transition-all duration-300">
             <h4 className="text-lg font-bold mb-2">Revelation Collection (Weekend Lobbies)</h4>
             <p className="text-xs text-gray-300 mb-3">Unlocks Revelation Weekend Lobbies.</p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
               {revelationTiers.map((t) => (
-                <div key={t.label} className="rounded-lg border border-white/15 bg-white/5 p-2.5">
+                <div key={t.label} className="rounded-xl border border-white/10 bg-white/5 p-3 hover:bg-white/10 transition-colors">
                   <div className="flex items-center justify-between mb-0.5">
                     <span className="font-semibold text-sm">{t.label}</span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/10 border border-white/15">{t.multiplier}</span>

@@ -75,7 +75,7 @@ return(
 
     <div className="grid grid-cols-1 gap-4 md:gap-5">
       {/* Main Video Player */}
-      <div className="rounded-md border border-white/10 bg-black/70 overflow-hidden shadow-xl">
+      <div className="rounded-2xl border border-white/10 bg-black/70 overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.6)]">
         <div className="aspect-video w-full">
           {videoError ? (
             <div className="flex h-full w-full items-center justify-center bg-black/80 text-center">
@@ -109,7 +109,7 @@ return(
             key={video.id}
             onClick={() => { setVideoError(false); setActiveVideo(video) }}
             className={cn(
-              'group flex flex-col rounded-md border border-white/10 bg-black/40 overflow-hidden text-left hover:border-[#98FFF9]/50 transition-colors',
+              'group flex flex-col rounded-xl border border-white/10 bg-black/40 overflow-hidden text-left hover:border-[#98FFF9]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.5)]',
               activeVideo.id === video.id && 'border-[#98FFF9] shadow-[0_0_0_1px_rgba(152,255,249,0.4)]'
             )}
           >

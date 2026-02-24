@@ -20,7 +20,7 @@ export default function AIIntegrationSection() {
             </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {/* Akyn */}
-            <a href="https://www.akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#98FFF9]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
+            <a href="https://www.akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#98FFF9]/50 hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
                 <img
                   src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://akyn.pro&size=128"
@@ -41,7 +41,7 @@ export default function AIIntegrationSection() {
             </a>
 
             {/* MerlinAI */}
-            <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#B591F2]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
+            <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#B591F2]/50 hover:shadow-[0_0_20px_rgba(181,145,242,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
                 <img
                   src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://merlintheai.com&size=128"
@@ -64,7 +64,7 @@ export default function AIIntegrationSection() {
             </a>
 
             {/* DocAI */}
-            <a href="https://docai.live" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#10B981]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
+            <a href="https://docai.live" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#10B981]/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
                 <img
                   src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://docai.live&size=128"
@@ -85,7 +85,7 @@ export default function AIIntegrationSection() {
             </a>
 
             {/* Polybilities */}
-            <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-md border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#FFB649]/50 transition-all group no-underline hover:no-underline min-h-[190px]">
+            <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#FFB649]/50 hover:shadow-[0_0_20px_rgba(255,182,73,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
                 <img
                   src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://polybilities.com&size=128"

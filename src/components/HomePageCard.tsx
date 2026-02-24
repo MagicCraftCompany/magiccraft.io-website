@@ -291,8 +291,8 @@ export default function MagicraftDownload() {
     <div className="mx-2 sm:mx-4 flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-8 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 mt-2 sm:mt-3 relative z-50 overflow-visible">
       {/* Platform Download Box */}
       <div className="relative mx-auto w-full lg:w-auto lg:flex-shrink-0 lg:mx-0">
-        <div className="rounded-md bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-2xl">
-          <div className="relative overflow-hidden rounded-md bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
+        <div className="rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-[0_0_40px_rgba(181,145,242,0.25)]">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
             {/* Platform Download Buttons */}
             <div className="p-6 lg:p-8">
               <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-4 lg:gap-5 w-full max-w-md mx-auto lg:max-w-none">
@@ -364,7 +364,7 @@ export default function MagicraftDownload() {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`block relative rounded-md p-[1px] transition-all duration-300 ${l.borderColor} border-2 ${isHovered ? 'border-opacity-100' : 'border-opacity-40'}`}
+                  className={`block relative rounded-2xl p-[1px] transition-all duration-300 ${l.borderColor} border-2 ${isHovered ? 'border-opacity-100' : 'border-opacity-40'}`}
                   whileHover={{ scale: 1.02, y: -4 }} 
                   whileTap={{ scale: 0.98 }}
                   transition={{ type: "spring", stiffness: 400, damping: 20 }}
@@ -375,7 +375,7 @@ export default function MagicraftDownload() {
                   }}
                 >
                   <div
-                    className={`relative h-full w-full overflow-hidden rounded-md bg-gradient-to-br ${l.bgGradient} backdrop-blur-sm p-4 sm:p-5 min-h-[120px] sm:min-h-[140px]`}
+                    className={`relative h-full w-full overflow-hidden rounded-2xl bg-gradient-to-br ${l.bgGradient} backdrop-blur-sm p-4 sm:p-5 min-h-[120px] sm:min-h-[140px]`}
                     style={{
                       background: `linear-gradient(135deg, rgba(30,20,60,0.95) 0%, rgba(20,10,40,0.98) 100%)`
                     }}

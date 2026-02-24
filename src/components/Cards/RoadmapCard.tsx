@@ -29,7 +29,7 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
           return (
             <div
               key={i}
-              className={`group relative rounded-3xl p-px transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl 
+              className={`group relative rounded-3xl p-px transition-all duration-300 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] 
               ${isLiveVariant 
                 ? 'bg-gradient-to-b from-[#10B981]/50 via-transparent to-transparent' 
                 : isDefault 
