@@ -36,6 +36,7 @@ export const roadmapData: RoadmapDataType = [
           'Polybilities (polybilities.com)',
           'SocialMM (socialmm.ai)',
           'DragonList (dragonlist.ai)',
+          'MagicAds (magicads.dev)',
         ],
       },
     ],
@@ -95,6 +96,8 @@ export const roadmapData: RoadmapDataType = [
           'One-click access to all MagicCraft platforms',
           'Unified $MCRT rewards across all games and activities',
           'Partner SDK / API access',
+          'MagicAds (magicads.dev) — AI-powered ad network for ecosystem growth',
+          'Cross-promotion across all MagicCraft products via MagicAds banners',
         ],
       },
       {
@@ -136,6 +139,15 @@ export const roadmapData: RoadmapDataType = [
           'DAO Governance Evolution',
           'Community-driven development priorities',
           '$MCRT pledging for ecosystem decision-making power',
+        ],
+      },
+      {
+        card: 4,
+        features: [
+          'MagicAds Autonomous Ad Network',
+          'Publisher monetization — any site earns revenue with one script tag',
+          'AI-generated SEO tags and ad creatives for advertisers',
+          'USDT payouts and Stripe integration for ad spend',
         ],
       },
     ],
