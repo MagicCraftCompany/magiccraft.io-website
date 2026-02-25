@@ -69,7 +69,7 @@ export default function EcosystemMindMap() {
       { id: 'mint', label: 'NFTs', group: 'game', url: 'https://app.magiccraft.io/nft_mint' },
       { id: 'gamemaker', label: 'Game Maker', group: 'game', url: 'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/' },
 
-      { id: 'akyn', label: 'Akyn', group: 'ai', url: 'https://www.akyn.pro' },
+      { id: 'akyn', label: 'Akyn', group: 'ai', url: 'https://akyn.pro' },
       { id: 'merlin', label: 'Merlin AI', group: 'ai', url: 'https://merlintheai.com' },
       { id: 'docai', label: 'DocAI', group: 'ai', url: 'https://docai.live' },
       { id: 'polybilities', label: 'Polybilities', group: 'ai', url: 'https://polybilities.com' },
