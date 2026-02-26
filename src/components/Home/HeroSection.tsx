@@ -141,7 +141,7 @@ export default function HeroSection() {
             </div>
 
             {/* Tablet/Desktop: original CTAs */}
-            <div className="hidden sm:flex mt-6 sm:mt-8 flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 rounded-2xl border border-white/10 bg-black/20 backdrop-blur-md px-4 py-3">
+            <div className="hidden sm:flex mt-6 sm:mt-8 flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <button
                 onClick={openGameByDevice}
                 className="cta-premium shadow-[0_0_30px_rgba(152,255,249,0.3)] w-full sm:w-auto min-w-[154px] !px-6 !py-3 !text-base"
