@@ -182,7 +182,7 @@ export default function LiveSupportWidget() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="fixed bottom-[calc(env(safe-area-inset-bottom)+4rem)] left-4 z-[100000] inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-sm font-semibold text-white/90 backdrop-blur-md shadow-lg hover:bg-white/15 hover:border-white/25 active:scale-[0.98] sm:bottom-4 sm:px-4 sm:py-3"
+          className="fixed bottom-[calc(env(safe-area-inset-bottom)+4rem)] left-4 z-[100000] inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#0a1038]/70 px-3 py-2 text-sm font-semibold text-white/95 backdrop-blur-xl shadow-[0_12px_35px_rgba(0,0,0,0.45)] hover:bg-[#111a4f]/80 hover:border-[#98FFF9]/40 active:scale-[0.98] sm:bottom-4 sm:px-4 sm:py-3"
           aria-label="Open Live Support chat"
         >
           <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#98FFF9]" />
@@ -195,14 +195,14 @@ export default function LiveSupportWidget() {
       {open && (
         <div className="fixed inset-0 z-[100001]">
           <div
-            className="absolute inset-0 bg-black/70"
+            className="absolute inset-0 bg-black/75 backdrop-blur-[2px]"
             onClick={() => (busy ? null : setOpen(false))}
             aria-hidden="true"
           />
 
-          <div className="absolute bottom-4 right-4 left-4 sm:right-auto sm:left-4 sm:w-[420px] animate-fade-in">
-            <div className="glass-surface glass-strong rounded-2xl overflow-hidden animate-slide-up">
-              <div className="flex items-center justify-between px-4 py-3 hairline-bottom">
+          <div className="absolute bottom-4 right-4 left-4 sm:right-auto sm:left-4 sm:w-[460px] animate-fade-in">
+            <div className="rounded-2xl overflow-hidden animate-slide-up border border-white/15 bg-gradient-to-b from-[#12183f]/95 via-[#0d1232]/95 to-[#090e28]/95 backdrop-blur-2xl shadow-[0_24px_90px_rgba(0,0,0,0.55)]">
+              <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/[0.03]">
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#98FFF9]" />
                   <div className="leading-tight">
@@ -232,12 +232,12 @@ export default function LiveSupportWidget() {
                 </div>
               </div>
 
-              <div ref={listRef} className="max-h-[55vh] sm:max-h-[520px] overflow-y-auto px-4 py-3 space-y-3">
+              <div ref={listRef} className="max-h-[58vh] sm:max-h-[520px] overflow-y-auto px-4 py-3 space-y-3 bg-[linear-gradient(180deg,rgba(0,0,0,0.14),rgba(0,0,0,0.06))]">
                 {messages.length === 0 ? (
-                  <div className="text-sm text-white/70">
-                    Ask anything about <span className="text-white">$MCRT</span>, MagicCraft, lobbies, pledging/locked balance, and more.
+                  <div className="text-sm leading-relaxed text-white/80">
+                    Ask anything about <span className="text-white">$MCRT</span>, MagicCraft, <span className="text-white">MagicAds</span>, lobbies, pledging/locked balance, and ecosystem projects.
                     <div className="mt-2 text-[12px] text-white/50">
-                      Tip: try “What is locked balance?” or “Where can I buy $MCRT?”
+                      Tip: try “What is MagicAds?”, “What is locked balance?”, or “Where can I buy $MCRT?”
                     </div>
                   </div>
                 ) : (
@@ -246,8 +246,8 @@ export default function LiveSupportWidget() {
                       <div
                         className={
                           m.role === 'user'
-                            ? 'max-w-[85%] rounded-2xl rounded-br-md bg-white/15 border border-white/15 px-3 py-2 text-sm text-white'
-                            : 'max-w-[85%] rounded-2xl rounded-bl-md bg-black/25 border border-white/10 px-3 py-2 text-sm text-white/90'
+                            ? 'max-w-[88%] rounded-2xl rounded-br-md bg-[#2a356f]/85 border border-[#8bb3ff]/25 px-3 py-2 text-sm leading-relaxed text-white'
+                            : 'max-w-[88%] rounded-2xl rounded-bl-md bg-[#0a102f]/85 border border-white/12 px-3 py-2 text-sm leading-relaxed text-white/92'
                         }
                         style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}
                       >
@@ -259,7 +259,7 @@ export default function LiveSupportWidget() {
 
                 {busy && (
                   <div className="flex justify-start">
-                    <div className="max-w-[85%] rounded-2xl rounded-bl-md bg-black/25 border border-white/10 px-3 py-2 text-sm text-white/70">
+                    <div className="max-w-[88%] rounded-2xl rounded-bl-md bg-[#0a102f]/85 border border-white/12 px-3 py-2 text-sm text-white/75">
                       Thinking…
                     </div>
                   </div>
@@ -272,7 +272,7 @@ export default function LiveSupportWidget() {
                 )}
               </div>
 
-              <div className="px-4 py-3 hairline-top">
+              <div className="px-4 py-3 border-t border-white/10 bg-white/[0.02]">
                 <div className="flex items-end gap-2">
                   <textarea
                     ref={inputRef}
@@ -285,7 +285,7 @@ export default function LiveSupportWidget() {
                       }
                     }}
                     placeholder="Type your message…"
-                    className="w-full resize-none rounded-xl border border-white/15 bg-black/25 px-3 py-2 text-sm text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#98FFF9]/40"
+                    className="w-full resize-none rounded-xl border border-white/15 bg-black/35 px-3 py-2 text-sm text-white placeholder:text-white/45 focus:outline-none focus:ring-2 focus:ring-[#98FFF9]/40"
                     rows={2}
                     disabled={busy}
                   />
@@ -298,7 +298,7 @@ export default function LiveSupportWidget() {
                     Send
                   </button>
                 </div>
-                <div className="mt-2 text-[11px] text-white/45">
+                <div className="mt-2 text-[11px] text-white/50">
                   This is AI support. It may be wrong—verify important info.
                 </div>
               </div>

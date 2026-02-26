@@ -109,7 +109,7 @@ export default function HeroSection() {
             <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wide drop-shadow-2xl leading-tight break-words hyphens-none">
               THE CURRENCY OF GAMING & AI
           </h1>
-            <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-white/85 text-base sm:text-lg leading-relaxed">
+            <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-white/90 text-base sm:text-lg leading-relaxed tracking-[0.01em]">
               Fast, low‑fee on‑chain currency on BNB Chain powering rewards, creator payouts,
               and in‑game commerce across the MagicCraft universe.
             </p>
@@ -141,7 +141,7 @@ export default function HeroSection() {
             </div>
 
             {/* Tablet/Desktop: original CTAs */}
-            <div className="hidden sm:flex mt-6 sm:mt-8 flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+            <div className="hidden sm:flex mt-6 sm:mt-8 flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 rounded-2xl border border-white/10 bg-black/20 backdrop-blur-md px-4 py-3">
               <button
                 onClick={openGameByDevice}
                 className="cta-premium shadow-[0_0_30px_rgba(152,255,249,0.3)] w-full sm:w-auto min-w-[154px] !px-6 !py-3 !text-base"
@@ -158,7 +158,7 @@ export default function HeroSection() {
               </button>
             </div>
             {/* Trust badges */}
-            <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4 opacity-90">
+            <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-3 sm:gap-4 opacity-95">
               <span className="text-xs sm:text-sm text-white/70 font-medium tracking-wide">Listed on</span>
               <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener" className="inline-flex items-center hover:opacity-100 hover:scale-105 transition-all">
                 <img src="/icons/icon-bybit.svg" alt="Bybit" className="h-5 sm:h-6 opacity-90" loading="lazy" />
