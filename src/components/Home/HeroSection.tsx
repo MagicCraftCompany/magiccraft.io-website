@@ -144,14 +144,14 @@ export default function HeroSection() {
             <div className="hidden sm:flex mt-6 sm:mt-8 flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <button
                 onClick={openGameByDevice}
-                className="cta-premium shadow-[0_0_30px_rgba(152,255,249,0.3)] w-full sm:w-auto min-w-[220px]"
+                className="cta-premium shadow-[0_0_30px_rgba(152,255,249,0.3)] w-full sm:w-auto min-w-[154px] !px-6 !py-3 !text-base"
                 aria-label="Play MagicCraft now"
               >
                 Play Now
               </button>
               <button
                 onClick={handleBuyMCRT}
-                className="btn-secondary w-full sm:w-auto min-w-[220px] py-4 text-lg border border-white/20 hover:border-[#98FFF9]/50"
+                className="btn-secondary w-full sm:w-auto min-w-[154px] !px-6 !py-3 !text-base border border-white/20 hover:border-[#98FFF9]/50"
                 aria-label="Buy MCRT tokens"
               >
                 Buy $MCRT
