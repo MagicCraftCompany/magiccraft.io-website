@@ -21,6 +21,13 @@ type FaqItem = {
 const SOURCES = {
   magiccraft: 'https://magiccraft.io',
   magiccraftFaq: 'https://magiccraft.io/faq',
+  magicads: 'https://magicads.dev',
+  akyn: 'https://akyn.pro',
+  merlin: 'https://merlintheai.com',
+  docai: 'https://docai.live',
+  polybilities: 'https://polybilities.com',
+  socialmm: 'https://socialmm.ai',
+  dragonlist: 'https://dragonlist.ai',
   coingeckoCoin: 'https://www.coingecko.com/en/coins/magiccraft',
   coinmarketcapCoin: 'https://coinmarketcap.com/currencies/magiccraft/',
 } as const
@@ -163,12 +170,25 @@ function systemPrompt(opts: {
   const cmcBlock = opts.cmcJsonLd ? `\n\nCoinMarketCap JSON-LD (best-effort, may be partial):\n${opts.cmcJsonLd}` : ''
   const cgBlock = opts.cgProfile ? `\n\nCoinGecko project profile (trimmed):\n${clamp(JSON.stringify(opts.cgProfile), 5000)}` : ''
   const siteBlock = opts.siteMeta ? `\n\nmagiccraft.io homepage meta (best-effort):\n${clamp(JSON.stringify(opts.siteMeta), 1500)}` : ''
+  const networkBlock = `
+Official ecosystem/network projects and systems:
+- MagicCraft + $MCRT hub: ${SOURCES.magiccraft}
+- MagicAds ad network: ${SOURCES.magicads}
+  - AI-native cross-banner ad network for hosts/publishers and advertisers
+  - Uses $MCRT and Stripe payment rails
+- Akyn: ${SOURCES.akyn}
+- Merlin AI: ${SOURCES.merlin}
+- DocAI: ${SOURCES.docai}
+- Polybilities: ${SOURCES.polybilities}
+- SocialMM: ${SOURCES.socialmm}
+- DragonList: ${SOURCES.dragonlist}
+`.trim()
 
   return `
-You are MagicCraft Live Support, an AI assistant for MagicCraft and $MCRT.
+You are MagicCraft Live Support, an AI assistant for MagicCraft, $MCRT, MagicAds, and the full network ecosystem.
 
 Goals:
-- Answer questions about $MCRT, MagicCraft, and related projects clearly and concisely.
+- Answer questions about $MCRT, MagicCraft, MagicAds, and related network projects/systems clearly and concisely.
 - When you cite facts that can change (price, listings, supply), say the source and provide a link.
 - If you are unsure, say so and suggest the best next step (official link).
 
@@ -176,6 +196,7 @@ Hard rules:
 - Never claim you executed transactions or accessed private user data.
 - Never ask for seed phrases or private keys.
 - Do not invent partnerships, listings, contract addresses, or tokenomics. If not present in provided context, ask user to confirm or point to official sources.
+- When asked about ecosystem projects, use the official network list in context and cite the relevant project URL(s).
 
 Response format (always):
 - Start with a short answer.
@@ -186,6 +207,7 @@ Response format (always):
 
 Context you can rely on:
 ${marketLine}
+${networkBlock}
 
 MagicCraft FAQ (from magiccraft.io site bundle):
 ${opts.faqText}
@@ -300,7 +322,7 @@ export const handler: Handler = async (event) => {
 
     const appended = hasSources
       ? raw
-      : `${raw}\n\nSources:\n- ${SOURCES.magiccraft}\n- ${SOURCES.magiccraftFaq}\n- ${SOURCES.coingeckoCoin}\n- ${SOURCES.coinmarketcapCoin}`.trim()
+      : `${raw}\n\nSources:\n- ${SOURCES.magiccraft}\n- ${SOURCES.magicads}\n- ${SOURCES.magiccraftFaq}\n- ${SOURCES.coingeckoCoin}\n- ${SOURCES.coinmarketcapCoin}`.trim()
 
     return {
       statusCode: 200,
