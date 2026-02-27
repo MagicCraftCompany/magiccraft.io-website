@@ -25,7 +25,7 @@ export default function BuyFloat() {
     <div className="hidden md:block fixed right-3 bottom-3 sm:right-5 sm:bottom-5 z-[50000]">
       <button
         onClick={() => setOpen((v) => !v)}
-        className="rounded-full bg-gradient-to-b from-[#98FFF9] to-[#B591F2] text-[#03082F] font-bold animate-glow border border-white/30 text-sm sm:text-base hover:brightness-110 active:scale-[0.99] transition-all px-4 py-2.5 sm:px-5 sm:py-3"
+        className="rounded-full bg-gradient-to-b from-[#98FFF9] to-[#B591F2] text-[#03082F] font-semibold animate-glow border border-white/30 text-sm hover:brightness-110 active:scale-[0.99] transition-all px-3 py-2 sm:px-4 sm:py-3"
         aria-expanded={open}
         aria-label="Open buy options for MCRT"
       >
