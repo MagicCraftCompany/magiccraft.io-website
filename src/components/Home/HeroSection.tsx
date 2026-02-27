@@ -59,7 +59,7 @@ export default function HeroSection() {
         loop
         muted
         playsInline
-        preload="auto"
+        preload="metadata"
         controls={false}
         controlsList="nodownload noplaybackrate noremoteplayback"
         disablePictureInPicture

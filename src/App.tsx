@@ -28,7 +28,7 @@ const Grants = lazy(() => import("./pages/Grants"));
 const GrantsSuccess = lazy(() => import("./pages/GrantsSuccess"));
 const Careers = lazy(() => import("./pages/Careers"));
 import { BUILD_REV } from './version'
-import LiveSupportWidget from './components/LiveSupport/LiveSupportWidget'
+const LiveSupportWidget = lazy(() => import('./components/LiveSupport/LiveSupportWidget'))
 
 function App() {
   return (
@@ -68,7 +68,9 @@ function App() {
           v{BUILD_REV}
         </span>
       </div>
-      <LiveSupportWidget />
+      <Suspense fallback={null}>
+        <LiveSupportWidget />
+      </Suspense>
     </BrowserRouter>
   );
 }
