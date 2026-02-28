@@ -1,32 +1,28 @@
-import { Fragment, useCallback, useEffect, useState } from 'react'
+import { Fragment, Suspense, lazy, useCallback, useEffect, useState } from 'react'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import steam from '@/assets/icons/icon-steam.svg'
 import AppleIcon from '@/assets/icons/icon-apple.svg'
 import { Tabs, Tab } from '@/components/tabs'
 import { roadmapData } from '../data/roadmapData'
-import RoadmapCard from '../components/Cards/RoadmapCard'
+const RoadmapCard = lazy(() => import('../components/Cards/RoadmapCard'))
 import { ourteam } from '@/components/Team/ourTeam'
-import GenesisNFTs from '@/components/GenesisNFTs'
+const GenesisNFTs = lazy(() => import('@/components/GenesisNFTs'))
 import { LiaTelegramPlane } from 'react-icons/lia'
-import GamePlay from '@/components/GamePlay'
+const GamePlay = lazy(() => import('@/components/GamePlay'))
 import MagicraftDownload from '@/components/HomePageCard'
 import BuyStrip from '@/components/Buy/BuyStrip'
-import BuyFloat from '@/components/Buy/BuyFloat'
 import EcosystemMindMap from '@/components/EcosystemMindMap'
-import Partners from '@/components/Partners/Partners'
+const Partners = lazy(() => import('@/components/Partners/Partners'))
 import { Helmet } from 'react-helmet-async'
 import bnbLogo from '../assets/icons/bnblogo.svg'
 import { openGameByDevice, handleBuyMCRT } from '@/lib/gameActions'
-import { useCopyToClipboard } from '@/hooks/useCopyToClipboard'
-import { MCRT_CONTRACT } from '@/constants'
 
-import AIIntegrationSection from '@/components/Home/AIIntegrationSection'
+const AIIntegrationSection = lazy(() => import('@/components/Home/AIIntegrationSection'))
 import HeroSection from '@/components/Home/HeroSection'
 
 function Homepagemcrt() {
   const [visibleCount] = useState(ourteam.length)
-  const { copied: contractCopied, copy: copyContractAction } = useCopyToClipboard()
 
   const registerHandler = () => {
     window.location.href = 'https://lobby.magiccraft.io/register'
@@ -71,8 +67,6 @@ function Homepagemcrt() {
     window.location.href =
       'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
   }
-
-  const copyContractAddress = () => copyContractAction(MCRT_CONTRACT)
 
   return (
     <>
@@ -204,8 +198,6 @@ function Homepagemcrt() {
                           </div>
                             </div>
           </section>
-          {/* Floating Buy button */}
-          <BuyFloat />
           {/* Credibility Bar */}
           <div className="w-full bg-gradient-to-r from-[#98FFF9]/10 via-[#B591F2]/10 to-[#FFB649]/10 border-t border-b border-white/10">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-3 sm:py-4">
@@ -249,50 +241,30 @@ function Homepagemcrt() {
                 <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
                   <div className="text-xs text-white/60">Platforms</div>
                   <div className="text-sm sm:text-base font-bold text-white">iOS, Android, PC</div>
-                            </div>
+                </div>
                 <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
-                  <div className="text-xs text-white/60">Exchanges</div>
-                  <div className="text-sm sm:text-base font-bold text-white">
-                    <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="hover:text-[#98FFF9] transition-colors">Bybit</a>
-                    <span className="text-white/30 mx-1">•</span>
-                    <a href="https://www.htx.com/trade/mcrt_usdt" target="_blank" rel="noopener noreferrer" className="hover:text-[#98FFF9] transition-colors">HTX</a>
-                    <span className="text-white/30 mx-1">•</span>
-                    <a href="https://www.mexc.com/exchange/MCRT_USDT" target="_blank" rel="noopener noreferrer" className="hover:text-[#98FFF9] transition-colors">MEXC</a>
-                            </div>
-                            </div>
+                  <div className="text-xs text-white/60">Network</div>
+                  <div className="text-sm sm:text-base font-bold text-white">Game + AI + Ads</div>
+                </div>
                           </div>
               <div className="mt-3 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-                <span className="text-xs sm:text-sm text-white/60">Also on:</span>
-                <a href="https://www.gate.io/trade/MCRT_USDT" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">Gate.io</a>
-                <span className="text-white/30">•</span>
-                <a href="https://www.bitmart.com/trade/en-US?symbol=MCRT_USDT" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">Bitmart</a>
+                <span className="text-xs sm:text-sm text-white/60">Primary trading:</span>
+                <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">Bybit</a>
                 <span className="text-white/30">•</span>
                 <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">PancakeSwap</a>
-                        </div>
+              </div>
                       </div>
                     </div>
 
           {/* AI Integration Section */}
-          <AIIntegrationSection />
+          <Suspense fallback={<div className="min-h-[120px]" />}>
+            <AIIntegrationSection />
+          </Suspense>
 
         {/* Genesis NFTs — Earnings Tiers */}
-        <GenesisNFTs />
-
-        {/* Contract Address - Compact */}
-        <section className="relative py-4 md:py-6 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0">
-          <div className="flex flex-wrap items-center justify-center gap-3 text-sm">
-            <span className="text-white/60">$MCRT Contract:</span>
-            <code className="px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 font-mono text-xs text-white/90">0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f</code>
-            <button
-              onClick={copyContractAddress}
-              aria-label={contractCopied ? 'Contract address copied' : 'Copy contract address'}
-              className="px-3 py-1.5 rounded-lg bg-white/10 border border-white/15 text-xs text-white/80 hover:bg-white/15 transition-colors"
-            >
-              {contractCopied ? 'Copied!' : 'Copy'}
-            </button>
-            <a href="https://bscscan.com/token/0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="px-3 py-1.5 rounded-lg bg-gradient-to-r from-[#98FFF9]/20 to-[#B591F2]/20 border border-[#98FFF9]/30 text-xs text-[#98FFF9] hover:from-[#98FFF9]/30 hover:to-[#B591F2]/30 transition-colors">BscScan →</a>
-                        </div>
-        </section>
+        <Suspense fallback={<div className="min-h-[120px]" />}>
+          <GenesisNFTs />
+        </Suspense>
 
         {/* Ecosystem Hub */}
         <section className="relative py-8 md:py-12 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 overflow-visible">
@@ -310,7 +282,7 @@ function Homepagemcrt() {
                 <h4 className="text-lg md:text-xl font-bold">Compete in PvP</h4>
                       </div>
               <p className="text-sm md:text-base text-gray-300">Win matches and tournaments to unlock $MCRT rewards.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Play now <span aria-hidden="true">→</span></span>
+              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
             </a>
             <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
@@ -319,16 +291,16 @@ function Homepagemcrt() {
                 <h4 className="text-lg md:text-xl font-bold">$MCRT on CoinMarketCap</h4>
                       </div>
               <p className="text-sm md:text-base text-gray-300">Price, market cap, and supply details.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">View stats <span aria-hidden="true">→</span></span>
+              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
             </a>
-            <a href="#download-section" onClick={(e) => { e.preventDefault(); document.getElementById('download-section')?.scrollIntoView({ behavior: 'smooth' }); }} className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-md overflow-hidden cursor-pointer no-underline hover:no-underline">
+            <a href="#download-section" onClick={(e) => { e.preventDefault(); document.getElementById('download-section')?.scrollIntoView({ behavior: 'smooth' }); }} className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-2xl overflow-hidden cursor-pointer no-underline hover:no-underline">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
               <div className="flex items-center gap-3 mb-1">
                 <img src="/icons/icon-gamepad.svg" alt="Game" className="w-5 h-5 opacity-90" />
                 <h4 className="text-lg md:text-xl font-bold">Cross-Platform Game</h4>
                     </div>
               <p className="text-sm md:text-base text-gray-300">Play on PC, iOS, Android, Steam.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Get the game <span aria-hidden="true">→</span></span>
+              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
             </a>
             <a href="https://lobby.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
@@ -337,7 +309,7 @@ function Homepagemcrt() {
                 <h4 className="text-lg md:text-xl font-bold">Crypto Lobbies</h4>
                   </div>
               <p className="text-sm md:text-base text-gray-300">BTC, ETH, BNB & more.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Enter lobbies <span aria-hidden="true">→</span></span>
+              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
             </a>
             <a href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
@@ -346,7 +318,7 @@ function Homepagemcrt() {
                 <h4 className="text-lg md:text-xl font-bold">NFT Marketplace</h4>
               </div>
               <p className="text-sm md:text-base text-gray-300">Trade assets and utilities.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Browse items <span aria-hidden="true">→</span></span>
+              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
             </a>
             <a href="https://store.steampowered.com/app/3478810/MCRT_Game_Maker/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
               <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
@@ -356,7 +328,7 @@ function Homepagemcrt() {
                 <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-[#98FFF9]/20 text-[#98FFF9] font-bold">STEAM</span>
               </div>
               <p className="text-sm md:text-base text-gray-300">Design maps, earn $MCRT.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open Steam <span aria-hidden="true">→</span></span>
+              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
             </a>
           </div>
 
@@ -453,25 +425,29 @@ function Homepagemcrt() {
               rel="noreferrer noopener"
                   className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-semibold text-white bg-white/10 border border-white/20"
             >
-              Play
+              Play Now
             </a>
             <a
               href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
               rel="noreferrer noopener"
                   className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-semibold text-[#03082F] bg-gradient-to-b from-[#A9FFF6] to-[#8EECE6] border border-white/20"
             >
-              Buy
+              Buy $MCRT
             </a>
           </div>
         </div>
           
          <section id="gameplay">
-          <GamePlay />
+          <Suspense fallback={<div className="min-h-[220px]" />}>
+            <GamePlay />
+          </Suspense>
           </section>
 
           {/* Exchanges/Partners elevated */}
           <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl mt-4 sm:mt-6 md:mt-8 lg:mt-12 mb-8 sm:mb-10 md:mb-14 lg:mb-16 px-1 sm:px-2 md:px-0 overflow-x-hidden">
-            <Partners />
+            <Suspense fallback={<div className="min-h-[120px]" />}>
+              <Partners />
+            </Suspense>
           </section>
 
           {/* JOIN THE ACTION */}
@@ -605,7 +581,9 @@ function Homepagemcrt() {
 
                   <div className="grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain touch-auto px-4 scrollbar-none">
                     {roadmapData.map((data) => (
-                      <RoadmapCard data={data} key={data.quarter} />
+                      <Suspense fallback={<div className="w-[280px] h-[240px] rounded-2xl border border-white/10 bg-white/5" />} key={data.quarter}>
+                        <RoadmapCard data={data} />
+                      </Suspense>
                     ))}
                   </div>
                 </div>

@@ -227,8 +227,8 @@ export default function AIIntegrationSection() {
               <p className="text-sm sm:text-base text-white/80 leading-relaxed">
                 Our team runs <span className="text-white font-semibold">merlintheai.com</span> and
                 <span className="text-white font-semibold"> Merlinbot</span> directly in internal chats and team groups as AI teammates.
-                These agents help coordinate operations, schedule meetings automatically across multiple chats,
-                route tasks, and keep execution moving.
+                <br className="hidden sm:block" />
+                They coordinate operations, schedule meetings across multiple chats, route tasks, and keep execution moving.
               </p>
             </div>
           </div>
@@ -244,7 +244,8 @@ export default function AIIntegrationSection() {
               </h4>
               <p className="text-sm sm:text-base text-white/80 leading-relaxed">
                 MagicCraft is being built with the latest AI models on top of the old <span className="text-white font-semibold">$10m source (original MagicCraft game) code in Unity</span>. 
-                All our devs are non-stop coding using <span className="text-white font-semibold">Cursor, Codex, or Claude Code</span> with the latest models: <span className="text-white font-semibold">ChatGPT 5.3, Opus 4.6, and Gemini 3.1 Pro</span>.
+                <br className="hidden sm:block" />
+                Our dev team ships daily using <span className="text-white font-semibold">Cursor, Codex, and Claude Code</span> with the latest models: <span className="text-white font-semibold">ChatGPT 5.3, Opus 4.6, and Gemini 3.1 Pro</span>.
               </p>
             </div>
           </div>
