@@ -1,16 +1,4 @@
 'use client'
-
-import {
-  FaXTwitter,
-  FaTelegram,
-  FaDiscord,
-  FaReddit,
-  FaInstagram,
-  FaMedium,
-  FaLinkedin,
-  FaTiktok,
-  FaYoutube,
-} from 'react-icons/fa6'
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { createPortal } from 'react-dom'
@@ -124,54 +112,6 @@ export default function MagicraftDownload() {
       href: 'https://drive.google.com/file/d/1H8bp0gzG2R__kPVgIkyzysPfX8adfQgy/view?usp=sharing',
       label: 'Download',
       sublabel: 'PC',
-    },
-  ]
-
-  const socialLinks = [
-    {
-      name: 'Twitter',
-      icon: <FaXTwitter className="text-white opacity-50" size={20} />,
-      link: 'https://twitter.com/MagicCraftGame',
-    },
-    {
-      name: 'Telegram',
-      icon: <FaTelegram className="text-white opacity-50" size={20} />,
-      link: 'https://t.me/magiccraftgamechat',
-    },
-    {
-      name: 'Discord',
-      icon: <FaDiscord className="text-white opacity-50" size={20} />,
-      link: 'https://discord.gg/magiccraftgame',
-    },
-    {
-      name: 'Reddit',
-      icon: <FaReddit className="text-white opacity-50" size={20} />,
-      link: 'https://www.reddit.com/r/magiccraftgame/',
-    },
-    {
-      name: 'Instagram',
-      icon: <FaInstagram className="text-white opacity-50" size={20} />,
-      link: 'https://www.instagram.com/magiccraftgame/',
-    },
-    {
-      name: 'Medium',
-      icon: <FaMedium className="text-white opacity-50" size={20} />,
-      link: 'https://medium.com/@MagicCraftGame',
-    },
-    {
-      name: 'LinkedIn',
-      icon: <FaLinkedin className="text-white opacity-50" size={20} />,
-      link: 'https://www.linkedin.com/company/magiccraft',
-    },
-    {
-      name: 'TikTok',
-      icon: <FaTiktok className="text-white opacity-50" size={20} />,
-      link: 'https://www.tiktok.com/@magiccraftgame',
-    },
-    {
-      name: 'YouTube',
-      icon: <FaYoutube className="text-white opacity-50" size={20} />,
-      link: 'https://www.youtube.com/@MagicCraftGame',
     },
   ]
 
@@ -322,23 +262,6 @@ export default function MagicraftDownload() {
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="mx-4 mb-4 flex justify-center gap-3 lg:gap-4 rounded-xl border border-[#B591F2]/30 bg-gradient-to-r from-[#6D3190]/80 to-[#642588]/80 py-3 lg:py-4 backdrop-blur-sm shadow-inner">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.link}
-                  className="transition-all duration-300 hover:opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] p-2.5 rounded-lg hover:bg-white/10 hover:scale-110 hover:-translate-y-0.5"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.name}
-                >
-                  <div className="scale-90">
-                    {social.icon}
-                  </div>
-                </a>
-              ))}
-            </div>
           </div>
         </div>
       </div>

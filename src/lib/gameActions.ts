@@ -1,4 +1,3 @@
-import { openTransactionModal } from '@xswap-link/sdk'
 import { openExternalLink } from '@/lib/utils'
 import { BYBIT_URL, MCRT_CONTRACT, IOS_APP_URL, ANDROID_APP_URL, PC_GAME_URL } from '@/constants'
 
@@ -25,6 +24,7 @@ export const handleBuyMCRT = async () => {
     return
   }
   try {
+    const { openTransactionModal } = await import('@xswap-link/sdk')
     await openTransactionModal({
       integratorId: '34808808c1f4ae4533b7',
       dstChain: '56',

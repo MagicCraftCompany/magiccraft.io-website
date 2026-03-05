@@ -1,8 +1,7 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
 import { X, Gamepad2, ShoppingBag, Globe, ChevronDown } from 'lucide-react'
 import NavMenu from './Navmenu'
-import { useState, useEffect, useRef } from 'react'
-import StatusIndicator from './StatusIndicator'
+import { Suspense, lazy, useState, useEffect, useRef } from 'react'
 
 // Language options (codes match Google Translate)
 const languages = [
@@ -63,7 +62,8 @@ function triggerGoogleTranslate(langCode: string) {
   tick()
 }
 
-import NavMenuMobile from './NavMenuMobile'
+const NavMenuMobile = lazy(() => import('./NavMenuMobile'))
+const StatusIndicator = lazy(() => import('./StatusIndicator'))
 
 import Referral from'@/assets/icons/Referral.svg'
 import Whitepaper from '@/assets/icons/whitepaper.svg'
@@ -491,7 +491,9 @@ const Header = () => {
                   </div>
                 )}
               </div>
-              <StatusIndicator />
+              <Suspense fallback={<div className="h-10 w-[78px] rounded-lg bg-white/5 border border-white/10" />}>
+                <StatusIndicator />
+              </Suspense>
             </div>
             )}
           </div>
@@ -592,11 +594,13 @@ const Header = () => {
             <div className="flex-1 overflow-auto space-y-1">
               {commonMenuItemsNew.map((item) =>
                 item?.submenu?.length > 0 ? (
-                  <NavMenuMobile
-                    key={item.title}
-                    item={item}
-                    closeSidebar={closeSidebar}
-                  />
+                  <Suspense fallback={<div key={item.title} className="h-12 rounded-lg bg-white/5" />}>
+                    <NavMenuMobile
+                      key={item.title}
+                      item={item}
+                      closeSidebar={closeSidebar}
+                    />
+                  </Suspense>
                 ) : (
                   item.path?.startsWith('http') ? (
                     <a
