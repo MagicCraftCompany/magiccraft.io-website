@@ -567,10 +567,10 @@ function Homepagemcrt() {
                   Roadmap
                 </h2>
                 <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
-                  2025 – 2026
+                  Current Phase: Q1 2026
                 </div>
                 <p className="mx-auto mt-4 max-w-2xl text-center text-xs font-medium tracking-wider text-white/50 uppercase">
-                  Major Milestones & Expansion
+                  Live products, current quarter delivery, and next expansion phases
                 </p>
               </div>
               <div className="flex items-center justify-center">

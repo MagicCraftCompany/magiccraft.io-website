@@ -15,6 +15,11 @@ type RoadmapCardType = {
 const RoadmapCard = ({ data }: RoadmapCardType) => {
   const isLive = data.quarter === 'LIVE';
   const yearDisplay = data.year ? String(data.year).slice(-2) : '25';
+  const now = new Date();
+  const currentQuarter = Math.floor(now.getMonth() / 3) + 1;
+  const currentYear = now.getFullYear();
+  const isCurrentQuarter =
+    !isLive && data.quarter === currentQuarter && data.year === currentYear;
   
   return (
     <div className="min-w-[18rem] snap-center space-y-6">
@@ -34,7 +39,8 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
                 ? 'bg-gradient-to-b from-[#10B981]/50 via-transparent to-transparent' 
                 : isDefault 
                   ? 'bg-gradient-to-b from-[#98FFF9]/40 via-transparent to-transparent' 
-                  : 'bg-gradient-to-b from-[#B591F2]/40 via-transparent to-transparent'}`}
+                  : 'bg-gradient-to-b from-[#B591F2]/40 via-transparent to-transparent'}
+              ${isCurrentQuarter ? 'ring-2 ring-[#98FFF9]/35 shadow-[0_0_35px_rgba(152,255,249,0.16)]' : ''}`}
             >
               <div
                 className={`rounded-3xl border border-white/10 bg-gradient-to-br ${
@@ -47,10 +53,10 @@ const RoadmapCard = ({ data }: RoadmapCardType) => {
               >
                 <div className="flex items-center justify-between px-6 py-4 bg-black/20">
                   <span className="text-xs md:text-sm font-semibold tracking-wider text-white/90">
-                    {isLiveVariant ? 'LAUNCHED' : titleKeyMaper(i)}
+                    {isLiveVariant ? 'LAUNCHED' : isCurrentQuarter ? 'CURRENT' : titleKeyMaper(i)}
                   </span>
                   <span className="text-[10px] md:text-xs text-white/60">
-                    {isLive ? 'Live Now' : `Q${data.quarter} · ${data.year || 2026}`}
+                    {isLive ? 'Live Now' : isCurrentQuarter ? 'In Progress' : `Q${data.quarter} · ${data.year || 2026}`}
                   </span>
                 </div>
 
