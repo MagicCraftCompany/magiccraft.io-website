@@ -1,5 +1,7 @@
 import { Handler } from '@netlify/functions'
 
+const CONTACT_EMAIL = 'contact@magiccraft.io'
+
 export const handler: Handler = async (event) => {
   if (event.httpMethod !== 'POST') {
     return {
@@ -46,15 +48,6 @@ Has Working Build: ${hasBuild ? 'Yes' : 'No'}
 Submitted at: ${new Date().toISOString()}
     `.trim()
 
-    // Send email using Netlify's built-in email service
-    const emailData = {
-      to: 'marketing@magiccraft.io',
-      from: 'noreply@magiccraft.io',
-      subject: emailSubject,
-      text: emailBody
-    }
-
-    // Use Netlify's email service
     const emailResponse = await fetch('https://api.netlify.com/api/v1/sites/serene-capybara-c35ae5/forms/grants/submissions', {
       method: 'POST',
       headers: {
@@ -62,7 +55,8 @@ Submitted at: ${new Date().toISOString()}
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        email: 'marketing@magiccraft.io',
+        email: CONTACT_EMAIL,
+        from: CONTACT_EMAIL,
         subject: emailSubject,
         body: emailBody,
         data: {

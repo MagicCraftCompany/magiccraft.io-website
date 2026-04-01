@@ -10,7 +10,8 @@ import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import { Helmet } from 'react-helmet-async'
 import { Tabs, Tab } from '@/components/tabs'
-import { useMemo, useState } from 'react'
+import { useMemo, useState, type FormEvent } from 'react'
+import { buildContactMailto, CONTACT_EMAIL } from '@/lib/contactEmail'
 
 import web3 from '@/assets/icons/li_help-circle (1).svg'
 import web from '@/assets/icons/li_help-circle.svg'
@@ -21,6 +22,7 @@ import { Link } from 'react-router-dom'
 
 export default function FAQ() {
   const [query, setQuery] = useState('')
+  const [contactStatus, setContactStatus] = useState('')
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
     if (!q) return questions
@@ -28,6 +30,28 @@ export default function FAQ() {
       (item.question + ' ' + item.answer).toLowerCase().includes(q)
     )
   }, [query])
+
+  const handleContactSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const email = String(formData.get('email') || '').trim()
+    const message = String(formData.get('message') || '').trim()
+
+    try {
+      window.location.href = buildContactMailto({
+        email,
+        message,
+        subject: 'MagicCraft support request',
+      })
+      setContactStatus(`Your email app should open with a draft to ${CONTACT_EMAIL}.`)
+      form.reset()
+    } catch {
+      setContactStatus(`We couldn't open your email app. Please email ${CONTACT_EMAIL} directly.`)
+    }
+  }
+
   function Question() {
     return (
       <Accordion
@@ -139,13 +163,15 @@ export default function FAQ() {
                     iconActive={contacticon2}
                   >
                     <div className="flex flex-shrink-0 flex-col items-start justify-between rounded-[25.4px] border border-[#9AD4FD] bg-[#03082F] bg-gradient-to-b from-[#161242] to-[rgba(6,11,49,0.95)] shadow-[0px_0px_20.32px_#22068F] backdrop-blur-[5.128px] md:flex-row lg:max-w-[934px]">
-                      <form className="w-full p-4 md:pl-[4em]">
+                      <form onSubmit={handleContactSubmit} className="w-full p-4 md:pl-[4em]">
                         <div className="mb-4">
                           <input
                             className="flex w-full items-start rounded-[6.001px] border-2 border-[#2C345A] bg-[rgba(0,0,0,0.16)] p-2 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:w-[443.23px] lg:mt-6"
-                            id="name"
-                            type="text"
+                            id="email"
+                            name="email"
+                            type="email"
                             placeholder="Your Email"
+                            required
                           />
                         </div>
 
@@ -153,7 +179,9 @@ export default function FAQ() {
                           <textarea
                             className="flex w-full items-start rounded-[6.001px] border-2 border-[#2C345A] bg-[rgba(0,0,0,0.16)] p-2 shadow-[0px_4px_4px_0px_rgba(0,0,0,0.25)] md:h-[141px] md:w-[443.23px]"
                             id="message"
+                            name="message"
                             placeholder="Your question/problem"
+                            required
                           />
                         </div>
 
@@ -195,7 +223,7 @@ export default function FAQ() {
                         <div className="flex items-center justify-between">
                           <button
                             className="btn-primary m-4"
-                            type="button"
+                            type="submit"
                           >
                             <img
                               src={vector}
@@ -205,6 +233,10 @@ export default function FAQ() {
                             Send
                           </button>
                         </div>
+                        <p className="px-4 text-sm text-white/80">
+                          Prefer direct email? <a href={`mailto:${CONTACT_EMAIL}`} className="text-[#98FFF9] underline">{CONTACT_EMAIL}</a>
+                        </p>
+                        {contactStatus && <p className="px-4 pt-3 text-sm text-white/80">{contactStatus}</p>}
                       </form>
 
                       <img

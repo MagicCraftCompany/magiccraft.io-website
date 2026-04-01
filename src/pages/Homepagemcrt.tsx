@@ -2,32 +2,23 @@ import { Fragment, Suspense, lazy, useCallback, useEffect, useState } from 'reac
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
 import steam from '@/assets/icons/icon-steam.svg'
-import AppleIcon from '@/assets/icons/icon-apple.svg'
 import { Tabs, Tab } from '@/components/tabs'
 import { roadmapData } from '../data/roadmapData'
 const RoadmapCard = lazy(() => import('../components/Cards/RoadmapCard'))
 import { ourteam } from '@/components/Team/ourTeam'
-const GenesisNFTs = lazy(() => import('@/components/GenesisNFTs'))
-import { LiaTelegramPlane } from 'react-icons/lia'
 const GamePlay = lazy(() => import('@/components/GamePlay'))
 import MagicraftDownload from '@/components/HomePageCard'
 import BuyStrip from '@/components/Buy/BuyStrip'
-import EcosystemMindMap from '@/components/EcosystemMindMap'
 const Partners = lazy(() => import('@/components/Partners/Partners'))
 import { Helmet } from 'react-helmet-async'
 import bnbLogo from '../assets/icons/bnblogo.svg'
-import { openGameByDevice, handleBuyMCRT } from '@/lib/gameActions'
+import { handleBuyMCRT } from '@/lib/gameActions'
 
 const AIIntegrationSection = lazy(() => import('@/components/Home/AIIntegrationSection'))
 import HeroSection from '@/components/Home/HeroSection'
 
 function Homepagemcrt() {
   const [visibleCount] = useState(ourteam.length)
-
-  const registerHandler = () => {
-    window.location.href = 'https://lobby.magiccraft.io/register'
-  }
-
 
   const kolTeam = ourteam.filter((member) => member.category === 'KOL')
   const teamMembers = ourteam.filter((member) => member.category === 'Team')
@@ -43,7 +34,6 @@ function Homepagemcrt() {
     })
   }, [])
 
-
   useEffect(() => {
     adjustDividerHeight()
   }, [visibleCount, adjustDividerHeight])
@@ -54,19 +44,6 @@ function Homepagemcrt() {
       window.removeEventListener('resize', adjustDividerHeight)
     }
   }, [adjustDividerHeight])
-
-  const playonappleHandler = () => {
-    window.location.href =
-      'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525'
-  }
-  const playonsteamHandler = () => {
-    window.location.href =
-      'https://store.steampowered.com/app/2395760/MagicCraft/'
-  }
-  const getfromgoogleHandler = () => {
-    window.location.href =
-      'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en'
-  }
 
   return (
     <>
@@ -129,16 +106,6 @@ function Homepagemcrt() {
           {/*header*/}
           <HeroSection />
 
-          {/* Mobile mind map section */}
-          <section className="sm:hidden w-full bg-gradient-to-b from-[#0a0524] via-[#050317] to-[#03082f] border-t border-white/5">
-            <div className="mx-auto max-w-screen-xl px-2 py-4">
-              <div className="text-sm font-semibold text-white/80 mb-2 text-center">Ecosystem Map</div>
-              <div className="mx-auto w-full h-[360px] rounded-md overflow-hidden border border-white/10 bg-black/20">
-                <EcosystemMindMap />
-                    </div>
-            </div>
-          </section>
-
           {/* Download banner just below hero */}
           <div id="download-section" className="w-full max-w-full bg-gradient-to-b from-[#0a0524] via-[#050317] to-[#03082f] relative z-10 shadow-inner overflow-visible">
             <div className="mx-auto max-w-screen-xl px-2 sm:px-3 md:px-4 py-2 sm:py-3 md:py-4 w-full overflow-visible">
@@ -198,73 +165,134 @@ function Homepagemcrt() {
                           </div>
                             </div>
           </section>
-          {/* Credibility Bar */}
-          <div className="w-full bg-gradient-to-r from-[#98FFF9]/10 via-[#B591F2]/10 to-[#FFB649]/10 border-t border-b border-white/10">
-            <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-3 sm:py-4">
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-10 text-sm sm:text-base text-white/90">
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.31-8.86c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V5H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V19h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/></svg>
-                  <span><strong>Building since 2021</strong></span>
+          {/* $MCRT Utility Token Section */}
+          <section className="w-full bg-gradient-to-b from-[#03082f] via-[#07051e] to-[#03082f] border-t border-white/5 py-10 sm:py-14 md:py-16">
+            <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6">
+              {/* Header */}
+              <div className="text-center mb-8 md:mb-10">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#98FFF9]/20 bg-[#98FFF9]/5 text-xs text-[#98FFF9] mb-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#98FFF9] animate-pulse"></span>
+                  BEP-20 · BNB Chain
                 </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-                  <span><strong>Global Team</strong></span>
+                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-white to-[#B591F2] bg-clip-text text-transparent mb-3">
+                  $MCRT Utility Token
+                </h2>
+                <p className="text-sm sm:text-base text-white/70 max-w-2xl mx-auto leading-relaxed">
+                  The fuel of the MagicCraft economy — used for in-game actions, AI products, ads, governance, and rewards across every product we build.
+                </p>
+              </div>
+
+              {/* Use cases grid */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-8">
+                {[
+                  { icon: '⚔️', label: 'PvP Rewards', desc: 'Win matches, earn $MCRT' },
+                  { icon: '🔥', label: 'Hero Leveling', desc: 'Burn $MCRT to level up' },
+                  { icon: '🤖', label: 'AI Products', desc: 'Power Merlin & Akyn' },
+                  { icon: '📢', label: 'MagicAds', desc: 'Pay & earn with ads' },
+                  { icon: '🗳️', label: 'Governance', desc: 'Vote on DAO proposals' },
+                  { icon: '🎨', label: 'NFT Minting', desc: 'Mint & trade assets' },
+                ].map(({ icon, label, desc }) => (
+                  <div key={label} className="card-glass rounded-2xl border border-white/10 p-3 sm:p-4 text-center hover:border-[#98FFF9]/30 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(152,255,249,0.1)] transition-all duration-300">
+                    <div className="text-2xl sm:text-3xl mb-2">{icon}</div>
+                    <div className="text-xs sm:text-sm font-semibold text-white mb-0.5">{label}</div>
+                    <div className="text-[10px] sm:text-xs text-white/50">{desc}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Token stats + CTA row */}
+              <div className="flex flex-col lg:flex-row items-center gap-5 md:gap-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm px-5 sm:px-6 md:px-8 py-5 sm:py-6">
+                <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 flex-1">
+                  {[
+                    { label: 'Standard', value: 'BEP-20' },
+                    { label: 'Network', value: 'BNB Chain' },
+                    { label: 'Tx Speed', value: '~3 sec' },
+                    { label: 'Avg Fee', value: '~$0.01' },
+                  ].map(({ label, value }) => (
+                    <div key={label} className="text-center">
+                      <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">{label}</div>
+                      <div className="text-sm sm:text-base font-bold text-white mt-0.5">{value}</div>
+                    </div>
+                  ))}
                 </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
-                  <span><strong>$10m+ Unity Core</strong></span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                  <span><strong>Next-Gen AI Powered</strong></span>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <a
+                    href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary interactive-scale"
+                  >
+                    Buy on Bybit
+                  </a>
+                  <a
+                    href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-secondary"
+                  >
+                    PancakeSwap
+                  </a>
+                  <a
+                    href="https://coinmarketcap.com/currencies/magiccraft/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-white/60 hover:text-white transition-colors"
+                  >
+                    CoinMarketCap ↗
+                  </a>
                 </div>
               </div>
             </div>
-          </div>
+          </section>
 
-          {/* Quick Stats strip for buyers */}
+          {/* Stats + credibility strip */}
           <div className="w-full bg-gradient-to-r from-[#0B0F39] via-[#120e3d] to-[#0B0F39] border-t border-white/5">
-            <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-4 sm:py-6">
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
-                <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
-                  <div className="text-xs text-white/60">Token Holders</div>
-                  <div className="text-sm sm:text-base font-bold text-white">17,500+</div>
-                            </div>
-                <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
-                  <div className="text-xs text-white/60">Downloads</div>
-                  <div className="text-sm sm:text-base font-bold text-white">50,000+</div>
-                          </div>
-                <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
-                  <div className="text-xs text-white/60">Crypto Lobbies</div>
-                  <div className="text-sm sm:text-base font-bold text-white">BTC, ETH, SOL</div>
-                            </div>
-                <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
-                  <div className="text-xs text-white/60">Platforms</div>
-                  <div className="text-sm sm:text-base font-bold text-white">iOS, Android, PC</div>
-                </div>
-                <div className="card-glass px-3 py-2 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
-                  <div className="text-xs text-white/60">Network</div>
-                  <div className="text-sm sm:text-base font-bold text-white">Game + AI + Ads</div>
-                </div>
-                          </div>
-              <div className="mt-3 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-                <span className="text-xs sm:text-sm text-white/60">Primary trading:</span>
-                <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">Bybit</a>
-                <span className="text-white/30">•</span>
-                <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/90 font-medium hover:text-[#98FFF9] transition-colors">PancakeSwap</a>
+            <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-5 sm:py-7 space-y-4">
+              {/* Credibility badges */}
+              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-white/70 border-b border-white/5 pb-4">
+                <span className="flex items-center gap-1.5"><svg className="w-4 h-4 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.31 13.14c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V9H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V23h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/></svg>Building since 2021</span>
+                <span className="flex items-center gap-1.5"><svg className="w-4 h-4 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>Global Team</span>
+                <span className="flex items-center gap-1.5"><svg className="w-4 h-4 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>$10m+ Unity Core</span>
+                <span className="flex items-center gap-1.5"><svg className="w-4 h-4 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>Next-Gen AI Powered</span>
               </div>
-                      </div>
-                    </div>
+              {/* Stats cards */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
+                <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
+                  <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Token Holders</div>
+                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">17,500+</div>
+                </div>
+                <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
+                  <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Downloads</div>
+                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">50,000+</div>
+                </div>
+                <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
+                  <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Crypto Lobbies</div>
+                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">BTC, ETH, SOL</div>
+                </div>
+                <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
+                  <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Platforms</div>
+                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">iOS, Android, PC</div>
+                </div>
+                <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
+                  <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Network</div>
+                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">Game + AI + Ads</div>
+                </div>
+              </div>
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1">
+                <span className="text-xs text-white/50">Trade $MCRT:</span>
+                <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="text-xs text-white/80 font-medium hover:text-[#98FFF9] transition-colors">Bybit</a>
+                <span className="text-white/20">·</span>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="text-xs text-white/80 font-medium hover:text-[#98FFF9] transition-colors">PancakeSwap</a>
+                <span className="text-white/20">·</span>
+                <a href="https://www.htx.com/trade/mcrt_usdt" target="_blank" rel="noopener noreferrer" className="text-xs text-white/80 font-medium hover:text-[#98FFF9] transition-colors">HTX</a>
+              </div>
+            </div>
+          </div>
 
           {/* AI Integration Section */}
           <Suspense fallback={<div className="min-h-[120px]" />}>
             <AIIntegrationSection />
           </Suspense>
-
-        {/* Genesis NFTs — Earnings Tiers */}
-        <Suspense fallback={<div className="min-h-[120px]" />}>
-          <GenesisNFTs />
-        </Suspense>
 
         {/* Ecosystem Hub */}
         <section className="relative py-8 md:py-12 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 overflow-visible">
@@ -450,112 +478,6 @@ function Homepagemcrt() {
             </Suspense>
           </section>
 
-          {/* JOIN THE ACTION */}
-          <section className="flex justify-center bg-center p-4 md:p-6 lg:mt-4 lg:mb-8">
-            <div className="relative max-w-7xl w-full rounded-md bg-[#0B0F39] border border-white/10 shadow-xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/30"></div>
-              <div className="relative space-y-4 md:space-y-6 px-6 md:px-10 pb-6 md:pb-8 pt-6 md:pt-7">
-                <div className="text-center space-y-3">
-                  <h5 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent leading-tight">
-                    Join the action, earn $MCRT
-                  </h5>
-                  <p className="text-sm md:text-base text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                    Play-and-earn with a real level-up system - grind vs bots, burn $MCRT to level heroes, and craft stronger weapons.
-                  </p>
-                      </div>
-
-                <div className="grid grid-cols-1 gap-6 md:gap-8 lg:grid-cols-4">
-                  {/* Register Card */}
-                  <button onClick={registerHandler} className="group text-left rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#8EFF49]/50 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(142,255,73,0.2)]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-md bg-[#8EFF49]/20 border border-[#8EFF49]/40 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-[#8EFF49]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                          <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/>
-                          <circle cx="12" cy="7" r="4"/>
-                          <path d="M16 11l2 2 4-4"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <h4 className="font-serif text-lg md:text-xl font-bold text-white">Register</h4>
-                        <p className="text-sm text-white/70">Create your $MCRT account.</p>
-                    </div>
-                  </div>
-                    <span className="inline-flex items-center gap-2 text-xs text-[#8EFF49]">Get started <span aria-hidden="true">→</span></span>
-                  </button>
-
-                  {/* Download Card */}
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#FFB649]/40 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(255,182,73,0.2)]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-md bg-[#FFB649]/15 border border-[#FFB649]/40 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 2C6.49 2 2 6.49 2 12s4.49 10 10 10 10-4.49 10-10S17.51 2 12 2zm1 5v5l4 2-1 1-4-2V7h1z"/>
-                        </svg>
-                          </div>
-                      <div>
-                        <h4 className="font-serif text-lg md:text-xl font-bold text-white">Download the Game</h4>
-                        <p className="text-sm text-white/70">PC, iOS, Android, Steam.</p>
-                        </div>
-                        </div>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <button className="inline-flex items-center justify-center rounded-md border border-white/10 bg-black/20 px-4 py-2 text-xs text-white/90 hover:border-[#FFB649]/40 hover:text-white transition-colors" onClick={openGameByDevice}>
-                        Download
-                      </button>
-                      <div className="flex items-center gap-3 text-xs text-white/70">
-                        <button className="inline-flex items-center gap-2 hover:text-white transition-colors" onClick={playonsteamHandler}>
-                          <img src={steam} className="w-4 h-4" alt="Steam Icon" loading="lazy" />
-                          Steam
-                        </button>
-                        <button className="inline-flex items-center gap-2 hover:text-white transition-colors" onClick={playonappleHandler}>
-                          <img src={AppleIcon} className="w-4 h-4" alt="Apple Icon" loading="lazy" />
-                          App Store
-                        </button>
-                        <button className="inline-flex items-center gap-2 hover:text-white transition-colors" onClick={getfromgoogleHandler}>
-                          <img src="/icons/icon-playstore.svg" className="w-4 h-4" alt="Google Play Icon" loading="lazy" />
-                          Google Play
-                        </button>
-                      </div>
-                  </div>
-                </div>
-
-                  {/* Web3 Lobby Card */}
-                  <a href="https://lobby.magiccraft.io/" target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#B591F2]/60 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(181,145,242,0.2)]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-md bg-[#B591F2]/20 border border-[#B591F2]/40 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-[#B591F2]" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                          <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-                          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                          <line x1="12" y1="22.08" x2="12" y2="12"/>
-                          <circle cx="12" cy="12" r="2"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <h4 className="font-serif text-lg md:text-xl font-bold text-white">Join a Web3 Lobby</h4>
-                        <p className="text-sm text-white/70">BTC, ETH, BNB & more.</p>
-                      </div>
-                    </div>
-                    <span className="inline-flex items-center gap-2 text-xs text-[#B591F2]">Enter lobby <span aria-hidden="true">→</span></span>
-                  </a>
-
-                  {/* Level Up Card */}
-                  <div className="rounded-2xl border border-white/10 bg-white/5 p-5 md:p-6 transition-all duration-300 hover:border-[#98FFF9]/50 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(152,255,249,0.2)]">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="w-10 h-10 rounded-md bg-[#98FFF9]/15 border border-[#98FFF9]/40 flex items-center justify-center">
-                        <svg className="w-5 h-5 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M12 2 4 5v6c0 5 3.5 9.4 8 11 4.5-1.6 8-6 8-11V5l-8-3Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 10.6c-1.9-.7-3.6-2.1-4.6-4 .9-.7 2.7-1.6 4.6-1.6s3.7.9 4.6 1.6c-1 1.9-2.7 3.3-4.6 4Z"/>
-                        </svg>
-                      </div>
-                      <div>
-                        <h4 className="font-serif text-lg md:text-xl font-bold text-white">Level Up & Craft</h4>
-                        <p className="text-sm text-white/70">Burn $MCRT to level heroes and forge better weapons.</p>
-                      </div>
-                    </div>
-                    <span className="inline-flex items-center gap-2 text-xs text-[#98FFF9]">Power up <span aria-hidden="true">→</span></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
           {/*roadmap */}
 
           <section className="relative my-10 min-h-screen" id="roadmap">
@@ -598,58 +520,7 @@ function Homepagemcrt() {
 
           {/*roadmap */}
 
-          {/* Community Section */}
-          <section className="relative py-12 md:py-16 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl">
-            <div className="card-glass rounded-md border border-white/10 overflow-hidden">
-              <div className="relative p-6 md:p-8 lg:p-10">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#98FFF9]/5 via-transparent to-[#B591F2]/5"></div>
-                <div className="relative z-10">
-                  <div className="text-center mb-6 md:mb-8">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent mb-2">
-                      Join 400K+ Players
-                </h3>
-                    <p className="text-sm sm:text-base text-white/70 max-w-xl mx-auto">
-                      Connect with players worldwide, share strategies, and get exclusive updates.
-                    </p>
-                  </div>
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-                    <a
-                      href="https://discord.gg/magiccraftgame"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-2xl bg-[#5865F2] hover:bg-[#4752C4] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(88,101,242,0.4)]"
-                    >
-                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
-                      </svg>
-                      <span className="font-semibold">Discord</span>
-                    </a>
-                    <a
-                      href="https://t.me/magiccraftgamechat"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-2xl bg-[#0088cc] hover:bg-[#006699] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(0,136,204,0.4)]"
-                    >
-                      <LiaTelegramPlane className="w-5 h-5" />
-                      <span className="font-semibold">Telegram</span>
-                    </a>
-                    <a
-                      href="https://twitter.com/MagicCraftGame"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-6 py-3 rounded-2xl bg-black hover:bg-zinc-900 border border-white/10 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]"
-                    >
-                      <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                      </svg>
-                      <span className="font-semibold">Twitter</span>
-                    </a>
-                  </div>
-                </div>
-                </div>
-              </div>
-          </section>
-          {/* Removed duplicate 'Join the MagicCraft Ecosystem' section */}
+          {/* Removed duplicate community section — social links are in the footer */}
           {/*our team */}
           <div className="h-auto bg-[#020418] px-6 py-10 md:px-8 md:py-14" id="team">
             <section className="relative mx-auto max-w-screen-xl space-y-8 p-4 md:space-y-12">

@@ -1,3 +1,49 @@
+/* Product icons as inline SVGs — no external favicon API needed */
+
+const AkynIcon = () => (
+  <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
+    <rect width="40" height="40" rx="10" fill="#1a0d2e"/>
+    <path d="M20 8L8 28h6l2-4h8l2 4h6L20 8zm0 6l3 6h-6l3-6z" fill="#B591F2"/>
+    <circle cx="20" cy="32" r="2" fill="#98FFF9"/>
+  </svg>
+)
+
+const MerlinIcon = () => (
+  <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
+    <rect width="40" height="40" rx="10" fill="#0d1a2e"/>
+    <circle cx="20" cy="16" r="7" stroke="#98FFF9" strokeWidth="2"/>
+    <path d="M13 30c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#98FFF9" strokeWidth="2" strokeLinecap="round"/>
+    <path d="M17 13l1.5 3L20 14l1.5 2L23 13" stroke="#FFB649" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
+const DocAIIcon = () => (
+  <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
+    <rect width="40" height="40" rx="10" fill="#0d2e1a"/>
+    <rect x="10" y="8" width="20" height="24" rx="3" stroke="#10B981" strokeWidth="2"/>
+    <path d="M15 15h10M15 19h10M15 23h6" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round"/>
+    <circle cx="28" cy="28" r="5" fill="#0d2e1a" stroke="#10B981" strokeWidth="1.5"/>
+    <path d="M26 28l1.5 1.5L30 26" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
+const PolybilitiesIcon = () => (
+  <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
+    <rect width="40" height="40" rx="10" fill="#2e1a0d"/>
+    <path d="M20 8l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z" fill="#FFB649" opacity="0.9"/>
+  </svg>
+)
+
+const MagicAdsIcon = () => (
+  <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
+    <rect width="40" height="40" rx="10" fill="#2e1a00"/>
+    <rect x="6" y="10" width="28" height="18" rx="3" stroke="#FFB649" strokeWidth="2"/>
+    <path d="M10 21h4M16 18h8M26 21h4" stroke="#FFB649" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M16 30h8" stroke="#FFB649" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M20 28v2" stroke="#FFB649" strokeWidth="1.5"/>
+  </svg>
+)
+
 export default function AIIntegrationSection() {
   return (
     <section className="relative w-full bg-gradient-to-b from-[#050317] via-[#0a0524] to-[#03082f] py-12 md:py-16 lg:py-20">
@@ -10,30 +56,25 @@ export default function AIIntegrationSection() {
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
             $MCRT powers in-game AI and the MagicCraft AI product suite, led by Akyn and Merlin.
           </p>
-      </div>
+        </div>
         
         {/* External AI Products */}
         <div className="mb-6">
           <h3 className="text-lg sm:text-xl font-semibold text-white/80 mb-4 flex items-center gap-2">
             <span className="w-8 h-[2px] bg-gradient-to-r from-[#98FFF9] to-transparent"></span>
             AI Product Suite
-            </h3>
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {/* Akyn */}
-            <a href="https://akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#98FFF9]/50 hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
+            <a href="https://akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#B591F2]/50 hover:shadow-[0_0_20px_rgba(181,145,242,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
-                <img
-                  src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://akyn.pro&size=128"
-                  alt="Akyn"
-                  className="w-12 h-12 rounded-md object-contain"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => { e.currentTarget.src = '/favicon.ico' }}
-                />
+                <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-white/10">
+                  <AkynIcon />
+                </div>
                 <div>
-                  <h4 className="text-xl font-bold text-white group-hover:text-[#98FFF9] transition-colors">Akyn</h4>
+                  <h4 className="text-xl font-bold text-white group-hover:text-[#B591F2] transition-colors">Akyn</h4>
                   <span className="text-xs text-[#98FFF9] font-medium">akyn.pro</span>
-          </div>
+                </div>
               </div>
               <p className="text-sm text-gray-300 leading-relaxed">
                 AI shorts & video maker for social content.
@@ -41,20 +82,13 @@ export default function AIIntegrationSection() {
             </a>
 
             {/* MerlinAI */}
-            <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#B591F2]/50 hover:shadow-[0_0_20px_rgba(181,145,242,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
+            <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#98FFF9]/50 hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
-                <img
-                  src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://merlintheai.com&size=128"
-                  alt="Merlin AI"
-                  className="w-12 h-12 rounded-md object-contain"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    e.currentTarget.src = '/favicon.ico'
-                  }}
-                />
+                <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-white/10">
+                  <MerlinIcon />
+                </div>
                 <div>
-                  <h4 className="text-xl font-bold text-white group-hover:text-[#B591F2] transition-colors">Merlin AI</h4>
+                  <h4 className="text-xl font-bold text-white group-hover:text-[#98FFF9] transition-colors">Merlin AI</h4>
                   <span className="text-xs text-[#98FFF9] font-medium">merlintheai.com</span>
                 </div>
               </div>
@@ -66,19 +100,14 @@ export default function AIIntegrationSection() {
             {/* DocAI */}
             <a href="https://docai.live" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#10B981]/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
-                <img
-                  src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://docai.live&size=128"
-                  alt="DocAI"
-                  className="w-12 h-12 rounded-md object-contain"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => { e.currentTarget.src = '/favicon.ico' }}
-                />
+                <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-white/10">
+                  <DocAIIcon />
+                </div>
                 <div>
                   <h4 className="text-xl font-bold text-white group-hover:text-[#10B981] transition-colors">DocAI</h4>
                   <span className="text-xs text-[#98FFF9] font-medium">docai.live</span>
-            </div>
-          </div>
+                </div>
+              </div>
               <p className="text-sm text-gray-300 leading-relaxed">
                 24/7 AI wellness assistant with personalized guidance.
               </p>
@@ -87,14 +116,9 @@ export default function AIIntegrationSection() {
             {/* Polybilities */}
             <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#FFB649]/50 hover:shadow-[0_0_20px_rgba(255,182,73,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
-                <img
-                  src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://polybilities.com&size=128"
-                  alt="Polybilities"
-                  className="w-12 h-12 rounded-md object-contain"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => { e.currentTarget.src = '/favicon.ico' }}
-                />
+                <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-white/10">
+                  <PolybilitiesIcon />
+                </div>
                 <div>
                   <h4 className="text-xl font-bold text-white group-hover:text-[#FFB649] transition-colors">Polybilities</h4>
                   <span className="text-xs text-[#98FFF9] font-medium">polybilities.com</span>
@@ -119,14 +143,8 @@ export default function AIIntegrationSection() {
                 <div className="flex flex-col lg:flex-row items-start lg:items-center gap-6 lg:gap-10">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#FFB649]/20 to-[#FF8C00]/10 border border-[#FFB649]/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                        <svg className="w-7 h-7 text-[#FFB649]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                          <rect x="2" y="3" width="20" height="14" rx="2" />
-                          <path d="M8 21h8" />
-                          <path d="M12 17v4" />
-                          <path d="M7 8h2m2 0h2m2 0h2" />
-                          <path d="M7 11h10" />
-                        </svg>
+                      <div className="w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0 ring-1 ring-[#FFB649]/30 group-hover:scale-110 transition-transform duration-300">
+                        <MagicAdsIcon />
                       </div>
                       <div>
                         <div className="flex items-center gap-2">

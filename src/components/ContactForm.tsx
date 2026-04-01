@@ -1,32 +1,32 @@
-import emailjs from 'emailjs-com';
 import { ArrowUpRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, type FormEvent } from 'react';
+import { buildContactMailto, CONTACT_EMAIL } from '@/lib/contactEmail';
 
 const ContactForm = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [statusMessage, setStatusMessage] = useState('');
 
-    const onSubmit = async (e: { preventDefault: () => void; target: any; }) => {
+    const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        const form = e.target;
-        const formData = {
-            email: form.email.value,
-            name: form.name.value,
-            question: form.question.value,
-        };
+        const form = e.currentTarget;
+        const formData = new FormData(form);
+        const email = String(formData.get('email') || '').trim();
+        const name = String(formData.get('name') || '').trim();
+        const question = String(formData.get('question') || '').trim();
 
         try {
-            await emailjs.send(
-                'your_service_id',
-                'your_template_id',
-                formData,
-                'your_user_id'
-            );
-            alert('Email sent successfully!');
+            window.location.href = buildContactMailto({
+                email,
+                name,
+                message: question,
+                subject: 'MagicCraft website inquiry',
+            });
+            setStatusMessage(`Your email app should open with a draft to ${CONTACT_EMAIL}.`);
             form.reset();
         } catch {
-            alert('Failed to send email. Please try again.');
+            setStatusMessage(`We couldn't open your email app. Please email ${CONTACT_EMAIL} directly.`);
         } finally {
             setIsSubmitting(false);
         }
@@ -42,11 +42,11 @@ const ContactForm = () => {
             </h2>
             <div className="space-y-2">
               <a
-                href="mailto:contact@magiccraft.io"
+                href={`mailto:${CONTACT_EMAIL}`}
                 className="flex items-center text-white transition-colors "
               >
                 <span className="mr-2">✉</span>
-                contact@magiccraft.io
+                {CONTACT_EMAIL}
               </a>
             </div>
           </div>
@@ -56,6 +56,7 @@ const ContactForm = () => {
                     <label htmlFor="email" className="text-white font-medium">Your email</label>
                     <input
                         id="email"
+                        name="email"
                         type="email"
                         placeholder="Enter here your email"
                         required
@@ -66,6 +67,7 @@ const ContactForm = () => {
                     <label htmlFor="name" className="text-white font-medium">Your Name</label>
                     <input
                         id="name"
+                        name="name"
                         placeholder="Enter here your Name"
                         required
                         className="rounded-lg border border-[#98FFF9]/30 bg-[rgba(152,255,249,0.05)] px-4 py-3 text-white placeholder-white/60 backdrop-blur-sm transition-all duration-300 focus:border-[#98FFF9] focus:outline-none focus:ring-2 focus:ring-[#98FFF9]/20"
@@ -75,6 +77,7 @@ const ContactForm = () => {
                     <label htmlFor="question" className="text-white font-medium">Your Question</label>
                     <textarea
                         id="question"
+                        name="question"
                         placeholder="Enter here your questions or suggestions"
                         required
                         rows={4}
@@ -100,6 +103,9 @@ const ContactForm = () => {
                     <ArrowUpRight className="w-5 h-5" />
                     {isSubmitting ? 'Sending...' : 'Send'}
                 </button>
+                {statusMessage && (
+                    <p className="text-sm text-white/80">{statusMessage}</p>
+                )}
             </form>
         </div>
          </div>
