@@ -1,6 +1,15 @@
 import { useState } from 'react';
 import { cn } from '@/lib/utils'
 
+type Video = {
+  id: number
+  url: string
+  duration: string
+  title: string
+  channel: string
+  tag: string
+}
+
 const getYouTubeVideoId = (url: string): string => {
   const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
   const match = url.match(regExp);
@@ -12,12 +21,15 @@ const getYouTubeThumbnail = (url: string): string => {
   return `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
 };
 
-const videos = [
-  { id: 1, url: 'https://www.youtube.com/watch?v=LYL0BXnVMJA', duration: '9:15', title: 'MagicCraft เกมมือถือ Action 5v5 มีฮีโร่ 17 คน พ่วงระบบ P2E & NFT มาด้วย' },
-  { id: 2, url: 'https://www.youtube.com/watch?v=s7osVU3NREI', duration: '8:41',  title: 'Magic Craft $MCRT Project Review || New Generation PVP War Game' },
-  { id: 3, url: 'https://www.youtube.com/watch?v=azbMQ4VBSvs', duration: '0:44',  title: 'MCRT MagicCraft Gameplay on PC - Windows7 -' },
-  { id: 4, url: 'https://www.youtube.com/watch?v=3Py7cm3Duj8', duration: '16:44', title: 'THE METAVERSE IS MAKING CRYPTO MILLIONAIRES!!! | Magic Craft ($MCRT)' },
-  { id: 5, url: 'https://www.youtube.com/watch?v=1sJHXQZcBOM', duration: '6:30',  title: 'MAGIC CRAFT - Gameplay is REVEALED!!!! $MCRT ! PLAY to EARN ! DOTA DIABLO ! EPIC' },
+const videos: Video[] = [
+  { id: 1, url: 'https://www.youtube.com/watch?v=s7osVU3NREI', duration: '8:41', title: 'Magic Craft $MCRT Project Review || New Generation PVP War Game', channel: 'Prime Investors', tag: 'Featured' },
+  { id: 2, url: 'https://www.youtube.com/watch?v=LYL0BXnVMJA', duration: '9:15', title: 'MagicCraft เกมมือถือ Action 5v5 มีฮีโร่ 17 คน พ่วงระบบ P2E & NFT มาด้วย', channel: 'Shorty Bluejova', tag: 'Overview' },
+  { id: 3, url: 'https://www.youtube.com/watch?v=azbMQ4VBSvs', duration: '0:44', title: 'MCRT MagicCraft Gameplay on PC - Windows7 -', channel: 'Marian Maniek', tag: 'Gameplay' },
+  { id: 4, url: 'https://www.youtube.com/watch?v=3Py7cm3Duj8', duration: '16:44', title: 'THE METAVERSE IS MAKING CRYPTO MILLIONAIRES!!! | Magic Craft ($MCRT)', channel: 'DEFI JON', tag: 'Analysis' },
+  { id: 5, url: 'https://www.youtube.com/watch?v=BlRGPN1Lv34', duration: '12:42', title: 'New 100X Gaming Token | 100X MCRT | Magiccraft Game NFTs | Cryptocurrency', channel: 'Cyber Tech', tag: 'Token' },
+  { id: 6, url: 'https://www.youtube.com/watch?v=1sJHXQZcBOM', duration: '6:30', title: 'MAGIC CRAFT - Gameplay is REVEALED!!!! $MCRT ! PLAY to EARN ! DOTA DIABLO ! EPIC', channel: 'Professor Mende Show', tag: 'Reveal' },
+  { id: 7, url: 'https://www.youtube.com/watch?v=lJSoz_gFl6o', duration: '2:10', title: 'MagicCraft - Karas', channel: 'Cryptoxian', tag: 'Hero' },
+  { id: 8, url: 'https://www.youtube.com/watch?v=KZYBUH6A2PU', duration: '7:58', title: 'MagicCraft MCRT. The next Axie or Sand in 2022?', channel: 'Moon Guy Crypto', tag: 'Market' },
 ]
 
 function GamePlay() {
@@ -26,7 +38,7 @@ function GamePlay() {
 
   const activeId = getYouTubeVideoId(activeVideo.url)
 
-  const handleSelect = (video: typeof videos[0]) => {
+  const handleSelect = (video: Video) => {
     setActiveVideo(video)
     setPlaying(true)
   }
@@ -47,13 +59,17 @@ function GamePlay() {
         <div className="text-center mb-6 md:mb-8">
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white/90">Gameplay</h2>
           <p className="mt-2 text-sm sm:text-base text-white/70">
-            Watch recent matches, guides, and highlights.
+            Curated videos covering gameplay, $MCRT analysis, hero clips, and community coverage.
           </p>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-[11px] uppercase tracking-[0.2em] text-white/55">
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">8 curated videos</span>
+            <span className="rounded-full border border-[#98FFF9]/20 bg-[#98FFF9]/10 px-3 py-1 text-[#98FFF9]">Featured first</span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-4 md:gap-5">
           {/* Main Video Player */}
-          <div className="rounded-2xl border border-white/10 bg-black/70 overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/70 shadow-[0_0_40px_rgba(0,0,0,0.6)]">
             <div className="aspect-video w-full relative">
               {playing ? (
                 <iframe
@@ -96,27 +112,38 @@ function GamePlay() {
                 </button>
               )}
             </div>
-            <div className="px-3 py-2 border-t border-white/10 bg-black/40 flex items-center justify-between gap-3">
-              <p className="text-sm text-white/80 truncate">{activeVideo.title}</p>
-              <a
-                href={activeVideo.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-xs text-[#98FFF9]/70 hover:text-[#98FFF9] whitespace-nowrap transition-colors"
-              >
-                Open on YouTube ↗
-              </a>
+            <div className="border-t border-white/10 bg-black/40 px-3 py-3 sm:px-4">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-full border border-[#98FFF9]/25 bg-[#98FFF9]/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#98FFF9]">
+                  {activeVideo.tag}
+                </span>
+                <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-[0.18em] text-white/60">
+                  {activeVideo.duration}
+                </span>
+                <span className="text-xs text-white/50">{activeVideo.channel}</span>
+              </div>
+              <div className="mt-2 flex items-start justify-between gap-3">
+                <p className="line-clamp-2 text-sm text-white/85 sm:text-base">{activeVideo.title}</p>
+                <a
+                  href={activeVideo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="whitespace-nowrap text-xs text-[#98FFF9]/70 transition-colors hover:text-[#98FFF9]"
+                >
+                  Open on YouTube ↗
+                </a>
+              </div>
             </div>
           </div>
 
           {/* Video Thumbnails */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+          <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto pb-2 lg:grid lg:grid-cols-4 lg:overflow-visible xl:grid-cols-5">
             {videos.map((video) => (
               <button
                 key={video.id}
                 onClick={() => handleSelect(video)}
                 className={cn(
-                  'group flex flex-col rounded-xl border border-white/10 bg-black/40 overflow-hidden text-left hover:border-[#98FFF9]/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_10px_20px_rgba(0,0,0,0.5)]',
+                  'group flex min-w-[220px] snap-start flex-col overflow-hidden rounded-xl border border-white/10 bg-black/40 text-left transition-all duration-300 hover:-translate-y-1 hover:border-[#98FFF9]/50 hover:shadow-[0_10px_20px_rgba(0,0,0,0.5)] lg:min-w-0',
                   activeVideo.id === video.id && 'border-[#98FFF9] shadow-[0_0_0_1px_rgba(152,255,249,0.4)]'
                 )}
               >
@@ -148,8 +175,12 @@ function GamePlay() {
                     {video.duration}
                   </div>
                 </div>
-                <div className="px-2 py-1.5">
-                  <p className="text-[11px] text-white/75 line-clamp-1">{video.title}</p>
+                <div className="px-2 py-2">
+                  <div className="mb-1 flex items-center justify-between gap-2">
+                    <span className="text-[10px] uppercase tracking-[0.18em] text-[#98FFF9]/70">{video.tag}</span>
+                    <span className="text-[10px] text-white/45">{video.channel}</span>
+                  </div>
+                  <p className="line-clamp-2 text-[11px] leading-4 text-white/75">{video.title}</p>
                 </div>
               </button>
             ))}

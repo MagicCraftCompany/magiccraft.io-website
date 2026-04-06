@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { useEffect } from 'react'
 
@@ -13,13 +13,24 @@ import { characterData } from '@/components/Data/Characterdata'
 
 function Hero() {
   const { heroName } = useParams();
-  const character = characterData[0].find((character) => character.name.toLowerCase() === heroName);
-  // const abilitiesdetails = character?.ability_details || [];
+  const characters = characterData[0];
+  const normalizedHeroName = heroName?.toLowerCase() ?? '';
+  const characterIndex = characters.findIndex((character) => character.name.toLowerCase() === normalizedHeroName);
+  const character = characterIndex >= 0 ? characters[characterIndex] : undefined;
   const abilities = character?.abilities || [];
+  const previousCharacter = characterIndex >= 0 ? characters[(characterIndex - 1 + characters.length) % characters.length] : undefined;
+  const nextCharacter = characterIndex >= 0 ? characters[(characterIndex + 1) % characters.length] : undefined;
 
-  const pageTitle = `${character?.name} - ${character?.title}`;
-  const pageDescription = character?.description || 'Learn about the character';
-  const canonicalUrl = `${window.location.origin}/hero/${heroName}`;
+  const pageTitle = character ? `${character.name} - ${character.title}` : 'Heroes - MagicCraft';
+  const pageDescription = character
+    ? character.description
+    : 'Browse MagicCraft heroes, their roles, abilities, and gameplay identities.';
+  const canonicalUrl =
+    typeof window !== 'undefined'
+      ? `${window.location.origin}${character ? `/hero/${normalizedHeroName}` : '/Chooseyourhero'}`
+      : character
+        ? `/hero/${normalizedHeroName}`
+        : '/Chooseyourhero';
 
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
@@ -43,10 +54,52 @@ function Hero() {
       <div className="min-h-dvh w-full text-white">
         <Header />
         <main className="scroll-smooth pb-32">
+          {!character && (
+            <section className="relative overflow-hidden px-4 pb-20 pt-32 sm:px-6 lg:px-8">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(152,255,249,0.12),transparent_35%),linear-gradient(180deg,#03082F_0%,#020418_100%)]" />
+              <div className="relative mx-auto max-w-3xl rounded-[32px] border border-white/10 bg-white/5 p-8 text-center shadow-[0_0_50px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-12">
+                <span className="inline-flex rounded-full border border-[#98FFF9]/25 bg-[#98FFF9]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-[#98FFF9]">
+                  Hero Directory
+                </span>
+                <h1 className="mt-6 bg-gradient-to-b from-white to-white/70 bg-clip-text font-serif text-4xl text-transparent sm:text-5xl">
+                  Hero not found
+                </h1>
+                <p className="mx-auto mt-4 max-w-xl text-sm text-white/70 sm:text-base">
+                  This hero page does not exist or the link is outdated. Use the roster to browse the current MagicCraft lineup.
+                </p>
+                <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                  <Link
+                    to="/Chooseyourhero"
+                    className="inline-flex min-w-[190px] items-center justify-center rounded-full bg-gradient-to-b from-[#A9FFF6] to-[#8EECE6] px-6 py-3 text-sm font-semibold text-[#03082F] transition-transform duration-200 hover:-translate-y-0.5"
+                  >
+                    Browse Heroes
+                  </Link>
+                  <Link
+                    to="/"
+                    className="inline-flex min-w-[190px] items-center justify-center rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/85 transition-colors duration-200 hover:border-[#98FFF9]/40 hover:text-[#98FFF9]"
+                  >
+                    Back Home
+                  </Link>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {character && (
           <section className="relative flex flex-wrap bg-cover bg-center">
             <div className={`absolute inset-0 hidden z-10 ${character?.name === 'Dr. Lutz' ? 'w-full' : 'w-3/4'} lg:block  bg-gradient-to-r from-[#03082F]  via-[#060817] to-transparent`} />
             <div className={`absolute inset-0 sm:hidden z-10   bg-gradient-to-t from-[#03082F]  via-[#060817] to-transparent`} />
             {/* <div className={`absolute inset-0 hidden sm:block lg:hidden z-10 bg-gradient-to-l from-[#03082F]/95 via-[#060817]/90 to-[#03082F]/70`} /> */}
+
+            <div className="absolute left-4 top-20 z-30 sm:left-6 lg:left-10">
+              <Link
+                to="/Chooseyourhero"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-[#0d143e]/75 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 backdrop-blur transition-colors hover:border-[#98FFF9]/40 hover:text-[#98FFF9]"
+              >
+                <span aria-hidden="true">←</span>
+                All Heroes
+              </Link>
+            </div>
 
             <img
               src={
@@ -106,8 +159,22 @@ function Hero() {
                 <p className="p-4 text-sm sm:text-base sm:max-w-md md:max-w-sm lg:max-w-md mx-auto lg:mx-0 backdrop-blur-sm bg-[#131342]/30 sm:rounded-xl sm:border sm:border-[#556DE0]/20 sm:shadow-[0_0_15px_rgba(152,255,249,0.1)] lg:bg-transparent lg:backdrop-blur-none lg:border-none lg:shadow-none">
                   {character?.description}
                 </p>
-
-               
+                <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-center lg:justify-start">
+                  <Link
+                    to="/Chooseyourhero"
+                    className="inline-flex min-w-[170px] items-center justify-center rounded-full bg-gradient-to-b from-[#A9FFF6] to-[#8EECE6] px-5 py-3 text-sm font-semibold text-[#03082F] transition-transform duration-200 hover:-translate-y-0.5"
+                  >
+                    Explore Roster
+                  </Link>
+                  <a
+                    href="https://lobby.magiccraft.io/"
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className="inline-flex min-w-[170px] items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-white/85 transition-colors duration-200 hover:border-[#98FFF9]/40 hover:text-[#98FFF9]"
+                  >
+                    Play Now
+                  </a>
+                </div>
               </div>
 
             </div>
@@ -171,10 +238,31 @@ function Hero() {
               </div>
             </div>
           </section>
+          )}
           {/* TODO: Uncomment when up-to-date screenshots are available */}
           {/* <section>
             <AbilityDetails characterName={character?.name || ''} abilities={abilitiesdetails} />
           </section> */}
+          {character && previousCharacter && nextCharacter && (
+            <section className="mx-auto mt-8 flex w-[92%] max-w-screen-xl flex-col gap-3 sm:flex-row">
+              <Link
+                to={`/hero/${previousCharacter.name.toLowerCase()}`}
+                className="group flex-1 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur transition-all duration-300 hover:border-[#98FFF9]/35 hover:bg-white/[0.07]"
+              >
+                <div className="text-[10px] uppercase tracking-[0.22em] text-white/45">Previous Hero</div>
+                <div className="mt-2 text-lg font-semibold text-white group-hover:text-[#98FFF9]">{previousCharacter.name}</div>
+                <div className="text-sm text-white/55">{previousCharacter.title}</div>
+              </Link>
+              <Link
+                to={`/hero/${nextCharacter.name.toLowerCase()}`}
+                className="group flex-1 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-right backdrop-blur transition-all duration-300 hover:border-[#98FFF9]/35 hover:bg-white/[0.07]"
+              >
+                <div className="text-[10px] uppercase tracking-[0.22em] text-white/45">Next Hero</div>
+                <div className="mt-2 text-lg font-semibold text-white group-hover:text-[#98FFF9]">{nextCharacter.name}</div>
+                <div className="text-sm text-white/55">{nextCharacter.title}</div>
+              </Link>
+            </section>
+          )}
           <section className="relative">
             <HeroCarousel />
           </section>
