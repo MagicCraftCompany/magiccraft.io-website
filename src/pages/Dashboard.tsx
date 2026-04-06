@@ -50,6 +50,8 @@ export default function Dashboard() {
       <Helmet>
         <title>Dashboard | MagicCraft Statistics</title>
         <meta name="description" content="View live statistics, lobby data, user pledges, and ecosystem analytics for MagicCraft." />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://magiccraft.io/dashboard" />
       </Helmet>
       <Header/>
 
@@ -190,4 +192,3 @@ export default function Dashboard() {
     </div>
   )
 }
-

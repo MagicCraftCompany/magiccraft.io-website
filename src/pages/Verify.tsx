@@ -8,6 +8,16 @@ export default function Verify() {
       <Helmet>
         <title>Verify | MagicCraft Official Links</title>
         <meta name="description" content="Use MagicCraft Verify to check whether a source officially represents MagicCraft. Verify websites, emails, Telegram IDs, and more." />
+        <link rel="canonical" href="https://magiccraft.io/verify" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://magiccraft.io/verify" />
+        <meta property="og:title" content="Verify | MagicCraft Official Links" />
+        <meta property="og:description" content="Check whether a website, email, Telegram ID, or social profile officially represents MagicCraft." />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732728187/Image_4_a6xltr.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Verify | MagicCraft Official Links" />
+        <meta name="twitter:description" content="Check whether a website, email, Telegram ID, or social profile officially represents MagicCraft." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732728187/Image_4_a6xltr.webp" />
       </Helmet>
       <Header/>
 
@@ -97,4 +107,3 @@ export default function Verify() {
     </div>
   )
 }
-

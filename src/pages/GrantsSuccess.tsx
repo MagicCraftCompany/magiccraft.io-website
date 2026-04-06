@@ -8,6 +8,8 @@ export default function GrantsSuccess() {
       <Helmet>
         <title>Application Received | MagicCraft Grants</title>
         <meta name="description" content="Thank you for applying to the MagicCraft grants program. Our team will review your submission and contact you shortly." />
+        <meta name="robots" content="noindex, nofollow" />
+        <link rel="canonical" href="https://magiccraft.io/grants/success" />
       </Helmet>
       <Header />
       <main className="flex-1 safe-padded">
@@ -21,5 +23,4 @@ export default function GrantsSuccess() {
     </div>
   )
 }
-
 

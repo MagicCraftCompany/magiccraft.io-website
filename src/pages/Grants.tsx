@@ -13,6 +13,14 @@ const Grants = () => {
       <Helmet>
         <title>MagicCraft Grants | Build with $MCRT</title>
         <meta name="description" content="Apply for MagicCraft Grants for Games, Web3/AI, and Crypto projects. Must have a working version. $MCRT integration encouraged." />
+        <link rel="canonical" href="https://magiccraft.io/grants" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://magiccraft.io/grants" />
+        <meta property="og:title" content="MagicCraft Grants | Build with $MCRT" />
+        <meta property="og:description" content="Apply for MagicCraft grants for game, Web3/AI, and crypto projects building in the $MCRT ecosystem." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="MagicCraft Grants | Build with $MCRT" />
+        <meta name="twitter:description" content="Apply for MagicCraft grants for game, Web3/AI, and crypto projects building in the $MCRT ecosystem." />
       </Helmet>
 
       <Header />
@@ -149,5 +157,4 @@ const Grants = () => {
 }
 
 export default Grants
-
 
