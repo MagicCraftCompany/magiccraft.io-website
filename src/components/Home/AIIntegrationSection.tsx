@@ -1,47 +1,18 @@
-/* Product icons as inline SVGs — no external favicon API needed */
+type ProductLogoProps = {
+  src: string
+  alt: string
+  className?: string
+}
 
-const AkynIcon = () => (
-  <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
-    <rect width="40" height="40" rx="10" fill="#1a0d2e"/>
-    <path d="M20 8L8 28h6l2-4h8l2 4h6L20 8zm0 6l3 6h-6l3-6z" fill="#B591F2"/>
-    <circle cx="20" cy="32" r="2" fill="#98FFF9"/>
-  </svg>
-)
-
-const MerlinIcon = () => (
-  <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
-    <rect width="40" height="40" rx="10" fill="#0d1a2e"/>
-    <circle cx="20" cy="16" r="7" stroke="#98FFF9" strokeWidth="2"/>
-    <path d="M13 30c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#98FFF9" strokeWidth="2" strokeLinecap="round"/>
-    <path d="M17 13l1.5 3L20 14l1.5 2L23 13" stroke="#FFB649" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-)
-
-const DocAIIcon = () => (
-  <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
-    <rect width="40" height="40" rx="10" fill="#0d2e1a"/>
-    <rect x="10" y="8" width="20" height="24" rx="3" stroke="#10B981" strokeWidth="2"/>
-    <path d="M15 15h10M15 19h10M15 23h6" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round"/>
-    <circle cx="28" cy="28" r="5" fill="#0d2e1a" stroke="#10B981" strokeWidth="1.5"/>
-    <path d="M26 28l1.5 1.5L30 26" stroke="#10B981" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-)
-
-const PolybilitiesIcon = () => (
-  <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
-    <rect width="40" height="40" rx="10" fill="#2e1a0d"/>
-    <path d="M20 8l3 9h9l-7 5 3 9-8-6-8 6 3-9-7-5h9z" fill="#FFB649" opacity="0.9"/>
-  </svg>
-)
-
-const MagicAdsIcon = () => (
-  <svg viewBox="0 0 40 40" fill="none" className="w-full h-full">
-    <rect width="40" height="40" rx="10" fill="#2e1a00"/>
-    <rect x="6" y="10" width="28" height="18" rx="3" stroke="#FFB649" strokeWidth="2"/>
-    <path d="M10 21h4M16 18h8M26 21h4" stroke="#FFB649" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M16 30h8" stroke="#FFB649" strokeWidth="1.5" strokeLinecap="round"/>
-    <path d="M20 28v2" stroke="#FFB649" strokeWidth="1.5"/>
-  </svg>
+const ProductLogo = ({ src, alt, className = '' }: ProductLogoProps) => (
+  <img
+    src={src}
+    alt={alt}
+    className={`h-full w-full object-contain ${className}`}
+    loading="lazy"
+    decoding="async"
+    referrerPolicy="no-referrer"
+  />
 )
 
 export default function AIIntegrationSection() {
@@ -69,7 +40,7 @@ export default function AIIntegrationSection() {
             <a href="https://akyn.pro" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#B591F2]/50 hover:shadow-[0_0_20px_rgba(181,145,242,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-white/10">
-                  <AkynIcon />
+                  <ProductLogo src="https://akyn.pro/logo.svg" alt="Akyn logo" className="p-1.5 bg-[#120d18]" />
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-white group-hover:text-[#B591F2] transition-colors">Akyn</h4>
@@ -85,7 +56,7 @@ export default function AIIntegrationSection() {
             <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#98FFF9]/50 hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-white/10">
-                  <MerlinIcon />
+                  <ProductLogo src="https://merlintheai.com/personas/merlin-logo-small.png" alt="Merlin AI logo" className="p-1 bg-[#0d1a2e]" />
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-white group-hover:text-[#98FFF9] transition-colors">Merlin AI</h4>
@@ -101,7 +72,7 @@ export default function AIIntegrationSection() {
             <a href="https://docai.live" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#10B981]/50 hover:shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-white/10">
-                  <DocAIIcon />
+                  <ProductLogo src="https://docai.live/logotext-main.png" alt="DocAI logo" className="p-1.5 bg-[#0d2e1a]" />
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-white group-hover:text-[#10B981] transition-colors">DocAI</h4>
@@ -117,7 +88,7 @@ export default function AIIntegrationSection() {
             <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#FFB649]/50 hover:shadow-[0_0_20px_rgba(255,182,73,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-white/10">
-                  <PolybilitiesIcon />
+                  <ProductLogo src="https://polybilities.com/polybilities-logo.png" alt="Polybilities logo" className="p-1.5 bg-[#2e1a0d]" />
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-white group-hover:text-[#FFB649] transition-colors">Polybilities</h4>
@@ -144,7 +115,7 @@ export default function AIIntegrationSection() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="w-14 h-14 rounded-2xl overflow-hidden flex-shrink-0 ring-1 ring-[#FFB649]/30 group-hover:scale-110 transition-transform duration-300">
-                        <MagicAdsIcon />
+                        <ProductLogo src="https://magicads.dev/magicads-logo.svg" alt="MagicAds logo" className="p-2 bg-[#1f1200]" />
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
