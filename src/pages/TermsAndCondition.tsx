@@ -69,6 +69,8 @@ export default function TermsAndConditions() {
         <meta property="og:title" content="MagicCraft Terms & Conditions" />
         <meta property="og:description" content="Understand the rules and guidelines governing your use of MagicCraft's products and services." />
         <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="MagicCraft Terms & Conditions" />
+        <meta name="twitter:description" content="Review the rules and guidelines for using MagicCraft products, lobbies, tournaments, and related services." />
       </Helmet>
       <Wrapper className="text-slate-100">
         <InnerWrapper>

@@ -82,6 +82,14 @@ export default function FAQ() {
       <Helmet>
         <title>Support - MagicCraft</title>
         <meta name="description" content="Get help and support for MagicCraft. Find answers to frequently asked questions and contact our team." />
+        <link rel="canonical" href="https://magiccraft.io/faq" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://magiccraft.io/faq" />
+        <meta property="og:title" content="Support - MagicCraft" />
+        <meta property="og:description" content="Find answers to common MagicCraft questions and contact the team for support." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Support - MagicCraft" />
+        <meta name="twitter:description" content="Find answers to common MagicCraft questions and contact the team for support." />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',

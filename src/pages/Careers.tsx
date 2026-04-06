@@ -13,6 +13,8 @@ function Careers() {
         <meta property="og:title" content="Careers at MagicCraft" />
         <meta property="og:description" content="Join MagicCraft's team. We're hiring marketers and developers." />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Careers at MagicCraft – Join Our Team" />
+        <meta name="twitter:description" content="Join MagicCraft's team. We’re hiring crypto-native, AI-first marketers and developers." />
       </Helmet>
       <div className="mb-6 md:mb-8">
         <Link to="/" className="chip-cta no-underline inline-flex items-center gap-2 hover:-translate-x-1 transition-transform duration-300 hover:bg-white/15" aria-label="Back to Home">
@@ -91,5 +93,4 @@ function Careers() {
 }
 
 export default Careers
-
 

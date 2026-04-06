@@ -13,12 +13,14 @@ function Guilds() {
 			<Helmet>
 				<title>Guilds - MagicCraft</title>
 				<meta name="description" content="Discover MagicCraft guilds, join communities, and compete together." />
-				<link rel="canonical" href={`${window.location.origin}/guilds`} />
+				<link rel="canonical" href="https://magiccraft.io/guilds" />
 				<meta property="og:type" content="website" />
-				<meta property="og:url" content={`${window.location.origin}/guilds`} />
+				<meta property="og:url" content="https://magiccraft.io/guilds" />
 				<meta property="og:title" content="Guilds - MagicCraft" />
 				<meta property="og:description" content="Discover MagicCraft guilds, join communities, and compete together." />
 				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:title" content="Guilds - MagicCraft" />
+				<meta name="twitter:description" content="Join MagicCraft guilds, coordinate with your community, and compete together in Web3 lobbies." />
 			</Helmet>
 			<div className="min-h-dvh w-full text-white">
 				<Header />

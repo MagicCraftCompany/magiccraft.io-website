@@ -105,6 +105,8 @@ export default function Disclaimer() {
         <meta property="og:title" content="Disclaimer - MagicCraft" />
         <meta property="og:description" content="Important disclaimer information about risks and legal obligations when using MagicCraft services." />
         <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Disclaimer - MagicCraft" />
+        <meta name="twitter:description" content="Important disclaimer information about risks and legal obligations when using MagicCraft services." />
       </Helmet>
 
       <Wrapper className="text-slate-100">
@@ -140,4 +142,3 @@ export default function Disclaimer() {
     </>
   )
 }
-

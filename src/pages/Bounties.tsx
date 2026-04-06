@@ -74,8 +74,23 @@ export default function Bounties() {
       <Helmet>
         <title>MagicCraft Bounties - Build the $MCRT Ecosystem</title>
         <meta name="description" content="Complete community bounties to improve the MagicCraft ecosystem and earn rewards paid in $MCRT." />
+        <link rel="canonical" href="https://magiccraft.io/bounties" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://magiccraft.io/bounties" />
         <meta property="og:title" content="MagicCraft Bounties - Build the $MCRT Ecosystem" />
         <meta property="og:description" content="Complete community bounties to improve the MagicCraft ecosystem and earn rewards paid in $MCRT." />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="MagicCraft Bounties - Build the $MCRT Ecosystem" />
+        <meta name="twitter:description" content="Complete community bounties and earn rewards for building the MagicCraft and $MCRT ecosystem." />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: 'MagicCraft Bounties',
+            url: 'https://magiccraft.io/bounties',
+            description: 'Open bounties for developers, creators, designers, and growth operators in the MagicCraft ecosystem.',
+          })}
+        </script>
       </Helmet>
 
       <section className="relative mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 pt-8 md:pt-12 pb-16 md:pb-24">
@@ -164,5 +179,4 @@ export default function Bounties() {
     </div>
   )
 }
-
 

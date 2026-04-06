@@ -70,6 +70,8 @@ function PrivacyPolicy() {
         <meta property="og:title" content="Privacy Policy - MagicCraft" />
         <meta property="og:description" content="Learn how MagicCraft collects, uses, and protects your personal information." />
         <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Privacy Policy - MagicCraft" />
+        <meta name="twitter:description" content="Learn how MagicCraft collects, uses, and protects your personal information." />
       </Helmet>
       
       <Wrapper className="text-slate-100">
