@@ -2,6 +2,7 @@ import { NewsSection } from "@/components/Cards/NewsSection";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import { Helmet } from 'react-helmet-async';
+import { newsArticles } from "@/data/newsData";
 
 export default function NewsPage() {
   const canonical = 'https://magiccraft.io/news';
@@ -17,6 +18,27 @@ export default function NewsPage() {
         <meta property="og:description" content="Catch all the latest announcements, patch updates, and ecosystem news for MagicCraft." />
         <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1726232450/Frame_307825_il8ahq.webp" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="MagicCraft News & Updates" />
+        <meta name="twitter:description" content="Catch all the latest MagicCraft announcements, patch notes, ecosystem launches, and community updates." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1726232450/Frame_307825_il8ahq.webp" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: 'MagicCraft News & Updates',
+            url: canonical,
+            description: 'Latest MagicCraft announcements, patch notes, and ecosystem news.',
+            mainEntity: {
+              '@type': 'ItemList',
+              itemListElement: newsArticles.map((article, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                name: article.title,
+                url: article.readMoreLink,
+              })),
+            },
+          })}
+        </script>
       </Helmet>
       <div className="min-h-dvh w-full text-white">
         <Header />
@@ -84,4 +106,3 @@ export default function NewsPage() {
     </>
   );
 }
-

@@ -111,13 +111,52 @@ export default function BlogPost() {
   });
 
   const canonicalUrl = `${window.location.origin}/blog/${slug}`;
+  const pageTitle = `${post.title} | MagicCraft Blog`
+  const pageDescription = post.description || `Read the latest MagicCraft update: ${post.title}.`
+  const coverImage = post.image || 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp'
 
   return (
     <div className="min-h-dvh w-full bg-gradient-to-b from-[#070725] to-[#0a0a2e] text-white">
       <Helmet>
-        <title>{post.title} - Blog</title>
-        <meta name="description" content={post.description} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
         <link rel="canonical" href={canonicalUrl} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={coverImage} />
+        <meta property="article:published_time" content={post.publishedAt} />
+        <meta property="article:section" content={post.category} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={coverImage} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: post.title,
+            description: pageDescription,
+            image: [coverImage],
+            datePublished: post.publishedAt,
+            dateModified: post.publishedAt,
+            articleSection: post.category,
+            mainEntityOfPage: canonicalUrl,
+            author: {
+              '@type': 'Organization',
+              name: 'MagicCraft',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'MagicCraft',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
+              },
+            },
+          })}
+        </script>
       </Helmet>
       <Header />
       <main className="mx-auto max-w-4xl px-4 py-12">
