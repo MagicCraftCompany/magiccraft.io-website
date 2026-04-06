@@ -9,13 +9,14 @@ import heart from '@/assets/icons/li_heart.svg'
 import arrow from '@/assets/icons/game-icons_fast-arrow.svg'
 import HeroCarousel from '@/components/HeroCarousel'
 import { characterData } from '@/components/Data/Characterdata'
+import { slugifyHeroName } from '@/lib/heroSlug'
 // import { AbilityDetails } from '@/components/abilitydetail'
 
 function Hero() {
   const { heroName } = useParams();
   const characters = characterData[0];
-  const normalizedHeroName = heroName?.toLowerCase() ?? '';
-  const characterIndex = characters.findIndex((character) => character.name.toLowerCase() === normalizedHeroName);
+  const normalizedHeroName = heroName ?? '';
+  const characterIndex = characters.findIndex((character) => slugifyHeroName(character.name) === normalizedHeroName);
   const character = characterIndex >= 0 ? characters[characterIndex] : undefined;
   const abilities = character?.abilities || [];
   const previousCharacter = characterIndex >= 0 ? characters[(characterIndex - 1 + characters.length) % characters.length] : undefined;
@@ -246,7 +247,7 @@ function Hero() {
           {character && previousCharacter && nextCharacter && (
             <section className="mx-auto mt-8 flex w-[92%] max-w-screen-xl flex-col gap-3 sm:flex-row">
               <Link
-                to={`/hero/${previousCharacter.name.toLowerCase()}`}
+                to={`/hero/${slugifyHeroName(previousCharacter.name)}`}
                 className="group flex-1 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 backdrop-blur transition-all duration-300 hover:border-[#98FFF9]/35 hover:bg-white/[0.07]"
               >
                 <div className="text-[10px] uppercase tracking-[0.22em] text-white/45">Previous Hero</div>
@@ -254,7 +255,7 @@ function Hero() {
                 <div className="text-sm text-white/55">{previousCharacter.title}</div>
               </Link>
               <Link
-                to={`/hero/${nextCharacter.name.toLowerCase()}`}
+                to={`/hero/${slugifyHeroName(nextCharacter.name)}`}
                 className="group flex-1 rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-right backdrop-blur transition-all duration-300 hover:border-[#98FFF9]/35 hover:bg-white/[0.07]"
               >
                 <div className="text-[10px] uppercase tracking-[0.22em] text-white/45">Next Hero</div>

@@ -3,6 +3,7 @@ import Header from '@/components/Header/Header'
 import { useNavigate } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async';
 import { useEffect } from 'react'
+import { slugifyHeroName } from '@/lib/heroSlug';
 
 // Hero data structure
 interface Hero {
@@ -41,7 +42,7 @@ function HeroCard({ hero }: { hero: Hero }) {
 
   return (
     <button
-      onClick={() => navigate(`/hero/${hero.name.toLowerCase()}`)}
+      onClick={() => navigate(`/hero/${slugifyHeroName(hero.name)}`)}
       className="group relative overflow-hidden rounded-2xl transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
     >
       <div className="aspect-square">
@@ -71,10 +72,36 @@ export default function ChooseYourHero() {
   return (
     <div className="min-h-dvh w-full  text-white">
       <Helmet>
-        <title>Choose Your Hero - Hero Selector</title>
-        <meta name="description" content="Select your hero for epic battles in the game." />
+        <title>Choose Your Hero - MagicCraft Hero Roster</title>
+        <meta name="description" content="Browse the MagicCraft hero roster, compare roles and playstyles, and open individual hero pages with abilities and stats." />
+        <link rel="canonical" href="https://magiccraft.io/Chooseyourhero" />
+        <meta property="og:title" content="Choose Your Hero - MagicCraft Hero Roster" />
         <meta property="og:description" content="Browse and select from diverse heroes with unique abilities in MagicCraft. Each hero offers distinct playstyles and devastating ultimates." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://magiccraft.io/Chooseyourhero" />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_z0ukji.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Choose Your Hero - MagicCraft Hero Roster" />
         <meta name="twitter:description" content="Browse and select from diverse heroes with unique abilities in MagicCraft." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_z0ukji.webp" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            name: 'MagicCraft Hero Roster',
+            url: 'https://magiccraft.io/Chooseyourhero',
+            description: 'Directory of MagicCraft heroes with role and character pages.',
+            mainEntity: {
+              '@type': 'ItemList',
+              itemListElement: heroes.map((hero, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                url: `https://magiccraft.io/hero/${slugifyHeroName(hero.name)}`,
+                name: hero.name,
+              })),
+            },
+          })}
+        </script>
       </Helmet>
       <Header />
       <main className="scroll-smooth pb-32">
@@ -113,4 +140,3 @@ export default function ChooseYourHero() {
     </div>
   )
 }
-

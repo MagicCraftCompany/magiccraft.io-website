@@ -98,6 +98,20 @@ function Homepagemcrt() {
             }
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "MagicCraft",
+            "url": "https://magiccraft.io",
+            "logo": "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp",
+            "sameAs": [
+              "https://x.com/MagicCraftGame",
+              "https://t.me/magiccraftgamechat",
+              "https://www.youtube.com/@MagicCraftGame"
+            ]
+          })}
+        </script>
       </Helmet>
       <div className="min-h-dvh w-full max-w-full text-white overflow-x-hidden">
         {/* Zeus promo removed */}
@@ -697,4 +711,3 @@ function Homepagemcrt() {
   )
 }
 export default Homepagemcrt
-

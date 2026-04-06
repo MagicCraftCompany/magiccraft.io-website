@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { useNavigate } from 'react-router-dom'
+import { slugifyHeroName } from '@/lib/heroSlug'
 
 interface Hero {
   id: number
@@ -178,7 +179,7 @@ export default function HeroCarousel() {
                 transform: `translateX(${window.innerWidth < 768 ? centerOffset : hero.position * translateValue}px)`,
                 zIndex: hero.position === 0 ? 10 : 5,
               }}
-              onClick={() => navigate(`/hero/${hero.name.toLowerCase()}`)}
+              onClick={() => navigate(`/hero/${slugifyHeroName(hero.name)}`)}
             >
               <div
                 className={`transition-all duration-500 overflow-hidden rounded-2xl hover:scale-105 ${
@@ -243,4 +244,3 @@ export default function HeroCarousel() {
     </div>
   )
 }
-
