@@ -13,11 +13,11 @@ const getYouTubeThumbnail = (url: string): string => {
 };
 
 const videos = [
-  { id: 1, url: 'https://www.youtube.com/watch?v=zXUtAyjfvcc', duration: '20:00', title: 'Friday Games (Full Session)' },
-  { id: 2, url: 'https://www.youtube.com/watch?v=6jTooJ2v-M8', duration: '6:34',  title: 'Vega Guide' },
-  { id: 3, url: 'https://www.youtube.com/watch?v=I96iKLPcSPs', duration: '7:19',  title: 'Frigard Guide' },
-  { id: 4, url: 'https://www.youtube.com/watch?v=nqlqpT8WVCo', duration: '0:49',  title: 'Gameplay Trailer' },
-  { id: 5, url: 'https://www.youtube.com/watch?v=z47pne8Lq_E', duration: '4:14',  title: 'MagicCraft Session' },
+  { id: 1, url: 'https://www.youtube.com/watch?v=LYL0BXnVMJA', duration: '9:15', title: 'MagicCraft เกมมือถือ Action 5v5 มีฮีโร่ 17 คน พ่วงระบบ P2E & NFT มาด้วย' },
+  { id: 2, url: 'https://www.youtube.com/watch?v=s7osVU3NREI', duration: '8:41',  title: 'Magic Craft $MCRT Project Review || New Generation PVP War Game' },
+  { id: 3, url: 'https://www.youtube.com/watch?v=azbMQ4VBSvs', duration: '0:44',  title: 'MCRT MagicCraft Gameplay on PC - Windows7 -' },
+  { id: 4, url: 'https://www.youtube.com/watch?v=3Py7cm3Duj8', duration: '16:44', title: 'THE METAVERSE IS MAKING CRYPTO MILLIONAIRES!!! | Magic Craft ($MCRT)' },
+  { id: 5, url: 'https://www.youtube.com/watch?v=1sJHXQZcBOM', duration: '6:30',  title: 'MAGIC CRAFT - Gameplay is REVEALED!!!! $MCRT ! PLAY to EARN ! DOTA DIABLO ! EPIC' },
 ]
 
 function GamePlay() {
