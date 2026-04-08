@@ -56,7 +56,7 @@ export default function AIIntegrationSection() {
             <a href="https://merlintheai.com" target="_blank" rel="noreferrer noopener" className="card-glass p-5 rounded-2xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] hover:border-[#98FFF9]/50 hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1 transition-all duration-300 group no-underline hover:no-underline min-h-[190px]">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 ring-1 ring-white/10">
-                  <ProductLogo src="https://merlintheai.com/personas/merlin-logo-small.png" alt="Merlin AI logo" className="p-1 bg-[#0d1a2e]" />
+                  <ProductLogo src="/merlin-logo-official.svg" alt="Merlin AI logo" className="p-1 bg-[#0d1a2e]" />
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-white group-hover:text-[#98FFF9] transition-colors">Merlin AI</h4>
