@@ -619,7 +619,7 @@ function Homepagegames() {
                         <a
                           className="flex cursor-pointer items-center gap-2 text-[#98FFF9]"
                           rel="noreferrer noopener"
-                          href="https://magiccraft.io/partnership"
+                          href="mailto:contact@magiccraft.io?subject=MagicCraft%20Partnership"
                         >
                           <span>Become a partner</span>
                           <ArrowUpRight size={18} />
@@ -645,7 +645,7 @@ function Homepagegames() {
                         <a
                           className="flex cursor-pointer items-center gap-2 text-[#98FFF9]"
                           rel="noreferrer noopener"
-                          href="https://magiccraft.io/partnership"
+                          href="mailto:contact@magiccraft.io?subject=MagicCraft%20Partnership"
                         >
                           <span>Collaborate</span>
                           <ArrowUpRight size={18} />

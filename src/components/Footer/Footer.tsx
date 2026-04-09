@@ -99,7 +99,7 @@ const moreLinks = [
   },
   {
     title: 'Verify',
-    link: 'https://app.magiccraft.io/verify',
+    link: '/verify',
   },
   {
     title: 'Whitepaper',

@@ -110,8 +110,8 @@ export default function HeroSection() {
               THE CURRENCY OF GAMING & AI
           </h1>
             <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-white/90 text-base sm:text-lg leading-relaxed tracking-[0.01em]">
-              Fast, low‑fee on‑chain currency on BNB Chain powering rewards, creator payouts,
-              and in‑game commerce across the MagicCraft universe.
+              Fast, low‑fee on‑chain currency on BNB Chain powering BTC, ETH, and $MCRT PvP lobbies,
+              NFT-linked characters, creator payouts, and in-game commerce across the MagicCraft universe.
             </p>
             {/* Mobile: compact 3-CTA row */}
             <div className="mt-5 sm:mt-6 w-full max-w-[520px] mx-auto sm:hidden">

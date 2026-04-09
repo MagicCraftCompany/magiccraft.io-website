@@ -48,21 +48,21 @@ function Homepagemcrt() {
   return (
     <>
       <Helmet>
-        <title>MagicCraft - Web3 Gaming | Create Games & Earn $MCRT</title>
+        <title>MagicCraft - PvP Crypto Lobbies, NFT Heroes & $MCRT Gaming</title>
         <meta
           name="description"
-          content="MagicCraft is a crypto gaming MOBA (meme online battle arena) where you battle and build games like Roblox to earn $MCRT. Available on PC, iOS, Android, and Steam. Trade $MCRT on Bybit."
+          content="MagicCraft is a live Web3 gaming ecosystem with PvP lobbies for BTC, ETH, and $MCRT, NFT-linked playable characters, rarity-based skins, and creator tools. Play on PC, iOS, Android, and Steam."
         />
         <meta
           name="keywords"
-          content="crypto gaming, $MCRT, MagicCraft, MOBA, meme online battle arena, Bybit, blockchain game, P2E, play and earn, NFT gaming, Web3 gaming, game maker, create games, earn crypto, Steam, iOS, Android"
+          content="crypto gaming, $MCRT, MagicCraft, PvP lobbies, bitcoin gaming, ethereum gaming, NFT heroes, NFT skins, Web3 gaming, blockchain game, play and earn, NFT gaming, Steam, iOS, Android"
         />
         <meta name="author" content="MagicCraft" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="MagicCraft – Crypto Gaming MOBA | Earn $MCRT" />
-        <meta property="og:description" content="Battle in a crypto MOBA and build games to earn $MCRT. Play on PC, iOS, Android, Steam. Trade on Bybit." />
+        <meta property="og:title" content="MagicCraft – PvP Crypto Lobbies, NFT Heroes & $MCRT" />
+        <meta property="og:description" content="Play live PvP lobbies for BTC, ETH, and $MCRT, unlock NFT-linked characters, and trade rarity-based skins across the MagicCraft ecosystem." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://magiccraft.io" />
         <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
@@ -70,8 +70,8 @@ function Homepagemcrt() {
         
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="MagicCraft – Crypto Gaming MOBA | Earn $MCRT" />
-        <meta name="twitter:description" content="Battle, build, and earn $MCRT. Play on PC, iOS, Android, Steam. Trade on Bybit." />
+        <meta name="twitter:title" content="MagicCraft – PvP Crypto Lobbies, NFT Heroes & $MCRT" />
+        <meta name="twitter:description" content="Play live PvP lobbies for BTC, ETH, and $MCRT, unlock NFT-linked characters, and trade rarity-based skins across the MagicCraft ecosystem." />
         <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
         
         {/* Additional SEO */}
@@ -84,7 +84,7 @@ function Homepagemcrt() {
             "@context": "https://schema.org",
             "@type": "VideoGame",
             "name": "MagicCraft",
-            "description": "Play-and-Earn blockchain game where players can create games and earn $MCRT tokens",
+            "description": "Web3 game ecosystem with live BTC, ETH, and $MCRT PvP lobbies, NFT-linked playable characters, rarity-based skins, and creator tools.",
             "url": "https://magiccraft.io",
             "image": "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp",
             "genre": ["Action", "Strategy", "Blockchain", "Web3 Gaming"],
@@ -192,19 +192,19 @@ function Homepagemcrt() {
                   $MCRT Utility Token
                 </h2>
                 <p className="text-sm sm:text-base text-white/70 max-w-2xl mx-auto leading-relaxed">
-                  The fuel of the MagicCraft economy — used for in-game actions, AI products, ads, governance, and rewards across every product we build.
+                  The fuel of the MagicCraft economy — used for lobby entry, NFT characters, AI products, ads, governance, and rewards across every product we build.
                 </p>
               </div>
 
               {/* Use cases grid */}
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-8">
                 {[
-                  { icon: '⚔️', label: 'PvP Rewards', desc: 'Win matches, earn $MCRT' },
+                  { icon: '⚔️', label: 'PvP Lobbies', desc: 'Play for BTC, ETH, and $MCRT' },
                   { icon: '🔥', label: 'Hero Leveling', desc: 'Burn $MCRT to level up' },
                   { icon: '🤖', label: 'AI Products', desc: 'Power Merlin & Akyn' },
                   { icon: '📢', label: 'MagicAds', desc: 'Pay & earn with ads' },
                   { icon: '🗳️', label: 'Governance', desc: 'Vote on DAO proposals' },
-                  { icon: '🎨', label: 'NFT Minting', desc: 'Mint & trade assets' },
+                  { icon: '🎨', label: 'NFT Heroes', desc: 'Mint and play NFT-linked characters' },
                 ].map(({ icon, label, desc }) => (
                   <div key={label} className="card-glass rounded-2xl border border-white/10 p-3 sm:p-4 text-center hover:border-[#98FFF9]/30 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(152,255,249,0.1)] transition-all duration-300">
                     <div className="text-2xl sm:text-3xl mb-2">{icon}</div>
@@ -281,7 +281,7 @@ function Homepagemcrt() {
                 </div>
                 <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
                   <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Crypto Lobbies</div>
-                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">BTC, ETH, SOL</div>
+                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">BTC, ETH, $MCRT</div>
                 </div>
                 <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
                   <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Platforms</div>
@@ -308,6 +308,26 @@ function Homepagemcrt() {
             <AIIntegrationSection />
           </Suspense>
 
+        <section className="mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 py-4 md:py-6">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
+            <div className="card-glass rounded-2xl border border-[#FFB649]/20 p-5 md:p-6 bg-gradient-to-br from-[#1A1104]/70 to-[#0B0F39]/70">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-[#FFB649]/80 font-bold mb-2">Live Now</p>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">PvP Lobbies for Real Crypto</h3>
+              <p className="text-sm md:text-base text-white/75 leading-relaxed">Players can jump into live PvP lobbies and compete for Bitcoin, Ethereum, and $MCRT rewards directly inside the MagicCraft ecosystem.</p>
+            </div>
+            <div className="card-glass rounded-2xl border border-[#98FFF9]/20 p-5 md:p-6 bg-gradient-to-br from-[#07122A]/70 to-[#0B0F39]/70">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-[#98FFF9]/80 font-bold mb-2">NFT Utility</p>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Playable NFT Characters</h3>
+              <p className="text-sm md:text-base text-white/75 leading-relaxed">MagicCraft NFTs are not just collectibles. Characters are tied to the NFTs, unlock in-game utility, and can be played inside the live game and marketplace economy.</p>
+            </div>
+            <div className="card-glass rounded-2xl border border-[#B591F2]/20 p-5 md:p-6 bg-gradient-to-br from-[#140B2A]/70 to-[#0B0F39]/70">
+              <p className="text-[11px] uppercase tracking-[0.18em] text-[#B591F2]/80 font-bold mb-2">Rarity System</p>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">Legendary and Evolved Skins</h3>
+              <p className="text-sm md:text-base text-white/75 leading-relaxed">Special NFT tiers such as legendary and powered-up versions create rarer characters with stronger identity and more marketplace value for collectors and players.</p>
+            </div>
+          </div>
+        </section>
+
         {/* Ecosystem Hub */}
         <section className="relative py-8 md:py-12 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 overflow-visible">
           <div className="text-center mb-6 md:mb-8">
@@ -323,7 +343,7 @@ function Homepagemcrt() {
                 <img src="/icons/icon-gamepad.svg" alt="Compete in PvP" className="w-5 h-5 opacity-90" />
                 <h4 className="text-lg md:text-xl font-bold">Compete in PvP</h4>
                       </div>
-              <p className="text-sm md:text-base text-gray-300">Win matches and tournaments to unlock $MCRT rewards.</p>
+              <p className="text-sm md:text-base text-gray-300">Compete in live PvP lobbies with BTC, ETH, and $MCRT prize paths.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
             </a>
             <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
@@ -350,7 +370,7 @@ function Homepagemcrt() {
                 <img src="/icons/icon-leaderboard.svg" alt="Lobbies" className="w-5 h-5 opacity-90" />
                 <h4 className="text-lg md:text-xl font-bold">Crypto Lobbies</h4>
                   </div>
-              <p className="text-sm md:text-base text-gray-300">BTC, ETH, BNB & more.</p>
+              <p className="text-sm md:text-base text-gray-300">BTC, ETH, $MCRT, BNB, XRP, SOL and more.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
             </a>
             <a href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
@@ -359,7 +379,7 @@ function Homepagemcrt() {
                 <img src="/icons/icon-marketplace.svg" alt="Marketplace" className="w-5 h-5 opacity-90" />
                 <h4 className="text-lg md:text-xl font-bold">NFT Marketplace</h4>
               </div>
-              <p className="text-sm md:text-base text-gray-300">Trade assets and utilities.</p>
+              <p className="text-sm md:text-base text-gray-300">Trade playable characters, skins, and ecosystem assets.</p>
               <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
             </a>
             <a href="https://store.steampowered.com/app/3478810/MCRT_Game_Maker/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
@@ -403,9 +423,9 @@ function Homepagemcrt() {
                 <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
                 <div className="flex items-center gap-3 mb-1">
                   <img src="/icons/icon-nft-new.svg" alt="Mint NFTs" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">Mint Utility NFTs</h4>
+                  <h4 className="font-bold">Mint NFT Characters</h4>
                 </div>
-                <p className="text-sm text-gray-300">Genesis & Revelation.</p>
+                <p className="text-sm text-gray-300">Mint characters and skins tied to live in-game utility.</p>
                 <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Mint now <span aria-hidden="true">→</span></span>
               </a>
               <a href="https://app.magiccraft.io/free_mint" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
