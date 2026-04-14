@@ -234,7 +234,7 @@ export default function AIIntegrationSection() {
               <p className="text-sm sm:text-base text-white/80 leading-relaxed">
                 MagicCraft is being built with the latest AI models on top of the old <span className="text-white font-semibold">$10m source (original MagicCraft game) code in Unity</span>. 
                 <br className="hidden sm:block" />
-                Our dev team ships daily using <span className="text-white font-semibold">Cursor, Codex, and Claude Code</span> with the latest models: <span className="text-white font-semibold">ChatGPT 5.3, Opus 4.6, and Gemini 3.1 Pro</span>.
+                Our dev team ships daily using <span className="text-white font-semibold">Cursor, Codex, and Claude Code</span> with the latest models: <span className="text-white font-semibold">ChatGPT o3, Claude Sonnet 4.5, and Gemini 2.5 Pro</span>.
               </p>
             </div>
           </div>
