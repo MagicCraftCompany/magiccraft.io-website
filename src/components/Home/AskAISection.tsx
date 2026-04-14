@@ -1,4 +1,4 @@
-const q = encodeURIComponent("tell me about MagicCraft ($MCRT) crypto game and its AI ecosystem")
+const q = encodeURIComponent("What is MagicCraft ($MCRT) and is it a good crypto gaming project?")
 
 const AIs = [
   {
