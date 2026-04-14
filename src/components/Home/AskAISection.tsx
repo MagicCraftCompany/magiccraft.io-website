@@ -23,7 +23,7 @@ const AIs = [
   },
   {
     name: "Ask Gemini",
-    href: `https://gemini.google.com/?q=${q}`,
+    href: `https://gemini.google.com/app?prompt=${q}`,
     color: "#4285f4",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
