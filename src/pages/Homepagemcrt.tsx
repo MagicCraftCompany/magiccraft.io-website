@@ -15,6 +15,7 @@ import bnbLogo from '../assets/icons/bnblogo.svg'
 import { handleBuyMCRT } from '@/lib/gameActions'
 
 const AIIntegrationSection = lazy(() => import('@/components/Home/AIIntegrationSection'))
+const AskAISection = lazy(() => import('@/components/Home/AskAISection'))
 import HeroSection from '@/components/Home/HeroSection'
 
 function Homepagemcrt() {
@@ -728,6 +729,10 @@ function Homepagemcrt() {
          
 
           {/* Partners already shown above for crypto-first visibility */}
+
+          <Suspense fallback={<div className="min-h-[200px]" />}>
+            <AskAISection />
+          </Suspense>
         </main>
         <Footer  />
       </div>
