@@ -17,6 +17,7 @@ import { handleBuyMCRT } from '@/lib/gameActions'
 const AIIntegrationSection = lazy(() => import('@/components/Home/AIIntegrationSection'))
 const AskAISection = lazy(() => import('@/components/Home/AskAISection'))
 import HeroSection from '@/components/Home/HeroSection'
+const LiveStatsWidget = lazy(() => import('@/components/LiveStats/LiveStatsWidget'))
 
 function Homepagemcrt() {
   const [visibleCount] = useState(ourteam.length)
@@ -167,6 +168,13 @@ function Homepagemcrt() {
               </div>
             </div>
           </section>
+
+          {/* Live ecosystem stats */}
+          <div className="w-full bg-gradient-to-b from-[#07051e] to-[#0a0524]">
+            <Suspense fallback={null}>
+              <LiveStatsWidget />
+            </Suspense>
+          </div>
 
           {/* Download banner just below hero */}
           <div id="download-section" className="w-full max-w-full bg-gradient-to-b from-[#0a0524] via-[#050317] to-[#03082f] relative z-10 shadow-inner overflow-visible">
