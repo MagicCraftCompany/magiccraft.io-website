@@ -143,6 +143,26 @@ async function getCoinMarketCapJsonLd() {
   return clamp(raw, 4000)
 }
 
+// Simple in-process cache (best-effort; resets on cold start)
+type CacheEntry<T> = { value: T; expires: number }
+const cache: Record<string, CacheEntry<unknown>> = {}
+
+function getCached<T>(key: string): T | undefined {
+  const entry = cache[key] as CacheEntry<T> | undefined
+  if (!entry || Date.now() > entry.expires) return undefined
+  return entry.value
+}
+
+function setCached<T>(key: string, value: T, ttlMs: number) {
+  cache[key] = { value, expires: Date.now() + ttlMs }
+}
+
+// Best-effort in-process rate limit (resets on cold start / new instance)
+const IP_RATE_LIMIT = 12
+const IP_RATE_WINDOW_MS = 60_000
+type RateEntry = { count: number; resetAt: number }
+const ipRateMap: Record<string, RateEntry> = {}
+
 function buildFaqText() {
   const items = ((faq as unknown as FaqItem[]) || []).slice(0, 30).map((q) => {
     const question = clamp(q?.question || '', 240)
@@ -234,6 +254,22 @@ export const handler: Handler = async (event) => {
     return { statusCode: 405, headers: { 'content-type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) }
   }
 
+  const clientIp = event.headers?.['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown'
+  const now = Date.now()
+  const rateEntry = ipRateMap[clientIp]
+  if (!rateEntry || now > rateEntry.resetAt) {
+    ipRateMap[clientIp] = { count: 1, resetAt: now + IP_RATE_WINDOW_MS }
+  } else {
+    rateEntry.count++
+    if (rateEntry.count > IP_RATE_LIMIT) {
+      return {
+        statusCode: 429,
+        headers: { 'content-type': 'application/json; charset=utf-8', 'retry-after': '60' },
+        body: JSON.stringify({ error: 'Too many requests. Please wait a minute before trying again.' }),
+      }
+    }
+  }
+
   const apiKey = process.env.OPENROUTER_API_KEY
   if (!apiKey) {
     return {
@@ -271,11 +307,40 @@ export const handler: Handler = async (event) => {
     .slice(-12)
     .map((m) => ({ role: m.role, content: clamp(m.content, 1500) }))
 
+  const MARKET_TTL = 3 * 60 * 1000
+  const PROFILE_TTL = 15 * 60 * 1000
+  const META_TTL = 15 * 60 * 1000
+  const CMC_TTL = 10 * 60 * 1000
+
   const [market, cgProfile, siteMeta, cmcJsonLd] = await Promise.all([
-    getMarketSnapshot(),
-    getCoinGeckoProfile(),
-    getMagiccraftHomepageMeta(),
-    getCoinMarketCapJsonLd(),
+    (async () => {
+      const cached = getCached<Awaited<ReturnType<typeof getMarketSnapshot>>>('market')
+      if (cached !== undefined) return cached
+      const v = await getMarketSnapshot()
+      setCached('market', v, MARKET_TTL)
+      return v
+    })(),
+    (async () => {
+      const cached = getCached<Awaited<ReturnType<typeof getCoinGeckoProfile>>>('cgProfile')
+      if (cached !== undefined) return cached
+      const v = await getCoinGeckoProfile()
+      setCached('cgProfile', v, PROFILE_TTL)
+      return v
+    })(),
+    (async () => {
+      const cached = getCached<Awaited<ReturnType<typeof getMagiccraftHomepageMeta>>>('siteMeta')
+      if (cached !== undefined) return cached
+      const v = await getMagiccraftHomepageMeta()
+      setCached('siteMeta', v, META_TTL)
+      return v
+    })(),
+    (async () => {
+      const cached = getCached<Awaited<ReturnType<typeof getCoinMarketCapJsonLd>>>('cmcJsonLd')
+      if (cached !== undefined) return cached
+      const v = await getCoinMarketCapJsonLd()
+      setCached('cmcJsonLd', v, CMC_TTL)
+      return v
+    })(),
   ])
   const faqText = buildFaqText()
 

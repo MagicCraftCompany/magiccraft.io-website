@@ -11,16 +11,19 @@ const Grants = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#0A0726] via-[#120a3a] to-[#0A0726] text-white">
       <Helmet>
-        <title>MagicCraft Grants | Build with $MCRT</title>
-        <meta name="description" content="Apply for MagicCraft Grants for Games, Web3/AI, and Crypto projects. Must have a working version. $MCRT integration encouraged." />
+        <title>MagicCraft Grants Program</title>
+        <meta name="description" content="Apply for a MagicCraft grant to build on the ecosystem. Submit your project with a working build to receive $MCRT or USD funding." />
         <link rel="canonical" href="https://magiccraft.io/grants" />
+        <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://magiccraft.io/grants" />
-        <meta property="og:title" content="MagicCraft Grants | Build with $MCRT" />
-        <meta property="og:description" content="Apply for MagicCraft grants for game, Web3/AI, and crypto projects building in the $MCRT ecosystem." />
+        <meta property="og:title" content="MagicCraft Grants Program" />
+        <meta property="og:description" content="Apply for a MagicCraft grant to build on the ecosystem. Submit your project with a working build to receive $MCRT or USD funding." />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="MagicCraft Grants | Build with $MCRT" />
-        <meta name="twitter:description" content="Apply for MagicCraft grants for game, Web3/AI, and crypto projects building in the $MCRT ecosystem." />
+        <meta name="twitter:title" content="MagicCraft Grants Program" />
+        <meta name="twitter:description" content="Apply for a MagicCraft grant to build on the ecosystem. Submit your project with a working build to receive $MCRT or USD funding." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
       </Helmet>
 
       <Header />

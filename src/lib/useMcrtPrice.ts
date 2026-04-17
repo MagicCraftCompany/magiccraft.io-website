@@ -20,8 +20,8 @@ export function useMcrtPrice(refreshMs: number = 60_000) {
       const json = await res.json()
       const p = json?.magiccraft as { usd: number; usd_24h_change?: number } | undefined
       if (p && typeof p.usd === 'number') setPrice({ usd: p.usd, usd_24h_change: p.usd_24h_change })
-    } catch (e: any) {
-      setError(String(e?.message || e))
+    } catch (e: unknown) {
+      setError(e instanceof Error ? e.message : String(e))
     } finally {
       setLoading(false)
     }

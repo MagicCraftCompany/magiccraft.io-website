@@ -6,5 +6,5 @@ declare module '@xswap-link/sdk' {
     srcChain: string;
     srcToken: string;
     defaultWalletPicker: boolean;
-  }): Promise<any>;
+  }): Promise<void>;
 }

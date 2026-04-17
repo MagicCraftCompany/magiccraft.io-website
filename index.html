@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1" />
 
     <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/favicon.ico" />
     <meta name="theme-color" content="#05081d" />
     <meta name="color-scheme" content="dark light" />
     <meta
@@ -41,6 +41,20 @@
     <link rel="dns-prefetch" href="//res.cloudinary.com" />
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+    <!-- Preload hero poster image -->
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" fetchpriority="high" />
+    <!-- Preload MagicCraft logo wordmark -->
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp" fetchpriority="high" />
+
+    <style>
+      /* Critical: prevent FOUC on hero */
+      html { background: #03082f; }
+      body { margin: 0; background: #03082f; color: #fff; font-family: 'Outfit', 'Space Grotesk', system-ui, sans-serif; }
+      #root { min-height: 100dvh; }
+      /* Show loading state while JS hydrates */
+      .app-loading { display: flex; align-items: center; justify-content: center; min-height: 100dvh; }
+    </style>
 
     <!-- Google Fonts -->
     <link

@@ -1,4 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+
+type EthereumProvider = {
+  request: (args: { method: string; params?: unknown[] }) => Promise<unknown>
+}
 
 type ServiceResult = {
   key: string
@@ -48,18 +52,18 @@ export default function StatusIndicator() {
   const core = useMemo(() => data?.services?.filter((s) => s.type === 'core') || [], [data])
   const deps = useMemo(() => data?.services?.filter((s) => s.type === 'dep') || [], [data])
 
-  async function refresh(forceDeep?: boolean) {
+  const refresh = useCallback(async (forceDeep?: boolean) => {
     setLoading(true)
     const r = await pingStatus(forceDeep ?? deep)
     setData(r)
     setLoading(false)
-  }
+  }, [deep])
 
   useEffect(() => {
     refresh(false)
     const id = setInterval(() => refresh(), 60_000)
     return () => clearInterval(id)
-  }, [])
+  }, [refresh])
 
   // Close when clicking outside
   useEffect(() => {
@@ -76,44 +80,48 @@ export default function StatusIndicator() {
   const apiSummary = data?.apiTotal ? `${data.apiOk ?? 0}/${data.apiTotal} APIs active` : null
   const title = overallOk === undefined ? 'Checking…' : apiSummary || (overallOk ? 'All systems normal' : 'Issues detected')
 
+  function getEthereum(): EthereumProvider | undefined {
+    return (window as Window & { ethereum?: EthereumProvider }).ethereum
+  }
+
   async function detectWallet() {
-    const eth = (window as any).ethereum
+    const eth = getEthereum()
     if (!eth) {
       setWallet({ available: false, error: 'No provider' })
       return
     }
     try {
       const chainId = await eth.request({ method: 'eth_chainId' })
-      setWallet({ available: true, chainId })
-    } catch (e: any) {
-      setWallet({ available: true, error: String(e?.message || e) })
+      setWallet({ available: true, chainId: String(chainId) })
+    } catch (e: unknown) {
+      setWallet({ available: true, error: e instanceof Error ? e.message : String(e) })
     }
   }
 
   async function connectWallet() {
-    const eth = (window as any).ethereum
+    const eth = getEthereum()
     if (!eth) {
       setWallet({ available: false, error: 'No provider' })
       return
     }
     try {
-      const accounts = await eth.request({ method: 'eth_requestAccounts' })
+      const accounts = await eth.request({ method: 'eth_requestAccounts' }) as string[]
       const chainId = await eth.request({ method: 'eth_chainId' })
-      setWallet({ available: true, account: accounts?.[0], chainId })
-    } catch (e: any) {
-      setWallet({ available: true, error: String(e?.message || e) })
+      setWallet({ available: true, account: accounts?.[0], chainId: String(chainId) })
+    } catch (e: unknown) {
+      setWallet({ available: true, error: e instanceof Error ? e.message : String(e) })
     }
   }
 
   async function switchToBsc() {
-    const eth = (window as any).ethereum
+    const eth = getEthereum()
     if (!eth) return
     try {
       await eth.request({ method: 'wallet_switchEthereumChain', params: [{ chainId: '0x38' }] })
       const chainId = await eth.request({ method: 'eth_chainId' })
-      setWallet((w) => ({ ...w, chainId }))
-    } catch (e: any) {
-      // Try add if missing
+      setWallet((w) => ({ ...w, chainId: String(chainId) }))
+    } catch (e: unknown) {
+      void e
       try {
         await eth.request({
           method: 'wallet_addEthereumChain',
@@ -126,9 +134,9 @@ export default function StatusIndicator() {
           }],
         })
         const chainId = await eth.request({ method: 'eth_chainId' })
-        setWallet((w) => ({ ...w, chainId }))
-      } catch (e2: any) {
-        setWallet((w) => ({ ...w, error: String(e2?.message || e2) }))
+        setWallet((w) => ({ ...w, chainId: String(chainId) }))
+      } catch (e2: unknown) {
+        setWallet((w) => ({ ...w, error: e2 instanceof Error ? e2.message : String(e2) }))
       }
     }
   }

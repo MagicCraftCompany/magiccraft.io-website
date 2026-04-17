@@ -14,10 +14,18 @@ export default function HeroSection() {
   useEffect(() => {
     const video = heroVideoRef.current
     if (!video) return
+
+    // Respect prefers-reduced-motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      video.pause()
+      video.removeAttribute('autoplay')
+      return
+    }
+
     try {
       video.muted = true
-      ;(video as any).playsInline = true
-    } catch {}
+      ;(video as HTMLVideoElement & { playsInline?: boolean }).playsInline = true
+    } catch { /* intentional: best-effort attribute assignment */ }
 
     const tryPlay = () => {
       const p = video.play()
@@ -90,19 +98,21 @@ export default function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 animate-pulse-slow"></div>
               <img
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp"
-              alt="MCRT Token"
+                alt="MCRT Token"
                 loading="eager"
+                fetchPriority="high"
                 className="relative w-full h-auto drop-shadow-2xl animate-float hover:scale-110 transition-all duration-500 hover:rotate-3"
-            />
+              />
           </div>
             </div>
           
           <div className="text-center gap-section animate-slide-up mt-2 sm:mt-3 md:mt-5 lg:mt-6 xl:mt-8 px-4 sm:px-6 md:px-8">
             <div className="flex justify-center mb-3 sm:mb-4 md:mb-6 group">
-              <img 
-                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"  
+              <img
+                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"
                 alt="MagicCraft Logo"
                 loading="eager"
+                fetchPriority="high"
                 className="w-full max-w-[280px] sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:scale-105 transition-transform duration-700 group-hover:drop-shadow-[0_0_40px_rgba(255,255,255,0.4)]"
               />
             </div>

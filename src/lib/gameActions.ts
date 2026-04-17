@@ -5,7 +5,7 @@ export function getDeviceDetails() {
   if (typeof window === 'undefined') {
     return { isIOS: false, isAndroid: false, isMobile: false }
   }
-  const ua = navigator.userAgent || navigator.vendor || (window as any).opera
+  const ua = navigator.userAgent || navigator.vendor || (window as Window & { opera?: string }).opera || ''
   const isIOS = /iPad|iPhone|iPod/.test(ua)
   const isAndroid = /Android/.test(ua)
   return { isIOS, isAndroid, isMobile: isIOS || isAndroid }

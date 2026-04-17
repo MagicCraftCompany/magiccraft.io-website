@@ -72,16 +72,19 @@ export default function Bounties() {
   return (
     <div className="min-h-dvh w-full max-w-full text-white">
       <Helmet>
-        <title>MagicCraft Bounties - Build the $MCRT Ecosystem</title>
-        <meta name="description" content="Complete community bounties to improve the MagicCraft ecosystem and earn rewards paid in $MCRT." />
+        <title>Bounties | MagicCraft</title>
+        <meta name="description" content="Earn $MCRT by completing MagicCraft bounties — content, code, and community challenges for the ecosystem." />
         <link rel="canonical" href="https://magiccraft.io/bounties" />
+        <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://magiccraft.io/bounties" />
-        <meta property="og:title" content="MagicCraft Bounties - Build the $MCRT Ecosystem" />
-        <meta property="og:description" content="Complete community bounties to improve the MagicCraft ecosystem and earn rewards paid in $MCRT." />
+        <meta property="og:title" content="Bounties | MagicCraft" />
+        <meta property="og:description" content="Earn $MCRT by completing MagicCraft bounties — content, code, and community challenges for the ecosystem." />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="MagicCraft Bounties - Build the $MCRT Ecosystem" />
-        <meta name="twitter:description" content="Complete community bounties and earn rewards for building the MagicCraft and $MCRT ecosystem." />
+        <meta name="twitter:title" content="Bounties | MagicCraft" />
+        <meta name="twitter:description" content="Earn $MCRT by completing MagicCraft bounties — content, code, and community challenges for the ecosystem." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',

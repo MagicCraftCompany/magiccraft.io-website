@@ -6,15 +6,19 @@ function LeaderboardPage() {
   return (
     <>
       <Helmet>
-        <title>MagicCraft Leaderboard – Top Players & $MCRT Earnings</title>
-        <meta name="description" content="Check the MagicCraft leaderboard to see the highest-ranked players and their $MCRT earnings in real time." />
+        <title>Leaderboard | MagicCraft</title>
+        <meta name="description" content="See the top-ranked MagicCraft PvP players this season. Compete for $MCRT prize pools." />
         <link rel="canonical" href="https://magiccraft.io/leaderboard" />
+        <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://magiccraft.io/leaderboard" />
-        <meta property="og:title" content="MagicCraft Leaderboard" />
-        <meta property="og:description" content="Discover the top MagicCraft competitors and track your position among them." />
-        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732780930/Image_9_rqkm4a.webp" />
+        <meta property="og:title" content="Leaderboard | MagicCraft" />
+        <meta property="og:description" content="See the top-ranked MagicCraft PvP players this season. Compete for $MCRT prize pools." />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Leaderboard | MagicCraft" />
+        <meta name="twitter:description" content="See the top-ranked MagicCraft PvP players this season. Compete for $MCRT prize pools." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
       </Helmet>
       <div className="min-h-dvh w-full text-white ">
         <Header />

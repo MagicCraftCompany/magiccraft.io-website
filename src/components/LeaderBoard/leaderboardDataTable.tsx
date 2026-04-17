@@ -8,7 +8,7 @@ export default function LeaderboardTable(props: LeaderboardDataType) {
     <div className="w-full rounded-2xl">
       <table className="w-full text-left text-sm">
         <tbody>
-          {data && data.map((item: any, index: number) => (
+          {data && data.map((item, index) => (
             <React.Fragment key={index}>
               <tr
                 className="grid grid-cols-1 md:grid-cols-5 gap-2 p-4 text-left text-xs sm:text-sm font-normal odd:bg-darkBlue-300/30 dark:text-primary-300 md:gap-4 md:px-7 md:py-5 md:odd:bg-transparent"

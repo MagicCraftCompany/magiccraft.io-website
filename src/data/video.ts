@@ -1,4 +1,4 @@
-const videos = [
+export const videos = [
     {
       id: 1,
       url: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733135230/1_5_k5qbji.webp',

@@ -40,7 +40,7 @@ function App() {
           <Route path="/magiccraft" element={<Homepagegames />} />
           <Route path="/hero" element={<Hero />} />
           <Route path="/hero/:heroName" element={<Hero />} />
-          <Route path="/Chooseyourhero" element={<ChooseYourHero />} />
+          <Route path="/chooseyourhero" element={<ChooseYourHero />} />
           <Route path="/faq" element={<Support />} />
           <Route path="/patch" element={<GamePatch />} />
           <Route path="/news" element={<NewsPage />} />

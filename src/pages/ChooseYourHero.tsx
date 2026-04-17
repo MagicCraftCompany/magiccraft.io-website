@@ -72,24 +72,25 @@ export default function ChooseYourHero() {
   return (
     <div className="min-h-dvh w-full  text-white">
       <Helmet>
-        <title>Choose Your Hero - MagicCraft Hero Roster</title>
-        <meta name="description" content="Browse the MagicCraft hero roster, compare roles and playstyles, and open individual hero pages with abilities and stats." />
-        <link rel="canonical" href="https://magiccraft.io/Chooseyourhero" />
-        <meta property="og:title" content="Choose Your Hero - MagicCraft Hero Roster" />
-        <meta property="og:description" content="Browse and select from diverse heroes with unique abilities in MagicCraft. Each hero offers distinct playstyles and devastating ultimates." />
+        <title>Choose Your Hero | MagicCraft</title>
+        <meta name="description" content="Browse all MagicCraft heroes, their roles, abilities, and stats. Find your perfect match for PvP lobbies." />
+        <link rel="canonical" href="https://magiccraft.io/chooseyourhero" />
+        <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://magiccraft.io/Chooseyourhero" />
-        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_z0ukji.webp" />
+        <meta property="og:url" content="https://magiccraft.io/chooseyourhero" />
+        <meta property="og:title" content="Choose Your Hero | MagicCraft" />
+        <meta property="og:description" content="Browse all MagicCraft heroes, their roles, abilities, and stats. Find your perfect match for PvP lobbies." />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Choose Your Hero - MagicCraft Hero Roster" />
-        <meta name="twitter:description" content="Browse and select from diverse heroes with unique abilities in MagicCraft." />
-        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732280870/image_19_z0ukji.webp" />
+        <meta name="twitter:title" content="Choose Your Hero | MagicCraft" />
+        <meta name="twitter:description" content="Browse all MagicCraft heroes, their roles, abilities, and stats. Find your perfect match for PvP lobbies." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
             name: 'MagicCraft Hero Roster',
-            url: 'https://magiccraft.io/Chooseyourhero',
+            url: 'https://magiccraft.io/chooseyourhero',
             description: 'Directory of MagicCraft heroes with role and character pages.',
             mainEntity: {
               '@type': 'ItemList',

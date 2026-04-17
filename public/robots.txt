@@ -1,8 +1,9 @@
 User-agent: *
-Allow: /
-
+Disallow: /admin
 Disallow: /admin/
 Disallow: /dashboard
+Disallow: /verify
+Disallow: /server
 Disallow: /grants/success
 
 Sitemap: https://magiccraft.io/sitemap.xml

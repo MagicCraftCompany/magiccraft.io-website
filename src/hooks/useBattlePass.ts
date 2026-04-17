@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 export type Region = 'europe' | 'asia' | 'america';
 
@@ -50,7 +50,7 @@ export const useBattlePass = (selectedRegion: Region = 'europe') => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchBattlePassData = async () => {
+  const fetchBattlePassData = useCallback(async () => {
     try {
       setLoading(true);
       setError(null);
@@ -70,11 +70,10 @@ export const useBattlePass = (selectedRegion: Region = 'europe') => {
       const data = await response.json();
       setBattlePassData({ ...data, region: selectedRegion });
     } catch (err) {
-      console.error('Error fetching battlepass data:', err);
+      void err;
       setError('Failed to load battlepass data');
       
       if (process.env.NODE_ENV === 'development' && import.meta.env.VITE_USE_MOCK_BATTLEPASS === 'true') {
-        console.warn('Using mock battlepass data for development');
         setBattlePassData({
           id: "battlepass_season_1",
           name: "MAGICCRAFT BATTLEPASS",
@@ -108,7 +107,7 @@ export const useBattlePass = (selectedRegion: Region = 'europe') => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [selectedRegion]);
 
   useEffect(() => {
     fetchBattlePassData();
@@ -116,7 +115,7 @@ export const useBattlePass = (selectedRegion: Region = 'europe') => {
     const interval = setInterval(fetchBattlePassData, 30000);
     
     return () => clearInterval(interval);
-  }, [selectedRegion]); 
+  }, [fetchBattlePassData]); 
 
   return {
     battlePassData,

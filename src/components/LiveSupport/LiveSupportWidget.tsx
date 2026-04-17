@@ -8,6 +8,13 @@ type ChatMessage = {
 
 const STORAGE_KEY = 'mc_live_support_chat_v1'
 
+function formatRelativeTime(ts: number): string {
+  const diff = Date.now() - ts
+  if (diff < 60_000) return 'just now'
+  if (diff < 3_600_000) return `${Math.floor(diff / 60_000)}m ago`
+  return `${Math.floor(diff / 3_600_000)}h ago`
+}
+
 function clampText(s: string, max: number) {
   const v = (s || '').trim()
   return v.length > max ? v.slice(0, max) : v
@@ -239,22 +246,60 @@ export default function LiveSupportWidget() {
                     <div className="mt-2 text-[12px] text-white/50">
                       Tip: try “What is MagicAds?”, “What is locked balance?”, or “Where can I buy $MCRT?”
                     </div>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {[
+                        'What is $MCRT?',
+                        'How do I buy $MCRT?',
+                        'What are PvP lobbies?',
+                        'What is MagicAds?',
+                      ].map((q) => (
+                        <button
+                          key={q}
+                          type="button"
+                          onClick={() => { setInput(q) }}
+                          className="text-xs px-2.5 py-1 rounded-full border border-white/15 bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition-all"
+                        >
+                          {q}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 ) : (
-                  messages.map((m, idx) => (
-                    <div key={idx} className={m.role === 'user' ? 'flex justify-end' : 'flex justify-start'}>
-                      <div
-                        className={
-                          m.role === 'user'
-                            ? 'max-w-[88%] rounded-2xl rounded-br-md bg-[#2a356f]/85 border border-[#8bb3ff]/25 px-3 py-2 text-sm leading-relaxed text-white'
-                            : 'max-w-[88%] rounded-2xl rounded-bl-md bg-[#0a102f]/85 border border-white/12 px-3 py-2 text-sm leading-relaxed text-white/92'
-                        }
-                        style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}
-                      >
-                        {m.content}
+                  messages.map((m, idx) =>
+                    m.role === 'assistant' ? (
+                      <div key={idx} className="flex justify-start">
+                        <div className="max-w-[88%] group relative">
+                          <div className="rounded-2xl rounded-bl-md bg-[#0a102f]/85 border border-white/12 px-3 py-2 text-sm leading-relaxed text-white/92"
+                            style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+                            {m.content}
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => navigator.clipboard?.writeText(m.content)}
+                            className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded-md bg-white/10 hover:bg-white/20 text-white/60 hover:text-white"
+                            aria-label="Copy message"
+                            title="Copy"
+                          >
+                            <svg viewBox="0 0 16 16" fill="currentColor" className="w-3 h-3">
+                              <path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6z"/>
+                              <path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2z"/>
+                            </svg>
+                          </button>
+                          <div className="text-[10px] text-white/30 mt-0.5 px-1">{formatRelativeTime(m.ts)}</div>
+                        </div>
                       </div>
-                    </div>
-                  ))
+                    ) : (
+                      <div key={idx} className="flex justify-end">
+                        <div className="max-w-[88%]">
+                          <div className="rounded-2xl rounded-br-md bg-[#2a356f]/85 border border-[#8bb3ff]/25 px-3 py-2 text-sm leading-relaxed text-white"
+                            style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+                            {m.content}
+                          </div>
+                          <div className="text-[10px] text-white/30 mt-0.5 px-1 text-right">{formatRelativeTime(m.ts)}</div>
+                        </div>
+                      </div>
+                    )
+                  )
                 )}
 
                 {busy && (

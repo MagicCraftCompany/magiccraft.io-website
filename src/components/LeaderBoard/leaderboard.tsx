@@ -24,9 +24,9 @@ interface LeaderboardProps {
   gameId: number; // Now we pass gameId instead of gameTitle
 }
 
-export default function Leaderboard({  }: LeaderboardProps) {
-  const [data, ] = useState<PlayerData[]>([]);
-  const [loading, ] = useState(true);
+export default function Leaderboard(_: LeaderboardProps) {
+  const [data] = useState<PlayerData[]>([]);
+  const [loading] = useState(true);
   const [currentLeaderboard, setCurrentLeaderboard] = useState("week");
 
   // useEffect(() => {

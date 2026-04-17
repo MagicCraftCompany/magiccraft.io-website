@@ -6,18 +6,19 @@ function HoldersPage(){
     return(
         <div className="min-h-dvh w-full text-white ">
         <Helmet>
-          <title>Top Holders | MagicCraft</title>
-          <meta name="description" content="View the top $MCRT token holders. Community members who hold the most MCRT are entitled to fight for the title." />
+          <title>Top $MCRT Holders | MagicCraft</title>
+          <meta name="description" content="View the largest $MCRT token holders on BNB Chain." />
           <link rel="canonical" href="https://magiccraft.io/topholders" />
+          <meta name="robots" content="index, follow" />
           <meta property="og:type" content="website" />
           <meta property="og:url" content="https://magiccraft.io/topholders" />
-          <meta property="og:title" content="Top Holders | MagicCraft" />
-          <meta property="og:description" content="Track the top $MCRT token holders and follow the most committed MagicCraft community wallets." />
-          <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732780930/Image_9_rqkm4a.webp" />
+          <meta property="og:title" content="Top $MCRT Holders | MagicCraft" />
+          <meta property="og:description" content="View the largest $MCRT token holders on BNB Chain." />
+          <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Top Holders | MagicCraft" />
-          <meta name="twitter:description" content="Track the top $MCRT token holders and follow the most committed MagicCraft community wallets." />
-          <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732780930/Image_9_rqkm4a.webp" />
+          <meta name="twitter:title" content="Top $MCRT Holders | MagicCraft" />
+          <meta name="twitter:description" content="View the largest $MCRT token holders on BNB Chain." />
+          <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
         </Helmet>
         <Header />
         <div className="relative">

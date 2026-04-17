@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { CSSProperties, PropsWithChildren } from "react";
 import { cn } from '@/lib/utils'
 
 export function TypographyH2({
@@ -21,7 +21,7 @@ export function TypographyH1({
   children,
   className,
   style,
-}: { className?: string, style?:any} & PropsWithChildren) {
+}: { className?: string, style?: CSSProperties} & PropsWithChildren) {
   return (
     <h1
       className={cn(

@@ -2,65 +2,7 @@ import mcLogo from '@/assets/images/magiccraft-logo.webp'
 import { X, Gamepad2, ShoppingBag, Globe, ChevronDown } from 'lucide-react'
 import NavMenu from './Navmenu'
 import { Suspense, lazy, useState, useEffect, useRef } from 'react'
-
-// Language options (codes match Google Translate)
-const languages = [
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'pt', name: 'Português', flag: '🇧🇷' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-  { code: 'zh-CN', name: '中文', flag: '🇨🇳' },
-  { code: 'ja', name: '日本語', flag: '🇯🇵' },
-  { code: 'ko', name: '한국어', flag: '🇰🇷' },
-  { code: 'ar', name: 'العربية', flag: '🇸🇦' },
-  { code: 'hi', name: 'हिन्दी', flag: '🇮🇳' },
-  { code: 'tr', name: 'Türkçe', flag: '🇹🇷' },
-  { code: 'vi', name: 'Tiếng Việt', flag: '🇻🇳' },
-  { code: 'th', name: 'ไทย', flag: '🇹🇭' },
-  { code: 'id', name: 'Indonesia', flag: '🇮🇩' },
-]
-
-// Trigger Google Translate
-function triggerGoogleTranslate(langCode: string) {
-  // Google Translate element sometimes loads async; poll briefly.
-  let tries = 0
-  const maxTries = 12
-  const intervalMs = 350
-
-  const applyLang = (select: HTMLSelectElement, code: string) => {
-    select.value = code
-    // Dispatch like a real user change (bubbling helps some GT builds)
-    select.dispatchEvent(new Event('input', { bubbles: true }))
-    select.dispatchEvent(new Event('change', { bubbles: true }))
-  }
-
-  const tick = () => {
-    const select = document.querySelector('.goog-te-combo') as HTMLSelectElement | null
-    if (select) {
-      if (langCode === 'en') {
-        applyLang(select, langCode)
-        return
-      }
-
-      // Force re-translate on SPA route changes by briefly resetting to English.
-      if (select.value === langCode) {
-        applyLang(select, 'en')
-        setTimeout(() => applyLang(select, langCode), 50)
-        return
-      }
-
-      applyLang(select, langCode)
-      return
-    }
-
-    tries += 1
-    if (tries < maxTries) setTimeout(tick, intervalMs)
-  }
-
-  tick()
-}
+import { LANGUAGES, setGoogTransCookie, triggerGoogleTranslate } from '@/lib/googleTranslate'
 
 const NavMenuMobile = lazy(() => import('./NavMenuMobile'))
 const StatusIndicator = lazy(() => import('./StatusIndicator'))
@@ -277,20 +219,8 @@ const Header = () => {
   const [isLangOpen, setIsLangOpen] = useState(false)
   const [isDesktopLangOpen, setIsDesktopLangOpen] = useState(false)
   const desktopLangRef = useRef<HTMLDivElement | null>(null)
+  const hamburgerRef = useRef<HTMLButtonElement | null>(null)
   const location = useLocation()
-
-  function setGoogTransCookie(langCode: string) {
-    if (typeof document === 'undefined') return
-    const value = `/en/${langCode || 'en'}`
-    const base = `googtrans=${value};path=/;max-age=31536000;SameSite=Lax`
-    document.cookie = base
-    // Also set for apex domain in production so it persists across subdomains.
-    try {
-      if (window.location.hostname.endsWith('magiccraft.io')) {
-        document.cookie = `${base};domain=.magiccraft.io`
-      }
-    } catch {}
-  }
 
   const handleLanguageChange = (code: string) => {
     setCurrentLang(code)
@@ -299,16 +229,10 @@ const Header = () => {
       localStorage.setItem('preferredLang', code)
       setGoogTransCookie(code)
       triggerGoogleTranslate(code)
-      // Ensure translation applies consistently (Google Translate relies on cookies + DOM mutation).
-      setTimeout(() => {
-        try {
-          window.location.assign(window.location.href)
-        } catch {}
-      }, 120)
     }
   }
 
-  const currentLanguage = languages.find(l => l.code === currentLang) || languages[0]
+  const currentLanguage = LANGUAGES.find(l => l.code === currentLang) || LANGUAGES[0]
 
   useEffect(() => {
     // route-change hook reserved for future header state needs
@@ -339,7 +263,6 @@ const Header = () => {
     triggerGoogleTranslate(currentLang)
     // Retry once for SPA route updates where GT initializes later.
     setTimeout(() => triggerGoogleTranslate(currentLang), 800)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.pathname, currentLang])
 
   // Track viewport to conditionally render header CTAs only on desktop (md+)
@@ -354,18 +277,35 @@ const Header = () => {
     // Subscribe
     mql.addEventListener?.('change', handler as (e: MediaQueryListEvent) => void)
     // Fallback for older Safari
-    mql.addListener?.(handler as any)
+    mql.addListener?.(handler as (e: MediaQueryListEvent) => void)
     return () => {
       mql.removeEventListener?.('change', handler as (e: MediaQueryListEvent) => void)
-      mql.removeListener?.(handler as any)
+      mql.removeListener?.(handler as (e: MediaQueryListEvent) => void)
     }
   }, [])
+
+  // Focus the close button when the mobile drawer opens
+  useEffect(() => {
+    if (!isSideMenuOpen) return
+    const closeBtn = document.querySelector('[data-drawer-close]') as HTMLButtonElement | null
+    closeBtn?.focus()
+  }, [isSideMenuOpen])
+
+  // Close mobile drawer on Escape key
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isSideMenuOpen) closeSidebar()
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [isSideMenuOpen])
 
   function closeSidebar() {
     setIsSideMenuOpen(false)
     setIsLangOpen(false)
     setIsDesktopLangOpen(false)
     document.body.style.overflow = 'unset'
+    setTimeout(() => hamburgerRef.current?.focus(), 50)
   }
 
   function openSidebar() {
@@ -469,7 +409,7 @@ const Header = () => {
                 {isDesktopLangOpen && (
                   <div className="absolute right-0 top-full mt-2 w-[280px] max-h-[320px] overflow-auto rounded-lg bg-[#0a0e2e]/95 border border-white/20 shadow-2xl backdrop-blur-xl p-2">
                     <div className="grid grid-cols-2 gap-1">
-                      {languages.map((lang) => (
+                      {LANGUAGES.map((lang) => (
                         <button
                           key={lang.code}
                           type="button"
@@ -499,6 +439,7 @@ const Header = () => {
           </div>
           {/* Absolutely positioned hamburger to avoid layout clipping */}
           <button
+            ref={hamburgerRef}
             onClick={openSidebar}
             className="md:hidden absolute right-2 top-1/2 -translate-y-1/2 p-2.5 rounded-xl glass-strong hover:bg-white/10 transition-all duration-200 min-w-[48px] min-h-[48px] flex items-center justify-center z-[100000]"
             aria-label="Open menu"
@@ -511,11 +452,18 @@ const Header = () => {
       </header>
       {/* Mobile menu overlay - simple fallback for iOS */}
       {isSideMenuOpen && (
-        <div className="fixed inset-0 z-[99999] bg-black/60" onClick={closeSidebar} />
+        <div
+          role="presentation"
+          className="fixed inset-0 z-[99999] bg-black/60"
+          onClick={closeSidebar}
+        />
       )}
       
       {/* Mobile menu panel - premium glass design */}
       <div 
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
         className={`fixed top-0 right-0 h-full w-[85%] max-w-[380px] z-[100000] transform transition-transform duration-300 ease-out ${
           isSideMenuOpen ? 'translate-x-0' : 'translate-x-full'
         } bg-[#0a0e2e]/95 border-l border-white/10 shadow-2xl overflow-auto`}
@@ -529,6 +477,7 @@ const Header = () => {
                 <img src={mcLogo} alt="MagicCraft" className="h-8" />
               </div>
               <button
+                data-drawer-close
                 className="p-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-200 group"
                 onClick={closeSidebar}
               >
@@ -645,7 +594,7 @@ const Header = () => {
                 {isLangOpen && (
                   <div className="absolute bottom-full left-0 right-0 mb-2 max-h-[280px] overflow-auto rounded-xl bg-[#0a0e2e] border border-white/20 shadow-2xl">
                     <div className="p-2 grid grid-cols-2 gap-1">
-                      {languages.map((lang) => (
+                      {LANGUAGES.map((lang) => (
                         <button
                           key={lang.code}
                           onClick={() => handleLanguageChange(lang.code)}

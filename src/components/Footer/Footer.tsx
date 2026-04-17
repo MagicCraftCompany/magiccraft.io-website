@@ -10,7 +10,7 @@ import {
   FaTiktok,
   FaYoutube,
 } from 'react-icons/fa6'
-import { useNavigate } from 'react-router-dom' // Import useNavigate
+import { useNavigate, Link } from 'react-router-dom'
 import { BUILD_REV } from '@/version'
 
 const socialLinks = [
@@ -141,31 +141,19 @@ const Footer = () => {
             
             <ul className="text-sm md:text-base flex flex-col md:flex-row md:space-x-8 space-y-3 md:space-y-0 text-[#98FFF9] font-semibold">
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/privacypolicy')}
-                  className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
-                >
+                <Link to="/privacypolicy" className="cursor-pointer hover:text-white transition-colors duration-200 inline-block">
                   Privacy Policy
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/terms')}
-                  className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
-                >
+                <Link to="/terms" className="cursor-pointer hover:text-white transition-colors duration-200 inline-block">
                   Terms and Conditions
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  type="button"
-                  onClick={() => navigate('/disclaimer')}
-                  className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
-                >
+                <Link to="/disclaimer" className="cursor-pointer hover:text-white transition-colors duration-200 inline-block">
                   Disclaimer
-                </button>
+                </Link>
               </li>
             </ul>
 

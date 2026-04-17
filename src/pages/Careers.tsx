@@ -5,16 +5,19 @@ function Careers() {
   return (
     <main className="safe-padded container mx-auto container-padding section-padding pb-16 md:pb-24">
       <Helmet>
-        <title>Careers at MagicCraft – Join Our Team</title>
-        <meta name="description" content="Join MagicCraft's team. We're hiring marketers and developers who are crypto-native, AI-first, and product-minded." />
+        <title>Careers | MagicCraft</title>
+        <meta name="description" content="Join the MagicCraft team. Explore open roles in game development, AI, and Web3 across the MagicCraft ecosystem." />
         <link rel="canonical" href="https://magiccraft.io/careers" />
+        <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://magiccraft.io/careers" />
-        <meta property="og:title" content="Careers at MagicCraft" />
-        <meta property="og:description" content="Join MagicCraft's team. We're hiring marketers and developers." />
+        <meta property="og:title" content="Careers | MagicCraft" />
+        <meta property="og:description" content="Join the MagicCraft team. Explore open roles in game development, AI, and Web3 across the MagicCraft ecosystem." />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Careers at MagicCraft – Join Our Team" />
-        <meta name="twitter:description" content="Join MagicCraft's team. We’re hiring crypto-native, AI-first marketers and developers." />
+        <meta name="twitter:title" content="Careers | MagicCraft" />
+        <meta name="twitter:description" content="Join the MagicCraft team. Explore open roles in game development, AI, and Web3 across the MagicCraft ecosystem." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
       </Helmet>
       <div className="mb-6 md:mb-8">
         <Link to="/" className="chip-cta no-underline inline-flex items-center gap-2 hover:-translate-x-1 transition-transform duration-300 hover:bg-white/15" aria-label="Back to Home">

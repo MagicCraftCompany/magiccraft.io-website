@@ -7,9 +7,18 @@ export default function GrantsSuccess() {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#0A0726] via-[#120a3a] to-[#0A0726] text-white">
       <Helmet>
         <title>Application Received | MagicCraft Grants</title>
-        <meta name="description" content="Thank you for applying to the MagicCraft grants program. Our team will review your submission and contact you shortly." />
-        <meta name="robots" content="noindex, nofollow" />
+        <meta name="description" content="Your MagicCraft grants application has been received. We will be in touch shortly." />
         <link rel="canonical" href="https://magiccraft.io/grants/success" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://magiccraft.io/grants/success" />
+        <meta property="og:title" content="Application Received | MagicCraft Grants" />
+        <meta property="og:description" content="Your MagicCraft grants application has been received. We will be in touch shortly." />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Application Received | MagicCraft Grants" />
+        <meta name="twitter:description" content="Your MagicCraft grants application has been received. We will be in touch shortly." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
       </Helmet>
       <Header />
       <main className="flex-1 safe-padded">

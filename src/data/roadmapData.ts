@@ -39,31 +39,14 @@ export const roadmapData: RoadmapDataType = [
           'MagicAds (magicads.dev)',
         ],
       },
-    ],
-  },
-  {
-    quarter: 1,
-    year: 2026,
-    variant: 'default',
-    goals: [
       {
-        card: 1,
+        card: 3,
         features: [
           'Game Maker Studio Expansion',
           'Creator economy: Build, publish, and monetize custom maps',
           'Revenue sharing for popular community content',
-        ],
-      },
-      {
-        card: 2,
-        features: [
           'Procedural weapon skins and customization system',
           'Cross-Platform Sync enhancements',
-        ],
-      },
-      {
-        card: 3,
-        features: [
           'Enhanced PvP Ecosystem',
           'Ranked seasons with $MCRT prize pools',
           'Tournament tools and seasonal events',

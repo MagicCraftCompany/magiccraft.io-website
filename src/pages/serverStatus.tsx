@@ -1,4 +1,5 @@
 import { Suspense, lazy, useState } from 'react'
+import { Helmet } from 'react-helmet-async'
 import refresh from '@/assets/icons/refresh.svg'
 import up from '@/assets/icons/uparrow.svg'
 import down from '@/assets/icons/downarrrow.svg'
@@ -6,7 +7,7 @@ import down from '@/assets/icons/downarrrow.svg'
 const Header = lazy(() => import('@/components/Header/Header'))
 const Footer = lazy(() => import('@/components/Footer/Footer'))
 
-function server() {
+function Server() {
   const initialState = [
     { id: 1, isDropdownOpen: false, imageSrc: up },
     { id: 2, isDropdownOpen: false, imageSrc: up },
@@ -31,6 +32,21 @@ function server() {
 
   return (
     <>
+      <Helmet>
+        <title>Server Status | MagicCraft</title>
+        <meta name="description" content="Live status for MagicCraft game servers and APIs." />
+        <link rel="canonical" href="https://magiccraft.io/server" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://magiccraft.io/server" />
+        <meta property="og:title" content="Server Status | MagicCraft" />
+        <meta property="og:description" content="Live status for MagicCraft game servers and APIs." />
+        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Server Status | MagicCraft" />
+        <meta name="twitter:description" content="Live status for MagicCraft game servers and APIs." />
+        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
+      </Helmet>
       <div className="flex h-full w-full flex-col text-white">
         <Suspense fallback={<div>Loading...</div>}>
           <Header />
@@ -137,4 +153,4 @@ function server() {
   )
 }
 
-export default server
+export default Server

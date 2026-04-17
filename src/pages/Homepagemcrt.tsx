@@ -1,7 +1,6 @@
 import { Fragment, Suspense, lazy, useCallback, useEffect, useState } from 'react'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
-import steam from '@/assets/icons/icon-steam.svg'
 import { Tabs, Tab } from '@/components/tabs'
 import { roadmapData } from '../data/roadmapData'
 const RoadmapCard = lazy(() => import('../components/Cards/RoadmapCard'))
@@ -11,13 +10,15 @@ import MagicraftDownload from '@/components/HomePageCard'
 import BuyStrip from '@/components/Buy/BuyStrip'
 const Partners = lazy(() => import('@/components/Partners/Partners'))
 import { Helmet } from 'react-helmet-async'
-import bnbLogo from '../assets/icons/bnblogo.svg'
-import { handleBuyMCRT } from '@/lib/gameActions'
 
 const AIIntegrationSection = lazy(() => import('@/components/Home/AIIntegrationSection'))
 const AskAISection = lazy(() => import('@/components/Home/AskAISection'))
 import HeroSection from '@/components/Home/HeroSection'
 const LiveStatsWidget = lazy(() => import('@/components/LiveStats/LiveStatsWidget'))
+import TokenStatsRow from '@/components/Home/TokenStatsRow'
+import McrtPaymentsSection from '@/components/Home/McrtPaymentsSection'
+const EcosystemHubSection = lazy(() => import('@/components/Home/EcosystemHubSection'))
+import MobileBottomBar from '@/components/Home/MobileBottomBar'
 
 function Homepagemcrt() {
   const [visibleCount] = useState(ourteam.length)
@@ -123,51 +124,7 @@ function Homepagemcrt() {
           <HeroSection />
 
           {/* Token stats + CTA row */}
-          <section className="w-full bg-gradient-to-b from-[#03082f] via-[#07051e] to-[#0a0524] px-3 sm:px-4 md:px-6 py-4 sm:py-5">
-            <div className="mx-auto max-w-screen-xl">
-              <div className="flex flex-col lg:flex-row items-center gap-5 md:gap-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm px-5 sm:px-6 md:px-8 py-5 sm:py-6">
-                <div className="flex flex-wrap justify-center lg:justify-start gap-4 sm:gap-6 flex-1">
-                  {[
-                    { label: 'Standard', value: 'BEP-20' },
-                    { label: 'Network', value: 'BNB Chain' },
-                    { label: 'Tx Speed', value: '~3 sec' },
-                    { label: 'Avg Fee', value: '~$0.01' },
-                  ].map(({ label, value }) => (
-                    <div key={label} className="text-center">
-                      <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">{label}</div>
-                      <div className="text-sm sm:text-base font-bold text-white mt-0.5">{value}</div>
-                    </div>
-                  ))}
-                </div>
-                <div className="flex flex-wrap items-center justify-center gap-3">
-                  <a
-                    href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary interactive-scale"
-                  >
-                    Buy on Bybit
-                  </a>
-                  <a
-                    href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary"
-                  >
-                    PancakeSwap
-                  </a>
-                  <a
-                    href="https://coinmarketcap.com/currencies/magiccraft/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-white/60 hover:text-white transition-colors"
-                  >
-                    CoinMarketCap ↗
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
+          <TokenStatsRow />
 
           {/* Live ecosystem stats */}
           <div className="w-full bg-gradient-to-b from-[#07051e] to-[#0a0524]">
@@ -185,56 +142,7 @@ function Homepagemcrt() {
           {/* Conversion-first Buy strip */}
           <BuyStrip />
           {/* $MCRT Payments: The currency of gaming */}
-          <section id="mcrt-payments" className="w-full border-t border-white/5 bg-gradient-to-b from-[#03082f] via-[#0a0524] to-[#03082f]">
-            <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-6 sm:py-8">
-              <div className="card-glass rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm px-4 sm:px-6 md:px-8 py-5 sm:py-7 shadow-[0_0_30px_rgba(152,255,249,0.1)]">
-                <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-5 md:gap-6">
-                  <div className="text-center lg:text-left max-w-3xl">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-[11px] text-white/70 mb-3">
-                      <img src={bnbLogo} alt="BNB Chain" className="h-3.5 w-3.5" />
-                      <span>Built on BNB Chain</span>
-                    </div>
-                    <h3 className="font-serif text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
-                      Seamless Payments & Ecosystem Utility
-                  </h3>
-                    <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed">
-                      $MCRT is engineered for speed and scale. Operating on the BEP‑20 standard,
-                      payments settle in seconds with fees around a cent and capacity for thousands of transactions per second.
-                      Send value instantly between players, power in‑game commerce, and fuel AI-driven experiences across the MagicCraft economy.
-                  </p>
-                </div>
-                  <div className="flex flex-wrap items-center justify-center lg:justify-end gap-2 sm:gap-3 text-[11px] sm:text-xs">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-white/80">
-                      {/* Speed icon */}
-                      <svg className="h-3.5 w-3.5 text-white/70" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 4a8 8 0 1 1-7.938 7H5a7 7 0 1 0 2.05-4.95l1.414 1.415A5 5 0 1 1 17 12h2A7 7 0 0 0 12 4Zm.5 4a1 1 0 0 0-1 1v3.586l-2.207 2.207a1 1 0 1 0 1.414 1.414l2.5-2.5A1 1 0 0 0 13.5 13V9a1 1 0 0 0-1-1Z"/></svg>
-                      <span>USDT‑like speed</span>
-                    </span>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-white/80">
-                      {/* Coin icon */}
-                      <svg className="h-3.5 w-3.5 text-white/70" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 4.239 2 7s4.477 5 10 5 10-2.239 10-5-4.477-5-10-5Zm0 12c-5.523 0-10-2.239-10-5v3c0 2.761 4.477 5 10 5s10-2.239 10-5V9c0 2.761-4.477 5-10 5Zm0 4c-5.523 0-10-2.239-10-5v3c0 2.761 4.477 5 10 5s10-2.239 10-5v-3c0 2.761-4.477 5-10 5Z"/></svg>
-                      <span>~1¢ fees</span>
-                    </span>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-white/80">
-                      {/* TPS icon */}
-                      <svg className="h-3.5 w-3.5 text-white/70" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 5h6v6H4V5Zm10 0h6v6h-6V5ZM4 13h6v6H4v-6Zm10 4h6v2h-6v-2Z"/></svg>
-                      <span>High TPS</span>
-                    </span>
-                    <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-white/80">
-                      {/* P2P icon */}
-                      <svg className="h-3.5 w-3.5 text-white/70" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 7a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm10 0a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM5 17a4 4 0 0 1 4-4h6a4 4 0 0 1 4 4v1H5v-1Z"/></svg>
-                      <span>Player ↔ Player</span>
-                    </span>
-                </div>
-              </div>
-                <div className="mt-4 flex items-center justify-center lg:justify-start gap-3">
-                  <button onClick={handleBuyMCRT} className="btn-primary interactive-scale">
-                    Get $MCRT
-                          </button>
-                  <a href="/build-on-magiccraft" className="btn-secondary">Learn more</a>
-                            </div>
-                          </div>
-                            </div>
-          </section>
+          <McrtPaymentsSection />
           {/* $MCRT Utility Token Section */}
           <section className="w-full bg-gradient-to-b from-[#03082f] via-[#07051e] to-[#03082f] border-t border-white/5 py-10 sm:py-14 md:py-16">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6">
@@ -263,7 +171,7 @@ function Homepagemcrt() {
                   { icon: '🎨', label: 'NFT Heroes', desc: 'Mint and play NFT-linked characters' },
                 ].map(({ icon, label, desc }) => (
                   <div key={label} className="card-glass rounded-2xl border border-white/10 p-3 sm:p-4 text-center hover:border-[#98FFF9]/30 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(152,255,249,0.1)] transition-all duration-300">
-                    <div className="text-2xl sm:text-3xl mb-2">{icon}</div>
+                    <div className="text-2xl sm:text-3xl mb-2" aria-hidden="true">{icon}</div>
                     <div className="text-xs sm:text-sm font-semibold text-white mb-0.5">{label}</div>
                     <div className="text-[10px] sm:text-xs text-white/50">{desc}</div>
                   </div>
@@ -342,175 +250,14 @@ function Homepagemcrt() {
         </section>
 
         {/* Ecosystem Hub */}
-        <section className="relative py-8 md:py-12 mx-auto w-[96%] sm:w-[94%] md:w-11/12 max-w-screen-xl px-1 sm:px-2 md:px-0 overflow-visible">
-          <div className="text-center mb-6 md:mb-8">
-            <h3 className="text-section-title font-serif font-bold bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">MagicCraft Ecosystem</h3>
-            <p className="text-gray-300 text-base md:text-lg mt-2">Core experiences and tools powered by $MCRT.</p>
-                        </div>
-
-          {/* Core actions */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            <a id="earn" href="https://lobby.magiccraft.io/" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1" rel="noreferrer noopener">
-              <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-              <div className="flex items-center gap-3 mb-1">
-                <img src="/icons/icon-gamepad.svg" alt="Compete in PvP" className="w-5 h-5 opacity-90" />
-                <h4 className="text-lg md:text-xl font-bold">Compete in PvP</h4>
-                      </div>
-              <p className="text-sm md:text-base text-gray-300">Compete in live PvP lobbies with BTC, ETH, and $MCRT prize paths.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
-            </a>
-            <a href="https://coinmarketcap.com/currencies/magiccraft/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-              <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-              <div className="flex items-center gap-3 mb-1">
-                <img src="/icons/icon-currency.svg" alt="CoinMarketCap" className="w-5 h-5 opacity-90" />
-                <h4 className="text-lg md:text-xl font-bold">$MCRT on CoinMarketCap</h4>
-                      </div>
-              <p className="text-sm md:text-base text-gray-300">Price, market cap, and supply details.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
-            </a>
-            <a href="#download-section" onClick={(e) => { e.preventDefault(); document.getElementById('download-section')?.scrollIntoView({ behavior: 'smooth' }); }} className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-colors rounded-2xl overflow-hidden cursor-pointer no-underline hover:no-underline">
-              <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-              <div className="flex items-center gap-3 mb-1">
-                <img src="/icons/icon-gamepad.svg" alt="Game" className="w-5 h-5 opacity-90" />
-                <h4 className="text-lg md:text-xl font-bold">Cross-Platform Game</h4>
-                    </div>
-              <p className="text-sm md:text-base text-gray-300">Play on PC, iOS, Android, Steam.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
-            </a>
-            <a href="https://lobby.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-              <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-              <div className="flex items-center gap-3 mb-1">
-                <img src="/icons/icon-leaderboard.svg" alt="Lobbies" className="w-5 h-5 opacity-90" />
-                <h4 className="text-lg md:text-xl font-bold">Crypto Lobbies</h4>
-                  </div>
-              <p className="text-sm md:text-base text-gray-300">BTC, ETH, $MCRT, BNB, XRP, SOL and more.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
-            </a>
-            <a href="https://app.magiccraft.io/marketplace/explorer" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-              <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-              <div className="flex items-center gap-3 mb-1">
-                <img src="/icons/icon-marketplace.svg" alt="Marketplace" className="w-5 h-5 opacity-90" />
-                <h4 className="text-lg md:text-xl font-bold">NFT Marketplace</h4>
-              </div>
-              <p className="text-sm md:text-base text-gray-300">Trade playable characters, skins, and ecosystem assets.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
-            </a>
-            <a href="https://store.steampowered.com/app/3478810/MCRT_Game_Maker/" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[150px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-              <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-              <div className="flex items-center gap-3 mb-1">
-                <img src={steam} alt="Game Maker" className="w-5 h-5 opacity-90" />
-                <h4 className="text-lg md:text-xl font-bold">$MCRT Game Maker</h4>
-                <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-[#98FFF9]/20 text-[#98FFF9] font-bold">STEAM</span>
-              </div>
-              <p className="text-sm md:text-base text-gray-300">Design maps, earn $MCRT.</p>
-              <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open <span aria-hidden="true">→</span></span>
-            </a>
-          </div>
-
-          {/* More in the Ecosystem */}
-          <details className="mt-4 md:mt-6">
-            <summary className="mx-auto inline-flex items-center gap-2 rounded-xl border border-white/10 px-4 py-2 text-sm text-white/80 cursor-pointer select-none bg-black/20 hover:bg-black/30">
-              More in the Ecosystem
-              <svg className="w-4 h-4 opacity-70" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.086l3.71-3.856a.75.75 0 111.08 1.04l-4.24 4.41a.75.75 0 01-1.08 0l-4.24-4.41a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
-            </summary>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mt-4">
-              <a href="https://polybilities.com" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-                <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-                <div className="flex items-center gap-3 mb-1">
-                  <img src="/icons/icon-stats.svg" alt="Polybilities" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">Polybilities</h4>
-                </div>
-                <p className="text-sm text-gray-300">AI prediction markets.</p>
-                <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Open app <span aria-hidden="true">→</span></span>
-              </a>
-              <a href="https://games.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-                <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-                <div className="flex items-center gap-3 mb-1">
-                  <img src="/icons/icon-gamepad.svg" alt="Mini-games" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">Mini-games</h4>
-                </div>
-                <p className="text-sm text-gray-300">Web3 mini titles.</p>
-                <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Play now <span aria-hidden="true">→</span></span>
-              </a>
-              <a href="https://app.magiccraft.io/nft_mint" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-                <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-                <div className="flex items-center gap-3 mb-1">
-                  <img src="/icons/icon-nft-new.svg" alt="Mint NFTs" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">Mint NFT Characters</h4>
-                </div>
-                <p className="text-sm text-gray-300">Mint characters and skins tied to live in-game utility.</p>
-                <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Mint now <span aria-hidden="true">→</span></span>
-              </a>
-              <a href="https://app.magiccraft.io/free_mint" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-                <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-                <div className="flex items-center gap-3 mb-1">
-                  <img src="/icons/icon-nft-new.svg" alt="Free NFTs" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">Free NFT Collections</h4>
-                </div>
-                <p className="text-sm text-gray-300">Vega, Davinci & more.</p>
-                <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Claim free <span aria-hidden="true">→</span></span>
-              </a>
-              <a href="https://app.magiccraft.io/dao" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-                <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-                <div className="flex items-center gap-3 mb-1">
-                  <img src="/icons/icon-community.svg" alt="DAO" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">DAO</h4>
-                </div>
-                <p className="text-sm text-gray-300">Participate in governance.</p>
-                <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Vote now <span aria-hidden="true">→</span></span>
-              </a>
-              <a href="https://rent.magiccraft.io" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-                <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-                <div className="flex items-center gap-3 mb-1">
-                  <img src="/icons/icon-help.svg" alt="NFT Rentals" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">NFT Rentals (Testnet)</h4>
-                </div>
-                <p className="text-sm text-gray-300">Currently available on testnet.</p>
-                <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">View rentals <span aria-hidden="true">→</span></span>
-              </a>
-              <a href="/grants" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-                <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-                <div className="flex items-center gap-3 mb-1">
-                  <img src="/icons/icon-bounty.svg" alt="Grants" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">Grants</h4>
-                </div>
-                <p className="text-sm text-gray-300">Apply with a working build.</p>
-                <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Apply <span aria-hidden="true">→</span></span>
-              </a>
-              <a href="https://lobby.magiccraft.io/referral" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
-                <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
-                <div className="flex items-center gap-3 mb-1">
-                  <img src="/icons/icon-contact.svg" alt="Referral" className="w-5 h-5 opacity-90" />
-                  <h4 className="font-bold">Referral</h4>
-                </div>
-                <p className="text-sm text-gray-300">Invite friends and earn.</p>
-                <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Get link <span aria-hidden="true">→</span></span>
-              </a>
-            </div>
-          </details>
-        </section>
+        <Suspense fallback={<div className="min-h-[300px]" />}>
+          <EcosystemHubSection />
+        </Suspense>
 
         {/* Mentions removed per request */}
 
         {/* Sticky mobile bottom bar */}
-        <div className="fixed bottom-0 inset-x-0 md:hidden z-50 pb-[max(env(safe-area-inset-bottom),4px)]">
-          <div className="w-full bg-[#0B0F39]/82 backdrop-blur border-t border-white/10 px-2 py-0.5 flex items-center gap-2">
-                <a
-              href="https://lobby.magiccraft.io/"
-              rel="noreferrer noopener"
-                  className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-semibold text-white bg-white/10 border border-white/20"
-            >
-              Play Now
-            </a>
-            <a
-              href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
-              rel="noreferrer noopener"
-                  className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-semibold text-[#03082F] bg-gradient-to-b from-[#A9FFF6] to-[#8EECE6] border border-white/20"
-            >
-              Buy $MCRT
-            </a>
-          </div>
-        </div>
+        <MobileBottomBar />
           
          <section id="gameplay">
           <Suspense fallback={<div className="min-h-[220px]" />}>
@@ -536,7 +283,7 @@ function Homepagemcrt() {
                   Roadmap
                 </h2>
                 <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
-                  Current Phase: Q1 2026
+                  Current Phase: Q2 2026
                 </div>
                 <p className="mx-auto mt-4 max-w-2xl text-center text-xs font-medium tracking-wider text-white/50 uppercase">
                   Live products, current quarter delivery, and next expansion phases

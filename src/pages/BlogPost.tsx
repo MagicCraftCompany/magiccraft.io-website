@@ -41,11 +41,6 @@ export default function BlogPost() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Redirect to news page if no slug
-  if (!slug || slug === 'null') {
-    return <Navigate to="/news" replace />;
-  }
-
   useEffect(() => {
     async function loadPost() {
       if (!slug) return;
@@ -66,6 +61,11 @@ export default function BlogPost() {
 
     loadPost();
   }, [slug]);
+
+  // Redirect to news page if no slug
+  if (!slug || slug === 'null') {
+    return <Navigate to="/news" replace />;
+  }
 
   if (loading) {
     return (

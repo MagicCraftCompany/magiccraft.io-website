@@ -79,7 +79,7 @@ function StatTile({ label, value, sublabel, icon, accent, animated, rawValue }: 
       {/* Ambient glow */}
       <div className="pointer-events-none absolute -top-4 left-1/2 h-16 w-24 -translate-x-1/2 rounded-full blur-2xl opacity-20 bg-current" />
 
-      <div className="mb-2 text-2xl">{icon}</div>
+      <div className="mb-2 text-2xl" aria-hidden="true">{icon}</div>
       <div className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
         {animated && rawValue !== undefined ? (
           <AnimatedNumber value={rawValue} />
