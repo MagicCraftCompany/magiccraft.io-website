@@ -36,9 +36,9 @@ const products = [
     tag: 'LIVE',
     icon: 'https://akyn.pro/logo.svg',
     description:
-      'AI-powered film production suite: write scripts, cast AI characters, shoot scenes, and export viral-quality videos. The King Pro tier unlocks unlimited AI dance & social video generation — paid with $MCRT.',
+      'Full AI film production suite: pitch an idea, generate a script, cast consistent AI characters, compose and shoot scenes, then edit and export. Produces viral dance videos, social shorts, and cinematic content in minutes.',
     mcrtUse: [
-      'King Pro subscription paid in $MCRT',
+      'Premium plan subscription paid in $MCRT',
       'Video generation credits purchased with $MCRT',
       'AI dance & social clip exports',
       'Creator revenue sharing in $MCRT',
@@ -141,9 +141,9 @@ const revenueStreams = [
     color: '#98FFF9',
   },
   {
-    source: 'Akyn King Pro',
+    source: 'Akyn (Premium / Business)',
     mechanism: 'Monthly subscription + per-credit video generation',
-    mcrtDemand: 'Subscription burn — MCRT paid to access premium AI video tier',
+    mcrtDemand: 'Subscription payments in $MCRT; credits bought with $MCRT',
     color: '#B591F2',
   },
   {
@@ -189,10 +189,10 @@ const tokenomicsRows = [
 
 const flywheelSteps = [
   { n: '01', title: 'Users Buy $MCRT', body: 'Players, creators, and AI users acquire $MCRT via Bybit, PancakeSwap, or credit card to access premium features across the ecosystem.' },
-  { n: '02', title: 'Spend in Products', body: 'MCRT is spent on Akyn King Pro subscriptions, Polybilities stakes, MagicAds campaigns, game lobbies, and NFT purchases — creating consistent protocol demand.' },
+  { n: '02', title: 'Spend in Products', body: 'MCRT is spent on Akyn Premium subscriptions, Polybilities stakes, MagicAds campaigns, game lobbies, and NFT purchases — creating consistent protocol demand.' },
   { n: '03', title: 'Revenue Flows Back', body: 'Platform fees, ad spend, subscription revenue, and marketplace royalties flow into the treasury, funding rewards and buybacks.' },
   { n: '04', title: 'Holders Are Rewarded', body: 'Stakers earn from prize pools, ad revenue, and ecosystem growth. Higher MCRT value incentivises more product use and new user acquisition.' },
-  { n: '05', title: 'Ecosystem Expands', body: 'New products (King Pro tiers, AI models, new game modes) launch, each creating new demand vectors for $MCRT and compounding the flywheel.' },
+  { n: '05', title: 'Ecosystem Expands', body: 'New products (Akyn tiers, AI models, new game modes) launch, each creating new demand vectors for $MCRT and compounding the flywheel.' },
 ]
 
 const Section = ({ id, title, sub, children }: { id: string; title: string; sub?: string; children: React.ReactNode }) => (
@@ -215,8 +215,8 @@ export default function Whitepaper() {
   return (
     <>
       <Helmet>
-        <title>MagicCraft Whitepaper v3.0 — $MCRT Token, King Pro & AI Ecosystem</title>
-        <meta name="description" content="MagicCraft Whitepaper v3.0: $MCRT utility across AI gaming, Akyn King Pro video generation, Merlin AI, MagicAds, Polybilities and the full ecosystem." />
+        <title>MagicCraft Whitepaper v3.0 — $MCRT Token, Akyn AI & Full Ecosystem</title>
+        <meta name="description" content="MagicCraft Whitepaper v3.0: $MCRT utility across AI gaming, Akyn AI film studio, Merlin AI, MagicAds, Polybilities and the full ecosystem." />
         <link rel="canonical" href="https://magiccraft.io/whitepaper" />
         <style>{printStyles}</style>
       </Helmet>
@@ -239,7 +239,7 @@ export default function Whitepaper() {
               <span className="text-white/90">WHITEPAPER</span>
             </h1>
             <p className="text-lg sm:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed mb-8">
-              The $MCRT ecosystem: AI gaming, on-chain monetization, and the King Pro flywheel — built to make every product purchase a reason to hold the token.
+              The $MCRT ecosystem: AI gaming, Akyn AI film studio, MagicAds, Merlin, and more — every product creates a new reason to hold the token.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener"
@@ -268,7 +268,7 @@ export default function Whitepaper() {
         <div className="sticky top-0 z-30 bg-[#03082f]/95 backdrop-blur border-b border-white/10 hidden md:block">
           <div className="max-w-screen-xl mx-auto px-6">
             <nav className="flex items-center gap-6 overflow-x-auto py-3 text-xs font-medium text-white/50 whitespace-nowrap">
-              {['Executive Summary', 'The Vision', 'Products', 'King Pro', '$MCRT Token', 'Monetization', 'Tokenomics', 'Roadmap'].map((t) => (
+              {['Executive Summary', 'The Vision', 'Products', 'Akyn', '$MCRT Token', 'Monetization', 'Tokenomics', 'Roadmap'].map((t) => (
                 <a key={t} href={`#${t.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}`}
                   className="hover:text-[#98FFF9] transition-colors">{t}</a>
               ))}
@@ -286,7 +286,7 @@ export default function Whitepaper() {
                   MagicCraft ($MCRT) is a multi-product AI and gaming ecosystem where every product — from competitive on-chain gaming to AI film production — routes its premium economy through a single token. Each new product adds a new demand vector; each new user becomes a potential $MCRT buyer.
                 </p>
                 <p>
-                  At the core of our monetization model is a principle we call the <span className="text-white font-semibold">King Pro flywheel</span>: premium AI features (most notably Akyn's King Pro tier for AI dance and viral video generation) are unlocked exclusively with $MCRT. This creates direct, recurring buy pressure that compounds as our product suite grows.
+                  At the core of our monetization model is the <span className="text-white font-semibold">product flywheel</span>: premium AI features across Akyn, Merlin, MagicAds, and Polybilities accept $MCRT as payment — creating direct, recurring buy pressure that compounds as our product suite grows.
                 </p>
                 <p>
                   $MCRT is live on Bybit, PancakeSwap, and HTX. It powers 8+ live products across gaming, AI content, prediction markets, and advertising. The token has a fixed maximum supply, deflationary mechanics via fee burns, and ecosystem incentives that reward long-term holders.
@@ -323,7 +323,7 @@ export default function Whitepaper() {
                 {
                   icon: '💰',
                   title: 'Token-Gated Premium Economy',
-                  body: 'Unlike games where tokens are "optional", $MCRT is the exclusive currency for King Pro AI video generation, Polybilities staking, MagicAds ad campaigns, and PvP lobby entry. Use = demand. Demand = price appreciation.',
+                    body: 'Unlike games where tokens are "optional", $MCRT is used for Akyn Premium video generation, Polybilities staking, MagicAds ad campaigns, and PvP lobby entry. Use = demand. Demand = price appreciation.',
                 },
                 {
                   icon: '🔗',
@@ -376,9 +376,9 @@ export default function Whitepaper() {
             </div>
           </Section>
 
-          {/* King Pro */}
-          <Section id="king-pro" title="King Pro — The MCRT Premium Tier"
-            sub="The clearest example of how $MCRT creates real, recurring demand.">
+          {/* Akyn deep-dive */}
+          <Section id="akyn" title="Akyn — AI Film Production Suite"
+            sub="Write, cast, shoot, and edit viral videos with AI. No crew needed.">
             <div className="rounded-3xl overflow-hidden border border-[#B591F2]/30 relative">
               <div className="absolute inset-0 bg-gradient-to-br from-[#1a0835]/90 via-[#0f0824]/95 to-[#03082f]/95"></div>
               <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#B591F2] via-[#98FFF9] to-[#B591F2]"></div>
@@ -386,46 +386,49 @@ export default function Whitepaper() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                   <div>
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#B591F2]/30 to-[#98FFF9]/10 border border-[#B591F2]/30 flex items-center justify-center text-2xl">👑</div>
+                      <div className="w-14 h-14 rounded-2xl overflow-hidden ring-1 ring-[#B591F2]/30">
+                        <img src="https://akyn.pro/logo.svg" alt="Akyn" className="w-full h-full object-contain p-2 bg-[#120d18]" loading="lazy" />
+                      </div>
                       <div>
-                        <h3 className="text-2xl font-black text-white">King Pro</h3>
-                        <span className="text-sm text-[#B591F2]/80">Akyn AI Film Studio · Premium Tier</span>
+                        <h3 className="text-2xl font-black text-white">Akyn</h3>
+                        <a href="https://akyn.pro" target="_blank" rel="noreferrer noopener" className="text-sm text-[#B591F2]/80 hover:text-[#B591F2]">akyn.pro</a>
                       </div>
                     </div>
                     <p className="text-white/80 leading-relaxed mb-4">
-                      King Pro is the premium subscription tier on <span className="text-white font-semibold">Akyn</span> (akyn.pro) — the AI film production suite that turns anyone into a one-person studio. With King Pro, users generate unlimited AI dance videos, cinematic social clips, character-consistent scenes, and viral short-form content — all in minutes.
+                      Akyn is a full AI film production suite that gives every creator a complete crew: a <span className="text-white font-semibold">Screenwriter</span> that expands a one-line idea into a multi-scene script, a <span className="text-white font-semibold">Production Designer</span> that generates consistent characters and locations, a <span className="text-white font-semibold">Cinematographer</span> that frames and generates motion between shots, and an <span className="text-white font-semibold">Editor</span> that assembles, scores, and exports the final film.
                     </p>
                     <p className="text-white/80 leading-relaxed mb-4">
-                      The critical mechanic: <span className="text-[#B591F2] font-semibold">King Pro is purchased exclusively with $MCRT</span>. Standard Akyn plans accept credit cards. King Pro requires you to hold and spend $MCRT. This means every content creator who wants the best AI video features becomes a $MCRT buyer.
+                      The output: viral dance videos, cinematic social shorts, AI films — exported to TikTok, Instagram Reels, and YouTube Shorts in minutes. Akyn's creator gallery is a live feed of exported videos from real users.
                     </p>
                     <p className="text-white/80 leading-relaxed">
-                      As Akyn's creator base grows — driven by demand for viral AI dance videos and AI films — King Pro subscriptions generate direct, monthly $MCRT buy pressure. The more viral Akyn content gets on TikTok, Instagram Reels, and YouTube Shorts, the more creators upgrade to King Pro, and the more $MCRT is acquired.
+                      As part of the MagicCraft ecosystem, Akyn's Premium and Business tiers can be paid with <span className="text-[#B591F2] font-semibold">$MCRT</span>, making every creator who wants HD exports and priority generation a direct $MCRT buyer.
                     </p>
                   </div>
                   <div className="space-y-3">
-                    <h4 className="text-sm font-bold text-white/60 uppercase tracking-wider mb-2">King Pro Features</h4>
+                    <h4 className="text-sm font-bold text-white/60 uppercase tracking-wider mb-2">Akyn Plans</h4>
                     {[
-                      { icon: '🎬', feature: 'Unlimited AI dance & social video generation', detail: 'No credit limits — generate as many viral videos as you need' },
-                      { icon: '🎭', feature: 'Consistent AI characters across all scenes', detail: 'Build a cast once, reuse across your entire content library' },
-                      { icon: '🎵', feature: 'HD exports with sync music & sound', detail: 'Export production-quality video ready for every platform' },
-                      { icon: '🚀', feature: 'Priority generation queue', detail: 'Skip the queue — your videos render first' },
-                      { icon: '🤖', feature: 'Early access to new AI models', detail: 'First access to every new Akyn AI feature as it ships' },
-                      { icon: '💰', feature: 'Creator revenue sharing in $MCRT', detail: 'Earn $MCRT when your content drives new user signups' },
-                    ].map((f) => (
-                      <div key={f.feature} className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
-                        <span className="text-xl flex-shrink-0">{f.icon}</span>
-                        <div>
-                          <div className="text-sm font-semibold text-white">{f.feature}</div>
-                          <div className="text-xs text-white/50 mt-0.5">{f.detail}</div>
+                      { plan: 'Standard', price: '$10 / mo', color: '#98FFF9', features: ['Script generation', 'AI character & location assets', 'Video generation', 'Standard exports', 'Email support'] },
+                      { plan: 'Premium', price: '$25 / mo', color: '#B591F2', features: ['Everything in Standard', 'Priority generation queue', 'HD exports', 'More video credits', 'Early access to new AI models'] },
+                      { plan: 'Business', price: 'Custom', color: '#FFB649', features: ['Everything in Premium', 'Volume credits', 'Team collaboration', 'API access', 'Dedicated support'] },
+                    ].map((p) => (
+                      <div key={p.plan} className="flex items-start gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                        <div className="flex-shrink-0 text-right w-20">
+                          <div className="text-sm font-bold" style={{ color: p.color }}>{p.plan}</div>
+                          <div className="text-xs text-white/40">{p.price}</div>
+                        </div>
+                        <div className="flex-1 flex flex-wrap gap-x-3 gap-y-0.5">
+                          {p.features.map((f) => (
+                            <span key={f} className="text-xs text-white/60">{f}</span>
+                          ))}
                         </div>
                       </div>
                     ))}
                     <div className="mt-4 p-4 rounded-xl bg-gradient-to-r from-[#B591F2]/10 to-[#98FFF9]/5 border border-[#B591F2]/20">
-                      <div className="text-xs uppercase tracking-wider text-[#B591F2] font-bold mb-1">How to unlock King Pro</div>
+                      <div className="text-xs uppercase tracking-wider text-[#B591F2] font-bold mb-1">$MCRT + Akyn</div>
                       <ol className="text-sm text-white/70 space-y-1 list-decimal list-inside">
                         <li>Buy $MCRT on Bybit or PancakeSwap</li>
                         <li>Connect your wallet at akyn.pro</li>
-                        <li>Subscribe to King Pro — $MCRT is deducted monthly</li>
+                        <li>Pay for Premium or Business with $MCRT</li>
                         <li>Generate unlimited AI dance and viral videos</li>
                       </ol>
                     </div>
@@ -461,7 +464,7 @@ export default function Whitepaper() {
                 <div className="space-y-2">
                   {[
                     { product: 'Game Lobbies', use: 'Entry + prizes' },
-                    { product: 'Akyn King Pro', use: 'Subscription + video credits' },
+                    { product: 'Akyn (Premium / Business)', use: 'Subscription + video credits' },
                     { product: 'MagicAds', use: 'Ad spend + publisher payouts' },
                     { product: 'Polybilities', use: 'Stake + prediction rewards' },
                     { product: 'Merlin AI', use: 'Premium upgrades + API credits' },
@@ -480,7 +483,7 @@ export default function Whitepaper() {
 
             {/* Flywheel */}
             <div className="mt-8">
-              <h3 className="text-xl font-bold text-white mb-6">The King Pro Flywheel</h3>
+              <h3 className="text-xl font-bold text-white mb-6">The $MCRT Flywheel</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
                 {flywheelSteps.map((s, i) => (
                   <div key={s.n} className="relative card-glass rounded-2xl p-4 border border-white/10">
@@ -560,7 +563,7 @@ export default function Whitepaper() {
                   items: [
                     'MagicCraft MOBA — PC, iOS, Android, Steam',
                     'Crypto PvP Lobbies (BTC, ETH, BNB, XRP, SOL, $MCRT)',
-                    'Akyn AI Film Studio with King Pro tier',
+                    'Akyn AI Film Studio (Standard / Premium / Business)',
                     'Merlin AI — multi-modal AI companion + payment hub',
                     'MagicAds — AI cross-banner ad network',
                     'Polybilities — AI prediction markets',
@@ -574,7 +577,7 @@ export default function Whitepaper() {
                   color: '#B591F2',
                   items: [
                     'Smart AI matchmaking + coaching in-game',
-                    'King Pro expanded video styles (lipsync, 3D avatars)',
+                    'Akyn expanded video styles (lipsync, 3D avatars)',
                     'Merlin as ecosystem-wide payment identity layer',
                     'Unified $MCRT dashboard across all products',
                     'MagicAds expanded publisher network',
@@ -614,7 +617,7 @@ export default function Whitepaper() {
           <div className="pt-12 text-center">
             <h2 className="text-2xl sm:text-3xl font-black text-white mb-3">Ready to own a piece of the ecosystem?</h2>
             <p className="text-white/60 max-w-xl mx-auto mb-8 text-sm leading-relaxed">
-              Every product in the MagicCraft suite creates demand for $MCRT. Buy it, stake it, use it for King Pro — and grow with the ecosystem.
+              Every product in the MagicCraft suite creates demand for $MCRT. Buy it, stake it, use it for Akyn AI videos, game lobbies, and ads — and grow with the ecosystem.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener"
@@ -623,7 +626,7 @@ export default function Whitepaper() {
               </a>
               <a href="https://akyn.pro" target="_blank" rel="noreferrer noopener"
                 className="btn-secondary px-8 py-3 font-semibold text-sm">
-                Try Akyn King Pro
+                Try Akyn Free
               </a>
               <a href="https://lobby.magiccraft.io" target="_blank" rel="noreferrer noopener"
                 className="px-8 py-3 rounded-lg border border-white/20 text-white/70 hover:text-white hover:border-white/40 transition-all text-sm font-semibold">

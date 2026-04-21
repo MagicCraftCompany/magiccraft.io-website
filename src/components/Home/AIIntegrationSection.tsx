@@ -43,15 +43,12 @@ export default function AIIntegrationSection() {
                   <ProductLogo src="https://akyn.pro/logo.svg" alt="Akyn logo" className="p-1.5 bg-[#120d18]" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-2">
-                    <h4 className="text-xl font-bold text-white group-hover:text-[#B591F2] transition-colors">Akyn</h4>
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-[#B591F2]/15 border border-[#B591F2]/30 text-[#B591F2] uppercase tracking-wide">King Pro</span>
-                  </div>
+                  <h4 className="text-xl font-bold text-white group-hover:text-[#B591F2] transition-colors">Akyn</h4>
                   <span className="text-xs text-[#98FFF9] font-medium">akyn.pro</span>
                 </div>
               </div>
               <p className="text-sm text-gray-300 leading-relaxed">
-                AI film studio: write scripts, cast characters, shoot scenes, and export viral dance & social videos. <span className="text-[#B591F2] font-semibold">King Pro tier unlocked with $MCRT.</span>
+                AI film production suite — write scripts, cast AI characters, shoot scenes, and export viral dance & social videos. Premium plan accepts $MCRT.
               </p>
             </a>
 
