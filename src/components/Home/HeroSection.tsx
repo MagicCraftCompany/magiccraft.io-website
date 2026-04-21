@@ -1,26 +1,40 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { openGameByDevice, handleBuyMCRT } from '@/lib/gameActions'
 import EcosystemMindMap from '@/components/EcosystemMindMap'
 
+type NetInfo = {
+  effectiveType?: string
+  saveData?: boolean
+}
+
+function shouldPlayHeroVideo(): boolean {
+  if (typeof window === 'undefined') return false
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return false
+  const nav = navigator as Navigator & { connection?: NetInfo }
+  const conn = nav.connection
+  if (conn?.saveData) return false
+  if (conn?.effectiveType && /^(2g|slow-2g|3g)$/.test(conn.effectiveType)) return false
+  return true
+}
+
 export default function HeroSection() {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null)
+  const [enableVideo, setEnableVideo] = useState<boolean>(() => shouldPlayHeroVideo())
 
   const openLiveSupport = () => {
     if (typeof window === 'undefined') return
     window.dispatchEvent(new CustomEvent('mc:live-support:open'))
   }
 
+  useEffect(() => {
+    setEnableVideo(shouldPlayHeroVideo())
+  }, [])
+
   // Ensure hero background video autoplay/loops reliably across browsers
   useEffect(() => {
+    if (!enableVideo) return
     const video = heroVideoRef.current
     if (!video) return
-
-    // Respect prefers-reduced-motion
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      video.pause()
-      video.removeAttribute('autoplay')
-      return
-    }
 
     try {
       video.muted = true
@@ -38,7 +52,6 @@ export default function HeroSection() {
       if (!document.hidden) tryPlay()
     }
     const onPause = () => {
-      // If it pauses unexpectedly, resume
       tryPlay()
     }
     const onEnded = () => {
@@ -56,32 +69,42 @@ export default function HeroSection() {
       video.removeEventListener('pause', onPause)
       video.removeEventListener('ended', onEnded)
     }
-  }, [])
+  }, [enableVideo])
 
   return (
     <section className="md:min-h-screen relative min-h-[560px] sm:min-h-[650px] md:min-h-[700px] lg:min-h-[750px] xl:min-h-[800px] h-auto bg-cover bg-center overflow-hidden w-full max-w-full">
-      <video
-        ref={heroVideoRef}
-        className="absolute inset-0 h-full w-full object-cover scale-105"
-        autoPlay
-        loop
-        muted
-        playsInline
-        preload="metadata"
-        controls={false}
-        controlsList="nodownload noplaybackrate noremoteplayback"
-        disablePictureInPicture
-        poster="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
-      >
-        <source
-          src="https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto,q_auto/v1717166775/video_gokp2f.mp4"
-          type="video/mp4"
+      {enableVideo ? (
+        <video
+          ref={heroVideoRef}
+          className="absolute inset-0 h-full w-full object-cover scale-105"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="metadata"
+          controls={false}
+          controlsList="nodownload noplaybackrate noremoteplayback"
+          disablePictureInPicture
+          poster="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
+        >
+          <source
+            src="https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto,q_auto/v1717166775/video_gokp2f.mp4"
+            type="video/mp4"
+          />
+          <source
+            src="https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto,q_auto/v1717166775/video_gokp2f.webm"
+            type="video/webm"
+          />
+        </video>
+      ) : (
+        <img
+          className="absolute inset-0 h-full w-full object-cover scale-105"
+          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
+          alt=""
+          aria-hidden="true"
+          loading="eager"
         />
-        <source
-          src="https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto,q_auto/v1717166775/video_gokp2f.webm"
-          type="video/webm"
-        />
-      </video>
+      )}
       <div className="video-bg-gradient absolute inset-0 h-full w-full bg-gradient-to-b from-black/60 via-black/35 to-black/80"></div>
       <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5 animate-pulse-slow"></div>
       <div className="absolute inset-0 bg-gradient-to-t from-[#03082f]/90 via-transparent to-transparent"></div>
@@ -100,7 +123,6 @@ export default function HeroSection() {
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp"
                 alt="MCRT Token"
                 loading="eager"
-                fetchPriority="high"
                 className="relative w-full h-auto drop-shadow-2xl animate-float hover:scale-110 transition-all duration-500 hover:rotate-3"
               />
           </div>
@@ -112,7 +134,6 @@ export default function HeroSection() {
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"
                 alt="MagicCraft Logo"
                 loading="eager"
-                fetchPriority="high"
                 className="w-full max-w-[280px] sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:scale-105 transition-transform duration-700 group-hover:drop-shadow-[0_0_40px_rgba(255,255,255,0.4)]"
               />
             </div>

@@ -31,6 +31,7 @@ import { BUILD_REV } from './version'
 const LiveSupportWidget = lazy(() => import('./components/LiveSupport/LiveSupportWidget'))
 
 function App() {
+  const showBadge = import.meta.env.DEV || (typeof window !== 'undefined' && window.location.search.includes('debug=1'))
   return (
     <BrowserRouter>
       <ScrollToTop />
@@ -63,11 +64,13 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
+      {showBadge && (
       <div className="fixed left-2 top-2 z-[100000] pointer-events-none select-none">
         <span className="px-2 py-0.5 rounded-md text-[11px] font-semibold bg-white/10 border border-white/20 text-white/80 backdrop-blur-md shadow-lg">
           v{BUILD_REV}
         </span>
       </div>
+      )}
       <Suspense fallback={null}>
         <LiveSupportWidget />
       </Suspense>

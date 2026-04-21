@@ -312,6 +312,7 @@ export default function EcosystemMindMap() {
       <div
         ref={wrapRef}
         className="w-full h-full cursor-pointer"
+        aria-label="MagicCraft ecosystem map: move the pointer over a node to see its label, click a node to open its page in a new tab"
         onMouseMove={(e) => pickNode(e.clientX, e.clientY)}
         onMouseLeave={() => { setHoveredId(null); setTip(null) }}
         onClick={onClick}

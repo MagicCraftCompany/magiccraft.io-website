@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useMcrtPrice } from '@/lib/useMcrtPrice'
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard'
 import { MCRT_CONTRACT } from '@/constants'
+import { trackCta } from '@/lib/analytics'
 
 export default function BuyStrip() {
   const { price, loading, refresh } = useMcrtPrice(120_000)
@@ -12,9 +13,17 @@ export default function BuyStrip() {
     return () => clearInterval(id)
   }, [refresh])
 
-  const copyContract = () => copy(MCRT_CONTRACT)
+  const copyContract = () => {
+    trackCta({ cta: 'copy_contract', location: 'buy_strip' })
+    copy(MCRT_CONTRACT)
+  }
 
-  const priceText = price ? `$${price.usd.toFixed(5)}${price.usd_24h_change !== undefined ? ` (${price.usd_24h_change >= 0 ? '+' : ''}${price.usd_24h_change.toFixed(2)}%)` : ''}` : loading ? '—' : '—'
+  const hasPrice = !!price
+  const priceText = hasPrice
+    ? `$${price!.usd.toFixed(5)}${price!.usd_24h_change !== undefined ? ` (${price!.usd_24h_change >= 0 ? '+' : ''}${price!.usd_24h_change.toFixed(2)}%)` : ''}`
+    : loading
+      ? 'Loading…'
+      : 'Live on Bybit'
 
   return (
     <section className="w-full border-t border-white/5 bg-gradient-to-r from-[#04071F] via-[#0b0f39] to-[#04071F]">
@@ -29,15 +38,31 @@ export default function BuyStrip() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#98FFF9] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#98FFF9]"></span>
               </span>
-              Live price:{' '}
+              {hasPrice ? 'Live price:' : 'Trade $MCRT:'}{' '}
               <span className="font-semibold text-[#98FFF9] drop-shadow-sm" title={priceText}>
                 {priceText}
               </span>
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 w-full sm:w-auto">
-            <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noreferrer noopener" className="btn-primary flex-1 sm:flex-none min-w-[140px] text-center">Buy on Bybit</a>
-            <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noreferrer noopener" className="btn-secondary flex-1 sm:flex-none min-w-[140px] text-center">PancakeSwap</a>
+            <a
+              href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
+              target="_blank"
+              rel="noreferrer noopener"
+              onClick={() => trackCta({ cta: 'bybit', location: 'buy_strip' })}
+              className="btn-primary flex-1 sm:flex-none min-w-[140px] text-center"
+            >
+              Buy on Bybit
+            </a>
+            <a
+              href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f"
+              target="_blank"
+              rel="noreferrer noopener"
+              onClick={() => trackCta({ cta: 'pancakeswap', location: 'buy_strip' })}
+              className="btn-secondary flex-1 sm:flex-none min-w-[140px] text-center"
+            >
+              PancakeSwap
+            </a>
             <button
               onClick={copyContract}
               aria-label={copied ? 'Contract address copied' : 'Copy MCRT contract address'}

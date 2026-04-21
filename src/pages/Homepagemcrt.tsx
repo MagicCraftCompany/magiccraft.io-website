@@ -61,38 +61,34 @@ function Homepagemcrt() {
           content="crypto gaming, $MCRT, MagicCraft, PvP lobbies, bitcoin gaming, ethereum gaming, NFT heroes, NFT skins, Web3 gaming, blockchain game, play and earn, NFT gaming, Steam, iOS, Android"
         />
         <meta name="author" content="MagicCraft" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
+
         {/* Open Graph */}
         <meta property="og:title" content="MagicCraft – PvP Crypto Lobbies, NFT Heroes & $MCRT" />
         <meta property="og:description" content="Play live PvP lobbies for BTC, ETH, and $MCRT, unlock NFT-linked characters, and trade rarity-based skins across the MagicCraft ecosystem." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://magiccraft.io" />
-        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
-        <meta property="og:site_name" content="MagicCraft" />
-        
+        <meta property="og:url" content="https://magiccraft.io/" />
+
         {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="MagicCraft – PvP Crypto Lobbies, NFT Heroes & $MCRT" />
         <meta name="twitter:description" content="Play live PvP lobbies for BTC, ETH, and $MCRT, unlock NFT-linked characters, and trade rarity-based skins across the MagicCraft ecosystem." />
-        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
-        
-        {/* Additional SEO */}
-        <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://magiccraft.io" />
-        
-        {/* Structured Data */}
+
+        {/* VideoGame structured data (Organization + WebSite already in index.html) */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "VideoGame",
             "name": "MagicCraft",
             "description": "Web3 game ecosystem with live BTC, ETH, and $MCRT PvP lobbies, NFT-linked playable characters, rarity-based skins, and creator tools.",
-            "url": "https://magiccraft.io",
+            "url": "https://magiccraft.io/",
             "image": "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp",
             "genre": ["Action", "Strategy", "Blockchain", "Web3 Gaming"],
-            "platform": ["PC", "Mobile", "Steam"],
-            "publisher": "MagicCraft",
+            "gamePlatform": ["PC", "iOS", "Android", "Steam"],
+            "applicationCategory": "Game",
+            "operatingSystem": "iOS, Android, Windows",
+            "publisher": {
+              "@type": "Organization",
+              "name": "MagicCraft",
+              "url": "https://magiccraft.io/"
+            },
             "offers": {
               "@type": "Offer",
               "price": "0",
@@ -101,25 +97,11 @@ function Homepagemcrt() {
             }
           })}
         </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "MagicCraft",
-            "url": "https://magiccraft.io",
-            "logo": "https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp",
-            "sameAs": [
-              "https://x.com/MagicCraftGame",
-              "https://t.me/magiccraftgamechat",
-              "https://www.youtube.com/@MagicCraftGame"
-            ]
-          })}
-        </script>
       </Helmet>
       <div className="min-h-dvh w-full max-w-full text-white overflow-x-hidden">
         {/* Zeus promo removed */}
         <Header />
-        <main className="md:-mt-[80px] scroll-smooth pb-20 w-full max-w-full overflow-x-hidden">
+        <main className="md:-mt-[80px] scroll-smooth pb-[calc(env(safe-area-inset-bottom)+5rem)] md:pb-20 w-full max-w-full overflow-x-hidden">
           {/*header*/}
           <HeroSection />
 
@@ -194,11 +176,11 @@ function Homepagemcrt() {
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
                 <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
                   <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Token Holders</div>
-                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">17,500+</div>
+                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">17,800+</div>
                 </div>
                 <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
                   <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Downloads</div>
-                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">50,000+</div>
+                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">100,000+</div>
                 </div>
                 <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
                   <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Crypto Lobbies</div>

@@ -14,7 +14,7 @@ export default function LeaderboardTable(props: LeaderboardDataType) {
                 className="grid grid-cols-1 md:grid-cols-5 gap-2 p-4 text-left text-xs sm:text-sm font-normal odd:bg-darkBlue-300/30 dark:text-primary-300 md:gap-4 md:px-7 md:py-5 md:odd:bg-transparent"
               >
                 <TableCell label="Rank" value={index + 1 > 9 ? `#0${index + 1}` : `#00${index + 1}`} />
-                <TableCell label="User name" value={item?.user.username} />
+                <TableCell label="User name" value={item?.username} />
                 <TableCell label="Score" value={item.score} />
                 <TableCell label="No. of wins" value="---" />
                 <TableCell label="No. of matches" value="--" />

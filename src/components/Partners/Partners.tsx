@@ -28,6 +28,7 @@ export const ListedPartners = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="group relative flex h-20 items-center justify-center rounded-md border border-white/10 bg-[#0A1240] p-3 transition-all hover:border-[#98FFF9]/40 hover:bg-[#111a54] md:h-24 min-h-[80px] no-underline hover:no-underline"
+              aria-label={`${item.name} exchange listing`}
             >
               <img
                 className={`object-contain w-auto opacity-90 group-hover:opacity-100 transition-opacity ${
@@ -38,7 +39,7 @@ export const ListedPartners = () => {
                     : 'h-[28px] sm:h-[32px] md:h-[36px] lg:h-[40px] max-w-[160px]'
                 }`}
                 src={item.icon}
-                alt={item.name}
+                alt=""
                 loading="lazy"
               />
             </a>
@@ -72,7 +73,7 @@ const OurPartners = () => {
                 <img
                   className={`object-contain px-2 max-h-full ${item.name === 'Gaimin' ? 'w-[120px]' : item.name === 'Ultra' ? 'w-[80px]' : item.name === 'Hyperplay' ? 'w-[100px]' : item.name === 'GGEM' ? 'w-[50px]' : ''}`}
                   src={item.icon}
-                  alt={item.name}
+                  alt=""
                   loading="lazy"
                 />
               </div>

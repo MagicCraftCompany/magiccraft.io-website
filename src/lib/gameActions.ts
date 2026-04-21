@@ -1,4 +1,5 @@
 import { openExternalLink } from '@/lib/utils'
+import { trackCta } from '@/lib/analytics'
 import { BYBIT_URL, MCRT_CONTRACT, IOS_APP_URL, ANDROID_APP_URL, PC_GAME_URL } from '@/constants'
 
 export function getDeviceDetails() {
@@ -14,11 +15,17 @@ export function getDeviceDetails() {
 export const openGameByDevice = () => {
   const { isIOS, isAndroid } = getDeviceDetails()
   const url = isIOS ? IOS_APP_URL : isAndroid ? ANDROID_APP_URL : PC_GAME_URL
+  trackCta({
+    cta: 'play_now',
+    location: 'game_actions',
+    label: isIOS ? 'ios' : isAndroid ? 'android' : 'pc',
+  })
   openExternalLink(url)
 }
 
 export const handleBuyMCRT = async () => {
   const { isIOS } = getDeviceDetails()
+  trackCta({ cta: 'buy_mcrt', location: 'game_actions', label: isIOS ? 'bybit_redirect' : 'xswap_modal' })
   if (isIOS) {
     window.location.href = BYBIT_URL
     return

@@ -142,6 +142,7 @@ function GamePlay() {
               <button
                 key={video.id}
                 onClick={() => handleSelect(video)}
+                aria-label={`Select video: ${video.title}`}
                 className={cn(
                   'group flex min-w-[220px] snap-start flex-col overflow-hidden rounded-xl border border-white/10 bg-black/40 text-left transition-all duration-300 hover:-translate-y-1 hover:border-[#98FFF9]/50 hover:shadow-[0_10px_20px_rgba(0,0,0,0.5)] lg:min-w-0',
                   activeVideo.id === video.id && 'border-[#98FFF9] shadow-[0_0_0_1px_rgba(152,255,249,0.4)]'
@@ -150,7 +151,7 @@ function GamePlay() {
                 <div className="relative aspect-video w-full overflow-hidden bg-black/60">
                   <img
                     src={getYouTubeThumbnail(video.url)}
-                    alt={video.title}
+                    alt=""
                     className="h-full w-full object-cover transition-transform group-hover:scale-[1.03]"
                     loading="lazy"
                     onError={(e) => { e.currentTarget.style.opacity = '0' }}

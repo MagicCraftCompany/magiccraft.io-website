@@ -97,24 +97,14 @@ export default function LiveSupportWidget() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    const mq = window.matchMedia('(min-width: 640px)') // tailwind sm
-
+    const mq = window.matchMedia('(min-width: 768px)') // tailwind md
     const update = () => {
-      if (mq.matches) {
-        setShowFloating(true)
-        return
-      }
-      // On mobile, avoid overlapping the hero CTAs: show after scrolling past hero.
-      setShowFloating(window.scrollY > window.innerHeight * 0.9)
+      // Mobile uses the sticky bottom bar's chat icon; hide the floating FAB to avoid overlap.
+      setShowFloating(mq.matches)
     }
-
     update()
-    window.addEventListener('scroll', update, { passive: true })
-    window.addEventListener('resize', update)
     mq.addEventListener?.('change', update)
     return () => {
-      window.removeEventListener('scroll', update)
-      window.removeEventListener('resize', update)
       mq.removeEventListener?.('change', update)
     }
   }, [])

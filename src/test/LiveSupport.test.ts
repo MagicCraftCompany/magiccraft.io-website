@@ -24,7 +24,9 @@ function loadStored() {
 function saveStored(messages: Array<{ role: string; content: string; ts: number }>) {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-50)))
-  } catch {}
+  } catch {
+    // ignore storage errors in tests
+  }
 }
 
 describe('LiveSupport storage', () => {

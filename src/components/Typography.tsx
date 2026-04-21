@@ -26,9 +26,9 @@ export function TypographyH1({
     <h1
       className={cn(
         "scroll-m-20 text-3xl font-extrabold tracking-tight",
-        className,
-        style={style}
+        className
       )}
+      style={style}
     >
       {children}
     </h1>
