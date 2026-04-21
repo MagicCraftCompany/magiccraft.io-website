@@ -181,7 +181,7 @@ const revenueStreams = [
 const tokenomicsRows = [
   { category: 'Eco Growth / Gaming Issuance', percent: '43.5%', description: 'PvP prize pools, player rewards, Game Maker revenue share, pledging rewards, AI ecosystem incentives — distributed linearly over 4 years' },
   { category: 'Team', percent: '15%', description: '3-month lockup, then 12 months linear distribution — 1,500,000,000 MCRT' },
-  { category: 'Pledging Issuance', percent: '12%', description: 'Rewards for $MCRT pledgers locking tokens for 30 days to 5 years — distributed linearly over 60 months' },
+  { category: 'Pledging Issuance', percent: '12%', description: 'Staking rewards at 1% ARR, capped at 1,000,000 $MCRT per month — a sustainable rate introduced to protect long-term token supply' },
   { category: 'Reserve Fund', percent: '9%', description: 'Protocol operations, marketing initiatives, Ambassador program, and community incentives' },
   { category: 'Private Sale', percent: '6%', description: 'Rounds at $0.003–$0.004, total raised $2.115M — 3-month lockup, 12 months linear vesting' },
   { category: 'Liquidity', percent: '6%', description: 'DEX and CEX liquidity provision across Bybit, PancakeSwap, HTX, and more' },
@@ -470,7 +470,7 @@ export default function Whitepaper() {
                   {[
                     { product: 'PvP Lobbies', use: 'Entry + prizes (BTC, ETH, $MCRT)' },
                     { product: 'VIP Lobby Access', use: 'Hold 100k $MCRT for 10 days → earn 250 MCRT/win' },
-                    { product: 'Pledging', use: '30 days–5 years, up to 500% APR bonus or NFT rewards' },
+                    { product: 'Pledging', use: '1% ARR · capped at 1M $MCRT rewarded per month' },
                     { product: 'DAO / Knights', use: 'Vote on proposals; top 100 holders = Knights of the Realm' },
                     { product: 'Sponsorship', use: 'Lend $MCRT to players; share their winnings' },
                     { product: 'NFT Marketplace', use: 'Buy/sell heroes & skins; 4.25% treasury fee' },
@@ -534,7 +534,7 @@ export default function Whitepaper() {
             </div>
             <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
-                { label: 'Pledging (Staking)', detail: 'Lock $MCRT for 30 days to 5 years. Base rate ~19.75% APR with up to 500% bonus for 5-year locks. Alternatively pledge fixed amounts (80k–2.5M MCRT) to earn character and item NFTs directly.' },
+                { label: 'Pledging (Staking)', detail: 'Lock $MCRT for a chosen period to earn 1% ARR. Rewards are capped at 1,000,000 $MCRT per month across all pledgers — a sustainable rate introduced to protect long-term token supply.' },
                 { label: 'Treasury Revenue', detail: 'MagicCraft treasury receives 4.25% of all NFT marketplace transactions. Match entry fees form prize pools distributed entirely to winning teams. Growing volume = growing treasury.' },
                 { label: 'VIP & DAO Locking', detail: 'Holding 100,000+ $MCRT for 10+ days grants VIP lobby access and higher rewards per win. Top 100 holders become Knights of the Realm with exclusive DAO voting rights at snapshot.org/#/magiccraftdao.eth.' },
               ].map((c) => (
