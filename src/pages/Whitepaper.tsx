@@ -179,12 +179,14 @@ const revenueStreams = [
 ]
 
 const tokenomicsRows = [
-  { category: 'Ecosystem Rewards', percent: '35%', description: 'PvP prizes, Game Maker revenue share, creator bounties, prediction market payouts' },
-  { category: 'Treasury & Liquidity', percent: '20%', description: 'DEX/CEX liquidity provision, reserve for protocol operations and partnerships' },
-  { category: 'Team & Advisors', percent: '15%', description: 'Vested over 3 years with 12-month cliff, aligned with long-term project success' },
-  { category: 'Private Sale & Seed', percent: '15%', description: 'Early institutional and community supporters, vested 18 months' },
-  { category: 'Public Sale', percent: '10%', description: 'Bybit IEO and decentralised exchange listings, price discovery' },
-  { category: 'Marketing & Growth', percent: '5%', description: 'Community expansion, exchange listings, creator partnerships and bounties' },
+  { category: 'Eco Growth / Gaming Issuance', percent: '43.5%', description: 'PvP prize pools, player rewards, Game Maker revenue share, pledging rewards, AI ecosystem incentives — distributed linearly over 4 years' },
+  { category: 'Team', percent: '15%', description: '3-month lockup, then 12 months linear distribution — 1,500,000,000 MCRT' },
+  { category: 'Pledging Issuance', percent: '12%', description: 'Rewards for $MCRT pledgers locking tokens for 30 days to 5 years — distributed linearly over 60 months' },
+  { category: 'Reserve Fund', percent: '9%', description: 'Protocol operations, marketing initiatives, Ambassador program, and community incentives' },
+  { category: 'Private Sale', percent: '6%', description: 'Rounds at $0.003–$0.004, total raised $2.115M — 3-month lockup, 12 months linear vesting' },
+  { category: 'Liquidity', percent: '6%', description: 'DEX and CEX liquidity provision across Bybit, PancakeSwap, HTX, and more' },
+  { category: 'Advisors', percent: '5%', description: '3-month lockup, 12 months linear distribution' },
+  { category: 'Public Sale (IDO)', percent: '3.5%', description: 'IDO at $0.006 — raised $2.075M; total raised across all rounds: $4.19M' },
 ]
 
 const flywheelSteps = [
@@ -449,8 +451,11 @@ export default function Whitepaper() {
                     { label: 'Ticker', value: '$MCRT' },
                     { label: 'Blockchain', value: 'BNB Chain (BEP-20)' },
                     { label: 'Contract', value: `${MCRT_CONTRACT.slice(0, 14)}…${MCRT_CONTRACT.slice(-6)}` },
-                    { label: 'Max Supply', value: '10,000,000,000 MCRT' },
-                    { label: 'Listed On', value: 'Bybit, PancakeSwap, HTX, Mexc' },
+                    { label: 'Total Supply', value: '10,000,000,000 MCRT' },
+                    { label: 'Burning Mechanism', value: 'None' },
+                    { label: 'Listed On', value: 'Bybit, PancakeSwap, HTX, MEXC, 10+' },
+                    { label: 'Security Audit', value: 'CertIK — skynet.certik.com' },
+                    { label: 'DAO', value: 'snapshot.org/#/magiccraftdao.eth' },
                   ].map((r) => (
                     <div key={r.label} className="flex items-center justify-between text-sm border-b border-white/5 pb-2">
                       <span className="text-white/50">{r.label}</span>
@@ -459,22 +464,27 @@ export default function Whitepaper() {
                   ))}
                 </div>
               </div>
-              <div className="card-glass rounded-2xl p-6 border border-[#B591F2]/20">
+                <div className="card-glass rounded-2xl p-6 border border-[#B591F2]/20">
                 <h3 className="text-lg font-bold text-[#B591F2] mb-4">Utility Matrix</h3>
                 <div className="space-y-2">
                   {[
-                    { product: 'Game Lobbies', use: 'Entry + prizes' },
-                    { product: 'Akyn (Premium / Business)', use: 'Subscription + video credits' },
+                    { product: 'PvP Lobbies', use: 'Entry + prizes (BTC, ETH, $MCRT)' },
+                    { product: 'VIP Lobby Access', use: 'Hold 100k $MCRT for 10 days → earn 250 MCRT/win' },
+                    { product: 'Pledging', use: '30 days–5 years, up to 500% APR bonus or NFT rewards' },
+                    { product: 'DAO / Knights', use: 'Vote on proposals; top 100 holders = Knights of the Realm' },
+                    { product: 'Sponsorship', use: 'Lend $MCRT to players; share their winnings' },
+                    { product: 'NFT Marketplace', use: 'Buy/sell heroes & skins; 4.25% treasury fee' },
+                    { product: 'Hero Upgrades', use: 'Spend $MCRT to level up, buy weapons & abilities' },
+                    { product: 'Tournament Entry', use: 'Create match entry fees → winner prize pools' },
+                    { product: 'Akyn (Premium/Business)', use: 'Subscription + video credits' },
                     { product: 'MagicAds', use: 'Ad spend + publisher payouts' },
                     { product: 'Polybilities', use: 'Stake + prediction rewards' },
                     { product: 'Merlin AI', use: 'Premium upgrades + API credits' },
-                    { product: 'NFT Marketplace', use: 'Hero/skin trades' },
-                    { product: 'Game Maker', use: 'Map sales + revenue share' },
-                    { product: 'DocAI / SocialMM', use: 'Subscription payments' },
+                    { product: 'Referral / Ambassador', use: 'Earn $MCRT for referrals and ambassador activity' },
                   ].map((r) => (
-                    <div key={r.product} className="flex items-center justify-between text-xs py-1.5 border-b border-white/5">
-                      <span className="text-white/80 font-medium">{r.product}</span>
-                      <span className="text-[#B591F2]/80">{r.use}</span>
+                    <div key={r.product} className="flex items-start justify-between text-xs py-1.5 border-b border-white/5 gap-2">
+                      <span className="text-white/80 font-medium flex-shrink-0">{r.product}</span>
+                      <span className="text-[#B591F2]/80 text-right">{r.use}</span>
                     </div>
                   ))}
                 </div>
@@ -524,9 +534,9 @@ export default function Whitepaper() {
             </div>
             <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
               {[
-                { label: 'Deflationary Pressure', detail: 'A percentage of every platform fee is used to buy and burn $MCRT from the open market, reducing circulating supply over time.' },
-                { label: 'Staking & Locking', detail: 'Holders can stake $MCRT to earn share of platform revenue — match fees, ad spend, and subscription revenue — reducing liquid supply and rewarding long-term conviction.' },
-                { label: 'Merlin Payment Rail', detail: 'Merlin AI routes all cross-product $MCRT transactions, acting as the ecosystem\'s payment infrastructure layer. Every inter-product transfer flows through Merlin, providing on-chain provenance and fee capture.' },
+                { label: 'Pledging (Staking)', detail: 'Lock $MCRT for 30 days to 5 years. Base rate ~19.75% APR with up to 500% bonus for 5-year locks. Alternatively pledge fixed amounts (80k–2.5M MCRT) to earn character and item NFTs directly.' },
+                { label: 'Treasury Revenue', detail: 'MagicCraft treasury receives 4.25% of all NFT marketplace transactions. Match entry fees form prize pools distributed entirely to winning teams. Growing volume = growing treasury.' },
+                { label: 'VIP & DAO Locking', detail: 'Holding 100,000+ $MCRT for 10+ days grants VIP lobby access and higher rewards per win. Top 100 holders become Knights of the Realm with exclusive DAO voting rights at snapshot.org/#/magiccraftdao.eth.' },
               ].map((c) => (
                 <div key={c.label} className="card-glass rounded-xl p-4 border border-white/10">
                   <h4 className="text-sm font-bold text-white mb-2">{c.label}</h4>
@@ -537,7 +547,7 @@ export default function Whitepaper() {
           </Section>
 
           {/* Tokenomics */}
-          <Section id="tokenomics" title="Tokenomics" sub="Max supply: 10,000,000,000 $MCRT. Fixed cap. No additional minting.">
+          <Section id="tokenomics" title="Tokenomics" sub="Total supply: 10,000,000,000 $MCRT · BNB Chain (BEP-20) · No burning mechanism · 10+ exchanges · Total raised at IDO: $4.19M">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {tokenomicsRows.map((r) => (
                 <div key={r.category} className="card-glass rounded-xl p-4 border border-white/10 flex items-start gap-4">
