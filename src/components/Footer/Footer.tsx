@@ -102,8 +102,8 @@ const moreLinks = [
     link: '/verify',
   },
   {
-    title: 'Whitepaper',
-    link: 'https://docs.magiccraft.io/',
+    title: 'Whitepaper v3.0',
+    link: '/whitepaper',
   },
   {
     title: 'Become a partner',

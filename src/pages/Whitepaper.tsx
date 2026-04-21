@@ -2,6 +2,15 @@ import { Helmet } from 'react-helmet-async'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 
+const printStyles = `
+@media print {
+  header, footer, nav, [data-mobile-bottom-bar], .fixed { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  a { color: inherit !important; text-decoration: none !important; }
+  .card-glass { border: 1px solid #ccc !important; background: #f9f9f9 !important; }
+  section { page-break-inside: avoid; }
+}`
+
 const MCRT_CONTRACT = '0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f'
 
 const products = [
@@ -209,6 +218,7 @@ export default function Whitepaper() {
         <title>MagicCraft Whitepaper v3.0 — $MCRT Token, King Pro & AI Ecosystem</title>
         <meta name="description" content="MagicCraft Whitepaper v3.0: $MCRT utility across AI gaming, Akyn King Pro video generation, Merlin AI, MagicAds, Polybilities and the full ecosystem." />
         <link rel="canonical" href="https://magiccraft.io/whitepaper" />
+        <style>{printStyles}</style>
       </Helmet>
       <div className="min-h-screen bg-[#03082f] text-white">
         <Header />
@@ -240,6 +250,12 @@ export default function Whitepaper() {
                 className="btn-secondary px-6 py-2.5 text-sm font-semibold">
                 Play Free Now
               </a>
+              <button
+                onClick={() => window.print()}
+                className="px-6 py-2.5 rounded-lg border border-white/20 text-white/70 hover:text-white hover:border-white/40 transition-all text-sm font-semibold"
+              >
+                ↓ Save as PDF
+              </button>
             </div>
             <div className="mt-8 inline-flex flex-col items-center gap-1 text-xs text-white/40">
               <span>Contract (BNB Chain)</span>
