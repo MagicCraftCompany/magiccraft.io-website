@@ -1,6 +1,11 @@
 import bnbLogo from '@/assets/icons/bnblogo.svg'
 import { handleBuyMCRT } from '@/lib/gameActions'
 
+const MCRTPAY_SNIPPET = `<script src="https://mcrtpay.com/mcrtpay.js"></script>
+<script>
+  new MCRTPay({ paymentAmount: 25, planId: 'premium' })
+</script>`
+
 export default function McrtPaymentsSection() {
   return (
     <section id="mcrt-payments" className="w-full border-t border-white/5 bg-gradient-to-b from-[#03082f] via-[#0a0524] to-[#03082f]">
@@ -50,43 +55,73 @@ export default function McrtPaymentsSection() {
           </div>
         </div>
 
-        {/* Developer integration card */}
-        <div className="mt-4 card-glass rounded-2xl border border-[#f0b90b]/20 bg-[#f0b90b]/[0.03] backdrop-blur-sm px-4 sm:px-6 md:px-8 py-5 sm:py-6">
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
-            <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-[#f0b90b]/10 border border-[#f0b90b]/20 flex items-center justify-center text-xl">
-              ⚡
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center gap-2 mb-1">
-                <span className="text-sm font-semibold text-white">Accept $MCRT on your platform</span>
-                <span className="px-2 py-0.5 rounded-full border border-[#f0b90b]/30 bg-[#f0b90b]/10 text-[10px] font-semibold text-[#f0b90b] uppercase tracking-wide">Free</span>
+        {/* MCRTPay developer integration */}
+        <div className="mt-4 overflow-hidden rounded-2xl border border-[#f0b90b]/25 bg-gradient-to-br from-[#f0b90b]/[0.06] via-[#03082f]/80 to-[#0a0524]/90 backdrop-blur-sm shadow-[0_0_40px_rgba(240,185,11,0.08)]">
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#f0b90b]/40 to-transparent" aria-hidden="true" />
+          <div className="px-4 sm:px-6 md:px-8 py-5 sm:py-7">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+              <div className="flex min-w-0 flex-1 flex-col gap-4 sm:flex-row sm:gap-5">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-2xl border border-[#f0b90b]/25 bg-[#f0b90b]/10 text-2xl shadow-inner">
+                  ⚡
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="mb-2 flex flex-wrap items-center gap-2">
+                    <span className="rounded-full border border-[#98FFF9]/25 bg-[#98FFF9]/10 px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#98FFF9]">
+                      MCRTPay
+                    </span>
+                    <span className="rounded-full border border-[#f0b90b]/30 bg-[#f0b90b]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-[#f0b90b]">
+                      Free for developers
+                    </span>
+                  </div>
+                  <h4 className="text-base font-semibold text-white sm:text-lg">
+                    Accept $MCRT with MCRTPay
+                  </h4>
+                  <p className="mt-2 max-w-2xl text-xs leading-relaxed text-white/65 sm:text-sm">
+                    Drop-in widget and TypeScript-friendly flows. On-chain BscScan verification. Works with any stack — vanilla JS, Next.js, or React.
+                    Add $MCRT payments to your app in minutes.
+                  </p>
+                  <div className="mt-4 rounded-xl border border-white/10 bg-black/40 p-3 sm:p-4 shadow-inner">
+                    <div className="mb-2 flex items-center justify-between gap-2">
+                      <span className="text-[10px] font-medium uppercase tracking-wider text-white/45">Quick start</span>
+                      <span className="rounded border border-[#f0b90b]/20 bg-[#f0b90b]/5 px-2 py-0.5 font-mono text-[10px] text-[#f0b90b]/90">
+                        mcrtpay.js
+                      </span>
+                    </div>
+                    <pre className="overflow-x-auto font-mono text-[11px] leading-relaxed text-[#f0d36a] sm:text-xs">
+                      <code>{MCRTPAY_SNIPPET}</code>
+                    </pre>
+                  </div>
+                </div>
               </div>
-              <p className="text-xs text-white/60 leading-relaxed">
-                Drop-in widget or TypeScript libs. On-chain BscScan verification. Works with any stack — vanilla JS, Next.js, React.
-                Add $MCRT payments to your app in under 10 minutes.
-              </p>
-              <div className="mt-2 bg-black/30 rounded-lg px-3 py-1.5 font-mono text-xs text-[#f0b90b]/80 inline-block">
-                new JPay(&#123; paymentAmount: 25, planId: 'premium' &#125;)
+
+              <div className="flex w-full flex-shrink-0 flex-col gap-2 sm:flex-row sm:items-stretch lg:w-auto lg:min-w-[200px] lg:flex-col">
+                <a
+                  href="https://mcrtpay.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="interactive-scale inline-flex items-center justify-center gap-2 rounded-xl bg-[#f0b90b] px-4 py-2.5 text-center text-sm font-bold text-black shadow-[0_4px_24px_rgba(240,185,11,0.25)] transition-colors hover:bg-[#e0ab00]"
+                >
+                  Get Started
+                  <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </a>
+                <a
+                  href="https://mcrtpay.com/docs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#f0b90b]/35 bg-[#f0b90b]/5 px-4 py-2.5 text-center text-sm font-semibold text-[#f0d36a] transition-colors hover:bg-[#f0b90b]/10"
+                >
+                  Documentation
+                  <svg className="h-3.5 w-3.5 opacity-80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                </a>
+                <a
+                  href="https://mcrtpay.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2 text-center text-xs font-medium text-white/70 transition-colors hover:bg-white/[0.08] hover:text-white/90"
+                >
+                  mcrtpay.com
+                </a>
               </div>
-            </div>
-            <div className="flex flex-col gap-2 flex-shrink-0">
-              <a
-                href="https://mcrtpayments.com/docs"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[#f0b90b] hover:bg-[#e0ab00] text-black text-xs font-bold transition-colors"
-              >
-                Integration Docs
-                <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-              </a>
-              <a
-                href="https://mcrtpayments.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 text-white/70 text-xs font-medium transition-colors"
-              >
-                mcrtpayments.com
-              </a>
             </div>
           </div>
         </div>
