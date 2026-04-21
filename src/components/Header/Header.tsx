@@ -136,7 +136,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       {
         title: 'Whitepaper',
         icon: Whitepaper,
-        path: 'https://docs.magiccraft.io/',
+        path: '/whitepaper',
       },
       {
         title: 'MagicCraft Vision',
