@@ -53,10 +53,10 @@ const products = [
     description:
       'Multi-modal AI companion: voice chat, image & video generation, investing tools, AI personas, WhatsApp/Telegram bot. The $MCRT-native AI hub that routes payments and rewards across the entire ecosystem.',
     mcrtUse: [
-      'Premium plan upgrades paid in $MCRT',
+      'Purchase credits on merlintheai.com with $MCRT',
+      'Premium plan subscription paid in $MCRT',
+      'AI image & video generation credit packs',
       'Cross-product $MCRT payment gateway',
-      'AI image & video generation credits',
-      'Investment tool access',
     ],
   },
   {
@@ -96,11 +96,12 @@ const products = [
     tag: 'LIVE',
     icon: 'https://docai.live/logotext-main.png',
     description:
-      '24/7 AI wellness assistant with personalized health guidance, symptom tracking, and daily check-ins. Subscription paid in $MCRT for premium access.',
+      '24/7 AI wellness assistant with personalized health guidance, symptom tracking, and daily check-ins. Starter, Pro, and Enterprise plans all accept $MCRT on-chain for instant subscription activation.',
     mcrtUse: [
-      'Premium wellness subscription in $MCRT',
-      'AI health coaching credits',
-      'Daily wellness streak rewards',
+      'Purchase Starter, Pro, or Enterprise subscription with $MCRT',
+      'On-chain BEP-20 payment — instant plan activation',
+      'No trial required when paying with $MCRT',
+      'AI health coaching and document analysis credits',
     ],
   },
   {
@@ -172,9 +173,15 @@ const revenueStreams = [
   },
   {
     source: 'Merlin AI',
-    mechanism: 'Premium subscriptions + API calls for image/video gen',
-    mcrtDemand: 'Cross-product payment hub — MCRT required for premium tiers',
+    mechanism: 'Credit purchases + premium subscriptions + image/video gen API',
+    mcrtDemand: 'Direct $MCRT credit purchases on merlintheai.com — primary cross-product payment hub',
     color: '#98FFF9',
+  },
+  {
+    source: 'DocAI (Wellness AI)',
+    mechanism: 'Starter / Pro / Enterprise monthly subscriptions',
+    mcrtDemand: '$MCRT on-chain payment activates subscription instantly — direct buy pressure from AI health users',
+    color: '#10B981',
   },
 ]
 
@@ -191,7 +198,7 @@ const tokenomicsRows = [
 
 const flywheelSteps = [
   { n: '01', title: 'Users Buy $MCRT', body: 'Players, creators, and AI users acquire $MCRT via Bybit, PancakeSwap, or credit card to access premium features across the ecosystem.' },
-  { n: '02', title: 'Spend in Products', body: 'MCRT is spent on Akyn Premium subscriptions, Polybilities stakes, MagicAds campaigns, game lobbies, and NFT purchases — creating consistent protocol demand.' },
+  { n: '02', title: 'Spend in Products', body: 'MCRT is spent on Akyn Premium subscriptions, Merlin AI credits, DocAI wellness plans, Polybilities stakes, MagicAds campaigns, game lobbies, and NFT purchases — creating consistent protocol demand.' },
   { n: '03', title: 'Revenue Flows Back', body: 'Platform fees, ad spend, subscription revenue, and marketplace royalties flow into the treasury, funding rewards and buybacks.' },
   { n: '04', title: 'Holders Are Rewarded', body: 'Stakers earn from prize pools, ad revenue, and ecosystem growth. Higher MCRT value incentivises more product use and new user acquisition.' },
   { n: '05', title: 'Ecosystem Expands', body: 'New products (Akyn tiers, AI models, new game modes) launch, each creating new demand vectors for $MCRT and compounding the flywheel.' },
@@ -479,7 +486,8 @@ export default function Whitepaper() {
                     { product: 'Akyn (Premium/Business)', use: 'Subscription + video credits' },
                     { product: 'MagicAds', use: 'Ad spend + publisher payouts' },
                     { product: 'Polybilities', use: 'Stake + prediction rewards' },
-                    { product: 'Merlin AI', use: 'Premium upgrades + API credits' },
+                    { product: 'Merlin AI', use: 'Credit purchases + premium subscription on merlintheai.com' },
+                    { product: 'DocAI', use: 'Starter/Pro/Enterprise subscription via $MCRT on-chain' },
                     { product: 'Referral / Ambassador', use: 'Earn $MCRT for referrals and ambassador activity' },
                   ].map((r) => (
                     <div key={r.product} className="flex items-start justify-between text-xs py-1.5 border-b border-white/5 gap-2">
