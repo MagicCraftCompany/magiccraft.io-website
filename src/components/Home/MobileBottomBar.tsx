@@ -16,6 +16,7 @@ export default function MobileBottomBar() {
       <div className="w-full bg-[#0B0F39]/82 backdrop-blur border-t border-white/10 px-2 py-1 flex items-center gap-2">
         <a
           href="https://lobby.magiccraft.io/"
+          target="_blank"
           rel="noreferrer noopener"
           onClick={() => trackCta({ cta: 'play_now', location: 'mobile_bottom_bar' })}
           className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-semibold text-white bg-white/10 border border-white/20"
@@ -32,6 +33,7 @@ export default function MobileBottomBar() {
         </button>
         <a
           href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
+          target="_blank"
           rel="noreferrer noopener"
           onClick={() => trackCta({ cta: 'buy_mcrt', location: 'mobile_bottom_bar', label: 'bybit' })}
           className="flex-1 inline-flex items-center justify-center h-10 rounded-md text-[12px] font-semibold text-[#03082F] bg-gradient-to-b from-[#A9FFF6] to-[#8EECE6] border border-white/20"

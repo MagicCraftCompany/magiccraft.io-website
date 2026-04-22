@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet-async'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 type Category = 'game' | 'web3-ai' | 'crypto'
 
@@ -147,7 +148,7 @@ const Grants = () => {
               </ul>
 
               <div className="mt-6 text-sm text-white/70">
-                Looking for bounties instead? Visit our <a className="text-[#98FFF9] underline" href="/bounties">Bounties</a> page.
+                Looking for bounties instead? Visit our <Link className="text-[#98FFF9] underline" to="/bounties">Bounties</Link> page.
               </div>
             </aside>
           </div>

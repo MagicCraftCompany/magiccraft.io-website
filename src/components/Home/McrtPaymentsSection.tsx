@@ -1,5 +1,6 @@
 import bnbLogo from '@/assets/icons/bnblogo.svg'
 import { handleBuyMCRT } from '@/lib/gameActions'
+import { Link } from 'react-router-dom'
 
 const MCRTPAY_SNIPPET = `<script src="https://mcrtpay.com/mcrtpay.js"></script>
 <script>
@@ -51,7 +52,7 @@ export default function McrtPaymentsSection() {
             <button onClick={handleBuyMCRT} className="btn-primary interactive-scale">
               Get $MCRT
             </button>
-            <a href="/build-on-magiccraft" className="btn-secondary">Learn more</a>
+            <Link to="/build-on-magiccraft" className="btn-secondary">Learn more</Link>
           </div>
         </div>
 

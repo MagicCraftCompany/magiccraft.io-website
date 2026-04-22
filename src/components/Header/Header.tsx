@@ -340,7 +340,7 @@ const Header = () => {
                   />
                 ) : (
                   item.path?.startsWith('http') ? (
-                    <a key={item.title} href={item.path} rel="noreferrer noopener" className="group">
+                    <a key={item.title} href={item.path} target="_blank" rel="noreferrer noopener" className="group">
                       <div className="flex items-center justify-center gap-1 md:gap-2 px-3 py-2 rounded-md transition-all duration-200 hover:bg-white/10">
                         <p className="text-sm lg:text-[15px] xl:text-base text-white/85 group-hover:text-white whitespace-nowrap font-semibold tracking-wide transition-colors duration-200">{item.title}</p>
                       </div>
@@ -490,6 +490,7 @@ const Header = () => {
               <a
                 href="https://lobby.magiccraft.io/"
                 onClick={closeSidebar}
+                target="_blank"
                 rel="noreferrer noopener"
                 className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] text-[#03082F] font-bold text-sm hover:opacity-90 transition-opacity"
               >
@@ -499,6 +500,7 @@ const Header = () => {
               <a
                 href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
                 onClick={closeSidebar}
+                target="_blank"
                 rel="noreferrer noopener"
                 className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white font-bold text-sm hover:bg-white/15 transition-all"
               >
@@ -511,6 +513,7 @@ const Header = () => {
               <a
                 href="https://app.magiccraft.io/marketplace/explorer"
                 onClick={closeSidebar}
+                target="_blank"
                 rel="noreferrer noopener"
                 className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/80 text-sm hover:bg-white/10 transition-all"
               >
@@ -520,6 +523,7 @@ const Header = () => {
               <a
                 href="https://lobby.magiccraft.io/leaderboard"
                 onClick={closeSidebar}
+                target="_blank"
                 rel="noreferrer noopener"
                 className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/80 text-sm hover:bg-white/10 transition-all"
               >
@@ -529,6 +533,7 @@ const Header = () => {
               <a
                 href="https://lobby.magiccraft.io/stats"
                 onClick={closeSidebar}
+                target="_blank"
                 rel="noreferrer noopener"
                 className="flex-1 flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-white/5 border border-white/10 text-white/80 text-sm hover:bg-white/10 transition-all"
               >
@@ -556,6 +561,7 @@ const Header = () => {
                       key={item.title}
                       onClick={closeSidebar}
                       href={item.path}
+                      target="_blank"
                       rel="noreferrer noopener"
                       className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/5 transition-all"
                     >
@@ -617,11 +623,11 @@ const Header = () => {
             {/* Footer Links */}
             <div className="mt-3 pb-2">
               <div className="flex items-center justify-center gap-4 text-xs text-white/50">
-                <a href="/privacypolicy" onClick={closeSidebar} className="hover:text-white/70">Privacy</a>
+                <Link to="/privacypolicy" onClick={closeSidebar} className="hover:text-white/70">Privacy</Link>
                 <span>•</span>
-                <a href="/terms" onClick={closeSidebar} className="hover:text-white/70">Terms</a>
+                <Link to="/terms" onClick={closeSidebar} className="hover:text-white/70">Terms</Link>
                 <span>•</span>
-                <a href="/faq" onClick={closeSidebar} className="hover:text-white/70">FAQ</a>
+                <Link to="/faq" onClick={closeSidebar} className="hover:text-white/70">FAQ</Link>
               </div>
             </div>
           </div>

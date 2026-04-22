@@ -1,4 +1,5 @@
 import steam from '@/assets/icons/icon-steam.svg'
+import { Link } from 'react-router-dom'
 
 export default function EcosystemHubSection() {
   return (
@@ -128,7 +129,7 @@ export default function EcosystemHubSection() {
             <p className="text-sm text-gray-300">Currently available on testnet.</p>
             <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">View rentals <span aria-hidden="true">→</span></span>
           </a>
-          <a href="/grants" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
+          <Link to="/grants" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
             <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
             <div className="flex items-center gap-3 mb-1">
               <img src="/icons/icon-bounty.svg" alt="Grants" className="w-5 h-5 opacity-90" loading="lazy" />
@@ -136,7 +137,7 @@ export default function EcosystemHubSection() {
             </div>
             <p className="text-sm text-gray-300">Apply with a working build.</p>
             <span className="mt-auto pt-3 inline-flex items-center gap-2 text-xs text-[#98FFF9]/80 group-hover:text-[#98FFF9] transition-colors">Apply <span aria-hidden="true">→</span></span>
-          </a>
+          </Link>
           <a href="https://lobby.magiccraft.io/referral" target="_blank" rel="noreferrer noopener" className="card-glass card-padding flex flex-col min-h-[140px] relative group border border-white/10 hover:border-[#98FFF9]/40 transition-all duration-300 rounded-2xl overflow-hidden no-underline hover:no-underline hover:shadow-[0_0_20px_rgba(152,255,249,0.15)] hover:-translate-y-1">
             <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] opacity-60"></span>
             <div className="flex items-center gap-3 mb-1">
