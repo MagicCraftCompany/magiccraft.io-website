@@ -126,85 +126,86 @@ function Homepagemcrt() {
           {/* $MCRT Payments: The currency of gaming */}
           <McrtPaymentsSection />
           {/* $MCRT Utility Token Section */}
-          <section className="w-full bg-gradient-to-b from-[#03082f] via-[#07051e] to-[#03082f] border-t border-white/5 py-10 sm:py-14 md:py-16">
+          <section className="w-full bg-gradient-to-b from-[#03082f] via-[#07051e] to-[#03082f] border-t border-white/5 py-12 sm:py-16 md:py-20">
             <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6">
-              {/* Header */}
-              <div className="text-center mb-8 md:mb-10">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#98FFF9]/20 bg-[#98FFF9]/5 text-xs text-[#98FFF9] mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#98FFF9] animate-pulse"></span>
-                  BEP-20 · BNB Chain
+              <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-center">
+                <div>
+                  <div className="inline-flex items-center gap-2 rounded-full border border-[#98FFF9]/20 bg-[#98FFF9]/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#98FFF9]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#98FFF9]"></span>
+                    BEP-20 on BNB Chain
+                  </div>
+                  <h2 className="mt-4 font-serif text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-[44px]">
+                    $MCRT turns MagicCraft into one connected economy.
+                  </h2>
+                  <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
+                    Instead of treating token utility as a side feature, MagicCraft puts $MCRT at the center of play,
+                    ownership, builder tools, AI products, payments, rewards, and governance.
+                  </p>
+                  <div className="mt-6 flex flex-wrap items-center gap-3 text-xs text-white/65">
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">Building since 2021</span>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">100,000+ downloads</span>
+                    <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">17,800+ holders</span>
+                  </div>
                 </div>
-                <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#98FFF9] via-white to-[#B591F2] bg-clip-text text-transparent mb-3">
-                  $MCRT Utility Token
-                </h2>
-                <p className="text-sm sm:text-base text-white/70 max-w-2xl mx-auto leading-relaxed">
-                  The fuel of the MagicCraft economy — used for lobby entry, NFT characters, AI products, ads, governance, and rewards across every product we build.
-                </p>
+
+                <div className="grid gap-3 sm:grid-cols-3">
+                  {[
+                    {
+                      label: 'Play',
+                      title: 'Lobbies and rewards',
+                      desc: 'Compete in PvP paths built around BTC, ETH, and $MCRT prize pools.',
+                      color: '#98FFF9',
+                    },
+                    {
+                      label: 'Own',
+                      title: 'NFT-linked heroes',
+                      desc: 'Use characters, skins, rarity, marketplace activity, and game identity in one loop.',
+                      color: '#B591F2',
+                    },
+                    {
+                      label: 'Build',
+                      title: 'AI, ads, and payments',
+                      desc: 'Use $MCRT across MCRTPay, MagicAds, creator tooling, and AI-driven products.',
+                      color: '#FFB649',
+                    },
+                  ].map(({ label, title, desc, color }) => (
+                    <div key={label} className="card-glass min-h-[210px] rounded-xl border border-white/10 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20">
+                      <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg border bg-white/[0.04] text-sm font-bold" style={{ borderColor: `${color}55`, color }}>
+                        {label.slice(0, 1)}
+                      </div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.18em]" style={{ color }}>{label}</p>
+                      <h3 className="mt-2 text-lg font-bold text-white">{title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-white/62">{desc}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
-              {/* Use cases grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4 mb-8">
+              <div className="mt-8 grid gap-3 border-t border-white/8 pt-6 sm:grid-cols-2 lg:grid-cols-5">
                 {[
-                  { icon: '⚔️', label: 'PvP Lobbies', desc: 'Play for BTC, ETH, and $MCRT' },
-                  { icon: '🔥', label: 'Hero Leveling', desc: 'Burn $MCRT to level up' },
-                  { icon: '🤖', label: 'AI Products', desc: 'Power Merlin & Akyn' },
-                  { icon: '📢', label: 'MagicAds', desc: 'Pay & earn with ads' },
-                  { icon: '🗳️', label: 'Governance', desc: 'Vote on DAO proposals' },
-                  { icon: '🎨', label: 'NFT Heroes', desc: 'Mint and play NFT-linked characters' },
-                ].map(({ icon, label, desc }) => (
-                  <div key={label} className="card-glass rounded-2xl border border-white/10 p-3 sm:p-4 text-center hover:border-[#98FFF9]/30 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(152,255,249,0.1)] transition-all duration-300">
-                    <div className="text-2xl sm:text-3xl mb-2" aria-hidden="true">{icon}</div>
-                    <div className="text-xs sm:text-sm font-semibold text-white mb-0.5">{label}</div>
-                    <div className="text-[10px] sm:text-xs text-white/50">{desc}</div>
+                  ['Token standard', 'BEP-20'],
+                  ['Network', 'BNB Chain'],
+                  ['Game lobbies', 'BTC, ETH, $MCRT'],
+                  ['Platforms', 'iOS, Android, PC'],
+                  ['Ecosystem', 'Game + AI + Ads'],
+                ].map(([label, value]) => (
+                  <div key={label} className="rounded-lg border border-white/10 bg-white/[0.035] px-4 py-3 text-center">
+                    <div className="text-[10px] uppercase tracking-[0.16em] text-white/45">{label}</div>
+                    <div className="mt-1 text-sm font-bold text-white">{value}</div>
                   </div>
                 ))}
               </div>
+
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-3 text-xs">
+                <span className="text-white/45">Trade $MCRT:</span>
+                <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="text-white/78 hover:text-[#98FFF9]">Bybit</a>
+                <span className="text-white/20">/</span>
+                <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="text-white/78 hover:text-[#98FFF9]">PancakeSwap</a>
+                <span className="text-white/20">/</span>
+                <a href="https://www.htx.com/trade/mcrt_usdt" target="_blank" rel="noopener noreferrer" className="text-white/78 hover:text-[#98FFF9]">HTX</a>
+              </div>
             </div>
           </section>
-
-          {/* Stats + credibility strip */}
-          <div className="w-full bg-gradient-to-r from-[#0B0F39] via-[#120e3d] to-[#0B0F39] border-t border-white/5">
-            <div className="mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6 py-5 sm:py-7 space-y-4">
-              {/* Credibility badges */}
-              <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-white/70 border-b border-white/5 pb-4">
-                <span className="flex items-center gap-1.5"><svg className="w-4 h-4 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.31 13.14c-1.77-.45-2.34-.94-2.34-1.67 0-.84.79-1.43 2.1-1.43 1.38 0 1.9.66 1.94 1.64h1.71c-.05-1.34-.87-2.57-2.49-2.97V9H10.9v1.69c-1.51.32-2.72 1.3-2.72 2.81 0 1.79 1.49 2.69 3.66 3.21 1.95.46 2.34 1.15 2.34 1.87 0 .53-.39 1.39-2.1 1.39-1.6 0-2.23-.72-2.32-1.64H8.04c.1 1.7 1.36 2.66 2.86 2.97V23h2.34v-1.67c1.52-.29 2.72-1.16 2.73-2.77-.01-2.2-1.9-2.96-3.66-3.42z"/></svg>Building since 2021</span>
-                <span className="flex items-center gap-1.5"><svg className="w-4 h-4 text-[#B591F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>Global Team</span>
-                <span className="flex items-center gap-1.5"><svg className="w-4 h-4 text-[#FFB649]" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>$10m+ Unity Core</span>
-                <span className="flex items-center gap-1.5"><svg className="w-4 h-4 text-[#98FFF9]" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>Next-Gen AI Powered</span>
-              </div>
-              {/* Stats cards */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3 md:gap-4">
-                <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
-                  <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Token Holders</div>
-                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">17,800+</div>
-                </div>
-                <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
-                  <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Downloads</div>
-                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">100,000+</div>
-                </div>
-                <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
-                  <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Crypto Lobbies</div>
-                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">BTC, ETH, $MCRT</div>
-                </div>
-                <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
-                  <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Platforms</div>
-                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">iOS, Android, PC</div>
-                </div>
-                <div className="card-glass px-3 py-2.5 rounded-xl text-center transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(152,255,249,0.15)]">
-                  <div className="text-[10px] sm:text-xs text-white/50 uppercase tracking-wider">Network</div>
-                  <div className="text-sm sm:text-base font-bold text-white mt-0.5">Game + AI + Ads</div>
-                </div>
-              </div>
-              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1">
-                <span className="text-xs text-white/50">Trade $MCRT:</span>
-                <a href="https://www.bybit.com/en/trade/spot/MCRT/USDT" target="_blank" rel="noopener noreferrer" className="text-xs text-white/80 font-medium hover:text-[#98FFF9] transition-colors">Bybit</a>
-                <span className="text-white/20">·</span>
-                <a href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f" target="_blank" rel="noopener noreferrer" className="text-xs text-white/80 font-medium hover:text-[#98FFF9] transition-colors">PancakeSwap</a>
-                <span className="text-white/20">·</span>
-                <a href="https://www.htx.com/trade/mcrt_usdt" target="_blank" rel="noopener noreferrer" className="text-xs text-white/80 font-medium hover:text-[#98FFF9] transition-colors">HTX</a>
-              </div>
-            </div>
-          </div>
 
           {/* AI Integration Section */}
           <Suspense fallback={<div className="min-h-[120px]" />}>

@@ -72,7 +72,7 @@ export default function HeroSection() {
   }, [enableVideo])
 
   return (
-    <section className="md:min-h-screen relative min-h-[560px] sm:min-h-[650px] md:min-h-[700px] lg:min-h-[750px] xl:min-h-[800px] h-auto bg-cover bg-center overflow-hidden w-full max-w-full">
+    <section className="md:min-h-screen relative min-h-[620px] sm:min-h-[690px] md:min-h-[720px] lg:min-h-[760px] xl:min-h-[800px] h-auto bg-cover bg-center overflow-hidden w-full max-w-full">
       {enableVideo ? (
         <video
           ref={heroVideoRef}
@@ -105,18 +105,18 @@ export default function HeroSection() {
           loading="eager"
         />
       )}
-      <div className="video-bg-gradient absolute inset-0 h-full w-full bg-gradient-to-b from-black/60 via-black/35 to-black/80"></div>
-      <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9]/5 to-[#B591F2]/5 animate-pulse-slow"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#03082f]/90 via-transparent to-transparent"></div>
+      <div className="video-bg-gradient absolute inset-0 h-full w-full bg-gradient-to-b from-black/70 via-[#03082f]/35 to-[#03082f]/95"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(152,255,249,0.18),transparent_32%),linear-gradient(90deg,rgba(152,255,249,0.06),rgba(181,145,242,0.08))]"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#03082f] via-transparent to-black/30"></div>
 
       {/* Embedded Ecosystem Mind Map - bottom left of hero */}
-      <div className="hidden sm:block absolute left-[-150px] sm:left-[-150px] md:left-[-90px] bottom-[-110px] sm:bottom-[-110px] md:bottom-[-110px] z-30 w-[364px] sm:w-[494px] md:w-[650px] h-[312px] sm:h-[416px] md:h-[546px] pointer-events-auto opacity-70 md:opacity-100">
+      <div className="hidden sm:block absolute left-[-170px] sm:left-[-150px] md:left-[-120px] bottom-[-130px] sm:bottom-[-120px] md:bottom-[-125px] z-0 w-[364px] sm:w-[494px] md:w-[650px] h-[312px] sm:h-[416px] md:h-[546px] pointer-events-none opacity-35 md:opacity-55">
         <EcosystemMindMap />
       </div>
       
       <div className="relative z-10 mx-auto max-w-screen-xl h-full w-full px-3 sm:px-4">
-        <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 sm:gap-4 md:gap-4 lg:gap-5 pt-14 sm:pt-16 md:pt-[4.5rem] lg:pt-20 pb-6 sm:pb-8 md:pb-10 lg:pb-12">
-          <div className="w-full max-w-[30%] sm:max-w-[25%] md:w-full md:max-w-32 lg:max-w-36 animate-fade-in mt-1 sm:mt-2 md:mt-3 lg:mt-4 group">
+        <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 sm:gap-4 md:gap-4 lg:gap-5 pt-20 sm:pt-24 md:pt-28 lg:pt-32 pb-10 sm:pb-12 md:pb-14 lg:pb-16">
+          <div className="w-full max-w-[24%] sm:max-w-[18%] md:w-full md:max-w-28 lg:max-w-32 animate-fade-in mt-1 sm:mt-2 md:mt-3 lg:mt-4 group">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500 animate-pulse-slow"></div>
               <img
@@ -128,7 +128,7 @@ export default function HeroSection() {
           </div>
             </div>
           
-          <div className="text-center gap-section animate-slide-up mt-2 sm:mt-3 md:mt-5 lg:mt-6 xl:mt-8 px-4 sm:px-6 md:px-8">
+          <div className="text-center gap-section animate-slide-up mt-2 sm:mt-3 md:mt-4 lg:mt-5 px-4 sm:px-6 md:px-8">
             <div className="flex justify-center mb-3 sm:mb-4 md:mb-6 group">
               <img
                 src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"
@@ -137,12 +137,17 @@ export default function HeroSection() {
                 className="w-full max-w-[280px] sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-lg h-auto drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:scale-105 transition-transform duration-700 group-hover:drop-shadow-[0_0_40px_rgba(255,255,255,0.4)]"
               />
             </div>
-            <h1 className="text-hero font-black max-w-4xl mx-auto tracking-wide drop-shadow-2xl leading-tight break-words hyphens-none">
-              THE CURRENCY OF GAMING & AI
+            <div className="mb-4 flex flex-wrap items-center justify-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#98FFF9]">
+              <span className="rounded-full border border-[#98FFF9]/25 bg-[#98FFF9]/10 px-3 py-1">BNB Chain</span>
+              <span className="rounded-full border border-[#B591F2]/25 bg-[#B591F2]/10 px-3 py-1 text-[#d7c8ff]">PvP Lobbies</span>
+              <span className="rounded-full border border-[#FFB649]/25 bg-[#FFB649]/10 px-3 py-1 text-[#ffd18a]">AI Payments</span>
+            </div>
+            <h1 className="text-hero font-black max-w-5xl mx-auto drop-shadow-2xl leading-tight break-words hyphens-none">
+              $MCRT: The Currency of Gaming & AI
           </h1>
-            <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-white/90 text-base sm:text-lg leading-relaxed tracking-[0.01em]">
-              Fast, low‑fee on‑chain currency on BNB Chain powering BTC, ETH, and $MCRT PvP lobbies,
-              NFT-linked characters, creator payouts, and in-game commerce across the MagicCraft universe.
+            <p className="mt-4 sm:mt-5 max-w-3xl mx-auto text-white/88 text-base sm:text-lg leading-relaxed tracking-normal">
+              One token connecting live PvP lobbies, playable NFT characters, creator tools,
+              AI products, and in-game commerce across the MagicCraft ecosystem.
             </p>
             {/* Mobile: compact 3-CTA row */}
             <div className="mt-5 sm:mt-6 w-full max-w-[520px] mx-auto sm:hidden">

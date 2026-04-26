@@ -47,7 +47,7 @@ body {
   text-rendering: optimizeLegibility;
   font-size: 16px;
   line-height: 1.6;
-  letter-spacing: 0.015em;
+  letter-spacing: 0;
   color: rgba(255, 255, 255, 0.95);
 }
 
@@ -56,7 +56,7 @@ body {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   background: linear-gradient(135deg, #98FFF9 0%, #B591F2 50%, #FFFFFF 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -158,7 +158,7 @@ a, button, [role="button"], input, textarea, select {
   .card-glass {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
+    border-radius: 12px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -474,7 +474,7 @@ a:hover {
   /* Typography System - Enhanced */
   h1, h2, h3 {
     font-family: 'Colus', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-    letter-spacing: 0.02em;
+    letter-spacing: 0;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 0.75em;
@@ -529,7 +529,7 @@ a:hover {
     font-size: clamp(2.75rem, 6.5vw, 5.5rem);
     line-height: 1.05;
     font-weight: 800;
-    letter-spacing: 0.02em;
+    letter-spacing: 0;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
   

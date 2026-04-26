@@ -21,11 +21,11 @@ export default function AIIntegrationSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#FFB649]/5 to-[#B591F2]/5"></div>
       <div className="relative z-10 mx-auto max-w-screen-xl px-3 sm:px-4 md:px-6">
         <div className="text-center mb-6 md:mb-8">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-[#FFB649] via-[#B591F2] to-[#98FFF9] bg-clip-text text-transparent mb-4">
-            AI-POWERED ECOSYSTEM
+          <h2 className="font-serif text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-[44px] mb-4">
+            AI Products That Give $MCRT More Places to Flow
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
-            $MCRT powers in-game AI and the MagicCraft AI product suite, led by Akyn and Merlin.
+            The token is positioned as a payment and reward rail across the MagicCraft game, MCRTPay, MagicAds, and a growing AI product suite.
           </p>
         </div>
         
@@ -232,9 +232,9 @@ export default function AIIntegrationSection() {
                 Next-Gen AI on a Proven Foundation
               </h4>
               <p className="text-sm sm:text-base text-white/80 leading-relaxed">
-                MagicCraft is being built with the latest AI models on top of the old <span className="text-white font-semibold">$10m source (original MagicCraft game) code in Unity</span>. 
+                MagicCraft is being built with AI-assisted workflows on top of the established <span className="text-white font-semibold">Unity game foundation</span>.
                 <br className="hidden sm:block" />
-                Our dev team ships daily using <span className="text-white font-semibold">Cursor, Codex, and Claude Code</span> with the latest models: <span className="text-white font-semibold">ChatGPT o3, Claude Sonnet 4.5, and Gemini 2.5 Pro</span>.
+                The product direction combines live game systems, creator tools, and payment infrastructure instead of treating AI as a detached feature.
               </p>
             </div>
           </div>
