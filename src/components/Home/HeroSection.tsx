@@ -1,11 +1,13 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { openGameByDevice, handleBuyMCRT } from '@/lib/gameActions'
 import EcosystemMindMap from '@/components/EcosystemMindMap'
 
 type NetInfo = {
-  effectiveType?: string
   saveData?: boolean
 }
+
+const HERO_VIDEO_SRC = 'https://res.cloudinary.com/dfzcr2ch4/video/upload/v1717166775/video_gokp2f.mp4'
+const HERO_POSTER_SRC = 'https://res.cloudinary.com/dfzcr2ch4/video/upload/so_1/f_jpg,q_auto,w_1920/v1717166775/video_gokp2f.jpg'
 
 function shouldPlayHeroVideo(): boolean {
   if (typeof window === 'undefined') return false
@@ -13,13 +15,21 @@ function shouldPlayHeroVideo(): boolean {
   const nav = navigator as Navigator & { connection?: NetInfo }
   const conn = nav.connection
   if (conn?.saveData) return false
-  if (conn?.effectiveType && /^(2g|slow-2g|3g)$/.test(conn.effectiveType)) return false
   return true
 }
 
 export default function HeroSection() {
   const heroVideoRef = useRef<HTMLVideoElement | null>(null)
   const [enableVideo, setEnableVideo] = useState<boolean>(() => shouldPlayHeroVideo())
+
+  const setHeroVideoElement = useCallback((video: HTMLVideoElement | null) => {
+    heroVideoRef.current = video
+    if (!video) return
+
+    video.muted = true
+    ;(video as HTMLVideoElement & { defaultMuted?: boolean }).defaultMuted = true
+    ;(video as HTMLVideoElement & { playsInline?: boolean }).playsInline = true
+  }, [])
 
   const openLiveSupport = () => {
     if (typeof window === 'undefined') return
@@ -38,6 +48,7 @@ export default function HeroSection() {
 
     try {
       video.muted = true
+      ;(video as HTMLVideoElement & { defaultMuted?: boolean }).defaultMuted = true
       ;(video as HTMLVideoElement & { playsInline?: boolean }).playsInline = true
     } catch { /* intentional: best-effort attribute assignment */ }
 
@@ -75,31 +86,27 @@ export default function HeroSection() {
     <section className="md:min-h-screen relative min-h-[620px] sm:min-h-[690px] md:min-h-[720px] lg:min-h-[760px] xl:min-h-[800px] h-auto bg-cover bg-center overflow-hidden w-full max-w-full">
       {enableVideo ? (
         <video
-          ref={heroVideoRef}
+          ref={setHeroVideoElement}
           className="absolute inset-0 h-full w-full object-cover scale-105"
           autoPlay
           loop
           muted
           playsInline
-          preload="metadata"
+          preload="auto"
           controls={false}
           controlsList="nodownload noplaybackrate noremoteplayback"
           disablePictureInPicture
-          poster="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
+          poster={HERO_POSTER_SRC}
         >
           <source
-            src="https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto,q_auto/v1717166775/video_gokp2f.mp4"
+            src={HERO_VIDEO_SRC}
             type="video/mp4"
-          />
-          <source
-            src="https://res.cloudinary.com/dfzcr2ch4/video/upload/f_auto,q_auto/v1717166775/video_gokp2f.webm"
-            type="video/webm"
           />
         </video>
       ) : (
         <img
           className="absolute inset-0 h-full w-full object-cover scale-105"
-          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
+          src={HERO_POSTER_SRC}
           alt=""
           aria-hidden="true"
           loading="eager"
