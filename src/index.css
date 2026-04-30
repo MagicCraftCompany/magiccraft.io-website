@@ -7,15 +7,16 @@
   --radius-base: 14px;
   --shadow-soft: 0 10px 28px rgba(0, 0, 0, 0.35);
   --shadow-glow: 0 10px 28px rgba(152, 255, 249, 0.25);
-  --apple-surface: rgba(255,255,255,0.03);
-  --apple-surface-strong: rgba(255,255,255,0.06);
-  --apple-hairline: rgba(255,255,255,0.14);
-  --apple-hairline-strong: rgba(255,255,255,0.22);
-  --apple-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  --apple-surface: rgba(255, 255, 255, 0.03);
+  --apple-surface-strong: rgba(255, 255, 255, 0.06);
+  --apple-hairline: rgba(255, 255, 255, 0.14);
+  --apple-hairline-strong: rgba(255, 255, 255, 0.22);
+  --apple-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
 
 /* Prevent horizontal overflow */
-html, body {
+html,
+body {
   overflow-x: hidden;
   max-width: 100vw;
 }
@@ -41,7 +42,15 @@ html, body {
 
 /* Global font settings */
 body {
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family:
+    'Outfit',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -57,7 +66,7 @@ body {
   font-weight: 700;
   line-height: 1.1;
   letter-spacing: 0;
-  background: linear-gradient(135deg, #98FFF9 0%, #B591F2 50%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #98fff9 0%, #b591f2 50%, #ffffff 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -100,7 +109,12 @@ body {
 /* Enhanced content hierarchy */
 .section-divider {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(152, 255, 249, 0.3), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(152, 255, 249, 0.3),
+    transparent
+  );
   margin: 4rem 0;
 }
 
@@ -116,12 +130,16 @@ body {
   top: 0;
   bottom: 0;
   width: 3px;
-  background: linear-gradient(180deg, #98FFF9, #B591F2);
+  background: linear-gradient(180deg, #98fff9, #b591f2);
   border-radius: 2px;
 }
 
 .highlight-box {
-  background: linear-gradient(135deg, rgba(152, 255, 249, 0.1), rgba(181, 145, 242, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(152, 255, 249, 0.1),
+    rgba(181, 145, 242, 0.05)
+  );
   border: 1px solid rgba(152, 255, 249, 0.2);
   border-radius: 12px;
   padding: 1.5rem;
@@ -136,13 +154,13 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(90deg, #98FFF9, #B591F2);
+  background: linear-gradient(90deg, #98fff9, #b591f2);
 }
 
 .stats-highlight {
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 700;
-  background: linear-gradient(135deg, #98FFF9 0%, #B591F2 100%);
+  background: linear-gradient(135deg, #98fff9 0%, #b591f2 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -150,22 +168,33 @@ body {
 }
 
 /* Global interactive polish */
-a, button, [role="button"], input, textarea, select {
+a,
+button,
+[role='button'],
+input,
+textarea,
+select {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Enhanced card styles for consistency */
-  .card-glass {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
+.card-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
 
 /* Apple-like glass utilities for consistent polish */
 .glass-surface {
@@ -183,10 +212,18 @@ a, button, [role="button"], input, textarea, select {
   border: 1px solid var(--apple-hairline-strong);
 }
 
-.hairline-top { border-top: 1px solid var(--apple-hairline); }
-.hairline-bottom { border-bottom: 1px solid var(--apple-hairline); }
-.hairline-left { border-left: 1px solid var(--apple-hairline); }
-.hairline-right { border-right: 1px solid var(--apple-hairline); }
+.hairline-top {
+  border-top: 1px solid var(--apple-hairline);
+}
+.hairline-bottom {
+  border-bottom: 1px solid var(--apple-hairline);
+}
+.hairline-left {
+  border-left: 1px solid var(--apple-hairline);
+}
+.hairline-right {
+  border-right: 1px solid var(--apple-hairline);
+}
 
 .card-hover-lift {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -220,7 +257,11 @@ a, button, [role="button"], input, textarea, select {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(152, 255, 249, 0.1), rgba(181, 145, 242, 0.1));
+  background: linear-gradient(
+    135deg,
+    rgba(152, 255, 249, 0.1),
+    rgba(181, 145, 242, 0.1)
+  );
   opacity: 0;
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   pointer-events: none;
@@ -245,7 +286,9 @@ a, button, [role="button"], input, textarea, select {
   border-radius: 50%;
   background: rgba(152, 255, 249, 0.3);
   transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
+  transition:
+    width 0.6s,
+    height 0.6s;
 }
 
 .ripple-effect:active::before {
@@ -263,7 +306,7 @@ a, button, [role="button"], input, textarea, select {
 /* High contrast focus for better accessibility */
 @media (prefers-contrast: high) {
   :focus-visible {
-    outline: 3px solid #98FFF9;
+    outline: 3px solid #98fff9;
     outline-offset: 2px;
     box-shadow: none;
   }
@@ -271,7 +314,9 @@ a, button, [role="button"], input, textarea, select {
 
 /* Reduced motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -297,8 +342,8 @@ a, button, [role="button"], input, textarea, select {
   position: absolute;
   top: -40px;
   left: 6px;
-  background: #98FFF9;
-  color: #03082F;
+  background: #98fff9;
+  color: #03082f;
   padding: 8px;
   text-decoration: none;
   border-radius: 4px;
@@ -326,33 +371,64 @@ a:hover {
 
 /* Smooth animations for all interactive elements */
 @keyframes subtle-pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.85; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.85;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
 }
 
 @keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(152, 255, 249, 0.4); }
-  50% { box-shadow: 0 0 30px rgba(152, 255, 249, 0.6), 0 0 40px rgba(181, 145, 242, 0.4); }
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(152, 255, 249, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(152, 255, 249, 0.6),
+      0 0 40px rgba(181, 145, 242, 0.4);
+  }
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 @keyframes skeleton-pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.6; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.6;
+  }
 }
 
 /* Loading states for better perceived performance */
 .loading-skeleton {
-  background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: 8px;
@@ -369,7 +445,7 @@ a:hover {
   transition: opacity 0.3s ease;
 }
 
-.img-optimized[loading="lazy"] {
+.img-optimized[loading='lazy'] {
   opacity: 0;
 }
 
@@ -378,7 +454,7 @@ a:hover {
 }
 
 /* Professional header CTAs: consistent sizing, gradients, focus, and hover */
-  .header-cta {
+.header-cta {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
@@ -387,7 +463,12 @@ a:hover {
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family:
+    'Space Grotesk',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.025em;
@@ -402,44 +483,60 @@ a:hover {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.12),
+    transparent
+  );
   transform: translateX(-120%);
   transition: transform 700ms ease;
 }
-.header-cta:hover::after { transform: translateX(120%); }
-.header-cta:hover { transform: translateY(-1px); border-color: rgba(255,255,255,0.28); box-shadow: 0 12px 26px rgba(0,0,0,0.32); }
-.header-cta:focus-visible { outline: 2px solid #98FFF9; outline-offset: 2px; }
+.header-cta:hover::after {
+  transform: translateX(120%);
+}
+.header-cta:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.32);
+}
+.header-cta:focus-visible {
+  outline: 2px solid #98fff9;
+  outline-offset: 2px;
+}
 
 /* Enhanced CTA variants for better conversion */
-.header-cta--play { 
-  background: linear-gradient(180deg, #6b3db2, #41207a); 
-  color: #ffffff; 
+.header-cta--play {
+  background: linear-gradient(180deg, #6b3db2, #41207a);
+  color: #ffffff;
   box-shadow: 0 10px 24px rgba(107, 61, 178, 0.4);
 }
 
-.header-cta--shop { 
-  background: linear-gradient(180deg, #4462d6, #2c3e94); 
-  color: #ffffff; 
+.header-cta--shop {
+  background: linear-gradient(180deg, #4462d6, #2c3e94);
+  color: #ffffff;
   box-shadow: 0 10px 24px rgba(68, 98, 214, 0.4);
 }
 
-.header-cta--buy { 
-  background: linear-gradient(180deg, #A9FFF6, #82E7E0); 
-  color: #071033; 
+.header-cta--buy {
+  background: linear-gradient(180deg, #a9fff6, #82e7e0);
+  color: #071033;
   box-shadow: 0 10px 24px rgba(152, 255, 249, 0.4);
   font-weight: 700;
 }
 
 /* Premium CTA for high-conversion actions */
 .cta-premium {
-  background: linear-gradient(135deg, #98FFF9 0%, #B591F2 50%, #7B68EE 100%);
-  color: #03082F;
+  background: linear-gradient(135deg, #98fff9 0%, #b591f2 50%, #7b68ee 100%);
+  color: #03082f;
   padding: 1rem 2rem;
   border-radius: 9999px;
   font-weight: 700;
   font-size: 1.125rem;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 15px 35px rgba(152, 255, 249, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 15px 35px rgba(152, 255, 249, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
   position: relative;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -452,13 +549,20 @@ a:hover {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
   transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .cta-premium:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 20px 45px rgba(152, 255, 249, 0.5), inset 0 2px 0 rgba(255, 255, 255, 0.4);
+  box-shadow:
+    0 20px 45px rgba(152, 255, 249, 0.5),
+    inset 0 2px 0 rgba(255, 255, 255, 0.4);
   border-color: rgba(255, 255, 255, 0.5);
 }
 
@@ -472,58 +576,67 @@ a:hover {
 
 @layer base {
   /* Typography System - Enhanced */
-  h1, h2, h3 {
-    font-family: 'Colus', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  h1,
+  h2,
+  h3 {
+    font-family:
+      'Colus', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
     letter-spacing: 0;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 0.75em;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
+
   h1 {
     font-size: clamp(2.25rem, 5.5vw, 4.5rem);
     line-height: 1.1;
     letter-spacing: 0.025em;
   }
-  
+
   h2 {
     font-size: clamp(1.75rem, 4.5vw, 3.5rem);
     line-height: 1.15;
   }
-  
+
   h3 {
     font-size: clamp(1.5rem, 3.5vw, 2.5rem);
     line-height: 1.2;
   }
-  
-  h4, h5, h6 {
-    font-family: 'Space Grotesk', 'Outfit', -apple-system, sans-serif;
+
+  h4,
+  h5,
+  h6 {
+    font-family:
+      'Space Grotesk',
+      'Outfit',
+      -apple-system,
+      sans-serif;
     letter-spacing: 0.015em;
     font-weight: 600;
     line-height: 1.4;
     margin-bottom: 0.6em;
   }
-  
+
   h4 {
     font-size: clamp(1.25rem, 2.75vw, 1.75rem);
   }
-  
+
   h5 {
     font-size: clamp(1.125rem, 2.25vw, 1.5rem);
   }
-  
+
   h6 {
     font-size: clamp(1rem, 1.75vw, 1.25rem);
   }
-  
+
   p {
     line-height: 1.75;
     margin-bottom: 1.25em;
     font-size: clamp(0.95rem, 1.5vw, 1.125rem);
     letter-spacing: 0.01em;
   }
-  
+
   /* Text utility classes - Enhanced */
   .text-hero {
     font-size: clamp(2.75rem, 6.5vw, 5.5rem);
@@ -532,81 +645,85 @@ a:hover {
     letter-spacing: 0;
     text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
+
   .text-section-title {
     font-size: clamp(2rem, 4.5vw, 4rem);
     line-height: 1.15;
     font-weight: 700;
     letter-spacing: 0.015em;
   }
-  
+
   .text-card-title {
     font-size: clamp(1.125rem, 2.75vw, 1.75rem);
     line-height: 1.3;
     font-weight: 600;
     letter-spacing: 0.01em;
   }
-  
+
   .text-body-large {
     font-size: clamp(1.125rem, 2.25vw, 1.5rem);
     line-height: 1.65;
     letter-spacing: 0.01em;
   }
-  
+
   .text-body {
     font-size: clamp(1rem, 1.75vw, 1.125rem);
     line-height: 1.75;
     letter-spacing: 0.01em;
   }
-  
+
   .text-small {
     font-size: clamp(0.875rem, 1.5vw, 1rem);
     line-height: 1.6;
     letter-spacing: 0.01em;
   }
-  
+
   /* Consistent Spacing System */
   .section-padding {
     padding: clamp(2rem, 5vw, 4rem) 0;
   }
-  
+
   .section-padding-sm {
     padding: clamp(1rem, 3vw, 2rem) 0;
   }
-  
+
   .section-padding-lg {
     padding: clamp(3rem, 7vw, 6rem) 0;
   }
-  
+
   .container-padding {
     padding-left: clamp(1rem, 4vw, 2rem);
     padding-right: clamp(1rem, 4vw, 2rem);
   }
-  
+
   .card-padding {
     padding: clamp(1rem, 3vw, 2rem);
   }
-  
+
   .card-padding-sm {
     padding: clamp(0.75rem, 2vw, 1.5rem);
   }
-  
+
   /* Consistent Gaps */
   .gap-section {
     gap: clamp(1.5rem, 4vw, 3rem);
   }
-  
+
   .gap-card {
     gap: clamp(1rem, 2.5vw, 2rem);
   }
-  
+
   .gap-element {
     gap: clamp(0.5rem, 1.5vw, 1rem);
   }
-  
+
   /* Premium Button Styles - Enhanced */
   .btn-primary {
-    background: linear-gradient(135deg, rgba(152, 255, 249, 0.2), rgba(181, 145, 242, 0.2));
+    background: linear-gradient(
+      135deg,
+      rgba(152, 255, 249, 0.2),
+      rgba(181, 145, 242, 0.2)
+    );
     color: #ffffff;
     font-weight: 700;
     font-size: clamp(0.95rem, 1.6vw, 1.125rem);
@@ -626,9 +743,11 @@ a:hover {
     letter-spacing: 0.02em;
     text-transform: none;
     line-height: 1.2;
-    box-shadow: 0 10px 28px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.1);
+    box-shadow:
+      0 10px 28px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
-  
+
   .btn-primary::before {
     content: '';
     position: absolute;
@@ -639,28 +758,34 @@ a:hover {
     border-radius: 50%;
     background: rgba(152, 255, 249, 0.4);
     transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    transition:
+      width 0.6s,
+      height 0.6s;
   }
-  
+
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 16px 36px rgba(152, 255, 249, 0.35);
     border-color: rgba(152, 255, 249, 0.7);
   }
-  
+
   .btn-primary:hover::before {
     width: 300px;
     height: 300px;
   }
-  
+
   .btn-primary:focus {
-    outline: 2px solid #98FFF9;
+    outline: 2px solid #98fff9;
     outline-offset: 2px;
   }
-  
+
   .btn-secondary {
-    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-    color: #E6FFFB;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.02)
+    );
+    color: #e6fffb;
     font-weight: 600;
     font-size: clamp(0.95rem, 1.6vw, 1.125rem);
     padding: clamp(0.9rem, 2.2vw, 1.1rem) clamp(1.6rem, 4vw, 2rem);
@@ -679,9 +804,9 @@ a:hover {
     backdrop-filter: blur(12px);
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
   }
-  
+
   .btn-secondary:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
     border-color: rgba(152, 255, 249, 0.4);
@@ -705,16 +830,20 @@ a:hover {
     transform: none;
     box-shadow: none;
   }
-  
+
   .btn-secondary:focus {
-    outline: 2px solid #98FFF9;
+    outline: 2px solid #98fff9;
     outline-offset: 2px;
   }
-  
+
   /* Compact CTA chip for small right-side actions inside cards */
   .chip-cta {
-    background: linear-gradient(180deg, rgba(152,255,249,0.18), rgba(152,255,249,0.10));
-    color: #A9FFF6;
+    background: linear-gradient(
+      180deg,
+      rgba(152, 255, 249, 0.18),
+      rgba(152, 255, 249, 0.1)
+    );
+    color: #a9fff6;
     font-weight: 700;
     font-size: 0.75rem;
     padding: 0.25rem 0.625rem;
@@ -723,28 +852,40 @@ a:hover {
     display: inline-block;
     text-align: center;
     line-height: 1.2;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
-    transition: background-color 0.2s ease, color 0.2s ease;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
     white-space: nowrap;
   }
   .chip-cta:hover {
-    background: linear-gradient(180deg, rgba(152,255,249,0.24), rgba(152,255,249,0.14));
-    color: #E6FFFB;
+    background: linear-gradient(
+      180deg,
+      rgba(152, 255, 249, 0.24),
+      rgba(152, 255, 249, 0.14)
+    );
+    color: #e6fffb;
   }
-  
+
   /* Card Styles - Premium Glass Effect */
   .card-glass {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.01) 100%
+    );
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 20px;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow:
+      0 12px 35px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
   }
-  
+
   .card-glass::before {
     content: '';
     position: absolute;
@@ -752,11 +893,16 @@ a:hover {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(152, 255, 249, 0.3), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(152, 255, 249, 0.3),
+      transparent
+    );
     opacity: 0;
     transition: opacity 0.4s ease;
   }
-  
+
   .card-glass::after {
     content: '';
     position: absolute;
@@ -764,23 +910,33 @@ a:hover {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(152, 255, 249, 0.05) 0%, transparent 70%);
+    background: radial-gradient(
+      circle,
+      rgba(152, 255, 249, 0.05) 0%,
+      transparent 70%
+    );
     opacity: 0;
     transition: opacity 0.4s ease;
     pointer-events: none;
   }
-  
+
   .card-glass:hover {
     border-color: rgba(152, 255, 249, 0.25);
-    box-shadow: 0 20px 40px rgba(152, 255, 249, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    box-shadow:
+      0 20px 40px rgba(152, 255, 249, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transform: translateY(-4px) scale(1.01);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
   }
-  
+
   .card-glass:hover::before {
     opacity: 1;
   }
-  
+
   .card-glass:hover::after {
     opacity: 1;
   }
@@ -791,12 +947,12 @@ a:hover {
   .btn-primary:focus-visible,
   .btn-secondary:focus-visible,
   .card-glass:focus-visible {
-    outline: 2px solid #98FFF9;
+    outline: 2px solid #98fff9;
     outline-offset: 2px;
   }
-  
+
   .card-gradient {
-    background: linear-gradient(135deg, #0A0424 0%, #1a0d2e 50%, #2A0D4E 100%);
+    background: linear-gradient(135deg, #0a0424 0%, #1a0d2e 50%, #2a0d4e 100%);
     border: 1px solid rgba(181, 145, 242, 0.3);
     border-radius: 1rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -804,7 +960,7 @@ a:hover {
     position: relative;
     overflow: hidden;
   }
-  
+
   .card-gradient::after {
     content: '';
     position: absolute;
@@ -812,20 +968,25 @@ a:hover {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(152, 255, 249, 0.2), transparent);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(152, 255, 249, 0.2),
+      transparent
+    );
     transition: left 0.6s ease;
   }
-  
+
   .card-gradient:hover {
     border-color: rgba(181, 145, 242, 0.45);
     box-shadow: 0 16px 40px rgba(181, 145, 242, 0.15);
     transform: translateY(-4px) scale(1.01);
   }
-  
+
   .card-gradient:hover::after {
     left: 100%;
   }
-  
+
   /* Gameplay Carousel Styles */
   .gameplay-carousel {
     position: relative;
@@ -836,143 +997,221 @@ a:hover {
   }
   /* iPhone 14 Pro logical height tweak */
   @media (max-width: 430px) and (min-height: 800px) and (max-height: 932px) {
-    .gameplay-carousel { height: 200px; }
+    .gameplay-carousel {
+      height: 200px;
+    }
   }
   @media (min-width: 768px) {
-    .gameplay-carousel { height: 260px; }
+    .gameplay-carousel {
+      height: 260px;
+    }
   }
   @media (min-width: 1024px) {
-    .gameplay-carousel { height: 300px; }
+    .gameplay-carousel {
+      height: 300px;
+    }
   }
 
   /* Enhanced mobile experience for iPhone 14 Pro / Pro Max (430 x 932) */
   @media (max-width: 430px) {
-    .text-hero { font-size: 2.25rem; line-height: 1.15; }
-    .text-section-title { font-size: 1.5rem; }
-    .card-padding { padding: 12px; }
-    .card-padding-sm { padding: 8px; }
-    
+    .text-hero {
+      font-size: 2.25rem;
+      line-height: 1.15;
+    }
+    .text-section-title {
+      font-size: 1.5rem;
+    }
+    .card-padding {
+      padding: 12px;
+    }
+    .card-padding-sm {
+      padding: 8px;
+    }
+
     /* Improved touch targets - minimum 44px */
-    .btn-primary, .btn-secondary { 
-      padding: 0.75rem 1rem; 
-      font-size: 0.9rem; 
+    .btn-primary,
+    .btn-secondary {
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
       min-height: 44px;
       min-width: 44px;
     }
-    
-    .gameplay-carousel { height: 200px; }
-    
+
+    .gameplay-carousel {
+      height: 200px;
+    }
+
     /* Better mobile spacing */
-    .section-padding { padding: 3rem 0; }
-    .section-padding-sm { padding: 2rem 0; }
-    .gap-section { gap: 2rem; }
-    .gap-card { gap: 1.5rem; }
-    
+    .section-padding {
+      padding: 3rem 0;
+    }
+    .section-padding-sm {
+      padding: 2rem 0;
+    }
+    .gap-section {
+      gap: 2rem;
+    }
+    .gap-card {
+      gap: 1.5rem;
+    }
+
     /* Improved mobile interactions */
-    .card-hover-lift:hover { transform: none; } /* Disable hover on mobile */
-    .card-hover-lift:active { transform: scale(0.98); }
-    
+    .card-hover-lift:hover {
+      transform: none;
+    } /* Disable hover on mobile */
+    .card-hover-lift:active {
+      transform: scale(0.98);
+    }
+
     /* Prevent any overflow */
-    body { padding: 0; margin: 0; overflow-x: hidden; }
-    .container { max-width: 100%; padding: 0 1rem; }
-    
+    body {
+      padding: 0;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 100%;
+      padding: 0 1rem;
+    }
+
     /* Mobile-specific focus states */
-    button:focus-visible, a:focus-visible {
+    button:focus-visible,
+    a:focus-visible {
       outline: 3px solid rgba(152, 255, 249, 0.8);
       outline-offset: 2px;
     }
   }
-  
+
   /* MacBook Pro 14" and similar (1400-1600px) */
   @media (min-width: 1400px) and (max-width: 1600px) {
-    .text-hero { font-size: 3.25rem; }
-    .text-section-title { font-size: 2.25rem; }
-    .section-padding { padding: 2.5rem 0; }
-    .container-padding { padding-left: 1.5rem; padding-right: 1.5rem; }
-    
+    .text-hero {
+      font-size: 3.25rem;
+    }
+    .text-section-title {
+      font-size: 2.25rem;
+    }
+    .section-padding {
+      padding: 2.5rem 0;
+    }
+    .container-padding {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+
     /* Ensure no horizontal overflow on MacBook */
-    body { max-width: 100vw; overflow-x: hidden; }
+    body {
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
   }
-  
+
   /* General mobile improvements */
   @media (max-width: 640px) {
-    .text-hero { 
-      font-size: clamp(1.5rem, 8vw, 2rem);
+    .text-hero {
+      font-size: clamp(1.35rem, 7vw, 1.7rem);
+      max-width: calc(100vw - 2rem);
       word-break: normal;
       overflow-wrap: break-word;
     }
-    .text-section-title { font-size: clamp(1.25rem, 4vw, 1.75rem); }
-    h1 { font-size: clamp(1.25rem, 4vw, 2rem); }
-    h2 { font-size: clamp(1.25rem, 3.5vw, 1.9rem); }
-    h3 { font-size: clamp(1.1rem, 3vw, 1.35rem); }
+    .text-section-title {
+      font-size: clamp(1.25rem, 4vw, 1.75rem);
+    }
+    h1 {
+      font-size: clamp(1.25rem, 4vw, 2rem);
+    }
+    h2 {
+      font-size: clamp(1.25rem, 3.5vw, 1.9rem);
+    }
+    h3 {
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+    }
     /* Loosen section spacing and gaps on small screens */
-    .section-padding { padding: 2.5rem 0; }
-    .section-padding-lg { padding: 3.5rem 0; }
-    .gap-section { gap: 1.75rem; }
-    .gap-card { gap: 1.25rem; }
-    
+    .section-padding {
+      padding: 2.5rem 0;
+    }
+    .section-padding-lg {
+      padding: 3.5rem 0;
+    }
+    .gap-section {
+      gap: 1.75rem;
+    }
+    .gap-card {
+      gap: 1.25rem;
+    }
+
     /* Mobile viewport fixes */
-    body { 
-      width: 100vw; 
-      max-width: 100vw; 
+    html,
+    body,
+    #root {
+      width: 100%;
+      max-width: 100%;
       overflow-x: hidden;
+    }
+
+    body {
       padding: 0;
       margin: 0;
     }
-    
-    * { 
+
+    * {
       max-width: 100%;
     }
   }
 
   /* Hide header CTAs and XPay bubble on mobile to prevent overlap */
   @media (max-width: 768px) {
-    .site-header .header-cta { display: none !important; }
-    .site-header .no-underline.header-cta { display: none !important; }
+    .site-header .header-cta {
+      display: none !important;
+    }
+    .site-header .no-underline.header-cta {
+      display: none !important;
+    }
     #xpay-root,
     #xpay-init-indicator,
     #xpay-tx-status {
       display: none !important;
     }
     /* Fallback for any dynamically injected XPay nodes */
-    [id*="xpay"],
-    [class*="xpay"] {
+    [id*='xpay'],
+    [class*='xpay'] {
       display: none !important;
     }
   }
 
   /* Respect prefers-reduced-motion for accessibility */
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       animation-duration: 0.001ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.001ms !important;
       scroll-behavior: auto !important;
     }
   }
-  
+
   .gameplay-slides {
     display: flex;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
-  
+
   .gameplay-slide {
     position: relative;
     height: 100%;
   }
-  
+
   .carousel-dot {
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 50%;
   }
-  
+
   .carousel-dot.active {
     background-color: rgba(152, 255, 249, 0.9) !important;
     transform: scale(1.3);
     box-shadow: 0 0 12px rgba(152, 255, 249, 0.5);
   }
-  
+
   .carousel-dot:hover {
     background-color: rgba(152, 255, 249, 0.7) !important;
     transform: scale(1.1);
@@ -1000,15 +1239,20 @@ coingecko-coin-price-chart-widget > div {
 coingecko-coin-ticker-widget .cg-widget,
 coingecko-coin-price-chart-widget .cg-widget {
   border: none !important;
-  background: linear-gradient(135deg, #0B0F39 0%, #1a1344 100%) !important;
+  background: linear-gradient(135deg, #0b0f39 0%, #1a1344 100%) !important;
   border-radius: 12px !important;
 }
 
 /* Improve text visibility */
 coingecko-coin-ticker-widget *,
 coingecko-coin-price-chart-widget * {
-  color: #FFFFFF !important;
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  color: #ffffff !important;
+  font-family:
+    'Outfit',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif !important;
 }
 
 /* Coin logo: remove harsh white boxes and blend into dark bg */
@@ -1028,7 +1272,7 @@ coingecko-coin-price-chart-widget .cg-widget-inner-container {
 
 /* Price text styling */
 coingecko-coin-ticker-widget .cg-price-text {
-  color: #98FFF9 !important;
+  color: #98fff9 !important;
   font-weight: 700 !important;
   font-size: 1.5rem !important;
 }
@@ -1069,7 +1313,8 @@ coingecko-coin-price-chart-widget canvas {
 
 @layer utilities {
   .hero-bg-gradient {
-    background: linear-gradient(
+    background:
+      linear-gradient(
         180deg,
         rgba(3, 8, 47, 0) 36.62%,
         rgba(3, 8, 47, 0.62) 102.13%
@@ -1088,7 +1333,8 @@ coingecko-coin-price-chart-widget canvas {
       linear-gradient(180deg, rgba(12, 2, 24, 0) 44.4%, #0c0218 89.86%);
   }
   .video-bg-gradient {
-    background: linear-gradient(
+    background:
+      linear-gradient(
         180deg,
         rgba(3, 8, 47, 0) 36.62%,
         rgba(3, 8, 47, 0.62) 102.13%
@@ -1107,7 +1353,8 @@ coingecko-coin-price-chart-widget canvas {
       linear-gradient(180deg, rgba(12, 2, 24, 0) 44.4%, #0c0218 89.86%);
   }
   .mrback-bg-gradient {
-    background: linear-gradient(
+    background:
+      linear-gradient(
         180deg,
         rgba(3, 8, 47, 0) 36.62%,
         rgba(3, 8, 47, 0.62) 102.13%
@@ -1126,7 +1373,8 @@ coingecko-coin-price-chart-widget canvas {
       linear-gradient(180deg, rgba(12, 2, 24, 0) 44.4%, #0c0218 89.86%);
   }
   .mrback1-bg-gradient {
-    background: linear-gradient(
+    background:
+      linear-gradient(
         180deg,
         rgba(3, 8, 47, 0) 36.62%,
         rgba(3, 8, 47, 0.62) 102.13%
@@ -1145,7 +1393,8 @@ coingecko-coin-price-chart-widget canvas {
       linear-gradient(180deg, rgba(12, 2, 24, 0) 44.4%, #0c0218 89.86%);
   }
   .supportbg-bg-gradient {
-    background: linear-gradient(
+    background:
+      linear-gradient(
         180deg,
         rgba(3, 8, 47, 0) 36.62%,
         rgba(3, 8, 47, 0.62) 102.13%
@@ -1164,9 +1413,9 @@ coingecko-coin-price-chart-widget canvas {
       linear-gradient(180deg, rgba(12, 2, 24, 0) 44.4%, #0c0218 89.86%);
   }
 
-
   .bgpatch-bg-gradient {
-    background: linear-gradient(
+    background:
+      linear-gradient(
         180deg,
         rgba(3, 8, 47, 0) 36.62%,
         rgba(3, 8, 47, 0.62) 102.13%
@@ -1189,7 +1438,8 @@ coingecko-coin-price-chart-widget canvas {
   }
 
   .game-chips-bg {
-    background: linear-gradient(98deg, #3f107a 10.09%, #740fb1 100.25%),
+    background:
+      linear-gradient(98deg, #3f107a 10.09%, #740fb1 100.25%),
       linear-gradient(
         255deg,
         rgba(87, 24, 109, 0.62) 4.37%,
@@ -1197,27 +1447,38 @@ coingecko-coin-price-chart-widget canvas {
       ),
       rgba(45, 44, 134, 0.8);
   }
-   
-  .testimonials-first{
-    background: linear-gradient(175deg, rgba(144, 55, 166, 0.00) 42.93%, rgba(144, 55, 166, 0.32) 70.97%, rgba(144, 55, 166, 0.36) 96.35%);
+
+  .testimonials-first {
+    background: linear-gradient(
+      175deg,
+      rgba(144, 55, 166, 0) 42.93%,
+      rgba(144, 55, 166, 0.32) 70.97%,
+      rgba(144, 55, 166, 0.36) 96.35%
+    );
   }
- .testimonials{
-  /* Remove placeholder url(<path-to-image>) which breaks builds */
-  background: linear-gradient(180deg, rgba(23, 19, 82, 0.96) 0%, #0A0917 100%);
- }
- .testimonials-second{
-  background: rgba(2, 4, 24, 0.11);
- }
- .crousel-first{
-  border-radius: 35.233px;
-  border: 1.174px solid #3F3F7A;
-  background: #11113A;
-  box-shadow: 0px 4.698px 46.978px 0px rgba(10, 9, 23, 0.60);
- } 
- .glow {
-  box-shadow: 0 0px 20px rgba(152, 255, 249, 1), 0px 0px 20px rgba(72, 102, 169, 0.4), 0px 0px 30px rgba(72, 102, 169, 0.4);
-}
- 
+  .testimonials {
+    /* Remove placeholder url(<path-to-image>) which breaks builds */
+    background: linear-gradient(
+      180deg,
+      rgba(23, 19, 82, 0.96) 0%,
+      #0a0917 100%
+    );
+  }
+  .testimonials-second {
+    background: rgba(2, 4, 24, 0.11);
+  }
+  .crousel-first {
+    border-radius: 35.233px;
+    border: 1.174px solid #3f3f7a;
+    background: #11113a;
+    box-shadow: 0px 4.698px 46.978px 0px rgba(10, 9, 23, 0.6);
+  }
+  .glow {
+    box-shadow:
+      0 0px 20px rgba(152, 255, 249, 1),
+      0px 0px 20px rgba(72, 102, 169, 0.4),
+      0px 0px 30px rgba(72, 102, 169, 0.4);
+  }
 }
 
 @layer utilities {
@@ -1233,11 +1494,11 @@ coingecko-coin-price-chart-widget canvas {
   .animate-fade-in {
     animation: fadeIn 1s ease-out forwards;
   }
-  
+
   .animate-slide-up {
     animation: slideUp 1.2s ease-out 0.3s both;
   }
-  
+
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradientShift 3s ease-in-out infinite;
@@ -1267,7 +1528,8 @@ coingecko-coin-price-chart-widget canvas {
 }
 
 @keyframes gradientShift {
-  0%, 100% {
+  0%,
+  100% {
     background-position: 0% 50%;
   }
   50% {
@@ -1276,7 +1538,8 @@ coingecko-coin-price-chart-widget canvas {
 }
 
 @keyframes pulse-slow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -1289,7 +1552,8 @@ coingecko-coin-price-chart-widget canvas {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -1302,11 +1566,14 @@ coingecko-coin-price-chart-widget canvas {
 }
 
 @keyframes glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(152, 255, 249, 0.5);
   }
   50% {
-    box-shadow: 0 0 40px rgba(152, 255, 249, 0.8), 0 0 60px rgba(181, 145, 242, 0.6);
+    box-shadow:
+      0 0 40px rgba(152, 255, 249, 0.8),
+      0 0 60px rgba(181, 145, 242, 0.6);
   }
 }
 
@@ -1315,12 +1582,12 @@ coingecko-coin-price-chart-widget canvas {
 }
 
 /* XSwap Modal Background Fix */
-[class*="xswap-modal"] {
+[class*='xswap-modal'] {
   background-color: #000000 !important;
 }
 
 /* If the above doesn't work, try this more specific selector */
-div[class*="xswap-modal-container"] {
+div[class*='xswap-modal-container'] {
   background-color: #000000 !important;
 }
 
@@ -1358,7 +1625,7 @@ a {
 }
 
 a:hover {
-  color: #98FFF9;
+  color: #98fff9;
 }
 
 /* Navigation Typography */
@@ -1369,8 +1636,18 @@ nav {
 }
 
 /* Form Elements Typography */
-input, textarea, select {
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+input,
+textarea,
+select {
+  font-family:
+    'Outfit',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
   font-size: clamp(1rem, 1.5vw, 1.125rem);
   line-height: 1.5;
   letter-spacing: 0.01em;
@@ -1402,7 +1679,8 @@ td {
 }
 
 /* Badge/Pill Typography */
-.badge, .pill {
+.badge,
+.pill {
   font-size: clamp(0.875rem, 1.4vw, 1rem);
   font-weight: 600;
   letter-spacing: 0.05em;
