@@ -2,6 +2,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { createPortal } from 'react-dom'
+import { ArrowUpRight } from 'lucide-react'
 
 import btc from '@/assets/icons/btclobby.svg'
 import xrp from '@/assets/icons/xrplobby.svg'
@@ -228,13 +229,13 @@ export default function MagicraftDownload() {
 
   return (
     <>
-    <div className="mx-2 sm:mx-4 flex flex-col lg:flex-row items-start justify-center gap-6 lg:gap-8 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 mt-2 sm:mt-3 relative z-50 overflow-visible">
+    <div className="mx-2 sm:mx-4 flex flex-col lg:flex-row items-stretch justify-center gap-6 lg:gap-8 lg:mx-8 xl:mx-16 2xl:mx-20 lg:mb-2 mt-2 sm:mt-3 relative z-50 overflow-visible">
       {/* Platform Download Box */}
       <div className="relative mx-auto w-full lg:w-auto lg:flex-shrink-0 lg:mx-0">
-        <div className="rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-[0_0_40px_rgba(181,145,242,0.25)]">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
+        <div className="h-full rounded-2xl bg-gradient-to-b from-[#B591F2] to-transparent p-[1px] shadow-[0_0_40px_rgba(181,145,242,0.25)]">
+          <div className="relative flex h-full overflow-hidden rounded-2xl bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90%">
             {/* Platform Download Buttons */}
-            <div className="p-6 lg:p-8">
+            <div className="flex w-full items-center p-6 lg:p-8">
               <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-4 lg:gap-5 w-full max-w-md mx-auto lg:max-w-none">
                 {platforms.map((platform) => (
                   <a
@@ -368,6 +369,28 @@ export default function MagicraftDownload() {
             )
           })}
         </div>
+        <div className="mx-auto mt-4 grid w-full max-w-5xl grid-cols-1 gap-4 px-2 sm:px-4 lg:max-w-none xl:grid-cols-[1fr_auto]">
+          <div className="rounded-2xl border border-[#98FFF9]/15 bg-[#080F44]/80 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.25)] backdrop-blur">
+            <p className="mb-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#98FFF9]/80">
+              Live Prize Lobbies
+            </p>
+            <h3 className="text-xl font-bold text-white md:text-2xl">
+              One game, six crypto reward paths
+            </h3>
+            <p className="mt-2 max-w-2xl text-sm leading-relaxed text-white/70 md:text-base">
+              BTC, BNB, $MCRT, ETH, XRP, and SOL lobbies sit beside the official MagicCraft downloads so players can find the right entry point faster.
+            </p>
+          </div>
+          <a
+            href="https://lobby.magiccraft.io/?crypto=mcrt"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex min-h-[104px] items-center justify-center gap-3 rounded-2xl border border-[#98FFF9]/30 bg-[#98FFF9] px-6 text-center text-sm font-black uppercase tracking-[0.08em] text-[#050317] shadow-[0_18px_50px_rgba(152,255,249,0.22)] transition-all hover:scale-[1.01] hover:bg-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] xl:min-w-[230px]"
+          >
+            Open $MCRT Lobby
+            <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
+        </div>
       </div>
     </div>
     
@@ -461,7 +484,10 @@ export default function MagicraftDownload() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      Join {l.title} Lobby →
+                      <span className="inline-flex items-center justify-center gap-2">
+                        Join {l.title} Lobby
+                        <ArrowUpRight className="h-4 w-4" />
+                      </span>
                     </motion.button>
                   </div>
                   

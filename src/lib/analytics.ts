@@ -16,6 +16,7 @@ export type CtaEvent = {
     | 'pancakeswap'
     | 'bybit'
     | 'htx'
+    | 'metamask'
     | 'copy_contract'
     | 'download_ios'
     | 'download_android'

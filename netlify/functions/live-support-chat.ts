@@ -27,6 +27,7 @@ const SOURCES = {
   docai: 'https://docai.live',
   polybilities: 'https://polybilities.com',
   socialmm: 'https://socialmm.ai',
+  magas7: 'https://magas7.com',
   dragonlist: 'https://dragonlist.ai',
   coingeckoCoin: 'https://www.coingecko.com/en/coins/magiccraft',
   coinmarketcapCoin: 'https://coinmarketcap.com/currencies/magiccraft/',
@@ -59,14 +60,20 @@ async function safeFetchText(url: string, opts?: RequestInit) {
 async function getMarketSnapshot() {
   const url =
     'https://api.coingecko.com/api/v3/simple/price?ids=magiccraft&vs_currencies=usd&include_24hr_change=true'
-  const res = await safeFetchText(url, { headers: { accept: 'application/json' } })
+  const res = await safeFetchText(url, {
+    headers: { accept: 'application/json' },
+  })
   if (!res.ok) return null
   try {
     const json = JSON.parse(res.text)
     const usd = json?.magiccraft?.usd
     const chg = json?.magiccraft?.usd_24h_change
     if (typeof usd !== 'number') return null
-    return { usd, usd_24h_change: typeof chg === 'number' ? chg : null, source: 'CoinGecko' }
+    return {
+      usd,
+      usd_24h_change: typeof chg === 'number' ? chg : null,
+      source: 'CoinGecko',
+    }
   } catch {
     return null
   }
@@ -76,7 +83,9 @@ async function getCoinGeckoProfile() {
   // Broader project context (trimmed) to answer ecosystem questions.
   const url =
     'https://api.coingecko.com/api/v3/coins/magiccraft?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false'
-  const res = await safeFetchText(url, { headers: { accept: 'application/json' } })
+  const res = await safeFetchText(url, {
+    headers: { accept: 'application/json' },
+  })
   if (!res.ok) return null
   try {
     const json = JSON.parse(res.text)
@@ -84,17 +93,25 @@ async function getCoinGeckoProfile() {
       id: json?.id,
       symbol: json?.symbol,
       name: json?.name,
-      categories: Array.isArray(json?.categories) ? json.categories.slice(0, 8) : [],
+      categories: Array.isArray(json?.categories)
+        ? json.categories.slice(0, 8)
+        : [],
       description_en: clamp(String(json?.description?.en || ''), 2000),
       links: {
-        homepage: Array.isArray(json?.links?.homepage) ? json.links.homepage.filter(Boolean).slice(0, 2) : [],
+        homepage: Array.isArray(json?.links?.homepage)
+          ? json.links.homepage.filter(Boolean).slice(0, 2)
+          : [],
         twitter_screen_name: json?.links?.twitter_screen_name || null,
-        telegram_channel_identifier: json?.links?.telegram_channel_identifier || null,
+        telegram_channel_identifier:
+          json?.links?.telegram_channel_identifier || null,
         github: Array.isArray(json?.links?.repos_url?.github)
           ? json.links.repos_url.github.filter(Boolean).slice(0, 3)
           : [],
       },
-      platforms: json?.platforms && typeof json.platforms === 'object' ? json.platforms : {},
+      platforms:
+        json?.platforms && typeof json.platforms === 'object'
+          ? json.platforms
+          : {},
     }
     return out
   } catch {
@@ -119,9 +136,15 @@ async function getMagiccraftHomepageMeta() {
   }
   return {
     title: get(/<title[^>]*>([^<]+)<\/title>/i),
-    description: get(/<meta\s+name=["']description["']\s+content=["']([^"']+)["'][^>]*>/i),
-    ogTitle: get(/<meta\s+property=["']og:title["']\s+content=["']([^"']+)["'][^>]*>/i),
-    ogDescription: get(/<meta\s+property=["']og:description["']\s+content=["']([^"']+)["'][^>]*>/i),
+    description: get(
+      /<meta\s+name=["']description["']\s+content=["']([^"']+)["'][^>]*>/i
+    ),
+    ogTitle: get(
+      /<meta\s+property=["']og:title["']\s+content=["']([^"']+)["'][^>]*>/i
+    ),
+    ogDescription: get(
+      /<meta\s+property=["']og:description["']\s+content=["']([^"']+)["'][^>]*>/i
+    ),
   }
 }
 
@@ -136,7 +159,9 @@ async function getCoinMarketCapJsonLd() {
     },
   })
   if (!res.ok) return null
-  const m = res.text.match(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i)
+  const m = res.text.match(
+    /<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i
+  )
   if (!m) return null
   const raw = m[1]
   // keep small
@@ -187,9 +212,15 @@ function systemPrompt(opts: {
       }`
     : 'Market snapshot: unavailable right now.'
 
-  const cmcBlock = opts.cmcJsonLd ? `\n\nCoinMarketCap JSON-LD (best-effort, may be partial):\n${opts.cmcJsonLd}` : ''
-  const cgBlock = opts.cgProfile ? `\n\nCoinGecko project profile (trimmed):\n${clamp(JSON.stringify(opts.cgProfile), 5000)}` : ''
-  const siteBlock = opts.siteMeta ? `\n\nmagiccraft.io homepage meta (best-effort):\n${clamp(JSON.stringify(opts.siteMeta), 1500)}` : ''
+  const cmcBlock = opts.cmcJsonLd
+    ? `\n\nCoinMarketCap JSON-LD (best-effort, may be partial):\n${opts.cmcJsonLd}`
+    : ''
+  const cgBlock = opts.cgProfile
+    ? `\n\nCoinGecko project profile (trimmed):\n${clamp(JSON.stringify(opts.cgProfile), 5000)}`
+    : ''
+  const siteBlock = opts.siteMeta
+    ? `\n\nmagiccraft.io homepage meta (best-effort):\n${clamp(JSON.stringify(opts.siteMeta), 1500)}`
+    : ''
   const networkBlock = `
 Official ecosystem/network projects and systems:
 - MagicCraft + $MCRT hub: ${SOURCES.magiccraft}
@@ -201,6 +232,8 @@ Official ecosystem/network projects and systems:
 - DocAI: ${SOURCES.docai}
 - Polybilities: ${SOURCES.polybilities}
 - SocialMM: ${SOURCES.socialmm}
+- EnvRouter AI: AI gateway and model router for encrypted keys, streaming proxy support, token tracking, and user dashboard management. No public domain is confirmed in this context.
+- MAGAS7 Marketing Agents: ${SOURCES.magas7}
 - DragonList: ${SOURCES.dragonlist}
 `.trim()
 
@@ -251,10 +284,15 @@ export const handler: Handler = async (event) => {
   }
 
   if (event.httpMethod !== 'POST') {
-    return { statusCode: 405, headers: { 'content-type': 'application/json' }, body: JSON.stringify({ error: 'Method not allowed' }) }
+    return {
+      statusCode: 405,
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ error: 'Method not allowed' }),
+    }
   }
 
-  const clientIp = event.headers?.['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown'
+  const clientIp =
+    event.headers?.['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown'
   const now = Date.now()
   const rateEntry = ipRateMap[clientIp]
   if (!rateEntry || now > rateEntry.resetAt) {
@@ -264,8 +302,13 @@ export const handler: Handler = async (event) => {
     if (rateEntry.count > IP_RATE_LIMIT) {
       return {
         statusCode: 429,
-        headers: { 'content-type': 'application/json; charset=utf-8', 'retry-after': '60' },
-        body: JSON.stringify({ error: 'Too many requests. Please wait a minute before trying again.' }),
+        headers: {
+          'content-type': 'application/json; charset=utf-8',
+          'retry-after': '60',
+        },
+        body: JSON.stringify({
+          error: 'Too many requests. Please wait a minute before trying again.',
+        }),
       }
     }
   }
@@ -286,13 +329,17 @@ export const handler: Handler = async (event) => {
 
   let payload: any = null
   try {
-    payload = (event.body ? (JSON.parse(event.body) as IncomingPayload) : {}) satisfies IncomingPayload
+    payload = (
+      event.body ? (JSON.parse(event.body) as IncomingPayload) : {}
+    ) satisfies IncomingPayload
   } catch {
     payload = {} satisfies IncomingPayload
   }
 
   const message = clamp((payload as IncomingPayload)?.message || '', 2000)
-  const history = Array.isArray((payload as IncomingPayload)?.history) ? (payload as IncomingPayload).history! : []
+  const history = Array.isArray((payload as IncomingPayload)?.history)
+    ? (payload as IncomingPayload).history!
+    : []
 
   if (!message) {
     return {
@@ -303,7 +350,12 @@ export const handler: Handler = async (event) => {
   }
 
   const safeHistory = history
-    .filter((m) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
+    .filter(
+      (m) =>
+        m &&
+        (m.role === 'user' || m.role === 'assistant') &&
+        typeof m.content === 'string'
+    )
     .slice(-12)
     .map((m) => ({ role: m.role, content: clamp(m.content, 1500) }))
 
@@ -314,28 +366,36 @@ export const handler: Handler = async (event) => {
 
   const [market, cgProfile, siteMeta, cmcJsonLd] = await Promise.all([
     (async () => {
-      const cached = getCached<Awaited<ReturnType<typeof getMarketSnapshot>>>('market')
+      const cached =
+        getCached<Awaited<ReturnType<typeof getMarketSnapshot>>>('market')
       if (cached !== undefined) return cached
       const v = await getMarketSnapshot()
       setCached('market', v, MARKET_TTL)
       return v
     })(),
     (async () => {
-      const cached = getCached<Awaited<ReturnType<typeof getCoinGeckoProfile>>>('cgProfile')
+      const cached =
+        getCached<Awaited<ReturnType<typeof getCoinGeckoProfile>>>('cgProfile')
       if (cached !== undefined) return cached
       const v = await getCoinGeckoProfile()
       setCached('cgProfile', v, PROFILE_TTL)
       return v
     })(),
     (async () => {
-      const cached = getCached<Awaited<ReturnType<typeof getMagiccraftHomepageMeta>>>('siteMeta')
+      const cached =
+        getCached<Awaited<ReturnType<typeof getMagiccraftHomepageMeta>>>(
+          'siteMeta'
+        )
       if (cached !== undefined) return cached
       const v = await getMagiccraftHomepageMeta()
       setCached('siteMeta', v, META_TTL)
       return v
     })(),
     (async () => {
-      const cached = getCached<Awaited<ReturnType<typeof getCoinMarketCapJsonLd>>>('cmcJsonLd')
+      const cached =
+        getCached<Awaited<ReturnType<typeof getCoinMarketCapJsonLd>>>(
+          'cmcJsonLd'
+        )
       if (cached !== undefined) return cached
       const v = await getCoinMarketCapJsonLd()
       setCached('cmcJsonLd', v, CMC_TTL)
@@ -360,7 +420,11 @@ export const handler: Handler = async (event) => {
         model,
         temperature: 0.2,
         max_tokens: 500,
-        messages: [{ role: 'system', content: sys }, ...safeHistory, { role: 'user', content: message }],
+        messages: [
+          { role: 'system', content: sys },
+          ...safeHistory,
+          { role: 'user', content: message },
+        ],
       }),
     })
 
@@ -369,7 +433,10 @@ export const handler: Handler = async (event) => {
       return {
         statusCode: orRes.status,
         headers: { 'content-type': 'application/json; charset=utf-8' },
-        body: JSON.stringify({ error: `Upstream error (${orRes.status})`, details: text.slice(0, 2000) }),
+        body: JSON.stringify({
+          error: `Upstream error (${orRes.status})`,
+          details: text.slice(0, 2000),
+        }),
       }
     }
 
@@ -401,8 +468,9 @@ export const handler: Handler = async (event) => {
     return {
       statusCode: 500,
       headers: { 'content-type': 'application/json; charset=utf-8' },
-      body: JSON.stringify({ error: e instanceof Error ? e.message : String(e) }),
+      body: JSON.stringify({
+        error: e instanceof Error ? e.message : String(e),
+      }),
     }
   }
 }
-

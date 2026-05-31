@@ -12,6 +12,7 @@ import {
 } from 'react-icons/fa6'
 import { useNavigate, Link } from 'react-router-dom'
 import { BUILD_REV } from '@/version'
+import { BYBIT_URL, METAMASK_SWAP_URL, PANCAKESWAP_URL } from '@/constants'
 
 const socialLinks = [
   {
@@ -63,12 +64,16 @@ const socialLinks = [
 
 const tokenLinks = [
   {
-    title: 'Buy $MCRT (Bybit)',
-    link: 'https://www.bybit.com/en/trade/spot/MCRT/USDT',
+    title: 'PancakeSwap DEX',
+    link: PANCAKESWAP_URL,
   },
   {
-    title: 'PancakeSwap',
-    link: 'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f',
+    title: 'MetaMask Swap',
+    link: METAMASK_SWAP_URL,
+  },
+  {
+    title: 'Buy $MCRT on Bybit',
+    link: BYBIT_URL,
   },
   {
     title: 'HTX',
@@ -82,7 +87,7 @@ const tokenLinks = [
     title: 'Marketplace',
     link: 'https://app.magiccraft.io/marketplace/explorer',
   },
-];
+]
 
 const moreLinks = [
   {
@@ -115,8 +120,8 @@ const Footer = () => {
   const navigate = useNavigate()
   const appVersion = `v${BUILD_REV}`
   return (
-    <footer className="text-primary relative z-10 py-12 md:py-16 bg-gradient-to-b from-[#020418] via-[#0A0424] to-[#03082f] hairline-top">
-      <div className="mx-auto flex w-11/12 max-w-screen-xl flex-col-reverse justify-between gap-10 md:gap-12 lg:flex-row glass-surface rounded-md px-6 md:px-8 py-8 md:py-10 border border-white/10">
+    <footer className="text-primary hairline-top relative z-10 bg-gradient-to-b from-[#020418] via-[#0A0424] to-[#03082f] py-12 md:py-16">
+      <div className="glass-surface mx-auto flex w-11/12 max-w-screen-xl flex-col-reverse justify-between gap-10 rounded-md border border-white/10 px-6 py-8 md:gap-12 md:px-8 md:py-10 lg:flex-row">
         {/* Left Section - Logo & Info */}
         <div className="flex w-full flex-col lg:w-1/2">
           <div className="mb-6 md:mb-8">
@@ -127,57 +132,68 @@ const Footer = () => {
               height="48"
               loading="lazy"
               decoding="async"
-              className="max-w-[200px] md:max-w-[240px] drop-shadow-2xl hover:scale-105 transition-transform duration-300"
+              className="max-w-[200px] drop-shadow-2xl transition-transform duration-300 hover:scale-105 md:max-w-[240px]"
             />
           </div>
-          
+
           <div className="space-y-6 md:space-y-8">
-            <p className="text-sm md:text-base text-white/70 leading-relaxed font-medium flex items-center gap-2">
-              <span>&copy; MagicCraft May 2021 - 2026. All rights reserved</span>
+            <p className="flex items-center gap-2 text-sm font-medium leading-relaxed text-white/70 md:text-base">
+              <span>
+                &copy; MagicCraft May 2021 - 2026. All rights reserved
+              </span>
               <span className="inline-flex items-center rounded-md border border-white/10 bg-white/5 px-2 py-0.5 text-[10px] text-white/60">
                 {appVersion}
               </span>
             </p>
-            
-            <ul className="text-sm md:text-base flex flex-col md:flex-row md:space-x-8 space-y-3 md:space-y-0 text-[#98FFF9] font-semibold">
+
+            <ul className="flex flex-col space-y-3 text-sm font-semibold text-[#98FFF9] md:flex-row md:space-x-8 md:space-y-0 md:text-base">
               <li>
-                <Link to="/privacypolicy" className="cursor-pointer hover:text-white transition-colors duration-200 inline-block">
+                <Link
+                  to="/privacypolicy"
+                  className="inline-block cursor-pointer transition-colors duration-200 hover:text-white"
+                >
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms" className="cursor-pointer hover:text-white transition-colors duration-200 inline-block">
+                <Link
+                  to="/terms"
+                  className="inline-block cursor-pointer transition-colors duration-200 hover:text-white"
+                >
                   Terms and Conditions
                 </Link>
               </li>
               <li>
-                <Link to="/disclaimer" className="cursor-pointer hover:text-white transition-colors duration-200 inline-block">
+                <Link
+                  to="/disclaimer"
+                  className="inline-block cursor-pointer transition-colors duration-200 hover:text-white"
+                >
                   Disclaimer
                 </Link>
               </li>
             </ul>
 
-            <p className="text-sm md:text-base text-white/50 leading-relaxed max-w-2xl font-light">
+            <p className="max-w-2xl text-sm font-light leading-relaxed text-white/50 md:text-base">
               MagicCraft Services and MCRT Token are not available in the United
               States or other prohibited jurisdictions. Services for this
               product are facilitated through MagicCraft Ltd.
             </p>
           </div>
-          
+
           {/* Social Media Icons */}
           <div className="flex flex-wrap gap-4 pt-8 md:pt-10">
             {socialLinks.map((item, i) => {
               return (
-                <a 
-                  key={i} 
-                  rel="noreferrer noopener" 
+                <a
+                  key={i}
+                  rel="noreferrer noopener"
                   href={item.link}
-                  className="group p-3 rounded-xl bg-white/5 border border-white/10 hover:border-[#98FFF9]/40 hover:bg-white/10 hover:-translate-y-1 transition-all duration-300 shadow-lg"
+                  className="group rounded-xl border border-white/10 bg-white/5 p-3 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-[#98FFF9]/40 hover:bg-white/10"
                   aria-label={`Visit MagicCraft on ${item.label}`}
                   title={item.label}
                   target="_blank"
                 >
-                  <div className="text-white/70 group-hover:text-[#98FFF9] transition-colors duration-300">
+                  <div className="text-white/70 transition-colors duration-300 group-hover:text-[#98FFF9]">
                     {item.icon}
                   </div>
                 </a>
@@ -187,22 +203,23 @@ const Footer = () => {
         </div>
 
         {/* Right Section - Navigation Links */}
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 lg:gap-16">
+        <div className="flex flex-col gap-8 md:flex-row md:gap-12 lg:gap-16">
           {/* Token Links */}
           <div className="w-full space-y-6 md:space-y-8">
-            <h5 className="text-xl md:text-2xl text-white font-black tracking-wider border-b-2 border-white/15 pb-3 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">
+            <h5 className="border-b-2 border-white/15 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text pb-3 text-xl font-black tracking-wider text-transparent text-white md:text-2xl">
               TOKEN
             </h5>
-            <ul className="space-y-3 md:space-y-4 text-sm md:text-base text-[#98FFF9]">
+            <ul className="space-y-3 text-sm text-[#98FFF9] md:space-y-4 md:text-base">
               {tokenLinks.map((item, i) => {
                 return (
                   <li key={i}>
-                    {item.link.startsWith('http') || item.link.startsWith('mailto') ? (
-                      <a 
-                        href={item.link} 
+                    {item.link.startsWith('http') ||
+                    item.link.startsWith('mailto') ? (
+                      <a
+                        href={item.link}
                         rel="noreferrer noopener"
                         target="_blank"
-                        className="hover:text-white transition-colors duration-200 inline-block font-medium"
+                        className="inline-block font-medium transition-colors duration-200 hover:text-white"
                       >
                         {item.title}
                       </a>
@@ -222,7 +239,7 @@ const Footer = () => {
                             navigate(item.link)
                           }
                         }}
-                        className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
+                        className="inline-block cursor-pointer transition-colors duration-200 hover:text-white"
                       >
                         {item.title}
                       </a>
@@ -235,19 +252,20 @@ const Footer = () => {
 
           {/* More Links */}
           <div className="w-full space-y-6 md:space-y-8">
-            <h5 className="text-xl md:text-2xl text-white font-black tracking-wider border-b-2 border-white/15 pb-3 bg-gradient-to-r from-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
+            <h5 className="border-b-2 border-white/15 bg-gradient-to-r from-[#B591F2] to-[#FFB649] bg-clip-text pb-3 text-xl font-black tracking-wider text-transparent text-white md:text-2xl">
               MORE
             </h5>
-            <ul className="space-y-3 md:space-y-4 text-sm md:text-base text-[#98FFF9]">
+            <ul className="space-y-3 text-sm text-[#98FFF9] md:space-y-4 md:text-base">
               {moreLinks.map((item, i) => {
                 return (
                   <li key={i}>
-                    {item.link.startsWith('http') || item.link.startsWith('mailto') ? (
-                      <a 
-                        href={item.link} 
+                    {item.link.startsWith('http') ||
+                    item.link.startsWith('mailto') ? (
+                      <a
+                        href={item.link}
                         rel="noreferrer noopener"
                         target="_blank"
-                        className="hover:text-white transition-colors duration-200 inline-block font-medium"
+                        className="inline-block font-medium transition-colors duration-200 hover:text-white"
                       >
                         {item.title}
                       </a>
@@ -257,7 +275,7 @@ const Footer = () => {
                           window.scrollTo(0, 0)
                           navigate(item.link)
                         }}
-                        className="cursor-pointer hover:text-white transition-colors duration-200 inline-block"
+                        className="inline-block cursor-pointer transition-colors duration-200 hover:text-white"
                       >
                         {item.title}
                       </a>
@@ -274,14 +292,15 @@ const Footer = () => {
       <div className="mx-auto my-8 h-[2px] w-11/12 bg-gradient-to-r from-transparent via-[#98FFF9]/30 to-transparent"></div>
 
       {/* Disclaimer Section */}
-      <div className="mx-auto lg:w-[48em] max-w-5xl text-center px-4">
-        <div className="glass-strong rounded-xl p-6 md:p-8 shadow-2xl border border-white/10 hover:border-white/20 transition-colors">
-          <p className="text-sm md:text-base text-[#8896AB] leading-relaxed">
-            $MCRT is a utility token designed for use within the MagicCraft ecosystem. If you are new to the cryptocurrency space,
-            please make sure you thoroughly familiarise yourself with the nature and risks
+      <div className="mx-auto max-w-5xl px-4 text-center lg:w-[48em]">
+        <div className="glass-strong rounded-xl border border-white/10 p-6 shadow-2xl transition-colors hover:border-white/20 md:p-8">
+          <p className="text-sm leading-relaxed text-[#8896AB] md:text-base">
+            $MCRT is a utility token designed for use within the MagicCraft
+            ecosystem. If you are new to the cryptocurrency space, please make
+            sure you thoroughly familiarise yourself with the nature and risks
             associated with $MCRT as per our{' '}
             <a
-              className="text-primary text-[#98FFF9] underline hover:text-white transition-colors duration-200 inline-block font-medium"
+              className="text-primary inline-block font-medium text-[#98FFF9] underline transition-colors duration-200 hover:text-white"
               target="_blank"
               rel="noopener noreferrer"
               href="https://docs.magiccraft.io/"

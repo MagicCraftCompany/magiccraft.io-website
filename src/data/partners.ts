@@ -5,53 +5,50 @@ import mexc from '@/assets/icons/mexc.svg'
 import Gate from '@/assets/icons/logo.svg'
 import weex from '@/assets/images/weex.webp'
 import bitunix from '@/assets/images/bitunix.webp'
+import { BYBIT_URL, PANCAKESWAP_URL } from '@/constants'
 const partners = [
   {
     name: 'Bybit',
     icon: bybit,
-    link:'https://www.bybit.com/en/trade/spot/MCRT/USDT'
+    link: BYBIT_URL,
   },
   {
     name: 'HTX',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717705783/Screenshot_2024-06-04_at_10.31_1_ntlhip.webp',
-    link:'https://www.htx.com/trade/mcrt_usdt'
+    link: 'https://www.htx.com/trade/mcrt_usdt',
   },
 
-  
   {
     name: 'Pancakeswap',
     icon: pancakeswap,
-    link:'https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f'
+    link: PANCAKESWAP_URL,
   },
   {
     name: 'Mexc Global',
     icon: mexc,
-    link:'https://www.mexc.com/exchange/MCRT_USDT'
-
+    link: 'https://www.mexc.com/exchange/MCRT_USDT',
   },
- 
-{
-  name:'biconomy',
-  icon:'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735016007/logo_3_-Photoroom_y7itlq.webp',
-  link:'https://www.biconomy.com/exchange/MCRT_USDT'
-},
- 
- 
+
+  {
+    name: 'biconomy',
+    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735016007/logo_3_-Photoroom_y7itlq.webp',
+    link: 'https://www.biconomy.com/exchange/MCRT_USDT',
+  },
+
   {
     name: 'Gate.io',
     icon: Gate,
-    link:'https://www.gate.io/trade/MCRT_USDT'
+    link: 'https://www.gate.io/trade/MCRT_USDT',
   },
   {
     name: 'WEEX',
     icon: weex,
-    link:'https://www.weex.com/trade/MCRT-USDT'
+    link: 'https://www.weex.com/trade/MCRT-USDT',
   },
   {
     name: 'Bitunix',
     icon: bitunix,
-    link:'https://www.bitunix.com/spot-trade/MCRTUSDT'
+    link: 'https://www.bitunix.com/spot-trade/MCRTUSDT',
   },
- 
 ]
 export default partners

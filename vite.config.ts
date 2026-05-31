@@ -56,7 +56,6 @@ export default defineConfig({
           'vendor-react': ['react', 'react-dom', 'react-router-dom'],
           'vendor-motion': ['framer-motion'],
           'vendor-charts': ['recharts'],
-          'vendor-swiper': ['swiper'],
           'vendor-sanity': ['@sanity/client'],
           'vendor-styled': ['styled-components'],
         },

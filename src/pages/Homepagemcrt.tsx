@@ -70,11 +70,11 @@ function Homepagemcrt() {
         </title>
         <meta
           name="description"
-          content="MagicCraft is a Web3 gaming and AI ecosystem powered by $MCRT: PvP crypto lobbies, NFT-linked characters, marketplace utility, MCRTPay, MagicAds, and creator tools for PC, iOS, Android, and Steam."
+          content="MagicCraft is a Web3 gaming and AI ecosystem powered by $MCRT: PvP crypto lobbies, NFT-linked characters, marketplace utility, MCRTPay, MagicAds, EnvRouter AI, MAGAS7, and creator tools for PC, iOS, Android, and Steam."
         />
         <meta
           name="keywords"
-          content="crypto gaming, $MCRT, MagicCraft, PvP lobbies, bitcoin gaming, ethereum gaming, NFT heroes, NFT skins, Web3 gaming, blockchain game, MCRTPay, MagicAds, AI products, NFT gaming, Steam, iOS, Android"
+          content="crypto gaming, $MCRT, MagicCraft, PvP lobbies, bitcoin gaming, ethereum gaming, NFT heroes, NFT skins, Web3 gaming, blockchain game, MCRTPay, MagicAds, EnvRouter AI, MAGAS7, AI products, NFT gaming, Steam, iOS, Android"
         />
         <meta name="author" content="MagicCraft" />
 
@@ -85,7 +85,7 @@ function Homepagemcrt() {
         />
         <meta
           property="og:description"
-          content="Use $MCRT across PvP lobbies, NFT assets, pledging, MCRTPay, MagicAds, and the growing MagicCraft AI product suite."
+          content="Use $MCRT across PvP lobbies, NFT assets, pledging, MCRTPay, MagicAds, and the growing MagicCraft AI product suite, including EnvRouter AI and MAGAS7."
         />
         <meta property="og:url" content="https://magiccraft.io/" />
 
@@ -96,7 +96,7 @@ function Homepagemcrt() {
         />
         <meta
           name="twitter:description"
-          content="Use $MCRT across PvP lobbies, NFT assets, pledging, MCRTPay, MagicAds, and the growing MagicCraft AI product suite."
+          content="Use $MCRT across PvP lobbies, NFT assets, pledging, MCRTPay, MagicAds, and the growing MagicCraft AI product suite, including EnvRouter AI and MAGAS7."
         />
 
         {/* VideoGame structured data (Organization + WebSite already in index.html) */}
@@ -106,7 +106,7 @@ function Homepagemcrt() {
             '@type': 'VideoGame',
             name: 'MagicCraft',
             description:
-              'Web3 game and AI ecosystem with live BTC, ETH, and $MCRT PvP lobbies, NFT-linked playable characters, rarity-based skins, payments, ads, and creator tools.',
+              'Web3 game and AI ecosystem with live BTC, ETH, and $MCRT PvP lobbies, NFT-linked playable characters, rarity-based skins, payments, ads, AI routing, marketing agents, and creator tools.',
             url: 'https://magiccraft.io/',
             image:
               'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
@@ -138,6 +138,9 @@ function Homepagemcrt() {
           {/* Token stats + CTA row */}
           <TokenStatsRow />
 
+          {/* Conversion-first Buy strip */}
+          <BuyStrip />
+
           {/* Live ecosystem stats */}
           <div className="w-full bg-gradient-to-b from-[#07051e] to-[#0a0524]">
             <Suspense fallback={null}>
@@ -154,8 +157,6 @@ function Homepagemcrt() {
               <MagicraftDownload />
             </div>
           </div>
-          {/* Conversion-first Buy strip */}
-          <BuyStrip />
           {/* $MCRT Payments: The currency of gaming */}
           <McrtPaymentsSection />
           {/* $MCRT Utility Token Section */}

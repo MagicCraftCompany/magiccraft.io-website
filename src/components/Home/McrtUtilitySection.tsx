@@ -95,7 +95,10 @@ const productRails = [
   ['Game', 'PvP tickets, lobby rewards, VIP access, referrals'],
   ['NFTs', 'Minting, fixed-price sales, auctions, characters, skins'],
   ['Builders', 'MCRTPay checkout, Game Maker, grants, creator tools'],
-  ['AI and ads', 'MagicAds, Akyn, Merlin, DocAI, Polybilities, SocialMM'],
+  [
+    'AI and ads',
+    'MagicAds, Akyn, Merlin, DocAI, Polybilities, SocialMM, EnvRouter AI, MAGAS7',
+  ],
 ]
 
 export default function McrtUtilitySection() {

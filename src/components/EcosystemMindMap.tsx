@@ -1,4 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import {
+  BYBIT_URL,
+  MCRT_CONTRACT,
+  METAMASK_SWAP_URL,
+  PANCAKESWAP_URL,
+} from '@/constants'
 
 type NodeGroup =
   | 'token'
@@ -49,36 +55,162 @@ export default function EcosystemMindMap() {
   const [tip, setTip] = useState<{ left: number; top: number } | null>(null)
 
   const { nodes, links } = useMemo(() => {
-    const mcrtContract = '0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f'
     const base: MapNode[] = [
-      { id: 'mcrt', label: '$MCRT', group: 'token', url: 'https://coinmarketcap.com/currencies/magiccraft/', description: 'BNB Chain token powering MagicCraft + AI.' },
+      {
+        id: 'mcrt',
+        label: '$MCRT',
+        group: 'token',
+        url: 'https://coinmarketcap.com/currencies/magiccraft/',
+        description: 'BNB Chain token powering MagicCraft + AI.',
+      },
 
-      { id: 'tokenomics', label: 'Tokenomics', group: 'token', url: 'https://docs.magiccraft.io/' },
-      { id: 'bsc', label: 'BNB Chain', group: 'tech', url: 'https://bscscan.com/token/' + mcrtContract },
-      { id: 'contract', label: 'Contract', group: 'tech', url: 'https://bscscan.com/token/' + mcrtContract },
+      {
+        id: 'tokenomics',
+        label: 'Tokenomics',
+        group: 'token',
+        url: 'https://docs.magiccraft.io/',
+      },
+      {
+        id: 'bsc',
+        label: 'BNB Chain',
+        group: 'tech',
+        url: 'https://bscscan.com/token/' + MCRT_CONTRACT,
+      },
+      {
+        id: 'contract',
+        label: 'Contract',
+        group: 'tech',
+        url: 'https://bscscan.com/token/' + MCRT_CONTRACT,
+      },
 
-      { id: 'bybit', label: 'Bybit', group: 'exchanges', url: 'https://www.bybit.com/en/trade/spot/MCRT/USDT' },
-      { id: 'htx', label: 'HTX', group: 'exchanges', url: 'https://www.htx.com/trade/mcrt_usdt' },
-      { id: 'mexc', label: 'MEXC', group: 'exchanges', url: 'https://www.mexc.com/exchange/MCRT_USDT' },
-      { id: 'gate', label: 'Gate.io', group: 'exchanges', url: 'https://www.gate.io/trade/MCRT_USDT' },
-      { id: 'pancake', label: 'PancakeSwap', group: 'exchanges', url: `https://pancakeswap.finance/swap?outputCurrency=${mcrtContract}` },
+      {
+        id: 'bybit',
+        label: 'Bybit',
+        group: 'exchanges',
+        url: BYBIT_URL,
+      },
+      {
+        id: 'htx',
+        label: 'HTX',
+        group: 'exchanges',
+        url: 'https://www.htx.com/trade/mcrt_usdt',
+      },
+      {
+        id: 'mexc',
+        label: 'MEXC',
+        group: 'exchanges',
+        url: 'https://www.mexc.com/exchange/MCRT_USDT',
+      },
+      {
+        id: 'gate',
+        label: 'Gate.io',
+        group: 'exchanges',
+        url: 'https://www.gate.io/trade/MCRT_USDT',
+      },
+      {
+        id: 'pancake',
+        label: 'PancakeSwap',
+        group: 'exchanges',
+        url: PANCAKESWAP_URL,
+      },
+      {
+        id: 'metamask',
+        label: 'MetaMask',
+        group: 'exchanges',
+        url: METAMASK_SWAP_URL,
+      },
 
-      { id: 'game', label: 'MagicCraft', group: 'game', url: 'https://magiccraft.io/#download-section' },
-      { id: 'lobbies', label: 'Lobbies', group: 'game', url: 'https://lobby.magiccraft.io/' },
-      { id: 'market', label: 'Marketplace', group: 'game', url: 'https://app.magiccraft.io/marketplace/explorer' },
-      { id: 'mint', label: 'NFTs', group: 'game', url: 'https://app.magiccraft.io/nft_mint' },
-      { id: 'gamemaker', label: 'Game Maker', group: 'game', url: 'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/' },
+      {
+        id: 'game',
+        label: 'MagicCraft',
+        group: 'game',
+        url: 'https://magiccraft.io/#download-section',
+      },
+      {
+        id: 'lobbies',
+        label: 'Lobbies',
+        group: 'game',
+        url: 'https://lobby.magiccraft.io/',
+      },
+      {
+        id: 'market',
+        label: 'Marketplace',
+        group: 'game',
+        url: 'https://app.magiccraft.io/marketplace/explorer',
+      },
+      {
+        id: 'mint',
+        label: 'NFTs',
+        group: 'game',
+        url: 'https://app.magiccraft.io/nft_mint',
+      },
+      {
+        id: 'gamemaker',
+        label: 'Game Maker',
+        group: 'game',
+        url: 'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/',
+      },
 
       { id: 'akyn', label: 'Akyn', group: 'ai', url: 'https://akyn.pro' },
-      { id: 'merlin', label: 'Merlin AI', group: 'ai', url: 'https://merlintheai.com' },
+      {
+        id: 'merlin',
+        label: 'Merlin AI',
+        group: 'ai',
+        url: 'https://merlintheai.com',
+      },
       { id: 'docai', label: 'DocAI', group: 'ai', url: 'https://docai.live' },
-      { id: 'polybilities', label: 'Polybilities', group: 'ai', url: 'https://polybilities.com' },
-      { id: 'socialmm', label: 'SocialMM', group: 'ai', url: 'https://socialmm.ai/' },
-      { id: 'dragonlist', label: 'DragonList', group: 'ai', url: 'https://dragonlist.ai' },
+      {
+        id: 'polybilities',
+        label: 'Polybilities',
+        group: 'ai',
+        url: 'https://polybilities.com',
+      },
+      {
+        id: 'socialmm',
+        label: 'SocialMM',
+        group: 'ai',
+        url: 'https://socialmm.ai/',
+      },
+      {
+        id: 'envrouter',
+        label: 'EnvRouter AI',
+        group: 'ai',
+        description:
+          'AI gateway for model routing, encrypted keys, streaming proxy support, and token tracking.',
+      },
+      {
+        id: 'magas7',
+        label: 'MAGAS7',
+        group: 'ai',
+        url: 'https://magas7.com',
+        description:
+          'Marketing Agents command surface for campaigns, creative, scheduling, analytics, and brand QA.',
+      },
+      {
+        id: 'dragonlist',
+        label: 'DragonList',
+        group: 'ai',
+        url: 'https://dragonlist.ai',
+      },
 
-      { id: 'discord', label: 'Discord', group: 'community', url: 'https://discord.gg/magiccraftgame' },
-      { id: 'telegram', label: 'Telegram', group: 'community', url: 'https://t.me/magiccraftgamechat' },
-      { id: 'x', label: 'X', group: 'community', url: 'https://x.com/MagicCraftGame' },
+      {
+        id: 'discord',
+        label: 'Discord',
+        group: 'community',
+        url: 'https://discord.gg/magiccraftgame',
+      },
+      {
+        id: 'telegram',
+        label: 'Telegram',
+        group: 'community',
+        url: 'https://t.me/magiccraftgamechat',
+      },
+      {
+        id: 'x',
+        label: 'X',
+        group: 'community',
+        url: 'https://x.com/MagicCraftGame',
+      },
     ]
 
     const linkList: MapLink[] = [
@@ -91,6 +223,7 @@ export default function EcosystemMindMap() {
       { source: 'mcrt', target: 'mexc' },
       { source: 'mcrt', target: 'gate' },
       { source: 'mcrt', target: 'pancake' },
+      { source: 'mcrt', target: 'metamask' },
 
       { source: 'mcrt', target: 'game' },
       { source: 'mcrt', target: 'lobbies' },
@@ -103,6 +236,8 @@ export default function EcosystemMindMap() {
       { source: 'mcrt', target: 'docai' },
       { source: 'mcrt', target: 'polybilities' },
       { source: 'mcrt', target: 'socialmm' },
+      { source: 'mcrt', target: 'envrouter' },
+      { source: 'mcrt', target: 'magas7' },
       { source: 'mcrt', target: 'dragonlist' },
 
       { source: 'mcrt', target: 'discord' },
@@ -113,7 +248,10 @@ export default function EcosystemMindMap() {
     return { nodes: base, links: linkList }
   }, [])
 
-  const simRef = useRef<{ nodes: SimNode[]; links: Array<{ a: SimNode; b: SimNode }> } | null>(null)
+  const simRef = useRef<{
+    nodes: SimNode[]
+    links: Array<{ a: SimNode; b: SimNode }>
+  } | null>(null)
 
   useEffect(() => {
     const wrapEl = wrapRef.current
@@ -251,8 +389,11 @@ export default function EcosystemMindMap() {
         ctx2d.fill()
         ctx2d.stroke()
 
-      ctx2d.font = n.id === 'mcrt' ? '600 15px system-ui' : '500 13px system-ui'
-        ctx2d.fillStyle = isHovered ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.5)'
+        ctx2d.font =
+          n.id === 'mcrt' ? '600 15px system-ui' : '500 13px system-ui'
+        ctx2d.fillStyle = isHovered
+          ? 'rgba(255,255,255,0.95)'
+          : 'rgba(255,255,255,0.5)'
         ctx2d.textAlign = 'center'
         ctx2d.textBaseline = 'top'
         ctx2d.fillText(n.label, n.x, n.y + n.r + 3)
@@ -292,7 +433,10 @@ export default function EcosystemMindMap() {
     }
     if (best) {
       setHoveredId(best.id)
-      setTip({ left: clamp(best.x + 8, 8, rect.width - 8), top: clamp(best.y - 8, 8, rect.height - 8) })
+      setTip({
+        left: clamp(best.x + 8, 8, rect.width - 8),
+        top: clamp(best.y - 8, 8, rect.height - 8),
+      })
       return best
     }
     setHoveredId(null)
@@ -308,28 +452,42 @@ export default function EcosystemMindMap() {
   const hovered = hoveredId ? nodes.find((n) => n.id === hoveredId) : null
 
   return (
-    <div className="w-full h-full relative">
+    <div className="relative h-full w-full">
       <div
         ref={wrapRef}
-        className="w-full h-full cursor-pointer"
+        className="h-full w-full cursor-pointer"
         aria-label="MagicCraft ecosystem map: move the pointer over a node to see its label, click a node to open its page in a new tab"
         onMouseMove={(e) => pickNode(e.clientX, e.clientY)}
-        onMouseLeave={() => { setHoveredId(null); setTip(null) }}
+        onMouseLeave={() => {
+          setHoveredId(null)
+          setTip(null)
+        }}
         onClick={onClick}
       >
-        <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+        <canvas ref={canvasRef} className="absolute inset-0 h-full w-full" />
         {hovered && tip && (
           <div
-            className="absolute z-20 w-[160px] -translate-x-1/2 rounded border border-white/10 bg-black/80 backdrop-blur p-2 text-[10px] text-white/85 pointer-events-none"
+            className="pointer-events-none absolute z-20 w-[160px] -translate-x-1/2 rounded border border-white/10 bg-black/80 p-2 text-[10px] text-white/85 backdrop-blur"
             style={{ left: tip.left, top: tip.top }}
           >
             <div className="flex items-center justify-between gap-1">
-              <div className="font-semibold text-white text-[11px]">{hovered.label}</div>
-              <div className="text-[8px]" style={{ color: GROUP_COLORS[hovered.group] }}>{hovered.group.toUpperCase()}</div>
+              <div className="text-[11px] font-semibold text-white">
+                {hovered.label}
+              </div>
+              <div
+                className="text-[8px]"
+                style={{ color: GROUP_COLORS[hovered.group] }}
+              >
+                {hovered.group.toUpperCase()}
+              </div>
             </div>
-            {hovered.description && <div className="mt-0.5 text-white/70 text-[9px]">{hovered.description}</div>}
+            {hovered.description && (
+              <div className="mt-0.5 text-[9px] text-white/70">
+                {hovered.description}
+              </div>
+            )}
             {hovered.url && (
-              <div className="mt-1 text-[#98FFF9] text-[8px] truncate">
+              <div className="mt-1 truncate text-[8px] text-[#98FFF9]">
                 Click to open
               </div>
             )}

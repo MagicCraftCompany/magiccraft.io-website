@@ -64,12 +64,33 @@ const aiProducts = [
     name: 'SocialMM',
     url: 'https://socialmm.ai',
     domain: 'socialmm.ai',
-    logo: 'https://socialmm.ai/favicon.ico',
+    logo: '/icons/icon-community.svg',
     logoClass: 'p-2 bg-[#16152f]',
     color: '#60A5FA',
     tag: 'Growth',
     description:
       'AI social media autopilot for brand preferences, content generation, scheduling, and analytics across major social platforms.',
+  },
+  {
+    name: 'EnvRouter AI',
+    domain: 'AI gateway',
+    logo: '/icons/icon-stats.svg',
+    logoClass: 'p-2 bg-[#102033]',
+    color: '#38BDF8',
+    tag: 'Routing',
+    description:
+      'OpenRouter-style AI gateway for model routing, encrypted key storage, streaming proxy support, token tracking, and a user dashboard for product teams.',
+  },
+  {
+    name: 'MAGAS7',
+    url: 'https://magas7.com',
+    domain: 'magas7.com',
+    logo: 'https://magas7.com/favicon.svg',
+    logoClass: 'p-2 bg-[#10160d]',
+    color: '#B1FF5A',
+    tag: 'Marketing',
+    description:
+      'Agentic marketing OS where seven specialist agents research, write, design, schedule, post, analyze, and guard brand quality across the marketing stack.',
   },
   {
     name: 'AI Studio',
@@ -94,9 +115,8 @@ export default function AIIntegrationSection() {
             AI products that make $MCRT useful beyond the arena
           </h2>
           <p className="mx-auto max-w-3xl text-base text-gray-300 sm:text-lg md:text-xl">
-            The token is being positioned as a payment and reward rail across
-            the MagicCraft game, MCRTPay, MagicAds, and a growing AI suite built
-            for creators, operators, and communities.
+            $MCRT connects the MagicCraft game, MCRTPay, MagicAds, and a growing
+            AI suite for creators, operators, marketers, and product teams.
           </p>
         </div>
 
@@ -117,48 +137,63 @@ export default function AIIntegrationSection() {
                 color,
                 tag,
                 description,
-              }) => (
-                <a
-                  key={name}
-                  href={url}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="card-glass group min-h-[205px] rounded-xl border border-white/10 bg-white/[0.02] p-5 no-underline transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.04] hover:no-underline"
-                >
-                  <div className="mb-3 flex items-center gap-3">
-                    <div className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-xl ring-1 ring-white/10">
-                      <ProductLogo
-                        src={logo}
-                        alt={`${name} logo`}
-                        className={logoClass}
-                      />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <h4 className="text-xl font-bold text-white transition-colors">
-                          {name}
-                        </h4>
-                        <span
-                          className="rounded-full border px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider"
-                          style={{
-                            borderColor: `${color}55`,
-                            color,
-                            backgroundColor: `${color}14`,
-                          }}
-                        >
-                          {tag}
+              }) => {
+                const content = (
+                  <>
+                    <div className="mb-3 flex items-center gap-3">
+                      <div className="h-12 w-12 flex-shrink-0 overflow-hidden rounded-xl ring-1 ring-white/10">
+                        <ProductLogo
+                          src={logo}
+                          alt={`${name} logo`}
+                          className={logoClass}
+                        />
+                      </div>
+                      <div className="min-w-0">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <h4 className="text-xl font-bold text-white transition-colors">
+                            {name}
+                          </h4>
+                          <span
+                            className="rounded-full border px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider"
+                            style={{
+                              borderColor: `${color}55`,
+                              color,
+                              backgroundColor: `${color}14`,
+                            }}
+                          >
+                            {tag}
+                          </span>
+                        </div>
+                        <span className="text-xs font-medium" style={{ color }}>
+                          {domain}
                         </span>
                       </div>
-                      <span className="text-xs font-medium" style={{ color }}>
-                        {domain}
-                      </span>
                     </div>
+                    <p className="text-sm leading-relaxed text-gray-300">
+                      {description}
+                    </p>
+                  </>
+                )
+
+                const className =
+                  'card-glass group min-h-[205px] rounded-xl border border-white/10 bg-white/[0.02] p-5 no-underline transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.04] hover:no-underline'
+
+                return url ? (
+                  <a
+                    key={name}
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer noopener"
+                    className={className}
+                  >
+                    {content}
+                  </a>
+                ) : (
+                  <div key={name} className={className}>
+                    {content}
                   </div>
-                  <p className="text-sm leading-relaxed text-gray-300">
-                    {description}
-                  </p>
-                </a>
-              )
+                )
+              }
             )}
           </div>
         </div>

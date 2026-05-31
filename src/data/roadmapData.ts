@@ -3,7 +3,7 @@ type RoadmapDataType = {
   year?: number
   variant: 'default' | 'purple' | 'live'
   goals: {
-    card: number,
+    card: number
     features: string[]
   }[]
 }[]
@@ -35,6 +35,8 @@ export const roadmapData: RoadmapDataType = [
           'DocAI (docai.live)',
           'Polybilities (polybilities.com)',
           'SocialMM (socialmm.ai)',
+          'EnvRouter AI gateway and model router',
+          'MAGAS7 Marketing Agents MVP (magas7.com)',
           'DragonList (dragonlist.ai)',
           'MagicAds (magicads.dev)',
         ],
@@ -67,7 +69,7 @@ export const roadmapData: RoadmapDataType = [
           'Dynamic difficulty adjustment for optimal engagement',
           'In-game AI assistants and coaching',
           'AI agents for gameplay, support, and creator workflows',
-          'AI products suite growth (Akyn, Merlin, DocAI, Polybilities)',
+          'AI products suite growth (Akyn, Merlin, DocAI, Polybilities, EnvRouter AI, MAGAS7)',
           'AI wallet experiences for pledging and in-game utility',
           'OpenClaw wrapped technologies rollout',
         ],
@@ -80,6 +82,8 @@ export const roadmapData: RoadmapDataType = [
           'Unified $MCRT rewards across all games and activities',
           'Partner SDK / API access',
           'MagicAds (magicads.dev) — AI-powered ad network for ecosystem growth',
+          'MAGAS7 marketing agents for campaign planning, creative, scheduling, and analytics',
+          'EnvRouter AI gateway for model routing, usage logs, and provider failover',
           'Cross-promotion across all MagicCraft products via MagicAds banners',
         ],
       },
@@ -135,4 +139,4 @@ export const roadmapData: RoadmapDataType = [
       },
     ],
   },
-];
+]

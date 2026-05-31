@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { openGameByDevice, handleBuyMCRT } from '@/lib/gameActions'
 import EcosystemMindMap from '@/components/EcosystemMindMap'
+import { BYBIT_URL, PANCAKESWAP_URL } from '@/constants'
 
 type NetInfo = {
   saveData?: boolean
@@ -221,7 +222,7 @@ export default function HeroSection() {
                 Listed on
               </span>
               <a
-                href="https://www.bybit.com/en/trade/spot/MCRT/USDT"
+                href={BYBIT_URL}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="inline-flex items-center transition-all hover:scale-105 hover:opacity-100"
@@ -234,7 +235,7 @@ export default function HeroSection() {
                 />
               </a>
               <a
-                href="https://pancakeswap.finance/swap?outputCurrency=0x4b8285aB433D8f69CB48d5Ad62b415ed1a221e4f"
+                href={PANCAKESWAP_URL}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="inline-flex items-center transition-all hover:scale-105 hover:opacity-100"

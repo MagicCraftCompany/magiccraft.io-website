@@ -27,8 +27,17 @@ function loadStored(): ChatMessage[] {
     const parsed = JSON.parse(raw)
     if (!Array.isArray(parsed)) return []
     return parsed
-      .filter((m) => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
-      .map((m) => ({ role: m.role, content: String(m.content), ts: Number(m.ts) || Date.now() }))
+      .filter(
+        (m) =>
+          m &&
+          (m.role === 'user' || m.role === 'assistant') &&
+          typeof m.content === 'string'
+      )
+      .map((m) => ({
+        role: m.role,
+        content: String(m.content),
+        ts: Number(m.ts) || Date.now(),
+      }))
       .slice(-50)
   } catch {
     return []
@@ -92,7 +101,11 @@ export default function LiveSupportWidget() {
   useEffect(() => {
     const onOpen = () => setOpen(true)
     window.addEventListener('mc:live-support:open', onOpen as EventListener)
-    return () => window.removeEventListener('mc:live-support:open', onOpen as EventListener)
+    return () =>
+      window.removeEventListener(
+        'mc:live-support:open',
+        onOpen as EventListener
+      )
   }, [])
 
   useEffect(() => {
@@ -109,7 +122,10 @@ export default function LiveSupportWidget() {
     }
   }, [])
 
-  const canSend = useMemo(() => !busy && clampText(input, 2000).length > 0, [busy, input])
+  const canSend = useMemo(
+    () => !busy && clampText(input, 2000).length > 0,
+    [busy, input]
+  )
 
   const clearChat = () => {
     if (busy) return
@@ -148,10 +164,11 @@ export default function LiveSupportWidget() {
       const data = await res.json().catch(() => ({}))
       if (!res.ok) {
         const isLocal =
-          typeof window !== 'undefined' && /localhost|127\.0\.0\.1/.test(window.location.hostname)
+          typeof window !== 'undefined' &&
+          /localhost|127\.0\.0\.1/.test(window.location.hostname)
         if (isLocal && res.status === 404) {
           throw new Error(
-            'Live chat backend is not running locally. Use production, or run Netlify dev to enable functions.',
+            'Live chat backend is not running locally. Use production, or run Netlify dev to enable functions.'
           )
         }
         throw new Error(data?.error || `HTTP ${res.status}`)
@@ -161,7 +178,10 @@ export default function LiveSupportWidget() {
       if (!answer) throw new Error('Empty response')
 
       setMessages((prev) =>
-        [...prev, { role: 'assistant' as const, content: answer, ts: Date.now() }].slice(-50),
+        [
+          ...prev,
+          { role: 'assistant' as const, content: answer, ts: Date.now() },
+        ].slice(-50)
       )
     } catch (e: unknown) {
       if (e instanceof DOMException && e.name === 'AbortError') return
@@ -179,7 +199,7 @@ export default function LiveSupportWidget() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="fixed bottom-[calc(env(safe-area-inset-bottom)+4rem)] left-4 z-[100000] inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#0a1038]/70 px-3 py-2 text-sm font-semibold text-white/95 backdrop-blur-xl shadow-[0_12px_35px_rgba(0,0,0,0.45)] hover:bg-[#111a4f]/80 hover:border-[#98FFF9]/40 active:scale-[0.98] sm:bottom-4 sm:px-4 sm:py-3"
+          className="fixed bottom-[calc(env(safe-area-inset-bottom)+4rem)] left-4 z-[100000] inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#0a1038]/70 px-3 py-2 text-sm font-semibold text-white/95 shadow-[0_12px_35px_rgba(0,0,0,0.45)] backdrop-blur-xl hover:border-[#98FFF9]/40 hover:bg-[#111a4f]/80 active:scale-[0.98] sm:bottom-4 sm:px-4 sm:py-3"
           aria-label="Open Live Support chat"
         >
           <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#98FFF9]" />
@@ -197,14 +217,18 @@ export default function LiveSupportWidget() {
             aria-hidden="true"
           />
 
-          <div className="absolute bottom-4 right-4 left-4 sm:right-auto sm:left-4 sm:w-[460px] animate-fade-in">
-            <div className="rounded-2xl overflow-hidden animate-slide-up border border-white/15 bg-gradient-to-b from-[#12183f]/95 via-[#0d1232]/95 to-[#090e28]/95 backdrop-blur-2xl shadow-[0_24px_90px_rgba(0,0,0,0.55)]">
-              <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-white/[0.03]">
+          <div className="animate-fade-in absolute bottom-4 left-4 right-4 sm:left-4 sm:right-auto sm:w-[460px]">
+            <div className="animate-slide-up overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-b from-[#12183f]/95 via-[#0d1232]/95 to-[#090e28]/95 shadow-[0_24px_90px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
+              <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-4 py-3">
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#98FFF9]" />
                   <div className="leading-tight">
-                    <div className="text-sm font-semibold text-white">MagicCraft Live Support</div>
-                    <div className="text-[11px] text-white/60">AI assistant for $MCRT & the ecosystem</div>
+                    <div className="text-sm font-semibold text-white">
+                      MagicCraft Live Support
+                    </div>
+                    <div className="text-[11px] text-white/60">
+                      AI assistant for $MCRT & the ecosystem
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -213,7 +237,7 @@ export default function LiveSupportWidget() {
                     onClick={clearChat}
                     disabled={busy}
                     aria-label="Clear chat history"
-                    className="text-[11px] px-2 py-1 rounded-md border border-white/15 bg-white/5 text-white/70 hover:text-white hover:border-white/25 hover:bg-white/10 disabled:opacity-50"
+                    className="rounded-md border border-white/15 bg-white/5 px-2 py-1 text-[11px] text-white/70 hover:border-white/25 hover:bg-white/10 hover:text-white disabled:opacity-50"
                   >
                     Clear
                   </button>
@@ -221,7 +245,7 @@ export default function LiveSupportWidget() {
                     type="button"
                     onClick={() => setOpen(false)}
                     disabled={busy}
-                    className="text-[11px] px-2 py-1 rounded-md border border-white/15 bg-white/5 text-white/70 hover:text-white hover:border-white/25 hover:bg-white/10 disabled:opacity-50"
+                    className="rounded-md border border-white/15 bg-white/5 px-2 py-1 text-[11px] text-white/70 hover:border-white/25 hover:bg-white/10 hover:text-white disabled:opacity-50"
                     aria-label="Close Live Support"
                   >
                     Close
@@ -229,12 +253,19 @@ export default function LiveSupportWidget() {
                 </div>
               </div>
 
-              <div ref={listRef} className="max-h-[58vh] sm:max-h-[520px] overflow-y-auto px-4 py-3 space-y-3 bg-[linear-gradient(180deg,rgba(0,0,0,0.14),rgba(0,0,0,0.06))]">
+              <div
+                ref={listRef}
+                className="max-h-[58vh] space-y-3 overflow-y-auto bg-[linear-gradient(180deg,rgba(0,0,0,0.14),rgba(0,0,0,0.06))] px-4 py-3 sm:max-h-[520px]"
+              >
                 {messages.length === 0 ? (
                   <div className="text-sm leading-relaxed text-white/80">
-                    Ask anything about <span className="text-white">$MCRT</span>, MagicCraft, <span className="text-white">MagicAds</span>, lobbies, pledging/locked balance, and ecosystem projects.
+                    Ask anything about <span className="text-white">$MCRT</span>
+                    , MagicCraft, <span className="text-white">MagicAds</span>,
+                    lobbies, pledging/locked balance, EnvRouter AI, MAGAS7, and
+                    ecosystem projects.
                     <div className="mt-2 text-[12px] text-white/50">
-                      Tip: try “What is MagicAds?”, “What is locked balance?”, or “Where can I buy $MCRT?”
+                      Tip: try “What is MagicAds?”, “What is locked balance?”,
+                      or “Where can I buy $MCRT?”
                     </div>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {[
@@ -242,12 +273,15 @@ export default function LiveSupportWidget() {
                         'How do I buy $MCRT?',
                         'What are PvP lobbies?',
                         'What is MagicAds?',
+                        'What is MAGAS7?',
                       ].map((q) => (
                         <button
                           key={q}
                           type="button"
-                          onClick={() => { setInput(q) }}
-                          className="text-xs px-2.5 py-1 rounded-full border border-white/15 bg-white/5 text-white/70 hover:bg-white/10 hover:text-white transition-all"
+                          onClick={() => {
+                            setInput(q)
+                          }}
+                          className="rounded-full border border-white/15 bg-white/5 px-2.5 py-1 text-xs text-white/70 transition-all hover:bg-white/10 hover:text-white"
                         >
                           {q}
                         </button>
@@ -258,34 +292,54 @@ export default function LiveSupportWidget() {
                   messages.map((m, idx) =>
                     m.role === 'assistant' ? (
                       <div key={idx} className="flex justify-start">
-                        <div className="max-w-[88%] group relative">
-                          <div className="rounded-2xl rounded-bl-md bg-[#0a102f]/85 border border-white/12 px-3 py-2 text-sm leading-relaxed text-white/92"
-                            style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+                        <div className="group relative max-w-[88%]">
+                          <div
+                            className="border-white/12 text-white/92 rounded-2xl rounded-bl-md border bg-[#0a102f]/85 px-3 py-2 text-sm leading-relaxed"
+                            style={{
+                              whiteSpace: 'pre-wrap',
+                              wordBreak: 'break-word',
+                            }}
+                          >
                             {m.content}
                           </div>
                           <button
                             type="button"
-                            onClick={() => navigator.clipboard?.writeText(m.content)}
-                            className="absolute top-1 right-1 opacity-0 group-hover:opacity-100 transition-opacity p-1 rounded-md bg-white/10 hover:bg-white/20 text-white/60 hover:text-white"
+                            onClick={() =>
+                              navigator.clipboard?.writeText(m.content)
+                            }
+                            className="absolute right-1 top-1 rounded-md bg-white/10 p-1 text-white/60 opacity-0 transition-opacity hover:bg-white/20 hover:text-white group-hover:opacity-100"
                             aria-label="Copy message"
                             title="Copy"
                           >
-                            <svg viewBox="0 0 16 16" fill="currentColor" className="w-3 h-3">
-                              <path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6z"/>
-                              <path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2z"/>
+                            <svg
+                              viewBox="0 0 16 16"
+                              fill="currentColor"
+                              className="h-3 w-3"
+                            >
+                              <path d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6z" />
+                              <path d="M2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h-1v1H2V6h1V5H2z" />
                             </svg>
                           </button>
-                          <div className="text-[10px] text-white/30 mt-0.5 px-1">{formatRelativeTime(m.ts)}</div>
+                          <div className="mt-0.5 px-1 text-[10px] text-white/30">
+                            {formatRelativeTime(m.ts)}
+                          </div>
                         </div>
                       </div>
                     ) : (
                       <div key={idx} className="flex justify-end">
                         <div className="max-w-[88%]">
-                          <div className="rounded-2xl rounded-br-md bg-[#2a356f]/85 border border-[#8bb3ff]/25 px-3 py-2 text-sm leading-relaxed text-white"
-                            style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+                          <div
+                            className="rounded-2xl rounded-br-md border border-[#8bb3ff]/25 bg-[#2a356f]/85 px-3 py-2 text-sm leading-relaxed text-white"
+                            style={{
+                              whiteSpace: 'pre-wrap',
+                              wordBreak: 'break-word',
+                            }}
+                          >
                             {m.content}
                           </div>
-                          <div className="text-[10px] text-white/30 mt-0.5 px-1 text-right">{formatRelativeTime(m.ts)}</div>
+                          <div className="mt-0.5 px-1 text-right text-[10px] text-white/30">
+                            {formatRelativeTime(m.ts)}
+                          </div>
                         </div>
                       </div>
                     )
@@ -294,7 +348,7 @@ export default function LiveSupportWidget() {
 
                 {busy && (
                   <div className="flex justify-start">
-                    <div className="max-w-[88%] rounded-2xl rounded-bl-md bg-[#0a102f]/85 border border-white/12 px-3 py-2 text-sm text-white/75">
+                    <div className="border-white/12 max-w-[88%] rounded-2xl rounded-bl-md border bg-[#0a102f]/85 px-3 py-2 text-sm text-white/75">
                       Thinking…
                     </div>
                   </div>
@@ -307,7 +361,7 @@ export default function LiveSupportWidget() {
                 )}
               </div>
 
-              <div className="px-4 py-3 border-t border-white/10 bg-white/[0.02]">
+              <div className="border-t border-white/10 bg-white/[0.02] px-4 py-3">
                 <div className="flex items-end gap-2">
                   <textarea
                     ref={inputRef}
@@ -328,7 +382,7 @@ export default function LiveSupportWidget() {
                     type="button"
                     onClick={send}
                     disabled={!canSend}
-                    className="rounded-xl px-4 py-2 text-sm font-semibold text-[#03082f] bg-gradient-to-r from-[#98FFF9] to-[#B591F2] hover:brightness-110 active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-4 py-2 text-sm font-semibold text-[#03082f] hover:brightness-110 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     Send
                   </button>
@@ -344,4 +398,3 @@ export default function LiveSupportWidget() {
     </>
   )
 }
-

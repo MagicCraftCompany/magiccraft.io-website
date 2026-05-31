@@ -9,7 +9,8 @@ export default function EcosystemHubSection() {
           MagicCraft Ecosystem
         </h3>
         <p className="mt-2 text-base text-gray-300 md:text-lg">
-          Core products, tools, and apps where $MCRT has a role.
+          The live game, token utilities, AI products, and growth tools that
+          make up the MagicCraft network.
         </p>
       </div>
 
@@ -172,7 +173,7 @@ export default function EcosystemHubSection() {
       {/* More in the Ecosystem */}
       <details className="mt-4 md:mt-6">
         <summary className="mx-auto inline-flex cursor-pointer select-none items-center gap-2 rounded-xl border border-white/10 bg-black/20 px-4 py-2 text-sm text-white/80 hover:bg-black/30">
-          More in the Ecosystem
+          More AI and Ecosystem Tools
           <svg
             className="h-4 w-4 opacity-70"
             viewBox="0 0 20 20"
@@ -276,6 +277,55 @@ export default function EcosystemHubSection() {
             </p>
             <span className="mt-auto inline-flex items-center gap-2 pt-3 text-xs text-[#98FFF9]/80 transition-colors group-hover:text-[#98FFF9]">
               Open app <span aria-hidden="true">→</span>
+            </span>
+          </a>
+          <div className="card-glass card-padding group relative flex min-h-[140px] flex-col overflow-hidden rounded-2xl border border-white/10 no-underline transition-all duration-300 hover:-translate-y-1 hover:border-[#38BDF8]/40 hover:shadow-[0_0_20px_rgba(56,189,248,0.15)]">
+            <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#38BDF8] via-[#98FFF9] to-[#B591F2] opacity-60"></span>
+            <div className="mb-1 flex items-center gap-3">
+              <img
+                src="/icons/icon-stats.svg"
+                alt="EnvRouter AI"
+                className="h-5 w-5 opacity-90"
+                loading="lazy"
+              />
+              <h4 className="font-bold">EnvRouter AI</h4>
+              <span className="rounded-md bg-[#38BDF8]/15 px-1.5 py-0.5 text-[10px] font-bold text-[#38BDF8]">
+                WIP
+              </span>
+            </div>
+            <p className="text-sm text-gray-300">
+              AI gateway for model routing, encrypted keys, streaming proxy
+              support, token tracking, and dashboard management.
+            </p>
+            <span className="mt-auto inline-flex items-center gap-2 pt-3 text-xs text-[#98FFF9]/80">
+              Domain pending
+            </span>
+          </div>
+          <a
+            href="https://magas7.com"
+            target="_blank"
+            rel="noreferrer noopener"
+            className="card-glass card-padding group relative flex min-h-[140px] flex-col overflow-hidden rounded-2xl border border-white/10 no-underline transition-all duration-300 hover:-translate-y-1 hover:border-[#B1FF5A]/40 hover:no-underline hover:shadow-[0_0_20px_rgba(177,255,90,0.15)]"
+          >
+            <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-[#B1FF5A] via-[#6CF0FF] to-[#9D6CFF] opacity-60"></span>
+            <div className="mb-1 flex items-center gap-3">
+              <img
+                src="https://magas7.com/favicon.svg"
+                alt="MAGAS7"
+                className="h-5 w-5 opacity-90"
+                loading="lazy"
+              />
+              <h4 className="font-bold">MAGAS7</h4>
+              <span className="rounded-md bg-[#B1FF5A]/15 px-1.5 py-0.5 text-[10px] font-bold text-[#B1FF5A]">
+                MVP
+              </span>
+            </div>
+            <p className="text-sm text-gray-300">
+              Marketing Agents MVP: a Codex-like command surface for agentic
+              marketing tools, campaigns, creative, scheduling, and analysis.
+            </p>
+            <span className="mt-auto inline-flex items-center gap-2 pt-3 text-xs text-[#98FFF9]/80 transition-colors group-hover:text-[#98FFF9]">
+              Open site <span aria-hidden="true">→</span>
             </span>
           </a>
           <a
