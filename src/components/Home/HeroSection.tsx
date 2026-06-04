@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { openGameByDevice, handleBuyMCRT } from '@/lib/gameActions'
+import { openGameByDevice } from '@/lib/gameActions'
 import EcosystemMindMap from '@/components/EcosystemMindMap'
 import { BYBIT_URL, PANCAKESWAP_URL } from '@/constants'
 
@@ -182,13 +182,15 @@ export default function HeroSection() {
                 >
                   Play
                 </button>
-                <button
-                  onClick={handleBuyMCRT}
+                <a
+                  href={PANCAKESWAP_URL}
+                  target="_blank"
+                  rel="noreferrer noopener"
                   className="ripple-effect h-12 min-w-0 rounded-lg border border-white/20 bg-gradient-to-b from-[#A9FFF6] to-[#82E7E0] text-sm font-semibold text-[#071033] shadow-lg transition-all hover:brightness-105 active:scale-[0.98]"
                   aria-label="Buy MCRT tokens"
                 >
                   Buy
-                </button>
+                </a>
                 <button
                   onClick={openLiveSupport}
                   className="col-span-2 h-12 min-w-0 rounded-lg border border-white/15 bg-white/10 text-sm font-semibold text-white shadow-lg backdrop-blur-md transition-all hover:bg-white/15 active:scale-[0.98]"
@@ -208,13 +210,15 @@ export default function HeroSection() {
               >
                 Play Now
               </button>
-              <button
-                onClick={handleBuyMCRT}
+              <a
+                href={PANCAKESWAP_URL}
+                target="_blank"
+                rel="noreferrer noopener"
                 className="btn-secondary w-full min-w-[154px] border border-white/20 !px-6 !py-3 !text-base hover:border-[#98FFF9]/50 sm:w-auto"
                 aria-label="Buy MCRT tokens"
               >
                 Buy $MCRT
-              </button>
+              </a>
             </div>
             {/* Trust badges */}
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3 opacity-95 sm:mt-6 sm:gap-4">

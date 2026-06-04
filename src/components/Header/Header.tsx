@@ -403,7 +403,8 @@ const Header = () => {
                 {/* Hamburger shown as absolute on mobile (moved outside group) */}
                 <span className="hidden md:block" />
                 <a
-                  href="/#buy-mcrt"
+                  href={PANCAKESWAP_URL}
+                  target="_blank"
                   rel="noreferrer noopener"
                   className="header-cta header-cta--buy hidden h-11 items-center no-underline md:inline-flex"
                   aria-label="Buy $MCRT"
@@ -541,8 +542,9 @@ const Header = () => {
                 <span>Play Now</span>
               </a>
               <a
-                href="/#buy-mcrt"
+                href={PANCAKESWAP_URL}
                 onClick={closeSidebar}
+                target="_blank"
                 rel="noreferrer noopener"
                 className="flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-bold text-white transition-all hover:bg-white/15"
               >
