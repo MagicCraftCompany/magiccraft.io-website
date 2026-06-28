@@ -28,6 +28,7 @@ const Grants = lazy(() => import("./pages/Grants"));
 const GrantsSuccess = lazy(() => import("./pages/GrantsSuccess"));
 const Careers = lazy(() => import("./pages/Careers"));
 const Whitepaper = lazy(() => import("./pages/Whitepaper"));
+const Pricing = lazy(() => import("./pages/Pricing"));
 import { BUILD_REV } from './version'
 const LiveSupportWidget = lazy(() => import('./components/LiveSupport/LiveSupportWidget'))
 
@@ -62,6 +63,10 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/guilds" element={<Guilds />} />
           <Route path="/whitepaper" element={<Whitepaper />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/buy-mcrt" element={<Pricing />} />
+          <Route path="/buy" element={<Pricing />} />
+          <Route path="/get-mcrt" element={<Pricing />} />
           <Route path="/admin/*" element={<SanityStudio />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

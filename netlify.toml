@@ -35,6 +35,24 @@
   force = true
 
 [[redirects]]
+  from = "/buy-mcrt"
+  to = "/pricing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/buy"
+  to = "/pricing"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/get-mcrt"
+  to = "/pricing"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/"
   status = 200
