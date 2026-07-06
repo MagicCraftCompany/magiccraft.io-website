@@ -98,7 +98,7 @@ export default function HeroSection() {
       {enableVideo ? (
         <video
           ref={setHeroVideoElement}
-          className="absolute inset-0 h-full w-full scale-105 object-cover"
+          className="absolute inset-0 h-full w-full -translate-y-8 scale-125 object-cover sm:translate-y-0 sm:scale-105"
           autoPlay
           loop
           muted
@@ -113,16 +113,16 @@ export default function HeroSection() {
         </video>
       ) : (
         <img
-          className="absolute inset-0 h-full w-full scale-105 object-cover"
+          className="absolute inset-0 h-full w-full -translate-y-8 scale-125 object-cover sm:translate-y-0 sm:scale-105"
           src={HERO_POSTER_SRC}
           alt=""
           aria-hidden="true"
           loading="eager"
         />
       )}
-      <div className="video-bg-gradient absolute inset-0 h-full w-full bg-gradient-to-b from-black/70 via-[#03082f]/35 to-[#03082f]/95"></div>
+      <div className="video-bg-gradient absolute inset-0 h-full w-full bg-gradient-to-b from-black/25 via-[#03082f]/25 to-[#03082f]/95 md:from-black/70 md:via-[#03082f]/35"></div>
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(152,255,249,0.18),transparent_32%),linear-gradient(90deg,rgba(152,255,249,0.06),rgba(181,145,242,0.08))]"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#03082f] via-transparent to-black/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#03082f] via-transparent to-transparent md:to-black/30"></div>
 
       {/* Embedded Ecosystem Mind Map - bottom left of hero */}
       <div className="pointer-events-none absolute bottom-[-130px] left-[-170px] z-0 hidden h-[312px] w-[364px] opacity-35 sm:bottom-[-120px] sm:left-[-150px] sm:block sm:h-[416px] sm:w-[494px] md:bottom-[-125px] md:left-[-120px] md:h-[546px] md:w-[650px] md:opacity-55">
@@ -130,7 +130,7 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 mx-auto h-full w-full max-w-screen-xl px-3 sm:px-4">
-        <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 pb-10 pt-20 sm:gap-4 sm:pb-12 sm:pt-24 md:gap-4 md:pb-14 md:pt-28 lg:gap-5 lg:pb-16 lg:pt-32">
+        <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 pb-10 pt-8 sm:gap-4 sm:pb-12 sm:pt-24 md:gap-4 md:pb-14 md:pt-28 lg:gap-5 lg:pb-16 lg:pt-32">
           <div className="animate-fade-in group mt-1 w-full max-w-[24%] sm:mt-2 sm:max-w-[18%] md:mt-3 md:w-full md:max-w-28 lg:mt-4 lg:max-w-32">
             <div className="relative">
               <div className="animate-pulse-slow absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] opacity-40 blur-2xl transition-opacity duration-500 group-hover:opacity-60"></div>
