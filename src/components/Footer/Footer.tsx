@@ -103,6 +103,10 @@ const moreLinks = [
     link: '/faq',
   },
   {
+    title: 'Contact us',
+    link: '/contact-us',
+  },
+  {
     title: 'Verify',
     link: '/verify',
   },

@@ -53,6 +53,18 @@
   force = true
 
 [[redirects]]
+  from = "/contact-us"
+  to = "/contact-us/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/contact-us/"
+  to = "/contact-us/index.html"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/"
   status = 200
