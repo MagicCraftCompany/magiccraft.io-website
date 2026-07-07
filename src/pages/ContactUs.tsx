@@ -73,17 +73,17 @@ export default function ContactUs() {
         />
       </Helmet>
 
-      <div className="min-h-dvh bg-[#03082f] text-white">
+      <div className="min-h-dvh overflow-x-hidden bg-[#03082f] text-white">
         <Header />
         <main>
           <section className="relative overflow-hidden bg-faqtab bg-cover bg-center">
             <div className="absolute inset-0 bg-gradient-to-b from-[#020418]/60 via-[#03082f]/90 to-[#03082f]" />
             <div className="relative mx-auto grid min-h-[72vh] max-w-7xl items-center gap-8 px-4 py-28 md:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:py-32">
-              <div className="max-w-3xl">
+              <div className="min-w-0 max-w-3xl">
                 <p className="mb-4 text-sm font-semibold uppercase tracking-[0.18em] text-[#98FFF9]">
                   MagicCraft support
                 </p>
-                <h1 className="font-serif text-4xl font-bold leading-tight text-white md:text-6xl">
+                <h1 className="break-words font-serif text-4xl font-bold leading-tight text-white md:text-6xl">
                   Contact Us and Account Deletion
                 </h1>
                 <p className="mt-6 text-lg leading-8 text-white/80 md:text-xl">
@@ -121,11 +121,11 @@ export default function ContactUs() {
 
           <section className="bg-[#03082f] px-4 py-14 md:px-8 md:py-20" id="delete-account">
             <div className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-[0.92fr_1.08fr]">
-              <div className="rounded-md border border-white/10 bg-white/[0.04] p-6 shadow-2xl md:p-8">
+              <div className="min-w-0 rounded-md border border-white/10 bg-white/[0.04] p-6 shadow-2xl md:p-8">
                 <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-md border border-[#98FFF9]/30 bg-[#98FFF9]/10 text-[#98FFF9]">
                   <ShieldCheck className="h-6 w-6" />
                 </div>
-                <h2 className="font-serif text-3xl font-bold text-white md:text-4xl">
+                <h2 className="break-words font-serif text-3xl font-bold text-white md:text-4xl">
                   Delete your MagicCraft account
                 </h2>
                 <p className="mt-5 text-base leading-7 text-white/75">
@@ -158,9 +158,9 @@ export default function ContactUs() {
 
               <form
                 onSubmit={handleDeletionSubmit}
-                className="rounded-md border border-white/10 bg-gradient-to-b from-[#161242] to-[#060B31] p-6 shadow-[0_0_24px_rgba(34,6,143,0.35)] md:p-8"
+                className="min-w-0 rounded-md border border-white/10 bg-gradient-to-b from-[#161242] to-[#060B31] p-6 shadow-[0_0_24px_rgba(34,6,143,0.35)] md:p-8"
               >
-                <h2 className="font-serif text-2xl font-bold text-white md:text-3xl">
+                <h2 className="break-words font-serif text-2xl font-bold text-white md:text-3xl">
                   Request account deletion
                 </h2>
                 <p className="mt-3 text-sm leading-6 text-white/70">
