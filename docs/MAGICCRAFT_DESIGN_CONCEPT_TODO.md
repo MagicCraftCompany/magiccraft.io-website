@@ -36,7 +36,7 @@ Homepage hierarchy:
 - [x] Replace game-first mobile quick actions with AI Products and Merlin.
 - [x] Replace game-only metadata, schema, preloads, and share art.
 - [x] Add focused AI-homepage and navigation coverage.
-- [ ] Commit, push, publish, and verify the AI-first public homepage.
+- [x] Commit, push, publish, and verify the AI-first public homepage.
 
 ## Completed foundation from the prior game-first release
 
@@ -127,20 +127,20 @@ Homepage hierarchy:
 
 ## Economical agent map
 
-| Lane                         | Cost strategy                       | Ownership                                  | State       |
-| ---------------------------- | ----------------------------------- | ------------------------------------------ | ----------- |
-| Product and `$MCRT` research | Bounded read-only specialist        | Official sources, safe claims, positioning | Complete    |
-| Live UX audit                | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues  | Complete    |
-| Architecture audit           | Bounded read-only code specialist   | Routes, data flow, risks, file plan        | Complete    |
-| Homepage integration         | Strong controller reasoning         | Hero, section order, gameplay, concept     | Complete    |
-| Trust/data implementation    | Focused implementation specialist   | Stats, status, dashboard, focused tests    | Complete    |
-| Responsive navigation        | Focused implementation specialist   | Header, menus, mobile conversion bar       | Complete    |
-| Static SEO/social            | Focused implementation specialist   | Metadata, sitemap, 1200x630 asset          | Complete    |
-| AI suite inventory           | Bounded live-truth specialist       | Product URLs, status, claims, broken links | Complete    |
-| AI-first concept             | Bounded product/copy specialist     | Hierarchy, copy, status guardrails         | Complete    |
-| AI-first navigation          | Focused implementation specialist   | Header, drawer, mobile quick actions       | Complete    |
-| AI-first live release        | Controller only                     | Integration, review, deploy, public proof  | In progress |
-| Production release           | Controller only                     | Review, tests, commit, push, deploy proof  | Complete    |
+| Lane                         | Cost strategy                       | Ownership                                  | State    |
+| ---------------------------- | ----------------------------------- | ------------------------------------------ | -------- |
+| Product and `$MCRT` research | Bounded read-only specialist        | Official sources, safe claims, positioning | Complete |
+| Live UX audit                | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues  | Complete |
+| Architecture audit           | Bounded read-only code specialist   | Routes, data flow, risks, file plan        | Complete |
+| Homepage integration         | Strong controller reasoning         | Hero, section order, gameplay, concept     | Complete |
+| Trust/data implementation    | Focused implementation specialist   | Stats, status, dashboard, focused tests    | Complete |
+| Responsive navigation        | Focused implementation specialist   | Header, menus, mobile conversion bar       | Complete |
+| Static SEO/social            | Focused implementation specialist   | Metadata, sitemap, 1200x630 asset          | Complete |
+| AI suite inventory           | Bounded live-truth specialist       | Product URLs, status, claims, broken links | Complete |
+| AI-first concept             | Bounded product/copy specialist     | Hierarchy, copy, status guardrails         | Complete |
+| AI-first navigation          | Focused implementation specialist   | Header, drawer, mobile quick actions       | Complete |
+| AI-first live release        | Controller only                     | Integration, review, deploy, public proof  | Complete |
+| Production release           | Controller only                     | Review, tests, commit, push, deploy proof  | Complete |
 
 Agents do not share high-conflict ownership of the homepage, header, or global
 CSS. Production, deploy, and safety decisions remain with the controller.

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { MessageCircle } from 'lucide-react'
 
 type ChatMessage = {
   role: 'user' | 'assistant'
@@ -199,12 +200,15 @@ export default function LiveSupportWidget() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="fixed bottom-[calc(env(safe-area-inset-bottom)+4rem)] left-4 z-[100000] inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#0a1038]/70 px-3 py-2 text-sm font-semibold text-white/95 shadow-[0_12px_35px_rgba(0,0,0,0.45)] backdrop-blur-xl hover:border-[#98FFF9]/40 hover:bg-[#111a4f]/80 active:scale-[0.98] sm:bottom-4 sm:left-auto sm:right-4 sm:px-4 sm:py-3"
+          className="fixed bottom-[calc(env(safe-area-inset-bottom)+4rem)] left-4 z-[100000] inline-flex items-center gap-2 rounded-full border border-white/20 bg-[#0a1038]/70 px-3 py-2 text-sm font-semibold text-white/95 shadow-[0_12px_35px_rgba(0,0,0,0.45)] backdrop-blur-xl hover:border-[#98FFF9]/40 hover:bg-[#111a4f]/80 active:scale-[0.98] sm:bottom-4 sm:left-auto sm:right-4 sm:h-12 sm:w-12 sm:justify-center sm:p-0"
           aria-label="Open Live Support chat"
         >
-          <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#98FFF9]" />
+          <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#98FFF9] sm:hidden" />
           <span className="sm:hidden">Support</span>
-          <span className="hidden sm:inline">Live Support</span>
+          <MessageCircle
+            aria-hidden="true"
+            className="hidden h-5 w-5 text-[#98FFF9] sm:block"
+          />
         </button>
       )}
 
