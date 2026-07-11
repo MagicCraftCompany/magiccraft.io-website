@@ -3,6 +3,10 @@ import { describe, it, expect, vi, beforeEach } from 'vitest'
 describe('getDeviceDetails', () => {
   beforeEach(() => {
     vi.resetModules()
+    Object.defineProperty(navigator, 'maxTouchPoints', {
+      value: 0,
+      configurable: true,
+    })
   })
 
   it('detects desktop correctly when UA has no mobile markers', async () => {
@@ -39,6 +43,24 @@ describe('getDeviceDetails', () => {
     const { getDeviceDetails } = await import('../lib/gameActions')
     const result = getDeviceDetails()
     expect(result.isAndroid).toBe(true)
+    expect(result.isMobile).toBe(true)
+  })
+
+  it('detects an iPad using a desktop-mode Macintosh user agent', async () => {
+    Object.defineProperty(navigator, 'userAgent', {
+      value:
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15) AppleWebKit/605.1.15',
+      configurable: true,
+    })
+    Object.defineProperty(navigator, 'maxTouchPoints', {
+      value: 5,
+      configurable: true,
+    })
+
+    const { getDeviceDetails } = await import('../lib/gameActions')
+    const result = getDeviceDetails()
+
+    expect(result.isIOS).toBe(true)
     expect(result.isMobile).toBe(true)
   })
 })

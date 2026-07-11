@@ -1594,29 +1594,6 @@ div[class*='xswap-modal-container'] {
 /* Simplified CoinGecko overrides: keep clean, borderless, consistent with site */
 /* (Heavy glass styles removed to avoid borders/over-decoration) */
 
-/* Ensure tooltips are always visible */
-.group:hover .pointer-events-none {
-  z-index: 9999 !important;
-  opacity: 1 !important;
-}
-
-/* Prevent tooltip clipping */
-.group {
-  position: relative;
-  overflow: visible !important;
-}
-
-.group .pointer-events-none {
-  position: absolute !important;
-  pointer-events: none !important;
-}
-
-/* Force tooltip visibility on hover */
-.group:hover > .pointer-events-none {
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
 /* Enhanced Typography for UI Elements */
 a {
   font-size: inherit;

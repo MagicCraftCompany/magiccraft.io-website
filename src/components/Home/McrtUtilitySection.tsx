@@ -25,22 +25,22 @@ type UtilityTrack = {
 
 const utilityTracks: UtilityTrack[] = [
   {
-    title: 'Play for prize pools',
+    title: 'Compete in eligible lobbies',
     kicker: 'PvP lobbies',
-    body: 'Players deposit $MCRT into the lobby balance, use it for match tickets, and compete for prize pools that pay the winning side.',
+    body: 'Eligible players can move $MCRT into the lobby balance and join supported reward-pool matches alongside free lobby paths.',
     detail:
-      'Free, VIP, and secondary-token lobbies create multiple paths for active players.',
+      'Requirements and pool availability change, so check the live lobby schedule before joining.',
     color: '#98FFF9',
     icon: Gamepad2,
     href: 'https://lobby.magiccraft.io/',
     cta: 'Open lobbies',
   },
   {
-    title: 'Unlock holder access',
+    title: 'Meet access requirements',
     kicker: 'VIP and pledging',
-    body: '$MCRT can be pledged for reward paths, while VIP and secondary-token lobby access combines token holding with NFT ownership rules.',
+    body: 'Some VIP and secondary-reward lobbies use $MCRT and eligible NFT ownership rules. Pledging is a separate lock-based feature.',
     detail:
-      'The docs describe lock periods from 30 days to 5 years, with separate $MCRT and NFT reward tracks.',
+      'Review the current terms, lock period, and reward calculator before committing tokens.',
     color: '#FFB649',
     icon: LockKeyhole,
     href: 'https://lobby.magiccraft.io/pledging',
@@ -49,9 +49,9 @@ const utilityTracks: UtilityTrack[] = [
   {
     title: 'Trade playable assets',
     kicker: 'Marketplace',
-    body: 'Characters, skins, items, gems, and ecosystem assets move through the MagicCraft marketplace, with $MCRT used as a core payment method.',
+    body: 'Eligible characters, skins, items, and game assets move through the MagicCraft marketplace, with $MCRT used for supported transactions.',
     detail:
-      'NFT ownership feeds back into lobbies, rarity, skins, and player identity.',
+      'Selected Genesis and Revelation assets can connect to character, skin, and lobby utility.',
     color: '#B591F2',
     icon: ShoppingBag,
     href: 'https://app.magiccraft.io/marketplace/explorer',
@@ -74,31 +74,28 @@ const accessCards = [
   {
     label: 'Free lobbies',
     value: 'Start playing',
-    text: 'Wallet login, MagicCraft account, and active PvP matches.',
+    text: 'Use the current schedule to find supported free-entry matches.',
     icon: Trophy,
   },
   {
     label: 'VIP lobbies',
-    value: 'Higher rewards',
-    text: '$MCRT and NFT access rules unlock premium reward paths.',
+    value: 'Check eligibility',
+    text: '$MCRT and NFT requirements are shown by the live lobby experience.',
     icon: Crown,
   },
   {
     label: 'Secondary-token lobbies',
-    value: 'BTC, ETH, SOL, XRP',
-    text: 'Scheduled lobbies add non-MCRT prize paths while keeping $MCRT central to access.',
+    value: 'Scheduled pools',
+    text: 'Some schedules use BNB Chain-pegged reward assets. Availability varies.',
     icon: Boxes,
   },
 ]
 
 const productRails = [
-  ['Game', 'PvP tickets, lobby rewards, VIP access, referrals'],
-  ['NFTs', 'Minting, fixed-price sales, auctions, characters, skins'],
-  ['Builders', 'MCRTPay checkout, Game Maker, grants, creator tools'],
-  [
-    'AI and ads',
-    'MagicAds, Akyn, Merlin, DocAI, Polybilities, SocialMM, EnvRouter AI, MAGAS7',
-  ],
+  ['Game', 'Supported lobby entry and reward-pool settlement'],
+  ['Assets', 'Eligible characters, skins, marketplace sales, and minting'],
+  ['Access', 'VIP rules, pledging, referrals, and holder features'],
+  ['Builders', 'MCRTPay, Game Maker, MagicAds, grants, and creator tools'],
 ]
 
 export default function McrtUtilitySection() {
@@ -112,15 +109,15 @@ export default function McrtUtilitySection() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-[#98FFF9]/20 bg-[#98FFF9]/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-[#98FFF9]">
               <WalletCards className="h-3.5 w-3.5" aria-hidden="true" />
-              Live utility
+              Optional utility
             </div>
             <h2 className="mt-4 font-serif text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-[44px]">
-              How $MCRT is used across MagicCraft
+              A clear utility layer, after the game
             </h2>
-            <p className="text-white/72 mt-4 max-w-xl text-sm leading-relaxed sm:text-base">
-              The stronger story is not just that $MCRT exists. It is used in
-              the gameplay loop, the marketplace, pledging, creator tools,
-              checkout infrastructure, and the wider AI product suite.
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-white/[0.72] sm:text-base">
+              You do not need a wallet to begin playing. When you choose the
+              Web3 path, $MCRT connects supported lobbies, marketplace assets,
+              pledging, payments, and creator tools.
             </p>
           </div>
 
@@ -130,10 +127,10 @@ export default function McrtUtilitySection() {
                 key={label}
                 className="rounded-xl border border-white/10 bg-white/[0.035] px-4 py-3"
               >
-                <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
+                <div className="text-[10px] font-semibold uppercase tracking-[0.16em] text-white/60">
                   {label}
                 </div>
-                <div className="text-white/82 mt-2 text-sm leading-snug">
+                <div className="mt-2 text-sm leading-snug text-white/[0.82]">
                   {value}
                 </div>
               </div>
@@ -176,10 +173,10 @@ export default function McrtUtilitySection() {
                 <h3 className="text-xl font-bold leading-tight text-white">
                   {title}
                 </h3>
-                <p className="text-white/68 mt-3 text-sm leading-relaxed">
+                <p className="mt-3 text-sm leading-relaxed text-white/[0.68]">
                   {body}
                 </p>
-                <p className="text-white/48 mt-3 text-xs leading-relaxed">
+                <p className="mt-3 text-xs leading-relaxed text-white/60">
                   {detail}
                 </p>
                 <span
@@ -204,24 +201,27 @@ export default function McrtUtilitySection() {
                   Token loop
                 </p>
                 <h3 className="text-xl font-bold text-white">
-                  Earn, spend, lock, and build
+                  Compete, spend, lock, and build
                 </h3>
               </div>
             </div>
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
               {[
                 [
-                  'Earn',
-                  'Win matches, receive referrals, and claim reward paths.',
+                  'Compete',
+                  'Join eligible reward-pool matches and supported referral paths.',
                 ],
                 [
                   'Spend',
                   'Use $MCRT for lobby tickets, marketplace assets, and product credits.',
                 ],
-                ['Lock', 'Pledge tokens for $MCRT or NFT reward tracks.'],
+                [
+                  'Lock',
+                  'Pledging locks tokens for a chosen period under current terms.',
+                ],
                 [
                   'Build',
-                  'Add checkout, maps, campaigns, or AI products around the same token.',
+                  'Add supported checkout, maps, campaigns, or creator tools.',
                 ],
               ].map(([label, text]) => (
                 <div
@@ -229,7 +229,7 @@ export default function McrtUtilitySection() {
                   className="rounded-lg border border-white/10 bg-black/20 p-3"
                 >
                   <div className="text-sm font-bold text-white">{label}</div>
-                  <div className="text-white/58 mt-1 text-xs leading-relaxed">
+                  <div className="mt-1 text-xs leading-relaxed text-white/[0.58]">
                     {text}
                   </div>
                 </div>
@@ -244,11 +244,11 @@ export default function McrtUtilitySection() {
                 className="rounded-xl border border-white/10 bg-white/[0.035] p-5"
               >
                 <Icon className="h-5 w-5 text-[#FFB649]" aria-hidden="true" />
-                <div className="mt-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
+                <div className="mt-4 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/60">
                   {label}
                 </div>
                 <div className="mt-1 text-lg font-bold text-white">{value}</div>
-                <p className="text-white/62 mt-2 text-sm leading-relaxed">
+                <p className="mt-2 text-sm leading-relaxed text-white/[0.62]">
                   {text}
                 </p>
               </div>
@@ -257,9 +257,9 @@ export default function McrtUtilitySection() {
         </div>
 
         <div className="mt-8 flex flex-col items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/[0.035] px-4 py-4 sm:flex-row sm:px-5">
-          <p className="text-white/68 text-center text-sm leading-relaxed sm:text-left">
-            The homepage now needs to make the token feel usable immediately:
-            play, trade, pledge, pay, and build.
+          <p className="text-center text-sm leading-relaxed text-white/[0.68] sm:text-left">
+            Use $MCRT only where it adds value to your path: eligible lobbies,
+            assets, pledging, payments, and creator tools.
           </p>
           <div className="flex w-full flex-col gap-2 sm:w-auto sm:flex-row">
             <button

@@ -1,7 +1,7 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
 import { X, Gamepad2, ShoppingBag, Globe, ChevronDown } from 'lucide-react'
 import NavMenu from './Navmenu'
-import { Suspense, lazy, useState, useEffect, useRef } from 'react'
+import { Suspense, lazy, useCallback, useState, useEffect, useRef } from 'react'
 import {
   LANGUAGES,
   setGoogTransCookie,
@@ -159,7 +159,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     ],
   },
   {
-    title: 'Buy $MCRT',
+    title: '$MCRT',
     icon: currency,
     submenu: [
       {
@@ -182,7 +182,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
   },
   {
     title: 'Build',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1722867433/MCRT_shydrd.webp',
+    icon: '/icons/icon-build.svg',
     submenu: [
       {
         title: 'Build on MagicCraft',
@@ -205,10 +205,6 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
 
 const Header = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
-  const [isDesktop, setIsDesktop] = useState<boolean>(() => {
-    if (typeof window === 'undefined') return true
-    return window.matchMedia('(min-width: 768px)').matches
-  })
   const [currentLang, setCurrentLang] = useState(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('preferredLang') || 'en'
@@ -219,7 +215,26 @@ const Header = () => {
   const [isDesktopLangOpen, setIsDesktopLangOpen] = useState(false)
   const desktopLangRef = useRef<HTMLDivElement | null>(null)
   const hamburgerRef = useRef<HTMLButtonElement | null>(null)
+  const drawerRef = useRef<HTMLDivElement | null>(null)
+  const drawerCloseRef = useRef<HTMLButtonElement | null>(null)
+  const lastFocusedElementRef = useRef<HTMLElement | null>(null)
   const location = useLocation()
+
+  const closeSidebar = useCallback(() => {
+    setIsSideMenuOpen(false)
+    setIsLangOpen(false)
+    setIsDesktopLangOpen(false)
+  }, [])
+
+  const openSidebar = useCallback(() => {
+    const activeElement = document.activeElement
+    lastFocusedElementRef.current =
+      activeElement instanceof HTMLElement && activeElement !== document.body
+        ? activeElement
+        : hamburgerRef.current
+    setIsSideMenuOpen(true)
+    setIsDesktopLangOpen(false)
+  }, [])
 
   const handleLanguageChange = (code: string) => {
     setCurrentLang(code)
@@ -235,8 +250,10 @@ const Header = () => {
     LANGUAGES.find((l) => l.code === currentLang) || LANGUAGES[0]
 
   useEffect(() => {
-    // route-change hook reserved for future header state needs
-  }, [location])
+    setIsSideMenuOpen(false)
+    setIsLangOpen(false)
+    setIsDesktopLangOpen(false)
+  }, [location.pathname])
 
   // Close desktop language popover on outside click
   useEffect(() => {
@@ -265,64 +282,55 @@ const Header = () => {
     setTimeout(() => triggerGoogleTranslate(currentLang), 800)
   }, [location.pathname, currentLang])
 
-  // Track viewport to conditionally render header CTAs only on desktop (md+)
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const mql = window.matchMedia('(min-width: 768px)')
-    const handler = (e: MediaQueryListEvent | MediaQueryList) => {
-      setIsDesktop('matches' in e ? e.matches : (e as MediaQueryList).matches)
-    }
-    // Initial
-    setIsDesktop(mql.matches)
-    // Subscribe
-    mql.addEventListener?.(
-      'change',
-      handler as (e: MediaQueryListEvent) => void
-    )
-    // Fallback for older Safari
-    mql.addListener?.(handler as (e: MediaQueryListEvent) => void)
-    return () => {
-      mql.removeEventListener?.(
-        'change',
-        handler as (e: MediaQueryListEvent) => void
-      )
-      mql.removeListener?.(handler as (e: MediaQueryListEvent) => void)
-    }
-  }, [])
-
-  // Focus the close button when the mobile drawer opens
+  // Keep keyboard focus inside the open mobile drawer and restore it on close.
   useEffect(() => {
     if (!isSideMenuOpen) return
-    const closeBtn = document.querySelector(
-      '[data-drawer-close]'
-    ) as HTMLButtonElement | null
-    closeBtn?.focus()
-  }, [isSideMenuOpen])
 
-  // Close mobile drawer on Escape key
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isSideMenuOpen) closeSidebar()
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    drawerCloseRef.current?.focus()
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        closeSidebar()
+        return
+      }
+
+      if (event.key !== 'Tab') return
+
+      const drawer = drawerRef.current
+      if (!drawer) return
+
+      const focusableElements = Array.from(
+        drawer.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      )
+      if (focusableElements.length === 0) return
+
+      const firstElement = focusableElements[0]
+      const lastElement = focusableElements[focusableElements.length - 1]
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault()
+        lastElement.focus()
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault()
+        firstElement.focus()
+      }
     }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [isSideMenuOpen])
 
-  function closeSidebar() {
-    setIsSideMenuOpen(false)
-    setIsLangOpen(false)
-    setIsDesktopLangOpen(false)
-    document.body.style.overflow = 'unset'
-    setTimeout(() => hamburgerRef.current?.focus(), 50)
-  }
+    document.addEventListener('keydown', onKeyDown)
 
-  function openSidebar() {
-    setIsSideMenuOpen(true)
-    setIsDesktopLangOpen(false)
-    if (typeof window != 'undefined' && window.document) {
-      document.body.style.overflow = 'hidden'
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = previousOverflow
+      if (lastFocusedElementRef.current?.isConnected) {
+        lastFocusedElementRef.current.focus()
+      }
     }
-  }
+  }, [closeSidebar, isSideMenuOpen])
 
   return (
     <>
@@ -355,7 +363,7 @@ const Header = () => {
                     className="group"
                   >
                     <div className="flex items-center justify-center gap-1 rounded-md px-3 py-2 transition-all duration-200 hover:bg-white/10 md:gap-2">
-                      <p className="whitespace-nowrap text-sm font-semibold tracking-wide text-white/85 transition-colors duration-200 group-hover:text-white lg:text-[15px] xl:text-base">
+                      <p className="whitespace-nowrap text-sm font-semibold tracking-wide text-white/[0.85] transition-colors duration-200 group-hover:text-white lg:text-[15px] xl:text-base">
                         {item.title}
                       </p>
                     </div>
@@ -367,7 +375,7 @@ const Header = () => {
                     className="group"
                   >
                     <div className="flex items-center justify-center gap-1 rounded-md px-3 py-2 transition-all duration-200 hover:bg-white/10 md:gap-2">
-                      <p className="whitespace-nowrap text-sm font-semibold tracking-wide text-white/85 transition-colors duration-200 group-hover:text-white lg:text-[15px] xl:text-base">
+                      <p className="whitespace-nowrap text-sm font-semibold tracking-wide text-white/[0.85] transition-colors duration-200 group-hover:text-white lg:text-[15px] xl:text-base">
                         {item.title}
                       </p>
                     </div>
@@ -375,105 +383,80 @@ const Header = () => {
                 )
               )}
             </div>
-            {isDesktop && (
-              <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-                <a
-                  href="https://lobby.magiccraft.io/"
-                  rel="noreferrer noopener"
-                  className="header-cta header-cta--play hidden h-11 items-center no-underline md:inline-flex"
-                  aria-label="Play"
+            <div className="hidden items-center gap-3 xl:flex">
+              <button
+                type="button"
+                onClick={openGameByDevice}
+                className="header-cta header-cta--play inline-flex h-11 items-center"
+                aria-label="Play MagicCraft"
+              >
+                <Gamepad2 className="h-4 w-4" />
+                <span>Play</span>
+              </button>
+
+              {/* Desktop language selector */}
+              <div ref={desktopLangRef} className="relative">
+                <button
+                  type="button"
+                  onClick={() => setIsDesktopLangOpen((v) => !v)}
+                  className="inline-flex h-11 items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 text-white/[0.85] transition-all hover:border-white/20 hover:bg-white/10"
+                  aria-label="Change language"
+                  aria-haspopup="menu"
+                  aria-expanded={isDesktopLangOpen}
                 >
-                  <Gamepad2 className="h-4 w-4" />
-                  <span>Play</span>
-                </a>
+                  <Globe className="h-4 w-4 text-white/70" />
+                  <span className="text-sm font-semibold">
+                    {currentLanguage.flag}
+                  </span>
+                  <ChevronDown
+                    className={`h-4 w-4 text-white/60 transition-transform ${isDesktopLangOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
 
-                <a
-                  href="https://app.magiccraft.io/marketplace/explorer"
-                  rel="noreferrer noopener"
-                  className="header-cta header-cta--shop hidden h-11 items-center no-underline md:inline-flex"
-                  role="button"
-                  aria-label="Shop"
-                >
-                  <ShoppingBag className="h-4 w-4" />
-                  <span>Shop</span>
-                </a>
-
-                {/* Buy $MCRT CTA removed per mobile overlap request */}
-
-                {/* Hamburger shown as absolute on mobile (moved outside group) */}
-                <span className="hidden md:block" />
-                <a
-                  href={PANCAKESWAP_URL}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="header-cta header-cta--buy hidden h-11 items-center no-underline md:inline-flex"
-                  aria-label="Buy $MCRT"
-                >
-                  <span>Buy</span>
-                </a>
-
-                {/* Desktop language selector */}
-                <div ref={desktopLangRef} className="relative hidden md:block">
-                  <button
-                    type="button"
-                    onClick={() => setIsDesktopLangOpen((v) => !v)}
-                    className="inline-flex h-11 items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 text-white/85 transition-all hover:border-white/20 hover:bg-white/10"
-                    aria-label="Change language"
-                    aria-haspopup="menu"
-                    aria-expanded={isDesktopLangOpen}
-                  >
-                    <Globe className="h-4 w-4 text-white/70" />
-                    <span className="text-sm font-semibold">
-                      {currentLanguage.flag}
-                    </span>
-                    <ChevronDown
-                      className={`h-4 w-4 text-white/60 transition-transform ${isDesktopLangOpen ? 'rotate-180' : ''}`}
-                    />
-                  </button>
-
-                  {isDesktopLangOpen && (
-                    <div className="absolute right-0 top-full mt-2 max-h-[320px] w-[280px] overflow-auto rounded-lg border border-white/20 bg-[#0a0e2e]/95 p-2 shadow-2xl backdrop-blur-xl">
-                      <div className="grid grid-cols-2 gap-1">
-                        {LANGUAGES.map((lang) => (
-                          <button
-                            key={lang.code}
-                            type="button"
-                            onClick={() => {
-                              handleLanguageChange(lang.code)
-                              setIsDesktopLangOpen(false)
-                            }}
-                            className={`flex items-center gap-2 rounded-md p-2.5 text-left transition-all ${
-                              currentLang === lang.code
-                                ? 'bg-[#98FFF9]/20 text-white'
-                                : 'text-white/75 hover:bg-white/10'
-                            }`}
-                          >
-                            <span className="text-base">{lang.flag}</span>
-                            <span className="truncate text-xs font-semibold">
-                              {lang.name}
-                            </span>
-                          </button>
-                        ))}
-                      </div>
+                {isDesktopLangOpen && (
+                  <div className="absolute right-0 top-full mt-2 max-h-[320px] w-[280px] overflow-auto rounded-lg border border-white/20 bg-[#0a0e2e]/95 p-2 shadow-2xl backdrop-blur-xl">
+                    <div className="grid grid-cols-2 gap-1">
+                      {LANGUAGES.map((lang) => (
+                        <button
+                          key={lang.code}
+                          type="button"
+                          onClick={() => {
+                            handleLanguageChange(lang.code)
+                            setIsDesktopLangOpen(false)
+                          }}
+                          className={`flex min-h-11 items-center gap-2 rounded-md p-2.5 text-left transition-all ${
+                            currentLang === lang.code
+                              ? 'bg-[#98FFF9]/20 text-white'
+                              : 'text-white/75 hover:bg-white/10'
+                          }`}
+                        >
+                          <span className="text-base">{lang.flag}</span>
+                          <span className="truncate text-xs font-semibold">
+                            {lang.name}
+                          </span>
+                        </button>
+                      ))}
                     </div>
-                  )}
-                </div>
-                <Suspense
-                  fallback={
-                    <div className="h-10 w-[78px] rounded-lg border border-white/10 bg-white/5" />
-                  }
-                >
-                  <StatusIndicator />
-                </Suspense>
+                  </div>
+                )}
               </div>
-            )}
+              <Suspense
+                fallback={
+                  <div className="h-10 w-[78px] rounded-lg border border-white/10 bg-white/5" />
+                }
+              >
+                <StatusIndicator />
+              </Suspense>
+            </div>
           </div>
           {/* Absolutely positioned hamburger to avoid layout clipping */}
           <button
             ref={hamburgerRef}
             onClick={openSidebar}
-            className="glass-strong absolute right-2 top-1/2 z-[100000] flex min-h-[48px] min-w-[48px] -translate-y-1/2 items-center justify-center rounded-xl p-2.5 transition-all duration-200 hover:bg-white/10 md:hidden"
-            aria-label="Open menu"
+            className="glass-strong absolute right-2 top-1/2 z-[100000] flex min-h-[48px] min-w-[48px] -translate-y-1/2 items-center justify-center rounded-xl p-2.5 transition-all duration-200 hover:bg-white/10 xl:hidden"
+            aria-label={isSideMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isSideMenuOpen}
+            aria-controls="magiccraft-navigation-drawer"
           >
             <svg
               className="h-6 w-6 text-white"
@@ -495,233 +478,226 @@ const Header = () => {
       {isSideMenuOpen && (
         <div
           role="presentation"
+          aria-hidden="true"
           className="fixed inset-0 z-[99999] bg-black/60"
           onClick={closeSidebar}
         />
       )}
 
       {/* Mobile menu panel - premium glass design */}
-      <div
-        role="dialog"
-        aria-modal="true"
-        aria-label="Navigation menu"
-        className={`fixed right-0 top-0 z-[100000] h-full w-[85%] max-w-[380px] transform transition-transform duration-300 ease-out ${
-          isSideMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } overflow-auto border-l border-white/10 bg-[#0a0e2e]/95 shadow-2xl`}
-        style={{
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-        }}
-      >
-        <div className="h-full px-5 py-5 text-white">
-          <div className="flex h-full flex-col">
-            {/* Header */}
-            <div className="mb-4 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <img src={mcLogo} alt="MagicCraft" className="h-8" />
-              </div>
-              <button
-                data-drawer-close
-                className="group rounded-full border border-white/10 bg-white/5 p-2 transition-all duration-200 hover:bg-white/10"
-                onClick={closeSidebar}
-              >
-                <X className="h-5 w-5 cursor-pointer transition-transform duration-200 group-hover:rotate-90" />
-              </button>
-            </div>
-
-            {/* Primary CTAs */}
-            <div className="mb-5 grid grid-cols-2 gap-2">
-              <a
-                href="https://lobby.magiccraft.io/"
-                onClick={closeSidebar}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-4 py-3 text-sm font-bold text-[#03082F] transition-opacity hover:opacity-90"
-              >
-                <Gamepad2 className="h-4 w-4" />
-                <span>Play Now</span>
-              </a>
-              <a
-                href={PANCAKESWAP_URL}
-                onClick={closeSidebar}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm font-bold text-white transition-all hover:bg-white/15"
-              >
-                <span>Buy $MCRT</span>
-              </a>
-            </div>
-
-            {/* Quick Links */}
-            <div className="mb-5 flex gap-2">
-              <a
-                href="https://app.magiccraft.io/marketplace/explorer"
-                onClick={closeSidebar}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white/80 transition-all hover:bg-white/10"
-              >
-                <ShoppingBag className="h-4 w-4" />
-                <span>Shop</span>
-              </a>
-              <a
-                href="https://lobby.magiccraft.io/leaderboard"
-                onClick={closeSidebar}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white/80 transition-all hover:bg-white/10"
-              >
-                <img
-                  src={leaderboard}
-                  alt=""
-                  className="h-4 w-4 opacity-80"
-                  aria-hidden="true"
-                />
-                <span>Ranks</span>
-              </a>
-              <a
-                href="https://lobby.magiccraft.io/stats"
-                onClick={closeSidebar}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="flex flex-1 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white/80 transition-all hover:bg-white/10"
-              >
-                <img
-                  src={stats}
-                  alt=""
-                  className="h-4 w-4 opacity-80"
-                  aria-hidden="true"
-                />
-                <span>Stats</span>
-              </a>
-            </div>
-
-            <div className="mb-4 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-
-            {/* Navigation Sections */}
-            <div className="flex-1 space-y-1 overflow-auto">
-              {commonMenuItemsNew.map((item) =>
-                item?.submenu?.length > 0 ? (
-                  <Suspense
-                    key={item.title}
-                    fallback={<div className="h-12 rounded-lg bg-white/5" />}
-                  >
-                    <NavMenuMobile item={item} closeSidebar={closeSidebar} />
-                  </Suspense>
-                ) : item.path?.startsWith('http') ? (
-                  <a
-                    key={item.title}
-                    onClick={closeSidebar}
-                    href={item.path}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className="flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-white/5"
-                  >
-                    <img
-                      src={item.icon}
-                      alt=""
-                      className="h-5 w-5 opacity-70"
-                      aria-hidden="true"
-                    />
-                    <p className="text-base font-medium text-white/90">
-                      {item.title}
-                    </p>
-                  </a>
-                ) : (
-                  <Link
-                    key={item.title}
-                    onClick={closeSidebar}
-                    to={item.path || '/'}
-                    className="flex items-center gap-3 rounded-xl p-3 transition-all hover:bg-white/5"
-                  >
-                    <img
-                      src={item.icon}
-                      alt=""
-                      className="h-5 w-5 opacity-70"
-                      aria-hidden="true"
-                    />
-                    <p className="text-base font-medium text-white/90">
-                      {item.title}
-                    </p>
-                  </Link>
-                )
-              )}
-            </div>
-
-            {/* Language Selector */}
-            <div className="mt-4 border-t border-white/10 pt-4">
-              <div className="relative">
-                <button
-                  onClick={() => setIsLangOpen(!isLangOpen)}
-                  className="flex w-full items-center justify-between gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-all hover:bg-white/10"
+      {isSideMenuOpen && (
+        <div
+          ref={drawerRef}
+          id="magiccraft-navigation-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="magiccraft-navigation-title"
+          className="fixed right-0 top-9 z-[100000] h-[calc(100%-2.25rem)] w-[85%] max-w-[380px] overflow-auto border-l border-white/10 bg-[#0a0e2e]/95 shadow-2xl"
+          style={{
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+          }}
+        >
+          <div className="h-full px-5 py-5 text-white">
+            <div className="flex h-full flex-col">
+              {/* Header */}
+              <div className="mb-4 flex items-center justify-between">
+                <div
+                  id="magiccraft-navigation-title"
+                  className="flex items-center gap-2"
                 >
-                  <div className="flex items-center gap-2">
-                    <Globe className="h-4 w-4 text-white/60" />
-                    <span className="text-sm text-white/80">
-                      {currentLanguage.flag} {currentLanguage.name}
-                    </span>
-                  </div>
-                  <ChevronDown
-                    className={`h-4 w-4 text-white/50 transition-transform ${isLangOpen ? 'rotate-180' : ''}`}
+                  <img src={mcLogo} alt="" aria-hidden="true" className="h-8" />
+                  <span className="sr-only">MagicCraft navigation</span>
+                </div>
+                <button
+                  ref={drawerCloseRef}
+                  type="button"
+                  data-drawer-close
+                  aria-label="Close navigation menu"
+                  className="group inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 p-2 transition-all duration-200 hover:bg-white/10"
+                  onClick={closeSidebar}
+                >
+                  <X
+                    aria-hidden="true"
+                    className="h-5 w-5 cursor-pointer transition-transform duration-200 group-hover:rotate-90"
                   />
                 </button>
+              </div>
 
-                {isLangOpen && (
-                  <div className="absolute bottom-full left-0 right-0 mb-2 max-h-[280px] overflow-auto rounded-xl border border-white/20 bg-[#0a0e2e] shadow-2xl">
-                    <div className="grid grid-cols-2 gap-1 p-2">
-                      {LANGUAGES.map((lang) => (
-                        <button
-                          key={lang.code}
-                          onClick={() => handleLanguageChange(lang.code)}
-                          className={`flex items-center gap-2 rounded-lg p-2.5 text-left transition-all ${
-                            currentLang === lang.code
-                              ? 'bg-[#98FFF9]/20 text-white'
-                              : 'text-white/70 hover:bg-white/10'
-                          }`}
-                        >
-                          <span className="text-base">{lang.flag}</span>
-                          <span className="truncate text-xs font-medium">
-                            {lang.name}
-                          </span>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+              {/* Primary game action */}
+              <div className="mb-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    closeSidebar()
+                    openGameByDevice()
+                  }}
+                  className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-4 py-3 text-sm font-bold text-[#03082F] transition-opacity hover:opacity-90"
+                >
+                  <Gamepad2 aria-hidden="true" className="h-4 w-4" />
+                  <span>Play MagicCraft</span>
+                </button>
+              </div>
+
+              {/* Secondary destinations */}
+              <div className="mb-5 grid grid-cols-2 gap-2">
+                <a
+                  href="https://lobby.magiccraft.io/"
+                  onClick={closeSidebar}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white/80 transition-all hover:bg-white/10"
+                >
+                  <Gamepad2 aria-hidden="true" className="h-4 w-4" />
+                  <span>Live Lobbies</span>
+                </a>
+                <a
+                  href="https://app.magiccraft.io/marketplace/explorer"
+                  onClick={closeSidebar}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white/80 transition-all hover:bg-white/10"
+                >
+                  <ShoppingBag aria-hidden="true" className="h-4 w-4" />
+                  <span>Shop</span>
+                </a>
+              </div>
+
+              <div className="mb-4 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+
+              {/* Navigation Sections */}
+              <div className="flex-1 space-y-1 overflow-auto">
+                {commonMenuItemsNew.map((item) =>
+                  item?.submenu?.length > 0 ? (
+                    <Suspense
+                      key={item.title}
+                      fallback={<div className="h-12 rounded-lg bg-white/5" />}
+                    >
+                      <NavMenuMobile item={item} closeSidebar={closeSidebar} />
+                    </Suspense>
+                  ) : item.path?.startsWith('http') ? (
+                    <a
+                      key={item.title}
+                      onClick={closeSidebar}
+                      href={item.path}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="flex min-h-11 items-center gap-3 rounded-xl p-3 transition-all hover:bg-white/5"
+                    >
+                      <img
+                        src={item.icon}
+                        alt=""
+                        className="h-5 w-5 opacity-70"
+                        aria-hidden="true"
+                      />
+                      <p className="text-base font-medium text-white/90">
+                        {item.title}
+                      </p>
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.title}
+                      onClick={closeSidebar}
+                      to={item.path || '/'}
+                      className="flex min-h-11 items-center gap-3 rounded-xl p-3 transition-all hover:bg-white/5"
+                    >
+                      <img
+                        src={item.icon}
+                        alt=""
+                        className="h-5 w-5 opacity-70"
+                        aria-hidden="true"
+                      />
+                      <p className="text-base font-medium text-white/90">
+                        {item.title}
+                      </p>
+                    </Link>
+                  )
                 )}
               </div>
-            </div>
 
-            {/* Footer Links */}
-            <div className="mt-3 pb-2">
-              <div className="flex items-center justify-center gap-4 text-xs text-white/50">
-                <Link
-                  to="/privacypolicy"
-                  onClick={closeSidebar}
-                  className="hover:text-white/70"
-                >
-                  Privacy
-                </Link>
-                <span>•</span>
-                <Link
-                  to="/terms"
-                  onClick={closeSidebar}
-                  className="hover:text-white/70"
-                >
-                  Terms
-                </Link>
-                <span>•</span>
-                <Link
-                  to="/faq"
-                  onClick={closeSidebar}
-                  className="hover:text-white/70"
-                >
-                  FAQ
-                </Link>
+              {/* Language Selector */}
+              <div className="mt-4 border-t border-white/10 pt-4">
+                <div className="relative">
+                  <button
+                    type="button"
+                    onClick={() => setIsLangOpen(!isLangOpen)}
+                    className="flex min-h-11 w-full items-center justify-between gap-2 rounded-xl border border-white/10 bg-white/5 p-3 transition-all hover:bg-white/10"
+                    aria-expanded={isLangOpen}
+                    aria-controls="mobile-language-options"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Globe className="h-4 w-4 text-white/60" />
+                      <span className="text-sm text-white/80">
+                        {currentLanguage.flag} {currentLanguage.name}
+                      </span>
+                    </div>
+                    <ChevronDown
+                      aria-hidden="true"
+                      className={`h-4 w-4 text-white/50 transition-transform ${isLangOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+
+                  {isLangOpen && (
+                    <div
+                      id="mobile-language-options"
+                      className="absolute bottom-full left-0 right-0 mb-2 max-h-[280px] overflow-auto rounded-xl border border-white/20 bg-[#0a0e2e] shadow-2xl"
+                    >
+                      <div className="grid grid-cols-2 gap-1 p-2">
+                        {LANGUAGES.map((lang) => (
+                          <button
+                            key={lang.code}
+                            type="button"
+                            onClick={() => handleLanguageChange(lang.code)}
+                            className={`flex min-h-11 items-center gap-2 rounded-lg p-2.5 text-left transition-all ${
+                              currentLang === lang.code
+                                ? 'bg-[#98FFF9]/20 text-white'
+                                : 'text-white/70 hover:bg-white/10'
+                            }`}
+                          >
+                            <span className="text-base">{lang.flag}</span>
+                            <span className="truncate text-xs font-medium">
+                              {lang.name}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Footer Links */}
+              <div className="mt-3 pb-2">
+                <div className="flex items-center justify-center gap-4 text-xs text-white/50">
+                  <Link
+                    to="/privacypolicy"
+                    onClick={closeSidebar}
+                    className="inline-flex min-h-11 items-center hover:text-white/70"
+                  >
+                    Privacy
+                  </Link>
+                  <span>•</span>
+                  <Link
+                    to="/terms"
+                    onClick={closeSidebar}
+                    className="inline-flex min-h-11 items-center hover:text-white/70"
+                  >
+                    Terms
+                  </Link>
+                  <span>•</span>
+                  <Link
+                    to="/faq"
+                    onClick={closeSidebar}
+                    className="inline-flex min-h-11 items-center hover:text-white/70"
+                  >
+                    FAQ
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </>
   )
 }

@@ -10,7 +10,7 @@ import {
   FaTiktok,
   FaYoutube,
 } from 'react-icons/fa6'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { BUILD_REV } from '@/version'
 import { BYBIT_URL, METAMASK_SWAP_URL, PANCAKESWAP_URL } from '@/constants'
 
@@ -91,12 +91,16 @@ const tokenLinks = [
 
 const moreLinks = [
   {
-    title: 'Roadmap',
-    link: '/#roadmap',
+    title: 'Gameplay',
+    link: '/#gameplay',
   },
   {
-    title: 'Team',
-    link: '/#team',
+    title: 'Heroes',
+    link: '/chooseyourhero',
+  },
+  {
+    title: 'News',
+    link: '/news',
   },
   {
     title: 'FAQ',
@@ -121,7 +125,6 @@ const moreLinks = [
 ]
 
 const Footer = () => {
-  const navigate = useNavigate()
   const appVersion = `v${BUILD_REV}`
   return (
     <footer className="text-primary hairline-top relative z-10 bg-gradient-to-b from-[#020418] via-[#0A0424] to-[#03082f] py-12 md:py-16">
@@ -210,7 +213,7 @@ const Footer = () => {
         <div className="flex flex-col gap-8 md:flex-row md:gap-12 lg:gap-16">
           {/* Token Links */}
           <div className="w-full space-y-6 md:space-y-8">
-            <h5 className="border-b-2 border-white/15 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text pb-3 text-xl font-black tracking-wider text-transparent text-white md:text-2xl">
+            <h5 className="border-b-2 border-white/[0.15] bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text pb-3 text-xl font-black tracking-wider text-transparent text-white md:text-2xl">
               TOKEN
             </h5>
             <ul className="space-y-3 text-sm text-[#98FFF9] md:space-y-4 md:text-base">
@@ -228,25 +231,12 @@ const Footer = () => {
                         {item.title}
                       </a>
                     ) : (
-                      <a
-                        onClick={() => {
-                          if (item.link.startsWith('/#')) {
-                            const targetId = item.link.slice(2)
-                            navigate('/')
-                            setTimeout(() => {
-                              const element = document.getElementById(targetId)
-                              if (element) {
-                                element.scrollIntoView({ behavior: 'smooth' })
-                              }
-                            }, 0)
-                          } else {
-                            navigate(item.link)
-                          }
-                        }}
-                        className="inline-block cursor-pointer transition-colors duration-200 hover:text-white"
+                      <Link
+                        to={item.link}
+                        className="inline-block transition-colors duration-200 hover:text-white"
                       >
                         {item.title}
-                      </a>
+                      </Link>
                     )}
                   </li>
                 )
@@ -256,7 +246,7 @@ const Footer = () => {
 
           {/* More Links */}
           <div className="w-full space-y-6 md:space-y-8">
-            <h5 className="border-b-2 border-white/15 bg-gradient-to-r from-[#B591F2] to-[#FFB649] bg-clip-text pb-3 text-xl font-black tracking-wider text-transparent text-white md:text-2xl">
+            <h5 className="border-b-2 border-white/[0.15] bg-gradient-to-r from-[#B591F2] to-[#FFB649] bg-clip-text pb-3 text-xl font-black tracking-wider text-transparent text-white md:text-2xl">
               MORE
             </h5>
             <ul className="space-y-3 text-sm text-[#98FFF9] md:space-y-4 md:text-base">
@@ -274,15 +264,12 @@ const Footer = () => {
                         {item.title}
                       </a>
                     ) : (
-                      <a
-                        onClick={() => {
-                          window.scrollTo(0, 0)
-                          navigate(item.link)
-                        }}
-                        className="inline-block cursor-pointer transition-colors duration-200 hover:text-white"
+                      <Link
+                        to={item.link}
+                        className="inline-block transition-colors duration-200 hover:text-white"
                       >
                         {item.title}
-                      </a>
+                      </Link>
                     )}
                   </li>
                 )

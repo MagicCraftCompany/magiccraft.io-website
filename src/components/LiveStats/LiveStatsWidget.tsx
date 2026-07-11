@@ -1,143 +1,182 @@
 import { useEffect, useRef, useState } from 'react'
-import { useGameStats } from '@/lib/useGameStats'
+import {
+  useGameStats,
+  type GameStatsSourceStatus,
+  type GameStatsStatus,
+} from '@/lib/useGameStats'
 
-// Animated number counter
-function AnimatedNumber({
-  value,
-  prefix = '',
-  suffix = '',
-  decimals = 0,
-}: {
-  value: number
-  prefix?: string
-  suffix?: string
-  decimals?: number
-}) {
+function AnimatedNumber({ value }: { value: number }) {
   const [displayed, setDisplayed] = useState(value)
-  const prevRef = useRef(value)
-  const rafRef = useRef<number | null>(null)
+  const previousRef = useRef(value)
+  const frameRef = useRef<number | null>(null)
 
   useEffect(() => {
-    const from = prevRef.current
-    const to = value
-    if (from === to) return
+    const from = previousRef.current
+    if (from === value) return
     const duration = 1200
-    const start = performance.now()
+    const startedAt = performance.now()
+
     const animate = (now: number) => {
-      const elapsed = now - start
-      const progress = Math.min(elapsed / duration, 1)
-      // ease-out cubic
+      const progress = Math.min((now - startedAt) / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
-      setDisplayed(from + (to - from) * eased)
+      setDisplayed(from + (value - from) * eased)
       if (progress < 1) {
-        rafRef.current = requestAnimationFrame(animate)
+        frameRef.current = requestAnimationFrame(animate)
       } else {
-        prevRef.current = to
+        previousRef.current = value
       }
     }
-    rafRef.current = requestAnimationFrame(animate)
+
+    frameRef.current = requestAnimationFrame(animate)
     return () => {
-      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current)
+      if (frameRef.current !== null) cancelAnimationFrame(frameRef.current)
     }
   }, [value])
 
-  const formatted =
-    decimals > 0
-      ? displayed.toFixed(decimals)
-      : Math.round(displayed).toLocaleString()
-
-  return (
-    <span>
-      {prefix}
-      {formatted}
-      {suffix}
-    </span>
-  )
+  return <span>{Math.round(displayed).toLocaleString()}</span>
 }
 
-function formatMcrt(n: number): string {
-  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`
-  if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K`
-  return n.toLocaleString()
+function formatMcrt(value: number | null): string {
+  if (value === null) return 'Unavailable'
+  if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(1)}M`
+  if (value >= 1_000) return `${(value / 1_000).toFixed(0)}K`
+  return value.toLocaleString()
 }
 
 type StatTileProps = {
   label: string
-  value: string | number
-  sublabel?: string
+  value: string
+  sublabel: string
   icon: string
   accent: string
-  animated?: boolean
   rawValue?: number
 }
 
-function StatTile({ label, value, sublabel, icon, accent, animated, rawValue }: StatTileProps) {
+function StatTile({
+  label,
+  value,
+  sublabel,
+  icon,
+  accent,
+  rawValue,
+}: StatTileProps) {
   return (
     <div
       className={`relative overflow-hidden rounded-2xl border bg-white/5 p-5 backdrop-blur-sm transition-transform hover:-translate-y-0.5 ${accent}`}
     >
-      {/* Ambient glow */}
-      <div className="pointer-events-none absolute -top-4 left-1/2 h-16 w-24 -translate-x-1/2 rounded-full blur-2xl opacity-20 bg-current" />
-
-      <div className="mb-2 text-2xl" aria-hidden="true">{icon}</div>
+      <div className="pointer-events-none absolute -top-4 left-1/2 h-16 w-24 -translate-x-1/2 rounded-full bg-current opacity-20 blur-2xl" />
+      <div className="mb-2 text-2xl" aria-hidden="true">
+        {icon}
+      </div>
       <div className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-        {animated && rawValue !== undefined ? (
-          <AnimatedNumber value={rawValue} />
-        ) : (
-          value
-        )}
+        {rawValue === undefined ? value : <AnimatedNumber value={rawValue} />}
       </div>
       <div className="mt-1 text-sm font-medium text-white/70">{label}</div>
-      {sublabel && <div className="mt-0.5 text-xs text-white/40">{sublabel}</div>}
+      <div className="mt-0.5 text-xs text-white/60">{sublabel}</div>
     </div>
   )
 }
 
-export default function LiveStatsWidget() {
-  const { data, loading } = useGameStats(60_000)
+const STATUS_PRESENTATION: Record<
+  GameStatsStatus,
+  { label: string; dot: string; panel: string }
+> = {
+  loading: {
+    label: 'Checking live sources',
+    dot: 'bg-sky-400',
+    panel: 'border-sky-400/20 bg-sky-400/10 text-sky-100',
+  },
+  live: {
+    label: 'Live verified data',
+    dot: 'bg-emerald-400',
+    panel: 'border-emerald-400/20 bg-emerald-400/10 text-emerald-100',
+  },
+  partial: {
+    label: 'Partial live data',
+    dot: 'bg-amber-400',
+    panel: 'border-amber-400/20 bg-amber-400/10 text-amber-100',
+  },
+  stale: {
+    label: 'Last verified data',
+    dot: 'bg-amber-400',
+    panel: 'border-amber-400/20 bg-amber-400/10 text-amber-100',
+  },
+  offline: {
+    label: 'Game server offline',
+    dot: 'bg-rose-500',
+    panel: 'border-rose-400/20 bg-rose-400/10 text-rose-100',
+  },
+  unavailable: {
+    label: 'Live stats unavailable',
+    dot: 'bg-slate-400',
+    panel: 'border-white/10 bg-white/5 text-white/70',
+  },
+}
 
-  const matchesPlayed = data?.allTime.matchesPlayed ?? 15285
-  const mcrtInGame = data?.allTime.mcrtInGame ?? 2697880
+function sourceLabel(status: GameStatsSourceStatus) {
+  if (status === 'live') return 'live'
+  if (status === 'offline') return 'offline'
+  return 'unavailable'
+}
+
+function statusMessage(status: GameStatsStatus, hasData: boolean) {
+  switch (status) {
+    case 'partial':
+      return 'At least one live source is unavailable. Only verified fields are shown.'
+    case 'stale':
+      return 'The latest refresh failed or returned an old cached response. These are the last verified values.'
+    case 'offline':
+      return 'The game server reported an offline response. Market data is shown only if its source responded.'
+    case 'unavailable':
+      return 'Live stats are temporarily unavailable. No estimated or fallback totals are shown.'
+    case 'loading':
+      return hasData
+        ? 'Refreshing verified sources.'
+        : 'Checking the game server and market source.'
+    default:
+      return 'Values below came from the current game-server and market responses.'
+  }
+}
+
+export default function LiveStatsWidget() {
+  const { data, loading, error, status } = useGameStats(60_000)
+  const presentation = STATUS_PRESENTATION[status]
+  const finishedLobbies = data?.allTime.finishedLobbies ?? null
+  const mcrtPledged = data?.allTime.mcrtPledged ?? null
   const mcrtPrice = data?.price?.usd ?? null
   const priceChange = data?.price?.change24h ?? null
-  const seasonName = data?.season.name ?? '—'
-  const seasonPrize = data?.season.totalPrizeMcrt ?? 250000
-  const serverOnline = data?.live.serverOnline ?? null
-  const ts = data?.ts ?? null
-
+  const seasonName = data?.season.name ?? null
+  const seasonPrize = data?.season.totalPrizeMcrt ?? null
+  const timestamp = data?.ts ?? null
   const priceChangePositive = priceChange !== null && priceChange >= 0
 
   return (
-    <section className="relative py-16 sm:py-20">
-      {/* Background decoration */}
+    <section
+      className="relative py-16 sm:py-20"
+      data-testid="live-stats-widget"
+      data-status={status}
+    >
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <div className="absolute left-1/4 top-0 h-64 w-64 rounded-full bg-cyan-500/10 blur-3xl" />
-        <div className="absolute right-1/4 bottom-0 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-purple-500/10 blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        {/* Header */}
-        <div className="mb-10 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-between sm:text-left">
+        <div className="mb-8 flex flex-col items-center gap-3 text-center sm:flex-row sm:justify-between sm:text-left">
           <div>
-            <div className="mb-1 flex items-center gap-2 justify-center sm:justify-start">
-              {/* Live pulse */}
-              <span className="relative flex h-2.5 w-2.5">
-                <span
-                  className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${serverOnline === false ? 'bg-rose-400' : 'bg-emerald-400'}`}
-                />
-                <span
-                  className={`relative inline-flex h-2.5 w-2.5 rounded-full ${serverOnline === false ? 'bg-rose-500' : 'bg-emerald-500'}`}
-                />
-              </span>
-              <span className="text-xs font-semibold uppercase tracking-widest text-white/50">
-                {loading ? 'Updating…' : 'Live stats'}
+            <div className="mb-1 flex items-center justify-center gap-2 sm:justify-start">
+              <span
+                className={`h-2.5 w-2.5 rounded-full ${presentation.dot}`}
+              />
+              <span className="text-xs font-semibold uppercase tracking-widest text-white/60">
+                {loading && !data ? 'Checking…' : presentation.label}
               </span>
             </div>
             <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl">
-              The Numbers Don&apos;t Lie
+              Verified ecosystem stats
             </h2>
             <p className="mt-1 text-sm text-white/50">
-              Real-time activity from the MagicCraft ecosystem
+              Unverified values stay blank instead of being estimated.
             </p>
           </div>
           <a
@@ -148,76 +187,130 @@ export default function LiveStatsWidget() {
           </a>
         </div>
 
-        {/* Stats grid */}
+        <div
+          className={`mb-5 rounded-xl border px-4 py-3 text-sm ${presentation.panel}`}
+          role="status"
+          aria-live="polite"
+        >
+          {statusMessage(status, Boolean(data))}
+          {error && status === 'stale' ? ` Refresh error: ${error}.` : ''}
+        </div>
+
+        {data?.meta?.sources && (
+          <div className="mb-5 flex flex-wrap gap-2 text-xs text-white/60">
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
+              Game server: {sourceLabel(data.meta.sources.gameServer.status)}
+            </span>
+            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
+              Market: {sourceLabel(data.meta.sources.market.status)}
+            </span>
+          </div>
+        )}
+
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <StatTile
             icon="⚔️"
-            label="Matches Played"
-            value={matchesPlayed.toLocaleString()}
-            rawValue={matchesPlayed}
-            animated
-            sublabel="All-time lobbies"
+            label="Finished Lobbies"
+            value={
+              finishedLobbies === null
+                ? 'Unavailable'
+                : finishedLobbies.toLocaleString()
+            }
+            rawValue={finishedLobbies ?? undefined}
+            sublabel={
+              finishedLobbies === null
+                ? 'No verified total'
+                : 'Reported by game server'
+            }
             accent="border-blue-500/20 text-blue-400"
           />
           <StatTile
             icon="🪙"
-            label="MCRT In-Game"
-            value={formatMcrt(mcrtInGame)}
-            rawValue={mcrtInGame}
-            animated
-            sublabel="Total pledged to lobbies"
+            label="MCRT Pledged"
+            value={formatMcrt(mcrtPledged)}
+            rawValue={mcrtPledged ?? undefined}
+            sublabel={
+              mcrtPledged === null
+                ? 'No verified total'
+                : 'Reported by game server'
+            }
             accent="border-amber-500/20 text-amber-400"
           />
           <StatTile
             icon="🏆"
-            label={`${seasonName} Prize Pool`}
-            value={formatMcrt(seasonPrize) + ' MCRT'}
-            sublabel="Current season rewards"
+            label={
+              seasonName ? `${seasonName} Prize Pool` : 'Season Prize Pool'
+            }
+            value={
+              seasonPrize === null
+                ? 'Unavailable'
+                : `${formatMcrt(seasonPrize)} MCRT`
+            }
+            sublabel={
+              seasonPrize === null
+                ? 'No verified prize value'
+                : 'Current game-server response'
+            }
             accent="border-purple-500/20 text-purple-400"
           />
           <StatTile
             icon="💎"
             label="MCRT Price"
             value={
-              mcrtPrice !== null
-                ? `$${mcrtPrice.toFixed(5)}`
-                : '—'
+              mcrtPrice === null ? 'Unavailable' : `$${mcrtPrice.toFixed(5)}`
             }
             sublabel={
-              priceChange !== null
-                ? `${priceChangePositive ? '+' : ''}${priceChange.toFixed(2)}% 24h`
-                : 'via CoinGecko'
+              priceChange === null
+                ? mcrtPrice === null
+                  ? 'Market source unavailable'
+                  : '24h change unavailable'
+                : `${priceChangePositive ? '+' : ''}${priceChange.toFixed(2)}% 24h`
             }
             accent={
               priceChange === null
                 ? 'border-cyan-500/20 text-cyan-400'
                 : priceChangePositive
-                ? 'border-emerald-500/20 text-emerald-400'
-                : 'border-rose-500/20 text-rose-400'
+                  ? 'border-emerald-500/20 text-emerald-400'
+                  : 'border-rose-500/20 text-rose-400'
             }
           />
         </div>
 
-        {/* Winner strip */}
-        {data?.allTime.recentWinners && data.allTime.recentWinners.length > 0 && (
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:justify-start">
-            <span className="text-xs text-white/40 uppercase tracking-widest">Season winners</span>
-            {data.allTime.recentWinners.map((w) => (
-              <span
-                key={w.playerName}
-                className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"
-              >
-                <span>{w.finalRank === 1 ? '🥇' : w.finalRank === 2 ? '🥈' : '🥉'}</span>
-                <span className="font-medium text-white">{w.playerName}</span>
-                <span className="text-white/40">{formatMcrt(w.prizeAmount)} MCRT</span>
+        {data?.allTime.recentWinners &&
+          data.allTime.recentWinners.length > 0 && (
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-3 sm:justify-start">
+              <span className="text-xs uppercase tracking-widest text-white/60">
+                Reported season winners
               </span>
-            ))}
-          </div>
-        )}
+              {data.allTime.recentWinners.map((winner) => (
+                <span
+                  key={`${winner.playerName}-${winner.finalRank}`}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/70"
+                >
+                  <span>
+                    {winner.finalRank === 1
+                      ? '🥇'
+                      : winner.finalRank === 2
+                        ? '🥈'
+                        : '🥉'}
+                  </span>
+                  <span className="font-medium text-white">
+                    {winner.playerName}
+                  </span>
+                  <span className="text-white/60">
+                    {formatMcrt(winner.prizeAmount)} MCRT
+                  </span>
+                </span>
+              ))}
+            </div>
+          )}
 
-        {ts && (
-          <p className="mt-4 text-center text-[11px] text-white/25 sm:text-left">
-            Last refreshed {new Date(ts).toLocaleTimeString()}
+        {timestamp && (
+          <p className="mt-4 text-center text-[11px] text-white/60 sm:text-left">
+            {status === 'stale'
+              ? 'Last verified response'
+              : 'Response generated'}{' '}
+            {new Date(timestamp).toLocaleString()}
           </p>
         )}
       </div>

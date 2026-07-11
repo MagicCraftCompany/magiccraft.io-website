@@ -37,7 +37,9 @@ export function getDeviceDetails() {
     navigator.vendor ||
     (window as Window & { opera?: string }).opera ||
     ''
-  const isIOS = /iPad|iPhone|iPod/.test(ua)
+  const isIPadDesktopMode =
+    /Macintosh/.test(ua) && (navigator.maxTouchPoints ?? 0) > 1
+  const isIOS = /iPad|iPhone|iPod/.test(ua) || isIPadDesktopMode
   const isAndroid = /Android/.test(ua)
   return { isIOS, isAndroid, isMobile: isIOS || isAndroid }
 }

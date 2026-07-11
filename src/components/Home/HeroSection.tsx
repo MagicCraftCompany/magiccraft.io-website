@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import { ArrowRight, Check, ExternalLink, Gamepad2, Swords } from 'lucide-react'
 import { openGameByDevice } from '@/lib/gameActions'
-import EcosystemMindMap from '@/components/EcosystemMindMap'
-import { BYBIT_URL, PANCAKESWAP_URL } from '@/constants'
 
 type NetInfo = {
   saveData?: boolean
@@ -11,15 +10,16 @@ const HERO_VIDEO_SRC =
   'https://res.cloudinary.com/dfzcr2ch4/video/upload/v1717166775/video_gokp2f.mp4'
 const HERO_POSTER_SRC =
   'https://res.cloudinary.com/dfzcr2ch4/video/upload/so_1/f_jpg,q_auto,w_1920/v1717166775/video_gokp2f.jpg'
+const LOBBY_URL = 'https://lobby.magiccraft.io/'
 
 function shouldPlayHeroVideo(): boolean {
   if (typeof window === 'undefined') return false
+  if (window.matchMedia('(max-width: 767px)').matches) return false
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches)
     return false
+
   const nav = navigator as Navigator & { connection?: NetInfo }
-  const conn = nav.connection
-  if (conn?.saveData) return false
-  return true
+  return !nav.connection?.saveData
 }
 
 export default function HeroSection() {
@@ -33,77 +33,52 @@ export default function HeroSection() {
     if (!video) return
 
     video.muted = true
-    ;(video as HTMLVideoElement & { defaultMuted?: boolean }).defaultMuted =
-      true
+    ;(video as HTMLVideoElement & { defaultMuted?: boolean }).defaultMuted = true
     ;(video as HTMLVideoElement & { playsInline?: boolean }).playsInline = true
   }, [])
-
-  const openLiveSupport = () => {
-    if (typeof window === 'undefined') return
-    window.dispatchEvent(new CustomEvent('mc:live-support:open'))
-  }
 
   useEffect(() => {
     setEnableVideo(shouldPlayHeroVideo())
   }, [])
 
-  // Ensure hero background video autoplay/loops reliably across browsers
   useEffect(() => {
     if (!enableVideo) return
     const video = heroVideoRef.current
     if (!video) return
 
-    try {
-      video.muted = true
-      ;(video as HTMLVideoElement & { defaultMuted?: boolean }).defaultMuted =
-        true
-      ;(video as HTMLVideoElement & { playsInline?: boolean }).playsInline =
-        true
-    } catch {
-      /* intentional: best-effort attribute assignment */
-    }
-
     const tryPlay = () => {
-      const p = video.play()
-      if (p && typeof p.catch === 'function') {
-        p.catch(() => {})
+      const playback = video.play()
+      if (playback && typeof playback.catch === 'function') {
+        playback.catch(() => {})
       }
     }
 
     const onVisibility = () => {
       if (!document.hidden) tryPlay()
     }
-    const onPause = () => {
-      tryPlay()
-    }
-    const onEnded = () => {
-      video.currentTime = 0
-      tryPlay()
-    }
 
     tryPlay()
     document.addEventListener('visibilitychange', onVisibility)
-    video.addEventListener('pause', onPause)
-    video.addEventListener('ended', onEnded)
 
     return () => {
       document.removeEventListener('visibilitychange', onVisibility)
-      video.removeEventListener('pause', onPause)
-      video.removeEventListener('ended', onEnded)
     }
   }, [enableVideo])
 
   return (
-    <section className="relative h-auto min-h-[620px] w-full max-w-full overflow-hidden bg-cover bg-center sm:min-h-[690px] md:min-h-[720px] md:min-h-screen lg:min-h-[760px] xl:min-h-[800px]">
+    <section
+      id="home"
+      className="relative isolate min-h-[700px] w-full overflow-hidden bg-[#03082f] sm:min-h-[760px] lg:min-h-[820px]"
+    >
       {enableVideo ? (
         <video
           ref={setHeroVideoElement}
-          className="absolute inset-0 h-full w-full -translate-y-8 scale-125 object-cover sm:translate-y-0 sm:scale-105"
+          className="absolute inset-0 -z-30 h-full w-full object-cover object-center"
           autoPlay
           loop
           muted
           playsInline
-          preload="auto"
+          preload="metadata"
           controls={false}
           controlsList="nodownload noplaybackrate noremoteplayback"
           disablePictureInPicture
@@ -113,178 +88,109 @@ export default function HeroSection() {
         </video>
       ) : (
         <img
-          className="absolute inset-0 h-full w-full -translate-y-8 scale-125 object-cover sm:translate-y-0 sm:scale-105"
+          className="absolute inset-0 -z-30 h-full w-full scale-105 object-cover object-center"
           src={HERO_POSTER_SRC}
           alt=""
           aria-hidden="true"
           loading="eager"
         />
       )}
-      <div className="video-bg-gradient absolute inset-0 h-full w-full bg-gradient-to-b from-black/25 via-[#03082f]/25 to-[#03082f]/95 md:from-black/70 md:via-[#03082f]/35"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(152,255,249,0.18),transparent_32%),linear-gradient(90deg,rgba(152,255,249,0.06),rgba(181,145,242,0.08))]"></div>
-      <div className="absolute inset-0 bg-gradient-to-t from-[#03082f] via-transparent to-transparent md:to-black/30"></div>
 
-      {/* Embedded Ecosystem Mind Map - bottom left of hero */}
-      <div className="pointer-events-none absolute bottom-[-130px] left-[-170px] z-0 hidden h-[312px] w-[364px] opacity-35 sm:bottom-[-120px] sm:left-[-150px] sm:block sm:h-[416px] sm:w-[494px] md:bottom-[-125px] md:left-[-120px] md:h-[546px] md:w-[650px] md:opacity-55">
-        <EcosystemMindMap />
-      </div>
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(90deg,rgba(2,4,24,0.96)_0%,rgba(3,8,47,0.86)_43%,rgba(3,8,47,0.38)_74%,rgba(3,8,47,0.48)_100%)] sm:bg-[linear-gradient(90deg,rgba(2,4,24,0.97)_0%,rgba(3,8,47,0.88)_44%,rgba(3,8,47,0.28)_78%,rgba(3,8,47,0.42)_100%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_78%_38%,rgba(152,255,249,0.18),transparent_30%),radial-gradient(circle_at_32%_70%,rgba(181,145,242,0.18),transparent_34%)]" />
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-48 bg-gradient-to-t from-[#03082f] to-transparent" />
 
-      <div className="relative z-10 mx-auto h-full w-full max-w-screen-xl px-3 sm:px-4">
-        <div className="grid h-full w-full grid-cols-1 place-items-center justify-center gap-3 pb-10 pt-8 sm:gap-4 sm:pb-12 sm:pt-24 md:gap-4 md:pb-14 md:pt-28 lg:gap-5 lg:pb-16 lg:pt-32">
-          <div className="animate-fade-in group mt-1 w-full max-w-[24%] sm:mt-2 sm:max-w-[18%] md:mt-3 md:w-full md:max-w-28 lg:mt-4 lg:max-w-32">
-            <div className="relative">
-              <div className="animate-pulse-slow absolute inset-0 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] opacity-40 blur-2xl transition-opacity duration-500 group-hover:opacity-60"></div>
-              <img
-                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp"
-                alt="MCRT Token"
-                loading="eager"
-                className="animate-float relative h-auto w-full drop-shadow-2xl transition-all duration-500 hover:rotate-3 hover:scale-110"
-              />
-            </div>
-          </div>
+      <div className="mx-auto flex min-h-[700px] w-full max-w-screen-2xl items-center px-5 pb-16 pt-16 sm:min-h-[760px] sm:px-8 sm:pb-20 sm:pt-32 lg:min-h-[820px] lg:px-12 lg:pb-24 lg:pt-40 xl:px-16">
+        <div className="grid w-full items-end gap-10 xl:grid-cols-[minmax(0,760px)_minmax(280px,1fr)] xl:gap-12">
+          <div className="max-w-3xl text-center sm:text-left">
+            <img
+              src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"
+              alt="MagicCraft"
+              loading="eager"
+              className="mx-auto h-auto w-[230px] drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)] sm:mx-0 sm:w-[300px]"
+            />
 
-          <div className="gap-section animate-slide-up mx-auto mt-2 w-full max-w-[22rem] overflow-hidden px-3 text-center sm:mt-3 sm:max-w-full sm:px-6 md:mt-4 md:px-8 lg:mt-5">
-            <div className="group mb-3 flex justify-center sm:mb-4 md:mb-6">
-              <img
-                src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"
-                alt="MagicCraft Logo"
-                loading="eager"
-                className="h-auto w-full max-w-[280px] drop-shadow-[0_0_30px_rgba(255,255,255,0.2)] transition-transform duration-700 group-hover:scale-105 group-hover:drop-shadow-[0_0_40px_rgba(255,255,255,0.4)] sm:max-w-sm md:max-w-sm lg:max-w-md xl:max-w-lg"
-              />
+            <div className="mt-7 inline-flex min-h-9 items-center gap-2 rounded-full border border-[#98FFF9]/30 bg-[#071c35]/70 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#98FFF9] backdrop-blur-md sm:text-xs">
+              <Swords className="h-4 w-4" aria-hidden="true" />
+              Free-to-play fantasy MOBA
             </div>
-            <div className="mx-auto mb-4 flex max-w-[19rem] flex-wrap items-center justify-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-[#98FFF9] sm:max-w-none sm:gap-2 sm:text-[11px] sm:tracking-[0.18em]">
-              <span className="rounded-full border border-[#98FFF9]/25 bg-[#98FFF9]/10 px-2.5 py-1 sm:px-3">
-                BNB Chain
-              </span>
-              <span className="rounded-full border border-[#B591F2]/25 bg-[#B591F2]/10 px-2.5 py-1 text-[#d7c8ff] sm:px-3">
-                PvP Rewards
-              </span>
-              <span className="rounded-full border border-[#FFB649]/25 bg-[#FFB649]/10 px-2.5 py-1 text-[#ffd18a] sm:px-3">
-                AI Products
-              </span>
-            </div>
-            <h1 className="text-hero mx-auto max-w-[19rem] hyphens-none break-words font-black leading-tight drop-shadow-2xl sm:max-w-5xl">
-              <span className="block sm:inline">$MCRT:</span>{' '}
-              <span className="block sm:inline">Game and AI</span>{' '}
-              <span className="block sm:inline">Economy</span>
+
+            <h1 className="mt-5 text-balance font-serif text-5xl font-black leading-[0.95] tracking-[-0.03em] text-white drop-shadow-[0_12px_40px_rgba(0,0,0,0.7)] sm:text-6xl lg:text-7xl xl:text-[82px]">
+              Battle through the Ashvales.
             </h1>
-            <p className="text-white/88 mx-auto mt-4 max-w-3xl text-base leading-relaxed tracking-normal sm:mt-5 sm:text-lg">
-              Earn it in PvP lobbies, spend it on NFTs and product credits,
-              pledge it for rewards, or accept it in any app with MCRTPay.
-            </p>
-            {/* Mobile: compact 3-CTA row */}
-            <div className="mx-auto mt-5 w-full max-w-[19rem] sm:mt-6 sm:hidden">
-              <div className="grid w-full grid-cols-2 gap-2">
-                <button
-                  onClick={openGameByDevice}
-                  className="ripple-effect h-12 min-w-0 rounded-lg border border-white/15 bg-gradient-to-r from-[#98FFF9] to-[#B591F2] text-sm font-bold text-[#03082F] shadow-[0_0_15px_rgba(152,255,249,0.3)] transition-all hover:brightness-110 active:scale-[0.98]"
-                  aria-label="Play MagicCraft now"
-                >
-                  Play
-                </button>
-                <a
-                  href={PANCAKESWAP_URL}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="ripple-effect h-12 min-w-0 rounded-lg border border-white/20 bg-gradient-to-b from-[#A9FFF6] to-[#82E7E0] text-sm font-semibold text-[#071033] shadow-lg transition-all hover:brightness-105 active:scale-[0.98]"
-                  aria-label="Buy MCRT tokens"
-                >
-                  Buy
-                </a>
-                <button
-                  onClick={openLiveSupport}
-                  className="col-span-2 h-12 min-w-0 rounded-lg border border-white/15 bg-white/10 text-sm font-semibold text-white shadow-lg backdrop-blur-md transition-all hover:bg-white/15 active:scale-[0.98]"
-                  aria-label="Open Live Support chat"
-                >
-                  Live Chat
-                </button>
-              </div>
-            </div>
 
-            {/* Tablet/Desktop: original CTAs */}
-            <div className="mt-6 hidden flex-col items-center justify-center gap-4 sm:mt-8 sm:flex sm:flex-row sm:gap-6">
+            <p className="mt-5 text-xl font-bold leading-snug text-[#b9fff8] sm:text-2xl">
+              Play free. Enter Web3 when you choose.
+            </p>
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-white/75 sm:mx-0 sm:text-lg sm:leading-8">
+              Choose a hero, master objective-based team combat, and explore
+              the new PvE world on mobile or PC. Connect a wallet only when you
+              want $MCRT lobbies, digital assets, or marketplace features.
+            </p>
+
+            <div className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:justify-start">
               <button
+                type="button"
                 onClick={openGameByDevice}
-                className="cta-premium w-full min-w-[154px] !px-6 !py-3 !text-base shadow-[0_0_30px_rgba(152,255,249,0.3)] sm:w-auto"
-                aria-label="Play MagicCraft now"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-6 py-3 text-base font-black text-[#03082f] shadow-[0_14px_45px_rgba(152,255,249,0.25)] transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#03082f]"
               >
-                Play Now
+                <Gamepad2 className="h-5 w-5" aria-hidden="true" />
+                Play free
               </button>
               <a
-                href={PANCAKESWAP_URL}
+                href={LOBBY_URL}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="btn-secondary w-full min-w-[154px] border border-white/20 !px-6 !py-3 !text-base hover:border-[#98FFF9]/50 sm:w-auto"
-                aria-label="Buy MCRT tokens"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/25 bg-white/[0.08] px-6 py-3 text-base font-bold text-white backdrop-blur-md transition hover:-translate-y-0.5 hover:border-[#98FFF9]/60 hover:bg-white/[0.14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9]"
               >
-                Buy $MCRT
+                View live lobbies
+                <ExternalLink className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
-            {/* Trust badges */}
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-3 opacity-95 sm:mt-6 sm:gap-4">
-              <span className="text-xs font-medium tracking-wide text-white/70 sm:text-sm">
-                Listed on
-              </span>
-              <a
-                href={BYBIT_URL}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center transition-all hover:scale-105 hover:opacity-100"
-              >
-                <img
-                  src="/icons/icon-bybit.svg"
-                  alt="Bybit"
-                  className="h-5 opacity-90 sm:h-6"
-                  loading="lazy"
-                />
-              </a>
-              <a
-                href={PANCAKESWAP_URL}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center transition-all hover:scale-105 hover:opacity-100"
-              >
-                <img
-                  src="/icons/icon-pancakeswap.svg"
-                  alt="PancakeSwap"
-                  className="h-5 opacity-90 sm:h-6"
-                  loading="lazy"
-                />
-              </a>
-              <a
-                href="https://www.htx.com/trade/mcrt_usdt"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="inline-flex items-center transition-all hover:scale-105 hover:opacity-100"
-              >
-                <img
-                  src="/icons/icon-huobi.svg"
-                  alt="HTX"
-                  className="h-5 opacity-90 sm:h-6"
-                  loading="lazy"
-                />
-              </a>
+
+            <a
+              href="#mcrt-utility"
+              className="mt-5 inline-flex min-h-11 items-center gap-2 px-1 text-sm font-semibold text-white/70 transition hover:text-[#98FFF9] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9]"
+            >
+              Explore how $MCRT works
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+
+            <div className="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-semibold uppercase tracking-[0.14em] text-white/60 sm:justify-start">
+              <span>PC</span>
+              <span aria-hidden="true">•</span>
+              <span>Steam</span>
+              <span aria-hidden="true">•</span>
+              <span>iOS</span>
+              <span aria-hidden="true">•</span>
+              <span>Android</span>
             </div>
           </div>
+
+          <aside className="hidden rounded-[28px] border border-white/[0.15] bg-[#050923]/[0.72] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.45)] backdrop-blur-xl xl:block xl:p-7">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#98FFF9]">
+              Your game, your depth
+            </p>
+            <h2 className="mt-3 text-2xl font-black leading-tight text-white xl:text-3xl">
+              Start with the battle. Go deeper when you are ready.
+            </h2>
+            <ul className="mt-5 space-y-4 text-sm leading-6 text-white/70">
+              {[
+                'Download and play without a wallet.',
+                'Compete across PvP and PvE experiences.',
+                'Opt into reward lobbies and owned assets.',
+              ].map((item) => (
+                <li key={item} className="flex gap-3">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#98FFF9]/[0.15] text-[#98FFF9]">
+                    <Check className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </aside>
         </div>
       </div>
-
-      {/* Download row moved below hero */}
-      {/* Scroll cue */}
-      <a
-        href="#mcrt-payments"
-        className="glass-strong absolute bottom-6 left-1/2 hidden h-12 w-12 -translate-x-1/2 animate-bounce items-center justify-center rounded-full border border-white/20 transition-all hover:scale-110 hover:bg-white/15 sm:inline-flex"
-        aria-label="Scroll to $MCRT payments"
-      >
-        <svg
-          className="h-5 w-5 text-white/85 sm:h-6 sm:w-6"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path d="M12 15.5a1 1 0 0 1-.7-.29l-6-6a1 1 0 1 1 1.4-1.42L12 13.08l5.3-5.29a1 1 0 1 1 1.4 1.42l-6 6a1 1 0 0 1-.7.29Z" />
-        </svg>
-      </a>
     </section>
   )
 }
