@@ -2,12 +2,12 @@ export const faqData = [
   {
     question: 'WHAT IS MAGICCRAFT?',
     answer:
-      'MagicCraft is a comprehensive gaming platform that combines an action-packed game, a vibrant ecosystem of interconnected titles, and an expansive fantasy universe. MagicCraft leads as our flagship PvP battle arena title, set within an expansive ecosystem of games, all unified in the MagicCraft universe.',
+      'MagicCraft is a comprehensive gaming platform that combines an action-packed game, a vibrant ecosystem of interconnected titles, and an expansive fantasy universe. MagicCraft leads as our live flagship battle arena, with established PvP and a newly released PvE system.',
   },
   {
-    question: 'WHEN WILL THE FULL MAGICCRAFT GAME BE AVAILABLE? ',
+    question: 'WHAT MODES AND PLATFORMS ARE AVAILABLE?',
     answer:
-      'You can play the MagicCraft game right now! Get started by downloading it on iOS, Android, or Steam. New updates are coming to MagicCraft in 2025, with fresh storyline development, new characters, and maps.',
+      'MagicCraft is playable now on PC, Steam, iOS, and Android. Battle other players in established PvP modes including Capture the Point, Escort, and Skull Grab, or enter the new solo and co-op PvE adventure.',
   },
   {
     question: 'HOW DO I GET STARTED WITH MAGICCRAFT?',

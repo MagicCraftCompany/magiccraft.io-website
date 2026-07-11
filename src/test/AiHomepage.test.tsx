@@ -16,7 +16,7 @@ vi.mock('@/components/Home/MobileBottomBar', () => ({
 import Homepagemcrt from '@/pages/Homepagemcrt'
 
 describe('AI-first homepage', () => {
-  it('leads with the AI suite and keeps the game as an in-development track', () => {
+  it('leads with the AI suite and presents the shipped game accurately', () => {
     render(
       <HelmetProvider>
         <MemoryRouter>
@@ -54,10 +54,15 @@ describe('AI-first homepage', () => {
 
     expect(screen.queryByText('SocialMM')).not.toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: 'The game is still building.' })
+      screen.getByRole('heading', { name: 'Established PvP. New PvE.' })
     ).toBeInTheDocument()
     expect(
-      screen.getByText(/current shipping focus is the AI suite/i)
+      screen.getByText(/PvP \(player versus player\).*PvE/i)
     ).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'Play MagicCraft' })
+    ).toBeInTheDocument()
+    expect(screen.queryByText(/in development/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/still building/i)).not.toBeInTheDocument()
   })
 })

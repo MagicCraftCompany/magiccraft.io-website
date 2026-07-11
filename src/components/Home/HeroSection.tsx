@@ -1,4 +1,4 @@
-import { ArrowDown, ExternalLink, Hammer, Sparkles } from 'lucide-react'
+import { ArrowDown, BadgeCheck, ExternalLink, Sparkles } from 'lucide-react'
 
 const MERLIN_URL = 'https://merlintheai.com/'
 
@@ -64,13 +64,13 @@ export default function HeroSection() {
           </div>
 
           <div className="mt-7 flex items-start justify-center gap-3 rounded-2xl border border-white/10 bg-[#040824]/75 px-4 py-4 text-left text-sm leading-6 text-white/70 backdrop-blur-md sm:w-fit sm:justify-start sm:px-5">
-            <Hammer
-              className="mt-0.5 h-5 w-5 shrink-0 text-[#FFB649]"
+            <BadgeCheck
+              className="mt-0.5 h-5 w-5 shrink-0 text-[#6EE7B7]"
               aria-hidden="true"
             />
             <p>
-              The MagicCraft game remains in development. Our current product
-              focus is the AI suite.
+              The MagicCraft game is live and established. PvP remains core, and
+              the new PvE system is available now.
             </p>
           </div>
 

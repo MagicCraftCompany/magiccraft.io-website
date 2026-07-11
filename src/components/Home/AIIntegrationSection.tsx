@@ -401,20 +401,20 @@ export default function AIIntegrationSection() {
             </div>
           </div>
 
-          {/* Game Development */}
+          {/* Live Game Expansion */}
           <div className="rounded-2xl border border-[#B591F2]/25 bg-gradient-to-br from-[#12082b]/85 via-[#1a0b38]/80 to-[#220d47]/80 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[#B591F2]/40 hover:shadow-[0_0_20px_rgba(181,145,242,0.1)] md:p-6">
             <div className="flex h-full flex-col gap-2 sm:gap-3">
               <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#B591F2]/80 sm:text-xs">
-                Game Development
+                Live Game Expansion
               </p>
               <h4 className="text-lg font-bold text-white sm:text-xl">
-                Next-Gen AI on a Proven Foundation
+                AI-Assisted Updates on a Proven Game
               </h4>
               <p className="text-sm leading-relaxed text-white/80 sm:text-base">
-                MagicCraft is being built with AI-assisted workflows on top of
-                the established{' '}
+                MagicCraft runs as a live Unity game with established PvP and a
+                newly released PvE system. AI-assisted workflows support its{' '}
                 <span className="font-semibold text-white">
-                  Unity game foundation
+                  ongoing updates and live operations
                 </span>
                 .
                 <br className="hidden sm:block" />

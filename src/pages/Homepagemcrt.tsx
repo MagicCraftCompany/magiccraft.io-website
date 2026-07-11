@@ -4,7 +4,7 @@ import Header from '@/components/Header/Header'
 import AiInfrastructureSection from '@/components/Home/AiInfrastructureSection'
 import AiProductSuiteSection from '@/components/Home/AiProductSuiteSection'
 import FinalCtaSection from '@/components/Home/FinalCtaSection'
-import GameDevelopmentSection from '@/components/Home/GameDevelopmentSection'
+import GameExperienceSection from '@/components/Home/GameExperienceSection'
 import HeroSection from '@/components/Home/HeroSection'
 import MagicAdsFeatureSection from '@/components/Home/MagicAdsFeatureSection'
 import MobileBottomBar from '@/components/Home/MobileBottomBar'
@@ -32,7 +32,7 @@ function Homepagemcrt() {
                 name: 'MagicCraft',
                 url: 'https://magiccraft.io/',
                 description:
-                  'MagicCraft is an AI product studio building practical tools for assistants, film creation, marketing, advertising, productivity, wellness, and developer infrastructure.',
+                  'MagicCraft is an AI product studio and the publisher of a live cross-platform fantasy MOBA with established PvP and a newly released PvE system.',
               },
               {
                 '@type': 'ItemList',
@@ -48,6 +48,21 @@ function Homepagemcrt() {
                   },
                 })),
               },
+              {
+                '@type': 'VideoGame',
+                '@id': 'https://magiccraft.io/#game',
+                name: 'MagicCraft',
+                url: 'https://magiccraft.io/',
+                description:
+                  'A live, free-to-play fantasy MOBA with established PvP modes and a new solo and co-op PvE system.',
+                datePublished: '2023-06-21',
+                gamePlatform: ['PC', 'Steam', 'iOS', 'Android'],
+                playMode: ['SinglePlayer', 'CoOp', 'MultiPlayer'],
+                genre: ['MOBA', 'Action', 'Fantasy'],
+                publisher: {
+                  '@id': 'https://magiccraft.io/#organization',
+                },
+              },
             ],
           })}
         </script>
@@ -60,7 +75,7 @@ function Homepagemcrt() {
           <AiProductSuiteSection />
           <MagicAdsFeatureSection />
           <AiInfrastructureSection />
-          <GameDevelopmentSection />
+          <GameExperienceSection />
           <FinalCtaSection />
           <MobileBottomBar />
         </main>

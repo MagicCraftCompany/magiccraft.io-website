@@ -9,8 +9,9 @@ Research cutoff: 11 July 2026, Bangkok time.
 MagicCraft is now positioned first as an AI product studio. Merlin, Akyn,
 MagicAds, MAGAS7, DragonList, and DocAI should make the portfolio concrete for
 creators, operators, marketers, and teams. MCRTPay, EnvRouter, and optional
-`$MCRT` utility support the products underneath. The MagicCraft game remains a
-long-term product in development, while the current shipping focus is AI.
+`$MCRT` utility support the products underneath. The MagicCraft game is live
+and established, with core PvP modes and a newly released PvE system, while the
+homepage keeps the current product focus on AI.
 
 Homepage hierarchy:
 
@@ -18,7 +19,7 @@ Homepage hierarchy:
 2. Direct launch cards for verified AI products
 3. MagicAds as the featured growth and monetization platform
 4. MCRTPay, EnvRouter, and optional `$MCRT` infrastructure
-5. One transparent game-in-development track
+5. One transparent live-game track for established PvP and new PvE
 
 ## P0 AI-first correction
 
@@ -31,12 +32,26 @@ Homepage hierarchy:
 - [x] Feature MagicAds without removing the live MagicAds monetization surface.
 - [x] Keep MCRTPay, EnvRouter, and `$MCRT` as supporting infrastructure.
 - [x] Move gameplay, game statistics, and lobby proof off the homepage journey.
-- [x] Present the game once, honestly, as an in-development long-term track.
+- [x] Present the game once, honestly, as a live product without displacing the AI-first hierarchy.
 - [x] Make AI Products the first desktop/mobile navigation destination.
 - [x] Replace game-first mobile quick actions with AI Products and Merlin.
 - [x] Replace game-only metadata, schema, preloads, and share art.
 - [x] Add focused AI-homepage and navigation coverage.
 - [x] Commit, push, publish, and verify the AI-first public homepage.
+
+## P0 game record correction
+
+- [x] Audit repo history and current first-party store records for the game status.
+- [x] Confirm that MagicCraft has been publicly playable since 2023.
+- [x] Confirm established PvP modes: Capture the Point, Escort, and Skull Grab.
+- [x] Confirm the May 2026 PvE release on iOS, Android, and Steam.
+- [x] Replace every homepage `in development` and `still building` claim.
+- [x] Present PvE as an addition alongside PvP, not a replacement for it.
+- [x] Replace the stale game-roadmap CTA with a real play/platform action.
+- [x] Add VideoGame structured data and restore game context to metadata.
+- [x] Correct the dedicated game route metadata, headline, mode summary, and FAQ.
+- [x] Add regression coverage that rejects unfinished-game wording.
+- [ ] Commit, push, publish, and verify the corrected live-game record.
 
 ## Completed foundation from the prior game-first release
 
@@ -89,7 +104,7 @@ Homepage hierarchy:
 - [ ] Audit the whitepaper for price-growth, passive-income, fixed-return, “10+ exchanges,” and other unsafe claims.
 - [ ] Add clear token jurisdiction, volatility, smart-contract, lock-period, and eligibility notices.
 - [ ] Clarify that BTC, ETH, SOL, and XRP lobby rewards described by the guide are BNB Chain-pegged assets.
-- [ ] Add current Steam Early Access context without underselling the playable game.
+- [ ] Reconcile Steam's remaining Early Access label with the owner-confirmed finished status.
 - [ ] Add CTA analytics for Play, platform, lobby, marketplace, builder, and buy-provider handoffs.
 - [ ] Add route tests for `/`, `/buy-mcrt`, `/whitepaper`, `/server`, and external CTA destinations.
 
@@ -127,20 +142,22 @@ Homepage hierarchy:
 
 ## Economical agent map
 
-| Lane                         | Cost strategy                       | Ownership                                  | State    |
-| ---------------------------- | ----------------------------------- | ------------------------------------------ | -------- |
-| Product and `$MCRT` research | Bounded read-only specialist        | Official sources, safe claims, positioning | Complete |
-| Live UX audit                | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues  | Complete |
-| Architecture audit           | Bounded read-only code specialist   | Routes, data flow, risks, file plan        | Complete |
-| Homepage integration         | Strong controller reasoning         | Hero, section order, gameplay, concept     | Complete |
-| Trust/data implementation    | Focused implementation specialist   | Stats, status, dashboard, focused tests    | Complete |
-| Responsive navigation        | Focused implementation specialist   | Header, menus, mobile conversion bar       | Complete |
-| Static SEO/social            | Focused implementation specialist   | Metadata, sitemap, 1200x630 asset          | Complete |
-| AI suite inventory           | Bounded live-truth specialist       | Product URLs, status, claims, broken links | Complete |
-| AI-first concept             | Bounded product/copy specialist     | Hierarchy, copy, status guardrails         | Complete |
-| AI-first navigation          | Focused implementation specialist   | Header, drawer, mobile quick actions       | Complete |
-| AI-first live release        | Controller only                     | Integration, review, deploy, public proof  | Complete |
-| Production release           | Controller only                     | Review, tests, commit, push, deploy proof  | Complete |
+| Lane                         | Cost strategy                       | Ownership                                  | State       |
+| ---------------------------- | ----------------------------------- | ------------------------------------------ | ----------- |
+| Product and `$MCRT` research | Bounded read-only specialist        | Official sources, safe claims, positioning | Complete    |
+| Live UX audit                | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues  | Complete    |
+| Architecture audit           | Bounded read-only code specialist   | Routes, data flow, risks, file plan        | Complete    |
+| Homepage integration         | Strong controller reasoning         | Hero, section order, gameplay, concept     | Complete    |
+| Trust/data implementation    | Focused implementation specialist   | Stats, status, dashboard, focused tests    | Complete    |
+| Responsive navigation        | Focused implementation specialist   | Header, menus, mobile conversion bar       | Complete    |
+| Static SEO/social            | Focused implementation specialist   | Metadata, sitemap, 1200x630 asset          | Complete    |
+| AI suite inventory           | Bounded live-truth specialist       | Product URLs, status, claims, broken links | Complete    |
+| AI-first concept             | Bounded product/copy specialist     | Hierarchy, copy, status guardrails         | Complete    |
+| AI-first navigation          | Focused implementation specialist   | Header, drawer, mobile quick actions       | Complete    |
+| AI-first live release        | Controller only                     | Integration, review, deploy, public proof  | Complete    |
+| Game truth correction        | Bounded research and history agents | PvP, PvE, release and storefront evidence  | Complete    |
+| Game truth live release      | Controller only                     | Copy, tests, deploy and production proof   | In progress |
+| Production release           | Controller only                     | Review, tests, commit, push, deploy proof  | Complete    |
 
 Agents do not share high-conflict ownership of the homepage, header, or global
 CSS. Production, deploy, and safety decisions remain with the controller.
@@ -152,7 +169,7 @@ CSS. Production, deploy, and safety decisions remain with the controller.
 - There is one dominant Explore AI Suite CTA and Merlin is one action away.
 - MagicAds is visibly featured and the owned ad surface remains live.
 - `$MCRT` and payments support the suite without becoming the main promise.
-- The game is visible once with an honest in-development status.
+- The game is visible once as live, with established PvP and new PvE.
 - No hype-video, fake-live, or invented fallback proof remains.
 - Navigation works and is accessible from mobile through desktop.
 - The homepage is materially shorter on desktop and mobile.

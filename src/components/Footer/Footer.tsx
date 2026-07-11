@@ -94,8 +94,8 @@ const aiProductLinks = [
 
 const moreLinks = [
   {
-    title: 'Game roadmap',
-    link: '/magiccraft',
+    title: 'Game downloads',
+    link: 'https://docs.magiccraft.io/magiccraft-game-pvp-moba/the-app',
   },
   {
     title: '$MCRT access',

@@ -1,7 +1,7 @@
 {
   "name": "MagicCraft",
   "short_name": "MagicCraft",
-  "description": "MagicCraft AI products for assistants, film creation, marketing, advertising, productivity, wellness, payments, and developer infrastructure.",
+  "description": "MagicCraft AI products plus the live MagicCraft game with established PvP and a new PvE system.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -28,5 +28,11 @@
       "purpose": "maskable"
     }
   ],
-  "categories": ["productivity", "business", "utilities"]
+  "categories": [
+    "productivity",
+    "business",
+    "utilities",
+    "games",
+    "entertainment"
+  ]
 }

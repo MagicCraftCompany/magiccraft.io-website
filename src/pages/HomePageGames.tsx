@@ -43,7 +43,7 @@ function Homepagegames() {
   //   navigate('/magic8ball')
   // }
   const contactTeamhandleClick = () => {
-    window.location.hash = 'contact';
+    window.location.hash = 'contact'
   }
 
   const filteredGames = gamesData.filter(
@@ -58,21 +58,48 @@ function Homepagegames() {
   return (
     <>
       <Helmet>
-        <title>MagicCraft Games – Play & Earn with $MCRT</title>
-        <meta name="description" content="Discover the MagicVerse – blockchain games powered by the $MCRT token. Play MagicCraft and other titles to earn while you game." />
+        <title>MagicCraft Game – Established PvP & New PvE</title>
+        <meta
+          name="description"
+          content="Play the live MagicCraft fantasy MOBA across PC, Steam, iOS and Android. Compete in established PvP modes or explore the new solo and co-op PvE system."
+        />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonical} />
-        <meta property="og:title" content="MagicCraft Games" />
-        <meta property="og:description" content="Explore our portfolio of Web3 games and start earning $MCRT." />
-        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp" />
+        <meta
+          property="og:title"
+          content="MagicCraft Game – Established PvP & New PvE"
+        />
+        <meta
+          property="og:description"
+          content="Play the live MagicCraft fantasy MOBA with established PvP and a new solo and co-op PvE system."
+        />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp"
+        />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="MagicCraft Games – Play & Earn with $MCRT" />
-        <meta name="twitter:description" content="Explore our portfolio of Web3 games and start earning $MCRT." />
-        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp" />
+        <meta
+          name="twitter:title"
+          content="MagicCraft Game – Established PvP & New PvE"
+        />
+        <meta
+          name="twitter:description"
+          content="Play the live MagicCraft fantasy MOBA with established PvP and a new solo and co-op PvE system."
+        />
+        <meta
+          name="twitter:image"
+          content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp"
+        />
       </Helmet>
       <div className="min-h-dvh w-full text-white">
-        <Suspense fallback={<div className="flex h-24 items-center justify-center"><span className="text-white/50 text-sm">Loading…</span></div>}>
+        <Suspense
+          fallback={
+            <div className="flex h-24 items-center justify-center">
+              <span className="text-sm text-white/50">Loading…</span>
+            </div>
+          }
+        >
           <Header />
         </Suspense>
         <main className="scroll-smooth pb-32">
@@ -87,12 +114,9 @@ function Homepagegames() {
                   />
                 </div>
                 <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
-                  <span className="text-xl md:text-4xl">
-                    {' '}
-                    MagicCraft Vision 2026:
-                  </span>{' '}
+                  <span className="text-xl md:text-4xl"> MagicCraft Game:</span>{' '}
                   <br />
-                  MCRT is The Future of Gaming Currency{' '}
+                  Established PvP. New PvE.{' '}
                 </h1>
               </div>
 
@@ -171,10 +195,14 @@ function Homepagegames() {
                         //   handleClick = magicrunnerhandleClick
                         //   break
                         case 'Runescribe':
-                          handleClick = () => window.location.href = 'https://games.magiccraft.io/gamepage/runescribes'
+                          handleClick = () =>
+                            (window.location.href =
+                              'https://games.magiccraft.io/gamepage/runescribes')
                           break
                         case 'TetraBlox':
-                          handleClick = () => window.location.href = 'https://games.magiccraft.io/gamepage/tetrablox'
+                          handleClick = () =>
+                            (window.location.href =
+                              'https://games.magiccraft.io/gamepage/tetrablox')
                           break
                         default:
                           handleClick = () => {}
@@ -311,7 +339,7 @@ function Homepagegames() {
             <section className="relative mx-auto w-11/12 max-w-screen-xl">
               <div className="space-y-20">
                 <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
-                  FULL LAUNCH OF THE MAGICVERSE GAME
+                  THE LIVE MAGICCRAFT GAME
                 </h2>
                 <div className="flex flex-col items-center md:flex-row">
                   <div className="w-4/5 md:w-2/5">
@@ -341,8 +369,8 @@ function Homepagegames() {
                         <div className="space-y-6 px-12 py-10">
                           <div>
                             <p className="text-xl">
-                              Let&apos;s dive into the exciting changes and new
-                              features coming to the MagicCraft game:
+                              Explore the live game modes and the newest
+                              expansion to the MagicCraft experience:
                             </p>
                           </div>
 
@@ -363,10 +391,10 @@ function Homepagegames() {
                               <img src={bulletIcon} alt="List item" />
                               <p className="text-[22px] text-[#C09AFF]">
                                 <span className="font-bold text-[#ECE0FF]">
-                                  Multiplayer System:&nbsp;
+                                  New PvE System:&nbsp;
                                 </span>
-                                A 5v5 quick play mode with automated matchmaking
-                                is coming to MagicCraft.
+                                Play solo or co-op through explorable areas,
+                                quests, bosses, progression, and loot.
                               </p>
                             </div>{' '}
                             <div className="flex items-center gap-2">
@@ -479,7 +507,12 @@ function Homepagegames() {
                     <h1 className="font-serif text-sm text-white sm:text-xl lg:text-2xl">
                       MAGICCRAFT BROWSER GAMES
                     </h1>
-                    <a href="https://games.magiccraft.io/" target="_blank" rel="noreferrer noopener" className="group inline-flex items-center gap-2 text-sm text-[#98FFF9] transition-colors hover:text-white sm:text-base">
+                    <a
+                      href="https://games.magiccraft.io/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="group inline-flex items-center gap-2 text-sm text-[#98FFF9] transition-colors hover:text-white sm:text-base"
+                    >
                       Read more
                       <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                     </a>
@@ -693,8 +726,8 @@ function Homepagegames() {
                     2026
                   </div>
                 </div>
-              <div className="flex items-center justify-center ">
-                <div className=" grid max-w-[100vw] snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain touch-auto px-4 lg:max-w-screen-xl">
+                <div className="flex items-center justify-center ">
+                  <div className=" grid max-w-[100vw] touch-auto snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
                     {roadmapData.map((data) => (
                       <RoadmapCard data={data} key={data.quarter} />
                     ))}
@@ -789,11 +822,17 @@ function Homepagegames() {
               </div>
             </section> */}
             <section id="contact">
-            <ContactForm />
+              <ContactForm />
             </section>
           </div>
         </main>
-        <Suspense fallback={<div className="flex h-24 items-center justify-center"><span className="text-white/50 text-sm">Loading…</span></div>}>
+        <Suspense
+          fallback={
+            <div className="flex h-24 items-center justify-center">
+              <span className="text-sm text-white/50">Loading…</span>
+            </div>
+          }
+        >
           <Footer />
         </Suspense>
       </div>
