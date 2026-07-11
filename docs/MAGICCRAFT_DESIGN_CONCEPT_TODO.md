@@ -45,7 +45,7 @@ Homepage hierarchy:
 - [x] Reduce the mobile conversion bar to one clear journey without overlapping hero controls.
 - [x] Add focused tests for truth states, navigation breakpoints, and keyboard behavior.
 - [x] Verify 390, 768, 1024, 1280, and 1440-wide rendered layouts.
-- [ ] Commit, push, wait for the Netlify deploy, and verify the public homepage and core CTAs.
+- [x] Commit, push, wait for the Netlify deploy, and verify the public homepage and core CTAs.
 
 ## P1 next: conversion and information architecture
 
@@ -86,6 +86,7 @@ Homepage hierarchy:
 - [ ] Audit unused Zeus, WhatsApp, partner, icon, and legacy image assets before deletion.
 - [ ] Add responsive image dimensions and modern formats for every first-viewport visual.
 - [ ] Run Lighthouse/Web Vitals and set budgets for LCP, CLS, JS, image bytes, and total transfer.
+- [ ] Triage current GitHub dependency alerts, prioritize critical and high-risk packages, and upgrade them in bounded tested batches.
 
 ## P2 product depth
 
@@ -111,7 +112,7 @@ Homepage hierarchy:
 | Trust/data implementation | Focused implementation specialist | Stats, status, dashboard, focused tests | Complete |
 | Responsive navigation | Focused implementation specialist | Header, menus, mobile conversion bar | Complete |
 | Static SEO/social | Focused implementation specialist | Metadata, sitemap, 1200x630 asset | Complete |
-| Production release | Controller only | Review, tests, commit, push, deploy proof | In progress |
+| Production release | Controller only | Review, tests, commit, push, deploy proof | Complete |
 
 Agents do not share high-conflict ownership of the homepage, header, or global
 CSS. Production, deploy, and safety decisions remain with the controller.
