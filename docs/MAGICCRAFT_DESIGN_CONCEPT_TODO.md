@@ -51,7 +51,7 @@ Homepage hierarchy:
 - [x] Add VideoGame structured data and restore game context to metadata.
 - [x] Correct the dedicated game route metadata, headline, mode summary, and FAQ.
 - [x] Add regression coverage that rejects unfinished-game wording.
-- [ ] Commit, push, publish, and verify the corrected live-game record.
+- [x] Commit, push, publish, and verify the corrected live-game record.
 
 ## Completed foundation from the prior game-first release
 
@@ -142,22 +142,22 @@ Homepage hierarchy:
 
 ## Economical agent map
 
-| Lane                         | Cost strategy                       | Ownership                                  | State       |
-| ---------------------------- | ----------------------------------- | ------------------------------------------ | ----------- |
-| Product and `$MCRT` research | Bounded read-only specialist        | Official sources, safe claims, positioning | Complete    |
-| Live UX audit                | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues  | Complete    |
-| Architecture audit           | Bounded read-only code specialist   | Routes, data flow, risks, file plan        | Complete    |
-| Homepage integration         | Strong controller reasoning         | Hero, section order, gameplay, concept     | Complete    |
-| Trust/data implementation    | Focused implementation specialist   | Stats, status, dashboard, focused tests    | Complete    |
-| Responsive navigation        | Focused implementation specialist   | Header, menus, mobile conversion bar       | Complete    |
-| Static SEO/social            | Focused implementation specialist   | Metadata, sitemap, 1200x630 asset          | Complete    |
-| AI suite inventory           | Bounded live-truth specialist       | Product URLs, status, claims, broken links | Complete    |
-| AI-first concept             | Bounded product/copy specialist     | Hierarchy, copy, status guardrails         | Complete    |
-| AI-first navigation          | Focused implementation specialist   | Header, drawer, mobile quick actions       | Complete    |
-| AI-first live release        | Controller only                     | Integration, review, deploy, public proof  | Complete    |
-| Game truth correction        | Bounded research and history agents | PvP, PvE, release and storefront evidence  | Complete    |
-| Game truth live release      | Controller only                     | Copy, tests, deploy and production proof   | In progress |
-| Production release           | Controller only                     | Review, tests, commit, push, deploy proof  | Complete    |
+| Lane                         | Cost strategy                       | Ownership                                  | State    |
+| ---------------------------- | ----------------------------------- | ------------------------------------------ | -------- |
+| Product and `$MCRT` research | Bounded read-only specialist        | Official sources, safe claims, positioning | Complete |
+| Live UX audit                | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues  | Complete |
+| Architecture audit           | Bounded read-only code specialist   | Routes, data flow, risks, file plan        | Complete |
+| Homepage integration         | Strong controller reasoning         | Hero, section order, gameplay, concept     | Complete |
+| Trust/data implementation    | Focused implementation specialist   | Stats, status, dashboard, focused tests    | Complete |
+| Responsive navigation        | Focused implementation specialist   | Header, menus, mobile conversion bar       | Complete |
+| Static SEO/social            | Focused implementation specialist   | Metadata, sitemap, 1200x630 asset          | Complete |
+| AI suite inventory           | Bounded live-truth specialist       | Product URLs, status, claims, broken links | Complete |
+| AI-first concept             | Bounded product/copy specialist     | Hierarchy, copy, status guardrails         | Complete |
+| AI-first navigation          | Focused implementation specialist   | Header, drawer, mobile quick actions       | Complete |
+| AI-first live release        | Controller only                     | Integration, review, deploy, public proof  | Complete |
+| Game truth correction        | Bounded research and history agents | PvP, PvE, release and storefront evidence  | Complete |
+| Game truth live release      | Controller only                     | Copy, tests, deploy and production proof   | Complete |
+| Production release           | Controller only                     | Review, tests, commit, push, deploy proof  | Complete |
 
 Agents do not share high-conflict ownership of the homepage, header, or global
 CSS. Production, deploy, and safety decisions remain with the controller.
