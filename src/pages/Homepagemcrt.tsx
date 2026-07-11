@@ -1,18 +1,22 @@
-import { Suspense, lazy } from 'react'
 import { Helmet } from 'react-helmet-async'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
-import EcosystemPreviewSection from '@/components/Home/EcosystemPreviewSection'
-import ExperiencePathsSection from '@/components/Home/ExperiencePathsSection'
+import AiInfrastructureSection from '@/components/Home/AiInfrastructureSection'
+import AiProductSuiteSection from '@/components/Home/AiProductSuiteSection'
 import FinalCtaSection from '@/components/Home/FinalCtaSection'
+import GameDevelopmentSection from '@/components/Home/GameDevelopmentSection'
 import HeroSection from '@/components/Home/HeroSection'
-import McrtUtilitySection from '@/components/Home/McrtUtilitySection'
+import MagicAdsFeatureSection from '@/components/Home/MagicAdsFeatureSection'
 import MobileBottomBar from '@/components/Home/MobileBottomBar'
 
-const GamePlay = lazy(() => import('@/components/GamePlay'))
-const LiveStatsWidget = lazy(
-  () => import('@/components/LiveStats/LiveStatsWidget')
-)
+const suiteProducts = [
+  ['Merlin AI', 'https://merlintheai.com/'],
+  ['Akyn', 'https://akyn.pro/'],
+  ['MagicAds', 'https://magicads.dev/'],
+  ['MAGAS7', 'https://magas7.com/'],
+  ['DragonList', 'https://dragonlist.ai/'],
+  ['DocAI', 'https://docai.live/'],
+]
 
 function Homepagemcrt() {
   return (
@@ -21,27 +25,30 @@ function Homepagemcrt() {
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
-            '@type': 'VideoGame',
-            name: 'MagicCraft',
-            description:
-              'A free cross-platform fantasy MOBA set in the Ashvales with PvP and PvE play plus optional Web3 features powered by $MCRT.',
-            url: 'https://magiccraft.io/',
-            image: 'https://magiccraft.io/magiccraft-social-preview.webp',
-            genre: ['MOBA', 'Action', 'Strategy', 'Fantasy', 'Multiplayer'],
-            gamePlatform: ['PC', 'iOS', 'Android', 'Steam'],
-            applicationCategory: 'Game',
-            operatingSystem: 'iOS, Android, Windows',
-            publisher: {
-              '@type': 'Organization',
-              name: 'MagicCraft',
-              url: 'https://magiccraft.io/',
-            },
-            offers: {
-              '@type': 'Offer',
-              price: '0',
-              priceCurrency: 'USD',
-              availability: 'https://schema.org/InStock',
-            },
+            '@graph': [
+              {
+                '@type': 'Organization',
+                '@id': 'https://magiccraft.io/#organization',
+                name: 'MagicCraft',
+                url: 'https://magiccraft.io/',
+                description:
+                  'MagicCraft is an AI product studio building practical tools for assistants, film creation, marketing, advertising, productivity, wellness, and developer infrastructure.',
+              },
+              {
+                '@type': 'ItemList',
+                name: 'MagicCraft AI Product Suite',
+                itemListElement: suiteProducts.map(([name, url], index) => ({
+                  '@type': 'ListItem',
+                  position: index + 1,
+                  item: {
+                    '@type': 'SoftwareApplication',
+                    name,
+                    url,
+                    applicationCategory: 'BusinessApplication',
+                  },
+                })),
+              },
+            ],
           })}
         </script>
       </Helmet>
@@ -50,22 +57,10 @@ function Homepagemcrt() {
         <Header />
         <main className="w-full max-w-full overflow-x-hidden scroll-smooth pb-[calc(env(safe-area-inset-bottom)+4rem)] md:-mt-[80px] md:pb-0">
           <HeroSection />
-          <ExperiencePathsSection />
-
-          <section id="gameplay">
-            <Suspense fallback={<div className="min-h-[520px] bg-[#020418]" />}>
-              <GamePlay />
-            </Suspense>
-          </section>
-
-          <div className="w-full bg-gradient-to-b from-[#020418] via-[#07051e] to-[#03082f]">
-            <Suspense fallback={<div className="min-h-[360px]" />}>
-              <LiveStatsWidget />
-            </Suspense>
-          </div>
-
-          <McrtUtilitySection />
-          <EcosystemPreviewSection />
+          <AiProductSuiteSection />
+          <MagicAdsFeatureSection />
+          <AiInfrastructureSection />
+          <GameDevelopmentSection />
           <FinalCtaSection />
           <MobileBottomBar />
         </main>

@@ -32,8 +32,14 @@ async function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
   return new Promise((resolve, reject) => {
     const id = setTimeout(() => reject(new Error('timeout')), ms)
     promise
-      .then((val) => { clearTimeout(id); resolve(val) })
-      .catch((err) => { clearTimeout(id); reject(err) })
+      .then((val) => {
+        clearTimeout(id)
+        resolve(val)
+      })
+      .catch((err) => {
+        clearTimeout(id)
+        reject(err)
+      })
   })
 }
 
@@ -47,7 +53,7 @@ async function httpCheck(target: ServiceTarget): Promise<ServiceResult> {
     if (target.customCheck) {
       const r = await withTimeout(target.customCheck(), DEFAULT_TIMEOUT_MS)
       ok = r.ok
-      status = typeof r.status === 'number' ? r.status : (r.ok ? 200 : null)
+      status = typeof r.status === 'number' ? r.status : r.ok ? 200 : null
       return {
         key: target.key,
         label: target.label,
@@ -69,7 +75,7 @@ async function httpCheck(target: ServiceTarget): Promise<ServiceResult> {
           ...target.headers,
         },
       }),
-      DEFAULT_TIMEOUT_MS,
+      DEFAULT_TIMEOUT_MS
     )
     status = res.status
     ok = res.status >= 200 && res.status < 400
@@ -105,7 +111,7 @@ export const handler: Handler = async (event) => {
     const baseGameserverOverride = process.env.GAMESERVER_API_URL
     const baseGameserver = baseGameserverOverride
       ? baseGameserverOverride.replace(/\/$/, '')
-      : (`http://${REGION_IPS[region]}:${port}`).replace(/\/$/, '')
+      : `http://${REGION_IPS[region]}:${port}`.replace(/\/$/, '')
     const gameserverKey = process.env.GAMESERVER_API_KEY || ''
     const sanityProjectId = process.env.VITE_SANITY_PROJECT_ID
     const sanityDataset = process.env.VITE_SANITY_DATASET || 'production'
@@ -113,76 +119,194 @@ export const handler: Handler = async (event) => {
 
     const targets: ServiceTarget[] = [
       // Core surfaces
-      { key: 'lobby-root', label: 'Lobby', type: 'core', url: 'https://lobby.magiccraft.io/' },
-      { key: 'app-market', label: 'Marketplace', type: 'core', url: 'https://app.magiccraft.io/marketplace/explorer' },
-      { 
-        key: 'gameserver', 
-        label: 'GameServer API', 
-        type: 'core', 
+      {
+        key: 'lobby-root',
+        label: 'Lobby',
+        type: 'core',
+        url: 'https://lobby.magiccraft.io/',
+      },
+      {
+        key: 'app-market',
+        label: 'Marketplace',
+        type: 'core',
+        url: 'https://app.magiccraft.io/marketplace/explorer',
+      },
+      {
+        key: 'gameserver',
+        label: 'GameServer API',
+        type: 'core',
         customCheck: async () => {
           const candidates = baseGameserverOverride
-            ? [{ base: baseGameserverOverride.replace(/\/$/, ''), region: 'custom' }]
-            : (Object.entries(REGION_IPS).map(([r, ip]) => ({
+            ? [
+                {
+                  base: baseGameserverOverride.replace(/\/$/, ''),
+                  region: 'custom',
+                },
+              ]
+            : Object.entries(REGION_IPS).map(([r, ip]) => ({
                 base: `http://${ip}:${port}`,
                 region: r,
-              })))
+              }))
 
           for (const target of candidates) {
             try {
               const res = await withTimeout(
                 fetch(`${target.base.replace(/\/$/, '')}/battlepass/active`, {
-                  headers: { 'X-API-Key': gameserverKey, 'Content-Type': 'application/json' }
+                  headers: {
+                    'X-API-Key': gameserverKey,
+                    'Content-Type': 'application/json',
+                  },
                 }),
                 DEFAULT_TIMEOUT_MS
               )
               // Even 401/403 means server is up, just bad key
               const ok = res.status >= 200 && res.status < 500
-              if (ok) return { ok: true, status: res.status, note: `online (${target.region})` }
+              if (ok)
+                return {
+                  ok: true,
+                  status: res.status,
+                  note: `online (${target.region})`,
+                }
             } catch {
               // try next region
             }
           }
 
           return { ok: false, status: 0, note: 'timeout (all regions)' }
-        }
+        },
       },
 
       // Lobby pages (deps)
-      { key: 'lobby-leaderboard', label: 'Leaderboard', type: 'dep', url: 'https://lobby.magiccraft.io/leaderboard' },
-      { key: 'lobby-stats', label: 'Stats', type: 'dep', url: 'https://lobby.magiccraft.io/stats' },
-      { key: 'lobby-referral', label: 'Referral', type: 'dep', url: 'https://lobby.magiccraft.io/referral' },
+      {
+        key: 'lobby-leaderboard',
+        label: 'Leaderboard',
+        type: 'dep',
+        url: 'https://lobby.magiccraft.io/leaderboard',
+      },
+      {
+        key: 'lobby-stats',
+        label: 'Stats',
+        type: 'dep',
+        url: 'https://lobby.magiccraft.io/stats',
+      },
+      {
+        key: 'lobby-referral',
+        label: 'Referral',
+        type: 'dep',
+        url: 'https://lobby.magiccraft.io/referral',
+      },
 
       // Ecosystem
-      { key: 'pledging', label: 'Pledging', type: 'dep', url: 'https://app.magiccraft.io/pledging' },
-      { key: 'rent', label: 'Rent', type: 'dep', url: 'https://rent.magiccraft.io/' },
-      { key: 'games', label: 'Ecosystem Games', type: 'dep', url: 'https://games.magiccraft.io/' },
-      { key: 'docs', label: 'Docs', type: 'dep', url: 'https://docs.magiccraft.io/' },
+      {
+        key: 'pledging',
+        label: 'Pledging',
+        type: 'dep',
+        url: 'https://app.magiccraft.io/pledging',
+      },
+      {
+        key: 'rent',
+        label: 'Rent',
+        type: 'dep',
+        url: 'https://rent.magiccraft.io/',
+      },
+      {
+        key: 'games',
+        label: 'Ecosystem Games',
+        type: 'dep',
+        url: 'https://games.magiccraft.io/',
+      },
+      {
+        key: 'docs',
+        label: 'Docs',
+        type: 'dep',
+        url: 'https://docs.magiccraft.io/',
+      },
 
       // Exchanges
-      { key: 'bybit', label: 'Bybit', type: 'dep', url: 'https://www.bybit.com/' },
-      { key: 'pancake', label: 'PancakeSwap', type: 'dep', url: 'https://pancakeswap.finance/' },
+      {
+        key: 'bybit',
+        label: 'Bybit',
+        type: 'dep',
+        url: 'https://www.bybit.com/',
+      },
+      {
+        key: 'pancake',
+        label: 'PancakeSwap',
+        type: 'dep',
+        url: 'https://pancakeswap.finance/',
+      },
       { key: 'htx', label: 'HTX', type: 'dep', url: 'https://www.htx.com/' },
 
       // Token links
-      { key: 'bscscan-mcrt', label: 'BscScan MCRT', type: 'dep', url: 'https://bscscan.com/token/0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f' },
-      { key: 'cmc-mcrt', label: 'CoinMarketCap', type: 'dep', url: 'https://coinmarketcap.com/currencies/magiccraft/' },
-      { key: 'coingecko', label: 'CoinGecko', type: 'dep', url: 'https://www.coingecko.com/en/coins/magiccraft' },
+      {
+        key: 'bscscan-mcrt',
+        label: 'BscScan MCRT',
+        type: 'dep',
+        url: 'https://bscscan.com/token/0x4b8285ab433d8f69cb48d5ad62b415ed1a221e4f',
+      },
+      {
+        key: 'cmc-mcrt',
+        label: 'CoinMarketCap',
+        type: 'dep',
+        url: 'https://coinmarketcap.com/currencies/magiccraft/',
+      },
+      {
+        key: 'coingecko',
+        label: 'CoinGecko',
+        type: 'dep',
+        url: 'https://www.coingecko.com/en/coins/magiccraft',
+      },
 
       // AI Products
-      { key: 'merlin', label: 'Merlin AI', type: 'dep', url: 'https://merlintheai.com/' },
+      {
+        key: 'merlin',
+        label: 'Merlin AI',
+        type: 'dep',
+        url: 'https://merlintheai.com/',
+      },
       { key: 'docai', label: 'DocAI', type: 'dep', url: 'https://docai.live/' },
-      { key: 'polibilities', label: 'Polibilities', type: 'dep', url: 'https://polibilities.com/' },
+      {
+        key: 'polybilities',
+        label: 'Polybilities',
+        type: 'dep',
+        url: 'https://polybilities.com/',
+      },
 
       // Community
-      { key: 'telegram', label: 'Telegram', type: 'dep', url: 'https://t.me/magiccraftgamechat' },
+      {
+        key: 'telegram',
+        label: 'Telegram',
+        type: 'dep',
+        url: 'https://t.me/magiccraftgamechat',
+      },
 
       // App stores
-      { key: 'ios-store', label: 'Apple App Store', type: 'dep', url: 'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525' },
-      { key: 'android-store', label: 'Google Play', type: 'dep', url: 'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en' },
-      { key: 'steam', label: 'Steam', type: 'dep', url: 'https://store.steampowered.com/app/2395760/MagicCraft/' },
+      {
+        key: 'ios-store',
+        label: 'Apple App Store',
+        type: 'dep',
+        url: 'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525',
+      },
+      {
+        key: 'android-store',
+        label: 'Google Play',
+        type: 'dep',
+        url: 'https://play.google.com/store/apps/details?id=com.magiccraft.magiccraft&hl=en',
+      },
+      {
+        key: 'steam',
+        label: 'Steam',
+        type: 'dep',
+        url: 'https://store.steampowered.com/app/2395760/MagicCraft/',
+      },
 
       // CDN
-      { key: 'cloudinary', label: 'Cloudinary CDN', type: 'dep', url: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp' },
+      {
+        key: 'cloudinary',
+        label: 'Cloudinary CDN',
+        type: 'dep',
+        url: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp',
+      },
 
       // Sanity CMS
       {
@@ -191,10 +315,16 @@ export const handler: Handler = async (event) => {
         type: 'dep',
         note: sanityProjectId ? '' : 'not configured',
         customCheck: async () => {
-          if (!sanityProjectId) return { ok: false, status: 0, note: 'not configured' }
+          if (!sanityProjectId)
+            return { ok: false, status: 0, note: 'not configured' }
           const url = `https://${sanityProjectId}.apicdn.sanity.io/${encodeURIComponent(sanityVersion)}/data/query/${encodeURIComponent(sanityDataset)}?query=${encodeURIComponent('*[_type == "post"][0...1]')}`
           try {
-            const res = await withTimeout(fetch(url, { headers: { 'User-Agent': 'MagicCraftStatusBot/1.0' } }), 4000)
+            const res = await withTimeout(
+              fetch(url, {
+                headers: { 'User-Agent': 'MagicCraftStatusBot/1.0' },
+              }),
+              4000
+            )
             const ok = res.status >= 200 && res.status < 400
             return { ok, status: res.status }
           } catch {
@@ -214,10 +344,19 @@ export const handler: Handler = async (event) => {
           note: 'form check',
           customCheck: async () => {
             try {
-              const res = await withTimeout(fetch('https://lobby.magiccraft.io/register', { headers: { 'User-Agent': 'MagicCraftStatusBot/1.0' } }), 6000)
+              const res = await withTimeout(
+                fetch('https://lobby.magiccraft.io/register', {
+                  headers: { 'User-Agent': 'MagicCraftStatusBot/1.0' },
+                }),
+                6000
+              )
               const html = await res.text()
               const hasForm = /<form[\s\S]*?>[\s\S]*?<\/form>/i.test(html)
-              return { ok: res.status >= 200 && res.status < 400 && hasForm, status: res.status, note: hasForm ? 'form ok' : 'no form' }
+              return {
+                ok: res.status >= 200 && res.status < 400 && hasForm,
+                status: res.status,
+                note: hasForm ? 'form ok' : 'no form',
+              }
             } catch {
               return { ok: false, status: 0 }
             }
@@ -272,17 +411,15 @@ export const handler: Handler = async (event) => {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({ 
-        ts: new Date().toISOString(), 
-        ok: false, 
-        coreOk: false, 
+      body: JSON.stringify({
+        ts: new Date().toISOString(),
+        ok: false,
+        coreOk: false,
         error: err?.message || 'Unknown error',
-        services: [] 
+        services: [],
       }),
     }
   }
 }
 
 export default {}
-
-

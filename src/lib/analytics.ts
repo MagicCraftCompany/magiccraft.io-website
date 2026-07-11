@@ -22,6 +22,8 @@ export type CtaEvent = {
     | 'download_android'
     | 'download_pc'
     | 'download_steam'
+    | 'explore_ai_suite'
+    | 'open_ai_product'
   location?: string
   label?: string
 }

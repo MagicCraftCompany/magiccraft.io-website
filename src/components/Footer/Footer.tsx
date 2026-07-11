@@ -12,7 +12,6 @@ import {
 } from 'react-icons/fa6'
 import { Link } from 'react-router-dom'
 import { BUILD_REV } from '@/version'
-import { BYBIT_URL, METAMASK_SWAP_URL, PANCAKESWAP_URL } from '@/constants'
 
 const socialLinks = [
   {
@@ -62,41 +61,49 @@ const socialLinks = [
   },
 ]
 
-const tokenLinks = [
+const aiProductLinks = [
   {
-    title: 'PancakeSwap DEX',
-    link: PANCAKESWAP_URL,
+    title: 'AI Suite Overview',
+    link: '/#ai-products',
   },
   {
-    title: 'MetaMask Swap',
-    link: METAMASK_SWAP_URL,
+    title: 'Merlin AI',
+    link: 'https://merlintheai.com/',
   },
   {
-    title: 'Buy $MCRT on Bybit',
-    link: BYBIT_URL,
+    title: 'Akyn',
+    link: 'https://akyn.pro/',
   },
   {
-    title: 'HTX',
-    link: 'https://www.htx.com/trade/mcrt_usdt',
+    title: 'MagicAds',
+    link: 'https://magicads.dev/',
   },
   {
-    title: 'Pledging',
-    link: 'https://app.magiccraft.io/pledging',
+    title: 'MAGAS7',
+    link: 'https://magas7.com/',
   },
   {
-    title: 'Marketplace',
-    link: 'https://app.magiccraft.io/marketplace/explorer',
+    title: 'DragonList',
+    link: 'https://dragonlist.ai/',
+  },
+  {
+    title: 'DocAI',
+    link: 'https://docai.live/',
   },
 ]
 
 const moreLinks = [
   {
-    title: 'Gameplay',
-    link: '/#gameplay',
+    title: 'Game roadmap',
+    link: '/magiccraft',
   },
   {
-    title: 'Heroes',
-    link: '/chooseyourhero',
+    title: '$MCRT access',
+    link: '/pricing',
+  },
+  {
+    title: 'MCRTPay',
+    link: 'https://mcrtpay.com/',
   },
   {
     title: 'News',
@@ -211,13 +218,13 @@ const Footer = () => {
 
         {/* Right Section - Navigation Links */}
         <div className="flex flex-col gap-8 md:flex-row md:gap-12 lg:gap-16">
-          {/* Token Links */}
+          {/* AI Product Links */}
           <div className="w-full space-y-6 md:space-y-8">
             <h5 className="border-b-2 border-white/[0.15] bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text pb-3 text-xl font-black tracking-wider text-transparent text-white md:text-2xl">
-              TOKEN
+              AI PRODUCTS
             </h5>
             <ul className="space-y-3 text-sm text-[#98FFF9] md:space-y-4 md:text-base">
-              {tokenLinks.map((item, i) => {
+              {aiProductLinks.map((item, i) => {
                 return (
                   <li key={i}>
                     {item.link.startsWith('http') ||

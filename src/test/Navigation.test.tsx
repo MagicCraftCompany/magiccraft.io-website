@@ -24,13 +24,8 @@ vi.mock('@/lib/analytics', () => ({
   trackCta: vi.fn(),
 }))
 
-vi.mock('@/components/Header/StatusIndicator', () => ({
-  default: () => <span>Status</span>,
-}))
-
 import Header from '@/components/Header/Header'
 import MobileBottomBar from '@/components/Home/MobileBottomBar'
-import { openGameByDevice } from '@/lib/gameActions'
 import { trackCta } from '@/lib/analytics'
 
 const renderHeader = () =>
@@ -56,17 +51,22 @@ describe('Header navigation', () => {
     expect(menuToggle).toHaveClass('xl:hidden')
     expect(menuToggle).not.toHaveClass('md:hidden')
 
-    const gamesMenu = screen.getByRole('button', { name: 'Games' })
-    expect(gamesMenu.parentElement?.parentElement).toHaveClass(
-      'hidden',
-      'xl:flex'
-    )
+    const aiProductsMenu = screen.getByRole('button', { name: 'AI Products' })
+    const fullNavigation = aiProductsMenu.parentElement?.parentElement
+    expect(fullNavigation).toHaveClass('hidden', 'xl:flex')
 
-    const desktopPlay = screen.getByRole('button', {
-      name: 'Play MagicCraft',
+    const desktopSuiteCta = screen.getByRole('link', {
+      name: 'Explore AI Suite',
     })
-    expect(desktopPlay.parentElement).toHaveClass('hidden', 'xl:flex')
-    expect(await screen.findByText('Status')).toBeInTheDocument()
+    expect(desktopSuiteCta.parentElement).toHaveClass('hidden', 'xl:flex')
+    expect(desktopSuiteCta).toHaveAttribute('href', '/#ai-products')
+
+    const menuButtons = within(fullNavigation as HTMLElement).getAllByRole(
+      'button'
+    )
+    expect(menuButtons[0]).toHaveAccessibleName('AI Products')
+    expect(menuButtons.at(-1)).toHaveAccessibleName('Game')
+    expect(screen.queryByText('Status')).not.toBeInTheDocument()
   })
 
   it('mounts an accessible dialog only while open and closes it on Escape', () => {
@@ -96,27 +96,36 @@ describe('Header navigation', () => {
     expect(document.body.style.overflow).toBe('')
   })
 
-  it('keeps Play primary and exposes lobbies, shop, and MCRT as secondary paths', async () => {
+  it('keeps the AI suite primary and puts game destinations in the final menu', async () => {
     renderHeader()
     fireEvent.click(screen.getByRole('button', { name: 'Open menu' }))
 
     const dialog = screen.getByRole('dialog')
     const drawer = within(dialog)
-    const playButton = drawer.getByRole('button', { name: 'Play MagicCraft' })
-    const lobbiesLink = drawer.getByRole('link', { name: 'Live Lobbies' })
-    const shopLink = drawer.getByRole('link', { name: 'Shop' })
+    const suiteLink = drawer.getByRole('link', { name: 'Explore AI Suite' })
+    const merlinLink = drawer.getByRole('link', { name: 'Open Merlin' })
+    const akynLink = drawer.getByRole('link', { name: 'Akyn Studio' })
+    const aiProductsMenu = await drawer.findByRole('button', {
+      name: 'AI Products',
+    })
     const tokenMenu = await drawer.findByRole('button', { name: '$MCRT' })
+    const gameMenu = await drawer.findByRole('button', { name: 'Game' })
 
-    expect(playButton).toHaveClass('min-h-12')
-    expect(lobbiesLink).toHaveClass('min-h-11')
-    expect(shopLink).toHaveClass('min-h-11')
+    expect(suiteLink).toHaveClass('min-h-12')
+    expect(suiteLink).toHaveAttribute('href', '/#ai-products')
+    expect(merlinLink).toHaveClass('min-h-11')
+    expect(merlinLink).toHaveAttribute('href', 'https://merlintheai.com')
+    expect(akynLink).toHaveClass('min-h-11')
+    expect(aiProductsMenu).toHaveAttribute('aria-expanded', 'false')
     expect(tokenMenu).toHaveAttribute('aria-expanded', 'false')
+    expect(gameMenu).toHaveAttribute('aria-expanded', 'false')
+    expect(drawer.queryByRole('button', { name: 'Play MagicCraft' })).toBeNull()
     expect(drawer.queryByRole('link', { name: 'Buy $MCRT' })).toBeNull()
 
-    fireEvent.click(tokenMenu)
-    expect(tokenMenu).toHaveAttribute('aria-expanded', 'true')
+    fireEvent.click(aiProductsMenu)
+    expect(aiProductsMenu).toHaveAttribute('aria-expanded', 'true')
     expect(
-      await drawer.findByRole('link', { name: 'PancakeSwap DEX' })
+      await drawer.findByRole('link', { name: 'Merlin AI' })
     ).toBeInTheDocument()
   })
 
@@ -131,7 +140,7 @@ describe('Header navigation', () => {
     })
     const finalLink = drawer.getByRole('link', { name: 'FAQ' })
 
-    await drawer.findByRole('button', { name: 'Games' })
+    await drawer.findByRole('button', { name: 'AI Products' })
     expect(closeButton).toHaveFocus()
 
     fireEvent.keyDown(document, { key: 'Tab', shiftKey: true })
@@ -143,33 +152,37 @@ describe('Header navigation', () => {
 })
 
 describe('MobileBottomBar', () => {
-  it('offers two 48px game actions without chat or token squeeze', () => {
+  it('offers two 48px AI product actions without game or token squeeze', () => {
     render(<MobileBottomBar />)
 
-    const playButton = screen.getByRole('button', {
-      name: 'Play MagicCraft',
+    const aiProductsLink = screen.getByRole('link', {
+      name: 'AI Products',
       hidden: true,
     })
-    const lobbiesLink = screen.getByRole('link', {
-      name: 'Live Lobbies',
+    const merlinLink = screen.getByRole('link', {
+      name: 'Open Merlin',
       hidden: true,
     })
 
-    expect(playButton).toHaveClass('h-12')
-    expect(lobbiesLink).toHaveClass('h-12')
+    expect(aiProductsLink).toHaveClass('h-12')
+    expect(aiProductsLink).toHaveAttribute('href', '/#ai-products')
+    expect(merlinLink).toHaveClass('h-12')
+    expect(merlinLink).toHaveAttribute('href', 'https://merlintheai.com')
     expect(screen.queryByText('Buy $MCRT')).not.toBeInTheDocument()
-    expect(
-      screen.queryByRole('button', { name: 'Open Live Support chat' })
-    ).not.toBeInTheDocument()
+    expect(screen.queryByText('Play Game')).not.toBeInTheDocument()
 
-    fireEvent.click(playButton)
-    expect(openGameByDevice).toHaveBeenCalledTimes(1)
-
-    fireEvent.click(lobbiesLink)
+    fireEvent.click(aiProductsLink)
     expect(trackCta).toHaveBeenCalledWith({
-      cta: 'play_now',
+      cta: 'explore_ai_suite',
       location: 'mobile_bottom_bar',
-      label: 'live_lobbies',
+      label: 'ai_products',
+    })
+
+    fireEvent.click(merlinLink)
+    expect(trackCta).toHaveBeenCalledWith({
+      cta: 'open_ai_product',
+      location: 'mobile_bottom_bar',
+      label: 'open_merlin',
     })
   })
 
@@ -196,20 +209,20 @@ describe('MobileBottomBar', () => {
 
     const { container } = render(<MobileBottomBar />)
     const bar = container.querySelector('[data-mobile-bottom-bar]')
-    const playButton = screen.getByRole('button', {
-      name: 'Play MagicCraft',
+    const aiProductsLink = screen.getByRole('link', {
+      name: 'AI Products',
       hidden: true,
     })
-    const lobbiesLink = screen.getByRole('link', {
-      name: 'Live Lobbies',
+    const merlinLink = screen.getByRole('link', {
+      name: 'Open Merlin',
       hidden: true,
     })
 
     expect(observe).toHaveBeenCalledWith(hero)
     expect(bar).toHaveAttribute('aria-hidden', 'true')
     expect(bar).toHaveClass('translate-y-full', 'motion-reduce:transition-none')
-    expect(playButton).toHaveAttribute('tabindex', '-1')
-    expect(lobbiesLink).toHaveAttribute('tabindex', '-1')
+    expect(aiProductsLink).toHaveAttribute('tabindex', '-1')
+    expect(merlinLink).toHaveAttribute('tabindex', '-1')
 
     act(() => {
       intersectionCallback?.(
@@ -220,8 +233,8 @@ describe('MobileBottomBar', () => {
 
     expect(bar).toHaveAttribute('aria-hidden', 'false')
     expect(bar).toHaveClass('translate-y-0', 'opacity-100')
-    expect(playButton).not.toHaveAttribute('tabindex')
-    expect(lobbiesLink).not.toHaveAttribute('tabindex')
+    expect(aiProductsLink).not.toHaveAttribute('tabindex')
+    expect(merlinLink).not.toHaveAttribute('tabindex')
 
     cleanup()
     expect(disconnect).toHaveBeenCalledTimes(1)

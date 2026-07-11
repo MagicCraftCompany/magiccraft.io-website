@@ -34,12 +34,12 @@ const NavMenu = ({ item }: NavMenuProps) => {
         ref={triggerRef}
         type="button"
         onClick={() => setIsMenuOpen((open) => !open)}
-        className="flex min-h-11 select-none items-center gap-1 rounded-lg px-3 py-2 text-white/90 transition-all duration-200 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#98FFF9]"
+        className="flex min-h-11 shrink-0 select-none items-center gap-1 whitespace-nowrap rounded-lg px-2 py-2 text-white/90 transition-all duration-200 hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#98FFF9] 2xl:px-3"
         aria-expanded={isMenuOpen}
         aria-controls={menuId}
         aria-haspopup="true"
       >
-        <span className="text-sm font-medium lg:text-sm xl:text-base">
+        <span className="whitespace-nowrap text-sm font-medium lg:text-sm xl:text-base">
           {item.title}
         </span>
         <LuChevronDown

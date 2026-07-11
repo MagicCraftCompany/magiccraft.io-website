@@ -1,15 +1,20 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
-import { X, Gamepad2, ShoppingBag, Globe, ChevronDown } from 'lucide-react'
+import {
+  Bot,
+  ChevronDown,
+  Clapperboard,
+  Globe,
+  Sparkles,
+  X,
+} from 'lucide-react'
 import NavMenu from './Navmenu'
-import { Suspense, lazy, useCallback, useState, useEffect, useRef } from 'react'
+import NavMenuMobile from './NavMenuMobile'
+import { useCallback, useState, useEffect, useRef } from 'react'
 import {
   LANGUAGES,
   setGoogTransCookie,
   triggerGoogleTranslate,
 } from '@/lib/googleTranslate'
-
-const NavMenuMobile = lazy(() => import('./NavMenuMobile'))
-const StatusIndicator = lazy(() => import('./StatusIndicator'))
 
 import Referral from '@/assets/icons/Referral.svg'
 import Whitepaper from '@/assets/icons/whitepaper.svg'
@@ -55,39 +60,43 @@ import { openGameByDevice, openMetaMaskMcrt } from '@/lib/gameActions'
 
 const commonMenuItemsNew: NavMenuItemProps[] = [
   {
-    title: 'Games',
-    icon: gamepad,
+    title: 'AI Products',
+    icon: '/icons/icon-community.svg',
     submenu: [
       {
-        title: 'MagicCraft',
-        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
-        path: '#',
-        onClick: openGameByDevice,
+        title: 'AI Suite Overview',
+        icon: '/icons/icon-community.svg',
+        path: '/#ai-products',
       },
       {
-        title: 'Ecosystem Games',
-        icon: gamepad,
-        path: 'https://games.magiccraft.io/',
+        title: 'Merlin AI',
+        icon: '/merlin-logo-official.svg',
+        path: 'https://merlintheai.com',
       },
       {
-        title: 'Game Maker',
-        icon: '/icons/icon-steam.svg',
-        path: '/build-on-magiccraft',
+        title: 'Akyn Film Studio',
+        icon: 'https://akyn.pro/logo.svg',
+        path: 'https://akyn.pro',
       },
       {
-        title: 'Heroes',
-        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173029/runner_1_tqbhtw.webp',
-        path: '/chooseyourhero',
+        title: 'MAGAS7',
+        icon: 'https://magas7.com/favicon.svg',
+        path: 'https://magas7.com',
       },
       {
-        title: 'Leaderboard',
-        icon: leaderboard,
-        path: 'https://lobby.magiccraft.io/leaderboard',
+        title: 'MagicAds',
+        icon: 'https://magicads.dev/magicads-logo.svg',
+        path: 'https://magicads.dev',
       },
       {
-        title: 'Game stats',
+        title: 'DragonList',
         icon: stats,
-        path: 'https://lobby.magiccraft.io/stats',
+        path: 'https://dragonlist.ai',
+      },
+      {
+        title: 'DocAI',
+        icon: '/icons/icon-community.svg',
+        path: 'https://docai.live',
       },
     ],
   },
@@ -198,6 +207,43 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         title: 'Bounties',
         icon: '/icons/icon-bounty.svg',
         path: '/bounties',
+      },
+    ],
+  },
+  {
+    title: 'Game',
+    icon: gamepad,
+    submenu: [
+      {
+        title: 'MagicCraft',
+        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
+        path: '#',
+        onClick: openGameByDevice,
+      },
+      {
+        title: 'Ecosystem Games',
+        icon: gamepad,
+        path: 'https://games.magiccraft.io/',
+      },
+      {
+        title: 'Game Maker',
+        icon: '/icons/icon-steam.svg',
+        path: '/build-on-magiccraft',
+      },
+      {
+        title: 'Heroes',
+        icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173029/runner_1_tqbhtw.webp',
+        path: '/chooseyourhero',
+      },
+      {
+        title: 'Leaderboard',
+        icon: leaderboard,
+        path: 'https://lobby.magiccraft.io/leaderboard',
+      },
+      {
+        title: 'Game stats',
+        icon: stats,
+        path: 'https://lobby.magiccraft.io/stats',
       },
     ],
   },
@@ -350,7 +396,7 @@ const Header = () => {
           </div>
 
           <div className="flex w-full max-w-full items-center justify-end gap-2 px-2 sm:gap-3 sm:px-3 md:gap-4 md:px-4 lg:gap-6 lg:px-6 xl:justify-between">
-            <div className="hidden items-center gap-4 md:gap-5 lg:gap-6 xl:flex">
+            <div className="hidden items-center gap-2 xl:flex 2xl:gap-5">
               {commonMenuItemsNew.map((item) =>
                 item?.submenu?.length > 0 ? (
                   <NavMenu key={item.title} item={item} />
@@ -383,16 +429,16 @@ const Header = () => {
                 )
               )}
             </div>
-            <div className="hidden items-center gap-3 xl:flex">
-              <button
-                type="button"
-                onClick={openGameByDevice}
-                className="header-cta header-cta--play inline-flex h-11 items-center"
-                aria-label="Play MagicCraft"
+            <div className="hidden shrink-0 items-center gap-2 xl:flex 2xl:gap-3">
+              <Link
+                to="/#ai-products"
+                className="header-cta header-cta--play inline-flex h-11 shrink-0 items-center whitespace-nowrap"
+                aria-label="Explore AI Suite"
               >
-                <Gamepad2 className="h-4 w-4" />
-                <span>Play</span>
-              </button>
+                <Sparkles aria-hidden="true" className="h-4 w-4" />
+                <span className="2xl:hidden">AI Suite</span>
+                <span className="hidden 2xl:inline">Explore AI Suite</span>
+              </Link>
 
               {/* Desktop language selector */}
               <div ref={desktopLangRef} className="relative">
@@ -440,13 +486,6 @@ const Header = () => {
                   </div>
                 )}
               </div>
-              <Suspense
-                fallback={
-                  <div className="h-10 w-[78px] rounded-lg border border-white/10 bg-white/5" />
-                }
-              >
-                <StatusIndicator />
-              </Suspense>
             </div>
           </div>
           {/* Absolutely positioned hamburger to avoid layout clipping */}
@@ -524,42 +563,40 @@ const Header = () => {
                 </button>
               </div>
 
-              {/* Primary game action */}
+              {/* Primary AI suite action */}
               <div className="mb-3">
-                <button
-                  type="button"
-                  onClick={() => {
-                    closeSidebar()
-                    openGameByDevice()
-                  }}
+                <Link
+                  to="/#ai-products"
+                  onClick={closeSidebar}
                   className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-4 py-3 text-sm font-bold text-[#03082F] transition-opacity hover:opacity-90"
+                  aria-label="Explore AI Suite"
                 >
-                  <Gamepad2 aria-hidden="true" className="h-4 w-4" />
-                  <span>Play MagicCraft</span>
-                </button>
+                  <Sparkles aria-hidden="true" className="h-4 w-4" />
+                  <span>Explore AI Suite</span>
+                </Link>
               </div>
 
-              {/* Secondary destinations */}
+              {/* Featured AI destinations */}
               <div className="mb-5 grid grid-cols-2 gap-2">
                 <a
-                  href="https://lobby.magiccraft.io/"
+                  href="https://merlintheai.com"
                   onClick={closeSidebar}
                   target="_blank"
                   rel="noreferrer noopener"
                   className="flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white/80 transition-all hover:bg-white/10"
                 >
-                  <Gamepad2 aria-hidden="true" className="h-4 w-4" />
-                  <span>Live Lobbies</span>
+                  <Bot aria-hidden="true" className="h-4 w-4" />
+                  <span>Open Merlin</span>
                 </a>
                 <a
-                  href="https://app.magiccraft.io/marketplace/explorer"
+                  href="https://akyn.pro"
                   onClick={closeSidebar}
                   target="_blank"
                   rel="noreferrer noopener"
                   className="flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white/80 transition-all hover:bg-white/10"
                 >
-                  <ShoppingBag aria-hidden="true" className="h-4 w-4" />
-                  <span>Shop</span>
+                  <Clapperboard aria-hidden="true" className="h-4 w-4" />
+                  <span>Akyn Studio</span>
                 </a>
               </div>
 
@@ -569,12 +606,11 @@ const Header = () => {
               <div className="flex-1 space-y-1 overflow-auto">
                 {commonMenuItemsNew.map((item) =>
                   item?.submenu?.length > 0 ? (
-                    <Suspense
+                    <NavMenuMobile
                       key={item.title}
-                      fallback={<div className="h-12 rounded-lg bg-white/5" />}
-                    >
-                      <NavMenuMobile item={item} closeSidebar={closeSidebar} />
-                    </Suspense>
+                      item={item}
+                      closeSidebar={closeSidebar}
+                    />
                   ) : item.path?.startsWith('http') ? (
                     <a
                       key={item.title}

@@ -1,7 +1,7 @@
 {
   "name": "MagicCraft",
   "short_name": "MagicCraft",
-  "description": "PvP Crypto Lobbies, NFT Heroes & $MCRT Gaming. Play on PC, iOS, Android, Steam.",
+  "description": "MagicCraft AI products for assistants, film creation, marketing, advertising, productivity, wellness, payments, and developer infrastructure.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -28,5 +28,5 @@
       "purpose": "maskable"
     }
   ],
-  "categories": ["games", "entertainment", "finance"]
+  "categories": ["productivity", "business", "utilities"]
 }

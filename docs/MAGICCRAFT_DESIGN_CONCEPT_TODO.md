@@ -4,23 +4,41 @@ Research cutoff: 11 July 2026, Bangkok time.
 
 ## North star
 
-**Battle through the Ashvales. Play free. Enter Web3 when you choose.**
+**AI products that create, operate and grow.**
 
-MagicCraft should first feel like a living cross-platform fantasy game. The
-optional `$MCRT` economy should then explain how eligible lobbies, assets,
-marketplace activity, pledging, payments, and creator tools connect. Wider AI,
-ads, and infrastructure products belong in a clearly labeled ecosystem layer,
-not in front of the game.
+MagicCraft is now positioned first as an AI product studio. Merlin, Akyn,
+MagicAds, MAGAS7, DragonList, and DocAI should make the portfolio concrete for
+creators, operators, marketers, and teams. MCRTPay, EnvRouter, and optional
+`$MCRT` utility support the products underneath. The MagicCraft game remains a
+long-term product in development, while the current shipping focus is AI.
 
 Homepage hierarchy:
 
-1. Playable fantasy game
-2. Real gameplay and platform proof
-3. Optional Web3 and `$MCRT` utility
-4. Verified creator and ecosystem products
-5. Community, news, and long-term vision
+1. AI product studio and one clear suite CTA
+2. Direct launch cards for verified AI products
+3. MagicAds as the featured growth and monetization platform
+4. MCRTPay, EnvRouter, and optional `$MCRT` infrastructure
+5. One transparent game-in-development track
 
-## P0 release: trust, clarity, and first-session conversion
+## P0 AI-first correction
+
+- [x] Inventory the public AI suite and verify current product URLs.
+- [x] Exclude SocialMM from live promotion until its TLS issue is fixed.
+- [x] Rewrite DragonList around its current meeting-to-task product.
+- [x] Replace the game hero with an AI-product-studio proposition.
+- [x] Make **Explore the AI suite** primary and **Open Merlin AI** secondary.
+- [x] Put six verified AI products immediately after the hero.
+- [x] Feature MagicAds without removing the live MagicAds monetization surface.
+- [x] Keep MCRTPay, EnvRouter, and `$MCRT` as supporting infrastructure.
+- [x] Move gameplay, game statistics, and lobby proof off the homepage journey.
+- [x] Present the game once, honestly, as an in-development long-term track.
+- [x] Make AI Products the first desktop/mobile navigation destination.
+- [x] Replace game-first mobile quick actions with AI Products and Merlin.
+- [x] Replace game-only metadata, schema, preloads, and share art.
+- [x] Add focused AI-homepage and navigation coverage.
+- [ ] Commit, push, publish, and verify the AI-first public homepage.
+
+## Completed foundation from the prior game-first release
 
 - [x] Research current official game, store, lobby, token, contract, and product sources.
 - [x] Replace the token-first hero with a game-first Ashvales proposition.
@@ -49,6 +67,12 @@ Homepage hierarchy:
 
 ## P1 next: conversion and information architecture
 
+- [ ] Repair SocialMM TLS, then re-verify the product before restoring it to the suite.
+- [ ] Move AI product names, URLs, status, copy, and last-checked dates into one typed data source.
+- [ ] Add focused product detail routes for Merlin, Akyn, MagicAds, MAGAS7, DragonList, and DocAI.
+- [ ] Add privacy and safety boundaries tailored to each AI product category.
+- [ ] Add product-level CTA analytics and compare which suite paths create real activation.
+- [ ] Decide whether Polybilities belongs in the AI suite or the adjacent gaming portfolio.
 - [ ] Make `/buy-mcrt` the canonical buyer route instead of the misleading `/pricing` name.
 - [ ] Give the buy route the normal header, footer, risk copy, contract proof, and return-to-game path.
 - [ ] Present PancakeSwap, wallet import, and centralized exchange as one selector, not repeated cards.
@@ -103,25 +127,32 @@ Homepage hierarchy:
 
 ## Economical agent map
 
-| Lane | Cost strategy | Ownership | State |
-| --- | --- | --- | --- |
-| Product and `$MCRT` research | Bounded read-only specialist | Official sources, safe claims, positioning | Complete |
-| Live UX audit | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues | Complete |
-| Architecture audit | Bounded read-only code specialist | Routes, data flow, risks, file plan | Complete |
-| Homepage integration | Strong controller reasoning | Hero, section order, gameplay, concept | Complete |
-| Trust/data implementation | Focused implementation specialist | Stats, status, dashboard, focused tests | Complete |
-| Responsive navigation | Focused implementation specialist | Header, menus, mobile conversion bar | Complete |
-| Static SEO/social | Focused implementation specialist | Metadata, sitemap, 1200x630 asset | Complete |
-| Production release | Controller only | Review, tests, commit, push, deploy proof | Complete |
+| Lane                         | Cost strategy                       | Ownership                                  | State       |
+| ---------------------------- | ----------------------------------- | ------------------------------------------ | ----------- |
+| Product and `$MCRT` research | Bounded read-only specialist        | Official sources, safe claims, positioning | Complete    |
+| Live UX audit                | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues  | Complete    |
+| Architecture audit           | Bounded read-only code specialist   | Routes, data flow, risks, file plan        | Complete    |
+| Homepage integration         | Strong controller reasoning         | Hero, section order, gameplay, concept     | Complete    |
+| Trust/data implementation    | Focused implementation specialist   | Stats, status, dashboard, focused tests    | Complete    |
+| Responsive navigation        | Focused implementation specialist   | Header, menus, mobile conversion bar       | Complete    |
+| Static SEO/social            | Focused implementation specialist   | Metadata, sitemap, 1200x630 asset          | Complete    |
+| AI suite inventory           | Bounded live-truth specialist       | Product URLs, status, claims, broken links | Complete    |
+| AI-first concept             | Bounded product/copy specialist     | Hierarchy, copy, status guardrails         | Complete    |
+| AI-first navigation          | Focused implementation specialist   | Header, drawer, mobile quick actions       | Complete    |
+| AI-first live release        | Controller only                     | Integration, review, deploy, public proof  | In progress |
+| Production release           | Controller only                     | Review, tests, commit, push, deploy proof  | Complete    |
 
 Agents do not share high-conflict ownership of the homepage, header, or global
 CSS. Production, deploy, and safety decisions remain with the controller.
 
 ## Acceptance for this release
 
-- A new visitor understands “free fantasy MOBA” before `$MCRT`.
-- Real gameplay appears within the first two content sections.
-- There is one dominant Play CTA and a clear optional Web3 path.
+- A new visitor understands that MagicCraft is an AI product studio in the first viewport.
+- The six verified AI products appear immediately after the hero with direct launch paths.
+- There is one dominant Explore AI Suite CTA and Merlin is one action away.
+- MagicAds is visibly featured and the owned ad surface remains live.
+- `$MCRT` and payments support the suite without becoming the main promise.
+- The game is visible once with an honest in-development status.
 - No hype-video, fake-live, or invented fallback proof remains.
 - Navigation works and is accessible from mobile through desktop.
 - The homepage is materially shorter on desktop and mobile.
