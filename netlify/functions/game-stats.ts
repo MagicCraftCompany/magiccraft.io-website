@@ -339,7 +339,7 @@ export const handler = async (
     regionCandidate === 'asia' || regionCandidate === 'america'
       ? regionCandidate
       : 'europe'
-  const port = process.env.GAMESERVER_API_PORT || '8913'
+  const port = process.env.GAMESERVER_API_PORT || '8903'
   const apiKey = process.env.GAMESERVER_API_KEY || ''
   const checkedAt = new Date().toISOString()
 

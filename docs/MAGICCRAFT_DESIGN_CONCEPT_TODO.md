@@ -4,40 +4,39 @@ Research cutoff: 13 July 2026, Bangkok time.
 
 ## North star
 
-**AI products that create, operate and grow.**
+**Play the game. Put AI to work.**
 
-MagicCraft is now positioned first as an AI product studio. Merlin, Akyn,
-MagicAds, MAGAS7, DragonList, and DocAI should make the portfolio concrete for
-creators, operators, marketers, and teams. MCRTPay, EnvRouter, and optional
-`$MCRT` utility support the products underneath. The MagicCraft game is live
-and established, with core PvP modes and a newly released PvE system, while the
-homepage keeps the current product focus on AI.
+MagicCraft is presented as one studio with two strong reasons to enter: a live
+cross-platform fantasy game and six focused AI products. The first viewport
+must let a player start the game and let an operator choose the AI suite without
+making either audience hunt. Game services, optional Web3 utility and builder
+systems sit underneath those two product pillars with honest current statuses.
 
 Homepage hierarchy:
 
-1. AI product studio and one clear suite CTA
-2. Direct launch cards for verified AI products
-3. MagicAds as the featured growth and monetization platform
-4. MCRTPay, EnvRouter, and optional `$MCRT` infrastructure
-5. One transparent live-game track for established PvP and new PvE
+1. One action-led hero with equal game and AI-suite paths
+2. Live game experience and verified gameplay facts
+3. Real game statistics with honest partial-data states
+4. Six status-labelled AI products with direct launch paths
+5. Game, Web3 and builder systems grouped by purpose and current health
+6. One final choice: enter the game or open the product needed
 
-## P0 AI-first correction
+## P0 balanced studio correction
 
 - [x] Inventory the public AI suite and verify current product URLs.
 - [x] Exclude SocialMM from live promotion until its TLS issue is fixed.
 - [x] Rewrite DragonList around its current meeting-to-task product.
-- [x] Replace the game hero with an AI-product-studio proposition.
-- [x] Make **Explore the AI suite** primary and **Open Merlin AI** secondary.
-- [x] Put six verified AI products immediately after the hero.
-- [x] Feature MagicAds without removing the live MagicAds monetization surface.
-- [x] Keep MCRTPay, EnvRouter, and `$MCRT` as supporting infrastructure.
-- [x] Move gameplay, game statistics, and lobby proof off the homepage journey.
-- [x] Present the game once, honestly, as a live product without displacing the AI-first hierarchy.
-- [x] Make AI Products the first desktop/mobile navigation destination.
-- [x] Replace game-first mobile quick actions with AI Products and Merlin.
-- [x] Replace game-only metadata, schema, preloads, and share art.
-- [x] Add focused AI-homepage and navigation coverage.
-- [x] Commit, push, publish, and verify the AI-first public homepage.
+- [x] Replace the AI-only hero with a balanced game-and-AI proposition.
+- [x] Make **Play MagicCraft** and **Explore 6 AI products** the two clear first actions.
+- [x] Restore the live game and real statistics ahead of the AI catalog.
+- [x] Keep all six AI products directly launchable and status-labelled.
+- [x] Group game services, optional Web3 and builder systems by purpose.
+- [x] Keep MagicAds live while reserving its banner height to prevent layout shift.
+- [x] Make Game the first desktop destination and keep AI Products one tap away.
+- [x] Replace duplicate mobile actions with Play Game and AI Suite.
+- [x] Balance metadata, schema, preloads and social art around the game and studio.
+- [x] Add focused homepage, system-map, navigation and product-truth coverage.
+- [ ] Commit, push, publish and verify the balanced public homepage.
 
 ## P0 game record correction
 
@@ -142,34 +141,35 @@ Homepage hierarchy:
 
 ## Economical agent map
 
-| Lane                         | Cost strategy                       | Ownership                                  | State    |
-| ---------------------------- | ----------------------------------- | ------------------------------------------ | -------- |
-| Product and `$MCRT` research | Bounded read-only specialist        | Official sources, safe claims, positioning | Complete |
-| Live UX audit                | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues  | Complete |
-| Architecture audit           | Bounded read-only code specialist   | Routes, data flow, risks, file plan        | Complete |
-| Homepage integration         | Strong controller reasoning         | Hero, section order, gameplay, concept     | Complete |
-| Trust/data implementation    | Focused implementation specialist   | Stats, status, dashboard, focused tests    | Complete |
-| Responsive navigation        | Focused implementation specialist   | Header, menus, mobile conversion bar       | Complete |
-| Static SEO/social            | Focused implementation specialist   | Metadata, sitemap, 1200x630 asset          | Complete |
-| AI suite inventory           | Bounded live-truth specialist       | Product URLs, status, claims, broken links | Complete |
-| AI-first concept             | Bounded product/copy specialist     | Hierarchy, copy, status guardrails         | Complete |
-| AI-first navigation          | Focused implementation specialist   | Header, drawer, mobile quick actions       | Complete |
-| AI-first live release        | Controller only                     | Integration, review, deploy, public proof  | Complete |
-| Game truth correction        | Bounded research and history agents | PvP, PvE, release and storefront evidence  | Complete |
-| Game truth live release      | Controller only                     | Copy, tests, deploy and production proof   | Complete |
-| Production release           | Controller only                     | Review, tests, commit, push, deploy proof  | Complete |
+| Lane                         | Cost strategy                       | Ownership                                  | State       |
+| ---------------------------- | ----------------------------------- | ------------------------------------------ | ----------- |
+| Product and `$MCRT` research | Bounded read-only specialist        | Official sources, safe claims, positioning | Complete    |
+| Live UX audit                | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues  | Complete    |
+| Architecture audit           | Bounded read-only code specialist   | Routes, data flow, risks, file plan        | Complete    |
+| Homepage integration         | Strong controller reasoning         | Hero, section order, gameplay, concept     | Complete    |
+| Trust/data implementation    | Focused implementation specialist   | Stats, status, dashboard, focused tests    | Complete    |
+| Responsive navigation        | Focused implementation specialist   | Header, menus, mobile conversion bar       | Complete    |
+| Static SEO/social            | Focused implementation specialist   | Metadata, sitemap, 1200x630 asset          | Complete    |
+| AI suite inventory           | Bounded live-truth specialist       | Product URLs, status, claims, broken links | Complete    |
+| Balanced studio concept      | Bounded product/copy specialist     | Hierarchy, copy, status guardrails         | Complete    |
+| Game and AI navigation       | Focused implementation specialist   | Header, drawer, mobile quick actions       | Complete    |
+| Balanced live release        | Controller only                     | Integration, review, deploy, public proof  | In progress |
+| Game truth correction        | Bounded research and history agents | PvP, PvE, release and storefront evidence  | Complete    |
+| Game truth live release      | Controller only                     | Copy, tests, deploy and production proof   | Complete    |
+| Production release           | Controller only                     | Review, tests, commit, push, deploy proof  | Complete    |
 
 Agents do not share high-conflict ownership of the homepage, header, or global
 CSS. Production, deploy, and safety decisions remain with the controller.
 
 ## Acceptance for this release
 
-- A new visitor understands that MagicCraft is an AI product studio in the first viewport.
-- The six verified AI products appear immediately after the hero with direct launch paths.
-- There is one dominant Explore AI Suite CTA and Merlin is one action away.
-- MagicAds is visibly featured and the owned ad surface remains live.
-- `$MCRT` and payments support the suite without becoming the main promise.
-- The game is visible once as live, with established PvP and new PvE.
+- A new visitor understands that MagicCraft has a live game and an AI product studio in the first viewport.
+- Play MagicCraft and Explore 6 AI products are both clear, direct actions.
+- The live game, established PvP, new PvE and real statistics are easy to find.
+- Six verified AI products appear with purpose, stage, health and direct launch paths.
+- Game services, optional Web3 and builder systems are grouped and truthfully labelled.
+- MagicAds remains live without shifting the page after load.
+- `$MCRT`, wallets and payments are optional supporting systems, never the main promise.
 - No hype-video, fake-live, or invented fallback proof remains.
 - Navigation works and is accessible from mobile through desktop.
 - The homepage is materially shorter on desktop and mobile.

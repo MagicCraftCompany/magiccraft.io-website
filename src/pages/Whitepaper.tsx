@@ -19,7 +19,7 @@ import {
 import { BYBIT_URL, MCRT_CONTRACT_CHECKSUM, PANCAKESWAP_URL } from '@/constants'
 import { openGameByDevice } from '@/lib/gameActions'
 
-const WHITEPAPER_VERSION = '3.1'
+const WHITEPAPER_VERSION = '3.2'
 const VERIFIED_DATE = '13 July 2026'
 
 const printStyles = [
@@ -37,9 +37,11 @@ type Status =
   | AiProductStatus
   | 'Beta'
   | 'Degraded'
+  | 'Partial data'
   | 'Planned'
   | 'Unavailable'
   | 'Program'
+  | 'Gated'
 
 type Surface = {
   name: string
@@ -79,15 +81,15 @@ const gameSurfaces: Surface[] = [
     status: 'Live',
     purpose:
       'Free-to-play action game on iOS, Android and PC with PvP and PvE play.',
-    href: 'https://lobby.magiccraft.io/',
+    href: '/magiccraft',
   },
   {
     name: 'Web3 Lobbies',
-    status: 'Live',
+    status: 'Degraded',
     purpose:
       'Optional wallet-connected matches, eligible entry pools and reward handling.',
     href: 'https://lobby.magiccraft.io/',
-    note: 'The base game does not require a wallet.',
+    note: 'Match browsing works, but the old prize-pool source returns 404 and anonymous wallet preloading reports errors. Displayed pool balances may be fallback values. The base game does not require a wallet.',
   },
   {
     name: 'Marketplace',
@@ -95,28 +97,31 @@ const gameSurfaces: Surface[] = [
     purpose:
       'Browse and transact supported MagicCraft game assets under the marketplace terms.',
     href: 'https://app.magiccraft.io/marketplace/explorer',
+    note: 'Browsing is public. Listing, buying and trading require a wallet and were not exercised during verification.',
   },
   {
     name: 'Pledging',
-    status: 'Live',
+    status: 'Degraded',
     purpose:
       'Lock eligible MCRT for a selected term under the pool rules shown in the product.',
     href: 'https://app.magiccraft.io/pledging',
-    note: 'Rewards are dynamic. A fixed return is not promised.',
+    note: 'Reward percentages are currently blank and TVL renders as 0 MCRT. Rewards are dynamic and a fixed return is not promised.',
   },
   {
     name: 'Referral program',
-    status: 'Live',
+    status: 'Gated',
     purpose:
       'Create a referral link and review the eligibility rules for lobby rewards.',
     href: 'https://lobby.magiccraft.io/referral',
+    note: 'The public page immediately requires sign-in. Referral creation and rewards were not exercised.',
   },
   {
     name: 'Ecosystem Games',
-    status: 'Beta',
+    status: 'Degraded',
     purpose:
       'Open a browser hub of lightweight games connected to the wider ecosystem.',
     href: 'https://games.magiccraft.io/',
+    note: 'The beta hub loads, but login is required and its legal links, footer date and investment copy need correction.',
   },
   {
     name: 'MCRT Game Maker',
@@ -140,10 +145,10 @@ const gameSurfaces: Surface[] = [
   },
   {
     name: 'Game stats',
-    status: 'Live',
+    status: 'Partial data',
     purpose: 'Show validated lobby totals and current MCRT market data.',
     href: '/stats',
-    note: 'The owned fallback omits empty chart series. The older lobby chart page remains degraded.',
+    note: 'Lobby and market totals are live. The legacy GameServer season source times out, so season and player values remain unavailable.',
   },
   {
     name: 'Rent testnet',
@@ -313,8 +318,11 @@ function statusClassName(status: Status) {
   if (status === 'Early access' || status === 'Beta') {
     return 'border-amber-300/30 bg-amber-300/10 text-amber-100'
   }
-  if (status === 'Degraded') {
+  if (status === 'Degraded' || status === 'Partial data') {
     return 'border-orange-300/30 bg-orange-300/10 text-orange-100'
+  }
+  if (status === 'Gated') {
+    return 'border-sky-300/30 bg-sky-300/10 text-sky-100'
   }
   if (status === 'Unavailable') {
     return 'border-rose-300/30 bg-rose-300/10 text-rose-100'
@@ -396,6 +404,12 @@ function ExternalLink({
 export default function Whitepaper() {
   const liveProductCount = AI_PRODUCTS.filter(
     (product) => product.status === 'Live'
+  ).length
+  const betaProductCount = AI_PRODUCTS.filter(
+    (product) => product.status === 'Beta'
+  ).length
+  const earlyAccessProductCount = AI_PRODUCTS.filter(
+    (product) => product.status === 'Early access'
   ).length
 
   return (
@@ -531,9 +545,7 @@ export default function Whitepaper() {
           <Section
             id="ai-products"
             eyebrow="AI portfolio"
-            title={
-              String(liveProductCount) + ' live products, one in early access'
-            }
+            title={`${liveProductCount} live products, ${betaProductCount} beta, ${earlyAccessProductCount} early access`}
             intro={
               'The portfolio was checked against each public product on ' +
               AI_PRODUCTS_LAST_VERIFIED +
@@ -570,6 +582,11 @@ export default function Whitepaper() {
                   <p className="flex-1 text-sm leading-6 text-white/65">
                     {product.description}
                   </p>
+                  {product.healthNote && (
+                    <p className="mt-4 rounded-lg border border-orange-300/20 bg-orange-300/5 p-3 text-xs leading-5 text-orange-100/80">
+                      Current limitation: {product.healthNote}
+                    </p>
+                  )}
                   {product.safetyNote && (
                     <p className="mt-4 rounded-lg border border-amber-300/20 bg-amber-300/5 p-3 text-xs leading-5 text-amber-100/80">
                       {product.safetyNote}
@@ -827,6 +844,10 @@ export default function Whitepaper() {
                 [
                   'Degraded',
                   'An intended live function is reachable but is not returning its previously working result.',
+                ],
+                [
+                  'Gated',
+                  'The public entry point works, but meaningful proof requires sign-in, a wallet, a payment, a submission or another user-approved action.',
                 ],
                 [
                   'Planned',

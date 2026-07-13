@@ -26,7 +26,7 @@ const renderWhitepaper = () =>
     </HelmetProvider>
   )
 
-describe('Whitepaper v3.1', () => {
+describe('Whitepaper v3.2', () => {
   it('presents a dated, navigable product and function guide', () => {
     renderWhitepaper()
 
@@ -36,7 +36,7 @@ describe('Whitepaper v3.1', () => {
         name: /living guide to MagicCraft products/i,
       })
     ).toBeInTheDocument()
-    expect(screen.getByText('Whitepaper v3.1')).toBeInTheDocument()
+    expect(screen.getByText('Whitepaper v3.2')).toBeInTheDocument()
     expect(screen.getByText('Verified 13 July 2026')).toBeInTheDocument()
 
     const toc = screen.getByRole('navigation', {
@@ -84,6 +84,18 @@ describe('Whitepaper v3.1', () => {
     expect(screen.getByText('Leaderboard')).toBeInTheDocument()
     expect(screen.getByText('Game stats')).toBeInTheDocument()
     expect(screen.getByText('Rent testnet')).toBeInTheDocument()
+    expect(
+      within(
+        screen
+          .getByRole('heading', { level: 3, name: 'MagicCraft game' })
+          .closest('article')!
+      ).getByRole('link', { name: /Open function/i })
+    ).toHaveAttribute('href', '/magiccraft')
+    expect(
+      within(screen.getByText('Game stats').closest('article')!).getByText(
+        'Partial data'
+      )
+    ).toBeInTheDocument()
     expect(
       screen.getByText(/external DNS configuration is broken/i)
     ).toBeInTheDocument()

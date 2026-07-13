@@ -12,8 +12,9 @@ describe('Footer product truth', () => {
     )
 
     expect(
-      screen.getByRole('link', { name: 'Whitepaper v3.1' })
+      screen.getByRole('link', { name: 'Whitepaper v3.2' })
     ).toHaveAttribute('href', '/whitepaper')
+    expect(screen.queryByText('Whitepaper v3.1')).not.toBeInTheDocument()
     expect(screen.queryByText('Whitepaper v3.0')).not.toBeInTheDocument()
   })
 })

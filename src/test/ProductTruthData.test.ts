@@ -1,8 +1,27 @@
 import { describe, expect, it } from 'vitest'
 import { newsArticles } from '@/data/newsData'
 import { roadmapData } from '@/data/roadmapData'
+import { AI_PRODUCTS } from '@/data/aiProducts'
 
 describe('product status content', () => {
+  it('separates AI product stage from public-surface health', () => {
+    expect(
+      AI_PRODUCTS.filter((product) => product.status === 'Live')
+    ).toHaveLength(4)
+    expect(
+      AI_PRODUCTS.filter((product) => product.status === 'Beta')
+    ).toHaveLength(1)
+    expect(
+      AI_PRODUCTS.filter((product) => product.status === 'Early access')
+    ).toHaveLength(1)
+
+    expect(
+      AI_PRODUCTS.filter((product) => product.health === 'Degraded').map(
+        (product) => product.id
+      )
+    ).toEqual(['merlin', 'magas7'])
+  })
+
   it('separates verified, improving and exploratory work without stale quarters', () => {
     expect(roadmapData.map((entry) => entry.stage)).toEqual([
       'LIVE',

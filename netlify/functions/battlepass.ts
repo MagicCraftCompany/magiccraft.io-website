@@ -74,7 +74,7 @@ export const handler: Handler = async (event) => {
   }
 
   const region = normalizeRegion(event.queryStringParameters?.region)
-  const port = process.env.GAMESERVER_API_PORT || '8913'
+  const port = process.env.GAMESERVER_API_PORT || '8903'
   const apiKey = process.env.GAMESERVER_API_KEY || ''
 
   let baseUrl: string

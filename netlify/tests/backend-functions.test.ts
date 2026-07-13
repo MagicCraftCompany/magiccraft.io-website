@@ -103,6 +103,30 @@ describe('submit-grants fail-closed intake', () => {
 })
 
 describe('battle-pass proxy', () => {
+  it('uses the reachable legacy game-server port by default', async () => {
+    vi.stubEnv('GAMESERVER_API_KEY', 'test-key')
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValue(mockResponse({ name: 'Current season' }))
+    vi.stubGlobal('fetch', fetchMock)
+
+    const response = await battlepassHandler(
+      {
+        httpMethod: 'GET',
+        queryStringParameters: { region: 'europe' },
+      } as never,
+      {} as never
+    )
+
+    expect(response?.statusCode).toBe(200)
+    expect(fetchMock).toHaveBeenCalledWith(
+      'http://5.9.111.150:8903/battlepass/active',
+      expect.objectContaining({
+        headers: expect.objectContaining({ 'X-API-Key': 'test-key' }),
+      })
+    )
+  })
+
   it('honors the configured game-server base URL', async () => {
     vi.stubEnv('GAMESERVER_API_URL', 'https://game.example/api/')
     vi.stubEnv('GAMESERVER_API_KEY', 'test-key')

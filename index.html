@@ -23,11 +23,11 @@
     <meta name="apple-mobile-web-app-title" content="MagicCraft" />
     <meta
       name="description"
-      content="Explore the MagicCraft AI suite for work, creation and growth, plus the live MagicCraft game with established PvP and a newly released PvE system."
+      content="Play the live MagicCraft PvP and PvE game, explore six focused AI products, and understand the optional Web3 and builder systems around the studio."
     />
     <meta
       name="keywords"
-      content="MagicCraft AI, AI product suite, Merlin AI, Akyn, MagicAds, MAGAS7, DragonList, DocAI, MCRTPay, EnvRouter AI, MagicCraft game, PvP MOBA, PvE game, solo co-op adventure"
+      content="MagicCraft game, MagicCraft AI, AI product studio, Merlin AI, Akyn, MagicAds, MAGAS7, DragonList, DocAI, MCRTPay, MagicCraft PvP, MagicCraft PvE, MOBA"
     />
 
     <!-- Canonical & Robots -->
@@ -40,27 +40,27 @@
     <meta property="og:locale" content="en_US" />
     <meta
       property="og:title"
-      content="MagicCraft AI Suite | Create, Operate &amp; Grow"
+      content="MagicCraft | Live Game &amp; AI Product Studio"
     />
     <meta
       property="og:description"
-      content="Practical AI products for work, creation and growth, plus the live MagicCraft game with established PvP and new PvE."
+      content="Play the game. Put AI to work. Explore MagicCraft's live cross-platform game, six focused AI products and connected systems."
     />
     <meta property="og:url" content="https://magiccraft.io/" />
     <meta
       property="og:image"
-      content="https://magiccraft.io/magiccraft-ai-suite-social-preview.webp"
+      content="https://magiccraft.io/magiccraft-social-preview.webp"
     />
     <meta
       property="og:image:secure_url"
-      content="https://magiccraft.io/magiccraft-ai-suite-social-preview.webp"
+      content="https://magiccraft.io/magiccraft-social-preview.webp"
     />
     <meta property="og:image:type" content="image/webp" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Connected MagicCraft AI products for creation, work, growth, wellness, and developer infrastructure"
+      content="MagicCraft fantasy hero roster for the live game and AI product studio"
     />
 
     <!-- Twitter -->
@@ -68,19 +68,19 @@
     <meta name="twitter:site" content="@MagicCraftGame" />
     <meta
       name="twitter:title"
-      content="MagicCraft AI Suite | Create, Operate &amp; Grow"
+      content="MagicCraft | Live Game &amp; AI Product Studio"
     />
     <meta
       name="twitter:description"
-      content="Practical AI products for work, creation and growth, plus the live MagicCraft game with established PvP and new PvE."
+      content="Play the game. Put AI to work. Explore MagicCraft's live cross-platform game, six focused AI products and connected systems."
     />
     <meta
       name="twitter:image"
-      content="https://magiccraft.io/magiccraft-ai-suite-social-preview.webp"
+      content="https://magiccraft.io/magiccraft-social-preview.webp"
     />
     <meta
       name="twitter:image:alt"
-      content="Connected MagicCraft AI products for creation, work, growth, wellness, and developer infrastructure"
+      content="MagicCraft fantasy hero roster for the live game and AI product studio"
     />
 
     <!-- Preconnects -->
@@ -93,11 +93,11 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
 
-    <!-- Preload AI suite hero media -->
+    <!-- Preload the game artwork used by the balanced game + AI hero -->
     <link
       rel="preload"
       as="image"
-      href="/magiccraft-ai-suite-social-preview.webp"
+      href="/magiccraft-social-preview.webp"
       fetchpriority="high"
     />
     <!-- Preload MagicCraft logo wordmark -->
@@ -112,6 +112,7 @@
       /* Critical: prevent FOUC on hero */
       html {
         background: #03082f;
+        --magicads-top-banner-height: 36px;
       }
       body {
         margin: 0;
@@ -137,9 +138,7 @@
       rel="stylesheet"
     />
 
-    <title>
-      MagicCraft AI Suite | AI Products for Work, Creation &amp; Growth
-    </title>
+    <title>MagicCraft | Live Game &amp; AI Product Studio</title>
 
     <!-- Google Translate (deferred until after first paint) -->
     <script type="text/javascript">
@@ -278,7 +277,17 @@
         }, 2000)
       })
     </script>
-    <div style="display: flex; justify-content: center; min-height: 0">
+    <div
+      class="magicads-slot"
+      style="
+        display: flex;
+        height: var(--magicads-top-banner-height, 36px);
+        min-height: var(--magicads-top-banner-height, 36px);
+        justify-content: center;
+        overflow: hidden;
+        background: #050824;
+      "
+    >
       <div
         class="magicads"
         data-placement="top-banner"

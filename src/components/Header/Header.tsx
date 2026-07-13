@@ -3,6 +3,7 @@ import {
   Bot,
   ChevronDown,
   Clapperboard,
+  Gamepad2,
   Globe,
   Sparkles,
   X,
@@ -39,6 +40,8 @@ export type NavigationStatus =
   | 'Early access'
   | 'Beta'
   | 'Degraded'
+  | 'Partial data'
+  | 'Gated'
   | 'Testnet'
   | 'External'
   | 'Program'
@@ -100,7 +103,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: lobby,
         path: 'https://lobby.magiccraft.io/',
         purpose: 'Create or join matches and manage Web3 game rewards.',
-        status: 'Live',
+        status: 'Degraded',
       },
       {
         title: 'Marketplace',
@@ -114,14 +117,14 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: '/icons/icon-pledge.svg',
         path: 'https://app.magiccraft.io/pledging',
         purpose: 'Lock MCRT for a chosen term under the current pool rules.',
-        status: 'Live',
+        status: 'Degraded',
       },
       {
         title: 'Referral System',
         icon: Referral,
         path: 'https://lobby.magiccraft.io/referral',
         purpose: 'Create a referral link for eligible Web3 lobby rewards.',
-        status: 'Live',
+        status: 'Gated',
       },
     ],
   },
@@ -241,7 +244,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: gamepad,
         path: 'https://games.magiccraft.io/',
         purpose: 'Open the browser-based MagicCraft ecosystem game hub.',
-        status: 'Beta',
+        status: 'Degraded',
       },
       {
         title: 'Game Maker',
@@ -269,11 +272,26 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: stats,
         path: '/stats',
         purpose: 'Review validated lobby totals and current MCRT market data.',
-        status: 'Live',
+        status: 'Partial data',
       },
     ],
   },
 ]
+
+const navigationPriority = [
+  'Game',
+  'AI Products',
+  'Web3',
+  'Build',
+  'About',
+  '$MCRT',
+]
+
+const navigationItems = [...commonMenuItemsNew].sort(
+  (left, right) =>
+    navigationPriority.indexOf(left.title) -
+    navigationPriority.indexOf(right.title)
+)
 
 const Header = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
@@ -455,7 +473,7 @@ const Header = () => {
 
           <div className="flex w-full max-w-full items-center justify-end gap-2 px-2 sm:gap-3 sm:px-3 md:gap-4 md:px-4 lg:gap-6 lg:px-6 xl:justify-between">
             <div className="hidden items-center gap-2 xl:flex 2xl:gap-5">
-              {commonMenuItemsNew.map((item) =>
+              {navigationItems.map((item) =>
                 item?.submenu?.length > 0 ? (
                   <NavMenu key={item.title} item={item} />
                 ) : item.path?.startsWith('http') ? (
@@ -488,15 +506,16 @@ const Header = () => {
               )}
             </div>
             <div className="hidden shrink-0 items-center gap-2 xl:flex 2xl:gap-3">
-              <Link
-                to="/#ai-products"
+              <button
+                type="button"
+                onClick={openGameByDevice}
                 className="header-cta header-cta--play inline-flex h-11 shrink-0 items-center whitespace-nowrap"
-                aria-label="Explore AI Suite"
+                aria-label="Play MagicCraft"
               >
-                <Sparkles aria-hidden="true" className="h-4 w-4" />
-                <span className="2xl:hidden">AI Suite</span>
-                <span className="hidden 2xl:inline">Explore AI Suite</span>
-              </Link>
+                <Gamepad2 aria-hidden="true" className="h-4 w-4" />
+                <span className="2xl:hidden">Play</span>
+                <span className="hidden 2xl:inline">Play MagicCraft</span>
+              </button>
 
               {/* Desktop language selector */}
               <div ref={desktopLangRef} className="relative">
@@ -623,16 +642,28 @@ const Header = () => {
                 </button>
               </div>
 
-              {/* Primary AI suite action */}
-              <div className="mb-3">
+              {/* Primary game and AI suite actions */}
+              <div className="mb-3 grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    closeSidebar()
+                    openGameByDevice()
+                  }}
+                  className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-3 py-3 text-sm font-bold text-[#03082F] transition-opacity hover:opacity-90"
+                  aria-label="Play MagicCraft"
+                >
+                  <Gamepad2 aria-hidden="true" className="h-4 w-4" />
+                  <span>Play Game</span>
+                </button>
                 <Link
                   to="/#ai-products"
                   onClick={closeSidebar}
-                  className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-4 py-3 text-sm font-bold text-[#03082F] transition-opacity hover:opacity-90"
+                  className="flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.08] px-3 py-3 text-sm font-bold text-white transition hover:border-[#98FFF9]/50 hover:bg-white/[0.12]"
                   aria-label="Explore AI Suite"
                 >
                   <Sparkles aria-hidden="true" className="h-4 w-4" />
-                  <span>Explore AI Suite</span>
+                  <span>AI Suite</span>
                 </Link>
               </div>
 
@@ -667,7 +698,7 @@ const Header = () => {
                 aria-label="MagicCraft destinations"
                 className="min-h-0 flex-1 space-y-1 overflow-y-auto overscroll-contain pr-1"
               >
-                {commonMenuItemsNew.map((item) =>
+                {navigationItems.map((item) =>
                   item?.submenu?.length > 0 ? (
                     <NavMenuMobile
                       key={item.title}

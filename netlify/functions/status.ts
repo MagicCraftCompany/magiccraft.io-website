@@ -121,7 +121,7 @@ export const handler: Handler = async (event) => {
   try {
     const deep = event.queryStringParameters?.deep === '1'
     const region = normalizeRegion(event.queryStringParameters?.region)
-    const port = process.env.GAMESERVER_API_PORT || '8913'
+    const port = process.env.GAMESERVER_API_PORT || '8903'
     const baseGameserverOverride = process.env.GAMESERVER_API_URL
     const gameserverKey = process.env.GAMESERVER_API_KEY || ''
     const sanityProjectId = configuredSanityProjectId(

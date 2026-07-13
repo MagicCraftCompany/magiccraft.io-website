@@ -1,3 +1,3 @@
 // Increment this number on each production update
-export const BUILD_REV = 579
+export const BUILD_REV = 580
 

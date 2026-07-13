@@ -12,11 +12,21 @@ vi.mock('@/components/Footer/Footer', () => ({
 vi.mock('@/components/Home/MobileBottomBar', () => ({
   default: () => null,
 }))
+vi.mock('@/components/LiveStats/LiveStatsWidget', () => ({
+  default: () => (
+    <section aria-label="Verified ecosystem stats">
+      <h2>Verified ecosystem stats</h2>
+    </section>
+  ),
+}))
+vi.mock('@/lib/gameActions', () => ({
+  openGameByDevice: vi.fn(),
+}))
 
 import Homepagemcrt from '@/pages/Homepagemcrt'
 
-describe('AI-first homepage', () => {
-  it('leads with the AI suite and presents the shipped game accurately', () => {
+describe('balanced game and AI homepage', () => {
+  it('gives the live game and six-product AI suite clear primary paths', () => {
     render(
       <HelmetProvider>
         <MemoryRouter>
@@ -25,16 +35,30 @@ describe('AI-first homepage', () => {
       </HelmetProvider>
     )
 
+    expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)
     expect(
       screen.getByRole('heading', {
         level: 1,
-        name: 'AI products that create, operate and grow.',
+        name: 'Play the game. Put AI to work.',
       })
     ).toBeInTheDocument()
+    expect(
+      screen.getAllByRole('button', { name: 'Play MagicCraft' }).length
+    ).toBeGreaterThan(0)
+    expect(
+      screen.getByRole('link', { name: 'Explore 6 AI products' })
+    ).toHaveAttribute('href', '#ai-products')
+
+    expect(
+      screen.getByRole('heading', { name: 'Established PvP. New PvE.' })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Verified ecosystem stats' })
+    ).toBeInTheDocument()
+
     const suiteHeading = screen.getByRole('heading', {
-      name: 'Start with the job you want done.',
+      name: 'Six focused AI products. Pick the one built for the job.',
     })
-    expect(suiteHeading).toBeInTheDocument()
     const suite = suiteHeading.closest('section')
     expect(suite).not.toBeNull()
     const suiteView = within(suite as HTMLElement)
@@ -52,17 +76,13 @@ describe('AI-first homepage', () => {
       ).toBeInTheDocument()
     }
 
+    expect(
+      screen.getByRole('heading', {
+        name: 'Every system has a job, a status and a direct path.',
+      })
+    ).toBeInTheDocument()
+    expect(screen.getByText('Pledging')).toBeInTheDocument()
     expect(screen.queryByText('SocialMM')).not.toBeInTheDocument()
-    expect(
-      screen.getByRole('heading', { name: 'Established PvP. New PvE.' })
-    ).toBeInTheDocument()
-    expect(
-      screen.getByText(/PvP \(player versus player\).*PvE/i)
-    ).toBeInTheDocument()
-    expect(
-      screen.getByRole('button', { name: 'Play MagicCraft' })
-    ).toBeInTheDocument()
-    expect(screen.queryByText(/in development/i)).not.toBeInTheDocument()
     expect(screen.queryByText(/still building/i)).not.toBeInTheDocument()
   })
 })

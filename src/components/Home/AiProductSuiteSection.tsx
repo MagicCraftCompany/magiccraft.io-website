@@ -23,6 +23,16 @@ const PRODUCT_ICONS: Record<AiProductId, LucideIcon> = {
   docai: HeartPulse,
 }
 
+const LIVE_PRODUCT_COUNT = AI_PRODUCTS.filter(
+  (product) => product.status === 'Live'
+).length
+const BETA_PRODUCT_COUNT = AI_PRODUCTS.filter(
+  (product) => product.status === 'Beta'
+).length
+const EARLY_ACCESS_PRODUCT_COUNT = AI_PRODUCTS.filter(
+  (product) => product.status === 'Early access'
+).length
+
 export default function AiProductSuiteSection() {
   return (
     <section
@@ -37,18 +47,30 @@ export default function AiProductSuiteSection() {
               The MagicCraft AI Suite
             </div>
             <h2 className="mt-4 text-balance font-serif text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
-              Start with the job you want done.
+              Six focused AI products. Pick the one built for the job.
             </h2>
           </div>
           <div>
             <p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">
-              Each product has its own focused workflow and direct destination.
-              The suite is a portfolio, not a promise of shared accounts or
-              billing that does not yet exist.
+              Run work with Merlin, make films with Akyn, launch campaigns with
+              MagicAds, coordinate marketing agents with MAGAS7, turn meetings
+              into action with DragonList, or organize wellness questions with
+              DocAI.
             </p>
-            <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-white/60">
-              Public product links checked {AI_PRODUCTS_LAST_VERIFIED}
-            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-[0.12em]">
+              <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-3 py-1 text-emerald-200">
+                {LIVE_PRODUCT_COUNT} live
+              </span>
+              <span className="rounded-full border border-[#B591F2]/25 bg-[#B591F2]/10 px-3 py-1 text-[#D8C9FF]">
+                {BETA_PRODUCT_COUNT} beta
+              </span>
+              <span className="rounded-full border border-amber-300/25 bg-amber-300/10 px-3 py-1 text-amber-100">
+                {EARLY_ACCESS_PRODUCT_COUNT} early access
+              </span>
+              <span className="px-1 text-white/50">
+                Checked {AI_PRODUCTS_LAST_VERIFIED}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -77,15 +99,22 @@ export default function AiProductSuiteSection() {
                   >
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </span>
-                  <span
-                    className="rounded-full border px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.15em]"
-                    style={{
-                      borderColor: `${product.accent}55`,
-                      color: product.accent,
-                      backgroundColor: `${product.accent}14`,
-                    }}
-                  >
-                    {product.status}
+                  <span className="flex flex-col items-end gap-1.5">
+                    <span
+                      className="rounded-full border px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.15em]"
+                      style={{
+                        borderColor: `${product.accent}55`,
+                        color: product.accent,
+                        backgroundColor: `${product.accent}14`,
+                      }}
+                    >
+                      {product.status}
+                    </span>
+                    {product.health === 'Degraded' && (
+                      <span className="rounded-full border border-amber-300/25 bg-amber-300/10 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.13em] text-amber-100">
+                        Degraded
+                      </span>
+                    )}
                   </span>
                 </div>
 
@@ -101,6 +130,11 @@ export default function AiProductSuiteSection() {
                 <p className="mt-4 flex-1 text-sm leading-6 text-white/70 sm:text-base">
                   {product.description}
                 </p>
+                {product.healthNote && (
+                  <p className="mt-4 rounded-xl border border-amber-300/15 bg-amber-300/5 p-3 text-xs leading-5 text-amber-100/75">
+                    {product.healthNote}
+                  </p>
+                )}
                 <span className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-white transition group-hover:text-[#98FFF9]">
                   {product.cta}
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

@@ -5,6 +5,26 @@ Scope: every route registered in `src/App.tsx`, every current or screenshot-list
 
 This is an execution ledger, not a claim that the local working tree is live. Production reachability below was checked read-only against `https://magiccraft.io` and the linked public sites. An HTTP 200 proves only that a URL returned a page; it does not prove sign-in, gameplay, wallet, payment, form delivery, or an authenticated product workflow.
 
+## Current execution update
+
+This table supersedes older `LOCAL-PENDING` wording elsewhere in the ledger. It
+records the latest evidence from the 13 July 2026 redesign and product sweep.
+
+| Surface                                 | Current state   | Evidence and next action                                                                                                                                                                                                                                        |
+| --------------------------------------- | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MagicCraft homepage and Whitepaper v3.2 | `LOCAL-PENDING` | Balanced game-and-AI concept, truthful system map, route-specific SEO shells, and responsive drawer are implemented. Type, lint, 80 tests, production build, and 390/768/1024/1280/1440 layout checks pass. Commit, deploy, and production proof remain.        |
+| Game Stats                              | `LOCAL-REPAIR`  | Real lobby and market totals work. The season outage was traced to port drift from reachable `8903` to dead `8913`; all three function defaults and a regression test are corrected. Public JSON proof remains after deploy.                                    |
+| Leaderboard                             | `LIVE-RENDERED` | Anonymous all-time, monthly, and weekly views load with 50, 5, and 2 rows respectively. A background wallet-library error does not block public rankings.                                                                                                       |
+| Web3 Lobbies                            | `KNOWN-BROKEN`  | Match browsing works, but the removed prize-pool backend returns 404 and the old bundle substitutes fallback balances. Anonymous wallet preloading also errors. Recover the owning source before repair.                                                        |
+| Pledging                                | `KNOWN-BROKEN`  | Contracts and read-only values are healthy, but the deployed CRA frontend times out through one RPC and shows 0 TVL plus blank rates. The matching deployed source is missing; the accessible Vite rewrite is unfinished and must not be substituted.           |
+| Ecosystem Games                         | `KNOWN-BROKEN`  | Five game shells and canonical legal routes return 200, but the home has no H1, uses weak/investment copy, has broken footer controls, and is dated 2024. Its deployed source is absent from accessible branches.                                               |
+| MAGAS7                                  | `OWNER-REVIEW`  | The 5,122px mobile overflow is fixed and proven at five widths in draft PR [Egzothicki/magas7#1](https://github.com/Egzothicki/magas7/pull/1). The current Mac account cannot push to the owner repository, so the fix is not live.                             |
+| Merlin AI                               | `LIVE-DEGRADED` | The public assistant is reachable. A durable fix for expiring generated avatars is pushed at `35c42a25`, but its release correctly fails readiness because three required WhatsApp webhook secrets are not configured. The previous ready release was restored. |
+
+Source recovery for Pledging, Lobbies, and Ecosystem Games is now a P0 owner
+task. Do not patch `app.magiccraft.frontend-new` as a proxy: its routes and
+bundles do not match those deployed applications.
+
 ## State legend and safety boundary
 
 | State           | Meaning                                                                                                                                       |
@@ -12,7 +32,9 @@ This is an execution ledger, not a claim that the local working tree is live. Pr
 | `LIVE-HTTP`     | The production URL returned HTTP 200 during this audit. Browser behavior may still need proof.                                                |
 | `LIVE-PARTIAL`  | The endpoint returned successfully but explicitly reported missing or unavailable upstream data.                                              |
 | `LOCAL-PENDING` | A change exists in the local working tree, but still needs integrated tests, build, rendered review, commit, deploy, and production proof.    |
+| `LOCAL-REPAIR`  | A tested repair exists locally and its root cause is verified, but production acceptance still depends on the deployed response.              |
 | `KNOWN-BROKEN`  | The current source or live response shows a concrete user-facing failure or misleading behavior.                                              |
+| `OWNER-REVIEW`  | A tested fix is published for owner review, but the current identity cannot merge or deploy it.                                               |
 | `OWNER-VERIFY`  | The page works technically, but a product, program, legal, or content owner must confirm that the offer is still current.                     |
 | `GATED`         | Proof would mutate real data, trigger a wallet or exchange action, send a message/application, require credentials, or change infrastructure. |
 
@@ -236,7 +258,7 @@ Production returned an HTML response for every route below during this audit. Th
 | `/grants/success`      | Explain the result of an accepted intake flow without making a direct URL visit look successful.                               | `CODE-COMPLETE`: direct visits are neutral; accepted intake redirects use the explicit result state.                                           | `[critical]`                |
 | `/careers`             | Describe current role types and open an email application with work samples.                                                   | Local shell work is pending; role availability/currentness needs owner confirmation. Sending is `GATED`.                                       | `[parallel]` `[gated]`      |
 | `/guilds`              | Route communities to real participation, competition, docs, lobby, and submission channels.                                    | Destinations exist; labels, “guild” versus player leaderboard, and submission channel need truth review.                                       | `[parallel]` `OWNER-VERIFY` |
-| `/whitepaper`          | Living, sourced guide to the game, AI products, Web3 surfaces, MCRT utility, status, and risk.                                 | `CODE-COMPLETE`: v3.1 is dated 13 July 2026 with official sources, function status, product boundaries, tokenomics, and risk regression tests. | `[critical]`                |
+| `/whitepaper`          | Living, sourced guide to the game, AI products, Web3 surfaces, MCRT utility, status, and risk.                                 | `CODE-COMPLETE`: v3.2 is dated 13 July 2026 with official sources, function status, product boundaries, tokenomics, and risk regression tests. | `[critical]`                |
 | `/pricing`             | Explain MCRT access routes and hand off to lobby, DEX, wallet, or exchange.                                                    | PancakeSwap/MetaMask reachable; Bybit check inconclusive. No wallet or trade action was performed.                                             | `[critical]` `[gated]`      |
 | `/contact-us`          | Contact support and prepare an account-deletion email request.                                                                 | Production serves `public/contact-us/index.html`, not necessarily the React route. Both copies open a draft and can drift. Consolidate.        | `[parallel]`                |
 | `/buy-mcrt`            | Legacy purchase alias.                                                                                                         | Netlify redirects to `/pricing` successfully. Preserve canonical/analytics behavior.                                                           | `[parallel]`                |
