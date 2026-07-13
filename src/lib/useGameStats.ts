@@ -21,6 +21,7 @@ export type GameStatsData = {
     status: GameStatsResponseStatus
     sources: {
       gameServer: GameStatsSource
+      lobby?: GameStatsSource
       market: GameStatsSource
     }
   }
@@ -36,6 +37,8 @@ export type GameStatsData = {
     finishedLobbies: number | null
     mcrtInGame: number | null
     mcrtPledged: number | null
+    totalLobbies?: number | null
+    totalUsers?: number | null
     topPlayers: Array<{ playerId: string; playerName: string; score: number }>
     recentWinners: Array<{
       playerName: string

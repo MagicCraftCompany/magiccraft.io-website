@@ -8,86 +8,20 @@ import {
   Sparkles,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
+import {
+  AI_PRODUCTS,
+  AI_PRODUCTS_LAST_VERIFIED,
+  type AiProductId,
+} from '@/data/aiProducts'
 
-type AiProduct = {
-  name: string
-  category: string
-  status: 'Live' | 'Early access'
-  description: string
-  href: string
-  cta: string
-  accent: string
-  icon: LucideIcon
+const PRODUCT_ICONS: Record<AiProductId, LucideIcon> = {
+  merlin: Bot,
+  akyn: Clapperboard,
+  magicads: Megaphone,
+  magas7: Sparkles,
+  dragonlist: ListChecks,
+  docai: HeartPulse,
 }
-
-const products: AiProduct[] = [
-  {
-    name: 'Merlin AI',
-    category: 'Assistant and operations',
-    status: 'Live',
-    description:
-      'Work across chat, voice, images, translation and connected messaging workflows with a multi-persona AI assistant.',
-    href: 'https://merlintheai.com/',
-    cta: 'Open Merlin',
-    accent: '#98FFF9',
-    icon: Bot,
-  },
-  {
-    name: 'Akyn',
-    category: 'AI film production',
-    status: 'Live',
-    description:
-      'Move from script and reusable characters to generated scenes and finished video inside one creator workspace.',
-    href: 'https://akyn.pro/',
-    cta: 'Open Akyn',
-    accent: '#B591F2',
-    icon: Clapperboard,
-  },
-  {
-    name: 'MagicAds',
-    category: 'Advertising network',
-    status: 'Live',
-    description:
-      'Launch campaigns or connect publisher inventory through an AI-assisted advertising network built for the wider portfolio.',
-    href: 'https://magicads.dev/',
-    cta: 'Open MagicAds',
-    accent: '#FFB649',
-    icon: Megaphone,
-  },
-  {
-    name: 'MAGAS7',
-    category: 'Agentic marketing',
-    status: 'Early access',
-    description:
-      'Coordinate specialist agents across research, writing, design, scheduling, publishing and campaign analysis.',
-    href: 'https://magas7.com/',
-    cta: 'Open MAGAS7',
-    accent: '#B1FF5A',
-    icon: Sparkles,
-  },
-  {
-    name: 'DragonList',
-    category: 'Meeting productivity',
-    status: 'Live',
-    description:
-      'Turn meeting action items into assigned, trackable tasks so decisions leave the room with an owner.',
-    href: 'https://dragonlist.ai/',
-    cta: 'Open DragonList',
-    accent: '#60A5FA',
-    icon: ListChecks,
-  },
-  {
-    name: 'DocAI',
-    category: 'Wellness information',
-    status: 'Live',
-    description:
-      'Explore health questions, uploaded reports and next-step comparisons with private AI assistance. Not medical advice.',
-    href: 'https://docai.live/',
-    cta: 'Open DocAI',
-    accent: '#10B981',
-    icon: HeartPulse,
-  },
-]
 
 export default function AiProductSuiteSection() {
   return (
@@ -113,14 +47,14 @@ export default function AiProductSuiteSection() {
               billing that does not yet exist.
             </p>
             <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-white/60">
-              Public product links checked 11 July 2026
+              Public product links checked {AI_PRODUCTS_LAST_VERIFIED}
             </p>
           </div>
         </div>
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {products.map((product) => {
-            const Icon = product.icon
+          {AI_PRODUCTS.map((product) => {
+            const Icon = PRODUCT_ICONS[product.id]
             return (
               <a
                 key={product.name}

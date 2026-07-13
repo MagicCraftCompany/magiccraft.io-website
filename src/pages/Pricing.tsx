@@ -1,7 +1,16 @@
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, BadgeDollarSign, ExternalLink, Gamepad2, Repeat2, Wallet } from 'lucide-react'
+import {
+  ArrowLeft,
+  BadgeDollarSign,
+  ExternalLink,
+  Gamepad2,
+  Repeat2,
+  Wallet,
+} from 'lucide-react'
 import BuyStrip from '@/components/Buy/BuyStrip'
+import Header from '@/components/Header/Header'
+import Footer from '@/components/Footer/Footer'
 import { BYBIT_URL, MCRT_CONTRACT_CHECKSUM, PANCAKESWAP_URL } from '@/constants'
 import { openMetaMaskMcrt } from '@/lib/gameActions'
 
@@ -11,7 +20,7 @@ const pricingCards = [
   {
     title: 'Buy $MCRT',
     kicker: 'Token access',
-    body: 'Get MCRT through the live DEX, wallet, or spot exchange path below. The token powers lobby tickets, rewards, pledging, marketplace assets, and ecosystem payments.',
+    body: 'Open an external MCRT route, then use eligible balances in supported lobby, marketplace, pledging, and referral functions.',
     cta: 'Swap on PancakeSwap',
     href: PANCAKESWAP_URL,
     icon: Repeat2,
@@ -41,21 +50,28 @@ export default function Pricing() {
         <title>Pricing and Buy $MCRT | MagicCraft</title>
         <meta
           name="description"
-          content="Buy $MCRT and open the MagicCraft lobby. Use PancakeSwap, MetaMask, or Bybit, then use MCRT for PvP lobbies, rewards, and ecosystem payments."
+          content="Open external MCRT routes for PancakeSwap, MetaMask, or Bybit, then review supported MagicCraft Web3 functions and their risks."
         />
         <link rel="canonical" href="https://magiccraft.io/pricing" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://magiccraft.io/pricing" />
-        <meta property="og:title" content="Pricing and Buy $MCRT | MagicCraft" />
+        <meta
+          property="og:title"
+          content="Pricing and Buy $MCRT | MagicCraft"
+        />
         <meta
           property="og:description"
           content="Clear MagicCraft buy paths for $MCRT, the live lobby, and exchange or wallet handoff."
         />
-        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
+        <meta
+          property="og:image"
+          content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
+        />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
 
+      <Header />
       <main className="mx-auto flex w-[94%] max-w-screen-xl flex-col gap-8 py-8 md:py-12">
         <Link
           to="/"
@@ -72,12 +88,12 @@ export default function Pricing() {
               Live purchase paths
             </div>
             <h1 className="mt-5 max-w-3xl text-4xl font-black leading-tight md:text-6xl">
-              Buy $MCRT and enter the MagicCraft economy.
+              Get MCRT for supported MagicCraft functions.
             </h1>
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/72 md:text-lg">
-              MCRT is the payment and reward token for MagicCraft lobbies,
-              pledging, marketplace assets, builder tools, and the wider
-              product ecosystem.
+            <p className="text-white/72 mt-5 max-w-2xl text-base leading-relaxed md:text-lg">
+              MCRT can be used in eligible lobby entries and rewards, supported
+              marketplace transactions, pledging, and referral functions. Each
+              product shows its current rules.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
@@ -120,6 +136,7 @@ export default function Pricing() {
               <button
                 type="button"
                 onClick={() => void openMetaMaskMcrt('pricing_page')}
+                aria-describedby="metamask-route-note"
                 className="rounded-lg border border-white/10 bg-white/5 px-3 py-3 text-left text-sm font-bold text-white transition hover:bg-white/[0.12]"
               >
                 MetaMask
@@ -133,6 +150,14 @@ export default function Pricing() {
                 Bybit
               </a>
             </div>
+            <p
+              id="metamask-route-note"
+              className="mt-4 text-xs leading-5 text-white/50"
+            >
+              MetaMask is not prefilled on every device. Review BNB Chain, the
+              MCRT contract, the selected assets, quote, fees and approvals
+              before continuing.
+            </p>
           </div>
         </section>
 
@@ -157,7 +182,7 @@ export default function Pricing() {
                   <h2 className="mt-2 text-2xl font-black text-white">
                     {card.title}
                   </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-white/68">
+                  <p className="text-white/68 mt-3 text-sm leading-relaxed">
                     {card.body}
                   </p>
                 </div>
@@ -171,7 +196,18 @@ export default function Pricing() {
         </section>
 
         <BuyStrip />
+
+        <section
+          aria-label="MCRT route risk notice"
+          className="rounded-xl border border-amber-300/20 bg-amber-300/5 p-5 text-sm leading-6 text-amber-50/80"
+        >
+          PancakeSwap, MetaMask and Bybit are third-party services. MagicCraft
+          does not control their availability, quotes, fees, custody, execution
+          or regional eligibility. MCRT is a utility token, not an ownership
+          right or guaranteed return.
+        </section>
       </main>
+      <Footer />
     </div>
   )
 }

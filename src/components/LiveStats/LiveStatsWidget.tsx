@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   useGameStats,
   type GameStatsSourceStatus,
@@ -132,9 +133,9 @@ function statusMessage(status: GameStatsStatus, hasData: boolean) {
     case 'loading':
       return hasData
         ? 'Refreshing verified sources.'
-        : 'Checking the game server and market source.'
+        : 'Checking the lobby, season, and market sources.'
     default:
-      return 'Values below came from the current game-server and market responses.'
+      return 'Values below came from the current lobby, season, and market responses.'
   }
 }
 
@@ -179,12 +180,12 @@ export default function LiveStatsWidget() {
               Unverified values stay blank instead of being estimated.
             </p>
           </div>
-          <a
-            href="/dashboard"
+          <Link
+            to="/stats"
             className="inline-flex items-center gap-1.5 rounded-xl border border-white/20 bg-white/5 px-4 py-2 text-sm font-medium text-white/80 backdrop-blur-sm transition hover:bg-white/10"
           >
-            Full dashboard →
-          </a>
+            Full stats →
+          </Link>
         </div>
 
         <div
@@ -198,8 +199,13 @@ export default function LiveStatsWidget() {
 
         {data?.meta?.sources && (
           <div className="mb-5 flex flex-wrap gap-2 text-xs text-white/60">
+            {data.meta.sources.lobby && (
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
+                Lobby: {sourceLabel(data.meta.sources.lobby.status)}
+              </span>
+            )}
             <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              Game server: {sourceLabel(data.meta.sources.gameServer.status)}
+              Season: {sourceLabel(data.meta.sources.gameServer.status)}
             </span>
             <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
               Market: {sourceLabel(data.meta.sources.market.status)}
@@ -220,19 +226,19 @@ export default function LiveStatsWidget() {
             sublabel={
               finishedLobbies === null
                 ? 'No verified total'
-                : 'Reported by game server'
+                : 'Reported by lobby API'
             }
             accent="border-blue-500/20 text-blue-400"
           />
           <StatTile
             icon="🪙"
-            label="MCRT Pledged"
+            label="MCRT Entry Fees"
             value={formatMcrt(mcrtPledged)}
             rawValue={mcrtPledged ?? undefined}
             sublabel={
               mcrtPledged === null
                 ? 'No verified total'
-                : 'Reported by game server'
+                : 'Recorded by lobby API'
             }
             accent="border-amber-500/20 text-amber-400"
           />

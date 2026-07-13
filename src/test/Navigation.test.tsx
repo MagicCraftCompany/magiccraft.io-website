@@ -5,6 +5,7 @@ import {
   fireEvent,
   render,
   screen,
+  waitFor,
   within,
 } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
@@ -81,7 +82,7 @@ describe('Header navigation', () => {
     const dialog = screen.getByRole('dialog')
     expect(dialog).toHaveAccessibleName('MagicCraft navigation')
     expect(menuToggle).toHaveAttribute('aria-expanded', 'true')
-    expect(screen.getByRole('button', { name: 'Close menu' })).toBe(menuToggle)
+    expect(menuToggle).toHaveAccessibleName('Close menu')
     expect(
       within(dialog).getByRole('button', { name: 'Close navigation menu' })
     ).toHaveFocus()
@@ -129,6 +130,60 @@ describe('Header navigation', () => {
     ).toBeInTheDocument()
   })
 
+  it('keeps one purposeful section open and routes Game Maker to the real editor', async () => {
+    renderHeader()
+    fireEvent.click(screen.getByRole('button', { name: 'Open menu' }))
+
+    const drawer = within(screen.getByRole('dialog'))
+    const aiProductsMenu = drawer.getByRole('button', { name: 'AI Products' })
+    const web3Menu = drawer.getByRole('button', { name: 'Web3' })
+    const gameMenu = drawer.getByRole('button', { name: 'Game' })
+
+    fireEvent.click(aiProductsMenu)
+    expect(aiProductsMenu).toHaveAttribute('aria-expanded', 'true')
+    expect(drawer.getByText('Assistant and operations')).toBeInTheDocument()
+
+    fireEvent.click(web3Menu)
+    expect(web3Menu).toHaveAttribute('aria-expanded', 'true')
+    expect(aiProductsMenu).toHaveAttribute('aria-expanded', 'false')
+    await waitFor(() =>
+      expect(drawer.queryByRole('link', { name: 'Merlin AI' })).toBeNull()
+    )
+    expect(drawer.queryByRole('link', { name: 'Rent (Testnet)' })).toBeNull()
+
+    fireEvent.click(gameMenu)
+    const gameMaker = await drawer.findByRole('link', { name: 'Game Maker' })
+    expect(gameMaker).toHaveAttribute(
+      'href',
+      'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/'
+    )
+    expect(gameMaker).toHaveAttribute('target', '_blank')
+    expect(drawer.getByRole('link', { name: 'Leaderboard' })).toHaveAttribute(
+      'href',
+      'https://lobby.magiccraft.io/leaderboard'
+    )
+    expect(drawer.getByRole('link', { name: 'Game stats' })).toHaveAttribute(
+      'href',
+      '/stats'
+    )
+  })
+
+  it('uses client-side links for internal destinations', () => {
+    renderHeader()
+    fireEvent.click(screen.getByRole('button', { name: 'Open menu' }))
+
+    const drawer = within(screen.getByRole('dialog'))
+    fireEvent.click(drawer.getByRole('button', { name: 'About' }))
+
+    expect(drawer.getByRole('link', { name: 'Careers' })).toHaveAttribute(
+      'href',
+      '/careers'
+    )
+    expect(
+      drawer.getByRole('link', { name: 'Whitepaper' })
+    ).not.toHaveAttribute('target')
+  })
+
   it('traps reverse tab navigation inside the open drawer', async () => {
     renderHeader()
     fireEvent.click(screen.getByRole('button', { name: 'Open menu' }))
@@ -148,6 +203,32 @@ describe('Header navigation', () => {
 
     fireEvent.keyDown(document, { key: 'Tab' })
     expect(closeButton).toHaveFocus()
+  })
+
+  it('removes the background page from interaction while the drawer is open', () => {
+    render(
+      <MemoryRouter>
+        <Header />
+        <main data-testid="background-page">
+          <button type="button">Background action</button>
+        </main>
+      </MemoryRouter>
+    )
+
+    const background = screen.getByTestId('background-page')
+    fireEvent.click(screen.getByRole('button', { name: 'Open menu' }))
+
+    expect(background).toHaveAttribute('aria-hidden', 'true')
+    expect(background.inert).toBe(true)
+
+    fireEvent.click(
+      within(screen.getByRole('dialog')).getByRole('button', {
+        name: 'Close navigation menu',
+      })
+    )
+
+    expect(background).not.toHaveAttribute('aria-hidden')
+    expect(background.inert).not.toBe(true)
   })
 })
 

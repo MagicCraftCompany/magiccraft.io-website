@@ -1,156 +1,145 @@
-import { Suspense, lazy, useState } from 'react'
+import Footer from '@/components/Footer/Footer'
+import Header from '@/components/Header/Header'
+import { Activity, BarChart3, ExternalLink, ShieldAlert } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
-import refresh from '@/assets/icons/refresh.svg'
-import up from '@/assets/icons/uparrow.svg'
-import down from '@/assets/icons/downarrrow.svg'
+import { Link } from 'react-router-dom'
 
-const Header = lazy(() => import('@/components/Header/Header'))
-const Footer = lazy(() => import('@/components/Footer/Footer'))
+const publicServices = [
+  {
+    name: 'Game lobby',
+    purpose: 'Accounts, matches, Web3 lobbies and rewards',
+    href: 'https://lobby.magiccraft.io/',
+  },
+  {
+    name: 'Marketplace',
+    purpose: 'Browse supported MagicCraft assets',
+    href: 'https://app.magiccraft.io/marketplace/explorer',
+  },
+  {
+    name: 'Leaderboard',
+    purpose: 'Current lobby rankings',
+    href: 'https://lobby.magiccraft.io/leaderboard',
+  },
+  {
+    name: 'Game statistics',
+    purpose: 'Validated lobby totals and current MCRT market data',
+    href: '/stats',
+    internal: true,
+  },
+]
 
-function Server() {
-  const initialState = [
-    { id: 1, isDropdownOpen: false, imageSrc: up },
-    { id: 2, isDropdownOpen: false, imageSrc: up },
-    { id: 3, isDropdownOpen: false, imageSrc: up },
-  ]
-
-  const [servers, setServers] = useState(initialState)
-
-  const handleClick = (id: number) => {
-    setServers((prevState) =>
-      prevState.map((server) =>
-        server.id === id
-          ? {
-              ...server,
-              isDropdownOpen: !server.isDropdownOpen,
-              imageSrc: server.isDropdownOpen ? up : down,
-            }
-          : server
-      )
-    )
-  }
-
+export default function Server() {
   return (
-    <>
+    <div className="min-h-dvh w-full bg-[#03082f] text-white">
       <Helmet>
-        <title>Server Status | MagicCraft</title>
-        <meta name="description" content="Live status for MagicCraft game servers and APIs." />
+        <title>Service Directory | MagicCraft</title>
+        <meta
+          name="description"
+          content="Open MagicCraft's public lobby, marketplace, leaderboard and statistics services. Public uptime telemetry is not currently available on this site."
+        />
         <link rel="canonical" href="https://magiccraft.io/server" />
         <meta name="robots" content="noindex, nofollow" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://magiccraft.io/server" />
-        <meta property="og:title" content="Server Status | MagicCraft" />
-        <meta property="og:description" content="Live status for MagicCraft game servers and APIs." />
-        <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Server Status | MagicCraft" />
-        <meta name="twitter:description" content="Live status for MagicCraft game servers and APIs." />
-        <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
       </Helmet>
-      <div className="flex h-full w-full flex-col text-white">
-        <Suspense fallback={<div>Loading...</div>}>
-          <Header />
-        </Suspense>
-        <main className="scroll-smooth">
-          <section className="relative bg-bgpatch1 bg-contain bg-no-repeat md:bg-bgpatch -mt-[100px] min-h-[90vh] ">
-            <div className="video-bg-gradient absolute inset-0  w-full h-[94vh]"></div>
 
-            <div className="m-4 flex h-[300px] flex-col justify-center space-y-5 text-center md:px-10">
-              <h1 className="mx-auto flex max-w-xl flex-wrap font-serif text-4xl md:text-5xl">
-                SERVER STATUS
-              </h1>
-              <div className="block h-px w-full bg-gradient-to-r from-transparent via-[#556DE0] to-transparent" />
-            </div>
+      <Header />
 
-            <div className="flex flex-col lg:flex-row justify-center items-center gap-[20px] mb-[200px]">
-              {servers.map((server) => (
-                <div
-                  key={server.id}
-                  className="z-10 flex h-full w-[25.5em] flex-col gap-[30px] rounded-[30px] bg-[#11113A] p-[20px] lg:p-10"
-                >
-                  <div className="flex flex-col items-center gap-[8px]">
-                    <h3 className="font-serif text-lg font-bold drop-shadow-lg">
-                      {server.id === 1
-                        ? 'LOBBY SERVER'
-                        : server.id === 2
-                          ? 'GAME SERVER'
-                          : 'MARKETPLACE SERVER'}
-                    </h3>
-                    <div className="flex flex-row items-center justify-center">
-                      <p className="text-xl font-normal">Status:</p>
-                      <span
-                        className={`mx-2 rounded-2xl ${server.id === 1 ? 'bg-[#B22B49]' : server.id === 2 ? 'bg-[#C59C3A]' : 'bg-[#5EB16A]'} p-[6px]`}
-                      >
-                        {server.id === 1
-                          ? 'Down'
-                          : server.id === 2
-                            ? 'Issues'
-                            : 'Operational'}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-start gap-[16px] rounded-[16px] bg-[#0C0C29] px-[30px] pb-[30px] pt-[20px]">
-                    <div className="flex flex-row gap-[13em]">
-                      <div className="text-lg font-normal text-[#98FFF9]">
-                        Info
-                      </div>
-                      <button className="rounded-[5px] bg-[#212761] p-1">
-                        <img src={refresh} alt="Refresh" />
-                      </button>
-                    </div>
-                    <div className="block h-px w-[18em] bg-gradient-to-r from-[#556DE0] via-[#556DE0] to-transparent" />
+      <main className="relative overflow-hidden px-4 pb-24 pt-24 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(152,255,249,0.12),transparent_36%),linear-gradient(180deg,#03082F_0%,#020418_100%)]" />
+        <div className="relative mx-auto max-w-6xl">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#98FFF9]/25 bg-[#98FFF9]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#98FFF9]">
+              <Activity className="h-4 w-4" aria-hidden="true" />
+              Service directory
+            </span>
+            <h1 className="mt-6 font-serif text-4xl font-bold sm:text-6xl">
+              MagicCraft service status
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
+              Public uptime telemetry is not available on this site. That means
+              MagicCraft cannot safely label a service operational, degraded or
+              down here without an attributable status source.
+            </p>
+          </div>
+
+          <div
+            className="mx-auto mt-10 flex max-w-3xl items-start gap-3 rounded-2xl border border-amber-300/25 bg-amber-300/10 p-4 text-sm text-amber-100"
+            role="status"
+          >
+            <ShieldAlert
+              className="mt-0.5 h-5 w-5 shrink-0"
+              aria-hidden="true"
+            />
+            <p>
+              Use the direct service links below to check the current
+              user-facing experience. No synthetic uptime, response-time or
+              incident-log data is displayed.
+            </p>
+          </div>
+
+          <section
+            aria-label="MagicCraft public services"
+            className="mt-10 grid gap-4 md:grid-cols-2"
+          >
+            {publicServices.map((service) => {
+              const content = (
+                <>
+                  <div className="flex items-start justify-between gap-4">
                     <div>
-                      <ul>
-                        <li>Uptime:</li>
-                        <li>Avg. Response Time:</li>
-                        <li>Last Checked:</li>
-                      </ul>
+                      <h2 className="text-xl font-bold text-white">
+                        {service.name}
+                      </h2>
+                      <p className="mt-2 text-sm leading-relaxed text-white/65">
+                        {service.purpose}
+                      </p>
                     </div>
+                    <ExternalLink
+                      className="h-5 w-5 shrink-0 text-[#98FFF9]"
+                      aria-hidden="true"
+                    />
                   </div>
-                  <div className="flex flex-col items-start gap-[16px] rounded-[16px] bg-[#0C0C29] px-[30px] pb-[30px] pt-[20px]">
-                    <div className="flex flex-row gap-[10em]">
-                      <div className="text-lg font-normal text-[#98FFF9]">
-                        View Logs
-                      </div>
-                      <button
-                        className="rounded-[5px] bg-[#212761] p-1"
-                        onClick={() => handleClick(server.id)}
-                      >
-                        <img src={server.imageSrc} alt="Toggle" />
-                      </button>
-                    </div>
-                    <div className="block h-px w-[18em] bg-gradient-to-r from-[#556DE0] via-[#556DE0] to-transparent" />
+                  <span className="mt-5 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/60">
+                    {service.internal ? 'Source-backed' : 'Not monitored here'}
+                  </span>
+                </>
+              )
+              const className =
+                'group rounded-2xl border border-white/10 bg-white/[0.055] p-6 transition hover:-translate-y-0.5 hover:border-[#98FFF9]/35 hover:bg-white/[0.08]'
 
-                    {server.isDropdownOpen && (
-                      <div className="mt-4">
-                        
-                        <ul>
-                          <li>
-                            10:05:23 Error | Failed to connect to the database
-                          </li>
-                          <li>09:55:12 Warning | High latency detected.</li>
-                          <li>
-                            09:50:00 Information | Server started successfully.
-                          </li>
-                          <li>09:45:45 Error | User authentication failed.</li>
-                          <li>
-                            09:40:30 Critical | Server down due to unknown issue
-                          </li>
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
+              return service.internal ? (
+                <Link
+                  key={service.name}
+                  to={service.href}
+                  className={className}
+                >
+                  {content}
+                </Link>
+              ) : (
+                <a
+                  key={service.name}
+                  href={service.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                >
+                  {content}
+                </a>
+              )
+            })}
           </section>
-        </main>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Footer />
-        </Suspense>
-      </div>
-    </>
+
+          <div className="mt-8 flex justify-center">
+            <Link
+              to="/stats"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-[#98FFF9]/40 hover:text-[#98FFF9]"
+            >
+              <BarChart3 className="h-4 w-4" aria-hidden="true" />
+              View source-backed stats
+            </Link>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
   )
 }
-
-export default Server

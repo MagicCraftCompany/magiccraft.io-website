@@ -32,6 +32,16 @@ import gamepad from '@/assets/icons/icon-gamepad.svg'
 import about from '@/assets/icons/icon-help.svg'
 import pancakeswap from '@/assets/icons/icon-pancakeswap.svg'
 import { BYBIT_URL, METAMASK_SWAP_URL, PANCAKESWAP_URL } from '@/constants'
+import { AI_PRODUCTS } from '@/data/aiProducts'
+
+export type NavigationStatus =
+  | 'Live'
+  | 'Early access'
+  | 'Beta'
+  | 'Degraded'
+  | 'Testnet'
+  | 'External'
+  | 'Program'
 
 export type NavMenuItemProps = {
   path?: string
@@ -49,14 +59,17 @@ export type NavMenuProps = {
 
 export type SubMenuProps = {
   title: string
-  icon?: string // Make optional
+  icon?: string
   path: string
-  isXswap?: boolean
+  purpose: string
+  status?: NavigationStatus
   onClick?: () => void
 }
-// Unused XSwap import removed
 
 import { openGameByDevice, openMetaMaskMcrt } from '@/lib/gameActions'
+
+const GAME_MAKER_URL =
+  'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/'
 
 const commonMenuItemsNew: NavMenuItemProps[] = [
   {
@@ -67,37 +80,15 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         title: 'AI Suite Overview',
         icon: '/icons/icon-community.svg',
         path: '/#ai-products',
+        purpose: 'Compare every verified AI product and open the right tool.',
       },
-      {
-        title: 'Merlin AI',
-        icon: '/merlin-logo-official.svg',
-        path: 'https://merlintheai.com',
-      },
-      {
-        title: 'Akyn Film Studio',
-        icon: 'https://akyn.pro/logo.svg',
-        path: 'https://akyn.pro',
-      },
-      {
-        title: 'MAGAS7',
-        icon: 'https://magas7.com/favicon.svg',
-        path: 'https://magas7.com',
-      },
-      {
-        title: 'MagicAds',
-        icon: 'https://magicads.dev/magicads-logo.svg',
-        path: 'https://magicads.dev',
-      },
-      {
-        title: 'DragonList',
-        icon: stats,
-        path: 'https://dragonlist.ai',
-      },
-      {
-        title: 'DocAI',
-        icon: '/icons/icon-community.svg',
-        path: 'https://docai.live',
-      },
+      ...AI_PRODUCTS.map((product) => ({
+        title: product.name,
+        icon: product.navIcon,
+        path: product.href,
+        purpose: product.category,
+        status: product.status,
+      })),
     ],
   },
   {
@@ -108,26 +99,29 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         title: 'Web3 Lobbies',
         icon: lobby,
         path: 'https://lobby.magiccraft.io/',
+        purpose: 'Create or join matches and manage Web3 game rewards.',
+        status: 'Live',
       },
       {
         title: 'Marketplace',
         icon: marketplace,
         path: 'https://app.magiccraft.io/marketplace/explorer',
-      },
-      {
-        title: 'Rent (Testnet)',
-        icon: '/icons/icon-marketplace.svg',
-        path: 'https://rent.magiccraft.io/',
+        purpose: 'Browse and trade supported game assets and items.',
+        status: 'Live',
       },
       {
         title: 'Pledging',
         icon: '/icons/icon-pledge.svg',
         path: 'https://app.magiccraft.io/pledging',
+        purpose: 'Lock MCRT for a chosen term under the current pool rules.',
+        status: 'Live',
       },
       {
         title: 'Referral System',
         icon: Referral,
         path: 'https://lobby.magiccraft.io/referral',
+        purpose: 'Create a referral link for eligible Web3 lobby rewards.',
+        status: 'Live',
       },
     ],
   },
@@ -139,31 +133,38 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         title: 'Careers',
         icon: '/icons/icon-help.svg',
         path: '/careers',
+        purpose: 'See current role types and send a work-first application.',
       },
       {
         title: 'Guilds',
         icon: '/icons/icon-community.svg',
         path: '/guilds',
+        purpose: 'Find community, competition, and guild participation links.',
       },
       {
         title: 'Whitepaper',
         icon: Whitepaper,
         path: '/whitepaper',
+        purpose: 'Read the verified product, game, Web3, and MCRT guide.',
       },
       {
-        title: 'MagicCraft Vision',
+        title: 'Game Overview',
         icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
         path: '/magiccraft',
+        purpose:
+          'Explore the live MagicCraft game, modes, story, and platforms.',
       },
       {
         title: 'FAQs',
         icon: faq,
         path: '/faq',
+        purpose: 'Search common questions or contact the MagicCraft team.',
       },
       {
         title: 'News',
         icon: '/icons/icon-news.svg',
         path: '/news',
+        purpose: 'Read product updates, patch notes, and announcements.',
       },
     ],
   },
@@ -175,17 +176,24 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         title: 'PancakeSwap DEX',
         icon: pancakeswap,
         path: PANCAKESWAP_URL,
+        purpose: 'Swap on BNB Chain using the external PancakeSwap DEX.',
+        status: 'External',
       },
       {
         title: 'MetaMask',
         icon: currency,
         path: METAMASK_SWAP_URL,
+        purpose:
+          'Add MCRT when MetaMask is detected, then open Swap for manual review.',
+        status: 'External',
         onClick: () => void openMetaMaskMcrt('header_menu'),
       },
       {
         title: 'Bybit Spot',
         icon: bybit,
         path: BYBIT_URL,
+        purpose: 'Open the external MCRT spot market on Bybit.',
+        status: 'External',
       },
     ],
   },
@@ -197,16 +205,22 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         title: 'Build on MagicCraft',
         icon: '/icons/icon-build.svg',
         path: '/build-on-magiccraft',
+        purpose: 'Review the creator program, assets, and application path.',
+        status: 'Program',
       },
       {
         title: 'Grants',
         icon: '/icons/icon-bounty.svg',
         path: '/grants',
+        purpose: 'Apply with an existing build for ecosystem funding review.',
+        status: 'Program',
       },
       {
         title: 'Bounties',
         icon: '/icons/icon-bounty.svg',
         path: '/bounties',
+        purpose: 'Browse scoped community tasks and apply by email.',
+        status: 'Program',
       },
     ],
   },
@@ -218,32 +232,44 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         title: 'MagicCraft',
         icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
         path: '#',
+        purpose: 'Open the correct MagicCraft download for this device.',
+        status: 'Live',
         onClick: openGameByDevice,
       },
       {
         title: 'Ecosystem Games',
         icon: gamepad,
         path: 'https://games.magiccraft.io/',
+        purpose: 'Open the browser-based MagicCraft ecosystem game hub.',
+        status: 'Beta',
       },
       {
         title: 'Game Maker',
         icon: '/icons/icon-steam.svg',
-        path: '/build-on-magiccraft',
+        path: GAME_MAKER_URL,
+        purpose:
+          'Download the free map editor; game integration is still planned.',
+        status: 'Live',
       },
       {
         title: 'Heroes',
         icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173029/runner_1_tqbhtw.webp',
         path: '/chooseyourhero',
+        purpose: 'Browse the playable hero roster and open character details.',
       },
       {
         title: 'Leaderboard',
         icon: leaderboard,
         path: 'https://lobby.magiccraft.io/leaderboard',
+        purpose: 'View ranked player results from the Web3 lobby system.',
+        status: 'Live',
       },
       {
         title: 'Game stats',
         icon: stats,
-        path: 'https://lobby.magiccraft.io/stats',
+        path: '/stats',
+        purpose: 'Review validated lobby totals and current MCRT market data.',
+        status: 'Live',
       },
     ],
   },
@@ -251,6 +277,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
 
 const Header = () => {
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false)
+  const [openMobileMenu, setOpenMobileMenu] = useState<string | null>(null)
   const [currentLang, setCurrentLang] = useState(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('preferredLang') || 'en'
@@ -268,6 +295,7 @@ const Header = () => {
 
   const closeSidebar = useCallback(() => {
     setIsSideMenuOpen(false)
+    setOpenMobileMenu(null)
     setIsLangOpen(false)
     setIsDesktopLangOpen(false)
   }, [])
@@ -299,7 +327,7 @@ const Header = () => {
     setIsSideMenuOpen(false)
     setIsLangOpen(false)
     setIsDesktopLangOpen(false)
-  }, [location.pathname])
+  }, [location.hash, location.pathname, location.search])
 
   // Close desktop language popover on outside click
   useEffect(() => {
@@ -333,8 +361,28 @@ const Header = () => {
     if (!isSideMenuOpen) return
 
     const previousOverflow = document.body.style.overflow
+    const previousHtmlOverflow = document.documentElement.style.overflow
+    const previousOverscrollBehavior = document.body.style.overscrollBehavior
     document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overscrollBehavior = 'none'
     drawerCloseRef.current?.focus()
+
+    const backgroundElements = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        'header.site-header, main, footer, [data-mobile-bottom-bar], .magicads'
+      )
+    ).filter((element) => !element.contains(drawerRef.current))
+    const backgroundState = backgroundElements.map((element) => ({
+      element,
+      ariaHidden: element.getAttribute('aria-hidden'),
+      inert: element.inert,
+    }))
+
+    backgroundElements.forEach((element) => {
+      element.setAttribute('aria-hidden', 'true')
+      element.inert = true
+    })
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -372,6 +420,16 @@ const Header = () => {
     return () => {
       document.removeEventListener('keydown', onKeyDown)
       document.body.style.overflow = previousOverflow
+      document.documentElement.style.overflow = previousHtmlOverflow
+      document.body.style.overscrollBehavior = previousOverscrollBehavior
+      backgroundState.forEach(({ element, ariaHidden, inert }) => {
+        if (ariaHidden === null) {
+          element.removeAttribute('aria-hidden')
+        } else {
+          element.setAttribute('aria-hidden', ariaHidden)
+        }
+        element.inert = inert
+      })
       if (lastFocusedElementRef.current?.isConnected) {
         lastFocusedElementRef.current.focus()
       }
@@ -531,14 +589,16 @@ const Header = () => {
           role="dialog"
           aria-modal="true"
           aria-labelledby="magiccraft-navigation-title"
-          className="fixed right-0 top-9 z-[100000] h-[calc(100%-2.25rem)] w-[85%] max-w-[380px] overflow-auto border-l border-white/10 bg-[#0a0e2e]/95 shadow-2xl"
+          className="fixed right-0 z-[100000] w-[88%] max-w-[400px] overflow-hidden border-l border-white/10 bg-[#0a0e2e]/95 shadow-2xl"
           style={{
+            top: 'var(--magicads-top-banner-height, 36px)',
+            height: 'calc(100dvh - var(--magicads-top-banner-height, 36px))',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
           }}
         >
-          <div className="h-full px-5 py-5 text-white">
-            <div className="flex h-full flex-col">
+          <div className="h-full px-4 py-4 text-white sm:px-5 sm:py-5">
+            <div className="flex h-full min-h-0 flex-col">
               {/* Header */}
               <div className="mb-4 flex items-center justify-between">
                 <div
@@ -603,13 +663,22 @@ const Header = () => {
               <div className="mb-4 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
 
               {/* Navigation Sections */}
-              <div className="flex-1 space-y-1 overflow-auto">
+              <nav
+                aria-label="MagicCraft destinations"
+                className="min-h-0 flex-1 space-y-1 overflow-y-auto overscroll-contain pr-1"
+              >
                 {commonMenuItemsNew.map((item) =>
                   item?.submenu?.length > 0 ? (
                     <NavMenuMobile
                       key={item.title}
                       item={item}
                       closeSidebar={closeSidebar}
+                      isOpen={openMobileMenu === item.title}
+                      onToggle={() =>
+                        setOpenMobileMenu((current) =>
+                          current === item.title ? null : item.title
+                        )
+                      }
                     />
                   ) : item.path?.startsWith('http') ? (
                     <a
@@ -649,10 +718,10 @@ const Header = () => {
                     </Link>
                   )
                 )}
-              </div>
+              </nav>
 
               {/* Language Selector */}
-              <div className="mt-4 border-t border-white/10 pt-4">
+              <div className="mt-3 shrink-0 border-t border-white/10 pt-3">
                 <div className="relative">
                   <button
                     type="button"
@@ -703,7 +772,7 @@ const Header = () => {
               </div>
 
               {/* Footer Links */}
-              <div className="mt-3 pb-2">
+              <div className="mt-2 shrink-0 pb-[max(0.5rem,env(safe-area-inset-bottom))]">
                 <div className="flex items-center justify-center gap-4 text-xs text-white/50">
                   <Link
                     to="/privacypolicy"

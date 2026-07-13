@@ -80,6 +80,8 @@ export default function Dashboard() {
   const view = STATUS_VIEW[status]
   const finishedLobbies = data?.allTime.finishedLobbies ?? null
   const mcrtPledged = data?.allTime.mcrtPledged ?? null
+  const totalLobbies = data?.allTime.totalLobbies ?? null
+  const totalUsers = data?.allTime.totalUsers ?? null
   const seasonPrize = data?.season.totalPrizeMcrt ?? null
   const seasonName = data?.season.name ?? null
   const seasonActive = data?.season.active ?? null
@@ -94,6 +96,7 @@ export default function Dashboard() {
   const serverOnline = data?.live.serverOnline ?? null
   const timestamp = data?.ts ?? null
   const gameServerSource = data?.meta?.sources.gameServer.status
+  const lobbySource = data?.meta?.sources.lobby?.status
   const marketSource = data?.meta?.sources.market.status
 
   return (
@@ -103,38 +106,38 @@ export default function Dashboard() {
       data-status={status}
     >
       <Helmet>
-        <title>Dashboard | MagicCraft Statistics</title>
+        <title>Game Stats | MagicCraft</title>
         <meta
           name="description"
           content="View source-backed MagicCraft game-server and $MCRT market statistics. Unavailable values are never estimated."
         />
-        <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://magiccraft.io/dashboard" />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://magiccraft.io/stats" />
       </Helmet>
       <Header />
 
-      <div className="relative">
+      <div className="relative h-[190px] overflow-hidden sm:h-[230px] md:h-[270px]">
         <img
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732728187/Image_4_a6xltr.webp"
-          className="hidden w-full lg:block"
+          className="absolute inset-0 hidden h-full w-full object-cover lg:block"
           alt="Dashboard banner"
           loading="lazy"
         />
         <img
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732728036/Image_6_mts4sr.webp"
-          className="hidden w-full md:block lg:hidden"
+          className="absolute inset-0 hidden h-full w-full object-cover md:block lg:hidden"
           alt="Dashboard banner"
           loading="lazy"
         />
         <img
           src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732728028/Image_5_caa7pl.webp"
-          className="block w-full md:hidden"
+          className="absolute inset-0 block h-full w-full object-cover md:hidden"
           alt="Dashboard banner"
           loading="lazy"
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
+        <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-b from-[#03082f]/20 to-[#03082f]/70">
           <h1 className="font-serif text-4xl font-bold md:text-5xl">
-            Dashboard
+            Game Stats
           </h1>
           <div className="flex items-center gap-2">
             <span className={`h-2 w-2 rounded-full ${view.dot}`} />
@@ -178,13 +181,21 @@ export default function Dashboard() {
             {error && status === 'stale' ? ` Refresh error: ${error}.` : ''}
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid gap-3 sm:grid-cols-3">
             <div className="rounded-lg border border-white/10 bg-white/5 p-4">
               <div className="text-xs uppercase tracking-widest text-white/60">
-                Game server source
+                Season source
               </div>
               <div className="mt-1 text-lg font-bold text-white">
                 {formatSource(gameServerSource)}
+              </div>
+            </div>
+            <div className="rounded-lg border border-white/10 bg-white/5 p-4">
+              <div className="text-xs uppercase tracking-widest text-white/60">
+                Lobby stats source
+              </div>
+              <div className="mt-1 text-lg font-bold text-white">
+                {formatSource(lobbySource)}
               </div>
             </div>
             <div className="rounded-lg border border-white/10 bg-white/5 p-4">
@@ -197,21 +208,39 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
+              {
+                label: 'Total Lobbies',
+                value:
+                  totalLobbies === null
+                    ? 'Unavailable'
+                    : totalLobbies.toLocaleString(),
+                sub: 'Reported by lobby API',
+                color: 'border-violet-500/30',
+              },
+              {
+                label: 'Registered Lobby Users',
+                value:
+                  totalUsers === null
+                    ? 'Unavailable'
+                    : totalUsers.toLocaleString(),
+                sub: 'Reported by lobby API',
+                color: 'border-emerald-500/30',
+              },
               {
                 label: 'Finished Lobbies',
                 value:
                   finishedLobbies === null
                     ? 'Unavailable'
                     : finishedLobbies.toLocaleString(),
-                sub: 'Reported by game server',
+                sub: 'Reported by lobby API',
                 color: 'border-blue-500/30',
               },
               {
-                label: 'MCRT Pledged',
+                label: 'MCRT Entry Fees',
                 value: formatMcrt(mcrtPledged),
-                sub: 'Reported by game server',
+                sub: 'Recorded by lobby API',
                 color: 'border-amber-500/30',
               },
               {
@@ -303,6 +332,22 @@ export default function Dashboard() {
           <div className="grid gap-6 lg:grid-cols-2">
             <StatsCard title="LOBBY STATISTICS">
               <StatRow
+                label="Total Lobbies:"
+                value={
+                  totalLobbies === null
+                    ? 'Unavailable'
+                    : totalLobbies.toLocaleString()
+                }
+              />
+              <StatRow
+                label="Registered Users:"
+                value={
+                  totalUsers === null
+                    ? 'Unavailable'
+                    : totalUsers.toLocaleString()
+                }
+              />
+              <StatRow
                 label="Finished Lobbies:"
                 value={
                   finishedLobbies === null
@@ -310,9 +355,12 @@ export default function Dashboard() {
                     : finishedLobbies.toLocaleString()
                 }
               />
-              <StatRow label="MCRT Pledged:" value={formatMcrt(mcrtPledged)} />
               <StatRow
-                label="Server Status:"
+                label="MCRT Entry Fees:"
+                value={formatMcrt(mcrtPledged)}
+              />
+              <StatRow
+                label="Season Source Status:"
                 value={
                   serverOnline === null
                     ? 'Unavailable'

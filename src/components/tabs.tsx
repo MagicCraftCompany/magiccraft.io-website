@@ -1,90 +1,151 @@
-import React, { useState, ReactNode, MouseEvent, Dispatch, SetStateAction } from 'react';
+import {
+  Children,
+  isValidElement,
+  useState,
+  type Dispatch,
+  type MouseEvent,
+  type ReactElement,
+  type ReactNode,
+  type SetStateAction,
+} from 'react'
 
 type TabProps = {
-  id?: string;
-  label: string;
-  children: ReactNode;
-  className?: string; 
-  icon?: string;
-  iconActive?: string;
-  type?: string;
-};
+  id?: string
+  label: string
+  children: ReactNode
+  className?: string
+  icon?: string
+  iconActive?: string
+  type?: string
+}
 
-const Tab = ({label, icon, children, type }: TabProps) => {
-  return (
-    <div className="hidden" role="tabpanel" aria-labelledby={label}>
-      {!type && <img src={icon} alt={`${label} icon`} className="h-6 w-6 md:h-8 md:w-8" />}
-      {label}
-      {children}
-    </div>
-  );
-};
+const Tab = ({ label, icon, children, type }: TabProps) => (
+  <div className="hidden" role="tabpanel" aria-labelledby={label}>
+    {!type && (
+      <img src={icon} alt={label + ' icon'} className="h-6 w-6 md:h-8 md:w-8" />
+    )}
+    {label}
+    {children}
+  </div>
+)
 
 type TabsProps = {
-  children: ReactNode[];
-  className?: string;
-  type?: string;
-  activeTab?: string;
-  onTabChange?: Dispatch<SetStateAction<string>>;
-};
+  children: ReactNode
+  className?: string
+  type?: string
+  activeTab?: string
+  onTabChange?: Dispatch<SetStateAction<string>>
+}
+
+const safeId = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
 
 const Tabs = ({ children, type }: TabsProps) => {
-  const search = window.location.search;
-  const params = new URLSearchParams(search);
-  const foo = params.get('contact');
-  const [activeTab, setActiveTab] = useState<string>(foo?(children[4] as React.ReactElement<TabProps>).props.label: (children[0] as React.ReactElement<TabProps>).props.label);
+  const tabs = Children.toArray(children).filter(
+    (child): child is ReactElement<TabProps> => isValidElement<TabProps>(child)
+  )
+  const params = new URLSearchParams(
+    typeof window === 'undefined' ? '' : window.location.search
+  )
+  const contactTab = params.has('contact')
+    ? tabs.find(
+        (tab) =>
+          tab.props.id?.toLowerCase() === 'contact' ||
+          tab.props.label.toLowerCase().includes('contact')
+      )
+    : undefined
+  const [activeTab, setActiveTab] = useState(
+    contactTab?.props.label ?? tabs[0]?.props.label ?? ''
+  )
 
-  const handleClick = (e: MouseEvent<HTMLButtonElement>, newActiveTab: string) => {
-    e.preventDefault();
-    setActiveTab(newActiveTab);
-  };
+  const handleClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    newActiveTab: string
+  ) => {
+    event.preventDefault()
+    setActiveTab(newActiveTab)
+  }
+
+  if (tabs.length === 0) return null
 
   return (
-    <div className="flex flex-col items-center justify-center mx-auto w-full">
+    <div className="mx-auto flex w-full flex-col items-center justify-center">
       <div className="w-full overflow-x-auto">
-        <div className={`${!type? 'flex-wrap': ''} flex justify-center mb-4 sm:mb-6 md:mb-8 py-[0.375em] bg-tab-bg bg-opacity-80 rounded-3xl mx-auto w-fit max-w-[95%] overflow-x-auto scrollbar-hide`}>
-          {children.map((child) => {
-            const tab = child as React.ReactElement<TabProps>;
+        <div
+          role="tablist"
+          className={
+            (!type ? 'flex-wrap ' : '') +
+            'scrollbar-hide mx-auto mb-4 flex w-fit max-w-[95%] justify-center overflow-x-auto rounded-3xl bg-tab-bg bg-opacity-80 py-[0.375em] sm:mb-6 md:mb-8'
+          }
+        >
+          {tabs.map((tab) => {
+            const tabId = 'tab-' + safeId(tab.props.id ?? tab.props.label)
+            const panelId = 'panel-' + safeId(tab.props.id ?? tab.props.label)
+            const selected = activeTab === tab.props.label
+
             return (
               <button
                 key={tab.props.label}
-                className={`min-w-fit ${activeTab === tab.props.label 
-                  ? 'rounded-3xl bg-[#98FFF9] text-[#03082F] mx-0.5 sm:mx-1 px-1 sm:px-2' 
-                  : 'text-[#98FFF9] mx-0.5 sm:mx-1 px-1 sm:px-2 md:px-4'} font-medium whitespace-nowrap`}
-                onClick={(e) => handleClick(e, tab.props.label)}
-                aria-selected={activeTab === tab.props.label}
+                id={tabId}
+                type="button"
+                role="tab"
+                className={
+                  'min-w-fit whitespace-nowrap font-medium ' +
+                  (selected
+                    ? 'mx-0.5 rounded-3xl bg-[#98FFF9] px-1 text-[#03082F] sm:mx-1 sm:px-2'
+                    : 'mx-0.5 px-1 text-[#98FFF9] sm:mx-1 sm:px-2 md:px-4')
+                }
+                onClick={(event) => handleClick(event, tab.props.label)}
+                aria-selected={selected}
+                aria-controls={panelId}
+                tabIndex={selected ? 0 : -1}
               >
-                <div className="flex items-center justify-center">
-                  {!type && (
+                <span className="flex items-center justify-center">
+                  {!type && tab.props.icon && (
                     <img
-                      src={activeTab === tab.props.label ? tab.props.iconActive : tab.props.icon}
-                      alt={`${tab.props.label} icon`}
+                      src={
+                        selected
+                          ? (tab.props.iconActive ?? tab.props.icon)
+                          : tab.props.icon
+                      }
+                      alt=""
+                      aria-hidden="true"
                       className="h-5 w-5 sm:h-6 sm:w-6 md:h-7 md:w-7"
                     />
                   )}
-                  <span className="px-3 sm:px-3 py-1 sm:py-2 text-xs sm:text-sm">{tab.props.label}</span>
-                </div>
+                  <span className="px-3 py-1 text-xs sm:py-2 sm:text-sm">
+                    {tab.props.label}
+                  </span>
+                </span>
               </button>
-            );
+            )
           })}
         </div>
       </div>
-      
+
       <div className="w-full">
-        {children.map((child) => {
-          const tab = child as React.ReactElement<TabProps>;
-          if (tab.props.label === activeTab) {
-            return (
-              <div key={tab.props.label} role="tabpanel" aria-labelledby={tab.props.label} className={tab.props.className}>
-                {tab.props.children}
-              </div>
-            );
-          }
-          return null;
+        {tabs.map((tab) => {
+          if (tab.props.label !== activeTab) return null
+
+          const id = safeId(tab.props.id ?? tab.props.label)
+          return (
+            <div
+              key={tab.props.label}
+              id={'panel-' + id}
+              role="tabpanel"
+              aria-labelledby={'tab-' + id}
+              className={tab.props.className}
+            >
+              {tab.props.children}
+            </div>
+          )
         })}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export { Tabs, Tab };
+export { Tabs, Tab }

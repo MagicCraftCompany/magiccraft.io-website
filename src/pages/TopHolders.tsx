@@ -1,70 +1,71 @@
-import Header from "@/components/Header/Header";
-import HoldersTable from "@/components/TopHoldersTable";
+import Footer from '@/components/Footer/Footer'
+import Header from '@/components/Header/Header'
+import { MCRT_CONTRACT_CHECKSUM } from '@/constants'
+import { ExternalLink, ShieldCheck, WalletCards } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 
-function HoldersPage(){
-    return(
-        <div className="min-h-dvh w-full text-white ">
-        <Helmet>
-          <title>Top $MCRT Holders | MagicCraft</title>
-          <meta name="description" content="View the largest $MCRT token holders on BNB Chain." />
-          <link rel="canonical" href="https://magiccraft.io/topholders" />
-          <meta name="robots" content="index, follow" />
-          <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://magiccraft.io/topholders" />
-          <meta property="og:title" content="Top $MCRT Holders | MagicCraft" />
-          <meta property="og:description" content="View the largest $MCRT token holders on BNB Chain." />
-          <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
-          <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Top $MCRT Holders | MagicCraft" />
-          <meta name="twitter:description" content="View the largest $MCRT token holders on BNB Chain." />
-          <meta name="twitter:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
-        </Helmet>
-        <Header />
-        <div className="relative">
-        {/* Desktop Image */}
-        <img
-          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732780930/Image_9_rqkm4a.webp"
-          className="hidden lg:block"
-          alt="verify banner"
-          loading="lazy"
-        />
+const BSCSCAN_HOLDERS_URL = `https://bscscan.com/token/${MCRT_CONTRACT_CHECKSUM}#balances`
 
-        {/* Tablet Image */}
-        <img
-          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732780930/Image_10_iorpxg.webp"
-          className="hidden md:block lg:hidden"
-          alt="verify banner"
-          loading="lazy"
+export default function HoldersPage() {
+  return (
+    <div className="min-h-dvh w-full bg-[#03082f] text-white">
+      <Helmet>
+        <title>MCRT Holders | MagicCraft</title>
+        <meta
+          name="description"
+          content="Use the BNB Chain explorer to inspect the current MCRT holder distribution from the token contract."
         />
+        <link rel="canonical" href="https://magiccraft.io/topholders" />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
 
-        {/* Mobile Image */}
-        <img
-          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1732780930/Image_11_fmkaef.webp"
-          className="block md:hidden"
-          alt="verify banner"
-          loading="lazy"
-        />
+      <Header />
 
-        {/* Overlay Title */}
-        <div className="absolute inset-0 flex  flex-col items-center justify-center">
-          <h1 className="font-serif text-4xl font-bold md:text-5xl">
-          Top 100 holders
+      <main className="relative flex min-h-[70vh] items-center overflow-hidden px-4 py-24 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(152,255,249,0.14),transparent_38%),linear-gradient(180deg,#03082F_0%,#020418_100%)]" />
+        <section className="relative mx-auto w-full max-w-3xl rounded-[32px] border border-white/10 bg-white/[0.055] p-7 text-center shadow-[0_24px_90px_rgba(0,0,0,0.35)] backdrop-blur-xl sm:p-12">
+          <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#98FFF9]/25 bg-[#98FFF9]/10 text-[#98FFF9]">
+            <WalletCards className="h-7 w-7" aria-hidden="true" />
+          </span>
+          <h1 className="mt-6 font-serif text-4xl font-bold sm:text-5xl">
+            MCRT holder distribution
           </h1>
-          <div className=" md:w-[800px] w-[300px]  bg-gradient-to-r from-transparent via-[#9255E0]   to-transparent p-px "/>
+          <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/70">
+            MagicCraft does not currently publish a verified, paginated holder
+            feed on this website. The previous sample table has been removed so
+            placeholder wallets cannot be mistaken for live on-chain data.
+          </p>
 
-          <h1 className="  ">
-          Community members who hold the most MCRT are entitled to fight for the title.
-          </h1>
-        </div>
-      </div>
-      <div className="flex justify-center ">
-      <div className="z-10 flex h-full max-w-[120em]  flex-col gap-[30px] rounded-[30px]   bg-[#11113A] lg:p-10 p-6 -mt-40 ">           
-         <HoldersTable/>
-        </div>
-      </div>
-      </div>
+          <div className="mx-auto mt-7 max-w-xl rounded-2xl border border-white/10 bg-black/20 p-4 text-left">
+            <div className="flex items-center gap-2 text-sm font-semibold text-white">
+              <ShieldCheck
+                className="h-4 w-4 text-[#98FFF9]"
+                aria-hidden="true"
+              />
+              MCRT contract on BNB Chain
+            </div>
+            <p className="mt-2 break-all font-mono text-xs leading-relaxed text-[#98FFF9]">
+              {MCRT_CONTRACT_CHECKSUM}
+            </p>
+          </div>
 
-    )
+          <a
+            href={BSCSCAN_HOLDERS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-[#98FFF9] px-6 py-3 text-sm font-bold text-[#03082F] transition hover:bg-white"
+          >
+            View On-Chain Holder Data
+            <ExternalLink className="h-4 w-4" aria-hidden="true" />
+          </a>
+          <p className="mt-6 text-xs leading-relaxed text-white/45">
+            Explorer labels, balances and rankings are provided by the external
+            chain explorer and can change as transactions settle.
+          </p>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  )
 }
-export default HoldersPage;

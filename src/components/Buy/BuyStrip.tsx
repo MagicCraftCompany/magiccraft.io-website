@@ -119,7 +119,7 @@ export default function BuyStrip() {
     {
       title: 'MetaMask',
       kicker: 'Wallet swap',
-      body: 'Switches MetaMask to BNB Chain, adds MCRT to the wallet, then opens MetaMask Swap.',
+      body: 'If MetaMask is detected, asks to switch to BNB Chain and add MCRT. Then opens Swap for you to select and review the assets manually.',
       cta: 'Open MetaMask',
       icon: Wallet,
       accent: 'border-[#FFB649]/30 bg-[#FFB649]/10 text-[#FFB649]',

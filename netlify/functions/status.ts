@@ -79,8 +79,8 @@ async function httpCheck(target: ServiceTarget): Promise<ServiceResult> {
     )
     status = res.status
     ok = res.status >= 200 && res.status < 400
-  } catch (e: any) {
-    error = String(e?.message || e)
+  } catch (caught: unknown) {
+    error = caught instanceof Error ? caught.message : String(caught)
   }
   return {
     key: target.key,
@@ -103,19 +103,32 @@ const REGION_IPS: Record<Region, string> = {
   america: '51.222.44.25',
 }
 
+function normalizeRegion(candidate: string | undefined): Region {
+  return candidate === 'asia' || candidate === 'america' ? candidate : 'europe'
+}
+
+function configuredSanityProjectId(value: string | undefined) {
+  const projectId = value?.trim()
+  return projectId && projectId !== 'your-project-id' ? projectId : null
+}
+
+function sanityApiVersion(value: string | undefined) {
+  const version = (value || '2023-05-03').trim().replace(/^v/, '')
+  return `v${version}`
+}
+
 export const handler: Handler = async (event) => {
   try {
     const deep = event.queryStringParameters?.deep === '1'
-    const region = (event.queryStringParameters?.region as Region) || 'europe'
+    const region = normalizeRegion(event.queryStringParameters?.region)
     const port = process.env.GAMESERVER_API_PORT || '8913'
     const baseGameserverOverride = process.env.GAMESERVER_API_URL
-    const baseGameserver = baseGameserverOverride
-      ? baseGameserverOverride.replace(/\/$/, '')
-      : `http://${REGION_IPS[region]}:${port}`.replace(/\/$/, '')
     const gameserverKey = process.env.GAMESERVER_API_KEY || ''
-    const sanityProjectId = process.env.VITE_SANITY_PROJECT_ID
+    const sanityProjectId = configuredSanityProjectId(
+      process.env.VITE_SANITY_PROJECT_ID
+    )
     const sanityDataset = process.env.VITE_SANITY_DATASET || 'production'
-    const sanityVersion = process.env.VITE_SANITY_API_VERSION || '2023-05-03'
+    const sanityVersion = sanityApiVersion(process.env.VITE_SANITY_API_VERSION)
 
     const targets: ServiceTarget[] = [
       // Core surfaces
@@ -136,6 +149,10 @@ export const handler: Handler = async (event) => {
         label: 'GameServer API',
         type: 'core',
         customCheck: async () => {
+          if (!gameserverKey) {
+            return { ok: false, status: 0, note: 'API key not configured' }
+          }
+
           const candidates = baseGameserverOverride
             ? [
                 {
@@ -143,36 +160,54 @@ export const handler: Handler = async (event) => {
                   region: 'custom',
                 },
               ]
-            : Object.entries(REGION_IPS).map(([r, ip]) => ({
-                base: `http://${ip}:${port}`,
+            : [
+                region,
+                ...Object.keys(REGION_IPS).filter((r) => r !== region),
+              ].map((r) => ({
+                base: `http://${REGION_IPS[r as Region]}:${port}`,
                 region: r,
               }))
 
-          for (const target of candidates) {
-            try {
-              const res = await withTimeout(
-                fetch(`${target.base.replace(/\/$/, '')}/battlepass/active`, {
-                  headers: {
-                    'X-API-Key': gameserverKey,
-                    'Content-Type': 'application/json',
-                  },
-                }),
-                DEFAULT_TIMEOUT_MS
-              )
-              // Even 401/403 means server is up, just bad key
-              const ok = res.status >= 200 && res.status < 500
-              if (ok)
-                return {
-                  ok: true,
-                  status: res.status,
-                  note: `online (${target.region})`,
-                }
-            } catch {
-              // try next region
+          const checks = await Promise.all(
+            candidates.map(async (target) => {
+              try {
+                const res = await withTimeout(
+                  fetch(`${target.base.replace(/\/$/, '')}/battlepass/active`, {
+                    headers: {
+                      'X-API-Key': gameserverKey,
+                      Accept: 'application/json',
+                    },
+                  }),
+                  3500
+                )
+                return { target, status: res.status, ok: res.ok }
+              } catch {
+                return { target, status: 0, ok: false }
+              }
+            })
+          )
+
+          const live = checks.find((check) => check.ok)
+          if (live) {
+            return {
+              ok: true,
+              status: live.status,
+              note: `online (${live.target.region})`,
             }
           }
 
-          return { ok: false, status: 0, note: 'timeout (all regions)' }
+          const authFailure = checks.find(
+            (check) => check.status === 401 || check.status === 403
+          )
+          if (authFailure) {
+            return {
+              ok: false,
+              status: authFailure.status,
+              note: `authentication failed (${authFailure.target.region})`,
+            }
+          }
+
+          return { ok: false, status: 0, note: 'unreachable (all regions)' }
         },
       },
 
@@ -208,6 +243,7 @@ export const handler: Handler = async (event) => {
         label: 'Rent',
         type: 'dep',
         url: 'https://rent.magiccraft.io/',
+        note: 'not in current navigation; DNS repair required before relisting',
       },
       {
         key: 'games',
@@ -264,13 +300,26 @@ export const handler: Handler = async (event) => {
         type: 'dep',
         url: 'https://merlintheai.com/',
       },
-      { key: 'docai', label: 'DocAI', type: 'dep', url: 'https://docai.live/' },
+      { key: 'akyn', label: 'Akyn', type: 'dep', url: 'https://akyn.pro/' },
       {
-        key: 'polybilities',
-        label: 'Polybilities',
+        key: 'magicads',
+        label: 'MagicAds',
         type: 'dep',
-        url: 'https://polybilities.com/',
+        url: 'https://magicads.dev/',
       },
+      {
+        key: 'magas7',
+        label: 'MAGAS7',
+        type: 'dep',
+        url: 'https://magas7.com/',
+      },
+      {
+        key: 'dragonlist',
+        label: 'DragonList',
+        type: 'dep',
+        url: 'https://dragonlist.ai/',
+      },
+      { key: 'docai', label: 'DocAI', type: 'dep', url: 'https://docai.live/' },
 
       // Community
       {
@@ -374,7 +423,6 @@ export const handler: Handler = async (event) => {
       'lobby-stats',
       'lobby-referral',
       'pledging',
-      'rent',
     ])
 
     // Execute all checks in parallel
@@ -403,7 +451,7 @@ export const handler: Handler = async (event) => {
         services: results,
       }),
     }
-  } catch (err: any) {
+  } catch (caught: unknown) {
     // Catch-all error handler
     return {
       statusCode: 500,
@@ -415,7 +463,7 @@ export const handler: Handler = async (event) => {
         ts: new Date().toISOString(),
         ok: false,
         coreOk: false,
-        error: err?.message || 'Unknown error',
+        error: caught instanceof Error ? caught.message : 'Unknown error',
         services: [],
       }),
     }

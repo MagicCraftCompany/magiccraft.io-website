@@ -23,6 +23,13 @@ type SourceState = {
 
 type JsonRecord = Record<string, unknown>
 
+type LobbyStats = {
+  finishedLobbies: number
+  totalEntryFeesStaked: number
+  totalLobbies: number | null
+  totalUsers: number | null
+}
+
 const REGION_IPS: Record<Region, string> = {
   europe: '5.9.111.150',
   asia: '51.79.230.134',
@@ -30,6 +37,8 @@ const REGION_IPS: Record<Region, string> = {
 }
 
 const TIMEOUT_MS = 6000
+const LOBBY_STATS_URL = 'https://lobby-api-prod.magiccraft.io/stats'
+const MAX_LOBBY_RESPONSE_BYTES = 600_000
 
 class UpstreamError extends Error {
   status: number | null
@@ -41,19 +50,44 @@ class UpstreamError extends Error {
   }
 }
 
-async function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
-  return new Promise((resolve, reject) => {
-    const id = setTimeout(() => reject(new UpstreamError('timeout')), ms)
-    promise
-      .then((value) => {
-        clearTimeout(id)
-        resolve(value)
-      })
-      .catch((error) => {
-        clearTimeout(id)
-        reject(error)
-      })
-  })
+function configuredTimeout(name: string) {
+  const configured = Number(process.env[name])
+  if (!Number.isFinite(configured)) return TIMEOUT_MS
+  return Math.max(250, Math.min(10_000, configured))
+}
+
+async function fetchWithTimeout(
+  input: string,
+  init: RequestInit,
+  ms: number
+): Promise<Response> {
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), ms)
+  try {
+    return await fetch(input, { ...init, signal: controller.signal })
+  } catch (error) {
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new UpstreamError('timeout')
+    }
+    throw error
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
+function gameServerBase(region: Region, port: string) {
+  const override = process.env.GAMESERVER_API_URL?.trim()
+  if (!override) return `http://${REGION_IPS[region]}:${port}`
+
+  try {
+    const parsed = new URL(override)
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
+      throw new Error('unsupported protocol')
+    }
+    return override.replace(/\/$/, '')
+  } catch {
+    throw new UpstreamError('invalid_gameserver_url')
+  }
 }
 
 async function fetchBattlepass(
@@ -61,12 +95,13 @@ async function fetchBattlepass(
   port: string,
   apiKey: string
 ): Promise<JsonRecord> {
-  const base = `http://${REGION_IPS[region]}:${port}`
-  const response = await withTimeout(
-    fetch(`${base}/battlepass/active`, {
+  const base = gameServerBase(region, port)
+  const response = await fetchWithTimeout(
+    `${base}/battlepass/active`,
+    {
       headers: { 'X-API-Key': apiKey, 'Content-Type': 'application/json' },
-    }),
-    TIMEOUT_MS
+    },
+    configuredTimeout('GAMESERVER_API_TIMEOUT_MS')
   )
 
   if (!response.ok) {
@@ -80,18 +115,85 @@ async function fetchBattlepass(
   return payload
 }
 
+async function fetchLobbyStats(): Promise<LobbyStats> {
+  const controller = new AbortController()
+  const timeout = setTimeout(
+    () => controller.abort(),
+    configuredTimeout('LOBBY_API_TIMEOUT_MS')
+  )
+
+  try {
+    const response = await fetch(
+      process.env.LOBBY_STATS_URL || LOBBY_STATS_URL,
+      {
+        signal: controller.signal,
+        headers: { accept: 'application/json' },
+      }
+    )
+
+    if (!response.ok) {
+      throw new UpstreamError('lobby_http_error', response.status)
+    }
+
+    const contentLength = Number(response.headers.get('content-length'))
+    if (
+      Number.isFinite(contentLength) &&
+      contentLength > MAX_LOBBY_RESPONSE_BYTES
+    ) {
+      throw new UpstreamError('lobby_response_too_large', response.status)
+    }
+
+    const raw = await response.text()
+    if (raw.length > MAX_LOBBY_RESPONSE_BYTES) {
+      throw new UpstreamError('lobby_response_too_large', response.status)
+    }
+
+    let payload: unknown
+    try {
+      payload = JSON.parse(raw)
+    } catch {
+      throw new UpstreamError('invalid_lobby_response', response.status)
+    }
+
+    if (!isRecord(payload) || !isRecord(payload.lobbyStats)) {
+      throw new UpstreamError('invalid_lobby_response', response.status)
+    }
+
+    const finishedLobbies = nonNegativeNumberOrNull(payload.lobbyStats.finished)
+    const totalEntryFeesStaked = nonNegativeNumberOrNull(
+      payload.totalEntryFeesStaked
+    )
+    if (finishedLobbies === null || totalEntryFeesStaked === null) {
+      throw new UpstreamError('invalid_lobby_response', response.status)
+    }
+
+    return {
+      finishedLobbies,
+      totalEntryFeesStaked,
+      totalLobbies: nonNegativeNumberOrNull(payload.totalLobbies),
+      totalUsers: nonNegativeNumberOrNull(payload.totalUsers),
+    }
+  } catch (error) {
+    if (error instanceof UpstreamError) throw error
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new UpstreamError('timeout')
+    }
+    throw error
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
 async function fetchMcrtPrice(): Promise<{
   usd: number
   usd_24h_change?: number
   usd_market_cap?: number
   usd_24h_vol?: number
 }> {
-  const response = await withTimeout(
-    fetch(
-      'https://api.coingecko.com/api/v3/simple/price?ids=magiccraft&vs_currencies=usd&include_24hr_change=true&include_market_cap=true&include_24hr_vol=true',
-      { headers: { accept: 'application/json' } }
-    ),
-    TIMEOUT_MS
+  const response = await fetchWithTimeout(
+    'https://api.coingecko.com/api/v3/simple/price?ids=magiccraft&vs_currencies=usd&include_24hr_change=true&include_market_cap=true&include_24hr_vol=true',
+    { headers: { accept: 'application/json' } },
+    configuredTimeout('MARKET_API_TIMEOUT_MS')
   )
 
   if (!response.ok) {
@@ -129,6 +231,11 @@ function isRecord(value: unknown): value is JsonRecord {
 
 function numberOrNull(value: unknown): number | null {
   return typeof value === 'number' && Number.isFinite(value) ? value : null
+}
+
+function nonNegativeNumberOrNull(value: unknown): number | null {
+  const number = numberOrNull(value)
+  return number !== null && number >= 0 ? number : null
 }
 
 function booleanOrNull(value: unknown): boolean | null {
@@ -170,11 +277,26 @@ function sourceLive(checkedAt: string): SourceState {
 
 function responseStatus(
   gameServer: SourceState,
+  lobby: SourceState,
   market: SourceState
 ): ResponseStatus {
-  if (gameServer.status === 'live' && market.status === 'live') return 'live'
-  if (gameServer.status === 'live' || market.status === 'live') return 'partial'
-  if (gameServer.status === 'offline') return 'offline'
+  if (
+    gameServer.status === 'live' &&
+    lobby.status === 'live' &&
+    market.status === 'live'
+  ) {
+    return 'live'
+  }
+  if (
+    gameServer.status === 'live' ||
+    lobby.status === 'live' ||
+    market.status === 'live'
+  ) {
+    return 'partial'
+  }
+  if (gameServer.status === 'offline' || lobby.status === 'offline') {
+    return 'offline'
+  }
   return 'unavailable'
 }
 
@@ -221,18 +343,22 @@ export const handler = async (
   const apiKey = process.env.GAMESERVER_API_KEY || ''
   const checkedAt = new Date().toISOString()
 
-  const [battlepassResult, priceResult] = await Promise.allSettled([
-    fetchBattlepass(region, port, apiKey),
-    fetchMcrtPrice(),
-  ])
+  const [battlepassResult, lobbyResult, priceResult] = await Promise.allSettled(
+    [fetchBattlepass(region, port, apiKey), fetchLobbyStats(), fetchMcrtPrice()]
+  )
 
   const battlepass =
     battlepassResult.status === 'fulfilled' ? battlepassResult.value : null
+  const lobby = lobbyResult.status === 'fulfilled' ? lobbyResult.value : null
   const price = priceResult.status === 'fulfilled' ? priceResult.value : null
   const gameServerSource =
     battlepassResult.status === 'fulfilled'
       ? sourceLive(checkedAt)
       : sourceFromFailure(battlepassResult.reason, checkedAt)
+  const lobbySource =
+    lobbyResult.status === 'fulfilled'
+      ? sourceLive(checkedAt)
+      : sourceFromFailure(lobbyResult.reason, checkedAt)
   const marketSource =
     priceResult.status === 'fulfilled'
       ? sourceLive(checkedAt)
@@ -248,9 +374,10 @@ export const handler = async (
   const stats = {
     ts: checkedAt,
     meta: {
-      status: responseStatus(gameServerSource, marketSource),
+      status: responseStatus(gameServerSource, lobbySource, marketSource),
       sources: {
         gameServer: gameServerSource,
+        lobby: lobbySource,
         market: marketSource,
       },
     },
@@ -266,14 +393,20 @@ export const handler = async (
         : null,
     },
     allTime: {
-      matchesPlayed: battlepass
-        ? numberOrNull(battlepass.matchesPlayed)
-        : null,
-      finishedLobbies: battlepass
-        ? numberOrNull(battlepass.finishedLobbies)
-        : null,
+      matchesPlayed: battlepass ? numberOrNull(battlepass.matchesPlayed) : null,
+      finishedLobbies:
+        lobby?.finishedLobbies ??
+        (battlepass ? numberOrNull(battlepass.finishedLobbies) : null),
       mcrtInGame: battlepass ? numberOrNull(battlepass.mcrtInGame) : null,
-      mcrtPledged: battlepass ? numberOrNull(battlepass.totalPledges) : null,
+      mcrtPledged:
+        lobby?.totalEntryFeesStaked ??
+        (battlepass ? numberOrNull(battlepass.totalPledges) : null),
+      ...(lobby?.totalLobbies !== null && lobby?.totalLobbies !== undefined
+        ? { totalLobbies: lobby.totalLobbies }
+        : {}),
+      ...(lobby?.totalUsers !== null && lobby?.totalUsers !== undefined
+        ? { totalUsers: lobby.totalUsers }
+        : {}),
       topPlayers: topParticipants.slice(0, 5),
       recentWinners: winners.slice(0, 3),
     },

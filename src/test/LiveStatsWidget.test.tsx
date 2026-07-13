@@ -1,5 +1,6 @@
 import { cleanup, render, screen } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { MemoryRouter } from 'react-router-dom'
 import type { GameStatsData } from '../lib/useGameStats'
 
 const mockUseGameStats = vi.hoisted(() => vi.fn())
@@ -10,6 +11,13 @@ vi.mock('../lib/useGameStats', () => ({
 
 import LiveStatsWidget from '../components/LiveStats/LiveStatsWidget'
 
+const renderWidget = () =>
+  render(
+    <MemoryRouter>
+      <LiveStatsWidget />
+    </MemoryRouter>
+  )
+
 function verifiedData(): GameStatsData {
   const checkedAt = new Date().toISOString()
   return {
@@ -18,6 +26,12 @@ function verifiedData(): GameStatsData {
       status: 'live',
       sources: {
         gameServer: {
+          status: 'live',
+          checkedAt,
+          httpStatus: 200,
+          error: null,
+        },
+        lobby: {
           status: 'live',
           checkedAt,
           httpStatus: 200,
@@ -71,7 +85,7 @@ describe('LiveStatsWidget', () => {
       refresh: vi.fn(),
     })
 
-    render(<LiveStatsWidget />)
+    renderWidget()
 
     expect(screen.getByTestId('live-stats-widget')).toHaveAttribute(
       'data-status',
@@ -94,7 +108,7 @@ describe('LiveStatsWidget', () => {
       refresh: vi.fn(),
     })
 
-    render(<LiveStatsWidget />)
+    renderWidget()
 
     expect(screen.getByTestId('live-stats-widget')).toHaveAttribute(
       'data-status',
@@ -104,5 +118,10 @@ describe('LiveStatsWidget', () => {
     expect(screen.getByText('1,234')).toBeInTheDocument()
     expect(screen.getByText('500 MCRT')).toBeInTheDocument()
     expect(screen.getByText('$0.00123')).toBeInTheDocument()
+    expect(screen.getByText('MCRT Entry Fees')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: /Full stats/i })).toHaveAttribute(
+      'href',
+      '/stats'
+    )
   })
 })

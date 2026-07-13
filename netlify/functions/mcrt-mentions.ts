@@ -1,148 +1,253 @@
-// Netlify Function: mcrt-mentions
-// Fetch recent X posts mentioning $MCRT from specified accounts using public Nitter mirrors.
+/// <reference types="node" />
+
+// Read-only aggregation of recent public X links mentioning MCRT. Nitter
+// mirrors are best-effort dependencies, so this function has strict request
+// and total budgets and never fabricates fallback posts.
 
 import type { Handler } from '@netlify/functions'
 
-const NITTER_HOSTS: string[] = [
+const NITTER_HOSTS = [
   'https://nitter.net',
   'https://nitter.pufe.org',
   'https://nitter.poast.org',
   'https://nitter.hu',
   'https://n.opnxng.com',
   'https://nitter.holo.host',
-  'https://nitter.fdn.fr',
-  'https://nitter.esmailelbob.xyz',
 ]
 
-// Proxy helper using r.jina.ai to improve reliability
+const SEARCH_URL =
+  'https://x.com/search?q=%24MCRT%20OR%20%40MagicCraftGame&src=typed_query&f=live'
+const DEFAULT_REQUEST_TIMEOUT_MS = 1200
+const DEFAULT_TOTAL_BUDGET_MS = 5000
+const DEFAULT_MAX_HOSTS = 4
+const MAX_RESPONSE_BYTES = 1_000_000
+
+type TweetItem = {
+  url: string
+  handle: string
+  text: string
+  ts: number
+}
+
+class FetchFailure extends Error {
+  constructor(message: string) {
+    super(message)
+    this.name = 'FetchFailure'
+  }
+}
+
 const viaProxy = (host: string, path: string) => {
-  const bare = host.replace('https://', '').replace('http://', '')
+  const bare = host.replace(/^https?:\/\//, '')
   return `https://r.jina.ai/http://${bare}${path}`
 }
 
+function configuredNumber(
+  name: string,
+  fallback: number,
+  minimum: number,
+  maximum: number
+) {
+  const value = Number(process.env[name])
+  if (!Number.isFinite(value)) return fallback
+  return Math.max(minimum, Math.min(maximum, Math.floor(value)))
+}
 
-const parseTweetLinks = (html: string, handle: string) => {
-  // Very simple extraction of status links and visible text
-  const links = Array.from(html.matchAll(/href="\/(?:i\/web)?\/?([A-Za-z0-9_]+)\/status\/(\d+)"/g))
-    .map((m) => ({ handle: m[1], id: m[2] }))
-    .filter((x) => x.handle.toLowerCase() === handle.toLowerCase())
+function decodeXml(input: string) {
+  return input
+    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+}
 
-  // Extract tweet texts (rough). Nitter wraps content in <div class="tweet-content media-body">
-  const texts = html.split('<div class="tweet-content media-body">').slice(1).map((chunk) => {
-    const end = chunk.indexOf('</div>')
-    const raw = end >= 0 ? chunk.slice(0, end) : chunk
-    const txt = raw.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
-    return txt
-  })
+function cleanText(input: string) {
+  return decodeXml(input)
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+}
 
-  const results: { url: string; handle: string; text: string }[] = []
-  for (const l of links) {
-    // Try to find the nearest text chunk; this is heuristic
-    const text = texts.find((t) => t.includes(l.id)) || ''
-    results.push({ url: `https://x.com/${l.handle}/status/${l.id}`, handle: l.handle, text })
+function parseRss(xml: string): TweetItem[] {
+  return xml
+    .split('<item>')
+    .slice(1)
+    .flatMap((item) => {
+      const linkMatch = item.match(/<link>([\s\S]*?)<\/link>/)
+      if (!linkMatch) return []
+
+      const link = decodeXml(linkMatch[1]).trim()
+      const statusMatch = link.match(
+        /https?:\/\/[^/]+\/([A-Za-z0-9_]+)\/status\/(\d+)/
+      )
+      if (!statusMatch) return []
+
+      const titleMatch = item.match(/<title>([\s\S]*?)<\/title>/)
+      const dateMatch = item.match(/<pubDate>([\s\S]*?)<\/pubDate>/)
+      const handle = statusMatch[1]
+      const id = statusMatch[2]
+
+      return [
+        {
+          url: `https://x.com/${handle}/status/${id}`,
+          handle,
+          text: titleMatch ? cleanText(titleMatch[1]) : '',
+          ts: dateMatch ? Date.parse(cleanText(dateMatch[1])) || 0 : 0,
+        },
+      ]
+    })
+}
+
+function parseHtml(html: string): TweetItem[] {
+  return Array.from(
+    html.matchAll(/href="\/(?:i\/web\/)?([A-Za-z0-9_]+)\/status\/(\d+)"/g)
+  ).map((match) => ({
+    url: `https://x.com/${match[1]}/status/${match[2]}`,
+    handle: match[1],
+    text: '',
+    ts: 0,
+  }))
+}
+
+async function fetchText(url: string, deadlineAt: number) {
+  const remaining = deadlineAt - Date.now()
+  if (remaining <= 0) throw new FetchFailure('deadline_exceeded')
+
+  const requestBudget = configuredNumber(
+    'MCRT_MENTIONS_REQUEST_TIMEOUT_MS',
+    DEFAULT_REQUEST_TIMEOUT_MS,
+    50,
+    3000
+  )
+  const controller = new AbortController()
+  const timeout = setTimeout(
+    () => controller.abort(),
+    Math.max(1, Math.min(requestBudget, remaining))
+  )
+
+  try {
+    const response = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'application/rss+xml, application/xml, text/html',
+        'User-Agent': 'MagicCraftMentions/1.0 (+https://magiccraft.io)',
+      },
+    })
+    if (!response.ok) throw new FetchFailure(`http_${response.status}`)
+
+    const contentLength = Number(response.headers.get('content-length'))
+    if (Number.isFinite(contentLength) && contentLength > MAX_RESPONSE_BYTES) {
+      throw new FetchFailure('response_too_large')
+    }
+
+    const text = await response.text()
+    if (text.length > MAX_RESPONSE_BYTES) {
+      throw new FetchFailure('response_too_large')
+    }
+    return text
+  } catch (error) {
+    if (error instanceof FetchFailure) throw error
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new FetchFailure('timeout')
+    }
+    throw new FetchFailure('request_failed')
+  } finally {
+    clearTimeout(timeout)
   }
-  return results
+}
+
+async function fetchHost(host: string, path: string, deadlineAt: number) {
+  const attempts = await Promise.allSettled([
+    fetchText(viaProxy(host, path), deadlineAt),
+    fetchText(`${host}${path}`, deadlineAt),
+  ])
+  const success = attempts.find(
+    (attempt): attempt is PromiseFulfilledResult<string> =>
+      attempt.status === 'fulfilled' && attempt.value.length > 0
+  )
+  return success?.value || null
+}
+
+async function firstAvailable(path: string, deadlineAt: number) {
+  const maxHosts = configuredNumber(
+    'MCRT_MENTIONS_MAX_HOSTS',
+    DEFAULT_MAX_HOSTS,
+    1,
+    NITTER_HOSTS.length
+  )
+
+  for (const host of NITTER_HOSTS.slice(0, maxHosts)) {
+    if (Date.now() >= deadlineAt) return null
+    const body = await fetchHost(host, path, deadlineAt)
+    if (body) return body
+  }
+  return null
+}
+
+async function collectMentions(deadlineAt: number) {
+  const queries = ['%24MCRT', '%40MagicCraftGame']
+  const rssBodies = await Promise.all(
+    queries.map((query) =>
+      firstAvailable(`/search/rss?f=tweets&q=${query}`, deadlineAt)
+    )
+  )
+  const rssItems = rssBodies.flatMap((body) => (body ? parseRss(body) : []))
+  if (rssItems.length > 0 || Date.now() >= deadlineAt) return rssItems
+
+  const html = await firstAvailable(
+    '/search?f=tweets&q=%24MCRT&since=&until=&near=',
+    deadlineAt
+  )
+  return html ? parseHtml(html) : []
+}
+
+function normalizeCount(input: string | undefined) {
+  const parsed = Number.parseInt(input || '8', 10)
+  return Number.isFinite(parsed) ? Math.max(1, Math.min(24, parsed)) : 8
 }
 
 export const handler: Handler = async (event) => {
-  const countParam = parseInt(event.queryStringParameters?.count || '8', 10)
+  const checkedAt = new Date().toISOString()
+  const totalBudget = configuredNumber(
+    'MCRT_MENTIONS_TOTAL_TIMEOUT_MS',
+    DEFAULT_TOTAL_BUDGET_MS,
+    100,
+    8000
+  )
+  const count = normalizeCount(event.queryStringParameters?.count)
+  const deadlineAt = Date.now() + totalBudget
 
-  // Queries: $MCRT OR @MagicCraftGame
-  const queries = ['%24MCRT', '%40MagicCraftGame']
-
-  type TweetItem = { url: string; handle: string; text: string; ts: number }
-  const collected: TweetItem[] = []
-
-  // Prefer RSS because it includes pubDate for ordering
-  for (const host of NITTER_HOSTS) {
-    try {
-      for (const q of queries) {
-        const rssUrl = viaProxy(host, `/search/rss?f=tweets&q=${q}`)
-        let res = await fetch(rssUrl, { headers: { 'User-Agent': 'Mozilla/5.0 NetlifyFunction' } })
-        if (!res.ok) {
-          const direct = `${host}/search/rss?f=tweets&q=${q}`
-          res = await fetch(direct, { headers: { 'User-Agent': 'Mozilla/5.0 NetlifyFunction' } })
-        }
-        if (!res.ok) continue
-        const xml = await res.text()
-        const items = xml.split('<item>').slice(1)
-        for (const item of items) {
-          const linkMatch = item.match(/<link>(.*?)<\/link>/)
-          if (!linkMatch) continue
-          const link = String(linkMatch[1])
-          const m = link.match(/https?:\/\/nitter[^/]*\/(.*?)\/status\/(\d+)/)
-          if (!m) continue
-          const handle = m[1]
-          const id = m[2]
-          const titleMatch = item.match(/<title>([\s\S]*?)<\/title>/)
-          const title = titleMatch ? titleMatch[1].replace(/<[^>]+>/g, ' ').trim() : ''
-          const dateMatch = item.match(/<pubDate>(.*?)<\/pubDate>/)
-          const ts = dateMatch ? Date.parse(dateMatch[1]) || 0 : 0
-          collected.push({ url: `https://x.com/${handle}/status/${id}`, handle, text: title, ts })
-        }
-      }
-      if (collected.length > 0) break
-    } catch {
-      // try next host
-    }
+  let collected: TweetItem[] = []
+  try {
+    collected = await collectMentions(deadlineAt)
+  } catch {
+    collected = []
   }
 
-  // If RSS failed entirely, attempt minimal HTML fallback for $MCRT only (no timestamps)
-  if (collected.length === 0) {
-    for (const host of NITTER_HOSTS) {
-      try {
-        const htmlUrl = viaProxy(host, `/search?f=tweets&q=%24MCRT&since=&until=&near=`)
-        let res = await fetch(htmlUrl, { headers: { 'User-Agent': 'Mozilla/5.0 NetlifyFunction' } })
-        if (!res.ok) {
-          const direct = `${host}/search?f=tweets&q=%24MCRT&since=&until=&near=`
-          res = await fetch(direct, { headers: { 'User-Agent': 'Mozilla/5.0 NetlifyFunction' } })
-        }
-        if (!res.ok) continue
-        const html = await res.text()
-        const links = Array.from(html.matchAll(/href=\"\/(?:i\/web)?\/?([A-Za-z0-9_]+)\/status\/(\d+)\"/g))
-          .map((m) => ({ handle: m[1], id: m[2] }))
-        for (const l of links) {
-          collected.push({ url: `https://x.com/${l.handle}/status/${l.id}`, handle: l.handle, text: '$MCRT', ts: 0 })
-        }
-        if (collected.length > 0) break
-      } catch {
-        // try next host
-      }
-    }
-  }
-
-  // De-duplicate by URL, then sort by timestamp desc
-  const unique: { [url: string]: TweetItem } = {}
-  for (const t of collected) unique[t.url] = t
-  let list = Object.values(unique)
+  const unique = new Map<string, TweetItem>()
+  for (const item of collected) unique.set(item.url, item)
+  const tweets = Array.from(unique.values())
     .sort((a, b) => b.ts - a.ts)
-    .slice(0, Math.max(1, Math.min(24, countParam)))
+    .slice(0, count)
     .map(({ url, handle, text }) => ({ url, handle, text }))
-
-  // Graceful fallback: curated backup tweets + search link
-  if (list.length === 0) {
-    const backup = [
-      { url: 'https://x.com/MagicCraftGame/status/1869099999999999999', handle: 'MagicCraftGame', text: '$MCRT update' },
-      { url: 'https://x.com/MagicCraftGame/status/1868999999999999999', handle: 'MagicCraftGame', text: 'Ecosystem news' },
-      { url: 'https://x.com/MagicCraftGame/status/1868899999999999999', handle: 'MagicCraftGame', text: 'Community mentions' },
-    ]
-    list = [
-      ...backup,
-      { url: 'https://x.com/search?q=%24MCRT%20OR%20%40MagicCraftGame&src=typed_query&f=live', handle: 'search', text: '$MCRT live search on X' },
-    ]
-  }
 
   return {
     statusCode: 200,
     headers: {
       'Content-Type': 'application/json',
-      'Cache-Control': 'public, max-age=300',
+      'Cache-Control': tweets.length
+        ? 'public, max-age=300, stale-while-revalidate=600'
+        : 'public, max-age=60',
       'Access-Control-Allow-Origin': '*',
     },
-    body: JSON.stringify({ tweets: list }),
+    body: JSON.stringify({
+      tweets,
+      status: tweets.length ? 'live' : 'unavailable',
+      checkedAt,
+      searchUrl: SEARCH_URL,
+    }),
   }
 }
 
 export default {}
-
-

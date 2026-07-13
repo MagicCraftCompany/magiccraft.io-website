@@ -1,140 +1,104 @@
-type RoadmapDataType = {
-  quarter: number | 'LIVE'
-  year?: number
+export type RoadmapStage = 'LIVE' | 'IMPROVING' | 'EXPLORING'
+
+export type RoadmapEntry = {
+  stage: RoadmapStage
+  label: string
   variant: 'default' | 'purple' | 'live'
   goals: {
     card: number
     features: string[]
   }[]
-}[]
+}
 
-export const roadmapData: RoadmapDataType = [
+export const ROADMAP_LAST_VERIFIED = '13 July 2026'
+
+export const roadmapData: RoadmapEntry[] = [
   {
-    quarter: 'LIVE',
+    stage: 'LIVE',
+    label: 'Verified public products',
     variant: 'live',
     goals: [
       {
         card: 1,
         features: [
-          'MagicCraft MOBA on iOS, Android, PC & Steam',
-          'Crypto Lobbies with BTC/USDT/BNB/ETH/XRP/SOL',
-          '$MCRT Game Maker on Steam',
+          'MagicCraft free-to-play game with established PvP and newer PvE play',
+          'Public distribution on iOS, Android, PC and Steam',
+          'Optional Web3 lobbies for eligible wallet-connected matches',
         ],
       },
       {
         card: 2,
         features: [
-          'NFT Marketplace + Genesis/Revelation NFTs',
-          'Craft & Sell Marketplace',
-          'AI agents live across the ecosystem',
-          'AI products live across the ecosystem',
-          'AI wallet integrations live for utility and gameplay',
-          'OpenClaw wrapped technologies live',
-          'Akyn (akyn.pro)',
-          'Merlin AI (merlintheai.com)',
-          'DocAI (docai.live)',
-          'Polybilities (polybilities.com)',
-          'SocialMM (socialmm.ai)',
-          'EnvRouter AI gateway and model router',
-          'MAGAS7 Marketing Agents MVP (magas7.com)',
-          'DragonList (dragonlist.ai)',
-          'MagicAds (magicads.dev)',
+          'MagicCraft Marketplace for supported game assets',
+          'MCRT pledging under the current dynamic pool and lock rules',
+          'Referral program and browser-based Ecosystem Games hub',
         ],
       },
       {
         card: 3,
         features: [
-          'Game Maker Studio Expansion',
-          'Creator economy: Build, publish, and monetize custom maps',
-          'Revenue sharing for popular community content',
-          'Procedural weapon skins and customization system',
-          'Cross-Platform Sync enhancements',
-          'Enhanced PvP Ecosystem',
-          'Ranked seasons with $MCRT prize pools',
-          'Tournament tools and seasonal events',
+          'Merlin, Akyn, MagicAds, DragonList and DocAI public products',
+          'MAGAS7 public early-access product',
+          'MCRT Game Maker editor available separately on Steam',
         ],
       },
     ],
   },
   {
-    quarter: 2,
-    year: 2026,
+    stage: 'IMPROVING',
+    label: 'In repair or validation',
     variant: 'default',
     goals: [
       {
         card: 1,
         features: [
-          'AI-Powered Features',
-          'Smart matchmaking based on skill and playstyle',
-          'Dynamic difficulty adjustment for optimal engagement',
-          'In-game AI assistants and coaching',
-          'AI agents for gameplay, support, and creator workflows',
-          'AI products suite growth (Akyn, Merlin, DocAI, Polybilities, EnvRouter AI, MAGAS7)',
-          'AI wallet experiences for pledging and in-game utility',
-          'OpenClaw wrapped technologies rollout',
+          'Keep the working lobby Leaderboard verified and maintain a crash-safe Stats fallback',
+          'Recover game-server and battle-pass data without invented fallback values',
+          'Keep product health and availability labels source-backed',
         ],
       },
       {
         card: 2,
         features: [
-          'Ecosystem Integration Hub',
-          'One-click access to all MagicCraft platforms',
-          'Unified $MCRT rewards across all games and activities',
-          'Partner SDK / API access',
-          'MagicAds (magicads.dev) — AI-powered ad network for ecosystem growth',
-          'MAGAS7 marketing agents for campaign planning, creative, scheduling, and analytics',
-          'EnvRouter AI gateway for model routing, usage logs, and provider failover',
-          'Cross-promotion across all MagicCraft products via MagicAds banners',
+          'Validate Game Maker export, sharing and future game-integration milestones',
+          'Improve cross-platform game reliability and current PvE content',
+          'Publish dated patch notes and product-status changes',
         ],
       },
       {
         card: 3,
         features: [
-          'Community Expansion',
-          'Partnerships and cross-promotions to grow player base',
-          'Creator tournaments and seasonal events',
-          'Core game improvements',
-          'Graphics improvements',
+          'Clarify creator, grant and bounty review outcomes',
+          'Keep every AI product purpose and status aligned across the site',
+          'Automate safe checks for broken product destinations',
         ],
       },
     ],
   },
   {
-    quarter: 3,
-    year: 2026,
+    stage: 'EXPLORING',
+    label: 'Direction, not a delivery promise',
     variant: 'purple',
     goals: [
       {
         card: 1,
         features: [
-          'Metaverse Foundation',
-          'Persistent virtual worlds built by the community',
-          'Land ownership and development rights via NFTs',
+          'Additional PvE missions, seasonal play and competitive tooling',
+          'More creator workflows around maps and community content',
         ],
       },
       {
         card: 2,
         features: [
-          'E-Sports Infrastructure',
-          'Professional leagues with broadcast partnerships',
-          'Spectator modes and betting integration',
+          'Deeper interoperability between supported game and creator surfaces',
+          'New AI-assisted game, support and publishing workflows where useful',
         ],
       },
       {
         card: 3,
         features: [
-          'DAO Governance Evolution',
-          'Community-driven development priorities',
-          '$MCRT pledging for ecosystem decision-making power',
-        ],
-      },
-      {
-        card: 4,
-        features: [
-          'MagicAds Autonomous Ad Network',
-          'Publisher monetization — any site earns revenue with one script tag',
-          'AI-generated SEO tags and ad creatives for advertisers',
-          'USDT payouts and Stripe integration for ad spend',
+          'Future work is announced only after scope, ownership and delivery status are verified',
+          'No date, token return, shared account or shared billing is promised by this section',
         ],
       },
     ],

@@ -1,6 +1,6 @@
 # MagicCraft design and concept plan
 
-Research cutoff: 11 July 2026, Bangkok time.
+Research cutoff: 13 July 2026, Bangkok time.
 
 ## North star
 
@@ -83,13 +83,13 @@ Homepage hierarchy:
 ## P1 next: conversion and information architecture
 
 - [ ] Repair SocialMM TLS, then re-verify the product before restoring it to the suite.
-- [ ] Move AI product names, URLs, status, copy, and last-checked dates into one typed data source.
+- [x] Move AI product names, URLs, status, copy, and last-checked dates into one typed data source.
 - [ ] Add focused product detail routes for Merlin, Akyn, MagicAds, MAGAS7, DragonList, and DocAI.
-- [ ] Add privacy and safety boundaries tailored to each AI product category.
+- [x] Add privacy and safety boundaries tailored to each AI product category.
 - [ ] Add product-level CTA analytics and compare which suite paths create real activation.
-- [ ] Decide whether Polybilities belongs in the AI suite or the adjacent gaming portfolio.
+- [x] Keep Polybilities out of the verified AI suite until an attributable live product can be checked.
 - [ ] Make `/buy-mcrt` the canonical buyer route instead of the misleading `/pricing` name.
-- [ ] Give the buy route the normal header, footer, risk copy, contract proof, and return-to-game path.
+- [x] Give the buy route the normal header, footer, risk copy, contract proof, and return-to-game path.
 - [ ] Present PancakeSwap, wallet import, and centralized exchange as one selector, not repeated cards.
 - [ ] Remove duplicate price polling and use one visibility-aware refresh owner.
 - [ ] Add a live lobby schedule preview using the official lobby API, with honest empty/error states.
@@ -97,16 +97,16 @@ Homepage hierarchy:
 - [ ] Add a hero-roster and Ashvales-lore section using current first-party art.
 - [ ] Add a compact latest-patch/news block sourced from the owned CMS or store release notes.
 - [ ] Create a dedicated `/ecosystem` or `/labs` route for AI, ads, payments, and infrastructure products.
-- [ ] Give every ecosystem product a typed status: `live`, `beta`, `available`, or `planned`.
-- [ ] Create a source ledger with URL, status, token role, and last-verified date for every public claim.
+- [x] Give every promoted AI product a typed status and one shared verified source of truth.
+- [x] Create a whitepaper source ledger with URL, status, token role, and last-verified date for public claims.
 - [ ] Move the full team grid to a dedicated route and keep only current leadership proof on home.
 - [ ] Move the full roadmap to a dedicated route and separate shipped work from plans.
-- [ ] Audit the whitepaper for price-growth, passive-income, fixed-return, “10+ exchanges,” and other unsafe claims.
-- [ ] Add clear token jurisdiction, volatility, smart-contract, lock-period, and eligibility notices.
-- [ ] Clarify that BTC, ETH, SOL, and XRP lobby rewards described by the guide are BNB Chain-pegged assets.
+- [x] Audit and rewrite the whitepaper to remove price-growth, passive-income, fixed-return, exchange-count, and other unsafe claims.
+- [x] Add clear token jurisdiction, volatility, smart-contract, lock-period, and eligibility notices.
+- [x] Clarify that BTC, ETH, SOL, and XRP lobby rewards described by the guide are BNB Chain-pegged assets.
 - [ ] Reconcile Steam's remaining Early Access label with the owner-confirmed finished status.
 - [ ] Add CTA analytics for Play, platform, lobby, marketplace, builder, and buy-provider handoffs.
-- [ ] Add route tests for `/`, `/buy-mcrt`, `/whitepaper`, `/server`, and external CTA destinations.
+- [x] Add focused route/function tests for the whitepaper, buy behavior, server directory, navigation, legal shells, programs, hero routing, and truthful data handoffs.
 
 ## P1 next: design system, accessibility, and performance
 
@@ -116,8 +116,8 @@ Homepage hierarchy:
 - [ ] Define a small shared section primitive for eyebrow, title, body, and CTA alignment.
 - [ ] Define one primary, secondary, quiet-link, and icon-button interaction pattern.
 - [ ] Reduce repeated glass cards and use larger game art, editorial rhythm, and whitespace.
-- [ ] Keep all click and touch targets at least 44px where the layout allows.
-- [ ] Add visible focus, Escape behavior, focus return, and focus containment to mobile navigation.
+- [x] Keep primary drawer click and touch targets at least 44px.
+- [x] Add visible focus, Escape behavior, focus return, focus containment, background inertness, and one-scroll-owner behavior to mobile navigation.
 - [ ] Audit unnamed links, empty alt text, headings, labels, and color contrast.
 - [ ] Stop globally hiding horizontal overflow once the underlying layouts are proven safe.
 - [ ] Keep mobile poster-first media and defer hero video on reduced-motion/save-data/small screens.

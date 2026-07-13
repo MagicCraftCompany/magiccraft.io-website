@@ -49,4 +49,64 @@ describe('Dashboard', () => {
     expect(screen.queryByText('250.0K MCRT')).not.toBeInTheDocument()
     expect(screen.queryByText("Q1 '26")).not.toBeInTheDocument()
   })
+
+  it('renders validated lobby totals without graph dependencies', () => {
+    mockUseGameStats.mockReturnValue({
+      data: {
+        ts: '2026-07-13T12:00:00.000Z',
+        meta: {
+          status: 'partial',
+          sources: {
+            gameServer: { status: 'unavailable' },
+            lobby: { status: 'live' },
+            market: { status: 'live' },
+          },
+        },
+        season: {
+          name: null,
+          active: null,
+          daysRemaining: null,
+          totalPrizeMcrt: null,
+          prizesDistributed: null,
+        },
+        allTime: {
+          matchesPlayed: null,
+          finishedLobbies: 100_642,
+          mcrtInGame: null,
+          mcrtPledged: 145_827_252.72,
+          totalLobbies: 322_766,
+          totalUsers: 28_166,
+          topPlayers: [],
+          recentWinners: [],
+        },
+        price: {
+          usd: 0.001,
+          change24h: null,
+          marketCap: null,
+          volume24h: null,
+        },
+        live: { serverOnline: null },
+      },
+      loading: false,
+      error: null,
+      status: 'partial',
+      refresh: vi.fn(),
+    })
+
+    render(
+      <HelmetProvider>
+        <Dashboard />
+      </HelmetProvider>
+    )
+
+    expect(
+      screen.getByRole('heading', { name: 'Game Stats' })
+    ).toBeInTheDocument()
+    expect(screen.getAllByText('322,766')).toHaveLength(2)
+    expect(screen.getAllByText('28,166')).toHaveLength(2)
+    expect(screen.getAllByText('100,642')).toHaveLength(2)
+    expect(screen.getAllByText('145.83M MCRT')).toHaveLength(2)
+    expect(screen.getByText('Lobby stats source')).toBeInTheDocument()
+    expect(screen.getAllByText('Live')).toHaveLength(2)
+  })
 })

@@ -6,7 +6,7 @@ const Footer = lazy(() => import('@/components/Footer/Footer'))
 import bulletIcon from '@/assets/icons/bullet.svg'
 
 import { Play, ArrowUpRight } from 'lucide-react'
-import { roadmapData } from '../data/roadmapData'
+import { ROADMAP_LAST_VERIFIED, roadmapData } from '../data/roadmapData'
 import FaqAccordion from '../components/Accordion/FaqAccordion'
 import RoadmapCard from '../components/Cards/RoadmapCard'
 
@@ -504,9 +504,9 @@ function Homepagegames() {
                 {/* Content overlay using flexbox */}
                 <div className="absolute inset-0 ml-4 flex flex-col justify-end p-6 sm:p-8 md:p-12 lg:p-16">
                   <div className="space-y-2 sm:space-y-4">
-                    <h1 className="font-serif text-sm text-white sm:text-xl lg:text-2xl">
+                    <h2 className="font-serif text-sm text-white sm:text-xl lg:text-2xl">
                       MAGICCRAFT BROWSER GAMES
-                    </h1>
+                    </h2>
                     <a
                       href="https://games.magiccraft.io/"
                       target="_blank"
@@ -720,16 +720,16 @@ function Homepagegames() {
               <div className="space-y-20">
                 <div className="space-y-8">
                   <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
-                    Roadmap
+                    Product status
                   </h2>
                   <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
-                    2026
+                    Verified {ROADMAP_LAST_VERIFIED}
                   </div>
                 </div>
                 <div className="flex items-center justify-center ">
                   <div className=" grid max-w-[100vw] touch-auto snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
                     {roadmapData.map((data) => (
-                      <RoadmapCard data={data} key={data.quarter} />
+                      <RoadmapCard data={data} key={data.stage} />
                     ))}
                   </div>
                 </div>

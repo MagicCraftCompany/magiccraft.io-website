@@ -1,1190 +1,937 @@
+import type { ReactNode } from 'react'
 import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
+import {
+  AlertTriangle,
+  ArrowUpRight,
+  CheckCircle2,
+  Gamepad2,
+  ShieldCheck,
+  Sparkles,
+} from 'lucide-react'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import {
-  BYBIT_URL,
-  METAMASK_SWAP_URL,
-  MCRT_CONTRACT_CHECKSUM,
-  PANCAKESWAP_URL,
-} from '@/constants'
+  AI_PRODUCTS,
+  AI_PRODUCTS_LAST_VERIFIED,
+  type AiProductStatus,
+} from '@/data/aiProducts'
+import { BYBIT_URL, MCRT_CONTRACT_CHECKSUM, PANCAKESWAP_URL } from '@/constants'
+import { openGameByDevice } from '@/lib/gameActions'
 
-const printStyles = `
-@media print {
-  header, footer, nav, [data-mobile-bottom-bar], .fixed { display: none !important; }
-  body { background: #fff !important; color: #000 !important; }
-  a { color: inherit !important; text-decoration: none !important; }
-  .card-glass { border: 1px solid #ccc !important; background: #f9f9f9 !important; }
-  section { page-break-inside: avoid; }
-}`
+const WHITEPAPER_VERSION = '3.1'
+const VERIFIED_DATE = '13 July 2026'
 
-const MCRT_CONTRACT = MCRT_CONTRACT_CHECKSUM
+const printStyles = [
+  '@media print {',
+  '  header, footer, [data-whitepaper-actions] { display: none !important; }',
+  '  body { background: #fff !important; color: #111 !important; }',
+  '  main, section, article { color: #111 !important; }',
+  '  a { color: inherit !important; text-decoration: none !important; }',
+  '  [data-whitepaper-card] { border: 1px solid #bbb !important; background: #fff !important; }',
+  '  section { break-inside: avoid; }',
+  '}',
+].join('\n')
 
-const products = [
+type Status =
+  | AiProductStatus
+  | 'Beta'
+  | 'Degraded'
+  | 'Planned'
+  | 'Unavailable'
+  | 'Program'
+
+type Surface = {
+  name: string
+  status: Status
+  purpose: string
+  href?: string
+  note?: string
+}
+
+type PagePurpose = {
+  name: string
+  path: string
+  purpose: string
+}
+
+type Source = {
+  title: string
+  href: string
+  supports: string
+}
+
+const toc = [
+  ['summary', 'Summary'],
+  ['ai-products', 'AI products'],
+  ['game', 'Game'],
+  ['functions', 'Functions'],
+  ['mcrt', 'MCRT'],
+  ['tokenomics', 'Tokenomics'],
+  ['status-policy', 'Status policy'],
+  ['sources', 'Sources'],
+  ['risk', 'Risk'],
+]
+
+const gameSurfaces: Surface[] = [
   {
-    name: 'MagicCraft Game',
-    url: 'https://lobby.magiccraft.io',
-    color: '#98FFF9',
-    tag: 'LIVE',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717331155/mcrt-icon_oewidv.webp',
-    description:
-      'On-chain MOBA with PvP lobbies denominated in BTC, ETH, BNB, XRP, SOL, and $MCRT. Play on PC, iOS, Android, and Steam.',
-    mcrtUse: [
-      'Entry currency for $MCRT PvP lobbies',
-      'Prize pools and season rewards',
-      'NFT hero & skin purchases',
-      'Game Maker revenue sharing',
-    ],
+    name: 'MagicCraft game',
+    status: 'Live',
+    purpose:
+      'Free-to-play action game on iOS, Android and PC with PvP and PvE play.',
+    href: 'https://lobby.magiccraft.io/',
   },
   {
-    name: 'Akyn — AI Film Studio',
-    url: 'https://akyn.pro',
-    color: '#B591F2',
-    tag: 'LIVE',
-    icon: 'https://akyn.pro/logo.svg',
-    description:
-      'Full AI film production suite: pitch an idea, generate a script, cast consistent AI characters, compose and shoot scenes, then edit and export. Produces viral dance videos, social shorts, and cinematic content in minutes.',
-    mcrtUse: [
-      'Premium plan subscription paid in $MCRT',
-      'Video generation credits purchased with $MCRT',
-      'AI dance & social clip exports',
-      'Creator revenue sharing in $MCRT',
-    ],
+    name: 'Web3 Lobbies',
+    status: 'Live',
+    purpose:
+      'Optional wallet-connected matches, eligible entry pools and reward handling.',
+    href: 'https://lobby.magiccraft.io/',
+    note: 'The base game does not require a wallet.',
   },
   {
-    name: 'Merlin AI',
-    url: 'https://merlintheai.com',
-    color: '#98FFF9',
-    tag: 'LIVE',
-    icon: 'https://merlintheai.com/personas/merlin-logo-large-56.webp',
-    description:
-      'Multi-modal AI companion: voice chat, image & video generation, investing tools, AI personas, WhatsApp/Telegram bot. The $MCRT-native AI hub that routes payments and rewards across the entire ecosystem.',
-    mcrtUse: [
-      'Purchase credits on merlintheai.com with $MCRT',
-      'Premium plan subscription paid in $MCRT',
-      'AI image & video generation credit packs',
-      'Cross-product $MCRT payment gateway',
-    ],
+    name: 'Marketplace',
+    status: 'Live',
+    purpose:
+      'Browse and transact supported MagicCraft game assets under the marketplace terms.',
+    href: 'https://app.magiccraft.io/marketplace/explorer',
   },
   {
-    name: 'MagicAds',
-    url: 'https://magicads.dev',
-    color: '#FFB649',
-    tag: 'LIVE',
-    icon: 'https://magicads.dev/magicads-logo.svg',
-    description:
-      'AI-native cross-banner ad network. Publishers embed one script and earn $MCRT or USDT. Advertisers launch AI-targeted campaigns in minutes with $MCRT or Stripe payments.',
-    mcrtUse: [
-      'Ad spend paid in $MCRT',
-      'Publisher payouts in $MCRT',
-      'Dual settlement: $MCRT + Stripe',
-      'AI-targeted campaign credits',
-    ],
+    name: 'Pledging',
+    status: 'Live',
+    purpose:
+      'Lock eligible MCRT for a selected term under the pool rules shown in the product.',
+    href: 'https://app.magiccraft.io/pledging',
+    note: 'Rewards are dynamic. A fixed return is not promised.',
   },
   {
-    name: 'Polybilities',
-    url: 'https://polybilities.com',
-    color: '#FFB649',
-    tag: 'LIVE',
-    icon: 'https://polybilities.com/polybilities-logo.png',
-    description:
-      'AI prediction markets with live odds, real-time settlement, and $MCRT rewards. Stake $MCRT to enter predictions and earn from accurate forecasts.',
-    mcrtUse: [
-      'Stake $MCRT to enter prediction markets',
-      '$MCRT rewards for correct predictions',
-      'AI odds powered by Merlin',
-      'Seasonal prize pools in $MCRT',
-    ],
+    name: 'Referral program',
+    status: 'Live',
+    purpose:
+      'Create a referral link and review the eligibility rules for lobby rewards.',
+    href: 'https://lobby.magiccraft.io/referral',
   },
   {
-    name: 'DocAI',
-    url: 'https://docai.live',
-    color: '#10B981',
-    tag: 'LIVE',
-    icon: 'https://docai.live/logotext-main.png',
-    description:
-      '24/7 AI wellness assistant with personalized health guidance, symptom tracking, and daily check-ins. Starter, Pro, and Enterprise plans all accept $MCRT on-chain for instant subscription activation.',
-    mcrtUse: [
-      'Purchase Starter, Pro, or Enterprise subscription with $MCRT',
-      'On-chain BEP-20 payment — instant plan activation',
-      'No trial required when paying with $MCRT',
-      'AI health coaching and document analysis credits',
-    ],
+    name: 'Ecosystem Games',
+    status: 'Beta',
+    purpose:
+      'Open a browser hub of lightweight games connected to the wider ecosystem.',
+    href: 'https://games.magiccraft.io/',
   },
   {
-    name: 'SocialMM',
-    url: 'https://socialmm.ai',
-    color: '#B591F2',
-    tag: 'LIVE',
-    icon: '/icons/icon-community.svg',
-    description:
-      'AI-powered social media management: schedule posts, generate content, track analytics, and grow your audience. $MCRT holders get priority scheduling and advanced AI templates.',
-    mcrtUse: [
-      'Premium account management in $MCRT',
-      'AI content generation credits',
-      'Analytics dashboard access',
-    ],
+    name: 'MCRT Game Maker',
+    status: 'Live',
+    purpose: 'Build and test maps in the free Steam editor.',
+    href: 'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/',
+    note: 'Export, sharing and deeper game integration remain planned.',
   },
   {
-    name: 'EnvRouter AI',
-    url: '',
-    color: '#38BDF8',
-    tag: 'WIP',
-    icon: '/icons/icon-stats.svg',
-    description:
-      'AI gateway for model routing, encrypted key storage, streaming proxy support, token tracking, and dashboard management for product teams.',
-    mcrtUse: [
-      'Shared AI infrastructure for ecosystem products',
-      'Usage logs and token tracking for model spend',
-      'Planned routing layer for AI subscriptions and credits',
-    ],
+    name: 'Heroes',
+    status: 'Live',
+    purpose: 'Browse the playable hero roster and open character details.',
+    href: '/chooseyourhero',
   },
   {
-    name: 'MAGAS7',
-    url: 'https://magas7.com',
-    color: '#B1FF5A',
-    tag: 'MVP',
-    icon: 'https://magas7.com/favicon.svg',
-    description:
-      'Marketing Agents MVP: a Codex-like command surface for agentic marketing tools that research, write, design, schedule, post, analyze, and guard brand quality.',
-    mcrtUse: [
-      'Growth engine for MagicCraft ecosystem campaigns',
-      'Agentic creative, scheduling, and analytics workflows',
-      'Marketing automation that can feed MagicAds demand',
-    ],
+    name: 'Leaderboard',
+    status: 'Live',
+    purpose: 'Show ranked Web3 lobby results after the current data loads.',
+    href: 'https://lobby.magiccraft.io/leaderboard',
+    note: 'A fresh delayed check rendered 50 all-time ranking rows.',
   },
   {
-    name: 'DragonList',
-    url: 'https://dragonlist.ai',
-    color: '#FF6B6B',
-    tag: 'LIVE',
-    icon: '/icons/icon-stats.svg',
-    description:
-      'AI-curated launchpad and discovery platform for the next generation of Web3 and AI projects. $MCRT is the featured utility token for featured listings and community voting.',
-    mcrtUse: [
-      'Project listing fees in $MCRT',
-      'Community voting stake in $MCRT',
-      'Early access passes for $MCRT holders',
-    ],
+    name: 'Game stats',
+    status: 'Live',
+    purpose: 'Show validated lobby totals and current MCRT market data.',
+    href: '/stats',
+    note: 'The owned fallback omits empty chart series. The older lobby chart page remains degraded.',
+  },
+  {
+    name: 'Rent testnet',
+    status: 'Unavailable',
+    purpose: 'Intended to test asset-rental workflows.',
+    note: 'Hidden from navigation while the external DNS configuration is broken.',
   },
 ]
 
-const revenueStreams = [
+const sitePages: PagePurpose[] = [
   {
-    source: 'PvP Crypto Lobbies',
-    mechanism: 'Platform fee on every match entry',
-    mcrtDemand: 'Direct — lobby entry and prize pool denomination',
-    color: '#98FFF9',
+    name: 'AI Suite Overview',
+    path: '/#ai-products',
+    purpose: 'Compare the verified AI products and open the right service.',
   },
   {
-    source: 'Akyn (Premium / Business)',
-    mechanism: 'Monthly subscription + per-credit video generation',
-    mcrtDemand: 'Subscription payments in $MCRT; credits bought with $MCRT',
-    color: '#B591F2',
+    name: 'Game Overview',
+    path: '/magiccraft',
+    purpose: 'Understand the game, current PvP/PvE direction and platforms.',
   },
   {
-    source: 'MagicAds Network',
-    mechanism: 'Advertiser CPM/CPC fees + publisher payout spread',
-    mcrtDemand:
-      'Buy pressure — advertisers must acquire $MCRT to run campaigns',
-    color: '#FFB649',
+    name: 'Careers',
+    path: '/careers',
+    purpose: 'Review role types and use the published application route.',
   },
   {
-    source: 'NFT Marketplace',
-    mechanism: 'Trading royalties on Genesis & Revelation NFT sales',
-    mcrtDemand: 'Settlement currency for hero/skin trades',
-    color: '#98FFF9',
+    name: 'Guilds',
+    path: '/guilds',
+    purpose: 'Find community, competition and guild participation links.',
   },
   {
-    source: 'Polybilities Markets',
-    mechanism: 'Spread and settlement fee on prediction outcomes',
-    mcrtDemand: 'Stake and reward currency — all prizes in $MCRT',
-    color: '#FFB649',
+    name: 'FAQ and support',
+    path: '/faq',
+    purpose: 'Search common game, account and Web3 questions.',
   },
   {
-    source: 'Game Maker Studio',
-    mechanism: 'Revenue share on user-created map earnings',
-    mcrtDemand: 'Creator payouts in $MCRT; maps priced in $MCRT',
-    color: '#B591F2',
+    name: 'News',
+    path: '/news',
+    purpose: 'Read product updates, patch notes and announcements.',
   },
   {
-    source: 'Merlin AI',
-    mechanism: 'Credit purchases + premium subscriptions + image/video gen API',
-    mcrtDemand:
-      'Direct $MCRT credit purchases on merlintheai.com — primary cross-product payment hub',
-    color: '#98FFF9',
+    name: 'Build on MagicCraft',
+    path: '/build-on-magiccraft',
+    purpose: 'Review creator tools, assets and the application path.',
   },
   {
-    source: 'DocAI (Wellness AI)',
-    mechanism: 'Starter / Pro / Enterprise monthly subscriptions',
-    mcrtDemand:
-      '$MCRT on-chain payment activates subscription instantly — direct buy pressure from AI health users',
-    color: '#10B981',
+    name: 'Grants',
+    path: '/grants',
+    purpose: 'Submit an existing build for ecosystem funding review.',
+  },
+  {
+    name: 'Bounties',
+    path: '/bounties',
+    purpose:
+      'Browse scoped community tasks and use the published application email.',
   },
 ]
 
-const tokenomicsRows = [
+const allocations = [
+  ['Ecosystem growth and gaming', '43.5%'],
+  ['Team', '15%'],
+  ['Pledging', '12%'],
+  ['Reserve', '9%'],
+  ['Private allocation', '6%'],
+  ['Liquidity', '6%'],
+  ['Advisors', '5%'],
+  ['Public allocation', '3.5%'],
+]
+
+const sources: Source[] = [
   {
-    category: 'Eco Growth / Gaming Issuance',
-    percent: '43.5%',
-    description:
-      'PvP prize pools, player rewards, Game Maker revenue share, pledging rewards, AI ecosystem incentives — distributed linearly over 4 years',
+    title: 'MagicCraft product offerings',
+    href: 'https://docs.magiccraft.io/executive-summary/product-offerings-magiccraft-games',
+    supports: 'Game and ecosystem product scope',
   },
   {
-    category: 'Team',
-    percent: '15%',
-    description:
-      '3-month lockup, then 12 months linear distribution — 1,500,000,000 MCRT',
+    title: 'MagicCraft game modes',
+    href: 'https://docs.magiccraft.io/magiccraft-game-pvp-moba/game-modes',
+    supports: 'PvP mode definitions',
   },
   {
-    category: 'Pledging Issuance',
-    percent: '12%',
-    description:
-      'Staking rewards at 1% ARR, capped at 1,000,000 $MCRT per month — a sustainable rate introduced to protect long-term token supply',
+    title: 'MagicCraft App Store listing',
+    href: 'https://apps.apple.com/us/app/magiccraft-pvp/id1638183525',
+    supports: 'Current PvP and PvE product description',
   },
   {
-    category: 'Reserve Fund',
-    percent: '9%',
-    description:
-      'Protocol operations, marketing initiatives, Ambassador program, and community incentives',
+    title: 'Web3 user guide',
+    href: 'https://docs.magiccraft.io/web3-user-guide',
+    supports: 'Optional Web3 functions and supported assets',
   },
   {
-    category: 'Private Sale',
-    percent: '6%',
-    description:
-      'Rounds at $0.003–$0.004, total raised $2.115M — 3-month lockup, 12 months linear vesting',
+    title: 'Web3 Lobbies',
+    href: 'https://docs.magiccraft.io/magiccraft-web3-integration-system/web3-lobby',
+    supports: 'Lobby purpose and match flow',
   },
   {
-    category: 'Liquidity',
-    percent: '6%',
-    description:
-      'DEX and CEX liquidity provision across Bybit, PancakeSwap, HTX, and more',
+    title: 'NFT Marketplace',
+    href: 'https://docs.magiccraft.io/nft-collections/nft-marketplace',
+    supports: 'Marketplace purpose',
   },
   {
-    category: 'Advisors',
-    percent: '5%',
-    description: '3-month lockup, 12 months linear distribution',
+    title: 'Pledging purpose',
+    href: 'https://docs.magiccraft.io/pledging/the-purpose',
+    supports: 'Locking purpose and term behavior',
   },
   {
-    category: 'Public Sale (IDO)',
-    percent: '3.5%',
-    description:
-      'IDO at $0.006 — raised $2.075M; total raised across all rounds: $4.19M',
+    title: 'MCRT reward rules',
+    href: 'https://docs.magiccraft.io/pledging/usdmcrt-rewards',
+    supports: 'Dynamic reward conditions',
+  },
+  {
+    title: 'MCRT tokenomics',
+    href: 'https://docs.magiccraft.io/usdmcrt-token/tokenomics',
+    supports: 'Chain, maximum supply, allocation and no-burn policy',
+  },
+  {
+    title: 'Play-to-earn rules',
+    href: 'https://docs.magiccraft.io/magiccraft-web3-integration-system/play-to-earn',
+    supports: 'Example lobby pool deductions',
+  },
+  {
+    title: 'MagicCraft legal and compliance',
+    href: 'https://docs.magiccraft.io/misc/legal-and-compliance',
+    supports: 'Token, risk and eligibility limits',
+  },
+  {
+    title: 'MCRT Game Maker on Steam',
+    href: 'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/',
+    supports: 'Editor availability and present scope',
+  },
+  {
+    title: 'Merlin AI',
+    href: 'https://merlintheai.com/',
+    supports: 'Assistant and connected workflow purpose',
+  },
+  {
+    title: 'Akyn',
+    href: 'https://akyn.pro/',
+    supports: 'AI film workspace purpose',
+  },
+  {
+    title: 'MagicAds',
+    href: 'https://magicads.dev/',
+    supports: 'Advertiser and publisher network purpose',
+  },
+  {
+    title: 'MAGAS7',
+    href: 'https://magas7.com/',
+    supports: 'Early-access agentic marketing purpose',
+  },
+  {
+    title: 'DragonList',
+    href: 'https://dragonlist.ai/',
+    supports: 'Meeting transcription and action-item purpose',
+  },
+  {
+    title: 'DocAI',
+    href: 'https://docai.live/',
+    supports: 'Wellness-information purpose',
   },
 ]
 
-const flywheelSteps = [
-  {
-    n: '01',
-    title: 'Users Buy $MCRT',
-    body: 'Players, creators, and AI users acquire $MCRT via Bybit, PancakeSwap, or credit card to access premium features across the ecosystem.',
-  },
-  {
-    n: '02',
-    title: 'Spend in Products',
-    body: 'MCRT is spent on Akyn Premium subscriptions, Merlin AI credits, DocAI wellness plans, Polybilities stakes, MagicAds campaigns, game lobbies, and NFT purchases, creating consistent protocol demand.',
-  },
-  {
-    n: '03',
-    title: 'Revenue Flows Back',
-    body: 'Platform fees, ad spend, subscription revenue, and marketplace royalties flow into the treasury, funding rewards and buybacks.',
-  },
-  {
-    n: '04',
-    title: 'Holders Are Rewarded',
-    body: 'Stakers earn from prize pools, ad revenue, and ecosystem growth. Higher MCRT value incentivises more product use and new user acquisition.',
-  },
-  {
-    n: '05',
-    title: 'Ecosystem Expands',
-    body: 'New products (Akyn tiers, AI models, new game modes) launch, each creating new demand vectors for $MCRT and compounding the flywheel.',
-  },
-]
+function statusClassName(status: Status) {
+  if (status === 'Live') {
+    return 'border-emerald-300/30 bg-emerald-300/10 text-emerald-100'
+  }
+  if (status === 'Early access' || status === 'Beta') {
+    return 'border-amber-300/30 bg-amber-300/10 text-amber-100'
+  }
+  if (status === 'Degraded') {
+    return 'border-orange-300/30 bg-orange-300/10 text-orange-100'
+  }
+  if (status === 'Unavailable') {
+    return 'border-rose-300/30 bg-rose-300/10 text-rose-100'
+  }
+  return 'border-violet-300/30 bg-violet-300/10 text-violet-100'
+}
 
-const Section = ({
+function StatusBadge({ status }: { status: Status }) {
+  return (
+    <span
+      className={
+        'rounded-full border px-2 py-1 text-[10px] font-bold uppercase tracking-[0.12em] ' +
+        statusClassName(status)
+      }
+    >
+      {status}
+    </span>
+  )
+}
+
+function Section({
   id,
+  eyebrow,
   title,
-  sub,
+  intro,
   children,
 }: {
   id: string
+  eyebrow: string
   title: string
-  sub?: string
-  children: React.ReactNode
-}) => (
-  <section id={id} className="border-b border-white/5 py-12 md:py-16">
-    <div className="mb-8">
-      <h2 className="bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-2xl font-bold text-transparent sm:text-3xl md:text-4xl">
-        {title}
-      </h2>
-      {sub && <p className="mt-2 max-w-3xl text-base text-white/60">{sub}</p>}
-    </div>
-    {children}
-  </section>
-)
+  intro?: string
+  children: ReactNode
+}) {
+  return (
+    <section
+      id={id}
+      className="scroll-mt-24 border-t border-white/10 py-14 sm:py-20"
+    >
+      <div className="mb-8 max-w-3xl">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-[#98FFF9]">
+          {eyebrow}
+        </p>
+        <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl">
+          {title}
+        </h2>
+        {intro && (
+          <p className="mt-4 text-base leading-7 text-white/65 sm:text-lg">
+            {intro}
+          </p>
+        )}
+      </div>
+      {children}
+    </section>
+  )
+}
 
-const Tag = ({ label, color }: { label: string; color: string }) => (
-  <span
-    className="rounded-full border px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider"
-    style={{ color, borderColor: `${color}50`, backgroundColor: `${color}15` }}
-  >
-    {label}
-  </span>
-)
+function ExternalLink({
+  href,
+  children,
+  className = '',
+}: {
+  href: string
+  children: ReactNode
+  className?: string
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer noopener"
+      className={className}
+    >
+      {children}
+      <span className="sr-only"> Opens in a new tab.</span>
+    </a>
+  )
+}
 
 export default function Whitepaper() {
+  const liveProductCount = AI_PRODUCTS.filter(
+    (product) => product.status === 'Live'
+  ).length
+
   return (
-    <>
+    <div className="min-h-screen bg-[#03082f] text-white">
       <Helmet>
-        <title>
-          MagicCraft Whitepaper v3.0 — $MCRT Token, Akyn AI & Full Ecosystem
-        </title>
+        <title>MagicCraft Whitepaper v{WHITEPAPER_VERSION}</title>
         <meta
           name="description"
-          content="MagicCraft Whitepaper v3.0: $MCRT utility across AI gaming, Akyn AI film studio, Merlin AI, MagicAds, EnvRouter AI, MAGAS7, Polybilities and the full ecosystem."
+          content="A verified guide to the MagicCraft game, Web3 functions, AI products and MCRT utility."
         />
-        <link rel="canonical" href="https://magiccraft.io/whitepaper" />
         <style>{printStyles}</style>
       </Helmet>
-      <div className="min-h-screen bg-[#03082f] text-white">
-        <Header />
 
-        {/* Hero */}
-        <div className="relative overflow-hidden border-b border-white/10 pb-16 pt-24">
-          <div className="absolute inset-0 bg-gradient-to-b from-[#06103f] via-[#03082f] to-[#03082f]"></div>
-          <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649]"></div>
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(152,255,249,0.12),transparent)]"></div>
-          <div className="relative z-10 mx-auto max-w-screen-xl px-4 text-center sm:px-6">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/60">
-              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#98FFF9]"></span>
-              Whitepaper v3.0 — Updated April 2026
-            </div>
-            <h1 className="mb-4 text-4xl font-black tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-              <span className="bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-transparent">
-                MAGICCRAFT
-              </span>
-              <br />
-              <span className="text-white/90">WHITEPAPER</span>
-            </h1>
-            <p className="mx-auto mb-8 max-w-3xl text-lg leading-relaxed text-white/70 sm:text-xl">
-              The $MCRT ecosystem: AI gaming, Akyn AI film studio, MagicAds,
-              Merlin, and more — every product creates a new reason to hold the
-              token.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-3">
-              <a
-                href={PANCAKESWAP_URL}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="btn-primary px-6 py-2.5 text-sm font-bold"
-              >
-                Swap on PancakeSwap
-              </a>
-              <a
-                href={METAMASK_SWAP_URL}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="btn-secondary px-6 py-2.5 text-sm font-semibold"
-              >
-                Open MetaMask
-              </a>
-              <a
-                href={BYBIT_URL}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="rounded-lg border border-[#FFB649]/30 bg-[#FFB649]/10 px-6 py-2.5 text-sm font-bold text-[#FFDD8A] transition-all hover:bg-[#FFB649]/15"
-              >
-                Buy on Bybit
-              </a>
-              <a
-                href="https://lobby.magiccraft.io"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="btn-secondary px-6 py-2.5 text-sm font-semibold"
-              >
-                Play Free Now
-              </a>
-              <button
-                onClick={() => window.print()}
-                className="rounded-lg border border-white/20 px-6 py-2.5 text-sm font-semibold text-white/70 transition-all hover:border-white/40 hover:text-white"
-              >
-                ↓ Save as PDF
-              </button>
-            </div>
-            <div className="mt-8 inline-flex flex-col items-center gap-1 text-xs text-white/40">
-              <span>Contract (BNB Chain)</span>
-              <code className="break-all font-mono text-[11px] text-[#98FFF9]/70">
-                {MCRT_CONTRACT}
-              </code>
-            </div>
-          </div>
-        </div>
+      <Header />
 
-        {/* TOC */}
-        <div className="sticky top-0 z-30 hidden border-b border-white/10 bg-[#03082f]/95 backdrop-blur md:block">
-          <div className="mx-auto max-w-screen-xl px-6">
-            <nav className="flex items-center gap-6 overflow-x-auto whitespace-nowrap py-3 text-xs font-medium text-white/50">
-              {[
-                'Executive Summary',
-                'The Vision',
-                'Products',
-                'Akyn',
-                '$MCRT Token',
-                'Monetization',
-                'Tokenomics',
-                'Roadmap',
-              ].map((t) => (
-                <a
-                  key={t}
-                  href={`#${t
-                    .toLowerCase()
-                    .replace(/\s+/g, '-')
-                    .replace(/[^a-z0-9-]/g, '')}`}
-                  className="transition-colors hover:text-[#98FFF9]"
-                >
-                  {t}
-                </a>
-              ))}
-            </nav>
-          </div>
-        </div>
-
-        <main className="mx-auto max-w-screen-xl px-4 pb-20 sm:px-6">
-          {/* Executive Summary */}
-          <Section id="executive-summary" title="Executive Summary">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-              <div className="space-y-4 leading-relaxed text-white/80">
-                <p>
-                  MagicCraft ($MCRT) is a multi-product AI and gaming ecosystem
-                  where every product — from competitive on-chain gaming to AI
-                  film production — routes its premium economy through a single
-                  token. Each new product adds a new demand vector; each new
-                  user becomes a potential $MCRT buyer.
-                </p>
-                <p>
-                  At the core of our monetization model is the{' '}
-                  <span className="font-semibold text-white">
-                    product flywheel
-                  </span>
-                  : premium AI features across Akyn, Merlin, MagicAds,
-                  Polybilities, EnvRouter AI, and MAGAS7 expand the surface area
-                  where MagicCraft can turn usage into revenue and $MCRT demand.
-                </p>
-                <p>
-                  $MCRT is live on Bybit, PancakeSwap, and HTX. It powers 8+
-                  live products across gaming, AI content, prediction markets,
-                  and advertising. The token has a fixed maximum supply,
-                  deflationary mechanics via fee burns, and ecosystem incentives
-                  that reward long-term holders.
-                </p>
+      <main>
+        <section className="relative overflow-hidden border-b border-white/10">
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(152,255,249,0.18),transparent_38%),radial-gradient(circle_at_85%_20%,rgba(181,145,242,0.18),transparent_35%)]"
+          />
+          <div className="relative mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
+            <div className="max-w-4xl">
+              <div className="mb-5 flex flex-wrap items-center gap-2">
+                <span className="rounded-full border border-[#98FFF9]/30 bg-[#98FFF9]/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-[#98FFF9]">
+                  Whitepaper v{WHITEPAPER_VERSION}
+                </span>
+                <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/65">
+                  Verified {VERIFIED_DATE}
+                </span>
               </div>
-              <div className="grid grid-cols-2 gap-3">
-                {[
-                  { label: 'Live Products', value: '8+', color: '#98FFF9' },
-                  {
-                    label: 'Token Holders',
-                    value: '17,800+',
-                    color: '#B591F2',
-                  },
-                  { label: 'Downloads', value: '100,000+', color: '#FFB649' },
-                  { label: 'Blockchain', value: 'BNB Chain', color: '#98FFF9' },
-                  {
-                    label: 'Listed On',
-                    value: 'Bybit, PancakeSwap, HTX',
-                    color: '#B591F2',
-                  },
-                  {
-                    label: 'Whitepaper',
-                    value: 'v3.0 · Apr 2026',
-                    color: '#FFB649',
-                  },
-                ].map((stat) => (
-                  <div
-                    key={stat.label}
-                    className="card-glass rounded-xl border border-white/10 p-4"
+              <h1 className="max-w-3xl text-4xl font-black leading-[1.03] tracking-tight sm:text-6xl lg:text-7xl">
+                The living guide to
+                <span className="block bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-transparent">
+                  MagicCraft products
+                </span>
+              </h1>
+              <p className="mt-6 max-w-3xl text-lg leading-8 text-white/70 sm:text-xl">
+                What each game, Web3 function and AI product is for, what is
+                working now, what is not available, and where MCRT is actually
+                used.
+              </p>
+              <div
+                data-whitepaper-actions
+                className="mt-8 flex flex-col gap-3 sm:flex-row"
+              >
+                <button
+                  type="button"
+                  onClick={openGameByDevice}
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#98FFF9] px-5 py-3 font-bold text-[#03082f] transition hover:brightness-95"
+                >
+                  <Gamepad2 className="h-5 w-5" aria-hidden="true" />
+                  Play MagicCraft
+                </button>
+                <Link
+                  to="/#ai-products"
+                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 font-bold text-white transition hover:bg-white/10"
+                >
+                  <Sparkles className="h-5 w-5" aria-hidden="true" />
+                  Explore AI products
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div
+          data-whitepaper-toc
+          className="sticky top-0 z-30 border-b border-white/10 bg-[#03082f]/95 backdrop-blur-xl"
+        >
+          <nav
+            aria-label="Whitepaper sections"
+            className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-4 py-2 sm:px-8 lg:px-10"
+          >
+            {toc.map(([id, label]) => (
+              <a
+                key={id}
+                href={'#' + id}
+                className="min-h-11 shrink-0 rounded-lg px-3 py-3 text-xs font-semibold text-white/60 transition hover:bg-white/5 hover:text-white"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <Section
+            id="summary"
+            eyebrow="Executive summary"
+            title="One ecosystem, distinct products"
+            intro="MagicCraft combines a live game, optional Web3 services, creator programs and a linked portfolio of AI products."
+          >
+            <div className="grid gap-4 md:grid-cols-3">
+              {[
+                {
+                  title: 'Game first',
+                  body: 'Players can use the core game without a wallet. Web3 lobbies, assets and MCRT functions are optional layers.',
+                  icon: Gamepad2,
+                },
+                {
+                  title: 'Products stay honest',
+                  body: 'The AI products have separate functions, accounts, plans and terms unless a product explicitly says otherwise.',
+                  icon: CheckCircle2,
+                },
+                {
+                  title: 'Status is dated',
+                  body: 'Live, beta, early-access, planned and unavailable are different states. This guide records the verification date.',
+                  icon: ShieldCheck,
+                },
+              ].map((item) => {
+                const Icon = item.icon
+                return (
+                  <article
+                    key={item.title}
+                    data-whitepaper-card
+                    className="rounded-2xl border border-white/10 bg-white/[0.04] p-6"
                   >
-                    <div className="mb-1 text-[10px] uppercase tracking-wider text-white/40">
-                      {stat.label}
-                    </div>
-                    <div
-                      className="text-base font-bold"
-                      style={{ color: stat.color }}
-                    >
-                      {stat.value}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Section>
-
-          {/* Vision */}
-          <Section
-            id="the-vision"
-            title="The Vision"
-            sub="One token. Eight products. One flywheel."
-          >
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-              {[
-                {
-                  icon: '🎮',
-                  title: 'AI-Native Gaming',
-                  body: 'MagicCraft is built on a proven $10M Unity codebase, now rebuilt with daily AI-assisted development using Cursor, Codex, and Claude. Every mechanic — from matchmaking to map generation — is AI-assisted, shipping faster than any traditional studio.',
-                },
-                {
-                  icon: '💰',
-                  title: 'Token-Gated Premium Economy',
-                  body: 'Unlike games where tokens are "optional", $MCRT is used for Akyn Premium video generation, Polybilities staking, MagicAds ad campaigns, and PvP lobby entry. Use = demand. Demand = price appreciation.',
-                },
-                {
-                  icon: '🔗',
-                  title: 'Merlin as the Payment Rail',
-                  body: "Merlin AI acts as the ecosystem's AI payment hub: routing $MCRT purchases, managing subscription states, and enabling cross-product identity. One Merlin account connects you to every MagicCraft product.",
-                },
-              ].map((c) => (
-                <div
-                  key={c.title}
-                  className="card-glass rounded-2xl border border-white/10 p-6"
-                >
-                  <div className="mb-3 text-3xl">{c.icon}</div>
-                  <h3 className="mb-2 text-lg font-bold text-white">
-                    {c.title}
-                  </h3>
-                  <p className="text-sm leading-relaxed text-white/70">
-                    {c.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Section>
-
-          {/* Products */}
-          <Section
-            id="products"
-            title="The Ecosystem"
-            sub="Every product creates new utility for $MCRT."
-          >
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-              {products.map((p) => {
-                const card = (
-                  <>
-                    <div className="mb-3 flex items-start gap-3">
-                      {p.icon ? (
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl bg-black/40 ring-1 ring-white/10">
-                          <img
-                            src={p.icon}
-                            alt={p.name}
-                            className="h-8 w-8 object-contain"
-                            loading="lazy"
-                          />
-                        </div>
-                      ) : (
-                        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-white/5 text-lg ring-1 ring-white/10">
-                          🔮
-                        </div>
-                      )}
-                      <div className="min-w-0">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <h3 className="text-base font-bold text-white transition-colors group-hover:text-[#98FFF9]">
-                            {p.name}
-                          </h3>
-                          <Tag label={p.tag} color={p.color} />
-                        </div>
-                        <span className="text-xs text-white/40">
-                          {p.url
-                            ? p.url.replace('https://', '')
-                            : 'Domain pending'}
-                        </span>
-                      </div>
-                    </div>
-                    <p className="mb-3 text-sm leading-relaxed text-white/70">
-                      {p.description}
+                    <Icon
+                      className="mb-4 h-6 w-6 text-[#98FFF9]"
+                      aria-hidden="true"
+                    />
+                    <h3 className="text-lg font-bold">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-white/60">
+                      {item.body}
                     </p>
-                    <div className="space-y-1">
-                      {p.mcrtUse.map((u) => (
-                        <div
-                          key={u}
-                          className="flex items-center gap-2 text-xs text-white/60"
-                        >
-                          <span
-                            className="h-1 w-1 flex-shrink-0 rounded-full"
-                            style={{ backgroundColor: p.color }}
-                          ></span>
-                          {u}
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                )
-                const className =
-                  'card-glass rounded-2xl p-5 border border-white/10 hover:border-white/20 hover:-translate-y-0.5 transition-all duration-200 no-underline hover:no-underline group block'
-
-                return p.url ? (
-                  <a
-                    key={p.name}
-                    href={p.url}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                    className={className}
-                  >
-                    {card}
-                  </a>
-                ) : (
-                  <div key={p.name} className={className}>
-                    {card}
-                  </div>
+                  </article>
                 )
               })}
             </div>
           </Section>
 
-          {/* Akyn deep-dive */}
           <Section
-            id="akyn"
-            title="Akyn — AI Film Production Suite"
-            sub="Write, cast, shoot, and edit viral videos with AI. No crew needed."
+            id="ai-products"
+            eyebrow="AI portfolio"
+            title={
+              String(liveProductCount) + ' live products, one in early access'
+            }
+            intro={
+              'The portfolio was checked against each public product on ' +
+              AI_PRODUCTS_LAST_VERIFIED +
+              '. Being listed together does not imply shared identity, billing or MCRT support.'
+            }
           >
-            <div className="relative overflow-hidden rounded-3xl border border-[#B591F2]/30">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#1a0835]/90 via-[#0f0824]/95 to-[#03082f]/95"></div>
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-[#B591F2] via-[#98FFF9] to-[#B591F2]"></div>
-              <div className="relative z-10 p-6 md:p-10">
-                <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
-                  <div>
-                    <div className="mb-4 flex items-center gap-3">
-                      <div className="h-14 w-14 overflow-hidden rounded-2xl ring-1 ring-[#B591F2]/30">
-                        <img
-                          src="https://akyn.pro/logo.svg"
-                          alt="Akyn"
-                          className="h-full w-full bg-[#120d18] object-contain p-2"
-                          loading="lazy"
-                        />
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-black text-white">Akyn</h3>
-                        <a
-                          href="https://akyn.pro"
-                          target="_blank"
-                          rel="noreferrer noopener"
-                          className="text-sm text-[#B591F2]/80 hover:text-[#B591F2]"
-                        >
-                          akyn.pro
-                        </a>
-                      </div>
-                    </div>
-                    <p className="mb-4 leading-relaxed text-white/80">
-                      Akyn is a full AI film production suite that gives every
-                      creator a complete crew: a{' '}
-                      <span className="font-semibold text-white">
-                        Screenwriter
-                      </span>{' '}
-                      that expands a one-line idea into a multi-scene script, a{' '}
-                      <span className="font-semibold text-white">
-                        Production Designer
-                      </span>{' '}
-                      that generates consistent characters and locations, a{' '}
-                      <span className="font-semibold text-white">
-                        Cinematographer
-                      </span>{' '}
-                      that frames and generates motion between shots, and an{' '}
-                      <span className="font-semibold text-white">Editor</span>{' '}
-                      that assembles, scores, and exports the final film.
-                    </p>
-                    <p className="mb-4 leading-relaxed text-white/80">
-                      The output: viral dance videos, cinematic social shorts,
-                      AI films — exported to TikTok, Instagram Reels, and
-                      YouTube Shorts in minutes. Akyn's creator gallery is a
-                      live feed of exported videos from real users.
-                    </p>
-                    <p className="leading-relaxed text-white/80">
-                      As part of the MagicCraft ecosystem, Akyn's Premium and
-                      Business tiers can be paid with{' '}
-                      <span className="font-semibold text-[#B591F2]">
-                        $MCRT
-                      </span>
-                      , making every creator who wants HD exports and priority
-                      generation a direct $MCRT buyer.
-                    </p>
-                  </div>
-                  <div className="space-y-3">
-                    <h4 className="mb-2 text-sm font-bold uppercase tracking-wider text-white/60">
-                      Akyn Plans
-                    </h4>
-                    {[
-                      {
-                        plan: 'Standard',
-                        price: '$10 / mo',
-                        color: '#98FFF9',
-                        features: [
-                          'Script generation',
-                          'AI character & location assets',
-                          'Video generation',
-                          'Standard exports',
-                          'Email support',
-                        ],
-                      },
-                      {
-                        plan: 'Premium',
-                        price: '$25 / mo',
-                        color: '#B591F2',
-                        features: [
-                          'Everything in Standard',
-                          'Priority generation queue',
-                          'HD exports',
-                          'More video credits',
-                          'Early access to new AI models',
-                        ],
-                      },
-                      {
-                        plan: 'Business',
-                        price: 'Custom',
-                        color: '#FFB649',
-                        features: [
-                          'Everything in Premium',
-                          'Volume credits',
-                          'Team collaboration',
-                          'API access',
-                          'Dedicated support',
-                        ],
-                      },
-                    ].map((p) => (
-                      <div
-                        key={p.plan}
-                        className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 p-3"
-                      >
-                        <div className="w-20 flex-shrink-0 text-right">
-                          <div
-                            className="text-sm font-bold"
-                            style={{ color: p.color }}
-                          >
-                            {p.plan}
-                          </div>
-                          <div className="text-xs text-white/40">{p.price}</div>
-                        </div>
-                        <div className="flex flex-1 flex-wrap gap-x-3 gap-y-0.5">
-                          {p.features.map((f) => (
-                            <span key={f} className="text-xs text-white/60">
-                              {f}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                    <div className="mt-4 rounded-xl border border-[#B591F2]/20 bg-gradient-to-r from-[#B591F2]/10 to-[#98FFF9]/5 p-4">
-                      <div className="mb-1 text-xs font-bold uppercase tracking-wider text-[#B591F2]">
-                        $MCRT + Akyn
-                      </div>
-                      <ol className="list-inside list-decimal space-y-1 text-sm text-white/70">
-                        <li>Buy $MCRT on Bybit or PancakeSwap</li>
-                        <li>Connect your wallet at akyn.pro</li>
-                        <li>Pay for Premium or Business with $MCRT</li>
-                        <li>Generate unlimited AI dance and viral videos</li>
-                      </ol>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Section>
-
-          {/* MCRT Token */}
-          <Section
-            id="mcrt-token"
-            title="$MCRT Token"
-            sub="The currency that connects every product in the MagicCraft universe."
-          >
-            <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-2">
-              <div className="card-glass rounded-2xl border border-[#98FFF9]/20 p-6">
-                <h3 className="mb-4 text-lg font-bold text-[#98FFF9]">
-                  Token Overview
-                </h3>
-                <div className="space-y-3">
-                  {[
-                    { label: 'Name', value: 'MagicCraft Token' },
-                    { label: 'Ticker', value: '$MCRT' },
-                    { label: 'Blockchain', value: 'BNB Chain (BEP-20)' },
-                    {
-                      label: 'Contract',
-                      value: `${MCRT_CONTRACT.slice(0, 14)}…${MCRT_CONTRACT.slice(-6)}`,
-                    },
-                    { label: 'Total Supply', value: '10,000,000,000 MCRT' },
-                    { label: 'Burning Mechanism', value: 'None' },
-                    {
-                      label: 'Listed On',
-                      value: 'Bybit, PancakeSwap, HTX, MEXC, 10+',
-                    },
-                    {
-                      label: 'Security Audit',
-                      value: 'CertIK — skynet.certik.com',
-                    },
-                    { label: 'DAO', value: 'snapshot.org/#/magiccraftdao.eth' },
-                  ].map((r) => (
-                    <div
-                      key={r.label}
-                      className="flex items-center justify-between border-b border-white/5 pb-2 text-sm"
-                    >
-                      <span className="text-white/50">{r.label}</span>
-                      <span className="max-w-[60%] truncate text-right font-mono font-medium text-white">
-                        {r.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="card-glass rounded-2xl border border-[#B591F2]/20 p-6">
-                <h3 className="mb-4 text-lg font-bold text-[#B591F2]">
-                  Utility Matrix
-                </h3>
-                <div className="space-y-2">
-                  {[
-                    {
-                      product: 'PvP Lobbies',
-                      use: 'Entry + prizes (BTC, ETH, $MCRT)',
-                    },
-                    {
-                      product: 'VIP Lobby Access',
-                      use: 'Hold 100k $MCRT for 10 days → earn 250 MCRT/win',
-                    },
-                    {
-                      product: 'Pledging',
-                      use: '1% ARR · capped at 1M $MCRT rewarded per month',
-                    },
-                    {
-                      product: 'DAO / Knights',
-                      use: 'Vote on proposals; top 100 holders = Knights of the Realm',
-                    },
-                    {
-                      product: 'Sponsorship',
-                      use: 'Lend $MCRT to players; share their winnings',
-                    },
-                    {
-                      product: 'NFT Marketplace',
-                      use: 'Buy/sell heroes & skins; 4.25% treasury fee',
-                    },
-                    {
-                      product: 'Hero Upgrades',
-                      use: 'Spend $MCRT to level up, buy weapons & abilities',
-                    },
-                    {
-                      product: 'Tournament Entry',
-                      use: 'Create match entry fees → winner prize pools',
-                    },
-                    {
-                      product: 'Akyn (Premium/Business)',
-                      use: 'Subscription + video credits',
-                    },
-                    {
-                      product: 'MagicAds',
-                      use: 'Ad spend + publisher payouts',
-                    },
-                    {
-                      product: 'Polybilities',
-                      use: 'Stake + prediction rewards',
-                    },
-                    {
-                      product: 'Merlin AI',
-                      use: 'Credit purchases + premium subscription on merlintheai.com',
-                    },
-                    {
-                      product: 'DocAI',
-                      use: 'Starter/Pro/Enterprise subscription via $MCRT on-chain',
-                    },
-                    {
-                      product: 'Referral / Ambassador',
-                      use: 'Earn $MCRT for referrals and ambassador activity',
-                    },
-                  ].map((r) => (
-                    <div
-                      key={r.product}
-                      className="flex items-start justify-between gap-2 border-b border-white/5 py-1.5 text-xs"
-                    >
-                      <span className="flex-shrink-0 font-medium text-white/80">
-                        {r.product}
-                      </span>
-                      <span className="text-right text-[#B591F2]/80">
-                        {r.use}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Flywheel */}
-            <div className="mt-8">
-              <h3 className="mb-6 text-xl font-bold text-white">
-                The $MCRT Flywheel
-              </h3>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-5">
-                {flywheelSteps.map((s, i) => (
-                  <div
-                    key={s.n}
-                    className="card-glass relative rounded-2xl border border-white/10 p-4"
-                  >
-                    {i < flywheelSteps.length - 1 && (
-                      <div className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 text-white/20 lg:block">
-                        →
-                      </div>
-                    )}
-                    <div className="mb-2 text-2xl font-black text-white/10">
-                      {s.n}
-                    </div>
-                    <h4 className="mb-1 text-sm font-bold text-white">
-                      {s.title}
-                    </h4>
-                    <p className="text-xs leading-relaxed text-white/60">
-                      {s.body}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </Section>
-
-          {/* Monetization */}
-          <Section
-            id="monetization"
-            title="Monetization & Revenue Flows"
-            sub="How every product generates real revenue and creates buy pressure on $MCRT."
-          >
-            <div className="overflow-x-auto rounded-2xl border border-white/10">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-white/10 bg-white/[0.02]">
-                    <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-white/50">
-                      Revenue Source
-                    </th>
-                    <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-white/50">
-                      Mechanism
-                    </th>
-                    <th className="px-5 py-3 text-left text-xs font-semibold uppercase tracking-wider text-white/50">
-                      $MCRT Demand Created
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {revenueStreams.map((r, i) => (
-                    <tr
-                      key={r.source}
-                      className={`border-b border-white/5 ${i % 2 === 0 ? 'bg-transparent' : 'bg-white/[0.01]'}`}
-                    >
-                      <td className="px-5 py-3.5 font-semibold text-white">
-                        {r.source}
-                      </td>
-                      <td className="px-5 py-3.5 text-white/60">
-                        {r.mechanism}
-                      </td>
-                      <td className="px-5 py-3.5 text-white/60">
-                        {r.mcrtDemand}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
-              {[
-                {
-                  label: 'Pledging (Staking)',
-                  detail:
-                    'Lock $MCRT for a chosen period to earn 1% ARR. Rewards are capped at 1,000,000 $MCRT per month across all pledgers — a sustainable rate introduced to protect long-term token supply.',
-                },
-                {
-                  label: 'Treasury Revenue',
-                  detail:
-                    'MagicCraft treasury receives 4.25% of all NFT marketplace transactions. Match entry fees form prize pools distributed entirely to winning teams. Growing volume = growing treasury.',
-                },
-                {
-                  label: 'VIP & DAO Locking',
-                  detail:
-                    'Holding 100,000+ $MCRT for 10+ days grants VIP lobby access and higher rewards per win. Top 100 holders become Knights of the Realm with exclusive DAO voting rights at snapshot.org/#/magiccraftdao.eth.',
-                },
-              ].map((c) => (
-                <div
-                  key={c.label}
-                  className="card-glass rounded-xl border border-white/10 p-4"
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {AI_PRODUCTS.map((product) => (
+                <article
+                  key={product.id}
+                  data-whitepaper-card
+                  className="flex h-full flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6"
+                  style={{ borderTopColor: product.accent }}
                 >
-                  <h4 className="mb-2 text-sm font-bold text-white">
-                    {c.label}
-                  </h4>
-                  <p className="text-xs leading-relaxed text-white/60">
-                    {c.detail}
+                  <div className="mb-4 flex items-start justify-between gap-3">
+                    <div className="flex min-w-0 items-center gap-3">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/5">
+                        <img
+                          src={product.navIcon}
+                          alt=""
+                          aria-hidden="true"
+                          className="h-6 w-6 object-contain"
+                        />
+                      </span>
+                      <div>
+                        <h3 className="font-bold text-white">{product.name}</h3>
+                        <p className="text-xs text-white/45">
+                          {product.category}
+                        </p>
+                      </div>
+                    </div>
+                    <StatusBadge status={product.status} />
+                  </div>
+                  <p className="flex-1 text-sm leading-6 text-white/65">
+                    {product.description}
+                  </p>
+                  {product.safetyNote && (
+                    <p className="mt-4 rounded-lg border border-amber-300/20 bg-amber-300/5 p-3 text-xs leading-5 text-amber-100/80">
+                      {product.safetyNote}
+                    </p>
+                  )}
+                  <ExternalLink
+                    href={product.href}
+                    className="mt-5 inline-flex min-h-11 items-center gap-2 font-semibold text-[#98FFF9]"
+                  >
+                    {product.cta}
+                    <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                  </ExternalLink>
+                </article>
+              ))}
+            </div>
+          </Section>
+
+          <Section
+            id="game"
+            eyebrow="MagicCraft game"
+            title="Established PvP, expanding PvE"
+            intro="The current public game listing describes competitive team play plus a newer PvE system for solo, co-op and adventure play."
+          >
+            <div className="grid gap-5 lg:grid-cols-2">
+              <article
+                data-whitepaper-card
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 sm:p-8"
+              >
+                <h3 className="text-xl font-bold">PvP modes</h3>
+                <ul className="mt-5 space-y-4 text-sm leading-6 text-white/65">
+                  <li>
+                    <strong className="text-white">Capture the Point:</strong>{' '}
+                    teams contest and hold map objectives.
+                  </li>
+                  <li>
+                    <strong className="text-white">Escort:</strong> one team
+                    advances an objective while the other team defends.
+                  </li>
+                  <li>
+                    <strong className="text-white">Skull Grab:</strong> teams
+                    compete to collect and control the objective.
+                  </li>
+                </ul>
+              </article>
+              <article
+                data-whitepaper-card
+                className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 sm:p-8"
+              >
+                <h3 className="text-xl font-bold">PvE direction</h3>
+                <p className="mt-5 text-sm leading-6 text-white/65">
+                  The current release adds enemy encounters and progression
+                  designed for solo play, co-op sessions and adventure-style
+                  runs. Availability and content can change with game updates.
+                </p>
+                <p className="mt-4 rounded-xl border border-[#98FFF9]/20 bg-[#98FFF9]/5 p-4 text-sm leading-6 text-white/70">
+                  The standard game is free to play. A wallet is only needed
+                  when a player chooses a wallet-connected Web3 function.
+                </p>
+              </article>
+            </div>
+          </Section>
+
+          <Section
+            id="functions"
+            eyebrow="Function map"
+            title="What every listed surface is intended to do"
+            intro="Unavailable functions are identified here and are not linked from the main navigation until they provide a meaningful result."
+          >
+            <div className="grid gap-4 lg:grid-cols-2">
+              {gameSurfaces.map((surface) => {
+                const isInternal = surface.href?.startsWith('/')
+                const content = (
+                  <>
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="font-bold text-white">{surface.name}</h3>
+                      <StatusBadge status={surface.status} />
+                    </div>
+                    <p className="mt-3 text-sm leading-6 text-white/65">
+                      {surface.purpose}
+                    </p>
+                    {surface.note && (
+                      <p className="mt-3 text-xs leading-5 text-white/45">
+                        {surface.note}
+                      </p>
+                    )}
+                  </>
+                )
+
+                return (
+                  <article
+                    key={surface.name}
+                    data-whitepaper-card
+                    className="rounded-2xl border border-white/10 bg-white/[0.04] p-5"
+                  >
+                    {content}
+                    {surface.href && isInternal && (
+                      <Link
+                        to={surface.href}
+                        className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#98FFF9]"
+                      >
+                        Open function
+                        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                      </Link>
+                    )}
+                    {surface.href && !isInternal && (
+                      <ExternalLink
+                        href={surface.href}
+                        className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#98FFF9]"
+                      >
+                        Open function
+                        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                      </ExternalLink>
+                    )}
+                  </article>
+                )
+              })}
+            </div>
+
+            <h3 className="mt-12 text-2xl font-black">Website page purpose</h3>
+            <div className="mt-5 overflow-hidden rounded-2xl border border-white/10">
+              {sitePages.map((page, index) => (
+                <div
+                  key={page.path}
+                  className={
+                    'grid gap-2 bg-white/[0.03] p-5 sm:grid-cols-[220px_1fr] ' +
+                    (index ? 'border-t border-white/10' : '')
+                  }
+                >
+                  <Link
+                    to={page.path}
+                    className="inline-flex min-h-11 items-center font-bold text-[#98FFF9]"
+                  >
+                    {page.name}
+                  </Link>
+                  <p className="text-sm leading-6 text-white/60">
+                    {page.purpose}
                   </p>
                 </div>
               ))}
             </div>
           </Section>
 
-          {/* Tokenomics */}
+          <Section
+            id="mcrt"
+            eyebrow="MCRT utility"
+            title="Use cases that can be verified"
+            intro="MCRT is a BNB Chain utility token used by specific MagicCraft functions. A product is only described as MCRT-enabled when its current public flow or official documentation supports that claim."
+          >
+            <div className="grid gap-4 md:grid-cols-2">
+              {[
+                'Eligible Web3 lobby entries, pools and rewards',
+                'Supported marketplace transactions and game assets',
+                'Pledging under the current term and reward rules',
+                'Eligible referral-program rewards',
+                'MagicAds campaign funding where that option is shown',
+                'External exchange and wallet transfers on BNB Chain',
+              ].map((utility) => (
+                <div
+                  key={utility}
+                  data-whitepaper-card
+                  className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4"
+                >
+                  <CheckCircle2
+                    className="mt-0.5 h-5 w-5 shrink-0 text-[#98FFF9]"
+                    aria-hidden="true"
+                  />
+                  <p className="text-sm leading-6 text-white/70">{utility}</p>
+                </div>
+              ))}
+            </div>
+            <div className="mt-6 rounded-2xl border border-amber-300/20 bg-amber-300/5 p-5">
+              <div className="flex gap-3">
+                <AlertTriangle
+                  className="mt-0.5 h-5 w-5 shrink-0 text-amber-200"
+                  aria-hidden="true"
+                />
+                <p className="text-sm leading-6 text-amber-50/80">
+                  This paper does not claim that Merlin, Akyn, MAGAS7,
+                  DragonList or DocAI accept MCRT. Their public plans and
+                  payment methods are governed by each product.
+                </p>
+              </div>
+            </div>
+            <p className="mt-4 rounded-xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-6 text-white/60">
+              When the Web3 guide describes BTC, ETH, SOL or XRP lobby assets,
+              it refers to the supported BNB Chain-pegged versions, not a native
+              transfer on each asset's original network.
+            </p>
+            <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.04] p-6">
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-white/45">
+                BNB Chain contract
+              </p>
+              <p className="mt-2 break-all font-mono text-sm text-white/80">
+                {MCRT_CONTRACT_CHECKSUM}
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <ExternalLink
+                  href={PANCAKESWAP_URL}
+                  className="inline-flex min-h-11 items-center rounded-lg border border-white/15 px-4 py-3 text-sm font-semibold text-white hover:bg-white/5"
+                >
+                  PancakeSwap
+                </ExternalLink>
+                <ExternalLink
+                  href={BYBIT_URL}
+                  className="inline-flex min-h-11 items-center rounded-lg border border-white/15 px-4 py-3 text-sm font-semibold text-white hover:bg-white/5"
+                >
+                  Bybit spot
+                </ExternalLink>
+              </div>
+            </div>
+          </Section>
+
           <Section
             id="tokenomics"
-            title="Tokenomics"
-            sub="Total supply: 10,000,000,000 $MCRT · BNB Chain (BEP-20) · No burning mechanism · 10+ exchanges · Total raised at IDO: $4.19M"
+            eyebrow="Published token facts"
+            title="10 billion maximum supply, no burn mechanism"
+            intro="The percentages below reproduce the allocation published in the official MagicCraft documentation. They are a historical allocation model, not a statement of current circulating supply, treasury balance or market value."
           >
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-              {tokenomicsRows.map((r) => (
+            <div className="overflow-hidden rounded-2xl border border-white/10">
+              {allocations.map(([label, value], index) => (
                 <div
-                  key={r.category}
-                  className="card-glass flex items-start gap-4 rounded-xl border border-white/10 p-4"
+                  key={label}
+                  className={
+                    'flex items-center justify-between gap-5 bg-white/[0.03] px-5 py-4 ' +
+                    (index ? 'border-t border-white/10' : '')
+                  }
                 >
-                  <div className="w-14 flex-shrink-0 text-center">
-                    <span className="bg-gradient-to-r from-[#98FFF9] to-[#B591F2] bg-clip-text text-xl font-black text-transparent">
-                      {r.percent}
-                    </span>
-                  </div>
-                  <div>
-                    <div className="mb-1 text-sm font-bold text-white">
-                      {r.category}
-                    </div>
-                    <div className="text-xs leading-relaxed text-white/60">
-                      {r.description}
-                    </div>
-                  </div>
+                  <span className="text-sm text-white/65">{label}</span>
+                  <span className="font-bold text-white">{value}</span>
                 </div>
               ))}
             </div>
+            <p className="mt-5 text-sm leading-6 text-white/50">
+              The published documentation identifies MCRT as a BEP-20 token on
+              BNB Chain and states that no burning mechanism is used.
+            </p>
           </Section>
 
-          {/* Roadmap */}
           <Section
-            id="roadmap"
-            title="Roadmap"
-            sub="What's live and what's coming next."
+            id="status-policy"
+            eyebrow="Status and roadmap policy"
+            title="Evidence before labels"
+            intro="This version removes calendar promises and cross-product claims that could not be verified."
           >
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="grid gap-4 md:grid-cols-2">
               {[
-                {
-                  label: 'NOW LIVE',
-                  color: '#98FFF9',
-                  items: [
-                    'MagicCraft MOBA — PC, iOS, Android, Steam',
-                    'Crypto PvP Lobbies (BTC, ETH, BNB, XRP, SOL, $MCRT)',
-                    'Akyn AI Film Studio (Standard / Premium / Business)',
-                    'Merlin AI — multi-modal AI companion + payment hub',
-                    'MagicAds — AI cross-banner ad network',
-                    'Polybilities — AI prediction markets',
-                    'DocAI, SocialMM, EnvRouter AI, MAGAS7, DragonList',
-                    'NFT Marketplace + Craft & Sell',
-                    '$MCRT Game Maker on Steam',
-                  ],
-                },
-                {
-                  label: 'Q2 2026',
-                  color: '#B591F2',
-                  items: [
-                    'Smart AI matchmaking + coaching in-game',
-                    'Akyn expanded video styles (lipsync, 3D avatars)',
-                    'Merlin as ecosystem-wide payment identity layer',
-                    'Unified $MCRT dashboard across all products',
-                    'MagicAds expanded publisher network',
-                    'EnvRouter AI gateway with usage logs and model routing',
-                    'MAGAS7 marketing agents for campaign operations',
-                    'Polybilities seasonal league with $MCRT jackpots',
-                    'Partner SDK / API access for external developers',
-                  ],
-                },
-                {
-                  label: 'Q3 2026+',
-                  color: '#FFB649',
-                  items: [
-                    'Persistent metaverse worlds — NFT land ownership',
-                    'Esports infrastructure + broadcast partnerships',
-                    'DAO governance — $MCRT pledging for voting power',
-                    'MagicAds autonomous network — AI-generated ad creatives',
-                    'Cross-game $MCRT season pass',
-                    'Open ecosystem grants for builders using $MCRT',
-                  ],
-                },
-              ].map((col) => (
-                <div
-                  key={col.label}
-                  className="card-glass rounded-2xl border border-white/10 p-5"
+                [
+                  'Live',
+                  'A public product or function returned meaningful, usable content when checked.',
+                ],
+                [
+                  'Beta / early access',
+                  'The product is available in a limited, evolving or sign-up-led state.',
+                ],
+                [
+                  'Degraded',
+                  'An intended live function is reachable but is not returning its previously working result.',
+                ],
+                [
+                  'Planned',
+                  'A source describes future work, but the function is not represented as complete.',
+                ],
+                [
+                  'Unavailable',
+                  'The destination is broken, empty or not useful enough to expose as a working function.',
+                ],
+              ].map(([label, body]) => (
+                <article
+                  key={label}
+                  data-whitepaper-card
+                  className="rounded-2xl border border-white/10 bg-white/[0.04] p-5"
                 >
-                  <div
-                    className="mb-4 border-b border-white/10 pb-2 text-xs font-bold uppercase tracking-wider"
-                    style={{ color: col.color }}
-                  >
-                    {col.label}
-                  </div>
-                  <ul className="space-y-2">
-                    {col.items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-2 text-xs text-white/70"
-                      >
-                        <span
-                          className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full"
-                          style={{ backgroundColor: col.color }}
-                        ></span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  <h3 className="font-bold text-white">{label}</h3>
+                  <p className="mt-2 text-sm leading-6 text-white/60">{body}</p>
+                </article>
+              ))}
+            </div>
+            <p className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-6 text-white/60">
+              Product status changes faster than a traditional static paper.
+              Future versions should update the verification date, sources and
+              status labels together. Shared accounts, billing, wallets or
+              rewards must not be implied without a working integration.
+            </p>
+          </Section>
+
+          <Section
+            id="sources"
+            eyebrow="Source ledger"
+            title="Official pages used for this update"
+            intro="Sources were checked alongside the live product surfaces. A source supports the stated purpose; it does not guarantee uninterrupted availability."
+          >
+            <div className="grid gap-3 md:grid-cols-2">
+              {sources.map((source) => (
+                <ExternalLink
+                  key={source.href}
+                  href={source.href}
+                  className="group flex min-h-[76px] items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/[0.03] p-4 transition hover:bg-white/[0.06]"
+                >
+                  <span>
+                    <span className="block text-sm font-bold text-white">
+                      {source.title}
+                    </span>
+                    <span className="mt-1 block text-xs leading-5 text-white/45">
+                      {source.supports}
+                    </span>
+                  </span>
+                  <ArrowUpRight
+                    className="h-4 w-4 shrink-0 text-white/35 transition group-hover:text-[#98FFF9]"
+                    aria-hidden="true"
+                  />
+                </ExternalLink>
               ))}
             </div>
           </Section>
 
-          {/* CTA */}
-          <div className="pt-12 text-center">
-            <h2 className="mb-3 text-2xl font-black text-white sm:text-3xl">
-              Ready to own a piece of the ecosystem?
-            </h2>
-            <p className="mx-auto mb-8 max-w-xl text-sm leading-relaxed text-white/60">
-              Every product in the MagicCraft suite creates demand for $MCRT.
-              Buy it, stake it, use it for Akyn AI videos, game lobbies, and ads
-              — and grow with the ecosystem.
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <a
-                href={PANCAKESWAP_URL}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="btn-primary px-8 py-3 text-sm font-bold"
-              >
-                Swap on PancakeSwap
-              </a>
-              <a
-                href={METAMASK_SWAP_URL}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="btn-secondary px-8 py-3 text-sm font-semibold"
-              >
-                Open MetaMask
-              </a>
-              <a
-                href={BYBIT_URL}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="rounded-lg border border-[#FFB649]/30 bg-[#FFB649]/10 px-8 py-3 text-sm font-bold text-[#FFDD8A] transition-all hover:bg-[#FFB649]/15"
-              >
-                Buy on Bybit
-              </a>
-              <a
-                href="https://akyn.pro"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="btn-secondary px-8 py-3 text-sm font-semibold"
-              >
-                Try Akyn Free
-              </a>
-              <a
-                href="https://lobby.magiccraft.io"
-                target="_blank"
-                rel="noreferrer noopener"
-                className="rounded-lg border border-white/20 px-8 py-3 text-sm font-semibold text-white/70 transition-all hover:border-white/40 hover:text-white"
-              >
-                Play the Game
-              </a>
+          <Section
+            id="risk"
+            eyebrow="Risk and eligibility"
+            title="Utility is not an investment promise"
+            intro="MCRT does not represent ownership, equity, a revenue right or a guaranteed return. Availability and eligibility depend on product terms and jurisdiction."
+          >
+            <div className="grid gap-4 md:grid-cols-2">
+              {[
+                'Token and digital-asset prices can be volatile and total loss is possible.',
+                'Wallet use carries smart-contract, network, gas-fee, custody and transaction risks.',
+                'Pledging can lock assets for the selected term and rewards can change.',
+                'Game pools can include platform or treasury deductions under the current rules.',
+                'Third-party stores, exchanges, wallets and networks have separate terms and availability.',
+                'Users must follow local law, age rules and the terms shown by each product.',
+              ].map((risk) => (
+                <div
+                  key={risk}
+                  data-whitepaper-card
+                  className="flex gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-4"
+                >
+                  <ShieldCheck
+                    className="mt-0.5 h-5 w-5 shrink-0 text-[#B591F2]"
+                    aria-hidden="true"
+                  />
+                  <p className="text-sm leading-6 text-white/65">{risk}</p>
+                </div>
+              ))}
             </div>
-            <p className="mx-auto mt-6 max-w-lg text-xs text-white/30">
-              $MCRT is a utility token. Nothing in this whitepaper constitutes
-              financial advice. Crypto assets are volatile. Only invest what you
-              can afford to lose.
-            </p>
-          </div>
-        </main>
+            <div className="mt-8 flex flex-col gap-3 rounded-2xl border border-[#98FFF9]/20 bg-[#98FFF9]/5 p-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <h3 className="font-bold text-white">Need product help?</h3>
+                <p className="mt-1 text-sm text-white/55">
+                  Use the FAQ for account, game and Web3 support routes.
+                </p>
+              </div>
+              <Link
+                to="/faq"
+                className="inline-flex min-h-11 items-center justify-center rounded-lg bg-[#98FFF9] px-5 py-3 text-sm font-bold text-[#03082f]"
+              >
+                Open FAQ
+              </Link>
+            </div>
+          </Section>
+        </div>
+      </main>
 
-        <Footer />
-      </div>
-    </>
+      <Footer />
+    </div>
   )
 }

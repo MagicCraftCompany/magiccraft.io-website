@@ -1,88 +1,106 @@
-import { titleKeyMaper } from '@/lib/utils';
+import type { RoadmapEntry } from '@/data/roadmapData'
 
-type RoadmapCardType = {
-  data: {
-    quarter: number | 'LIVE';
-    year?: number;
-    variant: 'default' | 'purple' | 'live';
-    goals: {
-      card: number;
-      features: string[];
-    }[];
-  };
-};
+type RoadmapCardProps = {
+  data: RoadmapEntry
+}
 
-const RoadmapCard = ({ data }: RoadmapCardType) => {
-  const isLive = data.quarter === 'LIVE';
-  const yearDisplay = data.year ? String(data.year).slice(-2) : '25';
-  const now = new Date();
-  const currentQuarter = Math.floor(now.getMonth() / 3) + 1;
-  const currentYear = now.getFullYear();
-  const isCurrentQuarter =
-    !isLive && data.quarter === currentQuarter && data.year === currentYear;
-  
+const stageCopy = {
+  LIVE: {
+    heading: 'Live',
+    badge: 'VERIFIED',
+    detail: 'Public now',
+  },
+  IMPROVING: {
+    heading: 'Improving',
+    badge: 'ACTIVE WORK',
+    detail: 'Not complete',
+  },
+  EXPLORING: {
+    heading: 'Exploring',
+    badge: 'NO COMMITMENT',
+    detail: 'Future direction',
+  },
+}
+
+const RoadmapCard = ({ data }: RoadmapCardProps) => {
+  const copy = stageCopy[data.stage]
+  const isLive = data.variant === 'live'
+  const isDefault = data.variant === 'default'
+
   return (
     <div className="min-w-[18rem] snap-center space-y-6">
-      <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
-        {isLive ? '🟢 LIVE' : `Q${data.quarter} ${yearDisplay}`}
-      </h3>
+      <div className="text-center">
+        <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text font-serif text-4xl text-transparent drop-shadow-xl">
+          {copy.heading}
+        </h3>
+        <p className="mt-2 text-xs font-semibold uppercase tracking-[0.16em] text-white/50">
+          {data.label}
+        </p>
+      </div>
 
       <div className="grid grid-cols-1 gap-6">
-        {data.goals.map((goal, i) => {
-          const isDefault = data.variant === 'default';
-          const isLiveVariant = data.variant === 'live';
-          return (
+        {data.goals.map((goal) => (
+          <article
+            key={goal.card}
+            className={
+              'group relative rounded-3xl p-px transition-all duration-300 hover:-translate-y-1 ' +
+              (isLive
+                ? 'bg-gradient-to-b from-[#10B981]/50 via-transparent to-transparent'
+                : isDefault
+                  ? 'bg-gradient-to-b from-[#98FFF9]/40 via-transparent to-transparent'
+                  : 'bg-gradient-to-b from-[#B591F2]/40 via-transparent to-transparent')
+            }
+          >
             <div
-              key={i}
-              className={`group relative rounded-3xl p-px transition-all duration-300 hover:scale-[1.02] hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] 
-              ${isLiveVariant 
-                ? 'bg-gradient-to-b from-[#10B981]/50 via-transparent to-transparent' 
-                : isDefault 
-                  ? 'bg-gradient-to-b from-[#98FFF9]/40 via-transparent to-transparent' 
-                  : 'bg-gradient-to-b from-[#B591F2]/40 via-transparent to-transparent'}
-              ${isCurrentQuarter ? 'ring-2 ring-[#98FFF9]/35 shadow-[0_0_35px_rgba(152,255,249,0.16)]' : ''}`}
+              className={
+                'overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br text-white shadow-xl ' +
+                (isLive
+                  ? 'from-[#064E3B] to-[#065F46]'
+                  : isDefault
+                    ? 'from-[#3D186D] to-[#2A0D4E]'
+                    : 'from-[#2A0D4E] to-[#57186D]')
+              }
             >
-              <div
-                className={`rounded-3xl border border-white/10 bg-gradient-to-br ${
-                  isLiveVariant 
-                    ? 'from-[#064E3B] to-[#065F46]' 
-                    : isDefault 
-                      ? 'from-[#3D186D] to-[#2A0D4E]' 
-                      : 'from-[#2A0D4E] to-[#57186D]'
-                } text-white shadow-xl overflow-hidden`}
-              >
-                <div className="flex items-center justify-between px-6 py-4 bg-black/20">
-                  <span className="text-xs md:text-sm font-semibold tracking-wider text-white/90">
-                    {isLiveVariant ? 'LAUNCHED' : isCurrentQuarter ? 'CURRENT' : titleKeyMaper(i)}
-                  </span>
-                  <span className="text-[10px] md:text-xs text-white/60">
-                    {isLive ? 'Live Now' : isCurrentQuarter ? 'In Progress' : `Q${data.quarter} · ${data.year || 2026}`}
-                  </span>
-                </div>
+              <div className="flex items-center justify-between gap-3 bg-black/20 px-6 py-4">
+                <span className="text-xs font-semibold tracking-wider text-white/90 md:text-sm">
+                  {copy.badge}
+                </span>
+                <span className="text-[10px] text-white/60 md:text-xs">
+                  {copy.detail}
+                </span>
+              </div>
 
-                <div className="px-6 py-5">
-                  {goal.features.map((feature, j) => {
-                    return (
-                      <div key={j} className={`flex items-start gap-3 py-2 ${j !== 0 ? 'border-t border-white/10' : ''}`}>
-                        <div className="pt-1 shrink-0">
-                          <span className={`block h-2.5 w-2.5 rounded-full shadow-[0_0_10px_rgba(152,255,249,0.45)] ${
-                            isLiveVariant 
-                              ? 'bg-gradient-to-br from-[#10B981] to-[#34D399]' 
-                              : 'bg-gradient-to-br from-[#98FFF9] to-[#B591F2]'
-                          }`} />
-                        </div>
-                        <p className="text-sm md:text-base leading-relaxed text-white/90">{feature}</p>
-                      </div>
-                    )
-                  })}
-                </div>
+              <div className="px-6 py-5">
+                {goal.features.map((feature, index) => (
+                  <div
+                    key={feature}
+                    className={
+                      'flex items-start gap-3 py-2 ' +
+                      (index ? 'border-t border-white/10' : '')
+                    }
+                  >
+                    <span className="pt-1">
+                      <span
+                        className={
+                          'block h-2.5 w-2.5 rounded-full ' +
+                          (isLive
+                            ? 'bg-emerald-300'
+                            : 'bg-gradient-to-br from-[#98FFF9] to-[#B591F2]')
+                        }
+                      />
+                    </span>
+                    <p className="text-sm leading-relaxed text-white/90 md:text-base">
+                      {feature}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
-          )
-        })}
+          </article>
+        ))}
       </div>
     </div>
   )
-};
+}
 
-export default RoadmapCard;
+export default RoadmapCard
