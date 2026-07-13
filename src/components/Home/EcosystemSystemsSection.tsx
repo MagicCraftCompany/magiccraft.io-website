@@ -1,6 +1,5 @@
 import {
   ArrowUpRight,
-  AlertTriangle,
   BadgeCheck,
   Blocks,
   Boxes,
@@ -13,7 +12,6 @@ import type { LucideIcon } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import {
   ECOSYSTEM_SYSTEM_GROUPS,
-  ECOSYSTEM_SYSTEMS_LAST_VERIFIED,
   type EcosystemSystemGroupId,
   type EcosystemSystemStatus,
 } from '@/data/ecosystemSystems'
@@ -25,19 +23,16 @@ const GROUP_ICONS: Record<EcosystemSystemGroupId, LucideIcon> = {
 }
 
 const STATUS_STYLES: Record<EcosystemSystemStatus, string> = {
-  Public: 'border-emerald-300/25 bg-emerald-300/10 text-emerald-200',
-  'Partial data': 'border-cyan-300/25 bg-cyan-300/10 text-cyan-100',
-  Degraded: 'border-amber-300/30 bg-amber-300/10 text-amber-100',
+  Live: 'border-emerald-300/25 bg-emerald-300/10 text-emerald-200',
+  'Live data': 'border-cyan-300/25 bg-cyan-300/10 text-cyan-100',
   'On Steam': 'border-violet-300/25 bg-violet-300/10 text-violet-100',
-  Building: 'border-sky-300/25 bg-sky-300/10 text-sky-100',
+  'In development': 'border-sky-300/25 bg-sky-300/10 text-sky-100',
   Optional: 'border-white/15 bg-white/5 text-white/65',
+  Guide: 'border-violet-300/25 bg-violet-300/10 text-violet-100',
 }
 
 function StatusIcon({ status }: { status: EcosystemSystemStatus }) {
-  if (status === 'Degraded') {
-    return <AlertTriangle className="h-3.5 w-3.5" aria-hidden="true" />
-  }
-  if (status === 'Building') {
+  if (status === 'In development') {
     return <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
   }
   return <BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />
@@ -57,17 +52,14 @@ export default function EcosystemSystemsSection() {
               Connected systems
             </div>
             <h2 className="mt-4 text-balance font-serif text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
-              Every system has a job, a status and a direct path.
+              Every system has a clear job and a direct path.
             </h2>
           </div>
           <div>
             <p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">
-              Game services, optional Web3 functions and builder infrastructure
-              are grouped by purpose. Public reachability is not treated as
-              proof that a wallet, payment or authenticated workflow completed.
-            </p>
-            <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-white/50">
-              Public surfaces checked {ECOSYSTEM_SYSTEMS_LAST_VERIFIED}
+              Move from live game activity to optional Web3 tools and creator
+              infrastructure. Each card explains what the system is for and
+              where to begin.
             </p>
           </div>
         </div>

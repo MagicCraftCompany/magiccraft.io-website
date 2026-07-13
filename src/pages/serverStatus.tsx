@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
-import { Activity, BarChart3, ExternalLink, ShieldAlert } from 'lucide-react'
+import { Activity, BarChart3, ExternalLink } from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
@@ -35,7 +35,7 @@ export default function Server() {
         <title>Service Directory | MagicCraft</title>
         <meta
           name="description"
-          content="Open MagicCraft's public lobby, marketplace, leaderboard and statistics services. Public uptime telemetry is not currently available on this site."
+          content="Open MagicCraft's public lobby, marketplace, leaderboard and statistics services."
         />
         <link rel="canonical" href="https://magiccraft.io/server" />
         <meta name="robots" content="noindex, nofollow" />
@@ -52,27 +52,11 @@ export default function Server() {
               Service directory
             </span>
             <h1 className="mt-6 font-serif text-4xl font-bold sm:text-6xl">
-              MagicCraft service status
+              MagicCraft services
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/70 sm:text-lg">
-              Public uptime telemetry is not available on this site. That means
-              MagicCraft cannot safely label a service operational, degraded or
-              down here without an attributable status source.
-            </p>
-          </div>
-
-          <div
-            className="mx-auto mt-10 flex max-w-3xl items-start gap-3 rounded-2xl border border-amber-300/25 bg-amber-300/10 p-4 text-sm text-amber-100"
-            role="status"
-          >
-            <ShieldAlert
-              className="mt-0.5 h-5 w-5 shrink-0"
-              aria-hidden="true"
-            />
-            <p>
-              Use the direct service links below to check the current
-              user-facing experience. No synthetic uptime, response-time or
-              incident-log data is displayed.
+              Open the game lobby, marketplace, leaderboard, or statistics
+              dashboard from one simple directory.
             </p>
           </div>
 
@@ -98,7 +82,7 @@ export default function Server() {
                     />
                   </div>
                   <span className="mt-5 inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-semibold text-white/60">
-                    {service.internal ? 'Source-backed' : 'Not monitored here'}
+                    Open service
                   </span>
                 </>
               )
@@ -133,7 +117,7 @@ export default function Server() {
               className="inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:border-[#98FFF9]/40 hover:text-[#98FFF9]"
             >
               <BarChart3 className="h-4 w-4" aria-hidden="true" />
-              View source-backed stats
+              View game stats
             </Link>
           </div>
         </div>

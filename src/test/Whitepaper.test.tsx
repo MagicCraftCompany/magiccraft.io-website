@@ -26,8 +26,8 @@ const renderWhitepaper = () =>
     </HelmetProvider>
   )
 
-describe('Whitepaper v3.2', () => {
-  it('presents a dated, navigable product and function guide', () => {
+describe('Whitepaper v3.3', () => {
+  it('presents a navigable product and function guide', () => {
     renderWhitepaper()
 
     expect(
@@ -36,8 +36,8 @@ describe('Whitepaper v3.2', () => {
         name: /living guide to MagicCraft products/i,
       })
     ).toBeInTheDocument()
-    expect(screen.getByText('Whitepaper v3.2')).toBeInTheDocument()
-    expect(screen.getByText('Verified 13 July 2026')).toBeInTheDocument()
+    expect(screen.getByText('Whitepaper v3.3')).toBeInTheDocument()
+    expect(screen.queryByText(/Verified 13 July 2026/i)).not.toBeInTheDocument()
 
     const toc = screen.getByRole('navigation', {
       name: 'Whitepaper sections',
@@ -48,7 +48,7 @@ describe('Whitepaper v3.2', () => {
     expect(toc.parentElement).not.toHaveClass('hidden')
   })
 
-  it('uses the shared verified AI catalog and truthful status labels', () => {
+  it('uses the shared AI catalog and public product stages', () => {
     renderWhitepaper()
 
     for (const cta of [
@@ -64,9 +64,7 @@ describe('Whitepaper v3.2', () => {
       ).toBeInTheDocument()
     }
 
-    expect(
-      screen.getByText(/does not imply shared identity/i)
-    ).toBeInTheDocument()
+    expect(screen.getByText(/own focused workflow/i)).toBeInTheDocument()
     expect(
       screen.getByText(/does not claim that Merlin, Akyn, MAGAS7/i)
     ).toBeInTheDocument()
@@ -74,7 +72,7 @@ describe('Whitepaper v3.2', () => {
     expect(screen.queryByText('SocialMM')).not.toBeInTheDocument()
   })
 
-  it('distinguishes working, degraded and unavailable functions', () => {
+  it('explains public functions without internal diagnostics', () => {
     renderWhitepaper()
 
     expect(screen.getByText('MCRT Game Maker')).toBeInTheDocument()
@@ -83,7 +81,7 @@ describe('Whitepaper v3.2', () => {
     ).toBeGreaterThan(1)
     expect(screen.getByText('Leaderboard')).toBeInTheDocument()
     expect(screen.getByText('Game stats')).toBeInTheDocument()
-    expect(screen.getByText('Rent testnet')).toBeInTheDocument()
+    expect(screen.queryByText('Rent testnet')).not.toBeInTheDocument()
     expect(
       within(
         screen
@@ -93,12 +91,15 @@ describe('Whitepaper v3.2', () => {
     ).toHaveAttribute('href', '/magiccraft')
     expect(
       within(screen.getByText('Game stats').closest('article')!).getByText(
-        'Partial data'
+        'Live data'
       )
     ).toBeInTheDocument()
     expect(
-      screen.getByText(/external DNS configuration is broken/i)
-    ).toBeInTheDocument()
+      screen.queryByText(/external DNS configuration is broken/i)
+    ).not.toBeInTheDocument()
+    expect(document.body.textContent).not.toMatch(
+      /degraded|returns 404|preloading reports|source times out|not exercised|needs correction/i
+    )
   })
 
   it('removes unsupported financial and product claims', () => {
@@ -129,7 +130,7 @@ describe('Whitepaper v3.2', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: 'Official pages used for this update',
+        name: 'Official product references',
       })
     ).toBeInTheDocument()
     expect(

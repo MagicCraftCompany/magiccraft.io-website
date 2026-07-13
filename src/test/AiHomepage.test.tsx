@@ -14,8 +14,8 @@ vi.mock('@/components/Home/MobileBottomBar', () => ({
 }))
 vi.mock('@/components/LiveStats/LiveStatsWidget', () => ({
   default: () => (
-    <section aria-label="Verified ecosystem stats">
-      <h2>Verified ecosystem stats</h2>
+    <section aria-label="Live ecosystem stats">
+      <h2>Live ecosystem stats</h2>
     </section>
   ),
 }))
@@ -27,7 +27,7 @@ import Homepagemcrt from '@/pages/Homepagemcrt'
 
 describe('balanced game and AI homepage', () => {
   it('gives the live game and six-product AI suite clear primary paths', () => {
-    render(
+    const { container } = render(
       <HelmetProvider>
         <MemoryRouter>
           <Homepagemcrt />
@@ -53,7 +53,7 @@ describe('balanced game and AI homepage', () => {
       screen.getByRole('heading', { name: 'Established PvP. New PvE.' })
     ).toBeInTheDocument()
     expect(
-      screen.getByRole('heading', { name: 'Verified ecosystem stats' })
+      screen.getByRole('heading', { name: 'Live ecosystem stats' })
     ).toBeInTheDocument()
 
     const suiteHeading = screen.getByRole('heading', {
@@ -78,11 +78,16 @@ describe('balanced game and AI homepage', () => {
 
     expect(
       screen.getByRole('heading', {
-        name: 'Every system has a job, a status and a direct path.',
+        name: 'Every system has a clear job and a direct path.',
       })
     ).toBeInTheDocument()
     expect(screen.getByText('Pledging')).toBeInTheDocument()
     expect(screen.queryByText('SocialMM')).not.toBeInTheDocument()
     expect(screen.queryByText(/still building/i)).not.toBeInTheDocument()
+
+    const publicCopy = container.textContent ?? ''
+    expect(publicCopy).not.toMatch(
+      /degraded|controlled authenticated testing|horizontal overflow|returns 404|fallback values|public surfaces checked|checked 13 july/i
+    )
   })
 })

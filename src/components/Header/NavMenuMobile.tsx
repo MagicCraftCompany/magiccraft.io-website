@@ -15,11 +15,9 @@ const statusClassName = (status: NavigationStatus) => {
   if (status === 'Early access' || status === 'Beta') {
     return 'border-amber-300/25 bg-amber-300/10 text-amber-100'
   }
-  if (status === 'Degraded' || status === 'Partial data') {
-    return 'border-orange-300/25 bg-orange-300/10 text-orange-100'
-  }
-  if (status === 'Gated') return 'border-sky-300/25 bg-sky-300/10 text-sky-100'
-  if (status === 'Testnet')
+  if (status === 'Sign-in')
+    return 'border-sky-300/25 bg-sky-300/10 text-sky-100'
+  if (status === 'Optional')
     return 'border-violet-300/25 bg-violet-300/10 text-violet-100'
   return 'border-white/15 bg-white/5 text-white/55'
 }

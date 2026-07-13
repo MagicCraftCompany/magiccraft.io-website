@@ -20,7 +20,7 @@ export const newsArticles: NewsArticle[] = [
     image:
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1726232450/Frame_307825_il8ahq.webp',
     readMoreLink: 'https://x.com/MagicCraftGame',
-    dateLabel: 'Verified 13 Jul 2026',
+    dateLabel: '13 Jul 2026',
   },
   {
     id: '2',
@@ -32,7 +32,7 @@ export const newsArticles: NewsArticle[] = [
     image:
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
     readMoreLink: 'https://lobby.magiccraft.io',
-    dateLabel: 'Verified 13 Jul 2026',
+    dateLabel: '13 Jul 2026',
   },
   {
     id: '3',
@@ -40,11 +40,11 @@ export const newsArticles: NewsArticle[] = [
     category: 'AI Products',
     title: 'MagicCraft AI Suite Expands',
     description:
-      'Compare the six verified AI products by their real jobs. MAGAS7 is early access; the other five public products are live.',
+      'Compare the six AI products by their real jobs. MAGAS7 is early access; the other five public products are live.',
     image:
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
     readMoreLink: '/#ai-products',
-    dateLabel: 'Verified 13 Jul 2026',
+    dateLabel: '13 Jul 2026',
   },
   {
     id: '4',
@@ -57,7 +57,7 @@ export const newsArticles: NewsArticle[] = [
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1726232450/Frame_307825_il8ahq.webp',
     version: 'Steam',
     readMoreLink: 'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/',
-    dateLabel: 'Verified 13 Jul 2026',
+    dateLabel: '13 Jul 2026',
   },
   {
     id: '5',
@@ -69,7 +69,7 @@ export const newsArticles: NewsArticle[] = [
     image:
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
     readMoreLink: 'https://app.magiccraft.io/marketplace/explorer',
-    dateLabel: 'Verified 13 Jul 2026',
+    dateLabel: '13 Jul 2026',
   },
   {
     id: '6',
@@ -81,6 +81,6 @@ export const newsArticles: NewsArticle[] = [
     image:
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1726232450/Frame_307825_il8ahq.webp',
     readMoreLink: 'https://discord.gg/magiccraftgame',
-    dateLabel: 'Verified 13 Jul 2026',
+    dateLabel: '13 Jul 2026',
   },
 ]

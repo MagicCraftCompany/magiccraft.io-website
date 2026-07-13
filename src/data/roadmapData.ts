@@ -10,12 +10,10 @@ export type RoadmapEntry = {
   }[]
 }
 
-export const ROADMAP_LAST_VERIFIED = '13 July 2026'
-
 export const roadmapData: RoadmapEntry[] = [
   {
     stage: 'LIVE',
-    label: 'Verified public products',
+    label: 'Available today',
     variant: 'live',
     goals: [
       {
@@ -46,38 +44,38 @@ export const roadmapData: RoadmapEntry[] = [
   },
   {
     stage: 'IMPROVING',
-    label: 'In repair or validation',
+    label: 'Growing the experience',
     variant: 'default',
     goals: [
       {
         card: 1,
         features: [
-          'Keep the working lobby Leaderboard verified and maintain a crash-safe Stats fallback',
-          'Recover game-server and battle-pass data without invented fallback values',
-          'Keep product health and availability labels source-backed',
+          'More resilient leaderboard and game-stat experiences',
+          'Richer seasonal and player-progression views',
+          'Clearer paths between the game, community and ecosystem tools',
         ],
       },
       {
         card: 2,
         features: [
-          'Validate Game Maker export, sharing and future game-integration milestones',
-          'Improve cross-platform game reliability and current PvE content',
-          'Publish dated patch notes and product-status changes',
+          'More Game Maker export and sharing workflows',
+          'Continued cross-platform performance improvements',
+          'More PvE content, progression and replayable challenges',
         ],
       },
       {
         card: 3,
         features: [
-          'Clarify creator, grant and bounty review outcomes',
-          'Keep every AI product purpose and status aligned across the site',
-          'Automate safe checks for broken product destinations',
+          'Clearer creator, grant and bounty participation paths',
+          'Stronger connections between focused AI products and studio work',
+          'Faster access to support, updates and community destinations',
         ],
       },
     ],
   },
   {
     stage: 'EXPLORING',
-    label: 'Direction, not a delivery promise',
+    label: 'Future possibilities',
     variant: 'purple',
     goals: [
       {
@@ -97,8 +95,8 @@ export const roadmapData: RoadmapEntry[] = [
       {
         card: 3,
         features: [
-          'Future work is announced only after scope, ownership and delivery status are verified',
-          'No date, token return, shared account or shared billing is promised by this section',
+          'More connected creator and community experiences',
+          'New ideas will be introduced through future product updates',
         ],
       },
     ],

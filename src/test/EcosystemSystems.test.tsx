@@ -31,7 +31,7 @@ describe('ecosystem system map', () => {
     expect(screen.queryByText('Polybilities')).not.toBeInTheDocument()
   })
 
-  it('marks incomplete data and broken public metrics as degraded', () => {
+  it('uses customer-facing access labels without internal health warnings', () => {
     render(
       <MemoryRouter>
         <EcosystemSystemsSection />
@@ -49,13 +49,17 @@ describe('ecosystem system map', () => {
       .closest('a')
 
     expect(
-      within(statsLink as HTMLElement).getByText('Partial data')
+      within(statsLink as HTMLElement).getByText('Live data')
     ).toBeInTheDocument()
     expect(
-      within(pledgingLink as HTMLElement).getByText('Degraded')
+      within(pledgingLink as HTMLElement).getByText('Optional')
     ).toBeInTheDocument()
     expect(
-      within(lobbiesLink as HTMLElement).getByText('Degraded')
+      within(lobbiesLink as HTMLElement).getByText('Optional')
     ).toBeInTheDocument()
+
+    expect(document.body.textContent).not.toMatch(
+      /degraded|returns 404|preloading reports|fallback values|not exercised|not rendering reliably/i
+    )
   })
 })

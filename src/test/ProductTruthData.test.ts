@@ -4,7 +4,7 @@ import { roadmapData } from '@/data/roadmapData'
 import { AI_PRODUCTS } from '@/data/aiProducts'
 
 describe('product status content', () => {
-  it('separates AI product stage from public-surface health', () => {
+  it('keeps the AI catalog focused on customer-facing product stages', () => {
     expect(
       AI_PRODUCTS.filter((product) => product.status === 'Live')
     ).toHaveLength(4)
@@ -15,11 +15,10 @@ describe('product status content', () => {
       AI_PRODUCTS.filter((product) => product.status === 'Early access')
     ).toHaveLength(1)
 
-    expect(
-      AI_PRODUCTS.filter((product) => product.health === 'Degraded').map(
-        (product) => product.id
-      )
-    ).toEqual(['merlin', 'magas7'])
+    for (const product of AI_PRODUCTS) {
+      expect('health' in product).toBe(false)
+      expect('healthNote' in product).toBe(false)
+    }
   })
 
   it('separates verified, improving and exploratory work without stale quarters', () => {
@@ -31,12 +30,10 @@ describe('product status content', () => {
 
     const content = JSON.stringify(roadmapData)
     expect(content).not.toMatch(/Q[1-4]|SocialMM|Polybilities/)
-    expect(content).toMatch(/working lobby Leaderboard/)
-    expect(content).toMatch(/crash-safe Stats fallback/)
+    expect(content).toMatch(/resilient leaderboard and game-stat experiences/)
+    expect(content).toMatch(/More Game Maker export and sharing workflows/)
     expect(content).toMatch(/MAGAS7 public early-access/)
-    expect(content).toMatch(
-      /No date, token return, shared account or shared billing/
-    )
+    expect(content).not.toMatch(/validation|crash-safe|source-backed/i)
   })
 
   it('keeps static news fallbacks dated and aligned to current product truth', () => {
@@ -45,6 +42,7 @@ describe('product status content', () => {
     const content = JSON.stringify(newsArticles)
     expect(content).not.toMatch(/SocialMM|Polybilities|100K players/)
     expect(content).not.toMatch(/Revenue sharing.*now live/)
+    expect(content).not.toMatch(/Verified 13 Jul 2026/)
 
     const gameMaker = newsArticles.find((article) =>
       article.title.includes('Game Maker')

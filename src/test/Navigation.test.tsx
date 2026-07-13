@@ -164,22 +164,22 @@ describe('Header navigation', () => {
     expect(drawer.queryByRole('link', { name: 'Rent (Testnet)' })).toBeNull()
     expect(
       within(drawer.getByRole('link', { name: 'Web3 Lobbies' })).getByText(
-        'Degraded'
+        'Optional'
       )
     ).toBeInTheDocument()
     expect(
       within(drawer.getByRole('link', { name: 'Marketplace' })).getByText(
-        'Live'
+        'Optional'
       )
     ).toBeInTheDocument()
     expect(
       within(drawer.getByRole('link', { name: 'Pledging' })).getByText(
-        'Degraded'
+        'Optional'
       )
     ).toBeInTheDocument()
     expect(
       within(drawer.getByRole('link', { name: 'Referral System' })).getByText(
-        'Gated'
+        'Sign-in'
       )
     ).toBeInTheDocument()
 
@@ -201,13 +201,11 @@ describe('Header navigation', () => {
     expect(within(gameMaker).getByText('Live')).toBeInTheDocument()
     expect(
       within(drawer.getByRole('link', { name: 'Ecosystem Games' })).getByText(
-        'Degraded'
+        'Beta'
       )
     ).toBeInTheDocument()
     expect(
-      within(drawer.getByRole('link', { name: 'Game stats' })).getByText(
-        'Partial data'
-      )
+      within(drawer.getByRole('link', { name: 'Game stats' })).getByText('Live')
     ).toBeInTheDocument()
   })
 
@@ -355,6 +353,55 @@ describe('MobileBottomBar', () => {
     expect(bar).toHaveClass('translate-y-0', 'opacity-100')
     expect(playButton).not.toHaveAttribute('tabindex')
     expect(aiProductsLink).not.toHaveAttribute('tabindex')
+
+    cleanup()
+    expect(disconnect).toHaveBeenCalledTimes(1)
+  })
+
+  it('hides before the AI cards so it cannot cover product content', () => {
+    const productSuite = document.createElement('section')
+    productSuite.id = 'ai-products'
+    document.body.appendChild(productSuite)
+
+    let intersectionCallback: IntersectionObserverCallback | undefined
+    const disconnect = vi.fn()
+    vi.stubGlobal(
+      'IntersectionObserver',
+      vi.fn((callback: IntersectionObserverCallback) => {
+        intersectionCallback = callback
+        return {
+          observe: vi.fn(),
+          disconnect,
+          unobserve: vi.fn(),
+          takeRecords: vi.fn(),
+        }
+      })
+    )
+
+    const { container } = render(<MobileBottomBar />)
+    const bar = container.querySelector('[data-mobile-bottom-bar]')
+    const playButton = screen.getByRole('button', {
+      name: 'Play Game',
+      hidden: true,
+    })
+
+    expect(bar).toHaveAttribute('aria-hidden', 'false')
+
+    act(() => {
+      intersectionCallback?.(
+        [
+          {
+            isIntersecting: true,
+            boundingClientRect: { top: 120 },
+          } as IntersectionObserverEntry,
+        ],
+        {} as IntersectionObserver
+      )
+    })
+
+    expect(bar).toHaveAttribute('aria-hidden', 'true')
+    expect(bar).toHaveClass('translate-y-full', 'opacity-0')
+    expect(playButton).toHaveAttribute('tabindex', '-1')
 
     cleanup()
     expect(disconnect).toHaveBeenCalledTimes(1)

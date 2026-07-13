@@ -177,13 +177,13 @@ export default function HeroSection() {
                 aria-hidden="true"
               />
               <p className="mt-3 text-xs font-black uppercase tracking-[0.16em] text-[#98FFF9]">
-                Verified activity
+                Game activity
               </p>
               <p className="mt-1 text-lg font-black leading-tight text-white sm:text-2xl">
                 Live game stats
               </p>
               <span className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-white/80 group-hover:text-white">
-                See live proof
+                View game stats
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </span>
             </div>

@@ -76,7 +76,7 @@ describe('LiveStatsWidget', () => {
     mockUseGameStats.mockReset()
   })
 
-  it('shows explicit unavailable states without invented fallback totals', () => {
+  it('uses a calm empty state without exposing backend errors', () => {
     mockUseGameStats.mockReturnValue({
       data: null,
       loading: false,
@@ -92,14 +92,17 @@ describe('LiveStatsWidget', () => {
       'unavailable'
     )
     expect(
-      screen.getByText(/No estimated or fallback totals are shown/i)
+      screen.getByText(/Statistics are refreshing. Please check again shortly/i)
     ).toBeInTheDocument()
+    expect(
+      screen.queryByText(/network down|fallback|source/i)
+    ).not.toBeInTheDocument()
     expect(screen.queryByText('15,285')).not.toBeInTheDocument()
     expect(screen.queryByText('2.7M')).not.toBeInTheDocument()
     expect(screen.queryByText('250K MCRT')).not.toBeInTheDocument()
   })
 
-  it('renders values that came from a verified response', () => {
+  it('renders current values with customer-facing labels', () => {
     mockUseGameStats.mockReturnValue({
       data: verifiedData(),
       loading: false,

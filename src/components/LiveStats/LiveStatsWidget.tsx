@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import {
-  useGameStats,
-  type GameStatsSourceStatus,
-  type GameStatsStatus,
-} from '@/lib/useGameStats'
+import { useGameStats, type GameStatsStatus } from '@/lib/useGameStats'
 
 function AnimatedNumber({ value }: { value: number }) {
   const [displayed, setDisplayed] = useState(value)
@@ -38,7 +34,7 @@ function AnimatedNumber({ value }: { value: number }) {
 }
 
 function formatMcrt(value: number | null): string {
-  if (value === null) return 'Unavailable'
+  if (value === null) return '—'
   if (value >= 1_000_000) return `${(value / 1_000_000).toFixed(1)}M`
   if (value >= 1_000) return `${(value / 1_000).toFixed(0)}K`
   return value.toLocaleString()
@@ -83,64 +79,58 @@ const STATUS_PRESENTATION: Record<
   { label: string; dot: string; panel: string }
 > = {
   loading: {
-    label: 'Checking live sources',
+    label: 'Updating stats',
     dot: 'bg-sky-400',
     panel: 'border-sky-400/20 bg-sky-400/10 text-sky-100',
   },
   live: {
-    label: 'Live verified data',
+    label: 'Live data',
     dot: 'bg-emerald-400',
     panel: 'border-emerald-400/20 bg-emerald-400/10 text-emerald-100',
   },
   partial: {
-    label: 'Partial live data',
+    label: 'Latest available data',
     dot: 'bg-amber-400',
     panel: 'border-amber-400/20 bg-amber-400/10 text-amber-100',
   },
   stale: {
-    label: 'Last verified data',
+    label: 'Recent data',
     dot: 'bg-amber-400',
     panel: 'border-amber-400/20 bg-amber-400/10 text-amber-100',
   },
   offline: {
-    label: 'Game server offline',
+    label: 'Stats updating',
     dot: 'bg-rose-500',
     panel: 'border-rose-400/20 bg-rose-400/10 text-rose-100',
   },
   unavailable: {
-    label: 'Live stats unavailable',
+    label: 'Stats updating',
     dot: 'bg-slate-400',
     panel: 'border-white/10 bg-white/5 text-white/70',
   },
 }
 
-function sourceLabel(status: GameStatsSourceStatus) {
-  if (status === 'live') return 'live'
-  if (status === 'offline') return 'offline'
-  return 'unavailable'
-}
-
 function statusMessage(status: GameStatsStatus, hasData: boolean) {
   switch (status) {
     case 'partial':
-      return 'At least one live source is unavailable. Only verified fields are shown.'
+      return 'Available game and market totals are shown below.'
     case 'stale':
-      return 'The latest refresh failed or returned an old cached response. These are the last verified values.'
+      return 'Showing the most recent available update.'
     case 'offline':
-      return 'The game server reported an offline response. Market data is shown only if its source responded.'
+      return 'Game statistics are refreshing. Market data may still be available.'
     case 'unavailable':
-      return 'Live stats are temporarily unavailable. No estimated or fallback totals are shown.'
+      return 'Statistics are refreshing. Please check again shortly.'
     case 'loading':
       return hasData
-        ? 'Refreshing verified sources.'
-        : 'Checking the lobby, season, and market sources.'
+        ? 'Refreshing the latest totals.'
+        : 'Loading current game and market totals.'
     default:
-      return 'Values below came from the current lobby, season, and market responses.'
+      return 'Showing current game and market data.'
   }
 }
 
 export default function LiveStatsWidget() {
-  const { data, loading, error, status } = useGameStats(60_000)
+  const { data, loading, status } = useGameStats(60_000)
   const presentation = STATUS_PRESENTATION[status]
   const finishedLobbies = data?.allTime.finishedLobbies ?? null
   const mcrtPledged = data?.allTime.mcrtPledged ?? null
@@ -174,10 +164,10 @@ export default function LiveStatsWidget() {
               </span>
             </div>
             <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl">
-              Verified ecosystem stats
+              Live ecosystem stats
             </h2>
             <p className="mt-1 text-sm text-white/50">
-              Unverified values stay blank instead of being estimated.
+              A quick view of current available game and market activity.
             </p>
           </div>
           <Link
@@ -194,39 +184,20 @@ export default function LiveStatsWidget() {
           aria-live="polite"
         >
           {statusMessage(status, Boolean(data))}
-          {error && status === 'stale' ? ` Refresh error: ${error}.` : ''}
         </div>
-
-        {data?.meta?.sources && (
-          <div className="mb-5 flex flex-wrap gap-2 text-xs text-white/60">
-            {data.meta.sources.lobby && (
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-                Lobby: {sourceLabel(data.meta.sources.lobby.status)}
-              </span>
-            )}
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              Season: {sourceLabel(data.meta.sources.gameServer.status)}
-            </span>
-            <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1">
-              Market: {sourceLabel(data.meta.sources.market.status)}
-            </span>
-          </div>
-        )}
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <StatTile
             icon="⚔️"
             label="Finished Lobbies"
             value={
-              finishedLobbies === null
-                ? 'Unavailable'
-                : finishedLobbies.toLocaleString()
+              finishedLobbies === null ? '—' : finishedLobbies.toLocaleString()
             }
             rawValue={finishedLobbies ?? undefined}
             sublabel={
               finishedLobbies === null
-                ? 'No verified total'
-                : 'Reported by lobby API'
+                ? 'Updates when activity is available'
+                : 'Live lobby activity'
             }
             accent="border-blue-500/20 text-blue-400"
           />
@@ -237,8 +208,8 @@ export default function LiveStatsWidget() {
             rawValue={mcrtPledged ?? undefined}
             sublabel={
               mcrtPledged === null
-                ? 'No verified total'
-                : 'Recorded by lobby API'
+                ? 'Updates when activity is available'
+                : 'Recorded across lobby activity'
             }
             accent="border-amber-500/20 text-amber-400"
           />
@@ -248,28 +219,24 @@ export default function LiveStatsWidget() {
               seasonName ? `${seasonName} Prize Pool` : 'Season Prize Pool'
             }
             value={
-              seasonPrize === null
-                ? 'Unavailable'
-                : `${formatMcrt(seasonPrize)} MCRT`
+              seasonPrize === null ? '—' : `${formatMcrt(seasonPrize)} MCRT`
             }
             sublabel={
               seasonPrize === null
-                ? 'No verified prize value'
-                : 'Current game-server response'
+                ? 'Updates with current season data'
+                : 'Current season data'
             }
             accent="border-purple-500/20 text-purple-400"
           />
           <StatTile
             icon="💎"
             label="MCRT Price"
-            value={
-              mcrtPrice === null ? 'Unavailable' : `$${mcrtPrice.toFixed(5)}`
-            }
+            value={mcrtPrice === null ? '—' : `$${mcrtPrice.toFixed(5)}`}
             sublabel={
               priceChange === null
                 ? mcrtPrice === null
-                  ? 'Market source unavailable'
-                  : '24h change unavailable'
+                  ? 'Market data is updating'
+                  : '24h move updates when available'
                 : `${priceChangePositive ? '+' : ''}${priceChange.toFixed(2)}% 24h`
             }
             accent={
@@ -313,10 +280,7 @@ export default function LiveStatsWidget() {
 
         {timestamp && (
           <p className="mt-4 text-center text-[11px] text-white/60 sm:text-left">
-            {status === 'stale'
-              ? 'Last verified response'
-              : 'Response generated'}{' '}
-            {new Date(timestamp).toLocaleString()}
+            Updated {new Date(timestamp).toLocaleString()}
           </p>
         )}
       </div>

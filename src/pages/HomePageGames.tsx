@@ -6,7 +6,7 @@ const Footer = lazy(() => import('@/components/Footer/Footer'))
 import bulletIcon from '@/assets/icons/bullet.svg'
 
 import { Play, ArrowUpRight } from 'lucide-react'
-import { ROADMAP_LAST_VERIFIED, roadmapData } from '../data/roadmapData'
+import { roadmapData } from '../data/roadmapData'
 import FaqAccordion from '../components/Accordion/FaqAccordion'
 import RoadmapCard from '../components/Cards/RoadmapCard'
 
@@ -720,10 +720,10 @@ function Homepagegames() {
               <div className="space-y-20">
                 <div className="space-y-8">
                   <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
-                    Product status
+                    What&apos;s live and what&apos;s next
                   </h2>
                   <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
-                    Verified {ROADMAP_LAST_VERIFIED}
+                    Game and ecosystem roadmap
                   </div>
                 </div>
                 <div className="flex items-center justify-center ">

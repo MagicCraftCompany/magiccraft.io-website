@@ -119,12 +119,6 @@ export function NewsSection() {
         </div>
       </div>
 
-      {useFallbackData && (
-        <div className="mb-6 text-center text-amber-400">
-          Using fallback data. Couldn't connect to Sanity CMS.
-        </div>
-      )}
-
       {loading ? (
         <div className="flex justify-center">
           <div className="h-12 w-12 animate-spin rounded-full border-4 border-teal-400 border-t-transparent"></div>

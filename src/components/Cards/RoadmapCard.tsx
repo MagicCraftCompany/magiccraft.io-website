@@ -7,18 +7,18 @@ type RoadmapCardProps = {
 const stageCopy = {
   LIVE: {
     heading: 'Live',
-    badge: 'VERIFIED',
-    detail: 'Public now',
+    badge: 'AVAILABLE NOW',
+    detail: 'Play and explore',
   },
   IMPROVING: {
     heading: 'Improving',
-    badge: 'ACTIVE WORK',
-    detail: 'Not complete',
+    badge: 'IN PROGRESS',
+    detail: 'Growing now',
   },
   EXPLORING: {
     heading: 'Exploring',
-    badge: 'NO COMMITMENT',
-    detail: 'Future direction',
+    badge: 'FUTURE IDEAS',
+    detail: 'Subject to change',
   },
 }
 

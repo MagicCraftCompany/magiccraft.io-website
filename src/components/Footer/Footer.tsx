@@ -14,7 +14,6 @@ import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { AI_PRODUCTS } from '@/data/aiProducts'
 import { ECOSYSTEM_SYSTEM_GROUPS } from '@/data/ecosystemSystems'
-import { BUILD_REV } from '@/version'
 
 type FooterLink = {
   title: string
@@ -108,7 +107,7 @@ const systemLinks: FooterLink[] = [
     .map((id) => systemLookup.get(id))
     .filter((system): system is NonNullable<typeof system> => Boolean(system))
     .map((system) => ({ title: system.name, href: system.href })),
-  { title: 'Whitepaper v3.2', href: '/whitepaper' },
+  { title: 'Whitepaper v3.3', href: '/whitepaper' },
   { title: 'FAQ', href: '/faq' },
   { title: 'Contact', href: '/contact-us' },
 ]
@@ -189,9 +188,6 @@ export default function Footer() {
               </span>
               <span className="rounded-full border border-[#B591F2]/25 bg-[#B591F2]/10 px-3 py-1.5 text-[#D8C9FF]">
                 {AI_PRODUCTS.length} AI products
-              </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1.5 text-white/55">
-                v{BUILD_REV}
               </span>
             </div>
 

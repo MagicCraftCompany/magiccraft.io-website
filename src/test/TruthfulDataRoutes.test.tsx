@@ -33,17 +33,19 @@ afterEach(() => {
 })
 
 describe('truthful data routes', () => {
-  it('labels server telemetry unavailable and links to the real public services', () => {
+  it('provides a clean directory of public services', () => {
     renderPage(Server, '/server')
 
     expect(
-      screen.getByRole('heading', { name: 'MagicCraft service status' })
+      screen.getByRole('heading', { name: 'MagicCraft services' })
     ).toBeInTheDocument()
+    expect(screen.getAllByText('Open service')).toHaveLength(4)
     expect(
-      screen.getByText(/Public uptime telemetry is not available/i)
-    ).toBeInTheDocument()
-    expect(screen.getAllByText('Not monitored here')).toHaveLength(3)
-    expect(screen.getByText('Source-backed')).toBeInTheDocument()
+      screen.queryByText(/Public uptime telemetry/i)
+    ).not.toBeInTheDocument()
+    expect(
+      screen.queryByText(/Not monitored here|Source-backed/i)
+    ).not.toBeInTheDocument()
     expect(
       screen.queryByText(/Failed to connect to the database/i)
     ).not.toBeInTheDocument()
@@ -58,7 +60,7 @@ describe('truthful data routes', () => {
       'https://app.magiccraft.io/marketplace/explorer'
     )
     expect(
-      screen.getByRole('link', { name: 'View source-backed stats' })
+      screen.getByRole('link', { name: 'View game stats' })
     ).toHaveAttribute('href', '/stats')
     expect(
       screen.getByRole('link', { name: /Game statistics/i })

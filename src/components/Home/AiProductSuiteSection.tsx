@@ -8,11 +8,7 @@ import {
   Sparkles,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
-import {
-  AI_PRODUCTS,
-  AI_PRODUCTS_LAST_VERIFIED,
-  type AiProductId,
-} from '@/data/aiProducts'
+import { AI_PRODUCTS, type AiProductId } from '@/data/aiProducts'
 
 const PRODUCT_ICONS: Record<AiProductId, LucideIcon> = {
   merlin: Bot,
@@ -67,9 +63,6 @@ export default function AiProductSuiteSection() {
               <span className="rounded-full border border-amber-300/25 bg-amber-300/10 px-3 py-1 text-amber-100">
                 {EARLY_ACCESS_PRODUCT_COUNT} early access
               </span>
-              <span className="px-1 text-white/50">
-                Checked {AI_PRODUCTS_LAST_VERIFIED}
-              </span>
             </div>
           </div>
         </div>
@@ -110,11 +103,6 @@ export default function AiProductSuiteSection() {
                     >
                       {product.status}
                     </span>
-                    {product.health === 'Degraded' && (
-                      <span className="rounded-full border border-amber-300/25 bg-amber-300/10 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.13em] text-amber-100">
-                        Degraded
-                      </span>
-                    )}
                   </span>
                 </div>
 
@@ -130,11 +118,6 @@ export default function AiProductSuiteSection() {
                 <p className="mt-4 flex-1 text-sm leading-6 text-white/70 sm:text-base">
                   {product.description}
                 </p>
-                {product.healthNote && (
-                  <p className="mt-4 rounded-xl border border-amber-300/15 bg-amber-300/5 p-3 text-xs leading-5 text-amber-100/75">
-                    {product.healthNote}
-                  </p>
-                )}
                 <span className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-white transition group-hover:text-[#98FFF9]">
                   {product.cta}
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

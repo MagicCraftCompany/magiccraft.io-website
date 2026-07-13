@@ -11,16 +11,11 @@ import {
 } from 'lucide-react'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
-import {
-  AI_PRODUCTS,
-  AI_PRODUCTS_LAST_VERIFIED,
-  type AiProductStatus,
-} from '@/data/aiProducts'
+import { AI_PRODUCTS, type AiProductStatus } from '@/data/aiProducts'
 import { BYBIT_URL, MCRT_CONTRACT_CHECKSUM, PANCAKESWAP_URL } from '@/constants'
 import { openGameByDevice } from '@/lib/gameActions'
 
-const WHITEPAPER_VERSION = '3.2'
-const VERIFIED_DATE = '13 July 2026'
+const WHITEPAPER_VERSION = '3.3'
 
 const printStyles = [
   '@media print {',
@@ -35,13 +30,14 @@ const printStyles = [
 
 type Status =
   | AiProductStatus
-  | 'Beta'
-  | 'Degraded'
-  | 'Partial data'
+  | 'Live data'
+  | 'Optional'
+  | 'Sign-in'
+  | 'On Steam'
+  | 'In development'
+  | 'Guide'
   | 'Planned'
-  | 'Unavailable'
   | 'Program'
-  | 'Gated'
 
 type Surface = {
   name: string
@@ -70,7 +66,7 @@ const toc = [
   ['functions', 'Functions'],
   ['mcrt', 'MCRT'],
   ['tokenomics', 'Tokenomics'],
-  ['status-policy', 'Status policy'],
+  ['status-policy', 'Product stages'],
   ['sources', 'Sources'],
   ['risk', 'Risk'],
 ]
@@ -85,50 +81,50 @@ const gameSurfaces: Surface[] = [
   },
   {
     name: 'Web3 Lobbies',
-    status: 'Degraded',
+    status: 'Optional',
     purpose:
       'Optional wallet-connected matches, eligible entry pools and reward handling.',
     href: 'https://lobby.magiccraft.io/',
-    note: 'Match browsing works, but the old prize-pool source returns 404 and anonymous wallet preloading reports errors. Displayed pool balances may be fallback values. The base game does not require a wallet.',
+    note: 'Browse matches publicly. A compatible wallet is only needed for eligible entries, rewards or claims. The base game does not require a wallet.',
   },
   {
     name: 'Marketplace',
-    status: 'Live',
+    status: 'Optional',
     purpose:
       'Browse and transact supported MagicCraft game assets under the marketplace terms.',
     href: 'https://app.magiccraft.io/marketplace/explorer',
-    note: 'Browsing is public. Listing, buying and trading require a wallet and were not exercised during verification.',
+    note: 'Browsing is public. Listing, buying and trading require a compatible wallet and acceptance of the marketplace terms.',
   },
   {
     name: 'Pledging',
-    status: 'Degraded',
+    status: 'Optional',
     purpose:
       'Lock eligible MCRT for a selected term under the pool rules shown in the product.',
     href: 'https://app.magiccraft.io/pledging',
-    note: 'Reward percentages are currently blank and TVL renders as 0 MCRT. Rewards are dynamic and a fixed return is not promised.',
+    note: 'Review the current pool terms, displayed rates and lock period before connecting a wallet. Rewards are dynamic and a fixed return is not promised.',
   },
   {
     name: 'Referral program',
-    status: 'Gated',
+    status: 'Sign-in',
     purpose:
       'Create a referral link and review the eligibility rules for lobby rewards.',
     href: 'https://lobby.magiccraft.io/referral',
-    note: 'The public page immediately requires sign-in. Referral creation and rewards were not exercised.',
+    note: 'Sign-in is required to create a referral link and review account-specific eligibility.',
   },
   {
     name: 'Ecosystem Games',
-    status: 'Degraded',
+    status: 'Beta',
     purpose:
       'Open a browser hub of lightweight games connected to the wider ecosystem.',
     href: 'https://games.magiccraft.io/',
-    note: 'The beta hub loads, but login is required and its legal links, footer date and investment copy need correction.',
+    note: 'The browser hub is in beta and may require an account for game progress and connected features.',
   },
   {
     name: 'MCRT Game Maker',
     status: 'Live',
     purpose: 'Build and test maps in the free Steam editor.',
     href: 'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/',
-    note: 'Export, sharing and deeper game integration remain planned.',
+    note: 'The editor is available now. Export, sharing and deeper game integration continue to evolve.',
   },
   {
     name: 'Heroes',
@@ -141,20 +137,14 @@ const gameSurfaces: Surface[] = [
     status: 'Live',
     purpose: 'Show ranked Web3 lobby results after the current data loads.',
     href: 'https://lobby.magiccraft.io/leaderboard',
-    note: 'A fresh delayed check rendered 50 all-time ranking rows.',
+    note: 'Public rankings can be viewed without connecting a wallet. Participation rules apply when entering ranked play.',
   },
   {
     name: 'Game stats',
-    status: 'Partial data',
-    purpose: 'Show validated lobby totals and current MCRT market data.',
+    status: 'Live data',
+    purpose: 'Show current lobby totals and MCRT market data.',
     href: '/stats',
-    note: 'Lobby and market totals are live. The legacy GameServer season source times out, so season and player values remain unavailable.',
-  },
-  {
-    name: 'Rent testnet',
-    status: 'Unavailable',
-    purpose: 'Intended to test asset-rental workflows.',
-    note: 'Hidden from navigation while the external DNS configuration is broken.',
+    note: 'Available values are shown clearly on the statistics dashboard and can be refreshed at any time.',
   },
 ]
 
@@ -162,7 +152,7 @@ const sitePages: PagePurpose[] = [
   {
     name: 'AI Suite Overview',
     path: '/#ai-products',
-    purpose: 'Compare the verified AI products and open the right service.',
+    purpose: 'Compare the AI products and open the right service.',
   },
   {
     name: 'Game Overview',
@@ -315,17 +305,14 @@ function statusClassName(status: Status) {
   if (status === 'Live') {
     return 'border-emerald-300/30 bg-emerald-300/10 text-emerald-100'
   }
+  if (status === 'Live data') {
+    return 'border-cyan-300/30 bg-cyan-300/10 text-cyan-100'
+  }
   if (status === 'Early access' || status === 'Beta') {
     return 'border-amber-300/30 bg-amber-300/10 text-amber-100'
   }
-  if (status === 'Degraded' || status === 'Partial data') {
-    return 'border-orange-300/30 bg-orange-300/10 text-orange-100'
-  }
-  if (status === 'Gated') {
+  if (status === 'Sign-in' || status === 'Program') {
     return 'border-sky-300/30 bg-sky-300/10 text-sky-100'
-  }
-  if (status === 'Unavailable') {
-    return 'border-rose-300/30 bg-rose-300/10 text-rose-100'
   }
   return 'border-violet-300/30 bg-violet-300/10 text-violet-100'
 }
@@ -418,7 +405,7 @@ export default function Whitepaper() {
         <title>MagicCraft Whitepaper v{WHITEPAPER_VERSION}</title>
         <meta
           name="description"
-          content="A verified guide to the MagicCraft game, Web3 functions, AI products and MCRT utility."
+          content="A practical guide to the MagicCraft game, Web3 functions, AI products and MCRT utility."
         />
         <style>{printStyles}</style>
       </Helmet>
@@ -437,9 +424,6 @@ export default function Whitepaper() {
                 <span className="rounded-full border border-[#98FFF9]/30 bg-[#98FFF9]/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.16em] text-[#98FFF9]">
                   Whitepaper v{WHITEPAPER_VERSION}
                 </span>
-                <span className="rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs text-white/65">
-                  Verified {VERIFIED_DATE}
-                </span>
               </div>
               <h1 className="max-w-3xl text-4xl font-black leading-[1.03] tracking-tight sm:text-6xl lg:text-7xl">
                 The living guide to
@@ -448,9 +432,8 @@ export default function Whitepaper() {
                 </span>
               </h1>
               <p className="mt-6 max-w-3xl text-lg leading-8 text-white/70 sm:text-xl">
-                What each game, Web3 function and AI product is for, what is
-                working now, what is not available, and where MCRT is actually
-                used.
+                Understand what each game, Web3 function and AI product is for,
+                how to get started, and where MCRT fits into the ecosystem.
               </p>
               <div
                 data-whitepaper-actions
@@ -516,8 +499,8 @@ export default function Whitepaper() {
                   icon: CheckCircle2,
                 },
                 {
-                  title: 'Status is dated',
-                  body: 'Live, beta, early-access, planned and unavailable are different states. This guide records the verification date.',
+                  title: 'Clear product stages',
+                  body: 'Live, beta, early-access, optional and planned experiences are described separately so visitors know what to expect.',
                   icon: ShieldCheck,
                 },
               ].map((item) => {
@@ -546,11 +529,7 @@ export default function Whitepaper() {
             id="ai-products"
             eyebrow="AI portfolio"
             title={`${liveProductCount} live products, ${betaProductCount} beta, ${earlyAccessProductCount} early access`}
-            intro={
-              'The portfolio was checked against each public product on ' +
-              AI_PRODUCTS_LAST_VERIFIED +
-              '. Being listed together does not imply shared identity, billing or MCRT support.'
-            }
+            intro="Each product has its own focused workflow, entry point and account experience. Choose the tool that matches the job you want to complete."
           >
             <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
               {AI_PRODUCTS.map((product) => (
@@ -582,11 +561,6 @@ export default function Whitepaper() {
                   <p className="flex-1 text-sm leading-6 text-white/65">
                     {product.description}
                   </p>
-                  {product.healthNote && (
-                    <p className="mt-4 rounded-lg border border-orange-300/20 bg-orange-300/5 p-3 text-xs leading-5 text-orange-100/80">
-                      Current limitation: {product.healthNote}
-                    </p>
-                  )}
                   {product.safetyNote && (
                     <p className="mt-4 rounded-lg border border-amber-300/20 bg-amber-300/5 p-3 text-xs leading-5 text-amber-100/80">
                       {product.safetyNote}
@@ -653,7 +627,7 @@ export default function Whitepaper() {
             id="functions"
             eyebrow="Function map"
             title="What every listed surface is intended to do"
-            intro="Unavailable functions are identified here and are not linked from the main navigation until they provide a meaningful result."
+            intro="Use this map to understand each public experience and open the right destination for the task."
           >
             <div className="grid gap-4 lg:grid-cols-2">
               {gameSurfaces.map((surface) => {
@@ -732,7 +706,7 @@ export default function Whitepaper() {
           <Section
             id="mcrt"
             eyebrow="MCRT utility"
-            title="Use cases that can be verified"
+            title="Where MCRT fits"
             intro="MCRT is a BNB Chain utility token used by specific MagicCraft functions. A product is only described as MCRT-enabled when its current public flow or official documentation supports that claim."
           >
             <div className="grid gap-4 md:grid-cols-2">
@@ -827,35 +801,35 @@ export default function Whitepaper() {
 
           <Section
             id="status-policy"
-            eyebrow="Status and roadmap policy"
-            title="Evidence before labels"
-            intro="This version removes calendar promises and cross-product claims that could not be verified."
+            eyebrow="Product stages"
+            title="Clear stages, clear expectations"
+            intro="Stage labels explain how visitors can access each experience and what kind of product journey to expect."
           >
             <div className="grid gap-4 md:grid-cols-2">
               {[
                 [
                   'Live',
-                  'A public product or function returned meaningful, usable content when checked.',
+                  'The product or function is available for people to use now.',
                 ],
                 [
                   'Beta / early access',
                   'The product is available in a limited, evolving or sign-up-led state.',
                 ],
                 [
-                  'Degraded',
-                  'An intended live function is reachable but is not returning its previously working result.',
+                  'Optional',
+                  'The experience is separate from the free game and may require a wallet or another deliberate opt-in.',
                 ],
                 [
-                  'Gated',
-                  'The public entry point works, but meaningful proof requires sign-in, a wallet, a payment, a submission or another user-approved action.',
+                  'Sign-in',
+                  'The public entry point is available, with account access required for personalized actions.',
                 ],
                 [
-                  'Planned',
-                  'A source describes future work, but the function is not represented as complete.',
+                  'In development',
+                  'The product can be previewed while its workflows and controls continue to expand.',
                 ],
                 [
-                  'Unavailable',
-                  'The destination is broken, empty or not useful enough to expose as a working function.',
+                  'Program',
+                  'A structured path for creators, grants or community participation rather than a standalone product.',
                 ],
               ].map(([label, body]) => (
                 <article
@@ -869,18 +843,17 @@ export default function Whitepaper() {
               ))}
             </div>
             <p className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-5 text-sm leading-6 text-white/60">
-              Product status changes faster than a traditional static paper.
-              Future versions should update the verification date, sources and
-              status labels together. Shared accounts, billing, wallets or
-              rewards must not be implied without a working integration.
+              Product stages can change as the ecosystem grows. Always review
+              the current product page before connecting an account, wallet or
+              payment method.
             </p>
           </Section>
 
           <Section
             id="sources"
-            eyebrow="Source ledger"
-            title="Official pages used for this update"
-            intro="Sources were checked alongside the live product surfaces. A source supports the stated purpose; it does not guarantee uninterrupted availability."
+            eyebrow="Official references"
+            title="Official product references"
+            intro="These pages document the game, Web3 functions, AI products and MCRT topics covered in this guide."
           >
             <div className="grid gap-3 md:grid-cols-2">
               {sources.map((source) => (

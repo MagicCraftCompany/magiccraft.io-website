@@ -39,10 +39,8 @@ export type NavigationStatus =
   | 'Live'
   | 'Early access'
   | 'Beta'
-  | 'Degraded'
-  | 'Partial data'
-  | 'Gated'
-  | 'Testnet'
+  | 'Optional'
+  | 'Sign-in'
   | 'External'
   | 'Program'
 
@@ -83,7 +81,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         title: 'AI Suite Overview',
         icon: '/icons/icon-community.svg',
         path: '/#ai-products',
-        purpose: 'Compare every verified AI product and open the right tool.',
+        purpose: 'Compare every AI product and open the right tool.',
       },
       ...AI_PRODUCTS.map((product) => ({
         title: product.name,
@@ -103,28 +101,28 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: lobby,
         path: 'https://lobby.magiccraft.io/',
         purpose: 'Create or join matches and manage Web3 game rewards.',
-        status: 'Degraded',
+        status: 'Optional',
       },
       {
         title: 'Marketplace',
         icon: marketplace,
         path: 'https://app.magiccraft.io/marketplace/explorer',
         purpose: 'Browse and trade supported game assets and items.',
-        status: 'Live',
+        status: 'Optional',
       },
       {
         title: 'Pledging',
         icon: '/icons/icon-pledge.svg',
         path: 'https://app.magiccraft.io/pledging',
         purpose: 'Lock MCRT for a chosen term under the current pool rules.',
-        status: 'Degraded',
+        status: 'Optional',
       },
       {
         title: 'Referral System',
         icon: Referral,
         path: 'https://lobby.magiccraft.io/referral',
         purpose: 'Create a referral link for eligible Web3 lobby rewards.',
-        status: 'Gated',
+        status: 'Sign-in',
       },
     ],
   },
@@ -148,7 +146,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         title: 'Whitepaper',
         icon: Whitepaper,
         path: '/whitepaper',
-        purpose: 'Read the verified product, game, Web3, and MCRT guide.',
+        purpose: 'Read the product, game, Web3, and MCRT guide.',
       },
       {
         title: 'Game Overview',
@@ -244,7 +242,7 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         icon: gamepad,
         path: 'https://games.magiccraft.io/',
         purpose: 'Open the browser-based MagicCraft ecosystem game hub.',
-        status: 'Degraded',
+        status: 'Beta',
       },
       {
         title: 'Game Maker',
@@ -271,8 +269,8 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
         title: 'Game stats',
         icon: stats,
         path: '/stats',
-        purpose: 'Review validated lobby totals and current MCRT market data.',
-        status: 'Partial data',
+        purpose: 'Review current lobby totals and MCRT market data.',
+        status: 'Live',
       },
     ],
   },

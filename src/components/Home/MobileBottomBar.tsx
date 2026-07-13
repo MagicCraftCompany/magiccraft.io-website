@@ -5,6 +5,7 @@ import { openGameByDevice } from '@/lib/gameActions'
 
 export default function MobileBottomBar() {
   const [isHeroVisible, setIsHeroVisible] = useState(true)
+  const [hasReachedProductSuite, setHasReachedProductSuite] = useState(false)
 
   useEffect(() => {
     const heroActions =
@@ -23,11 +24,27 @@ export default function MobileBottomBar() {
     return () => observer.disconnect()
   }, [])
 
+  useEffect(() => {
+    const productSuite = document.getElementById('ai-products')
+    if (!productSuite || typeof IntersectionObserver === 'undefined') return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      setHasReachedProductSuite(
+        entry.isIntersecting || (entry.boundingClientRect?.top ?? 1) < 0
+      )
+    })
+
+    observer.observe(productSuite)
+    return () => observer.disconnect()
+  }, [])
+
+  const isBarHidden = isHeroVisible || hasReachedProductSuite
+
   return (
     <div
-      aria-hidden={isHeroVisible}
+      aria-hidden={isBarHidden}
       className={`fixed inset-x-0 bottom-0 z-50 pb-[max(env(safe-area-inset-bottom),4px)] transition-[transform,opacity] duration-300 ease-out motion-reduce:transition-none md:hidden ${
-        isHeroVisible
+        isBarHidden
           ? 'pointer-events-none translate-y-full opacity-0'
           : 'translate-y-0 opacity-100'
       }`}
@@ -43,7 +60,7 @@ export default function MobileBottomBar() {
           onClick={() => {
             openGameByDevice()
           }}
-          tabIndex={isHeroVisible ? -1 : undefined}
+          tabIndex={isBarHidden ? -1 : undefined}
           className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-3 text-sm font-bold text-[#03082F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#98FFF9]"
         >
           <Gamepad2 aria-hidden="true" className="h-4 w-4" />
@@ -59,7 +76,7 @@ export default function MobileBottomBar() {
               label: 'ai_products',
             })
           }
-          tabIndex={isHeroVisible ? -1 : undefined}
+          tabIndex={isBarHidden ? -1 : undefined}
           className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/10 px-3 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#98FFF9]"
         >
           <Sparkles aria-hidden="true" className="h-4 w-4" />

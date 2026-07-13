@@ -31,9 +31,8 @@ export default function HoldersPage() {
             MCRT holder distribution
           </h1>
           <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-white/70">
-            MagicCraft does not currently publish a verified, paginated holder
-            feed on this website. The previous sample table has been removed so
-            placeholder wallets cannot be mistaken for live on-chain data.
+            View the current MCRT holder distribution through BscScan, the BNB
+            Chain explorer for the official token contract.
           </p>
 
           <div className="mx-auto mt-7 max-w-xl rounded-2xl border border-white/10 bg-black/20 p-4 text-left">

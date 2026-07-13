@@ -22,7 +22,7 @@ describe('Dashboard', () => {
     mockUseGameStats.mockReset()
   })
 
-  it('leaves unavailable statistics blank and removes estimated history', () => {
+  it('leaves unavailable statistics blank without exposing diagnostics', () => {
     mockUseGameStats.mockReturnValue({
       data: null,
       loading: false,
@@ -42,15 +42,20 @@ describe('Dashboard', () => {
       'unavailable'
     )
     expect(
-      screen.getByText(/does not synthesize or estimate trends/i)
+      screen.getByText(
+        /Historical charts will appear as time-series data becomes available/i
+      )
     ).toBeInTheDocument()
+    expect(
+      screen.queryByText(/network down|refresh error|source-backed/i)
+    ).not.toBeInTheDocument()
     expect(screen.queryByText('15,285')).not.toBeInTheDocument()
     expect(screen.queryByText('2.70M MCRT')).not.toBeInTheDocument()
     expect(screen.queryByText('250.0K MCRT')).not.toBeInTheDocument()
     expect(screen.queryByText("Q1 '26")).not.toBeInTheDocument()
   })
 
-  it('renders validated lobby totals without graph dependencies', () => {
+  it('renders current lobby totals without implementation details', () => {
     mockUseGameStats.mockReturnValue({
       data: {
         ts: '2026-07-13T12:00:00.000Z',
@@ -106,7 +111,9 @@ describe('Dashboard', () => {
     expect(screen.getAllByText('28,166')).toHaveLength(2)
     expect(screen.getAllByText('100,642')).toHaveLength(2)
     expect(screen.getAllByText('145.83M MCRT')).toHaveLength(2)
-    expect(screen.getByText('Lobby stats source')).toBeInTheDocument()
-    expect(screen.getAllByText('Live')).toHaveLength(2)
+    expect(screen.getByText('Current game statistics')).toBeInTheDocument()
+    expect(
+      screen.queryByText(/stats source|game server source/i)
+    ).not.toBeInTheDocument()
   })
 })

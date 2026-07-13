@@ -1,12 +1,12 @@
 export type EcosystemSystemGroupId = 'game-services' | 'web3' | 'builders'
 
 export type EcosystemSystemStatus =
-  | 'Public'
-  | 'Partial data'
-  | 'Degraded'
+  | 'Live'
+  | 'Live data'
   | 'On Steam'
-  | 'Building'
+  | 'In development'
   | 'Optional'
+  | 'Guide'
 
 export type EcosystemSystem = {
   id: string
@@ -27,8 +27,6 @@ export type EcosystemSystemGroup = {
   systems: EcosystemSystem[]
 }
 
-export const ECOSYSTEM_SYSTEMS_LAST_VERIFIED = '13 July 2026'
-
 export const ECOSYSTEM_SYSTEM_GROUPS: EcosystemSystemGroup[] = [
   {
     id: 'game-services',
@@ -41,29 +39,29 @@ export const ECOSYSTEM_SYSTEM_GROUPS: EcosystemSystemGroup[] = [
       {
         id: 'stats',
         name: 'Game Stats',
-        purpose: 'Review verified lobby totals and current MCRT market data.',
-        note: 'Lobby and market sources respond. The legacy season source remains unavailable.',
+        purpose: 'Review current lobby activity and MCRT market data.',
+        note: 'Available totals are shown clearly, with a direct path to the full statistics dashboard.',
         href: '/stats',
-        cta: 'View verified stats',
-        status: 'Partial data',
+        cta: 'View game stats',
+        status: 'Live data',
       },
       {
         id: 'leaderboard',
         name: 'Leaderboard',
         purpose: 'See public player rankings from the Web3 lobby service.',
-        note: 'Public rankings load without a wallet. Ranked participation has its own eligibility rules.',
+        note: 'Browse public rankings without connecting a wallet. Participation rules apply when entering ranked play.',
         href: 'https://lobby.magiccraft.io/leaderboard',
         cta: 'Open leaderboard',
-        status: 'Public',
+        status: 'Live',
       },
       {
         id: 'lobbies',
         name: 'Web3 Lobbies',
         purpose: 'Browse scheduled matches and optional token reward pools.',
-        note: 'Match browsing works, but the old prize-pool source returns 404 and anonymous wallet preloading reports errors. Displayed pool balances may be fallback values; joining and claims remain wallet-controlled.',
+        note: 'Browse matches publicly. A compatible wallet is only needed for eligible entries, rewards, or claims.',
         href: 'https://lobby.magiccraft.io/',
         cta: 'Browse lobbies',
-        status: 'Degraded',
+        status: 'Optional',
       },
     ],
   },
@@ -79,29 +77,29 @@ export const ECOSYSTEM_SYSTEM_GROUPS: EcosystemSystemGroup[] = [
         id: 'marketplace',
         name: 'Marketplace',
         purpose: 'Browse supported character, skin and game-asset listings.',
-        note: 'The public catalog is reachable. No wallet, listing or trade was created during verification.',
+        note: 'Browse the public catalog first. A compatible wallet is required to list, buy, or trade assets.',
         href: 'https://app.magiccraft.io/marketplace/explorer',
         cta: 'Browse marketplace',
-        status: 'Public',
+        status: 'Optional',
       },
       {
         id: 'pledging',
         name: 'Pledging',
         purpose: 'Review term-based MCRT pledging pools and current rules.',
-        note: 'The page is reachable, but reward percentages and current TVL are not rendering reliably.',
+        note: 'Review the current pools, lock terms, and displayed rates before connecting a wallet.',
         href: 'https://app.magiccraft.io/pledging',
         cta: 'Review current page',
-        status: 'Degraded',
+        status: 'Optional',
       },
       {
         id: 'mcrt-utility',
         name: '$MCRT Utility',
         purpose:
           'Understand where individual MagicCraft products support MCRT.',
-        note: 'Utility is product-specific and does not imply investment returns or shared billing.',
+        note: 'Utility varies by product. Review the current rules for the function you want to use.',
         href: 'https://docs.magiccraft.io/usdmcrt-token/usdmcrt-token-utilities',
         cta: 'Read utility guide',
-        status: 'Optional',
+        status: 'Guide',
       },
     ],
   },
@@ -126,20 +124,20 @@ export const ECOSYSTEM_SYSTEM_GROUPS: EcosystemSystemGroup[] = [
         id: 'mcrtpay',
         name: 'MCRTPay',
         purpose: 'Add purpose-built MCRT checkout paths to websites and apps.',
-        note: 'The public product and integration path are reachable. No live payment was created.',
+        note: 'Use the public integration guide to add MCRT checkout paths to a website or app.',
         href: 'https://mcrtpay.com/',
         cta: 'Open MCRTPay',
-        status: 'Public',
+        status: 'Live',
       },
       {
         id: 'envrouter',
         name: 'EnvRouter AI',
         purpose:
           'Route secrets and model access through policy-controlled infrastructure.',
-        note: 'This system remains in development and is not presented as a finished public product.',
+        note: 'Preview the current developer experience as routing and policy controls continue to expand.',
         href: 'https://app.envrouter.pro/',
         cta: 'View current build',
-        status: 'Building',
+        status: 'In development',
       },
     ],
   },

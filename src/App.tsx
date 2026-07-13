@@ -36,10 +36,7 @@ const LiveSupportWidget = lazy(
 )
 
 function App() {
-  const showBadge =
-    import.meta.env.DEV ||
-    (typeof window !== 'undefined' &&
-      window.location.search.includes('debug=1'))
+  const showBadge = import.meta.env.DEV
   return (
     <BrowserRouter>
       <ScrollToTop />
