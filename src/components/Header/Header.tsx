@@ -99,8 +99,8 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
       {
         title: 'Web3 Lobbies',
         icon: lobby,
-        path: 'https://lobby.magiccraft.io/',
-        purpose: 'Create or join matches and manage Web3 game rewards.',
+        path: '/lobbies',
+        purpose: 'Browse the live schedule before opening a match to join.',
         status: 'Optional',
       },
       {

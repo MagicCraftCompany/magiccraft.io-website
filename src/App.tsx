@@ -30,6 +30,7 @@ const Careers = lazy(() => import('./pages/Careers'))
 const Whitepaper = lazy(() => import('./pages/Whitepaper'))
 const Pricing = lazy(() => import('./pages/Pricing'))
 const ContactUs = lazy(() => import('./pages/ContactUs'))
+const Lobbies = lazy(() => import('./pages/Lobbies'))
 import { BUILD_REV } from './version'
 const LiveSupportWidget = lazy(
   () => import('./components/LiveSupport/LiveSupportWidget')
@@ -78,6 +79,7 @@ function App() {
           <Route path="/whitepaper" element={<Whitepaper />} />
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/lobbies" element={<Lobbies />} />
           <Route path="/buy-mcrt" element={<Pricing />} />
           <Route path="/buy" element={<Pricing />} />
           <Route path="/get-mcrt" element={<Pricing />} />

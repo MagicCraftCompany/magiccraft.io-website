@@ -20,9 +20,15 @@ const routeShells = [
   },
   {
     path: 'whitepaper',
-    title: 'MagicCraft Whitepaper v3.2 | Product & System Guide',
+    title: 'MagicCraft Whitepaper v3.3 | Product & System Guide',
     description:
       'Read the dated MagicCraft guide to the live game, AI products, Web3 functions, builder systems, MCRT utility and current limitations.',
+  },
+  {
+    path: 'lobbies',
+    title: 'Live Match Schedule | MagicCraft Lobbies',
+    description:
+      'Browse the live MagicCraft Web3 lobby schedule without connecting a wallet, then review the official entry and reward terms before joining.',
   },
   {
     path: 'pricing',

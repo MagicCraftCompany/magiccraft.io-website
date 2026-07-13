@@ -59,7 +59,7 @@ export const ECOSYSTEM_SYSTEM_GROUPS: EcosystemSystemGroup[] = [
         name: 'Web3 Lobbies',
         purpose: 'Browse scheduled matches and optional token reward pools.',
         note: 'Browse matches publicly. A compatible wallet is only needed for eligible entries, rewards, or claims.',
-        href: 'https://lobby.magiccraft.io/',
+        href: '/lobbies',
         cta: 'Browse lobbies',
         status: 'Optional',
       },
