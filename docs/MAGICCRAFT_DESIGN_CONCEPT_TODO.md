@@ -36,7 +36,7 @@ Homepage hierarchy:
 - [x] Replace duplicate mobile actions with Play Game and AI Suite.
 - [x] Balance metadata, schema, preloads and social art around the game and studio.
 - [x] Add focused homepage, system-map, navigation and product-truth coverage.
-- [ ] Commit, push, publish and verify the balanced public homepage.
+- [x] Commit, push, publish and verify the balanced public homepage.
 
 ## P0 game record correction
 
@@ -141,22 +141,22 @@ Homepage hierarchy:
 
 ## Economical agent map
 
-| Lane                         | Cost strategy                       | Ownership                                  | State       |
-| ---------------------------- | ----------------------------------- | ------------------------------------------ | ----------- |
-| Product and `$MCRT` research | Bounded read-only specialist        | Official sources, safe claims, positioning | Complete    |
-| Live UX audit                | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues  | Complete    |
-| Architecture audit           | Bounded read-only code specialist   | Routes, data flow, risks, file plan        | Complete    |
-| Homepage integration         | Strong controller reasoning         | Hero, section order, gameplay, concept     | Complete    |
-| Trust/data implementation    | Focused implementation specialist   | Stats, status, dashboard, focused tests    | Complete    |
-| Responsive navigation        | Focused implementation specialist   | Header, menus, mobile conversion bar       | Complete    |
-| Static SEO/social            | Focused implementation specialist   | Metadata, sitemap, 1200x630 asset          | Complete    |
-| AI suite inventory           | Bounded live-truth specialist       | Product URLs, status, claims, broken links | Complete    |
-| Balanced studio concept      | Bounded product/copy specialist     | Hierarchy, copy, status guardrails         | Complete    |
-| Game and AI navigation       | Focused implementation specialist   | Header, drawer, mobile quick actions       | Complete    |
-| Balanced live release        | Controller only                     | Integration, review, deploy, public proof  | In progress |
-| Game truth correction        | Bounded research and history agents | PvP, PvE, release and storefront evidence  | Complete    |
-| Game truth live release      | Controller only                     | Copy, tests, deploy and production proof   | Complete    |
-| Production release           | Controller only                     | Review, tests, commit, push, deploy proof  | Complete    |
+| Lane                         | Cost strategy                       | Ownership                                  | State    |
+| ---------------------------- | ----------------------------------- | ------------------------------------------ | -------- |
+| Product and `$MCRT` research | Bounded read-only specialist        | Official sources, safe claims, positioning | Complete |
+| Live UX audit                | Bounded read-only visual specialist | Desktop/mobile evidence and ranked issues  | Complete |
+| Architecture audit           | Bounded read-only code specialist   | Routes, data flow, risks, file plan        | Complete |
+| Homepage integration         | Strong controller reasoning         | Hero, section order, gameplay, concept     | Complete |
+| Trust/data implementation    | Focused implementation specialist   | Stats, status, dashboard, focused tests    | Complete |
+| Responsive navigation        | Focused implementation specialist   | Header, menus, mobile conversion bar       | Complete |
+| Static SEO/social            | Focused implementation specialist   | Metadata, sitemap, 1200x630 asset          | Complete |
+| AI suite inventory           | Bounded live-truth specialist       | Product URLs, status, claims, broken links | Complete |
+| Balanced studio concept      | Bounded product/copy specialist     | Hierarchy, copy, status guardrails         | Complete |
+| Game and AI navigation       | Focused implementation specialist   | Header, drawer, mobile quick actions       | Complete |
+| Balanced live release        | Controller only                     | Integration, review, deploy, public proof  | Complete |
+| Game truth correction        | Bounded research and history agents | PvP, PvE, release and storefront evidence  | Complete |
+| Game truth live release      | Controller only                     | Copy, tests, deploy and production proof   | Complete |
+| Production release           | Controller only                     | Review, tests, commit, push, deploy proof  | Complete |
 
 Agents do not share high-conflict ownership of the homepage, header, or global
 CSS. Production, deploy, and safety decisions remain with the controller.
