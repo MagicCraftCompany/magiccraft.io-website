@@ -122,7 +122,7 @@ const moreLinks = [
     link: '/verify',
   },
   {
-    title: 'Whitepaper v3.0',
+    title: 'Whitepaper v3.1',
     link: '/whitepaper',
   },
   {
