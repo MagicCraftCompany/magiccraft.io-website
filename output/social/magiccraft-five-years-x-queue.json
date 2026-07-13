@@ -1,0 +1,63 @@
+{
+  "campaign": "magiccraft-five-years",
+  "title": "The Build Story, 2021 to 2026",
+  "timezone": "Asia/Bangkok",
+  "recommended_time": "18:00",
+  "delivery_mode": "marketing-team-handoff",
+  "status": "delivered_to_marketing_team",
+  "delivered_at_bangkok": "2026-07-13T23:30:45+07:00",
+  "delivery_target": "Marketing Viral Team",
+  "delivery_verified": "8/8 archive records",
+  "delivery_ledger": "output/social/magiccraft-five-years-post-ledger.jsonl",
+  "items": [
+    {
+      "offset_hours": 0,
+      "publish_date_bangkok": "2026-07-14",
+      "label": "Day 1 - MagicCraft game",
+      "text": "Day 1/7: From the 2021 build story to a live cross-platform game. MagicCraft is free-to-play PvP and PvE on mobile and PC, with optional Web3 kept separate. Play: https://magiccraft.io/magiccraft",
+      "media_path": "output/imagegen/magiccraft-five-years-01-game.png"
+    },
+    {
+      "offset_hours": 24,
+      "publish_date_bangkok": "2026-07-15",
+      "label": "Day 2 - Merlin AI",
+      "text": "Day 2/7: Merlin is a multi-persona AI assistant for chat, images, voice, translation, market briefs and memory. Connected accounts and messaging remain permission-based. Meet Merlin: https://merlintheai.com/",
+      "media_path": "output/imagegen/magiccraft-five-years-02-merlin.png"
+    },
+    {
+      "offset_hours": 48,
+      "publish_date_bangkok": "2026-07-16",
+      "label": "Day 3 - Akyn",
+      "text": "Day 3/7: Akyn brings an AI film workflow into one studio: ideas, reusable characters and locations, generated scenes, editing and final video. Explore Akyn: https://akyn.pro/",
+      "media_path": "output/imagegen/magiccraft-five-years-03-akyn.png"
+    },
+    {
+      "offset_hours": 72,
+      "publish_date_bangkok": "2026-07-17",
+      "label": "Day 4 - MagicAds",
+      "text": "Day 4/7: MagicAds is an agent-native advertising network. Create campaigns or connect publisher inventory through a dashboard, lightweight script or API. Explore: https://magicads.dev/",
+      "media_path": "output/imagegen/magiccraft-five-years-04-magicads.png"
+    },
+    {
+      "offset_hours": 96,
+      "publish_date_bangkok": "2026-07-18",
+      "label": "Day 5 - MAGAS7",
+      "text": "Day 5/7: MAGAS7 puts seven specialist marketing agents on one command surface for research, writing, design, scheduling, posting, analytics and brand QA. Join early access: https://magas7.com/",
+      "media_path": "output/imagegen/magiccraft-five-years-05-magas7.png"
+    },
+    {
+      "offset_hours": 120,
+      "publish_date_bangkok": "2026-07-19",
+      "label": "Day 6 - DragonList",
+      "text": "Day 6/7: DragonList turns meetings into transcripts, summaries, assigned tasks and trackable follow-up. It is in beta; record only with participant notice and consent. https://dragonlist.ai/",
+      "media_path": "output/imagegen/magiccraft-five-years-06-dragonlist.png"
+    },
+    {
+      "offset_hours": 144,
+      "publish_date_bangkok": "2026-07-20",
+      "label": "Day 7 - DocAI",
+      "text": "Day 7/7: DocAI helps organize symptoms, reports, medications and wellness questions so people can prepare better next steps. Educational guidance only, not diagnosis or emergency care. https://docai.live/",
+      "media_path": "output/imagegen/magiccraft-five-years-07-docai.png"
+    }
+  ]
+}
