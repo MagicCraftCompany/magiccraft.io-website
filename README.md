@@ -1,90 +1,102 @@
-## Live Support (AI Chat)
+# MagicCraft website
 
-This site includes a floating **Live Support** button that opens an AI chat.
+Public website and integration hub for the MagicCraft game, AI product suite, game services, optional Web3 systems, creator tools, MCRT guides, programs, and living whitepaper.
 
-### Configure on Netlify
+Production: [magiccraft.io](https://magiccraft.io/)
 
-Set environment variables:
+Future agents and contributors should read:
 
-- `OPENROUTER_API_KEY`: OpenRouter API key (required)
-- `OPENROUTER_MODEL`: optional override (defaults to a fast/cheap/smart model)
+- [AGENTS.md](AGENTS.md) for ownership, truth, safety, testing, and release rules.
+- [ARCHITECTURE.md](ARCHITECTURE.md) for the route map, product model, functions, external dependencies, and change recipes.
+- [MagicCraft function sweep](docs/MAGICCRAFT_FUNCTION_SWEEP_TODO.md) for dated functional evidence and unfinished work.
+- [MagicCraft design plan](docs/MAGICCRAFT_DESIGN_CONCEPT_TODO.md) for the current product concept and design backlog.
 
-Do **not** commit real API keys. Use `.env.example` as a template.
+## Stack
 
-# React + TypeScript + Vite
+- React 18 and TypeScript
+- Vite
+- React Router
+- Tailwind CSS, styled-components, and Framer Motion
+- Netlify hosting and Functions
+- Sanity for blog content
+- Vitest and Testing Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Quick start
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
-
-# MagicCraft Website
-
-## Deployment Instructions
-
-### Environment Variables
-
-This project requires environment variables for the Sanity integration. When deploying:
-
-1. Set the following environment variables in your Netlify dashboard (or other deployment platform):
-   - `VITE_SANITY_PROJECT_ID` - Your Sanity project ID
-   - `VITE_SANITY_DATASET` - Your Sanity dataset name (usually "blogs" or "production")
-   - `VITE_SANITY_API_VERSION` - The Sanity API version
-
-2. Make sure the `.env` file is in your `.gitignore` to prevent committing sensitive information.
-
-3. You can reference `.env.example` for the required variables.
-
-### Deployment Steps
-
-1. Push changes to the main branch (this will trigger automatic deployment if CI/CD is set up)
-2. Verify environment variables are set in your deployment platform
-3. Check deployment logs for any errors
-
-## Development
-
-To run the project locally:
+Use Node 20, matching CI.
 
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
+npm ci
 npm run dev
 ```
 
-## Building
+The development server binds to the local network through Vite's `--host` option.
 
-To build the project for production:
+## Quality checks
 
 ```bash
+npx tsc --noEmit
+npm run lint
+npm test
 npm run build
 ```
 
+`npm run build` compiles TypeScript, creates the Vite production bundle, and generates route-specific HTML shells for priority SEO routes.
+
+## Commands
+
+| Command                  | Purpose                                                                            |
+| ------------------------ | ---------------------------------------------------------------------------------- |
+| `npm run dev`            | Start Vite development server                                                      |
+| `npm run test:watch`     | Run Vitest in watch mode                                                           |
+| `npm test`               | Run the test suite once                                                            |
+| `npm run lint`           | Run ESLint with zero warnings allowed                                              |
+| `npm run build`          | Build `dist/` and route shells                                                     |
+| `npm run preview`        | Preview the production bundle                                                      |
+| `npm run deploy:preview` | Build and publish a Netlify draft deploy                                           |
+| `npm run deploy:prod`    | Direct recovery deploy that mutates `src/version.ts`; not the routine release path |
+
+## Configuration
+
+Copy `.env.example` for local names and keep real values out of git.
+
+Common variables:
+
+- `VITE_SANITY_PROJECT_ID`
+- `VITE_SANITY_DATASET`
+- `VITE_SANITY_API_VERSION`
+- `OPENROUTER_API_KEY`
+- `OPENROUTER_MODEL`
+- `GAMESERVER_API_URL`
+- `GAMESERVER_API_PORT`
+- `GAMESERVER_API_KEY`
+- `GAMESERVER_API_TIMEOUT_MS`
+- `LOBBY_STATS_URL`
+- `LOBBY_API_TIMEOUT_MS`
+- `MARKET_API_TIMEOUT_MS`
+- `GRANTS_FORM_ENDPOINT`
+- `GRANTS_FORM_TIMEOUT_MS`
+- `MCRT_MENTIONS_REQUEST_TIMEOUT_MS`
+- `MCRT_MENTIONS_TOTAL_TIMEOUT_MS`
+- `MCRT_MENTIONS_MAX_HOSTS`
+
+See [AGENTS.md](AGENTS.md#environment-variables) for ownership and safety notes. Any `VITE_` variable is client-visible after bundling and must not contain a privileged secret.
+
+## Deployment
+
+The canonical repository is `MagicCraftCompany/magiccraft.io-website`. A push to `main` runs GitHub Actions and normally triggers the connected Netlify production deploy. Use this tested Git path for routine releases.
+
+`npm run deploy:prod` increments a tracked build revision and deploys the current working tree directly through `npx netlify`. Reserve it for an explicitly reviewed direct deploy or recovery.
+
+A release is complete only after:
+
+1. Type-check, lint, tests, and build pass.
+2. GitHub Actions passes for the exact commit.
+3. Netlify publishes the exact commit.
+4. The changed routes, assets, functions, and mobile and desktop behavior are verified on `https://magiccraft.io/`.
+
+CI or a local build alone is not production proof.
+
 ## Sanity Studio
 
-Access the Sanity Studio admin interface at `/admin` route.
+The app registers `/admin/*` as the Sanity Studio handoff. Blog queries live in `src/lib/sanity/`, and schemas live under `sanity-studio/`. Do not put a privileged Sanity write token in a public Vite variable.
