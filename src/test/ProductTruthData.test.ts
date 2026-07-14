@@ -18,6 +18,8 @@ describe('product status content', () => {
     for (const product of AI_PRODUCTS) {
       expect('health' in product).toBe(false)
       expect('healthNote' in product).toBe(false)
+      expect(product.navIcon).toMatch(/^\/ai-logos\//)
+      expect(product.navIcon).not.toMatch(/icon-stats|icon-community/)
     }
   })
 

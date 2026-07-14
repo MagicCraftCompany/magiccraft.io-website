@@ -237,13 +237,11 @@ function Homepagegames() {
                       <div className="hidden w-px self-stretch bg-gradient-to-b from-transparent via-[#98FFF9] to-transparent md:block" />
                       <a
                         className="flex flex-col items-center justify-center gap-1"
-                        href="https://www.youtube.com/watch?v=YAp7k3NsKpg"
-                        target="_blank"
-                        rel="noreferrer noopener"
+                        href="/#game"
                       >
                         <div className="flex cursor-pointer flex-col items-center justify-center gap-1">
                           <Play size={18} />
-                          <p>Watch Intro</p>
+                          <p>Watch Gameplay</p>
                         </div>
                       </a>
                     </div>

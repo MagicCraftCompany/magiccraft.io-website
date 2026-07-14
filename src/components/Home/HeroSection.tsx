@@ -8,6 +8,7 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { AI_PRODUCTS } from '@/data/aiProducts'
+import { GAMEPLAY_SCREENSHOTS } from '@/data/gameplayMedia'
 import { openGameByDevice } from '@/lib/gameActions'
 
 const liveProductCount = AI_PRODUCTS.filter(
@@ -40,25 +41,25 @@ export default function HeroSection() {
         className="absolute inset-0 -z-10 opacity-[0.16] [background-image:linear-gradient(rgba(255,255,255,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.045)_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_82%)]"
       />
 
-      <div className="mx-auto grid w-full max-w-screen-2xl gap-10 px-5 pb-16 pt-14 sm:px-8 sm:pb-20 sm:pt-20 lg:min-h-[820px] lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-12 lg:px-12 lg:pb-24 lg:pt-40 xl:px-16">
+      <div className="mx-auto grid w-full max-w-screen-2xl gap-7 px-5 pb-14 pt-10 sm:gap-10 sm:px-8 sm:pb-20 sm:pt-20 lg:min-h-[820px] lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:gap-12 lg:px-12 lg:pb-24 lg:pt-40 xl:px-16">
         <div className="max-w-[760px]">
           <img
             src="https://res.cloudinary.com/dfzcr2ch4/image/upload/f_auto,q_auto/v1717173072/MagicCraft_1_txz7ga.webp"
             alt="MagicCraft"
-            className="h-auto w-[210px] drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)] sm:w-[270px]"
+            className="h-auto w-[165px] drop-shadow-[0_10px_30px_rgba(0,0,0,0.45)] sm:w-[270px]"
             loading="eager"
           />
 
-          <div className="mt-6 inline-flex min-h-9 items-center gap-2 rounded-full border border-[#98FFF9]/30 bg-[#071c35]/80 px-4 py-2 text-[11px] font-bold uppercase tracking-[0.18em] text-[#98FFF9] backdrop-blur-md sm:text-xs">
+          <div className="mt-4 inline-flex min-h-9 items-center gap-2 rounded-full border border-[#98FFF9]/30 bg-[#071c35]/80 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#98FFF9] backdrop-blur-md sm:mt-6 sm:text-xs sm:tracking-[0.18em]">
             <Sparkles className="h-4 w-4" aria-hidden="true" />
             One studio • live game • six AI products
           </div>
 
-          <h1 className="mt-5 font-serif text-[42px] font-black leading-[0.98] tracking-[-0.035em] text-white drop-shadow-[0_12px_40px_rgba(0,0,0,0.55)] sm:text-balance sm:text-6xl lg:text-[68px] xl:text-[76px]">
+          <h1 className="mt-4 font-serif text-[38px] font-black leading-[0.98] tracking-[-0.035em] text-white drop-shadow-[0_12px_40px_rgba(0,0,0,0.55)] sm:mt-5 sm:text-balance sm:text-6xl lg:text-[68px] xl:text-[76px]">
             Play the game. Put AI to work.
           </h1>
 
-          <p className="mt-6 max-w-2xl text-base leading-7 text-white/75 sm:text-lg sm:leading-8">
+          <p className="mt-4 max-w-2xl text-[15px] leading-6 text-white/75 sm:mt-6 sm:text-lg sm:leading-8">
             Play MagicCraft across mobile and PC, then explore practical AI
             products for work, film, marketing, meetings and wellness. Each
             experience has a clear purpose and a direct place to start.
@@ -66,7 +67,7 @@ export default function HeroSection() {
 
           <div
             id="hero-primary-actions"
-            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+            className="mt-6 flex flex-col gap-3 sm:mt-8 sm:flex-row sm:items-center"
           >
             <button
               type="button"
@@ -85,7 +86,7 @@ export default function HeroSection() {
             </a>
           </div>
 
-          <div className="mt-7 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
+          <div className="mt-7 hidden grid-cols-2 gap-2 sm:flex sm:flex-wrap">
             {proofPoints.map((point) => (
               <span
                 key={point}
@@ -106,10 +107,10 @@ export default function HeroSection() {
             type="button"
             onClick={openGameByDevice}
             aria-label="Play the MagicCraft game"
-            className="group relative col-span-2 min-h-[250px] overflow-hidden rounded-[28px] border border-white/15 bg-[#080a2a] text-left shadow-[0_30px_90px_rgba(0,0,0,0.35)] transition hover:-translate-y-1 hover:border-[#98FFF9]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] sm:min-h-[430px] lg:col-span-1 lg:row-span-2 lg:min-h-[540px]"
+            className="group relative col-span-2 min-h-[235px] overflow-hidden rounded-[28px] border border-white/15 bg-[#080a2a] text-left shadow-[0_30px_90px_rgba(0,0,0,0.35)] transition hover:-translate-y-1 hover:border-[#98FFF9]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] sm:min-h-[430px] lg:col-span-1 lg:row-span-2 lg:min-h-[540px]"
           >
             <img
-              src="/magiccraft-social-preview.webp"
+              src={GAMEPLAY_SCREENSHOTS.tripleKill.src}
               alt=""
               aria-hidden="true"
               className="absolute inset-0 h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.025]"
@@ -119,7 +120,7 @@ export default function HeroSection() {
             <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#6EE7B7]/30 bg-[#071d25]/80 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] text-[#6EE7B7] backdrop-blur-md">
                 <span className="h-2 w-2 rounded-full bg-[#34D399]" />
-                Live game
+                Real gameplay
               </span>
               <p className="mt-3 font-serif text-3xl font-black leading-tight text-white sm:text-4xl">
                 PvP + PvE across mobile and PC
@@ -164,7 +165,7 @@ export default function HeroSection() {
             className="group relative min-h-[170px] overflow-hidden rounded-[22px] border border-[#98FFF9]/20 bg-[#07142b] p-4 no-underline transition hover:-translate-y-1 hover:border-[#98FFF9]/50 hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] sm:min-h-[230px] sm:rounded-[24px] sm:p-5 lg:min-h-0"
           >
             <img
-              src="/img/gameplay-arena-2.webp"
+              src={GAMEPLAY_SCREENSHOTS.battleStats.src}
               alt=""
               aria-hidden="true"
               className="absolute inset-0 h-full w-full object-cover opacity-45 transition duration-700 group-hover:scale-[1.025]"

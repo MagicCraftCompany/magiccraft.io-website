@@ -52,6 +52,17 @@ describe('balanced game and AI homepage', () => {
     expect(
       screen.getByRole('heading', { name: 'Established PvP. New PvE.' })
     ).toBeInTheDocument()
+    const gameplayVideo = screen.getByLabelText(
+      'Official MagicCraft gameplay video'
+    )
+    expect(gameplayVideo).toHaveAttribute(
+      'poster',
+      '/gameplay/magiccraft-triple-kill.jpg'
+    )
+    expect(gameplayVideo.querySelector('source')).toHaveAttribute(
+      'src',
+      expect.stringContaining('video_gokp2f.mp4')
+    )
     expect(
       screen.getByRole('heading', { name: 'Live ecosystem stats' })
     ).toBeInTheDocument()
@@ -73,6 +84,9 @@ describe('balanced game and AI homepage', () => {
     ]) {
       expect(
         suiteView.getByRole('link', { name: new RegExp(product) })
+      ).toBeInTheDocument()
+      expect(
+        suiteView.getByRole('img', { name: `${product} logo` })
       ).toBeInTheDocument()
     }
 

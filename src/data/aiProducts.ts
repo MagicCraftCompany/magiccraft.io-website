@@ -32,7 +32,7 @@ export const AI_PRODUCTS: AiProduct[] = [
     href: 'https://merlintheai.com/',
     cta: 'Open Merlin',
     accent: '#98FFF9',
-    navIcon: '/merlin-logo-official.svg',
+    navIcon: '/ai-logos/merlin.svg',
     safetyNote:
       'Connected accounts, memory, and messaging remain separate Merlin workflows and should be enabled only with the user’s permission.',
   },
@@ -46,7 +46,7 @@ export const AI_PRODUCTS: AiProduct[] = [
     href: 'https://akyn.pro/',
     cta: 'Open Akyn',
     accent: '#B591F2',
-    navIcon: 'https://akyn.pro/logo.svg',
+    navIcon: '/ai-logos/akyn.png',
     safetyNote:
       'Uploads, generated media, credits, and publishing are governed by Akyn’s own account and product terms.',
   },
@@ -60,7 +60,7 @@ export const AI_PRODUCTS: AiProduct[] = [
     href: 'https://magicads.dev/',
     cta: 'Open MagicAds',
     accent: '#FFB649',
-    navIcon: 'https://magicads.dev/magicads-logo.svg',
+    navIcon: '/ai-logos/magicads.svg',
     safetyNote:
       'Campaign spend, targeting, publisher inventory, and distribution require review inside MagicAds before activation.',
   },
@@ -74,7 +74,7 @@ export const AI_PRODUCTS: AiProduct[] = [
     href: 'https://magas7.com/',
     cta: 'Open MAGAS7',
     accent: '#B1FF5A',
-    navIcon: 'https://magas7.com/favicon.svg',
+    navIcon: '/ai-logos/magas7.svg',
     safetyNote:
       'Early-access agent output should be reviewed before scheduling or publishing to a live brand channel.',
   },
@@ -88,7 +88,7 @@ export const AI_PRODUCTS: AiProduct[] = [
     href: 'https://dragonlist.ai/',
     cta: 'Open DragonList',
     accent: '#60A5FA',
-    navIcon: '/icons/icon-stats.svg',
+    navIcon: '/ai-logos/dragonlist.svg',
     safetyNote:
       'Record or upload meetings only with the required participant notice, consent, and organizational permission.',
   },
@@ -102,7 +102,7 @@ export const AI_PRODUCTS: AiProduct[] = [
     href: 'https://docai.live/',
     cta: 'Open DocAI',
     accent: '#10B981',
-    navIcon: '/icons/icon-community.svg',
+    navIcon: '/ai-logos/docai.svg',
     safetyNote:
       'Educational guidance only. It is not a diagnosis, emergency service, or substitute for a qualified clinician.',
   },

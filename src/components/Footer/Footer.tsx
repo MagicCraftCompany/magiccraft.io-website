@@ -8,7 +8,6 @@ import {
   FaTelegram,
   FaTiktok,
   FaXTwitter,
-  FaYoutube,
 } from 'react-icons/fa6'
 import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
@@ -64,11 +63,6 @@ const socialLinks: Array<{
     label: 'TikTok',
     icon: <FaTiktok size={18} />,
     href: 'https://www.tiktok.com/@magiccraftgame',
-  },
-  {
-    label: 'YouTube',
-    icon: <FaYoutube size={18} />,
-    href: 'https://www.youtube.com/@MagicCraftGame',
   },
 ]
 

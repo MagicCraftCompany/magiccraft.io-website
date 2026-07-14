@@ -9,6 +9,7 @@ import HeroSection from '@/components/Home/HeroSection'
 import MobileBottomBar from '@/components/Home/MobileBottomBar'
 import LiveStatsWidget from '@/components/LiveStats/LiveStatsWidget'
 import { AI_PRODUCTS } from '@/data/aiProducts'
+import { GAMEPLAY_VIDEO } from '@/data/gameplayMedia'
 
 const homeTitle = 'MagicCraft | Live Game & AI Product Studio'
 const homeDescription =
@@ -71,9 +72,24 @@ function Homepagemcrt() {
                 gamePlatform: ['PC', 'Steam', 'iOS', 'Android'],
                 playMode: ['SinglePlayer', 'CoOp', 'MultiPlayer'],
                 genre: ['MOBA', 'Action', 'Fantasy'],
+                trailer: {
+                  '@id': 'https://magiccraft.io/#gameplay-video',
+                },
                 publisher: {
                   '@id': 'https://magiccraft.io/#organization',
                 },
+              },
+              {
+                '@type': 'VideoObject',
+                '@id': 'https://magiccraft.io/#gameplay-video',
+                name: 'Official MagicCraft gameplay',
+                description:
+                  'First-party footage of a live MagicCraft multiplayer arena battle.',
+                thumbnailUrl:
+                  'https://magiccraft.io/gameplay/magiccraft-triple-kill.jpg',
+                uploadDate: '2024-05-31T14:46:15Z',
+                duration: 'PT9S',
+                contentUrl: GAMEPLAY_VIDEO.src,
               },
             ],
           })}

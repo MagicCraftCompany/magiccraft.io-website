@@ -1,23 +1,8 @@
 import {
   ArrowUpRight,
-  Bot,
-  Clapperboard,
-  HeartPulse,
-  ListChecks,
-  Megaphone,
   Sparkles,
 } from 'lucide-react'
-import type { LucideIcon } from 'lucide-react'
-import { AI_PRODUCTS, type AiProductId } from '@/data/aiProducts'
-
-const PRODUCT_ICONS: Record<AiProductId, LucideIcon> = {
-  merlin: Bot,
-  akyn: Clapperboard,
-  magicads: Megaphone,
-  magas7: Sparkles,
-  dragonlist: ListChecks,
-  docai: HeartPulse,
-}
+import { AI_PRODUCTS } from '@/data/aiProducts'
 
 const LIVE_PRODUCT_COUNT = AI_PRODUCTS.filter(
   (product) => product.status === 'Live'
@@ -69,14 +54,13 @@ export default function AiProductSuiteSection() {
 
         <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {AI_PRODUCTS.map((product) => {
-            const Icon = PRODUCT_ICONS[product.id]
             return (
               <a
                 key={product.name}
                 href={product.href}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="group relative flex min-h-[300px] flex-col overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.035] p-6 no-underline transition hover:-translate-y-1 hover:bg-white/[0.06] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] sm:p-7"
+                className="group relative flex min-h-[280px] flex-col overflow-hidden rounded-[24px] border border-white/10 bg-white/[0.035] p-5 no-underline transition hover:-translate-y-1 hover:bg-white/[0.06] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] sm:min-h-[300px] sm:p-7"
               >
                 <span
                   className="absolute inset-x-0 top-0 h-[2px]"
@@ -84,13 +68,18 @@ export default function AiProductSuiteSection() {
                 />
                 <div className="flex items-start justify-between gap-4">
                   <span
-                    className="flex h-12 w-12 items-center justify-center rounded-2xl border bg-black/20"
+                    className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border bg-black/25 p-2"
                     style={{
                       borderColor: `${product.accent}55`,
-                      color: product.accent,
                     }}
                   >
-                    <Icon className="h-6 w-6" aria-hidden="true" />
+                    <img
+                      src={product.navIcon}
+                      alt={`${product.name} logo`}
+                      className="h-full w-full object-contain"
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </span>
                   <span className="flex flex-col items-end gap-1.5">
                     <span
@@ -107,7 +96,7 @@ export default function AiProductSuiteSection() {
                 </div>
 
                 <p
-                  className="mt-7 text-xs font-bold uppercase tracking-[0.16em]"
+                  className="mt-5 text-xs font-bold uppercase tracking-[0.16em] sm:mt-7"
                   style={{ color: product.accent }}
                 >
                   {product.category}
@@ -115,10 +104,10 @@ export default function AiProductSuiteSection() {
                 <h3 className="mt-2 text-2xl font-black text-white sm:text-3xl">
                   {product.name}
                 </h3>
-                <p className="mt-4 flex-1 text-sm leading-6 text-white/70 sm:text-base">
+                <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-white/70 sm:mt-4 sm:text-base md:line-clamp-none">
                   {product.description}
                 </p>
-                <span className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-white transition group-hover:text-[#98FFF9]">
+                <span className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-bold text-white transition group-hover:text-[#98FFF9] sm:mt-6">
                   {product.cta}
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                 </span>
