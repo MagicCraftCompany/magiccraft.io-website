@@ -1,0 +1,24 @@
+Ivan, please post this MagicCraft Git architecture mind map on Instagram and X. Use the attached poster as the main image.
+
+X:
+Inside the MagicCraft Git 🧭
+
+One public hub connects a live cross-platform game, six focused AI products, game services, creator tools and optional Web3, backed by 32 routes, 7 serverless functions and 84 tests.
+
+Play the game. Put AI to work.
+magiccraft.io
+
+#MagicCraft #Gaming #AI #GameDev
+
+Instagram:
+Inside the MagicCraft ecosystem. ⚔️
+
+One public hub connects the live game, six focused AI products, game services, creator tools and optional Web3.
+
+Behind it: 32 routes, 7 serverless functions, source-backed live data, official gameplay media, tests, CI and Netlify delivery.
+
+Play the game. Put AI to work.
+
+Explore: magiccraft.io
+
+#MagicCraft #Gaming #MOBA #AI #GameDev #Web3
