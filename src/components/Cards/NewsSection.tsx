@@ -38,7 +38,7 @@ export function NewsSection() {
 
         const data = await fetchBlogPosts()
         setPosts(data || [])
-      } catch (error) {
+      } catch {
         // If Sanity fetch fails, use the static data as fallback
         setUseFallbackData(true)
       } finally {

@@ -1,5 +1,5 @@
-import { createClient } from '@sanity/client';
-import { sanityConfig } from './config';
+import { createClient } from '@sanity/client'
+import { sanityConfig } from './config'
 import { isSanityConfigured } from './config'
 
 // Create a browser-friendly Sanity client
@@ -17,7 +17,8 @@ export const sanityClient = isSanityConfigured
 export async function fetchBlogPosts() {
   if (!sanityClient) return []
   // Query based on the default Sanity blog schema
-  const data = await sanityClient.fetch(`*[_type == "post"] | order(_createdAt desc) {
+  const data =
+    await sanityClient.fetch(`*[_type == "post"] | order(_createdAt desc) {
     _id,
     title,
     "slug": slug.current,
@@ -27,16 +28,16 @@ export async function fetchBlogPosts() {
     "image": mainImage.asset->url,
     publishedAt,
     _createdAt
-  }`);
-  return data;
+  }`)
+  return data
 }
 
 export async function fetchBlogPostBySlug(slug: string) {
   if (!sanityClient) return null
   if (!slug) {
-    return null;
+    return null
   }
-  
+
   // First try direct match on slug.current
   const data = await sanityClient.fetch(
     `*[_type == "post" && slug.current == $slug][0] {
@@ -52,8 +53,8 @@ export async function fetchBlogPostBySlug(slug: string) {
       _createdAt
     }`,
     { slug }
-  );
-  return data;
+  )
+  return data
 }
 
 // Test function to debug connection
@@ -61,9 +62,9 @@ export async function testSanityConnection() {
   if (!sanityClient) return null
   try {
     // Simple query to get all document types
-    const data = await sanityClient.fetch(`*[_type == "post"][0...5]`);
-    return data;
-  } catch (error) {
-    return null;
+    const data = await sanityClient.fetch(`*[_type == "post"][0...5]`)
+    return data
+  } catch {
+    return null
   }
-} 
+}

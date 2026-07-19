@@ -31,7 +31,7 @@
     />
 
     <!-- Canonical & Robots -->
-    <link rel="canonical" href="https://magiccraft.io/" />
+    <link rel="canonical" href="https://magiccraft.io/" data-rh="true" />
     <meta name="robots" content="index,follow" />
 
     <!-- Open Graph -->
@@ -278,22 +278,18 @@
       })
     </script>
     <div
-      class="magicads-slot"
+      class="magicads"
+      data-placement="top-banner"
+      data-size="728x90"
       style="
-        display: flex;
+        display: block;
+        width: 100%;
         height: var(--magicads-top-banner-height, 36px);
         min-height: var(--magicads-top-banner-height, 36px);
-        justify-content: center;
         overflow: hidden;
         background: #050824;
       "
-    >
-      <div
-        class="magicads"
-        data-placement="top-banner"
-        data-size="728x90"
-      ></div>
-    </div>
+    ></div>
     <div id="google_translate_element"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

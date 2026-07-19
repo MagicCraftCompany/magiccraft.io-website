@@ -77,6 +77,21 @@ const Grants = () => {
                   name="subject"
                   value="New MagicCraft Grants submission"
                 />
+                <div
+                  className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden"
+                  aria-hidden="true"
+                >
+                  <label htmlFor="grant-bot-field">
+                    Leave this field empty
+                  </label>
+                  <input
+                    id="grant-bot-field"
+                    name="bot-field"
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+                </div>
 
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div>

@@ -77,12 +77,18 @@ function App() {
           <Route path="/careers" element={<Careers />} />
           <Route path="/guilds" element={<Guilds />} />
           <Route path="/whitepaper" element={<Whitepaper />} />
-          <Route path="/pricing" element={<Pricing />} />
+          <Route
+            path="/pricing"
+            element={<Navigate to="/buy-mcrt" replace />}
+          />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/lobbies" element={<Lobbies />} />
           <Route path="/buy-mcrt" element={<Pricing />} />
-          <Route path="/buy" element={<Pricing />} />
-          <Route path="/get-mcrt" element={<Pricing />} />
+          <Route path="/buy" element={<Navigate to="/buy-mcrt" replace />} />
+          <Route
+            path="/get-mcrt"
+            element={<Navigate to="/buy-mcrt" replace />}
+          />
           <Route path="/admin/*" element={<SanityStudio />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

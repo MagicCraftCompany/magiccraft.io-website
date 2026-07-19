@@ -52,10 +52,10 @@ export default function Pricing() {
           name="description"
           content="Open external MCRT routes for PancakeSwap, MetaMask, or Bybit, then review supported MagicCraft Web3 functions and their risks."
         />
-        <link rel="canonical" href="https://magiccraft.io/pricing" />
+        <link rel="canonical" href="https://magiccraft.io/buy-mcrt" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://magiccraft.io/pricing" />
+        <meta property="og:url" content="https://magiccraft.io/buy-mcrt" />
         <meta
           property="og:title"
           content="Pricing and Buy $MCRT | MagicCraft"
@@ -135,7 +135,7 @@ export default function Pricing() {
               </a>
               <button
                 type="button"
-                onClick={() => void openMetaMaskMcrt('pricing_page')}
+                onClick={() => void openMetaMaskMcrt('buy_mcrt_page')}
                 aria-describedby="metamask-route-note"
                 className="rounded-lg border border-white/10 bg-white/5 px-3 py-3 text-left text-sm font-bold text-white transition hover:bg-white/[0.12]"
               >

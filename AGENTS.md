@@ -97,9 +97,9 @@ When adding or changing an indexable route:
 Important exceptions:
 
 - `/dashboard` redirects to `/stats` in the client.
-- `/buy-mcrt`, `/buy`, and `/get-mcrt` redirect to `/pricing` at Netlify and also resolve to the Pricing component in the client.
+- `/buy-mcrt` is the canonical MCRT access route. `/pricing`, `/buy`, and `/get-mcrt` redirect there at Netlify and in the client.
 - `/contact-us` is currently forced to `public/contact-us/index.html`; `src/pages/ContactUs.tsx` is a second implementation and can drift.
-- The catchall returns the app shell with status 200. A browser render is required to prove a route or 404 page.
+- Fixed public routes receive generated crawler shells. Dynamic hero, blog, grant-success, verify, and admin routes rewrite to the app shell; the final catchall serves `404.html` with status 404 and `noindex,nofollow`.
 
 ## Data and integration contract
 

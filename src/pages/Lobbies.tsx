@@ -1,6 +1,6 @@
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
-import battleArt from '@/assets/images/legendary-battle-1.png'
+import battleArt from '@/assets/images/legendary-battle-1.webp'
 import {
   ArrowDown,
   ArrowRight,
@@ -28,6 +28,8 @@ const LOBBY_API_URL = 'https://lobby-api-prod.magiccraft.io/lobby'
 const LIVE_LOBBY_URL = 'https://lobby.magiccraft.io/'
 const REGISTER_URL = 'https://lobby.magiccraft.io/register'
 const LOBBY_GUIDE_URL = 'https://docs.magiccraft.io/web3-user-guide'
+const LOBBY_REQUEST_TIMEOUT_MS = 8_000
+const MAX_LOBBIES = 500
 
 const MAP_NAMES: Record<number, string> = {
   34: 'Aqueduct',
@@ -70,6 +72,55 @@ type Lobby = {
   scheduled_at_open?: string | null
   scheduled_at_start?: string | null
   coin_themed_map_type?: string | null
+}
+
+function finiteNumber(value: unknown) {
+  if (value === null || value === undefined || value === '') return null
+  const number = Number(value)
+  return Number.isFinite(number) ? number : null
+}
+
+function optionalString(value: unknown) {
+  return typeof value === 'string' && value.trim() ? value.trim() : null
+}
+
+function normalizeLobby(value: unknown): Lobby | null {
+  if (!value || typeof value !== 'object') return null
+  const candidate = value as Record<string, unknown>
+  const id =
+    optionalString(candidate.id) || finiteNumber(candidate.id)?.toString()
+  const name = optionalString(candidate.name)
+  const status = finiteNumber(candidate.status)
+  const maxPlayers = finiteNumber(candidate.max_players)
+  const gameModeId = finiteNumber(candidate.game_mode_id)
+  const mapId = finiteNumber(candidate.map_id)
+
+  if (
+    !id ||
+    !name ||
+    status === null ||
+    maxPlayers === null ||
+    gameModeId === null ||
+    mapId === null
+  ) {
+    return null
+  }
+
+  return {
+    id,
+    name,
+    status,
+    max_players: Math.max(0, maxPlayers),
+    players_count: finiteNumber(candidate.players_count) ?? undefined,
+    fakePlayers_count: finiteNumber(candidate.fakePlayers_count) ?? undefined,
+    game_mode_id: gameModeId,
+    map_id: mapId,
+    region: optionalString(candidate.region),
+    type: optionalString(candidate.type) || 'PUBLIC',
+    scheduled_at_open: optionalString(candidate.scheduled_at_open),
+    scheduled_at_start: optionalString(candidate.scheduled_at_start),
+    coin_themed_map_type: optionalString(candidate.coin_themed_map_type),
+  }
 }
 
 function lobbyToken(lobby: Lobby) {
@@ -116,12 +167,20 @@ export default function Lobbies() {
   const loadLobbies = useCallback(async (signal?: AbortSignal) => {
     setLoading(true)
     setError(null)
+    const requestController = new AbortController()
+    let timedOut = false
+    const cancelRequest = () => requestController.abort()
+    signal?.addEventListener('abort', cancelRequest, { once: true })
+    const timeoutId = window.setTimeout(() => {
+      timedOut = true
+      requestController.abort()
+    }, LOBBY_REQUEST_TIMEOUT_MS)
 
     try {
       const response = await fetch(LOBBY_API_URL, {
         headers: { Accept: 'application/json' },
         cache: 'no-store',
-        signal,
+        signal: requestController.signal,
       })
 
       if (!response.ok)
@@ -132,22 +191,22 @@ export default function Lobbies() {
         throw new Error('Lobby service returned an invalid response')
 
       setLobbies(
-        (data as Lobby[])
-          .filter((lobby) => lobby && lobby.id && lobby.name)
+        data
+          .slice(0, MAX_LOBBIES)
+          .map(normalizeLobby)
+          .filter((lobby): lobby is Lobby => lobby !== null)
           .sort((a, b) => {
             const aTime = lobbyStart(a)?.getTime() ?? Number.MAX_SAFE_INTEGER
             const bTime = lobbyStart(b)?.getTime() ?? Number.MAX_SAFE_INTEGER
             return aTime - bTime
           })
       )
-    } catch (caughtError) {
-      if (
-        caughtError instanceof DOMException &&
-        caughtError.name === 'AbortError'
-      )
-        return
+    } catch {
+      if (signal?.aborted && !timedOut) return
       setError('The live match schedule is temporarily unavailable.')
     } finally {
+      window.clearTimeout(timeoutId)
+      signal?.removeEventListener('abort', cancelRequest)
       if (!signal?.aborted) setLoading(false)
     }
   }, [])
@@ -444,9 +503,15 @@ export default function Lobbies() {
                 className="mx-auto h-8 w-8 text-white/45"
                 aria-hidden="true"
               />
-              <h3 className="mt-3 text-xl font-black">No matching lobbies</h3>
+              <h3 className="mt-3 text-xl font-black">
+                {lobbies.length === 0 && activeToken === 'ALL' && !query.trim()
+                  ? 'No scheduled lobbies'
+                  : 'No matching lobbies'}
+              </h3>
               <p className="mt-2 text-sm text-white/55">
-                Change the search or token filter to see other matches.
+                {lobbies.length === 0 && activeToken === 'ALL' && !query.trim()
+                  ? 'The public schedule is currently empty. Check the official lobby for the latest game options.'
+                  : 'Change the search or token filter to see other matches.'}
               </p>
             </div>
           )}

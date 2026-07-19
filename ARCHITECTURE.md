@@ -138,8 +138,8 @@ The route component names below come from `src/App.tsx`. A public 200 response i
 
 | Route                            | Component                        | Purpose                                                                        |
 | -------------------------------- | -------------------------------- | ------------------------------------------------------------------------------ |
-| `/pricing`                       | `Pricing`                        | MCRT access guide, contract/network context, and third-party provider handoffs |
-| `/buy-mcrt`, `/buy`, `/get-mcrt` | `Pricing` plus Netlify redirects | Legacy aliases that canonicalize to `/pricing`                                 |
+| `/buy-mcrt`                     | `Pricing`                         | Canonical MCRT access guide, contract/network context, and third-party provider handoffs |
+| `/pricing`, `/buy`, `/get-mcrt` | `Navigate` plus Netlify redirects | Legacy aliases that canonicalize to `/buy-mcrt`                               |
 | `/verify`                        | `Verify`                         | Directory of verified MagicCraft-owned or approved service destinations        |
 | `/topholders`                    | `TopHolders`                     | Explorer handoff instead of invented holder data                               |
 | `/terms`                         | `TermsAndCondition`              | Terms                                                                          |
@@ -297,7 +297,7 @@ npm run build
   -> dist/
 ```
 
-The route-shell script copies the main HTML and replaces metadata for `/magiccraft`, `/stats`, `/whitepaper`, `/lobbies`, and `/pricing`. If a priority route needs reliable crawler metadata before JavaScript runs, add it to that script and test its generated file.
+The route-shell script copies the main HTML and replaces metadata for 20 fixed, indexable public routes. It also generates a canonical-free `404.html` with `noindex,nofollow`; Netlify serves that file with HTTP 404 for unknown routes. Dynamic hero and blog URLs still use the app shell and require a rendered-browser check.
 
 ### CI
 

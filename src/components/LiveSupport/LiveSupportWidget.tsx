@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { MessageCircle } from 'lucide-react'
 
 type ChatMessage = {
@@ -8,6 +8,7 @@ type ChatMessage = {
 }
 
 const STORAGE_KEY = 'mc_live_support_chat_v1'
+const CHAT_TIMEOUT_MS = 12_000
 
 function formatRelativeTime(ts: number): string {
   const diff = Date.now() - ts
@@ -63,6 +64,17 @@ export default function LiveSupportWidget() {
   const abortRef = useRef<AbortController | null>(null)
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
 
+  const cancelPending = useCallback(() => {
+    abortRef.current?.abort()
+    abortRef.current = null
+    setBusy(false)
+  }, [])
+
+  const closeChat = useCallback(() => {
+    cancelPending()
+    setOpen(false)
+  }, [cancelPending])
+
   useEffect(() => {
     if (typeof window === 'undefined') return
     setMessages(loadStored())
@@ -92,11 +104,19 @@ export default function LiveSupportWidget() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false)
+      if (e.key === 'Escape') closeChat()
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [])
+  }, [closeChat])
+
+  useEffect(
+    () => () => {
+      abortRef.current?.abort()
+      abortRef.current = null
+    },
+    []
+  )
 
   useEffect(() => {
     const onOpen = () => setOpen(true)
@@ -135,6 +155,11 @@ export default function LiveSupportWidget() {
     const controller = new AbortController()
     abortRef.current?.abort()
     abortRef.current = controller
+    let timedOut = false
+    const timeout = window.setTimeout(() => {
+      timedOut = true
+      controller.abort()
+    }, CHAT_TIMEOUT_MS)
 
     try {
       const res = await fetch('/.netlify/functions/live-support-chat', {
@@ -142,7 +167,10 @@ export default function LiveSupportWidget() {
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
           message: text,
-          history: next.map((m) => ({ role: m.role, content: m.content })),
+          history: messages.map((m) => ({
+            role: m.role,
+            content: m.content,
+          })),
         }),
         signal: controller.signal,
       })
@@ -170,11 +198,20 @@ export default function LiveSupportWidget() {
         ].slice(-50)
       )
     } catch (e: unknown) {
-      if (e instanceof DOMException && e.name === 'AbortError') return
+      if (e instanceof Error && e.name === 'AbortError') {
+        if (timedOut) {
+          setError('Live support took too long to respond. Please try again.')
+        }
+        return
+      }
       const msg = e instanceof Error ? e.message : String(e)
       setError(msg || 'Live support is unavailable right now.')
     } finally {
-      setBusy(false)
+      window.clearTimeout(timeout)
+      if (abortRef.current === controller) {
+        abortRef.current = null
+        setBusy(false)
+      }
     }
   }
 
@@ -195,17 +232,25 @@ export default function LiveSupportWidget() {
         <div className="fixed inset-0 z-[100001]">
           <div
             className="absolute inset-0 bg-black/75 backdrop-blur-[2px]"
-            onClick={() => (busy ? null : setOpen(false))}
+            onClick={closeChat}
             aria-hidden="true"
           />
 
           <div className="animate-fade-in absolute bottom-4 left-4 right-4 sm:left-4 sm:right-auto sm:w-[460px]">
-            <div className="animate-slide-up overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-b from-[#12183f]/95 via-[#0d1232]/95 to-[#090e28]/95 shadow-[0_24px_90px_rgba(0,0,0,0.55)] backdrop-blur-2xl">
+            <div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="live-support-title"
+              className="animate-slide-up overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-b from-[#12183f]/95 via-[#0d1232]/95 to-[#090e28]/95 shadow-[0_24px_90px_rgba(0,0,0,0.55)] backdrop-blur-2xl"
+            >
               <div className="flex items-center justify-between border-b border-white/10 bg-white/[0.03] px-4 py-3">
                 <div className="flex items-center gap-2">
                   <span className="inline-block h-2.5 w-2.5 rounded-full bg-[#98FFF9]" />
                   <div className="leading-tight">
-                    <div className="text-sm font-semibold text-white">
+                    <div
+                      id="live-support-title"
+                      className="text-sm font-semibold text-white"
+                    >
                       MagicCraft Live Support
                     </div>
                     <div className="text-[11px] text-white/60">
@@ -225,9 +270,8 @@ export default function LiveSupportWidget() {
                   </button>
                   <button
                     type="button"
-                    onClick={() => setOpen(false)}
-                    disabled={busy}
-                    className="rounded-md border border-white/15 bg-white/5 px-2 py-1 text-[11px] text-white/70 hover:border-white/25 hover:bg-white/10 hover:text-white disabled:opacity-50"
+                    onClick={closeChat}
+                    className="rounded-md border border-white/15 bg-white/5 px-2 py-1 text-[11px] text-white/70 hover:border-white/25 hover:bg-white/10 hover:text-white"
                     aria-label="Close Live Support"
                   >
                     Close
@@ -362,11 +406,11 @@ export default function LiveSupportWidget() {
                   />
                   <button
                     type="button"
-                    onClick={send}
-                    disabled={!canSend}
+                    onClick={busy ? cancelPending : send}
+                    disabled={!busy && !canSend}
                     className="rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-4 py-2 text-sm font-semibold text-[#03082f] hover:brightness-110 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    Send
+                    {busy ? 'Cancel' : 'Send'}
                   </button>
                 </div>
                 <div className="mt-2 text-[11px] text-white/50">

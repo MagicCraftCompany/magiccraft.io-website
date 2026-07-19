@@ -135,4 +135,63 @@ describe('lobby discovery page', () => {
       screen.getByRole('link', { name: 'Open official lobby' })
     ).toHaveAttribute('href', 'https://lobby.magiccraft.io/')
   })
+
+  it('distinguishes an empty live schedule from a failed search', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({ ok: true, json: async () => [] })
+    )
+
+    render(
+      <HelmetProvider>
+        <MemoryRouter>
+          <Lobbies />
+        </MemoryRouter>
+      </HelmetProvider>
+    )
+
+    expect(
+      await screen.findByRole('heading', { name: 'No scheduled lobbies' })
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(/public schedule is currently empty/i)
+    ).toBeInTheDocument()
+  })
+
+  it('normalizes incomplete records and skips unsafe payload rows', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => [
+          { ...lobbyFeed[0], name: 'Weekly BTC battle', type: undefined },
+          { id: 'broken', name: 'Missing required numbers' },
+          {
+            id: 'null-numbers',
+            name: 'Null required numbers',
+            status: null,
+            max_players: null,
+            game_mode_id: null,
+            map_id: null,
+          },
+          null,
+        ],
+      })
+    )
+
+    render(
+      <HelmetProvider>
+        <MemoryRouter>
+          <Lobbies />
+        </MemoryRouter>
+      </HelmetProvider>
+    )
+
+    expect(await screen.findByText('Weekly BTC battle')).toBeInTheDocument()
+    expect(screen.getByText('Public')).toBeInTheDocument()
+    expect(
+      screen.queryByText('Missing required numbers')
+    ).not.toBeInTheDocument()
+    expect(screen.queryByText('Null required numbers')).not.toBeInTheDocument()
+  })
 })

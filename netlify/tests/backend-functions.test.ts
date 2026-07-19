@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { handler as battlepassHandler } from '../functions/battlepass'
+import { handler as liveSupportHandler } from '../functions/live-support-chat'
 import { handler as mentionsHandler } from '../functions/mcrt-mentions'
 import { handler as statusHandler } from '../functions/status'
 import { handler as grantsHandler } from '../functions/submit-grants'
@@ -38,12 +39,124 @@ function grantBody(overrides: Record<string, string> = {}) {
 }
 
 afterEach(() => {
+  vi.useRealTimers()
   vi.restoreAllMocks()
   vi.unstubAllGlobals()
   vi.unstubAllEnvs()
 })
 
+describe('live-support bounded request contract', () => {
+  it('deduplicates a trailing copy of the current user message', async () => {
+    vi.stubEnv('OPENROUTER_API_KEY', 'test-key')
+    let modelPayload: Record<string, unknown> | null = null
+    vi.stubGlobal(
+      'fetch',
+      vi.fn((input: string | URL | Request, init?: RequestInit) => {
+        if (String(input).includes('openrouter.ai')) {
+          modelPayload = JSON.parse(String(init?.body))
+          return Promise.resolve(
+            mockResponse({
+              choices: [{ message: { content: 'Grounded answer' } }],
+            })
+          )
+        }
+        return Promise.resolve(mockResponse('', 503))
+      })
+    )
+
+    const response = await liveSupportHandler(
+      {
+        httpMethod: 'POST',
+        headers: { 'x-forwarded-for': '203.0.113.10' },
+        body: JSON.stringify({
+          message: 'Where can I play?',
+          history: [
+            { role: 'assistant', content: 'How can I help?' },
+            { role: 'user', content: 'Where can I play?' },
+          ],
+        }),
+      } as never,
+      {} as never
+    )
+
+    expect(response?.statusCode).toBe(200)
+    expect(modelPayload).not.toBeNull()
+    const messages = (
+      modelPayload as unknown as {
+        messages: Array<{ content: string }>
+      }
+    ).messages
+    expect(
+      messages.filter((entry) => entry.content === 'Where can I play?')
+    ).toHaveLength(1)
+    const systemContext = messages[0]?.content || ''
+    expect(systemContext).toContain('Merlin AI (Live')
+    expect(systemContext).toContain('MagicAds (Live')
+    expect(systemContext).toContain('DragonList (Beta')
+    expect(systemContext).not.toContain('Polybilities')
+    expect(systemContext).not.toContain('SocialMM')
+  })
+
+  it('returns a bounded timeout when the model provider hangs', async () => {
+    vi.useFakeTimers()
+    vi.stubEnv('OPENROUTER_API_KEY', 'test-key')
+    vi.stubGlobal(
+      'fetch',
+      vi.fn((input: string | URL | Request, init?: RequestInit) => {
+        if (!String(input).includes('openrouter.ai')) {
+          return Promise.resolve(mockResponse('', 503))
+        }
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          headers: new Headers(),
+          text: () =>
+            new Promise((_resolve, reject) => {
+              init?.signal?.addEventListener('abort', () => {
+                const error = new Error('aborted')
+                error.name = 'AbortError'
+                reject(error)
+              })
+            }),
+        } as unknown as Response)
+      })
+    )
+
+    const responsePromise = liveSupportHandler(
+      {
+        httpMethod: 'POST',
+        headers: { 'x-forwarded-for': '203.0.113.11' },
+        body: JSON.stringify({ message: 'Hello', history: [] }),
+      } as never,
+      {} as never
+    )
+    await vi.advanceTimersByTimeAsync(8000)
+    const response = await responsePromise
+    const body = JSON.parse(response?.body || '{}')
+
+    expect(response?.statusCode).toBe(504)
+    expect(body).toMatchObject({ code: 'upstream_timeout' })
+    expect(response?.body).not.toContain('aborted')
+  })
+})
+
 describe('submit-grants fail-closed intake', () => {
+  it('accepts a populated honeypot without forwarding the spam submission', async () => {
+    const fetchMock = vi.fn()
+    vi.stubGlobal('fetch', fetchMock)
+
+    const response = await grantsHandler(
+      {
+        httpMethod: 'POST',
+        body: grantBody({ 'bot-field': 'spam value' }),
+      } as never,
+      {} as never
+    )
+
+    expect(response?.statusCode).toBe(204)
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
   it('rejects invalid input without calling the intake service', async () => {
     const fetchMock = vi.fn()
     vi.stubGlobal('fetch', fetchMock)
@@ -99,6 +212,48 @@ describe('submit-grants fail-closed intake', () => {
         body: expect.stringContaining('form-name=grants'),
       })
     )
+  })
+
+  it('preserves an explicitly configured intake endpoint path', async () => {
+    vi.stubEnv(
+      'GRANTS_FORM_ENDPOINT',
+      'https://forms.example.com/intake/magiccraft'
+    )
+    const fetchMock = vi.fn().mockResolvedValue(mockResponse('', 201))
+    vi.stubGlobal('fetch', fetchMock)
+
+    const response = await grantsHandler(
+      { httpMethod: 'POST', body: grantBody() } as never,
+      {} as never
+    )
+
+    expect(response?.statusCode).toBe(303)
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://forms.example.com/intake/magiccraft',
+      expect.objectContaining({ method: 'POST', redirect: 'manual' })
+    )
+  })
+
+  it('does not treat an upstream redirect as accepted delivery', async () => {
+    vi.stubEnv(
+      'GRANTS_FORM_ENDPOINT',
+      'https://forms.example.com/intake/magiccraft'
+    )
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(mockResponse('', 302)))
+    vi.spyOn(console, 'error').mockImplementation(() => undefined)
+
+    const response = await grantsHandler(
+      { httpMethod: 'POST', body: grantBody() } as never,
+      {} as never
+    )
+    const body = JSON.parse(response?.body || '{}')
+
+    expect(response?.statusCode).toBe(502)
+    expect(response?.headers?.Location).toBeUndefined()
+    expect(body).toMatchObject({
+      error: 'submission_not_accepted',
+      code: 'submission_service_rejected',
+    })
   })
 })
 
@@ -189,6 +344,9 @@ describe('status function source checks', () => {
     const body = JSON.parse(response?.body || '{}')
 
     expect(response?.statusCode).toBe(200)
+    expect(response?.headers?.['Netlify-CDN-Cache-Control']).toContain(
+      's-maxage=45'
+    )
     expect(
       fetchMock.mock.calls.some(([input]) =>
         String(input).includes(

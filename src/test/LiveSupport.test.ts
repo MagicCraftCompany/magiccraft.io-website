@@ -1,62 +1,93 @@
-import { describe, it, expect, beforeEach } from 'vitest'
+import { createElement } from 'react'
+import {
+  cleanup,
+  fireEvent,
+  render,
+  screen,
+  waitFor,
+} from '@testing-library/react'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import LiveSupportWidget from '../components/LiveSupport/LiveSupportWidget'
 
-const STORAGE_KEY = 'mc_live_support_chat_v1'
+beforeEach(() => {
+  localStorage.clear()
+  Object.defineProperty(HTMLElement.prototype, 'scrollTo', {
+    configurable: true,
+    value: vi.fn(),
+  })
+})
 
-function loadStored() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY)
-    if (!raw) return []
-    const parsed = JSON.parse(raw)
-    if (!Array.isArray(parsed)) return []
-    return parsed
-      .filter((m: unknown) => {
-        if (typeof m !== 'object' || m === null) return false
-        const msg = m as Record<string, unknown>
-        return (msg.role === 'user' || msg.role === 'assistant') && typeof msg.content === 'string'
+afterEach(() => {
+  cleanup()
+  vi.restoreAllMocks()
+  vi.unstubAllGlobals()
+  vi.unstubAllEnvs()
+})
+
+describe('LiveSupportWidget', () => {
+  it('sends the newest user message once instead of duplicating it in history', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      json: vi.fn().mockResolvedValue({ message: 'Verified answer' }),
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    render(createElement(LiveSupportWidget))
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Open Live Support chat' })
+    )
+    fireEvent.change(screen.getByPlaceholderText('Type your message…'), {
+      target: { value: 'Where can I play?' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
+
+    await screen.findByText('Verified answer')
+    const request = fetchMock.mock.calls[0]
+    const payload = JSON.parse(String(request[1]?.body))
+
+    expect(payload).toEqual({
+      message: 'Where can I play?',
+      history: [],
+    })
+  })
+
+  it('lets a user cancel a hanging request and close the modal', async () => {
+    let requestSignal: AbortSignal | undefined
+    vi.stubGlobal(
+      'fetch',
+      vi.fn((_input: string | URL | Request, init?: RequestInit) => {
+        requestSignal = init?.signal || undefined
+        return new Promise((_resolve, reject) => {
+          requestSignal?.addEventListener('abort', () => {
+            reject(new DOMException('aborted', 'AbortError'))
+          })
+        })
       })
-      .map((m: Record<string, unknown>) => ({ role: m.role, content: String(m.content), ts: Number(m.ts) || Date.now() }))
-      .slice(-50)
-  } catch {
-    return []
-  }
-}
+    )
 
-function saveStored(messages: Array<{ role: string; content: string; ts: number }>) {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(messages.slice(-50)))
-  } catch {
-    // ignore storage errors in tests
-  }
-}
+    render(createElement(LiveSupportWidget))
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Open Live Support chat' })
+    )
+    fireEvent.change(screen.getByPlaceholderText('Type your message…'), {
+      target: { value: 'Hello' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Send' }))
 
-describe('LiveSupport storage', () => {
-  beforeEach(() => localStorage.clear())
+    expect(await screen.findByText('Thinking…')).toBeInTheDocument()
+    const closeButton = screen.getByRole('button', {
+      name: 'Close Live Support',
+    })
+    expect(closeButton).toBeEnabled()
 
-  it('returns empty array when nothing stored', () => {
-    expect(loadStored()).toEqual([])
-  })
+    fireEvent.click(screen.getByRole('button', { name: 'Cancel' }))
+    await waitFor(() => expect(requestSignal?.aborted).toBe(true))
+    await waitFor(() =>
+      expect(screen.queryByText('Thinking…')).not.toBeInTheDocument()
+    )
 
-  it('round-trips messages correctly', () => {
-    const msgs = [
-      { role: 'user', content: 'Hello', ts: 1000 },
-      { role: 'assistant', content: 'Hi there!', ts: 2000 },
-    ]
-    saveStored(msgs)
-    const loaded = loadStored()
-    expect(loaded).toHaveLength(2)
-    expect(loaded[0].content).toBe('Hello')
-    expect(loaded[1].role).toBe('assistant')
-  })
-
-  it('filters out invalid messages', () => {
-    const raw = JSON.stringify([
-      { role: 'user', content: 'Valid', ts: 1000 },
-      { role: 'system', content: 'Invalid role', ts: 2000 },
-      null,
-      { role: 'assistant', content: 123, ts: 3000 }, // content not a string
-    ])
-    localStorage.setItem(STORAGE_KEY, raw)
-    const loaded = loadStored()
-    expect(loaded).toHaveLength(1) // only the valid user message + the one with non-string content gets coerced
+    fireEvent.click(closeButton)
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
   })
 })

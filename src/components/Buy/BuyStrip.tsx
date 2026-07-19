@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import {
   BadgeDollarSign,
   CheckCircle2,
@@ -85,13 +84,8 @@ function BuyRouteCard({ route }: { route: BuyRoute }) {
 }
 
 export default function BuyStrip() {
-  const { price, loading, refresh } = useMcrtPrice(120_000)
+  const { price, loading, status } = useMcrtPrice(120_000)
   const { copied, copy } = useCopyToClipboard()
-
-  useEffect(() => {
-    const id = setInterval(refresh, 120_000)
-    return () => clearInterval(id)
-  }, [refresh])
 
   const copyContract = () => {
     trackCta({ cta: 'copy_contract', location: 'buy_strip' })
@@ -99,11 +93,12 @@ export default function BuyStrip() {
   }
 
   const hasPrice = !!price
+  const isStale = hasPrice && status === 'stale'
   const priceText = hasPrice
-    ? `$${price!.usd.toFixed(5)}${price!.usd_24h_change !== undefined ? ` (${price!.usd_24h_change >= 0 ? '+' : ''}${price!.usd_24h_change.toFixed(2)}%)` : ''}`
+    ? `$${price!.usd.toFixed(5)}${price!.usd_24h_change !== undefined ? ` (${price!.usd_24h_change >= 0 ? '+' : ''}${price!.usd_24h_change.toFixed(2)}%)` : ''}${isStale ? ' · cached' : ''}`
     : loading
       ? 'Loading…'
-      : 'Live markets'
+      : 'Price unavailable'
 
   const buyRoutes: BuyRoute[] = [
     {
@@ -163,11 +158,28 @@ export default function BuyStrip() {
             <div className="mt-5 space-y-3">
               <div className="flex flex-wrap items-center gap-2 text-sm text-white/75">
                 <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#98FFF9] opacity-75"></span>
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#98FFF9]"></span>
+                  {!isStale && hasPrice && (
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#98FFF9] opacity-75"></span>
+                  )}
+                  <span
+                    className={`relative inline-flex h-2 w-2 rounded-full ${
+                      isStale
+                        ? 'bg-amber-300'
+                        : hasPrice
+                          ? 'bg-[#98FFF9]'
+                          : 'bg-slate-400'
+                    }`}
+                  ></span>
                 </span>
-                {hasPrice ? 'Live price:' : 'Market status:'}{' '}
-                <span className="font-bold text-[#98FFF9]" title={priceText}>
+                {isStale
+                  ? 'Cached price:'
+                  : hasPrice
+                    ? 'Live price:'
+                    : 'Market status:'}{' '}
+                <span
+                  className={`font-bold ${isStale ? 'text-amber-200' : 'text-[#98FFF9]'}`}
+                  title={priceText}
+                >
                   {priceText}
                 </span>
               </div>

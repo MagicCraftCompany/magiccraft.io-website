@@ -43,6 +43,21 @@ async function withTimeout<T>(promise: Promise<T>, ms: number): Promise<T> {
   })
 }
 
+async function fetchWithTimeout(
+  input: string | URL | Request,
+  init: RequestInit = {},
+  ms = DEFAULT_TIMEOUT_MS
+) {
+  const controller = new AbortController()
+  const timeoutId = setTimeout(() => controller.abort(), ms)
+
+  try {
+    return await fetch(input, { ...init, signal: controller.signal })
+  } finally {
+    clearTimeout(timeoutId)
+  }
+}
+
 async function httpCheck(target: ServiceTarget): Promise<ServiceResult> {
   const startedAt = Date.now()
   let ok = false
@@ -66,15 +81,16 @@ async function httpCheck(target: ServiceTarget): Promise<ServiceResult> {
       }
     }
     if (!target.url) throw new Error('Missing URL')
-    const res = await withTimeout(
-      fetch(target.url, {
+    const res = await fetchWithTimeout(
+      target.url,
+      {
         method,
         redirect: 'follow',
         headers: {
           'User-Agent': 'MagicCraftStatusBot/1.0 (+https://magiccraft.io)',
           ...target.headers,
         },
-      }),
+      },
       DEFAULT_TIMEOUT_MS
     )
     status = res.status
@@ -171,13 +187,14 @@ export const handler: Handler = async (event) => {
           const checks = await Promise.all(
             candidates.map(async (target) => {
               try {
-                const res = await withTimeout(
-                  fetch(`${target.base.replace(/\/$/, '')}/battlepass/active`, {
+                const res = await fetchWithTimeout(
+                  `${target.base.replace(/\/$/, '')}/battlepass/active`,
+                  {
                     headers: {
                       'X-API-Key': gameserverKey,
                       Accept: 'application/json',
                     },
-                  }),
+                  },
                   3500
                 )
                 return { target, status: res.status, ok: res.ok }
@@ -368,10 +385,11 @@ export const handler: Handler = async (event) => {
             return { ok: false, status: 0, note: 'not configured' }
           const url = `https://${sanityProjectId}.apicdn.sanity.io/${encodeURIComponent(sanityVersion)}/data/query/${encodeURIComponent(sanityDataset)}?query=${encodeURIComponent('*[_type == "post"][0...1]')}`
           try {
-            const res = await withTimeout(
-              fetch(url, {
+            const res = await fetchWithTimeout(
+              url,
+              {
                 headers: { 'User-Agent': 'MagicCraftStatusBot/1.0' },
-              }),
+              },
               4000
             )
             const ok = res.status >= 200 && res.status < 400
@@ -393,10 +411,11 @@ export const handler: Handler = async (event) => {
           note: 'form check',
           customCheck: async () => {
             try {
-              const res = await withTimeout(
-                fetch('https://lobby.magiccraft.io/register', {
+              const res = await fetchWithTimeout(
+                'https://lobby.magiccraft.io/register',
+                {
                   headers: { 'User-Agent': 'MagicCraftStatusBot/1.0' },
-                }),
+                },
                 6000
               )
               const html = await res.text()
@@ -439,7 +458,9 @@ export const handler: Handler = async (event) => {
       statusCode: 200,
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'no-store',
+        'Cache-Control': 'public, max-age=0, must-revalidate',
+        'Netlify-CDN-Cache-Control':
+          'public, s-maxage=45, stale-while-revalidate=30',
         'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify({

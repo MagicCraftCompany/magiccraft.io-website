@@ -98,19 +98,21 @@ function parseAndValidate(event: HandlerEvent) {
 }
 
 function getIntakeEndpoint() {
-  const configured =
-    process.env.GRANTS_FORM_ENDPOINT ||
-    process.env.URL ||
-    process.env.DEPLOY_PRIME_URL
+  const explicitEndpoint = process.env.GRANTS_FORM_ENDPOINT?.trim()
+  const siteOrigin =
+    process.env.URL?.trim() || process.env.DEPLOY_PRIME_URL?.trim()
+  const configured = explicitEndpoint || siteOrigin
 
   if (!configured) throw new IntakeError('submission_service_not_configured')
 
   try {
-    const endpoint = new URL('/', configured)
+    const endpoint = new URL(configured)
     if (endpoint.protocol !== 'https:' && endpoint.hostname !== 'localhost') {
       throw new Error('insecure endpoint')
     }
-    return endpoint.toString()
+    return explicitEndpoint
+      ? endpoint.toString()
+      : new URL('/', endpoint).toString()
   } catch {
     throw new IntakeError('invalid_submission_service_url')
   }
@@ -139,7 +141,7 @@ async function submitToNetlifyForms(params: URLSearchParams) {
       body: params.toString(),
     })
 
-    if (response.status < 200 || response.status >= 400) {
+    if (response.status < 200 || response.status >= 300) {
       throw new IntakeError('submission_service_rejected', response.status)
     }
   } catch (error) {

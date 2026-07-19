@@ -1,7 +1,11 @@
 import type { Handler } from '@netlify/functions'
 import { questions as faq } from '../../src/data/accordian'
+import { AI_PRODUCTS } from '../../src/data/aiProducts'
 
 const DEFAULT_MODEL = 'openai/gpt-4o-mini'
+const DEFAULT_GROUNDING_TIMEOUT_MS = 2500
+const DEFAULT_MODEL_TIMEOUT_MS = 8000
+const MAX_GROUNDING_RESPONSE_BYTES = 500_000
 
 type IncomingHistoryMessage = {
   role: 'user' | 'assistant'
@@ -22,13 +26,6 @@ const SOURCES = {
   magiccraft: 'https://magiccraft.io',
   magiccraftFaq: 'https://magiccraft.io/faq',
   magicads: 'https://magicads.dev',
-  akyn: 'https://akyn.pro',
-  merlin: 'https://merlintheai.com',
-  docai: 'https://docai.live',
-  polybilities: 'https://polybilities.com',
-  socialmm: 'https://socialmm.ai',
-  magas7: 'https://magas7.com',
-  dragonlist: 'https://dragonlist.ai',
   coingeckoCoin: 'https://www.coingecko.com/en/coins/magiccraft',
   coinmarketcapCoin: 'https://coinmarketcap.com/currencies/magiccraft/',
 } as const
@@ -46,14 +43,42 @@ function clamp(s: string, max: number) {
   return v.length > max ? v.slice(0, max) : v
 }
 
+async function fetchTextWithTimeout(
+  url: string,
+  opts: RequestInit,
+  timeoutMs: number,
+  maxResponseBytes: number
+) {
+  const controller = new AbortController()
+  const timeout = setTimeout(() => controller.abort(), timeoutMs)
+
+  try {
+    const response = await fetch(url, { ...opts, signal: controller.signal })
+    const contentLength = Number(response.headers.get('content-length'))
+    if (Number.isFinite(contentLength) && contentLength > maxResponseBytes) {
+      throw new Error('response_too_large')
+    }
+    const text = await response.text()
+    if (text.length > maxResponseBytes) {
+      throw new Error('response_too_large')
+    }
+    return { response, text }
+  } finally {
+    clearTimeout(timeout)
+  }
+}
+
 async function safeFetchText(url: string, opts?: RequestInit) {
   try {
-    const res = await fetch(url, opts)
-    const text = await res.text()
-    return { ok: res.ok, status: res.status, text }
-  } catch (e: unknown) {
-    const msg = e instanceof Error ? e.message : String(e)
-    return { ok: false, status: 0, text: msg }
+    const { response, text } = await fetchTextWithTimeout(
+      url,
+      opts || {},
+      DEFAULT_GROUNDING_TIMEOUT_MS,
+      MAX_GROUNDING_RESPONSE_BYTES
+    )
+    return { ok: response.ok, status: response.status, text }
+  } catch {
+    return { ok: false, status: 0, text: '' }
   }
 }
 
@@ -221,20 +246,15 @@ function systemPrompt(opts: {
   const siteBlock = opts.siteMeta
     ? `\n\nmagiccraft.io homepage meta (best-effort):\n${clamp(JSON.stringify(opts.siteMeta), 1500)}`
     : ''
+  const productLines = AI_PRODUCTS.map(
+    (product) =>
+      `- ${product.name} (${product.status}, ${product.category}): ${product.description} ${product.href}`
+  ).join('\n')
   const networkBlock = `
 Official ecosystem/network projects and systems:
 - MagicCraft + $MCRT hub: ${SOURCES.magiccraft}
-- MagicAds ad network: ${SOURCES.magicads}
-  - AI-native cross-banner ad network for hosts/publishers and advertisers
-  - Uses $MCRT and Stripe payment rails
-- Akyn: ${SOURCES.akyn}
-- Merlin AI: ${SOURCES.merlin}
-- DocAI: ${SOURCES.docai}
-- Polybilities: ${SOURCES.polybilities}
-- SocialMM: ${SOURCES.socialmm}
+${productLines}
 - EnvRouter AI: AI gateway and model router for encrypted keys, streaming proxy support, token tracking, and user dashboard management. No public domain is confirmed in this context.
-- MAGAS7 Marketing Agents: ${SOURCES.magas7}
-- DragonList: ${SOURCES.dragonlist}
 `.trim()
 
   return `
@@ -349,7 +369,7 @@ export const handler: Handler = async (event) => {
     }
   }
 
-  const safeHistory = history
+  const normalizedHistory = history
     .filter(
       (m) =>
         m &&
@@ -358,6 +378,13 @@ export const handler: Handler = async (event) => {
     )
     .slice(-12)
     .map((m) => ({ role: m.role, content: clamp(m.content, 1500) }))
+  const lastHistoryMessage =
+    normalizedHistory[normalizedHistory.length - 1] || null
+  const safeHistory =
+    lastHistoryMessage?.role === 'user' &&
+    lastHistoryMessage.content === message
+      ? normalizedHistory.slice(0, -1)
+      : normalizedHistory
 
   const MARKET_TTL = 3 * 60 * 1000
   const PROFILE_TTL = 15 * 60 * 1000
@@ -407,35 +434,42 @@ export const handler: Handler = async (event) => {
   const sys = systemPrompt({ faqText, market, cmcJsonLd, cgProfile, siteMeta })
 
   try {
-    const orRes = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        authorization: `Bearer ${apiKey}`,
-        'content-type': 'application/json',
-        // Optional but recommended by OpenRouter
-        'http-referer': 'https://magiccraft.io',
-        'x-title': 'MagicCraft Live Support',
+    const { response: orRes, text } = await fetchTextWithTimeout(
+      'https://openrouter.ai/api/v1/chat/completions',
+      {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${apiKey}`,
+          'content-type': 'application/json',
+          // Optional but recommended by OpenRouter
+          'http-referer': 'https://magiccraft.io',
+          'x-title': 'MagicCraft Live Support',
+        },
+        body: JSON.stringify({
+          model,
+          temperature: 0.2,
+          max_tokens: 500,
+          messages: [
+            { role: 'system', content: sys },
+            ...safeHistory,
+            { role: 'user', content: message },
+          ],
+        }),
       },
-      body: JSON.stringify({
-        model,
-        temperature: 0.2,
-        max_tokens: 500,
-        messages: [
-          { role: 'system', content: sys },
-          ...safeHistory,
-          { role: 'user', content: message },
-        ],
-      }),
-    })
+      DEFAULT_MODEL_TIMEOUT_MS,
+      MAX_GROUNDING_RESPONSE_BYTES
+    )
 
-    const text = await orRes.text()
     if (!orRes.ok) {
       return {
-        statusCode: orRes.status,
-        headers: { 'content-type': 'application/json; charset=utf-8' },
+        statusCode: 502,
+        headers: {
+          'content-type': 'application/json; charset=utf-8',
+          'cache-control': 'no-store',
+        },
         body: JSON.stringify({
-          error: `Upstream error (${orRes.status})`,
-          details: text.slice(0, 2000),
+          error: 'Live support is temporarily unavailable.',
+          code: 'upstream_rejected',
         }),
       }
     }
@@ -465,11 +499,18 @@ export const handler: Handler = async (event) => {
       body: JSON.stringify({ message: appended }),
     }
   } catch (e: unknown) {
+    const timedOut = e instanceof Error && e.name === 'AbortError'
     return {
-      statusCode: 500,
-      headers: { 'content-type': 'application/json; charset=utf-8' },
+      statusCode: timedOut ? 504 : 502,
+      headers: {
+        'content-type': 'application/json; charset=utf-8',
+        'cache-control': 'no-store',
+      },
       body: JSON.stringify({
-        error: e instanceof Error ? e.message : String(e),
+        error: timedOut
+          ? 'Live support took too long to respond. Please try again.'
+          : 'Live support is temporarily unavailable.',
+        code: timedOut ? 'upstream_timeout' : 'upstream_unavailable',
       }),
     }
   }

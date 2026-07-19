@@ -134,14 +134,20 @@ function Homepagegames() {
                     </div>
                   ))}
                 </div>
-                <div className=" grid grid-cols-5 gap-4 overflow-x-auto md:grid-cols-2  lg:hidden lg:grid-cols-3 xl:grid-cols-5">
-                  <div className="flex flex-nowrap">
+                <div className="overflow-x-auto pb-3 lg:hidden">
+                  <div className="flex snap-x snap-mandatory flex-nowrap pr-8">
                     {filteredGames.map((game: Game) => (
-                      <div key={game.id} className="mx-4 min-w-[160px] flex-1 ">
+                      <div
+                        key={game.id}
+                        className="mx-2 min-w-[160px] flex-1 snap-start first:ml-0"
+                      >
                         <GameCard game={game} />
                       </div>
                     ))}
                   </div>
+                  <p className="mt-2 text-center text-xs uppercase tracking-[0.16em] text-white/55">
+                    Swipe to explore games
+                  </p>
                 </div>
               </div>
             </div>
@@ -152,28 +158,27 @@ function Homepagegames() {
               <div className="flex flex-col-reverse items-start gap-0 md:flex-row md:gap-8">
                 <div className="w-full space-y-8 self-end md:w-1/2">
                   <div>
-                    <div className="mt-[100px] flex items-center gap-1 md:mt-0">
+                    <div className="mt-[100px] flex min-w-0 items-center gap-1 md:mt-0">
                       <p className="rotate-180 whitespace-nowrap text-lg leading-none tracking-widest text-[#bd6ae182] [writing-mode:vertical-lr]">
                         Meet
                       </p>
-                      <h2 className="text-5xl font-semibold leading-none md:text-[64px]">
+                      <h2 className="min-w-0 text-4xl font-semibold leading-none sm:text-5xl md:text-[64px]">
                         MagicCraft&apos;s
                       </h2>
                     </div>
 
                     <p
                       // className="font-outline text-7xl font-bold outline outline-red-500"#B591F299, #B591F278
-                      className="font-outline bg-gradient-to-b from-[#B591F299] to-[#B591F278] bg-clip-text py-1 text-6xl font-bold tracking-wider text-[#03082F] md:text-7xl"
+                      className="font-outline bg-gradient-to-b from-[#B591F299] to-[#B591F278] bg-clip-text py-1 text-5xl font-bold tracking-wide text-[#03082F] sm:text-6xl md:text-7xl md:tracking-wider"
                     >
                       Ecosystem
                     </p>
                   </div>
                   <h4 className="text-balance text-2xl leading-9">
-                    In 2026, MagicCraft continues to redefine the Web3 gaming
-                    landscape by positioning MCRT at the heart of every
-                    gamer&apos;s journey. Our commitment to developing new
-                    gaming experiences will shape a unified global gaming
-                    economy.
+                    In 2026, MagicCraft connects the live game with practical AI
+                    products and optional Web3 features. MCRT supports selected
+                    ecosystem utilities, while the core game remains available
+                    without treating play as an income product.
                   </h4>
                   <div className="flex cursor-pointer flex-wrap items-center gap-[10px]">
                     {[
@@ -280,20 +285,19 @@ function Homepagegames() {
                 <div className="space-y-5 px-8 pb-10 pt-5 md:px-10">
                   <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-4">
                     <h5 className="mx-auto  text-balance text-center font-serif text-base md:mt-[2em] md:text-[16px]">
-                      jOIN US IN SHAPING THE FUTURE
+                      JOIN US IN SHAPING LIVE GAMES,
                       <br />
-                      OF GAMING WITH MCRT, THE
+                      PRACTICAL AI PRODUCTS AND
                       <br />
-                      CORNERSTONE CURRENCY OF <br />
-                      THE GAMING WORLD.
+                      OPTIONAL MCRT UTILITY.
                     </h5>
                     <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
                       <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-4 py-2 md:p-10 ">
                         <h4 className="font-serif  text-lg md:text-[16px]">
                           <span className="text-[#8EFF49]">
-                            MCRT INTEGRATION:
+                            OPTIONAL MCRT UTILITY:
                           </span>{' '}
-                          <br /> ENHANCE YOUR GAMING WITH MCRT.
+                          <br /> REVIEW TERMS BEFORE USING WEB3 FEATURES.
                         </h4>
 
                         <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
@@ -305,10 +309,10 @@ function Homepagegames() {
                       <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% px-8 py-4 md:p-10  ">
                         <h4 className="font-serif text-lg md:text-[16px]">
                           <span className="text-[#C09AFF]">
-                            MONTHLY SURPRISES:
+                            LIVE GAME UPDATES:
                           </span>{' '}
                           <br />
-                          earn rewards every hour
+                          CHECK OFFICIAL CHANNELS FOR CURRENT EVENTS.
                         </h4>
 
                         <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">

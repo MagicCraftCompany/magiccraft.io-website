@@ -2,27 +2,9 @@ import path from 'path'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import svgr from 'vite-plugin-svgr'
-import { nodePolyfills } from 'vite-plugin-node-polyfills'
 
 export default defineConfig({
-  plugins: [
-    react(), 
-    svgr(),
-    nodePolyfills({
-      // To exclude specific polyfills, add them to this list:
-      exclude: [
-        // 'fs', // Excludes the polyfill for 'fs' and 'node:fs'.
-      ],
-      // Whether to polyfill specific globals.
-      globals: {
-        Buffer: true,
-        global: true,
-        process: true,
-      },
-      // Whether to polyfill node: protocol imports.
-      protocolImports: true,
-    }),
-  ],
+  plugins: [react(), svgr()],
   server: {
     proxy: {
       // Dev-only: avoid CoinGecko CORS by proxying through Vite.
@@ -37,13 +19,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-    },
-  },
-  optimizeDeps: {
-    esbuildOptions: {
-      define: {
-        global: 'globalThis',
-      },
     },
   },
   build: {
@@ -61,5 +36,5 @@ export default defineConfig({
         },
       },
     },
-  }
+  },
 })

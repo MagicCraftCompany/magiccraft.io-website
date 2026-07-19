@@ -234,7 +234,7 @@ export default function Bounties() {
         if (!canceled && typeof price === 'number' && price > 0) {
           setMcrtUsd(price)
         }
-      } catch (_) {
+      } catch {
         // fallback will keep null; UI will hide MCRT amount
       }
     }
@@ -303,7 +303,10 @@ export default function Bounties() {
           Back to MagicCraft
         </Link>
 
-        <Reveal as="header" className="mx-auto mt-8 max-w-3xl text-center md:mt-10">
+        <Reveal
+          as="header"
+          className="mx-auto mt-8 max-w-3xl text-center md:mt-10"
+        >
           <span className="inline-flex min-h-9 items-center gap-2 rounded-full border border-[#98FFF9]/30 bg-[#071c35]/80 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#98FFF9] backdrop-blur-md sm:text-xs sm:tracking-[0.18em]">
             <Trophy className="h-4 w-4" aria-hidden="true" />
             Earn $MCRT
@@ -354,7 +357,7 @@ export default function Bounties() {
                 key={bounty.id}
                 delay={(index % 3) * 0.05}
                 as="article"
-                className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[22px] border border-white/12 bg-white/[0.035] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.26)] backdrop-blur-md transition hover:-translate-y-1.5 hover:border-[#98FFF9]/40 hover:bg-white/[0.06] sm:p-6"
+                className="border-white/12 group relative flex h-full flex-col justify-between overflow-hidden rounded-[22px] border bg-white/[0.035] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.26)] backdrop-blur-md transition hover:-translate-y-1.5 hover:border-[#98FFF9]/40 hover:bg-white/[0.06] sm:p-6"
               >
                 <div
                   className="absolute inset-x-0 top-0 h-px opacity-0 transition-opacity duration-500 group-hover:opacity-100"
@@ -399,14 +402,11 @@ export default function Bounties() {
                     <p className="mt-1 text-sm font-black">
                       <span className="text-[#98FFF9]">
                         Up to $
-                        {Math.round(
-                          bounty.rewardUsdMax * 0.5
-                        ).toLocaleString()}
+                        {Math.round(bounty.rewardUsdMax * 0.5).toLocaleString()}
                       </span>
                       <span className="font-semibold text-white/55">
                         {' '}
-                        • ~{' '}
-                        {toMcrt(Math.round(bounty.rewardUsdMax * 0.5))} MCRT
+                        • ~ {toMcrt(Math.round(bounty.rewardUsdMax * 0.5))} MCRT
                       </span>
                     </p>
                   </div>
@@ -425,7 +425,10 @@ export default function Bounties() {
                       className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border border-white/20 bg-white/[0.08] px-4 text-sm font-bold text-white no-underline transition hover:-translate-y-0.5 hover:border-[#98FFF9]/50 hover:bg-white/[0.14] hover:no-underline"
                     >
                       Docs
-                      <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                      <ExternalLink
+                        className="h-3.5 w-3.5"
+                        aria-hidden="true"
+                      />
                     </a>
                   </div>
                   <p className="mt-3 text-[11px] leading-5 text-white/50">
