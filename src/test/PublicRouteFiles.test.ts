@@ -34,10 +34,14 @@ describe('public route files', () => {
   it('lets Helmet own the base canonical and returns a real 404 shell', () => {
     const baseHtml = projectFile('index.html')
     const config = projectFile('netlify.toml')
+    const generator = projectFile('scripts/generate-route-shells.mjs')
 
     expect(baseHtml).toContain(
       '<link rel="canonical" href="https://magiccraft.io/" data-rh="true" />'
     )
+    expect(baseHtml).toContain('<h1 data-static-page-title>')
+    expect(baseHtml).toContain('<p data-static-page-description>')
+    expect(generator).toContain("'static page heading'")
     expect(config).toContain('from = "/*"\n  to = "/404.html"\n  status = 404')
   })
 

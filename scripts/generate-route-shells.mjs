@@ -134,6 +134,15 @@ function replaceRequired(html, pattern, replacement, label) {
   return html.replace(pattern, replacement)
 }
 
+function escapeHtml(value) {
+  return value
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#39;')
+}
+
 function routeHtml(baseHtml, route) {
   const canonical = `https://magiccraft.io/${route.path}`
   let html = baseHtml
@@ -185,6 +194,18 @@ function routeHtml(baseHtml, route) {
     /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/,
     `<meta name="twitter:description" content="${route.description}" />`,
     'Twitter description'
+  )
+  html = replaceRequired(
+    html,
+    /(<h1 data-static-page-title>)[\s\S]*?(<\/h1>)/,
+    `$1${escapeHtml(route.title)}$2`,
+    'static page heading'
+  )
+  html = replaceRequired(
+    html,
+    /(<p data-static-page-description>)[\s\S]*?(<\/p>)/,
+    `$1${escapeHtml(route.description)}$2`,
+    'static page description'
   )
 
   return html
