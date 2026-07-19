@@ -26,7 +26,7 @@ export default function Reveal({
   const reduceMotion = useReducedMotion()
   const MotionTag = motion[as]
 
-  if (reduceMotion) {
+  if (reduceMotion || typeof IntersectionObserver === 'undefined') {
     const Tag = as
     return <Tag className={className}>{children}</Tag>
   }
