@@ -92,6 +92,9 @@ describe('LiveStatsWidget', () => {
       'unavailable'
     )
     expect(
+      screen.getByRole('heading', { name: 'Game and market stats' })
+    ).toBeInTheDocument()
+    expect(
       screen.getByText(/Statistics are refreshing. Please check again shortly/i)
     ).toBeInTheDocument()
     expect(

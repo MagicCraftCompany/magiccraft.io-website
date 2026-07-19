@@ -12,28 +12,13 @@ import { AI_PRODUCTS } from '@/data/aiProducts'
 import { GAMEPLAY_VIDEO } from '@/data/gameplayMedia'
 
 const homeTitle = 'MagicCraft | Live Game & AI Product Studio'
-const homeDescription =
-  'Play the live MagicCraft PvP and PvE game, explore six focused AI products, and understand the optional Web3 and builder systems around the studio.'
 
 function Homepagemcrt() {
   return (
     <>
       <Helmet>
         <title>{homeTitle}</title>
-        <meta name="description" content={homeDescription} />
         <link rel="canonical" href="https://magiccraft.io/" />
-        <meta property="og:title" content={homeTitle} />
-        <meta property="og:description" content={homeDescription} />
-        <meta
-          property="og:image"
-          content="https://magiccraft.io/magiccraft-social-preview.webp"
-        />
-        <meta name="twitter:title" content={homeTitle} />
-        <meta name="twitter:description" content={homeDescription} />
-        <meta
-          name="twitter:image"
-          content="https://magiccraft.io/magiccraft-social-preview.webp"
-        />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
@@ -86,7 +71,7 @@ function Homepagemcrt() {
                 description:
                   'First-party footage of a live MagicCraft multiplayer arena battle.',
                 thumbnailUrl:
-                  'https://magiccraft.io/gameplay/magiccraft-triple-kill.jpg',
+                  'https://magiccraft.io/gameplay/magiccraft-triple-kill.webp',
                 uploadDate: '2024-05-31T14:46:15Z',
                 duration: 'PT9S',
                 contentUrl: GAMEPLAY_VIDEO.src,

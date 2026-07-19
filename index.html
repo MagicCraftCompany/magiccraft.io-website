@@ -87,6 +87,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://res.cloudinary.com" />
+    <link
+      rel="preload"
+      as="font"
+      href="/src/assets/fonts/colus/Colus-Regular.ttf"
+      type="font/ttf"
+      crossorigin
+    />
 
     <!-- DNS prefetch for performance -->
     <link rel="dns-prefetch" href="//res.cloudinary.com" />
@@ -97,7 +104,7 @@
     <link
       rel="preload"
       as="image"
-      href="/magiccraft-social-preview.webp"
+      href="/gameplay/magiccraft-triple-kill.webp"
       fetchpriority="high"
     />
     <!-- Preload MagicCraft logo wordmark -->
@@ -290,6 +297,24 @@
         background: #050824;
       "
     ></div>
+    <script>
+      ;(function labelMagicAdsFrame() {
+        var slot = document.querySelector('.magicads')
+        if (!slot || typeof MutationObserver === 'undefined') return
+
+        function labelFrames() {
+          slot.querySelectorAll('iframe').forEach(function (frame) {
+            if (!frame.title) frame.title = 'Sponsored content from MagicAds'
+          })
+        }
+
+        new MutationObserver(labelFrames).observe(slot, {
+          childList: true,
+          subtree: true,
+        })
+        labelFrames()
+      })()
+    </script>
     <div id="google_translate_element"></div>
     <noscript>
       <main

@@ -46,8 +46,18 @@ describe('balanced game and AI homepage', () => {
       screen.getAllByRole('button', { name: 'Play MagicCraft' }).length
     ).toBeGreaterThan(0)
     expect(
+      screen.getByRole('button', {
+        name: /real gameplay.*PvP \+ PvE across mobile and PC.*choose your platform/i,
+      })
+    ).toBeInTheDocument()
+    expect(
       screen.getByRole('link', { name: 'Explore 6 AI products' })
     ).toHaveAttribute('href', '#ai-products')
+    expect(
+      screen.getByRole('link', {
+        name: /Game and market stats.*View current stats/i,
+      })
+    ).toHaveAttribute('href', '/stats')
 
     expect(
       screen.getByRole('heading', { name: 'Established PvP. New PvE.' })
@@ -57,7 +67,7 @@ describe('balanced game and AI homepage', () => {
     )
     expect(gameplayVideo).toHaveAttribute(
       'poster',
-      '/gameplay/magiccraft-triple-kill.jpg'
+      '/gameplay/magiccraft-triple-kill.webp'
     )
     expect(gameplayVideo.querySelector('source')).toHaveAttribute(
       'src',

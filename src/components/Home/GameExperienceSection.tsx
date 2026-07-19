@@ -1,14 +1,5 @@
-import {
-  ArrowUpRight,
-  BadgeCheck,
-  Map,
-  PlayCircle,
-  Swords,
-} from 'lucide-react'
-import {
-  GAMEPLAY_SCREENSHOTS,
-  GAMEPLAY_VIDEO,
-} from '@/data/gameplayMedia'
+import { ArrowUpRight, BadgeCheck, Map, PlayCircle, Swords } from 'lucide-react'
+import { GAMEPLAY_SCREENSHOTS, GAMEPLAY_VIDEO } from '@/data/gameplayMedia'
 import { openGameByDevice } from '@/lib/gameActions'
 
 const PVE_UPDATE_URL = 'https://steamcommunity.com/app/2395760'
@@ -94,26 +85,24 @@ export default function GameExperienceSection() {
             </div>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-              <div className="rounded-2xl border border-[#98FFF9]/15 bg-[#98FFF9]/5 p-4">
-                <Swords
-                  className="h-5 w-5 text-[#98FFF9]"
-                  aria-hidden="true"
-                />
-                <h3 className="mt-3 font-black text-white">Established PvP</h3>
+              <div className="min-w-0 rounded-2xl border border-[#98FFF9]/15 bg-[#98FFF9]/5 p-4">
+                <Swords className="h-5 w-5 text-[#98FFF9]" aria-hidden="true" />
+                <h3 className="mb-0 mt-3 break-words text-xl font-black leading-[1.08] text-white [overflow-wrap:anywhere] sm:text-2xl lg:text-xl xl:text-[22px]">
+                  Established PvP
+                </h3>
                 <p className="mt-2 text-sm leading-6 text-white/60">
                   Capture the Point, Escort and Skull Grab in competitive team
                   battles.
                 </p>
               </div>
-              <div className="rounded-2xl border border-[#B591F2]/20 bg-[#B591F2]/5 p-4">
-                <Map
-                  className="h-5 w-5 text-[#D8C9FF]"
-                  aria-hidden="true"
-                />
-                <h3 className="mt-3 font-black text-white">New PvE adventure</h3>
+              <div className="min-w-0 rounded-2xl border border-[#B591F2]/20 bg-[#B591F2]/5 p-4">
+                <Map className="h-5 w-5 text-[#D8C9FF]" aria-hidden="true" />
+                <h3 className="mb-0 mt-3 break-words text-xl font-black leading-[1.08] text-white [overflow-wrap:anywhere] sm:text-2xl lg:text-xl xl:text-[22px]">
+                  New PvE adventure
+                </h3>
                 <p className="mt-2 text-sm leading-6 text-white/60">
-                  Explore areas, quests, bosses, progression and loot solo or
-                  in co-op.
+                  Explore areas, quests, bosses, progression and loot solo or in
+                  co-op.
                 </p>
               </div>
             </div>
@@ -165,7 +154,7 @@ export default function GameExperienceSection() {
           ))}
         </div>
 
-        <p className="mt-4 text-center text-xs text-white/45">
+        <p className="mt-4 text-center text-xs text-white/60">
           Publisher-supplied game captures.{' '}
           <a
             href={STEAM_URL}

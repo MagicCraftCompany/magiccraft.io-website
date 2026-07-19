@@ -106,7 +106,6 @@ export default function HeroSection() {
           <button
             type="button"
             onClick={openGameByDevice}
-            aria-label="Play the MagicCraft game"
             className="group relative col-span-2 min-h-[235px] overflow-hidden rounded-[28px] border border-white/15 bg-[#080a2a] text-left shadow-[0_30px_90px_rgba(0,0,0,0.35)] transition hover:-translate-y-1 hover:border-[#98FFF9]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] sm:min-h-[430px] lg:col-span-1 lg:row-span-2 lg:min-h-[540px]"
           >
             <img
@@ -178,13 +177,13 @@ export default function HeroSection() {
                 aria-hidden="true"
               />
               <p className="mt-3 text-xs font-black uppercase tracking-[0.16em] text-[#98FFF9]">
-                Game activity
+                Game + market
               </p>
               <p className="mt-1 text-lg font-black leading-tight text-white sm:text-2xl">
-                Live game stats
+                Game and market stats
               </p>
               <span className="mt-3 inline-flex items-center gap-2 text-sm font-bold text-white/80 group-hover:text-white">
-                View game stats
+                View current stats
                 <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
               </span>
             </div>

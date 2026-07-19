@@ -164,10 +164,10 @@ export default function LiveStatsWidget() {
               </span>
             </div>
             <h2 className="font-serif text-3xl font-bold text-white sm:text-4xl">
-              Live ecosystem stats
+              Game and market stats
             </h2>
             <p className="mt-1 text-sm text-white/50">
-              A quick view of current available game and market activity.
+              A quick view of the latest available game and market activity.
             </p>
           </div>
           <Link

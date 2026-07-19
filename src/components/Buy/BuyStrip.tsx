@@ -35,7 +35,7 @@ function BuyRouteCard({ route }: { route: BuyRoute }) {
           <Icon className="h-5 w-5" aria-hidden="true" />
         </span>
         <div className="min-w-0">
-          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-white/45">
+          <p className="text-[11px] font-bold uppercase tracking-[0.14em] text-white/60">
             {route.kicker}
           </p>
           <h3 className="mt-1 text-lg font-black leading-tight text-white">
@@ -202,7 +202,7 @@ export default function BuyStrip() {
                 )}
                 {copied ? 'Contract copied' : 'Copy MCRT contract'}
               </button>
-              <p className="text-white/38 break-all font-mono text-[11px] leading-relaxed">
+              <p className="break-all font-mono text-[11px] leading-relaxed text-white/60">
                 {MCRT_CONTRACT}
               </p>
             </div>

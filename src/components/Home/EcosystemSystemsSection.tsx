@@ -115,7 +115,7 @@ export default function EcosystemSystemsSection() {
                         <p className="mt-2 text-sm leading-6 text-white/70">
                           {system.purpose}
                         </p>
-                        <p className="mt-2 text-xs leading-5 text-white/45">
+                        <p className="mt-2 text-xs leading-5 text-white/55">
                           {system.note}
                         </p>
                         <span className="mt-4 inline-flex min-h-10 items-center gap-2 text-sm font-bold text-[#98FFF9]">

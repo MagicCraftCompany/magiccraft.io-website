@@ -50,5 +50,17 @@ describe('public route files', () => {
 
     expect(baseHtml).not.toContain('magicads-slot')
     expect(baseHtml.match(/class="magicads"/g)).toHaveLength(1)
+    expect(baseHtml).toContain(
+      "frame.title = 'Sponsored content from MagicAds'"
+    )
+  })
+
+  it('preloads the real hero artwork and display font', () => {
+    const baseHtml = projectFile('index.html')
+
+    expect(baseHtml).toContain('href="/gameplay/magiccraft-triple-kill.webp"')
+    expect(baseHtml).toContain(
+      'href="/src/assets/fonts/colus/Colus-Regular.ttf"'
+    )
   })
 })

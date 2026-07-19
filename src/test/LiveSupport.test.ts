@@ -25,6 +25,51 @@ afterEach(() => {
 })
 
 describe('LiveSupportWidget', () => {
+  it('traps focus, locks the page and restores the launcher on Escape', async () => {
+    const { container } = render(createElement(LiveSupportWidget))
+    container.id = 'root'
+    const launcher = screen.getByRole('button', {
+      name: 'Open Live Support chat',
+    })
+    launcher.focus()
+
+    fireEvent.click(launcher)
+
+    const dialog = screen.getByRole('dialog', {
+      name: 'MagicCraft Live Support',
+    })
+    const input = screen.getByRole('textbox', {
+      name: 'Message MagicCraft Live Support',
+    })
+    await waitFor(() => expect(input).toHaveFocus())
+    expect(document.body.style.overflow).toBe('hidden')
+    expect(launcher).toHaveAttribute('aria-hidden', 'true')
+    expect(launcher.inert).toBe(true)
+
+    const focusableElements = Array.from(
+      dialog.querySelectorAll<HTMLElement>(
+        'button:not([disabled]), textarea:not([disabled])'
+      )
+    )
+    const firstElement = focusableElements[0]
+    const lastElement = focusableElements[focusableElements.length - 1]
+
+    lastElement.focus()
+    fireEvent.keyDown(document, { key: 'Tab' })
+    expect(firstElement).toHaveFocus()
+
+    firstElement.focus()
+    fireEvent.keyDown(document, { key: 'Tab', shiftKey: true })
+    expect(lastElement).toHaveFocus()
+
+    fireEvent.keyDown(document, { key: 'Escape' })
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    expect(launcher).toHaveFocus()
+    expect(document.body.style.overflow).toBe('')
+    expect(launcher).not.toHaveAttribute('aria-hidden')
+    expect(launcher.inert).toBe(false)
+  })
+
   it('sends the newest user message once instead of duplicating it in history', async () => {
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,

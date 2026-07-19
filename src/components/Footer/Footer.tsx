@@ -72,7 +72,7 @@ const gameLinks: FooterLink[] = [
     title: 'Download free',
     href: 'https://docs.magiccraft.io/magiccraft-game-pvp-moba/the-app',
   },
-  { title: 'Live game stats', href: '/stats' },
+  { title: 'Game + market stats', href: '/stats' },
   {
     title: 'Leaderboard',
     href: 'https://lobby.magiccraft.io/leaderboard',

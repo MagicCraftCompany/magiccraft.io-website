@@ -60,9 +60,13 @@ export default function LiveSupportWidget() {
   const [input, setInput] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [mobileBarVisible, setMobileBarVisible] = useState(false)
   const listRef = useRef<HTMLDivElement | null>(null)
   const abortRef = useRef<AbortController | null>(null)
   const inputRef = useRef<HTMLTextAreaElement | null>(null)
+  const launcherRef = useRef<HTMLButtonElement | null>(null)
+  const dialogRef = useRef<HTMLDivElement | null>(null)
+  const lastFocusedElementRef = useRef<HTMLElement | null>(null)
 
   const cancelPending = useCallback(() => {
     abortRef.current?.abort()
@@ -74,6 +78,15 @@ export default function LiveSupportWidget() {
     cancelPending()
     setOpen(false)
   }, [cancelPending])
+
+  const openChat = useCallback(() => {
+    const activeElement = document.activeElement
+    lastFocusedElementRef.current =
+      activeElement instanceof HTMLElement && activeElement !== document.body
+        ? activeElement
+        : launcherRef.current
+    setOpen(true)
+  }, [])
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -103,12 +116,80 @@ export default function LiveSupportWidget() {
   }, [messages.length])
 
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeChat()
+    if (!open) return
+
+    const previousBodyOverflow = document.body.style.overflow
+    const previousHtmlOverflow = document.documentElement.style.overflow
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
+
+    const backgroundElements = Array.from(
+      document.querySelectorAll<HTMLElement>('#root > *, .magicads')
+    ).filter((element) => !element.contains(dialogRef.current))
+    const backgroundState = backgroundElements.map((element) => ({
+      element,
+      ariaHidden: element.getAttribute('aria-hidden'),
+      inert: Boolean(element.inert),
+    }))
+
+    backgroundElements.forEach((element) => {
+      element.setAttribute('aria-hidden', 'true')
+      element.inert = true
+    })
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        closeChat()
+        return
+      }
+
+      if (event.key !== 'Tab') return
+
+      const dialog = dialogRef.current
+      if (!dialog) return
+
+      const focusableElements = Array.from(
+        dialog.querySelectorAll<HTMLElement>(
+          'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
+        )
+      )
+      if (focusableElements.length === 0) return
+
+      const firstElement = focusableElements[0]
+      const lastElement = focusableElements[focusableElements.length - 1]
+      const focusIsInside = dialog.contains(document.activeElement)
+
+      if (!focusIsInside) {
+        event.preventDefault()
+        ;(event.shiftKey ? lastElement : firstElement).focus()
+      } else if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault()
+        lastElement.focus()
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault()
+        firstElement.focus()
+      }
     }
-    window.addEventListener('keydown', onKey)
-    return () => window.removeEventListener('keydown', onKey)
-  }, [closeChat])
+
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.body.style.overflow = previousBodyOverflow
+      document.documentElement.style.overflow = previousHtmlOverflow
+      backgroundState.forEach(({ element, ariaHidden, inert }) => {
+        if (ariaHidden === null) {
+          element.removeAttribute('aria-hidden')
+        } else {
+          element.setAttribute('aria-hidden', ariaHidden)
+        }
+        element.inert = inert
+      })
+      if (lastFocusedElementRef.current?.isConnected) {
+        lastFocusedElementRef.current.focus()
+      }
+    }
+  }, [closeChat, open])
 
   useEffect(
     () => () => {
@@ -119,13 +200,35 @@ export default function LiveSupportWidget() {
   )
 
   useEffect(() => {
-    const onOpen = () => setOpen(true)
+    const onOpen = () => openChat()
     window.addEventListener('mc:live-support:open', onOpen as EventListener)
     return () =>
       window.removeEventListener(
         'mc:live-support:open',
         onOpen as EventListener
       )
+  }, [openChat])
+
+  useEffect(() => {
+    const root = document.getElementById('root')
+    if (!root || typeof MutationObserver === 'undefined') return
+
+    const syncMobileBar = () => {
+      const mobileBar = root.querySelector<HTMLElement>(
+        '[data-mobile-bottom-bar]'
+      )
+      setMobileBarVisible(mobileBar?.getAttribute('aria-hidden') === 'false')
+    }
+
+    syncMobileBar()
+    const observer = new MutationObserver(syncMobileBar)
+    observer.observe(root, {
+      attributes: true,
+      attributeFilter: ['aria-hidden'],
+      childList: true,
+      subtree: true,
+    })
+    return () => observer.disconnect()
   }, [])
 
   const canSend = useMemo(
@@ -219,10 +322,18 @@ export default function LiveSupportWidget() {
     <>
       {/* Floating button */}
       <button
+        ref={launcherRef}
         type="button"
-        onClick={() => setOpen(true)}
-        className="fixed bottom-[calc(env(safe-area-inset-bottom)+4rem)] right-4 z-[100000] inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-[#0a1038]/85 p-0 text-white/95 shadow-[0_12px_35px_rgba(0,0,0,0.45)] backdrop-blur-xl hover:border-[#98FFF9]/40 hover:bg-[#111a4f]/90 active:scale-[0.98] sm:bottom-4 sm:h-12 sm:w-12"
+        onClick={openChat}
+        className={`fixed right-2 z-[100000] inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#0a1038]/90 p-0 text-white/95 shadow-[0_12px_35px_rgba(0,0,0,0.45)] backdrop-blur-xl hover:border-[#98FFF9]/40 hover:bg-[#111a4f]/95 active:scale-[0.98] sm:bottom-4 sm:right-4 sm:h-12 sm:w-12 ${
+          mobileBarVisible
+            ? 'bottom-[calc(env(safe-area-inset-bottom)+5.25rem)]'
+            : 'bottom-[calc(env(safe-area-inset-bottom)+1rem)]'
+        }`}
         aria-label="Open Live Support chat"
+        aria-controls="live-support-dialog"
+        aria-expanded={open}
+        data-live-support-launcher
       >
         <MessageCircle aria-hidden="true" className="h-5 w-5 text-[#98FFF9]" />
       </button>
@@ -238,6 +349,8 @@ export default function LiveSupportWidget() {
 
           <div className="animate-fade-in absolute bottom-4 left-4 right-4 sm:left-4 sm:right-auto sm:w-[460px]">
             <div
+              ref={dialogRef}
+              id="live-support-dialog"
               role="dialog"
               aria-modal="true"
               aria-labelledby="live-support-title"
@@ -333,7 +446,7 @@ export default function LiveSupportWidget() {
                             onClick={() =>
                               navigator.clipboard?.writeText(m.content)
                             }
-                            className="absolute right-1 top-1 rounded-md bg-white/10 p-1 text-white/60 opacity-0 transition-opacity hover:bg-white/20 hover:text-white group-hover:opacity-100"
+                            className="absolute right-1 top-1 rounded-md bg-white/10 p-1 text-white/60 opacity-0 transition-opacity hover:bg-white/20 hover:text-white focus-visible:opacity-100 group-hover:opacity-100"
                             aria-label="Copy message"
                             title="Copy"
                           >
@@ -399,6 +512,7 @@ export default function LiveSupportWidget() {
                         send()
                       }
                     }}
+                    aria-label="Message MagicCraft Live Support"
                     placeholder="Type your message…"
                     className="w-full resize-none rounded-xl border border-white/15 bg-black/35 px-3 py-2 text-sm text-white placeholder:text-white/45 focus:outline-none focus:ring-2 focus:ring-[#98FFF9]/40"
                     rows={2}
