@@ -1,8 +1,24 @@
 import { Helmet } from 'react-helmet-async'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { ArrowLeft, ExternalLink, Trophy } from 'lucide-react'
 import Footer from '@/components/Footer/Footer'
 import Header from '@/components/Header/Header'
+import PageBackground from '@/components/ui/PageBackground'
+import Reveal from '@/components/ui/Reveal'
+
+const categoryAccent: Record<Bounty['category'], string> = {
+  Dev: '#98FFF9',
+  Design: '#B591F2',
+  Content: '#FFB649',
+  Growth: '#6EE7B7',
+}
+
+const difficultyStyle: Record<Bounty['difficulty'], string> = {
+  Easy: 'border-[#6EE7B7]/30 bg-[#6EE7B7]/10 text-[#6EE7B7]',
+  Medium: 'border-[#FFB649]/30 bg-[#FFB649]/10 text-[#FFB649]',
+  Hard: 'border-[#F98A8A]/30 bg-[#F98A8A]/10 text-[#F98A8A]',
+}
 
 type Bounty = {
   id: string
@@ -234,7 +250,7 @@ export default function Bounties() {
     return Math.round(tokens).toLocaleString()
   }
   return (
-    <div className="min-h-dvh w-full max-w-full text-white">
+    <PageBackground>
       <Helmet>
         <title>Bounties | MagicCraft</title>
         <meta
@@ -277,23 +293,25 @@ export default function Bounties() {
       </Helmet>
       <Header />
 
-      <main className="relative mx-auto w-[96%] max-w-screen-xl px-1 pb-16 pt-8 sm:w-[94%] sm:px-2 md:w-11/12 md:px-0 md:pb-24 md:pt-12">
+      <main className="relative mx-auto w-full max-w-screen-xl px-5 pb-20 pt-8 sm:px-8 md:pb-28 md:pt-12 lg:px-12">
         {/* Back to main site */}
-        <div className="mb-4 md:mb-6">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm text-white/90 transition-all duration-300 hover:-translate-x-1 hover:scale-105 hover:bg-white/15 hover:text-white"
-          >
-            <span className="text-white/70">←</span>
-            <span>Back to MagicCraft</span>
-          </Link>
-        </div>
+        <Link
+          to="/"
+          className="inline-flex w-fit items-center gap-2 rounded-xl border border-white/20 bg-white/[0.06] px-3.5 py-2 text-sm font-semibold text-white/90 backdrop-blur-md transition hover:-translate-x-1 hover:border-[#98FFF9]/50 hover:bg-white/[0.12]"
+        >
+          <ArrowLeft className="h-4 w-4 text-white/70" aria-hidden="true" />
+          Back to MagicCraft
+        </Link>
 
-        <div className="mx-auto max-w-3xl text-center">
-          <h1 className="bg-gradient-to-r from-[#98FFF9] via-[#B591F2] to-[#FFB649] bg-clip-text text-2xl font-black text-transparent md:text-3xl lg:text-4xl">
+        <Reveal as="header" className="mx-auto mt-8 max-w-3xl text-center md:mt-10">
+          <span className="inline-flex min-h-9 items-center gap-2 rounded-full border border-[#98FFF9]/30 bg-[#071c35]/80 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.16em] text-[#98FFF9] backdrop-blur-md sm:text-xs sm:tracking-[0.18em]">
+            <Trophy className="h-4 w-4" aria-hidden="true" />
+            Earn $MCRT
+          </span>
+          <h1 className="mt-5 font-serif text-4xl font-black leading-[1.02] tracking-[-0.02em] text-white drop-shadow-[0_12px_40px_rgba(0,0,0,0.5)] sm:text-5xl lg:text-6xl">
             MagicCraft Bounties
           </h1>
-          <p className="mt-3 text-white/80 md:mt-4">
+          <p className="mt-5 text-base leading-7 text-white/75 sm:text-lg">
             Create <b>videos, websites, integrations, posts, and tools</b> that
             grow the $MCRT ecosystem. These bounties are
             <b> decentralized and self‑hosted</b> - you create and host on your
@@ -301,86 +319,128 @@ export default function Bounties() {
             Rewards are <b>paid in $MCRT only</b> (USD shown for reference), up
             to $100 per bounty based on scope and impact.
           </p>
-          <div className="mt-4 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-black/20 px-3 py-2 text-xs text-white/70">
-            <span>Categories:</span>
-            <span className="rounded-md bg-white/10 px-2 py-0.5">Dev</span>
-            <span className="rounded-md bg-white/10 px-2 py-0.5">Design</span>
-            <span className="rounded-md bg-white/10 px-2 py-0.5">Content</span>
-            <span className="rounded-md bg-white/10 px-2 py-0.5">Growth</span>
-            <span className="rounded-md bg-white/10 px-2 py-0.5">
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
+            {(['Dev', 'Design', 'Content', 'Growth'] as const).map((cat) => (
+              <span
+                key={cat}
+                className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-xs font-bold"
+                style={{
+                  borderColor: `${categoryAccent[cat]}40`,
+                  backgroundColor: `${categoryAccent[cat]}14`,
+                  color: categoryAccent[cat],
+                }}
+              >
+                <span
+                  className="h-1.5 w-1.5 rounded-full"
+                  style={{ backgroundColor: categoryAccent[cat] }}
+                />
+                {cat}
+              </span>
+            ))}
+            <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-xs font-bold text-white/60">
               Decentralized
             </span>
-            <span className="rounded-md bg-white/10 px-2 py-0.5">
+            <span className="inline-flex items-center rounded-full border border-white/10 bg-white/[0.05] px-3 py-1.5 text-xs font-bold text-white/60">
               Self‑Hosted
             </span>
           </div>
-        </div>
+        </Reveal>
 
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3">
-          {bounties.map((bounty) => (
-            <div
-              key={bounty.id}
-              className="card-glass card-padding flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-[#98FFF9]/30 hover:shadow-[0_8px_30px_rgba(152,255,249,0.15)]"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-lg font-bold">{bounty.title}</h3>
-                  <div className="flex items-center gap-2">
-                    <span className="rounded-md bg-white/10 px-2 py-1 text-xs text-white/70">
+        <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-12 md:gap-5 lg:grid-cols-3">
+          {bounties.map((bounty, index) => {
+            const accent = categoryAccent[bounty.category]
+            return (
+              <Reveal
+                key={bounty.id}
+                delay={(index % 3) * 0.05}
+                as="article"
+                className="group relative flex h-full flex-col justify-between overflow-hidden rounded-[22px] border border-white/12 bg-white/[0.035] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.26)] backdrop-blur-md transition hover:-translate-y-1.5 hover:border-[#98FFF9]/40 hover:bg-white/[0.06] sm:p-6"
+              >
+                <div
+                  className="absolute inset-x-0 top-0 h-px opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${accent}, transparent)`,
+                  }}
+                />
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span
+                      className="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-bold"
+                      style={{
+                        borderColor: `${accent}40`,
+                        backgroundColor: `${accent}14`,
+                        color: accent,
+                      }}
+                    >
+                      <span
+                        className="h-1.5 w-1.5 rounded-full"
+                        style={{ backgroundColor: accent }}
+                      />
                       {bounty.category}
                     </span>
-                    <span className="rounded-md bg-white/10 px-2 py-1 text-[10px] text-white/60">
-                      Decentralized
-                    </span>
-                    <span className="rounded-md bg-white/10 px-2 py-1 text-[10px] text-white/60">
-                      Self‑Hosted
+                    <span
+                      className={`rounded-full border px-2.5 py-1 text-[11px] font-bold ${difficultyStyle[bounty.difficulty]}`}
+                    >
+                      {bounty.difficulty}
                     </span>
                   </div>
+                  <h3 className="mt-3.5 font-serif text-xl font-bold leading-snug text-white">
+                    {bounty.title}
+                  </h3>
+                  <p className="mt-2.5 text-sm leading-6 text-white/70">
+                    {bounty.description}
+                  </p>
                 </div>
-                <p className="mt-2 text-sm text-white/80">
-                  {bounty.description}
-                </p>
-              </div>
-              <div className="mt-4 flex items-center justify-between">
-                <div className="text-sm font-semibold">
-                  <span className="text-[#98FFF9]">
-                    Up to $
-                    {Math.round(bounty.rewardUsdMax * 0.5).toLocaleString()}
-                  </span>
-                  <span className="text-white/60">
-                    {' '}
-                    • ~ {toMcrt(Math.round(bounty.rewardUsdMax * 0.5))} MCRT
-                  </span>
+                <div>
+                  <div className="mt-5 rounded-xl border border-white/10 bg-black/20 px-4 py-3">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-white/45">
+                      Reward
+                    </p>
+                    <p className="mt-1 text-sm font-black">
+                      <span className="text-[#98FFF9]">
+                        Up to $
+                        {Math.round(
+                          bounty.rewardUsdMax * 0.5
+                        ).toLocaleString()}
+                      </span>
+                      <span className="font-semibold text-white/55">
+                        {' '}
+                        • ~{' '}
+                        {toMcrt(Math.round(bounty.rewardUsdMax * 0.5))} MCRT
+                      </span>
+                    </p>
+                  </div>
+                  <div className="mt-4 flex flex-wrap items-center gap-2.5">
+                    <a
+                      href={`mailto:contact@magiccraft.io?subject=${encodeURIComponent('MCRT Bounty Application - ' + bounty.title)}`}
+                      className="inline-flex min-h-10 flex-1 items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-4 text-sm font-black text-[#03082f] no-underline transition hover:-translate-y-0.5 hover:no-underline hover:brightness-110"
+                      rel="noreferrer noopener"
+                    >
+                      Apply
+                    </a>
+                    <a
+                      href="https://docs.magiccraft.io/"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                      className="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border border-white/20 bg-white/[0.08] px-4 text-sm font-bold text-white no-underline transition hover:-translate-y-0.5 hover:border-[#98FFF9]/50 hover:bg-white/[0.14] hover:no-underline"
+                    >
+                      Docs
+                      <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                    </a>
+                  </div>
+                  <p className="mt-3 text-[11px] leading-5 text-white/50">
+                    Deliverables: <b>self‑hosted</b> public URL + repo
+                    (preferably open‑source). Payments are made in{' '}
+                    <b>$MCRT only</b> at the USD cap shown, using the rate at
+                    approval time.
+                  </p>
                 </div>
-                <div className="text-xs text-white/60">{bounty.difficulty}</div>
-              </div>
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                <a
-                  href={`mailto:contact@magiccraft.io?subject=${encodeURIComponent('MCRT Bounty Application - ' + bounty.title)}`}
-                  className="btn-primary px-5 py-2.5 text-sm transition-all hover:scale-105"
-                  rel="noreferrer noopener"
-                >
-                  Apply (Email)
-                </a>
-                <a
-                  href="https://docs.magiccraft.io/"
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="btn-secondary px-5 py-2.5 text-sm transition-all hover:scale-105"
-                >
-                  Read Docs
-                </a>
-              </div>
-              <div className="mt-3 text-[11px] text-white/60">
-                Deliverables: <b>self‑hosted</b> public URL + repo (preferably
-                open‑source). Payments are made in <b>$MCRT only</b>
-                at the USD cap shown, using the rate at approval time.
-              </div>
-            </div>
-          ))}
+              </Reveal>
+            )
+          })}
         </div>
 
-        <div className="mx-auto mt-8 max-w-3xl text-center text-xs text-white/60 md:mt-10">
+        <div className="mx-auto mt-10 max-w-3xl rounded-2xl border border-white/10 bg-white/[0.03] p-5 text-center text-xs leading-6 text-white/60 backdrop-blur-md md:mt-12">
           Rewards are paid in $MCRT, benchmarked to the USD cap at time of
           approval. Submissions must include a concise proposal, acceptance
           criteria, and a short Loom demo on completion. Duplicate or
@@ -389,6 +449,6 @@ export default function Bounties() {
         </div>
       </main>
       <Footer />
-    </div>
+    </PageBackground>
   )
 }
