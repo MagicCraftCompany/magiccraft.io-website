@@ -24,7 +24,7 @@ export default function GameExperienceSection() {
   return (
     <section
       id="game"
-      className="scroll-mt-24 border-y border-white/5 bg-[#05051f] px-4 py-16 sm:px-6 sm:py-20 lg:py-24"
+      className="mc-home-section scroll-mt-24 border-y border-white/5 bg-[#05051f] px-4 py-16 sm:px-6 sm:py-20 lg:py-24"
     >
       <div className="mx-auto max-w-screen-xl">
         <div className="mb-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">

@@ -18,7 +18,7 @@ export default function AiProductSuiteSection() {
   return (
     <section
       id="ai-products"
-      className="scroll-mt-24 bg-[#03082f] px-4 py-16 sm:px-6 sm:py-20 lg:py-28"
+      className="mc-home-section scroll-mt-24 bg-[#03082f] px-4 py-16 sm:px-6 sm:py-20 lg:py-28"
     >
       <div className="mx-auto max-w-screen-xl">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">

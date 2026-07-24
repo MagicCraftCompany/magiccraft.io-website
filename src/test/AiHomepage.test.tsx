@@ -14,7 +14,10 @@ vi.mock('@/components/Home/MobileBottomBar', () => ({
 }))
 vi.mock('@/components/LiveStats/LiveStatsWidget', () => ({
   default: () => (
-    <section aria-label="Live ecosystem stats">
+    <section
+      aria-label="Live ecosystem stats"
+      className="mc-home-section"
+    >
       <h2>Live ecosystem stats</h2>
     </section>
   ),
@@ -121,5 +124,30 @@ describe('balanced game and AI homepage', () => {
     expect(publicCopy).not.toMatch(
       /degraded|controlled authenticated testing|horizontal overflow|returns 404|fallback values|public surfaces checked|checked 13 july/i
     )
+
+    const main = container.querySelector('main')
+    expect(main).not.toBeNull()
+    const sections = Array.from(main!.children).filter(
+      (element) => element.tagName === 'SECTION'
+    )
+    expect(
+      sections.map(
+        (section) =>
+          section.id ||
+          section.getAttribute('aria-label') ||
+          section.querySelector('h2')?.textContent
+      )
+    ).toEqual([
+      'home',
+      'game',
+      'ai-products',
+      'Live ecosystem stats',
+      'systems',
+      'Enter the game or open the tool you need.',
+    ])
+    expect(sections[0]).not.toHaveClass('mc-home-section')
+    for (const section of sections.slice(1)) {
+      expect(section).toHaveClass('mc-home-section')
+    }
   })
 })

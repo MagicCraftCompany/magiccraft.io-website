@@ -1682,3 +1682,12 @@ li {
 .text-gray-400 {
   color: rgba(156, 163, 175, 0.95);
 }
+
+/*
+ * The current homepage sections own their vertical rhythm through local
+ * utilities. Keep legacy global typography margins from stretching those
+ * sections, while leaving the approved hero and older routes unchanged.
+ */
+.mc-home-section :where(h2, h3, h4, p) {
+  margin-block-end: 0;
+}

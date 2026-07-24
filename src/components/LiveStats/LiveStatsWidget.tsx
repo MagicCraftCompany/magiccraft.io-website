@@ -143,7 +143,7 @@ export default function LiveStatsWidget() {
 
   return (
     <section
-      className="relative py-16 sm:py-20"
+      className="mc-home-section relative py-16 sm:py-20"
       data-testid="live-stats-widget"
       data-status={status}
     >

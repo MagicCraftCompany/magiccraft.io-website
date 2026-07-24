@@ -3,7 +3,7 @@ import { openGameByDevice } from '@/lib/gameActions'
 
 export default function FinalCtaSection() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#020418] px-4 py-20 sm:px-6 sm:py-24 lg:py-32">
+    <section className="mc-home-section relative isolate overflow-hidden bg-[#020418] px-4 py-20 sm:px-6 sm:py-24 lg:py-32">
       <div className="absolute inset-0 -z-20 bg-[radial-gradient(circle_at_24%_50%,rgba(152,255,249,0.16),transparent_32%),radial-gradient(circle_at_74%_42%,rgba(181,145,242,0.18),transparent_35%)]" />
       <div className="absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-[#98FFF9]/40 to-transparent" />
 

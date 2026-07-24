@@ -1,6 +1,6 @@
 # MagicCraft website architecture
 
-Last reviewed: 14 July 2026, Bangkok time
+Last reviewed: 24 July 2026, Bangkok time
 
 This document maps the system represented and integrated by the MagicCraft website. It distinguishes code owned by this repository from independent products and services. For day-to-day guardrails, read [AGENTS.md](AGENTS.md). For dated audit findings and unfinished work, read [the function sweep](docs/MAGICCRAFT_FUNCTION_SWEEP_TODO.md) and [the design plan](docs/MAGICCRAFT_DESIGN_CONCEPT_TODO.md).
 
@@ -84,8 +84,8 @@ The homepage in `src/pages/Homepagemcrt.tsx` composes these active sections in o
 1. Header
 2. Hero with game and AI-suite entry paths
 3. Game experience with first-party gameplay media
-4. Live statistics with honest source states
-5. Six-product AI suite
+4. Six-product AI suite
+5. Live statistics with honest source states
 6. Grouped ecosystem systems
 7. Final game or product choice
 8. Mobile conversion bar
@@ -154,7 +154,7 @@ The route component names below come from `src/App.tsx`. A public 200 response i
 - `/Chooseyourhero` permanently redirects to lowercase `/chooseyourhero`.
 - `/grants` is explicitly handed to the SPA shell.
 - `/contact-us` and `/contact-us/` are forced to `public/contact-us/index.html`.
-- The final catchall returns `/` with status 200. React Router decides the rendered page.
+- The final catchall serves `404.html` with HTTP 404 and `noindex,nofollow`.
 
 ## 6. Shared product truth
 
@@ -372,7 +372,7 @@ Never map all non-200 responses to `down`. Never map one successful dependency t
 4. Many legacy assets and components remain in the repository. A file's presence does not prove it is rendered.
 5. Some content pages are time-sensitive and need owner review even when tests pass.
 6. External products can change independently. Re-check their public purpose, URL, status, and safe entry flow before changing site claims.
-7. SPA fallback makes unknown server paths return HTML 200. Rendered route checks and client 404 checks are required.
+7. Known dynamic paths rewrite to the SPA shell with HTTP 200; unknown paths receive `404.html` with HTTP 404. Rendered checks remain necessary for dynamic routes and the client not-found UI.
 8. Sanity client configuration is public by design, but privileged tokens are not.
 9. Cloudinary is a runtime dependency for the gameplay video and legacy imagery. Keep posters and graceful media fallback.
 10. Deep status checks can produce false negatives from anti-bot protection or regional network behavior.

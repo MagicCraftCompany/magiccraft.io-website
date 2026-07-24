@@ -89,10 +89,10 @@ Homepage hierarchy:
 - [x] Add privacy and safety boundaries tailored to each AI product category.
 - [ ] Add product-level CTA analytics and compare which suite paths create real activation.
 - [x] Keep Polybilities out of the verified AI suite until an attributable live product can be checked.
-- [ ] Make `/buy-mcrt` the canonical buyer route instead of the misleading `/pricing` name.
+- [x] Make `/buy-mcrt` the canonical buyer route instead of the misleading `/pricing` name.
 - [x] Give the buy route the normal header, footer, risk copy, contract proof, and return-to-game path.
-- [ ] Present PancakeSwap, wallet import, and centralized exchange as one selector, not repeated cards.
-- [ ] Remove duplicate price polling and use one visibility-aware refresh owner.
+- [x] Prioritize direct Bybit and PancakeSwap routes without repeated wallet-import cards.
+- [x] Use one visibility-aware MCRT price refresh owner.
 - [ ] Add a live lobby schedule preview using the official lobby API, with honest empty/error states.
 - [ ] Show “100K+ completed lobbies” only from the verified lobby source and never call it active users.
 - [ ] Add a hero-roster and Ashvales-lore section using current first-party art.
@@ -113,6 +113,7 @@ Homepage hierarchy:
 
 - [x] Remove the global `.group { overflow: visible !important; }` override.
 - [ ] Consolidate duplicate typography, glass, button, spacing, and keyframe rules in `index.css`.
+- [x] Isolate the modern homepage sections from legacy global text margins while preserving the approved hero.
 - [ ] Replace every unsupported Tailwind opacity utility with a supported or arbitrary value.
 - [ ] Define a small shared section primitive for eyebrow, title, body, and CTA alignment.
 - [ ] Define one primary, secondary, quiet-link, and icon-button interaction pattern.
@@ -168,7 +169,7 @@ CSS. Production, deploy, and safety decisions remain with the controller.
 - A new visitor understands that MagicCraft has a live game and an AI product studio in the first viewport.
 - Play MagicCraft and Explore 6 AI products are both clear, direct actions.
 - The live game, established PvP, new PvE and real statistics are easy to find.
-- Six verified AI products appear with purpose, stage, health and direct launch paths.
+- Six verified AI products appear with purpose, stage and direct launch paths.
 - Game services, optional Web3 and builder systems are grouped and truthfully labelled.
 - MagicAds remains live without shifting the page after load.
 - `$MCRT`, wallets and payments are optional supporting systems, never the main promise.

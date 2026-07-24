@@ -42,7 +42,7 @@ export default function EcosystemSystemsSection() {
   return (
     <section
       id="systems"
-      className="border-y border-white/5 bg-[#05051f] px-4 py-16 sm:px-6 sm:py-20 lg:py-28"
+      className="mc-home-section border-y border-white/5 bg-[#05051f] px-4 py-16 sm:px-6 sm:py-20 lg:py-28"
     >
       <div className="mx-auto max-w-screen-xl">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
