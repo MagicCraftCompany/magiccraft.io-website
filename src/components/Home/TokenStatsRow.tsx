@@ -1,5 +1,4 @@
 import { BYBIT_URL, PANCAKESWAP_URL } from '@/constants'
-import { openMetaMaskMcrt } from '@/lib/gameActions'
 import { trackCta } from '@/lib/analytics'
 
 export default function TokenStatsRow() {
@@ -26,33 +25,26 @@ export default function TokenStatsRow() {
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
-              href={PANCAKESWAP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() =>
-                trackCta({ cta: 'pancakeswap', location: 'token_stats_row' })
-              }
-              className="btn-primary interactive-scale"
-            >
-              PancakeSwap
-            </a>
-            <button
-              type="button"
-              onClick={() => void openMetaMaskMcrt('token_stats_row')}
-              className="btn-secondary"
-            >
-              MetaMask
-            </button>
-            <a
               href={BYBIT_URL}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() =>
                 trackCta({ cta: 'bybit', location: 'token_stats_row' })
               }
+              className="btn-primary interactive-scale"
+            >
+              Bybit MCRT/USDT
+            </a>
+            <a
+              href={PANCAKESWAP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                trackCta({ cta: 'pancakeswap', location: 'token_stats_row' })
+              }
               className="btn-secondary"
             >
-              Bybit
+              PancakeSwap MCRT/WBNB
             </a>
             <a
               href="https://coinmarketcap.com/currencies/magiccraft/"

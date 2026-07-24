@@ -4,24 +4,21 @@ import {
   Copy,
   ExternalLink,
   Repeat2,
-  Wallet,
 } from 'lucide-react'
 import { useMcrtPrice } from '@/lib/useMcrtPrice'
 import { useCopyToClipboard } from '@/hooks/useCopyToClipboard'
 import { BYBIT_URL, MCRT_CONTRACT, PANCAKESWAP_URL } from '@/constants'
 import { trackCta, type CtaEvent } from '@/lib/analytics'
-import { openMetaMaskMcrt } from '@/lib/gameActions'
 
 type BuyRoute = {
   title: string
   kicker: string
   body: string
-  href?: string
+  href: string
   cta: string
   icon: typeof Repeat2
   accent: string
   label: CtaEvent['cta']
-  onClick?: () => void
 }
 
 function BuyRouteCard({ route }: { route: BuyRoute }) {
@@ -56,30 +53,17 @@ function BuyRouteCard({ route }: { route: BuyRoute }) {
   const className =
     'group flex h-full flex-col justify-between rounded-lg border border-white/10 bg-white/[0.045] p-4 text-left shadow-[0_18px_60px_rgba(0,0,0,0.22)] transition-all hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.075]'
 
-  if (route.href) {
-    return (
-      <a
-        href={route.href}
-        target="_blank"
-        rel="noreferrer noopener"
-        onClick={() => trackCta({ cta: route.label, location: 'buy_strip' })}
-        className={className}
-        data-buy-link={route.label}
-      >
-        {content}
-      </a>
-    )
-  }
-
   return (
-    <button
-      type="button"
-      onClick={route.onClick}
+    <a
+      href={route.href}
+      target="_blank"
+      rel="noreferrer noopener"
+      onClick={() => trackCta({ cta: route.label, location: 'buy_strip' })}
       className={className}
       data-buy-link={route.label}
     >
       {content}
-    </button>
+    </a>
   )
 }
 
@@ -102,34 +86,24 @@ export default function BuyStrip() {
 
   const buyRoutes: BuyRoute[] = [
     {
-      title: 'PancakeSwap',
-      kicker: 'DEX swap',
-      body: 'Opens BNB Chain with MCRT preselected, so a wallet user can connect and swap straight away.',
-      href: PANCAKESWAP_URL,
-      cta: 'Swap on PancakeSwap',
-      icon: Repeat2,
-      accent: 'border-[#98FFF9]/25 bg-[#98FFF9]/10 text-[#98FFF9]',
-      label: 'pancakeswap',
-    },
-    {
-      title: 'MetaMask',
-      kicker: 'Wallet swap',
-      body: 'If MetaMask is detected, asks to switch to BNB Chain and add MCRT. Then opens Swap for you to select and review the assets manually.',
-      cta: 'Open MetaMask',
-      icon: Wallet,
-      accent: 'border-[#FFB649]/30 bg-[#FFB649]/10 text-[#FFB649]',
-      label: 'metamask',
-      onClick: () => void openMetaMaskMcrt('buy_strip'),
-    },
-    {
       title: 'Bybit',
-      kicker: 'Exchange spot',
+      kicker: 'Primary spot market',
       body: 'Opens the MCRT/USDT spot market for users who prefer buying from a Bybit account.',
       href: BYBIT_URL,
       cta: 'Buy on Bybit',
       icon: BadgeDollarSign,
       accent: 'border-[#F7C843]/30 bg-[#F7C843]/10 text-[#F7C843]',
       label: 'bybit',
+    },
+    {
+      title: 'PancakeSwap',
+      kicker: 'Primary DEX pool',
+      body: 'Opens the MCRT/WBNB pool on BNB Chain with the verified MCRT contract preselected.',
+      href: PANCAKESWAP_URL,
+      cta: 'Swap on PancakeSwap',
+      icon: Repeat2,
+      accent: 'border-[#98FFF9]/25 bg-[#98FFF9]/10 text-[#98FFF9]',
+      label: 'pancakeswap',
     },
   ]
 
@@ -147,11 +121,11 @@ export default function BuyStrip() {
                 Buy $MCRT
               </div>
               <h2 className="max-w-sm text-2xl font-black leading-tight text-white sm:text-3xl">
-                Three clean ways to get MCRT
+                Two direct routes to get MCRT
               </h2>
               <p className="text-white/68 mt-3 max-w-md text-sm leading-relaxed">
-                Use the DEX if you already have a wallet, MetaMask if you want
-                the wallet-native path, or Bybit if you prefer a spot exchange.
+                Choose the Bybit MCRT/USDT spot market or the PancakeSwap
+                MCRT/WBNB pool on BNB Chain.
               </p>
             </div>
 
@@ -208,7 +182,7 @@ export default function BuyStrip() {
             </div>
           </div>
 
-          <div className="grid gap-3 md:grid-cols-3">
+          <div className="grid gap-3 sm:grid-cols-2">
             {buyRoutes.map((route) => (
               <BuyRouteCard key={route.title} route={route} />
             ))}

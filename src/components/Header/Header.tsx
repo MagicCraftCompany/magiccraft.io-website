@@ -32,7 +32,7 @@ import gamepad from '@/assets/icons/icon-gamepad.svg'
 
 import about from '@/assets/icons/icon-help.svg'
 import pancakeswap from '@/assets/icons/icon-pancakeswap.svg'
-import { BYBIT_URL, METAMASK_SWAP_URL, PANCAKESWAP_URL } from '@/constants'
+import { BYBIT_URL, PANCAKESWAP_URL } from '@/constants'
 import { AI_PRODUCTS } from '@/data/aiProducts'
 
 export type NavigationStatus =
@@ -67,7 +67,7 @@ export type SubMenuProps = {
   onClick?: () => void
 }
 
-import { openGameByDevice, openMetaMaskMcrt } from '@/lib/gameActions'
+import { openGameByDevice } from '@/lib/gameActions'
 
 const GAME_MAKER_URL =
   'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/'
@@ -174,26 +174,17 @@ const commonMenuItemsNew: NavMenuItemProps[] = [
     icon: currency,
     submenu: [
       {
-        title: 'PancakeSwap DEX',
-        icon: pancakeswap,
-        path: PANCAKESWAP_URL,
-        purpose: 'Swap on BNB Chain using the external PancakeSwap DEX.',
-        status: 'External',
-      },
-      {
-        title: 'MetaMask',
-        icon: currency,
-        path: METAMASK_SWAP_URL,
-        purpose:
-          'Add MCRT when MetaMask is detected, then open Swap for manual review.',
-        status: 'External',
-        onClick: () => void openMetaMaskMcrt('header_menu'),
-      },
-      {
         title: 'Bybit Spot',
         icon: bybit,
         path: BYBIT_URL,
-        purpose: 'Open the external MCRT spot market on Bybit.',
+        purpose: 'Open the external MCRT/USDT spot market on Bybit.',
+        status: 'External',
+      },
+      {
+        title: 'PancakeSwap DEX',
+        icon: pancakeswap,
+        path: PANCAKESWAP_URL,
+        purpose: 'Open the MCRT/WBNB pool on the external PancakeSwap DEX.',
         status: 'External',
       },
     ],

@@ -16,14 +16,10 @@ vi.mock('@/lib/useMcrtPrice', () => ({
     status: 'unavailable',
   }),
 }))
-vi.mock('@/lib/gameActions', () => ({
-  openMetaMaskMcrt: vi.fn(),
-}))
-
 import Pricing from '@/pages/Pricing'
 
 describe('MCRT buyer guide', () => {
-  it('uses one comparison surface for the three provider routes', () => {
+  it('uses one comparison surface for the two primary market routes', () => {
     render(
       <HelmetProvider>
         <MemoryRouter>
@@ -41,7 +37,7 @@ describe('MCRT buyer guide', () => {
     )
 
     const comparison = screen
-      .getByRole('heading', { name: 'Three clean ways to get MCRT' })
+      .getByRole('heading', { name: 'Two direct routes to get MCRT' })
       .closest('section')
     expect(comparison).not.toBeNull()
     const comparisonView = within(comparison as HTMLElement)
@@ -49,11 +45,11 @@ describe('MCRT buyer guide', () => {
       comparisonView.getByRole('link', { name: /PancakeSwap/i })
     ).toBeInTheDocument()
     expect(
-      comparisonView.getByRole('button', { name: /MetaMask/i })
-    ).toBeInTheDocument()
-    expect(
       comparisonView.getByRole('link', { name: /Bybit/i })
     ).toBeInTheDocument()
+    expect(
+      comparisonView.queryByRole('button', { name: /MetaMask/i })
+    ).not.toBeInTheDocument()
     expect(
       screen.queryByRole('heading', { name: 'Fund the Lobby' })
     ).not.toBeInTheDocument()

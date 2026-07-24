@@ -1,54 +1,46 @@
 import bybit from '@/assets/icons/bybit.svg'
-
 import pancakeswap from '@/assets/icons/pancakeswap.svg'
-import mexc from '@/assets/icons/mexc.svg'
-import Gate from '@/assets/icons/logo.svg'
-import weex from '@/assets/images/weex.webp'
-import bitunix from '@/assets/images/bitunix.webp'
 import { BYBIT_URL, PANCAKESWAP_URL } from '@/constants'
-const partners = [
+import type { CtaEvent } from '@/lib/analytics'
+
+export type ListedPartner = {
+  name: string
+  icon: string
+  link: string
+  market: string
+  action: string
+  priority: 'primary' | 'secondary'
+  cta: CtaEvent['cta']
+}
+
+const partners: ListedPartner[] = [
   {
     name: 'Bybit',
     icon: bybit,
     link: BYBIT_URL,
+    market: 'MCRT/USDT spot market',
+    action: 'Open spot market',
+    priority: 'primary',
+    cta: 'bybit',
+  },
+  {
+    name: 'PancakeSwap',
+    icon: pancakeswap,
+    link: PANCAKESWAP_URL,
+    market: 'MCRT/WBNB pool on BNB Chain',
+    action: 'Open swap',
+    priority: 'primary',
+    cta: 'pancakeswap',
   },
   {
     name: 'HTX',
     icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717705783/Screenshot_2024-06-04_at_10.31_1_ntlhip.webp',
     link: 'https://www.htx.com/trade/mcrt_usdt',
-  },
-
-  {
-    name: 'Pancakeswap',
-    icon: pancakeswap,
-    link: PANCAKESWAP_URL,
-  },
-  {
-    name: 'Mexc Global',
-    icon: mexc,
-    link: 'https://www.mexc.com/exchange/MCRT_USDT',
-  },
-
-  {
-    name: 'biconomy',
-    icon: 'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1735016007/logo_3_-Photoroom_y7itlq.webp',
-    link: 'https://www.biconomy.com/exchange/MCRT_USDT',
-  },
-
-  {
-    name: 'Gate.io',
-    icon: Gate,
-    link: 'https://www.gate.io/trade/MCRT_USDT',
-  },
-  {
-    name: 'WEEX',
-    icon: weex,
-    link: 'https://www.weex.com/trade/MCRT-USDT',
-  },
-  {
-    name: 'Bitunix',
-    icon: bitunix,
-    link: 'https://www.bitunix.com/spot-trade/MCRTUSDT',
+    market: 'MCRT/USDT spot market',
+    action: 'Open HTX market',
+    priority: 'secondary',
+    cta: 'htx',
   },
 ]
+
 export default partners

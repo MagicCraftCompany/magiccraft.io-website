@@ -15,7 +15,7 @@ export default function Pricing() {
         <title>Pricing and Buy $MCRT | MagicCraft</title>
         <meta
           name="description"
-          content="Open external MCRT routes for PancakeSwap, MetaMask, or Bybit, then review supported MagicCraft Web3 functions and their risks."
+          content="Open the Bybit MCRT/USDT market or PancakeSwap MCRT/WBNB pool, then review supported MagicCraft Web3 functions and their risks."
         />
         <link rel="canonical" href="https://magiccraft.io/buy-mcrt" />
         <meta name="robots" content="index, follow" />
@@ -27,7 +27,7 @@ export default function Pricing() {
         />
         <meta
           property="og:description"
-          content="Clear MagicCraft buy paths for $MCRT, the live lobby, and exchange or wallet handoff."
+          content="Two direct MagicCraft MCRT routes: Bybit MCRT/USDT and the PancakeSwap MCRT/WBNB pool."
         />
         <meta
           property="og:image"
@@ -88,8 +88,8 @@ export default function Pricing() {
               {MCRT_CONTRACT_CHECKSUM}
             </p>
             <p className="mt-5 border-t border-white/10 pt-4 text-sm leading-6 text-white/60">
-              Verify this BNB Smart Chain contract, then compare the DEX, wallet
-              and exchange handoffs below before choosing a route.
+              Verify this BNB Smart Chain contract, then compare the two primary
+              handoffs below before choosing a route.
             </p>
           </div>
         </section>
@@ -100,10 +100,10 @@ export default function Pricing() {
           aria-label="MCRT route risk notice"
           className="rounded-xl border border-amber-300/20 bg-amber-300/5 p-5 text-sm leading-6 text-amber-50/80"
         >
-          PancakeSwap, MetaMask and Bybit are third-party services. MagicCraft
-          does not control their availability, quotes, fees, custody, execution
-          or regional eligibility. MCRT is a utility token, not an ownership
-          right or guaranteed return.
+          PancakeSwap and Bybit are third-party services. MagicCraft does not
+          control their availability, quotes, fees, custody, execution or
+          regional eligibility. MCRT is a utility token, not an ownership right
+          or guaranteed return.
         </section>
       </main>
       <Footer />

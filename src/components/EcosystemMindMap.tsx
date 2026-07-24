@@ -1,10 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import {
-  BYBIT_URL,
-  MCRT_CONTRACT,
-  METAMASK_SWAP_URL,
-  PANCAKESWAP_URL,
-} from '@/constants'
+import { BYBIT_URL, MCRT_CONTRACT, PANCAKESWAP_URL } from '@/constants'
 
 type NodeGroup =
   | 'token'
@@ -96,28 +91,10 @@ export default function EcosystemMindMap() {
         url: 'https://www.htx.com/trade/mcrt_usdt',
       },
       {
-        id: 'mexc',
-        label: 'MEXC',
-        group: 'exchanges',
-        url: 'https://www.mexc.com/exchange/MCRT_USDT',
-      },
-      {
-        id: 'gate',
-        label: 'Gate.io',
-        group: 'exchanges',
-        url: 'https://www.gate.io/trade/MCRT_USDT',
-      },
-      {
         id: 'pancake',
         label: 'PancakeSwap',
         group: 'exchanges',
         url: PANCAKESWAP_URL,
-      },
-      {
-        id: 'metamask',
-        label: 'MetaMask',
-        group: 'exchanges',
-        url: METAMASK_SWAP_URL,
       },
 
       {
@@ -220,10 +197,7 @@ export default function EcosystemMindMap() {
 
       { source: 'mcrt', target: 'bybit' },
       { source: 'mcrt', target: 'htx' },
-      { source: 'mcrt', target: 'mexc' },
-      { source: 'mcrt', target: 'gate' },
       { source: 'mcrt', target: 'pancake' },
-      { source: 'mcrt', target: 'metamask' },
 
       { source: 'mcrt', target: 'game' },
       { source: 'mcrt', target: 'lobbies' },
