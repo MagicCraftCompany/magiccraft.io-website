@@ -16,8 +16,8 @@ Homepage hierarchy:
 
 1. One action-led hero with equal game and AI-suite paths
 2. Live game experience and verified gameplay facts
-3. Real game statistics with honest partial-data states
-4. Six status-labelled AI products with direct launch paths
+3. Six status-labelled AI products with direct launch paths
+4. Real game statistics with honest partial-data states
 5. Game, Web3 and builder systems grouped by purpose and current health
 6. One final choice: enter the game or open the product needed
 
@@ -28,8 +28,10 @@ Homepage hierarchy:
 - [x] Rewrite DragonList around its current meeting-to-task product.
 - [x] Replace the AI-only hero with a balanced game-and-AI proposition.
 - [x] Make **Play MagicCraft** and **Explore 6 AI products** the two clear first actions.
-- [x] Restore the live game and real statistics ahead of the AI catalog.
+- [x] Restore the live game and real statistics to the homepage journey.
 - [x] Keep all six AI products directly launchable and status-labelled.
+- [x] Keep the complete AI suite ahead of supporting market statistics in the scroll journey.
+- [x] Remove duplicate Merlin and Akyn drawer shortcuts so the six-product menu stays authoritative.
 - [x] Group game services, optional Web3 and builder systems by purpose.
 - [x] Keep MagicAds live while reserving its banner height to prevent layout shift.
 - [x] Make Game the first desktop destination and keep AI Products one tap away.

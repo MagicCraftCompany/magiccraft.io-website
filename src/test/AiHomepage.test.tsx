@@ -82,7 +82,15 @@ describe('balanced game and AI homepage', () => {
     })
     const suite = suiteHeading.closest('section')
     expect(suite).not.toBeNull()
-    const suiteView = within(suite as HTMLElement)
+    const suiteSection = suite as HTMLElement
+    const suiteView = within(suiteSection)
+    const liveStats = screen.getByRole('region', {
+      name: 'Live ecosystem stats',
+    })
+    expect(
+      suiteSection.compareDocumentPosition(liveStats) &
+        Node.DOCUMENT_POSITION_FOLLOWING
+    ).toBeTruthy()
 
     for (const product of [
       'Merlin AI',

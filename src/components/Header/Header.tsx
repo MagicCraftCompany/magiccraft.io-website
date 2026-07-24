@@ -1,13 +1,5 @@
 import mcLogo from '@/assets/images/magiccraft-logo.webp'
-import {
-  Bot,
-  ChevronDown,
-  Clapperboard,
-  Gamepad2,
-  Globe,
-  Sparkles,
-  X,
-} from 'lucide-react'
+import { ChevronDown, Gamepad2, Globe, Sparkles, X } from 'lucide-react'
 import NavMenu from './Navmenu'
 import NavMenuMobile from './NavMenuMobile'
 import { useCallback, useState, useEffect, useRef } from 'react'
@@ -294,6 +286,7 @@ const Header = () => {
   const [isLangOpen, setIsLangOpen] = useState(false)
   const [isDesktopLangOpen, setIsDesktopLangOpen] = useState(false)
   const desktopLangRef = useRef<HTMLDivElement | null>(null)
+  const desktopLangButtonRef = useRef<HTMLButtonElement | null>(null)
   const hamburgerRef = useRef<HTMLButtonElement | null>(null)
   const drawerRef = useRef<HTMLDivElement | null>(null)
   const drawerCloseRef = useRef<HTMLButtonElement | null>(null)
@@ -345,8 +338,18 @@ const Header = () => {
       if (e.target instanceof Node && el.contains(e.target)) return
       setIsDesktopLangOpen(false)
     }
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+      event.preventDefault()
+      setIsDesktopLangOpen(false)
+      desktopLangButtonRef.current?.focus()
+    }
     document.addEventListener('mousedown', onDown)
-    return () => document.removeEventListener('mousedown', onDown)
+    document.addEventListener('keydown', onKeyDown)
+    return () => {
+      document.removeEventListener('mousedown', onDown)
+      document.removeEventListener('keydown', onKeyDown)
+    }
   }, [isDesktopLangOpen])
 
   // Apply saved language on load / route changes (Google Translate works on DOM, not router state)
@@ -360,7 +363,11 @@ const Header = () => {
     setGoogTransCookie(currentLang)
     triggerGoogleTranslate(currentLang)
     // Retry once for SPA route updates where GT initializes later.
-    setTimeout(() => triggerGoogleTranslate(currentLang), 800)
+    const retryId = window.setTimeout(
+      () => triggerGoogleTranslate(currentLang),
+      800
+    )
+    return () => window.clearTimeout(retryId)
   }, [location.pathname, currentLang])
 
   // Keep keyboard focus inside the open mobile drawer and restore it on close.
@@ -509,11 +516,13 @@ const Header = () => {
               {/* Desktop language selector */}
               <div ref={desktopLangRef} className="relative">
                 <button
+                  ref={desktopLangButtonRef}
                   type="button"
                   onClick={() => setIsDesktopLangOpen((v) => !v)}
                   className="inline-flex h-11 items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 text-white/[0.85] transition-all hover:border-white/20 hover:bg-white/10"
                   aria-label="Change language"
-                  aria-haspopup="menu"
+                  aria-haspopup="dialog"
+                  aria-controls="desktop-language-options"
                   aria-expanded={isDesktopLangOpen}
                 >
                   <Globe className="h-4 w-4 text-white/70" />
@@ -526,7 +535,12 @@ const Header = () => {
                 </button>
 
                 {isDesktopLangOpen && (
-                  <div className="absolute right-0 top-full mt-2 max-h-[320px] w-[280px] overflow-auto rounded-lg border border-white/20 bg-[#0a0e2e]/95 p-2 shadow-2xl backdrop-blur-xl">
+                  <div
+                    id="desktop-language-options"
+                    role="dialog"
+                    aria-label="Choose language"
+                    className="absolute right-0 top-full mt-2 max-h-[320px] w-[280px] overflow-auto rounded-lg border border-white/20 bg-[#0a0e2e]/95 p-2 shadow-2xl backdrop-blur-xl"
+                  >
                     <div className="grid grid-cols-2 gap-1">
                       {LANGUAGES.map((lang) => (
                         <button
@@ -632,7 +646,7 @@ const Header = () => {
               </div>
 
               {/* Primary game and AI suite actions */}
-              <div className="mb-3 grid grid-cols-2 gap-2">
+              <div className="mb-4 grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   onClick={() => {
@@ -654,30 +668,6 @@ const Header = () => {
                   <Sparkles aria-hidden="true" className="h-4 w-4" />
                   <span>AI Suite</span>
                 </Link>
-              </div>
-
-              {/* Featured AI destinations */}
-              <div className="mb-5 grid grid-cols-2 gap-2">
-                <a
-                  href="https://merlintheai.com"
-                  onClick={closeSidebar}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white/80 transition-all hover:bg-white/10"
-                >
-                  <Bot aria-hidden="true" className="h-4 w-4" />
-                  <span>Open Merlin</span>
-                </a>
-                <a
-                  href="https://akyn.pro"
-                  onClick={closeSidebar}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  className="flex min-h-11 items-center justify-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white/80 transition-all hover:bg-white/10"
-                >
-                  <Clapperboard aria-hidden="true" className="h-4 w-4" />
-                  <span>Akyn Studio</span>
-                </a>
               </div>
 
               <div className="mb-4 h-px w-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />

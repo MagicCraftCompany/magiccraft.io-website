@@ -29,6 +29,7 @@ import Header from '@/components/Header/Header'
 import MobileBottomBar from '@/components/Home/MobileBottomBar'
 import { trackCta } from '@/lib/analytics'
 import { openGameByDevice } from '@/lib/gameActions'
+import { triggerGoogleTranslate } from '@/lib/googleTranslate'
 
 const renderHeader = () =>
   render(
@@ -41,6 +42,7 @@ afterEach(() => {
   cleanup()
   vi.clearAllMocks()
   vi.unstubAllGlobals()
+  vi.useRealTimers()
   document.body.style.overflow = ''
   document.getElementById('home')?.remove()
   document.getElementById('hero-primary-actions')?.remove()
@@ -99,7 +101,7 @@ describe('Header navigation', () => {
     expect(document.body.style.overflow).toBe('')
   })
 
-  it('gives game and AI equal primary drawer actions', async () => {
+  it('gives game and AI equal primary drawer actions without duplicate product shortcuts', async () => {
     renderHeader()
     fireEvent.click(screen.getByRole('button', { name: 'Open menu' }))
 
@@ -107,8 +109,6 @@ describe('Header navigation', () => {
     const drawer = within(dialog)
     const suiteLink = drawer.getByRole('link', { name: 'Explore AI Suite' })
     const playButton = drawer.getByRole('button', { name: 'Play MagicCraft' })
-    const merlinLink = drawer.getByRole('link', { name: 'Open Merlin' })
-    const akynLink = drawer.getByRole('link', { name: 'Akyn Studio' })
     const aiProductsMenu = await drawer.findByRole('button', {
       name: 'AI Products',
     })
@@ -118,9 +118,8 @@ describe('Header navigation', () => {
     expect(suiteLink).toHaveClass('min-h-12')
     expect(suiteLink).toHaveAttribute('href', '/#ai-products')
     expect(playButton).toHaveClass('min-h-12')
-    expect(merlinLink).toHaveClass('min-h-11')
-    expect(merlinLink).toHaveAttribute('href', 'https://merlintheai.com')
-    expect(akynLink).toHaveClass('min-h-11')
+    expect(drawer.queryByRole('link', { name: 'Open Merlin' })).toBeNull()
+    expect(drawer.queryByRole('link', { name: 'Akyn Studio' })).toBeNull()
     expect(aiProductsMenu).toHaveAttribute('aria-expanded', 'false')
     expect(tokenMenu).toHaveAttribute('aria-expanded', 'false')
     expect(gameMenu).toHaveAttribute('aria-expanded', 'false')
@@ -139,7 +138,45 @@ describe('Header navigation', () => {
     expect(reopenedAiProductsMenu).toHaveAttribute('aria-expanded', 'true')
     expect(
       await reopenedDrawer.findByRole('link', { name: 'Merlin AI' })
+    ).toHaveAttribute('href', 'https://merlintheai.com/')
+    expect(
+      await reopenedDrawer.findByRole('link', { name: 'Akyn' })
+    ).toHaveAttribute('href', 'https://akyn.pro/')
+  })
+
+  it('closes the desktop language dialog on Escape and restores focus', () => {
+    renderHeader()
+
+    const languageButton = screen.getByRole('button', {
+      name: 'Change language',
+    })
+    expect(languageButton).toHaveAttribute(
+      'aria-controls',
+      'desktop-language-options'
+    )
+    expect(languageButton).toHaveAttribute('aria-haspopup', 'dialog')
+
+    fireEvent.click(languageButton)
+    expect(
+      screen.getByRole('dialog', { name: 'Choose language' })
     ).toBeInTheDocument()
+
+    fireEvent.keyDown(document, { key: 'Escape' })
+
+    expect(
+      screen.queryByRole('dialog', { name: 'Choose language' })
+    ).not.toBeInTheDocument()
+    expect(languageButton).toHaveFocus()
+  })
+
+  it('cancels its delayed translation retry when the header unmounts', () => {
+    vi.useFakeTimers()
+    const { unmount } = renderHeader()
+
+    expect(triggerGoogleTranslate).toHaveBeenCalledTimes(1)
+    unmount()
+    act(() => vi.advanceTimersByTime(800))
+    expect(triggerGoogleTranslate).toHaveBeenCalledTimes(1)
   })
 
   it('keeps one purposeful section open and routes Game Maker to the real editor', async () => {

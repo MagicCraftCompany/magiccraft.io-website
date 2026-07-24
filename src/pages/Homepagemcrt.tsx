@@ -96,8 +96,8 @@ function Homepagemcrt() {
         >
           <HeroSection />
           <GameExperienceSection />
-          <LiveStatsWidget />
           <AiProductSuiteSection />
+          <LiveStatsWidget />
           <EcosystemSystemsSection />
           <FinalCtaSection />
           <MobileBottomBar />
