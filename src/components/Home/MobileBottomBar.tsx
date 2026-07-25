@@ -53,7 +53,7 @@ export default function MobileBottomBar() {
     >
       <nav
         aria-label="Quick MagicCraft actions"
-        className="flex w-full items-center gap-2 border-t border-white/10 bg-[#0B0F39]/90 px-2 py-2 backdrop-blur"
+        className="flex w-full items-center gap-1.5 border-t border-white/10 bg-[#0B0F39]/90 px-2 py-1 backdrop-blur sm:gap-2"
       >
         <button
           type="button"
@@ -61,9 +61,9 @@ export default function MobileBottomBar() {
             openGameByDevice()
           }}
           tabIndex={isBarHidden ? -1 : undefined}
-          className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-3 text-sm font-bold text-[#03082F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#98FFF9]"
+          className="inline-flex h-10 flex-1 items-center justify-center gap-1.5 rounded-lg bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-2 text-xs font-bold text-[#03082F] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#98FFF9] sm:h-11 sm:gap-2 sm:px-3 sm:text-sm"
         >
-          <Gamepad2 aria-hidden="true" className="h-4 w-4" />
+          <Gamepad2 aria-hidden="true" className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           <span>Play Game</span>
         </button>
 
@@ -77,9 +77,9 @@ export default function MobileBottomBar() {
             })
           }
           tabIndex={isBarHidden ? -1 : undefined}
-          className="inline-flex h-12 flex-1 items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/10 px-3 text-sm font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#98FFF9]"
+          className="inline-flex h-10 flex-1 items-center justify-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-2 text-xs font-semibold text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#98FFF9] sm:h-11 sm:gap-2 sm:px-3 sm:text-sm"
         >
-          <Sparkles aria-hidden="true" className="h-4 w-4" />
+          <Sparkles aria-hidden="true" className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
           <span>AI Suite</span>
         </a>
       </nav>

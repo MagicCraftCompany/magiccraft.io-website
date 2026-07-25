@@ -92,7 +92,7 @@ function Homepagemcrt() {
         <main
           id="main-content"
           tabIndex={-1}
-          className="w-full max-w-full overflow-x-hidden scroll-smooth pb-[calc(env(safe-area-inset-bottom)+4rem)] md:-mt-[80px] md:pb-0"
+          className="w-full max-w-full overflow-x-hidden scroll-smooth pb-[calc(env(safe-area-inset-bottom)+3.25rem)] md:-mt-[80px] md:pb-0"
         >
           <HeroSection />
           <GameExperienceSection />

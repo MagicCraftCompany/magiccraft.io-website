@@ -311,9 +311,13 @@ describe('Header navigation', () => {
 })
 
 describe('MobileBottomBar', () => {
-  it('offers balanced 48px game and AI actions', () => {
+  it('offers compact 40px game and AI actions with 44px larger-mobile targets', () => {
     render(<MobileBottomBar />)
 
+    const actionBar = screen.getByRole('navigation', {
+      name: 'Quick MagicCraft actions',
+      hidden: true,
+    })
     const playButton = screen.getByRole('button', {
       name: 'Play Game',
       hidden: true,
@@ -323,8 +327,9 @@ describe('MobileBottomBar', () => {
       hidden: true,
     })
 
-    expect(playButton).toHaveClass('h-12')
-    expect(aiProductsLink).toHaveClass('h-12')
+    expect(actionBar).toHaveClass('gap-1.5', 'py-1')
+    expect(playButton).toHaveClass('h-10', 'text-xs', 'sm:h-11')
+    expect(aiProductsLink).toHaveClass('h-10', 'text-xs', 'sm:h-11')
     expect(aiProductsLink).toHaveAttribute('href', '/#ai-products')
     expect(screen.queryByText('Buy $MCRT')).not.toBeInTheDocument()
 

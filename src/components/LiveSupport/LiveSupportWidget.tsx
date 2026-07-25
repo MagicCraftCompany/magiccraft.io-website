@@ -325,17 +325,17 @@ export default function LiveSupportWidget() {
         ref={launcherRef}
         type="button"
         onClick={openChat}
-        className={`fixed right-2 z-[100000] inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#0a1038]/90 p-0 text-white/95 shadow-[0_12px_35px_rgba(0,0,0,0.45)] backdrop-blur-xl hover:border-[#98FFF9]/40 hover:bg-[#111a4f]/95 active:scale-[0.98] sm:bottom-4 sm:right-4 sm:h-12 sm:w-12 ${
+        className={`fixed right-2 z-[100000] inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 bg-[#0a1038]/90 p-0 text-white/95 shadow-[0_12px_35px_rgba(0,0,0,0.45)] backdrop-blur-xl hover:border-[#98FFF9]/40 hover:bg-[#111a4f]/95 active:scale-[0.98] sm:right-3 sm:h-10 sm:w-10 md:right-4 md:h-12 md:w-12 ${
           mobileBarVisible
-            ? 'bottom-[calc(env(safe-area-inset-bottom)+5.25rem)]'
-            : 'bottom-[calc(env(safe-area-inset-bottom)+1rem)]'
+            ? 'bottom-[calc(env(safe-area-inset-bottom)+3.75rem)] sm:bottom-[calc(env(safe-area-inset-bottom)+4.25rem)] md:bottom-4'
+            : 'bottom-[calc(env(safe-area-inset-bottom)+0.75rem)] sm:bottom-3 md:bottom-4'
         }`}
         aria-label="Open Live Support chat"
         aria-controls="live-support-dialog"
         aria-expanded={open}
         data-live-support-launcher
       >
-        <MessageCircle aria-hidden="true" className="h-5 w-5 text-[#98FFF9]" />
+        <MessageCircle aria-hidden="true" className="h-4 w-4 text-[#98FFF9]" />
       </button>
 
       {/* Modal */}

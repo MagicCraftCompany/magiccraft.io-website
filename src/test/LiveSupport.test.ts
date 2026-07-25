@@ -25,6 +25,35 @@ afterEach(() => {
 })
 
 describe('LiveSupportWidget', () => {
+  it('keeps the mobile launcher compact and low above the action bar', async () => {
+    render(
+      createElement(
+        'div',
+        { id: 'root' },
+        createElement('div', {
+          'aria-hidden': 'false',
+          'data-mobile-bottom-bar': '',
+        }),
+        createElement(LiveSupportWidget)
+      )
+    )
+
+    const launcher = screen.getByRole('button', {
+      name: 'Open Live Support chat',
+    })
+
+    await waitFor(() =>
+      expect(launcher).toHaveClass(
+        'h-9',
+        'w-9',
+        'sm:h-10',
+        'sm:w-10',
+        'bottom-[calc(env(safe-area-inset-bottom)+3.75rem)]',
+        'sm:bottom-[calc(env(safe-area-inset-bottom)+4.25rem)]'
+      )
+    )
+  })
+
   it('traps focus, locks the page and restores the launcher on Escape', async () => {
     const { container } = render(createElement(LiveSupportWidget))
     container.id = 'root'
