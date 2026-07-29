@@ -2,6 +2,7 @@ import { render, screen, within } from '@testing-library/react'
 import { HelmetProvider } from 'react-helmet-async'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
+import { AI_PRODUCTS } from '@/data/aiProducts'
 
 vi.mock('@/components/Header/Header', () => ({
   default: () => <div data-testid="header" />,
@@ -14,10 +15,7 @@ vi.mock('@/components/Home/MobileBottomBar', () => ({
 }))
 vi.mock('@/components/LiveStats/LiveStatsWidget', () => ({
   default: () => (
-    <section
-      aria-label="Live ecosystem stats"
-      className="mc-home-section"
-    >
+    <section aria-label="Live ecosystem stats" className="mc-home-section">
       <h2>Live ecosystem stats</h2>
     </section>
   ),
@@ -39,18 +37,18 @@ describe('balanced game and AI homepage', () => {
     )
 
     expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1)
-    expect(
-      screen.getByRole('heading', {
-        level: 1,
-        name: 'Play the game. Put AI to work.',
-      })
-    ).toBeInTheDocument()
+    const heroHeading = screen.getByRole('heading', {
+      level: 1,
+      name: 'Play the game. Put AI to work.',
+    })
+    expect(heroHeading).toHaveClass('font-sans', 'font-semibold')
+    expect(heroHeading).not.toHaveClass('font-serif', 'font-black')
     expect(
       screen.getAllByRole('button', { name: 'Play MagicCraft' }).length
     ).toBeGreaterThan(0)
     expect(
       screen.getByRole('button', {
-        name: /real gameplay.*PvP \+ PvE across mobile and PC.*choose your platform/i,
+        name: /live game.*PvP and PvE across mobile and PC.*choose your platform/i,
       })
     ).toBeInTheDocument()
     expect(
@@ -58,9 +56,9 @@ describe('balanced game and AI homepage', () => {
     ).toHaveAttribute('href', '#ai-products')
     expect(
       screen.getByRole('link', {
-        name: /Game and market stats.*View current stats/i,
+        name: /AI product suite.*Merlin AI.*Akyn.*MagicAds.*MAGAS7.*DragonList.*DocAI.*Find your product/i,
       })
-    ).toHaveAttribute('href', '/stats')
+    ).toHaveAttribute('href', '#ai-products')
 
     expect(
       screen.getByRole('heading', { name: 'Established PvP. New PvE.' })
@@ -81,8 +79,10 @@ describe('balanced game and AI homepage', () => {
     ).toBeInTheDocument()
 
     const suiteHeading = screen.getByRole('heading', {
-      name: 'Six focused AI products. Pick the one built for the job.',
+      name: 'AI for the work in front of you.',
     })
+    expect(suiteHeading).toHaveClass('font-sans', 'font-semibold')
+    expect(suiteHeading).not.toHaveClass('font-serif', 'font-black')
     const suite = suiteHeading.closest('section')
     expect(suite).not.toBeNull()
     const suiteSection = suite as HTMLElement
@@ -95,20 +95,23 @@ describe('balanced game and AI homepage', () => {
         Node.DOCUMENT_POSITION_FOLLOWING
     ).toBeTruthy()
 
-    for (const product of [
-      'Merlin AI',
-      'Akyn',
-      'MagicAds',
-      'MAGAS7',
-      'DragonList',
-      'DocAI',
-    ]) {
+    for (const product of AI_PRODUCTS) {
+      const productLink = suiteView.getByRole('link', {
+        name: new RegExp(
+          `Opens ${product.name} as a separate product in a new tab`,
+          'i'
+        ),
+      })
+      expect(productLink).toHaveAttribute('href', product.href)
+      expect(productLink).toHaveAttribute('target', '_blank')
+      expect(productLink).toHaveAttribute(
+        'rel',
+        expect.stringContaining('noopener')
+      )
       expect(
-        suiteView.getByRole('link', { name: new RegExp(product) })
+        suiteView.getByRole('img', { name: `${product.name} logo` })
       ).toBeInTheDocument()
-      expect(
-        suiteView.getByRole('img', { name: `${product} logo` })
-      ).toBeInTheDocument()
+      expect(suiteView.getByText(product.safetyNote!)).toBeInTheDocument()
     }
 
     expect(

@@ -15,6 +15,8 @@ import {
   type EcosystemSystemGroupId,
   type EcosystemSystemStatus,
 } from '@/data/ecosystemSystems'
+import { homeSurfaceClass } from './homeStyles'
+import HomeSectionIntro from './ui/HomeSectionIntro'
 
 const GROUP_ICONS: Record<EcosystemSystemGroupId, LucideIcon> = {
   'game-services': Gamepad2,
@@ -42,27 +44,18 @@ export default function EcosystemSystemsSection() {
   return (
     <section
       id="systems"
+      aria-labelledby="systems-heading"
       className="mc-home-section border-y border-white/5 bg-[#05051f] px-4 py-16 sm:px-6 sm:py-20 lg:py-28"
     >
       <div className="mx-auto max-w-screen-xl">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
-          <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#FFB649]/25 bg-[#FFB649]/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-[#FFD18A]">
-              <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-              Connected systems
-            </div>
-            <h2 className="mt-4 text-balance font-serif text-4xl font-black leading-tight text-white sm:text-5xl lg:text-6xl">
-              Every system has a clear job and a direct path.
-            </h2>
-          </div>
-          <div>
-            <p className="max-w-2xl text-base leading-7 text-white/70 sm:text-lg">
-              Move from live game activity to optional Web3 tools and creator
-              infrastructure. Each card explains what the system is for and
-              where to begin.
-            </p>
-          </div>
-        </div>
+        <HomeSectionIntro
+          icon={ShieldCheck}
+          eyebrow="Connected systems"
+          title="Every system has a clear job and a direct path."
+          description="Move from live game activity to optional Web3 tools and creator infrastructure. Each card explains what the system is for and where to begin."
+          accent="#FFD18A"
+          headingId="systems-heading"
+        />
 
         <div className="mt-12 grid gap-5 lg:grid-cols-3">
           {ECOSYSTEM_SYSTEM_GROUPS.map((group) => {
@@ -70,7 +63,7 @@ export default function EcosystemSystemsSection() {
             return (
               <article
                 key={group.id}
-                className="overflow-hidden rounded-[28px] border border-white/10 bg-[#080a2a]"
+                className={`${homeSurfaceClass} overflow-hidden rounded-[28px] bg-[#080a2a]`}
               >
                 <div className="border-b border-white/10 p-6 sm:p-7">
                   <span
@@ -83,12 +76,12 @@ export default function EcosystemSystemsSection() {
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </span>
                   <p
-                    className="mt-5 text-xs font-black uppercase tracking-[0.17em]"
+                    className="mt-5 text-xs font-semibold uppercase tracking-[0.17em]"
                     style={{ color: group.accent }}
                   >
                     {group.eyebrow}
                   </p>
-                  <h3 className="mt-2 text-2xl font-black leading-tight text-white">
+                  <h3 className="mt-2 font-sans text-2xl font-semibold leading-tight tracking-[-0.025em] text-white">
                     {group.title}
                   </h3>
                   <p className="mt-3 text-sm leading-6 text-white/60">
@@ -102,11 +95,11 @@ export default function EcosystemSystemsSection() {
                     const content = (
                       <>
                         <div className="flex items-start justify-between gap-3">
-                          <h4 className="font-black text-white">
+                          <h4 className="font-sans font-semibold text-white">
                             {system.name}
                           </h4>
                           <span
-                            className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.12em] ${STATUS_STYLES[system.status]}`}
+                            className={`inline-flex shrink-0 items-center gap-1.5 rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] ${STATUS_STYLES[system.status]}`}
                           >
                             <StatusIcon status={system.status} />
                             {system.status}
@@ -118,7 +111,7 @@ export default function EcosystemSystemsSection() {
                         <p className="mt-2 text-xs leading-5 text-white/55">
                           {system.note}
                         </p>
-                        <span className="mt-4 inline-flex min-h-10 items-center gap-2 text-sm font-bold text-[#98FFF9]">
+                        <span className="mt-4 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[#98FFF9]">
                           {system.cta}
                           {isInternal ? (
                             <ArrowUpRight
@@ -139,7 +132,7 @@ export default function EcosystemSystemsSection() {
                       <Link
                         key={system.id}
                         to={system.href}
-                        className="block p-5 no-underline transition hover:bg-white/[0.04] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#98FFF9] sm:p-6"
+                        className="block p-5 no-underline transition-colors duration-200 hover:bg-white/[0.04] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#98FFF9] motion-reduce:transition-none sm:p-6"
                       >
                         {content}
                       </Link>
@@ -149,7 +142,7 @@ export default function EcosystemSystemsSection() {
                         href={system.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="block p-5 no-underline transition hover:bg-white/[0.04] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#98FFF9] sm:p-6"
+                        className="block p-5 no-underline transition-colors duration-200 hover:bg-white/[0.04] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#98FFF9] motion-reduce:transition-none sm:p-6"
                       >
                         {content}
                       </a>

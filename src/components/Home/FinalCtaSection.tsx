@@ -1,5 +1,6 @@
 import { ArrowDown, Gamepad2, Sparkles } from 'lucide-react'
 import { openGameByDevice } from '@/lib/gameActions'
+import { homePrimaryActionClass, homeSecondaryActionClass } from './homeStyles'
 
 export default function FinalCtaSection() {
   return (
@@ -13,10 +14,10 @@ export default function FinalCtaSection() {
           <span className="h-4 w-px bg-white/15" aria-hidden="true" />
           <Sparkles className="h-5 w-5 text-[#D8C9FF]" aria-hidden="true" />
         </div>
-        <p className="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-[#98FFF9]">
+        <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-[#98FFF9]">
           Choose your starting point
         </p>
-        <h2 className="mx-auto mt-4 max-w-4xl text-balance font-serif text-5xl font-black leading-[1.02] text-white sm:text-6xl">
+        <h2 className="mx-auto mt-4 max-w-4xl text-balance font-sans text-[42px] font-semibold leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl">
           Enter the game or open the tool you need.
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/70 sm:text-lg">
@@ -28,15 +29,12 @@ export default function FinalCtaSection() {
           <button
             type="button"
             onClick={openGameByDevice}
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#98FFF9] to-[#B591F2] px-6 py-3 text-base font-black text-[#03082f] transition hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+            className={homePrimaryActionClass}
           >
             <Gamepad2 className="h-5 w-5" aria-hidden="true" />
             Play MagicCraft
           </button>
-          <a
-            href="#ai-products"
-            className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.08] px-6 py-3 text-base font-bold text-white no-underline transition hover:bg-white/[0.14] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9]"
-          >
+          <a href="#ai-products" className={homeSecondaryActionClass}>
             Explore AI products
             <ArrowDown className="h-4 w-4" aria-hidden="true" />
           </a>

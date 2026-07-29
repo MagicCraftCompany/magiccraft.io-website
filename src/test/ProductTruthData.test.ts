@@ -20,6 +20,7 @@ describe('product status content', () => {
       expect('healthNote' in product).toBe(false)
       expect(product.navIcon).toMatch(/^\/ai-logos\//)
       expect(product.navIcon).not.toMatch(/icon-stats|icon-community/)
+      expect(product.safetyNote).toBeTruthy()
     }
   })
 
