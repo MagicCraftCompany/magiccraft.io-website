@@ -6,6 +6,17 @@ const projectFile = (path: string) =>
   readFileSync(resolve(process.cwd(), path), 'utf8')
 
 describe('public route files', () => {
+  it('declares mobile web app capability for Android-capable browsers', () => {
+    const baseHtml = projectFile('index.html')
+
+    expect(baseHtml).toContain(
+      '<meta name="apple-mobile-web-app-capable" content="yes" />'
+    )
+    expect(baseHtml).toContain(
+      '<meta name="mobile-web-app-capable" content="yes" />'
+    )
+  })
+
   it('publishes the canonical MCRT and lobby routes in the sitemap', () => {
     const sitemap = projectFile('public/sitemap.xml')
 

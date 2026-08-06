@@ -458,7 +458,11 @@ const Header = () => {
       <header className="site-header glass-surface hairline-bottom relative z-[200] w-full max-w-full overflow-visible">
         <nav className="relative flex h-14 w-full max-w-full items-center justify-between overflow-visible px-3 sm:h-16 sm:px-4 md:h-[68px] lg:h-[72px] xl:h-[76px]">
           <div className="grid shrink-0 place-items-center self-stretch px-2 sm:px-3 md:px-4 lg:px-6 xl:px-8">
-            <Link to="/" className="group flex h-full items-center">
+            <Link
+              to="/"
+              className="group flex h-full items-center"
+              aria-label="MagicCraft home"
+            >
               <img
                 className="w-28 drop-shadow-lg transition-all duration-300 group-hover:scale-105 sm:w-32 md:w-36 lg:w-40 xl:w-44"
                 src={mcLogo}

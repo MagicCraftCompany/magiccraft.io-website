@@ -49,6 +49,15 @@ afterEach(() => {
 })
 
 describe('Header navigation', () => {
+  it('labels the logo link as the MagicCraft home destination', () => {
+    renderHeader()
+
+    expect(screen.getByRole('link', { name: 'MagicCraft home' })).toHaveAttribute(
+      'href',
+      '/'
+    )
+  })
+
   it('uses the same xl breakpoint for the full navigation and hamburger', async () => {
     renderHeader()
 
