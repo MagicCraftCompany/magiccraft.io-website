@@ -4,6 +4,9 @@ import { fileURLToPath } from 'node:url'
 
 const projectRoot = join(dirname(fileURLToPath(import.meta.url)), '..')
 const distRoot = join(projectRoot, 'dist')
+const newsMetadata = JSON.parse(
+  await readFile(join(projectRoot, 'src/data/newsMetadata.json'), 'utf8')
+)
 
 const routeShells = [
   {
@@ -56,9 +59,8 @@ const routeShells = [
   },
   {
     path: 'news',
-    title: 'MagicCraft News | Official Updates',
-    description:
-      'Read official MagicCraft game, ecosystem and product updates.',
+    title: newsMetadata.title,
+    description: newsMetadata.description,
   },
   {
     path: 'build-on-magiccraft',

@@ -46,6 +46,10 @@ describe('product status content', () => {
     expect(content).not.toMatch(/SocialMM|Polybilities|100K players/)
     expect(content).not.toMatch(/Revenue sharing.*now live/)
     expect(content).not.toMatch(/Verified 13 Jul 2026/)
+    expect(content).not.toMatch(/other five public products are live/i)
+    expect(content).toMatch(/four are live/i)
+    expect(content).toMatch(/DragonList is in beta/i)
+    expect(content).toMatch(/MAGAS7 is in early access/i)
 
     const gameMaker = newsArticles.find((article) =>
       article.title.includes('Game Maker')

@@ -7,6 +7,8 @@ export interface NewsArticle {
   image: string
   version?: string
   dateLabel?: string
+  dateTime?: string
+  sourceLabel?: string
   readMoreLink: string
 }
 export const newsArticles: NewsArticle[] = [
@@ -21,6 +23,8 @@ export const newsArticles: NewsArticle[] = [
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1726232450/Frame_307825_il8ahq.webp',
     readMoreLink: 'https://x.com/MagicCraftGame',
     dateLabel: '13 Jul 2026',
+    dateTime: '2026-07-13',
+    sourceLabel: 'Official X account',
   },
   {
     id: '2',
@@ -33,6 +37,8 @@ export const newsArticles: NewsArticle[] = [
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
     readMoreLink: 'https://lobby.magiccraft.io',
     dateLabel: '13 Jul 2026',
+    dateTime: '2026-07-13',
+    sourceLabel: 'MagicCraft Lobby',
   },
   {
     id: '3',
@@ -40,11 +46,13 @@ export const newsArticles: NewsArticle[] = [
     category: 'AI Products',
     title: 'MagicCraft AI Suite Expands',
     description:
-      'Compare the six AI products by their real jobs. MAGAS7 is early access; the other five public products are live.',
+      'Compare the six AI products by their real jobs: four are live, DragonList is in beta, and MAGAS7 is in early access.',
     image:
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
     readMoreLink: '/#ai-products',
     dateLabel: '13 Jul 2026',
+    dateTime: '2026-07-13',
+    sourceLabel: 'MagicCraft product catalog',
   },
   {
     id: '4',
@@ -58,6 +66,8 @@ export const newsArticles: NewsArticle[] = [
     version: 'Steam',
     readMoreLink: 'https://store.steampowered.com/app/3478810/MCRT_Game_Maker/',
     dateLabel: '13 Jul 2026',
+    dateTime: '2026-07-13',
+    sourceLabel: 'Steam',
   },
   {
     id: '5',
@@ -70,6 +80,8 @@ export const newsArticles: NewsArticle[] = [
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp',
     readMoreLink: 'https://app.magiccraft.io/marketplace/explorer',
     dateLabel: '13 Jul 2026',
+    dateTime: '2026-07-13',
+    sourceLabel: 'MagicCraft Marketplace',
   },
   {
     id: '6',
@@ -82,5 +94,7 @@ export const newsArticles: NewsArticle[] = [
       'https://res.cloudinary.com/dfzcr2ch4/image/upload/v1726232450/Frame_307825_il8ahq.webp',
     readMoreLink: 'https://discord.gg/magiccraftgame',
     dateLabel: '13 Jul 2026',
+    dateTime: '2026-07-13',
+    sourceLabel: 'Official Discord',
   },
 ]

@@ -1,6 +1,5 @@
 import { createClient } from '@sanity/client'
-import { sanityConfig } from './config'
-import { isSanityConfigured } from './config'
+import { isSanityConfigured, sanityConfig } from './config'
 
 // Create a browser-friendly Sanity client
 export const sanityClient = isSanityConfigured
@@ -9,20 +8,17 @@ export const sanityClient = isSanityConfigured
       dataset: sanityConfig.dataset,
       apiVersion: sanityConfig.apiVersion,
       useCdn: sanityConfig.useCdn,
-      // Use import.meta.env for Vite environment variables
-      token: import.meta.env.VITE_SANITY_API_TOKEN, // Only needed if you want to update content
     })
   : null
 
 export async function fetchBlogPosts() {
   if (!sanityClient) return []
-  // Query based on the default Sanity blog schema
   const data =
-    await sanityClient.fetch(`*[_type == "post"] | order(_createdAt desc) {
+    await sanityClient.fetch(`*[_type == "post" && defined(slug.current)] | order(coalesce(publishedAt, _createdAt) desc) {
     _id,
     title,
     "slug": slug.current,
-    "description": excerpt,
+    "description": coalesce(excerpt, pt::text(body)),
     "category": categories[0]->title,
     "type": categories[0]->title,
     "image": mainImage.asset->url,
@@ -38,13 +34,12 @@ export async function fetchBlogPostBySlug(slug: string) {
     return null
   }
 
-  // First try direct match on slug.current
   const data = await sanityClient.fetch(
     `*[_type == "post" && slug.current == $slug][0] {
       _id,
       title,
       "slug": slug.current,
-      "description": excerpt,
+      "description": coalesce(excerpt, pt::text(body)),
       "category": categories[0]->title,
       "type": categories[0]->title,
       "image": mainImage.asset->url,

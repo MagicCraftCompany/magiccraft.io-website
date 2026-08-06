@@ -165,15 +165,15 @@ describe('destination route functionality', () => {
     ).toBeInTheDocument()
   })
 
-  it('uses a native hash link to reach the latest news feed', () => {
+  it('uses the router hash controller to reach the latest news feed', () => {
     const { container } = renderPage(NewsPage, '/news')
 
     expect(
-      screen.getByText(/official MagicCraft announcements/i)
+      screen.getByRole('heading', { level: 1, name: 'Inside MagicCraft.' })
     ).toBeInTheDocument()
     expect(
       screen.getByRole('link', { name: 'Read the latest MagicCraft news' })
-    ).toHaveAttribute('href', '#latest-news')
+    ).toHaveAttribute('href', '/news#latest-news')
     expect(container.querySelector('#latest-news')).toContainElement(
       screen.getByTestId('news-section')
     )
