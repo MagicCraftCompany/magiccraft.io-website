@@ -157,8 +157,8 @@ function routeHtml(baseHtml, route) {
   )
   html = replaceRequired(
     html,
-    /<meta\s+name="description"\s+content="[^"]*"\s*\/>/,
-    `<meta name="description" content="${route.description}" />`,
+    /<meta\s+name="description"\s+content="[^"]*"\s+data-rh="true"\s*\/>/,
+    `<meta name="description" content="${route.description}" data-rh="true" />`,
     'description'
   )
   html = replaceRequired(
@@ -169,32 +169,32 @@ function routeHtml(baseHtml, route) {
   )
   html = replaceRequired(
     html,
-    /<meta\s+property="og:title"\s+content="[^"]*"\s*\/>/,
-    `<meta property="og:title" content="${route.title}" />`,
+    /<meta\s+property="og:title"\s+content="[^"]*"\s+data-rh="true"\s*\/>/,
+    `<meta property="og:title" content="${route.title}" data-rh="true" />`,
     'Open Graph title'
   )
   html = replaceRequired(
     html,
-    /<meta\s+property="og:description"\s+content="[^"]*"\s*\/>/,
-    `<meta property="og:description" content="${route.description}" />`,
+    /<meta\s+property="og:description"\s+content="[^"]*"\s+data-rh="true"\s*\/>/,
+    `<meta property="og:description" content="${route.description}" data-rh="true" />`,
     'Open Graph description'
   )
   html = replaceRequired(
     html,
-    /<meta property="og:url" content="[^"]*"\s*\/>/,
-    `<meta property="og:url" content="${canonical}" />`,
+    /<meta\s+property="og:url"\s+content="[^"]*"\s+data-rh="true"\s*\/>/,
+    `<meta property="og:url" content="${canonical}" data-rh="true" />`,
     'Open Graph URL'
   )
   html = replaceRequired(
     html,
-    /<meta\s+name="twitter:title"\s+content="[^"]*"\s*\/>/,
-    `<meta name="twitter:title" content="${route.title}" />`,
+    /<meta\s+name="twitter:title"\s+content="[^"]*"\s+data-rh="true"\s*\/>/,
+    `<meta name="twitter:title" content="${route.title}" data-rh="true" />`,
     'Twitter title'
   )
   html = replaceRequired(
     html,
-    /<meta\s+name="twitter:description"\s+content="[^"]*"\s*\/>/,
-    `<meta name="twitter:description" content="${route.description}" />`,
+    /<meta\s+name="twitter:description"\s+content="[^"]*"\s+data-rh="true"\s*\/>/,
+    `<meta name="twitter:description" content="${route.description}" data-rh="true" />`,
     'Twitter description'
   )
   html = replaceRequired(
@@ -230,8 +230,8 @@ notFoundHtml = replaceRequired(
 )
 notFoundHtml = replaceRequired(
   notFoundHtml,
-  /<meta\s+name="description"\s+content="[^"]*"\s*\/>/,
-  '<meta name="description" content="The requested MagicCraft page does not exist." />',
+  /<meta\s+name="description"\s+content="[^"]*"\s+data-rh="true"\s*\/>/,
+  '<meta name="description" content="The requested MagicCraft page does not exist." data-rh="true" />',
   '404 description'
 )
 notFoundHtml = replaceRequired(

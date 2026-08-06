@@ -48,7 +48,9 @@ function readingTime(post: BlogPostDetail) {
 
 function pageDescription(post: BlogPostDetail) {
   const explicitDescription = post.description?.replace(/\s+/g, ' ').trim()
-  if (explicitDescription) return explicitDescription
+  if (explicitDescription) {
+    return clampEditorialDescription(explicitDescription)
+  }
 
   const text = bodyText(post)
   if (text) return clampEditorialDescription(text)

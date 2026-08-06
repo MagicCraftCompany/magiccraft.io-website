@@ -114,6 +114,51 @@ describe('blog post truth and date handling', () => {
     expect(screen.getByText('Patch Notes')).toBeInTheDocument()
   })
 
+  it('publishes one concise metadata description for long CMS body fallbacks', async () => {
+    const longDescription = Array.from(
+      { length: 45 },
+      (_, index) => `archive-word-${index}`
+    ).join(' ')
+
+    vi.mocked(fetchBlogPostBySlug).mockResolvedValue({
+      _id: 'post-metadata',
+      title: 'Metadata update',
+      description: longDescription,
+      category: 'News',
+      image: '',
+      publishedAt: '2025-04-02T08:00:00.000Z',
+      body: [],
+    } as never)
+
+    render(
+      <HelmetProvider>
+        <MemoryRouter initialEntries={['/blog/metadata-update']}>
+          <Routes>
+            <Route path="/blog/:slug" element={<BlogPost />} />
+          </Routes>
+        </MemoryRouter>
+      </HelmetProvider>
+    )
+
+    await screen.findByRole('heading', { name: 'Metadata update' })
+    await waitFor(() => {
+      const descriptions = document.head.querySelectorAll(
+        'meta[name="description"]'
+      )
+      const description = descriptions[0]?.getAttribute('content') || ''
+
+      expect(descriptions).toHaveLength(1)
+      expect(description.length).toBeLessThanOrEqual(181)
+      expect(description).toMatch(/…$/)
+      expect(
+        document.head.querySelectorAll('meta[property="og:description"]')
+      ).toHaveLength(1)
+      expect(
+        document.head.querySelectorAll('meta[name="twitter:description"]')
+      ).toHaveLength(1)
+    })
+  })
+
   it('shows a calm generic state without exposing a CMS error', async () => {
     vi.mocked(fetchBlogPostBySlug).mockRejectedValue(
       new Error('private upstream diagnostic')

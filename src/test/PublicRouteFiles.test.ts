@@ -45,6 +45,34 @@ describe('public route files', () => {
     expect(config).toContain('from = "/*"\n  to = "/404.html"\n  status = 404')
   })
 
+  it('lets Helmet replace every route-specific base metadata tag', () => {
+    const baseHtml = projectFile('index.html')
+    const generator = projectFile('scripts/generate-route-shells.mjs')
+    const routeSpecificTags = [
+      'name="description"',
+      'property="og:type"',
+      'property="og:title"',
+      'property="og:description"',
+      'property="og:url"',
+      'property="og:image"',
+      'name="twitter:card"',
+      'name="twitter:title"',
+      'name="twitter:description"',
+      'name="twitter:image"',
+    ]
+
+    for (const tag of routeSpecificTags) {
+      const tagStart = baseHtml.indexOf(tag)
+      const tagEnd = baseHtml.indexOf('/>', tagStart)
+
+      expect(tagStart).toBeGreaterThan(-1)
+      expect(baseHtml.slice(tagStart, tagEnd)).toContain('data-rh="true"')
+    }
+
+    expect(generator).toContain('content="${route.description}" data-rh="true"')
+    expect(generator).toContain('content="${canonical}" data-rh="true"')
+  })
+
   it('uses one top-banner element without an empty reserved wrapper', () => {
     const baseHtml = projectFile('index.html')
 
