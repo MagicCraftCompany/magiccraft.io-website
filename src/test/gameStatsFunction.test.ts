@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { handler } from '../../netlify/functions/game-stats'
 
 function jsonResponse(body: unknown, status = 200): Response {
@@ -17,8 +17,59 @@ async function callHandler() {
 }
 
 describe('game-stats function trust states', () => {
+  const originalGameServerUrl = process.env.GAMESERVER_API_URL
+  const originalAsiaGameServerUrl = process.env.GAMESERVER_API_URL_ASIA
+
+  beforeEach(() => {
+    process.env.GAMESERVER_API_URL = 'https://games.magiccraft.example'
+  })
+
   afterEach(() => {
     vi.unstubAllGlobals()
+    if (originalGameServerUrl === undefined) {
+      delete process.env.GAMESERVER_API_URL
+    } else {
+      process.env.GAMESERVER_API_URL = originalGameServerUrl
+    }
+    if (originalAsiaGameServerUrl === undefined) {
+      delete process.env.GAMESERVER_API_URL_ASIA
+    } else {
+      process.env.GAMESERVER_API_URL_ASIA = originalAsiaGameServerUrl
+    }
+  })
+
+  it('uses the selected regional HTTPS endpoint', async () => {
+    process.env.GAMESERVER_API_URL_ASIA =
+      'https://asia.games.magiccraft.example'
+    const fetchMock = vi.fn((input: string | URL | Request) => {
+      const url = String(input)
+      if (url.includes('coingecko')) {
+        return Promise.resolve(jsonResponse({ magiccraft: { usd: 0.0042 } }))
+      }
+      if (url.includes('lobby-api-prod')) {
+        return Promise.resolve(
+          jsonResponse({
+            lobbyStats: { finished: 1 },
+            totalEntryFeesStaked: 2,
+          })
+        )
+      }
+      return Promise.resolve(jsonResponse({ name: 'Regional season' }))
+    })
+    vi.stubGlobal('fetch', fetchMock)
+
+    const response = await handler({
+      queryStringParameters: { region: 'asia' },
+    })
+    const body = JSON.parse(response.body)
+
+    expect(body.season.name).toBe('Regional season')
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://asia.games.magiccraft.example/battlepass/active',
+      expect.objectContaining({
+        headers: expect.objectContaining({ 'X-API-Key': expect.any(String) }),
+      })
+    )
   })
 
   it('returns only values present in current upstream responses', async () => {

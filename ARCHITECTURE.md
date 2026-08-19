@@ -212,11 +212,11 @@ flowchart LR
   Fn -->|live, partial, offline, or unavailable with source metadata| Hook
 ```
 
-The function validates and aggregates independent sources. The client refreshes periodically, considers old results stale, and retains the previous good result if a refresh fails. Missing season data must not erase valid lobby or market data, and valid lobby or market data must not make a failed game-server source look live.
+The function validates and aggregates independent sources. The client refreshes periodically, considers old results stale, and retains the previous good result if a refresh fails. Missing season data must not erase valid lobby or market data, and valid lobby or market data must not make a failed game-server source look live. GameServer reads require a validated HTTPS endpoint for the selected region, with an optional shared HTTPS fallback. The production functions no longer fall back to cleartext regional IPs on port 8903.
 
 ### Battle pass
 
-The client hook calls `/gameserverapi/battlepass/active?region=<region>`. Netlify rewrites this to `battlepass.ts`, which validates Europe, Asia, or America, adds server-side credentials, applies a timeout, and returns bounded errors. The development fixture is opt-in through `VITE_USE_MOCK_BATTLEPASS=true`; it must not appear in production.
+The client hook calls `/gameserverapi/battlepass/active?region=<region>`. Netlify rewrites this to `battlepass.ts`, which validates Europe, Asia, or America, selects the matching `GAMESERVER_API_URL_<REGION>` HTTPS endpoint or the shared `GAMESERVER_API_URL` HTTPS fallback, adds server-side credentials, applies a timeout, and returns bounded errors. Missing or unsafe endpoint configuration fails closed without attempting a cleartext connection. The development fixture is opt-in through `VITE_USE_MOCK_BATTLEPASS=true`; it must not appear in production.
 
 ### MCRT price
 

@@ -1,26 +1,14 @@
 /// <reference types="node" />
 
 import type { Handler, HandlerResponse } from '@netlify/functions'
+import {
+  GameServerConfigurationError,
+  resolveGameServerBase,
+} from '../lib/game-server'
 
 type Region = 'europe' | 'asia' | 'america'
 
-const REGION_IPS: Record<Region, string> = {
-  europe: '5.9.111.150',
-  asia: '51.79.230.134',
-  america: '51.222.44.25',
-}
-
 const DEFAULT_TIMEOUT_MS = 6000
-
-class ProxyError extends Error {
-  code: string
-
-  constructor(code: string) {
-    super(code)
-    this.name = 'ProxyError'
-    this.code = code
-  }
-}
 
 const headers = (cacheControl = 'no-store') => ({
   'Content-Type': 'application/json',
@@ -50,21 +38,6 @@ function timeoutMs() {
   return Math.max(250, Math.min(10_000, configured))
 }
 
-function gameServerBase(region: Region, port: string) {
-  const override = process.env.GAMESERVER_API_URL?.trim()
-  if (!override) return `http://${REGION_IPS[region]}:${port}`
-
-  try {
-    const parsed = new URL(override)
-    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
-      throw new Error('unsupported protocol')
-    }
-    return override.replace(/\/$/, '')
-  } catch {
-    throw new ProxyError('invalid_gameserver_url')
-  }
-}
-
 export const handler: Handler = async (event) => {
   if (event.httpMethod && event.httpMethod !== 'GET') {
     return {
@@ -74,15 +47,16 @@ export const handler: Handler = async (event) => {
   }
 
   const region = normalizeRegion(event.queryStringParameters?.region)
-  const port = process.env.GAMESERVER_API_PORT || '8903'
   const apiKey = process.env.GAMESERVER_API_KEY || ''
 
   let baseUrl: string
   try {
-    baseUrl = gameServerBase(region, port)
+    baseUrl = resolveGameServerBase(region)
   } catch (error) {
     const code =
-      error instanceof ProxyError ? error.code : 'invalid_configuration'
+      error instanceof GameServerConfigurationError
+        ? error.code
+        : 'invalid_configuration'
     return jsonResponse(503, {
       error: 'Proxy unavailable',
       code,

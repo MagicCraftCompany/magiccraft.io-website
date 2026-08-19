@@ -1,5 +1,10 @@
 /// <reference types="node" />
 
+import {
+  GameServerConfigurationError,
+  resolveGameServerBase,
+} from '../lib/game-server'
+
 type HandlerEvent = {
   queryStringParameters?: Record<string, string | undefined> | null
 }
@@ -28,12 +33,6 @@ type LobbyStats = {
   totalEntryFeesStaked: number
   totalLobbies: number | null
   totalUsers: number | null
-}
-
-const REGION_IPS: Record<Region, string> = {
-  europe: '5.9.111.150',
-  asia: '51.79.230.134',
-  america: '51.222.44.25',
 }
 
 const TIMEOUT_MS = 6000
@@ -75,27 +74,19 @@ async function fetchWithTimeout(
   }
 }
 
-function gameServerBase(region: Region, port: string) {
-  const override = process.env.GAMESERVER_API_URL?.trim()
-  if (!override) return `http://${REGION_IPS[region]}:${port}`
-
-  try {
-    const parsed = new URL(override)
-    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') {
-      throw new Error('unsupported protocol')
-    }
-    return override.replace(/\/$/, '')
-  } catch {
-    throw new UpstreamError('invalid_gameserver_url')
-  }
-}
-
 async function fetchBattlepass(
   region: Region,
-  port: string,
   apiKey: string
 ): Promise<JsonRecord> {
-  const base = gameServerBase(region, port)
+  let base: string
+  try {
+    base = resolveGameServerBase(region)
+  } catch (error) {
+    if (error instanceof GameServerConfigurationError) {
+      throw new UpstreamError(error.code)
+    }
+    throw error
+  }
   const response = await fetchWithTimeout(
     `${base}/battlepass/active`,
     {
@@ -339,12 +330,11 @@ export const handler = async (
     regionCandidate === 'asia' || regionCandidate === 'america'
       ? regionCandidate
       : 'europe'
-  const port = process.env.GAMESERVER_API_PORT || '8903'
   const apiKey = process.env.GAMESERVER_API_KEY || ''
   const checkedAt = new Date().toISOString()
 
   const [battlepassResult, lobbyResult, priceResult] = await Promise.allSettled(
-    [fetchBattlepass(region, port, apiKey), fetchLobbyStats(), fetchMcrtPrice()]
+    [fetchBattlepass(region, apiKey), fetchLobbyStats(), fetchMcrtPrice()]
   )
 
   const battlepass =

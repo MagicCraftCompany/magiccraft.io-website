@@ -166,8 +166,10 @@ Names only belong in git. Values belong in Netlify or a local ignored file.
 | `VITE_SANITY_API_TOKEN`            | Legacy client reference; do not configure it because Vite exposes it in the browser |
 | `OPENROUTER_API_KEY`               | Server-side live support                                                            |
 | `OPENROUTER_MODEL`                 | Optional live-support model override                                                |
-| `GAMESERVER_API_URL`               | Optional server-side game API override                                              |
-| `GAMESERVER_API_PORT`              | Game API port, default currently 8903                                               |
+| `GAMESERVER_API_URL`               | Optional shared HTTPS game API fallback for every region                            |
+| `GAMESERVER_API_URL_EUROPE`        | Preferred HTTPS game API endpoint for Europe                                        |
+| `GAMESERVER_API_URL_ASIA`          | Preferred HTTPS game API endpoint for Asia                                          |
+| `GAMESERVER_API_URL_AMERICA`       | Preferred HTTPS game API endpoint for America                                       |
 | `GAMESERVER_API_KEY`               | Server-side game API authentication                                                 |
 | `GAMESERVER_API_TIMEOUT_MS`        | Battle-pass/game-server time budget                                                 |
 | `LOBBY_STATS_URL`                  | Optional lobby statistics override                                                  |

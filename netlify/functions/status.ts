@@ -1,5 +1,9 @@
 /// <reference types="node" />
 import type { Handler } from '@netlify/functions'
+import {
+  configuredGameServerTargets,
+  GameServerConfigurationError,
+} from '../lib/game-server'
 
 type ServiceType = 'core' | 'dep'
 
@@ -113,12 +117,6 @@ async function httpCheck(target: ServiceTarget): Promise<ServiceResult> {
 
 type Region = 'europe' | 'asia' | 'america'
 
-const REGION_IPS: Record<Region, string> = {
-  europe: '5.9.111.150',
-  asia: '51.79.230.134',
-  america: '51.222.44.25',
-}
-
 function normalizeRegion(candidate: string | undefined): Region {
   return candidate === 'asia' || candidate === 'america' ? candidate : 'europe'
 }
@@ -137,8 +135,6 @@ export const handler: Handler = async (event) => {
   try {
     const deep = event.queryStringParameters?.deep === '1'
     const region = normalizeRegion(event.queryStringParameters?.region)
-    const port = process.env.GAMESERVER_API_PORT || '8903'
-    const baseGameserverOverride = process.env.GAMESERVER_API_URL
     const gameserverKey = process.env.GAMESERVER_API_KEY || ''
     const sanityProjectId = configuredSanityProjectId(
       process.env.VITE_SANITY_PROJECT_ID
@@ -169,20 +165,17 @@ export const handler: Handler = async (event) => {
             return { ok: false, status: 0, note: 'API key not configured' }
           }
 
-          const candidates = baseGameserverOverride
-            ? [
-                {
-                  base: baseGameserverOverride.replace(/\/$/, ''),
-                  region: 'custom',
-                },
-              ]
-            : [
-                region,
-                ...Object.keys(REGION_IPS).filter((r) => r !== region),
-              ].map((r) => ({
-                base: `http://${REGION_IPS[r as Region]}:${port}`,
-                region: r,
-              }))
+          let candidates
+          try {
+            candidates = configuredGameServerTargets(region)
+          } catch (error) {
+            const note =
+              error instanceof GameServerConfigurationError &&
+              error.code === 'gameserver_not_configured'
+                ? 'HTTPS endpoint not configured'
+                : 'invalid HTTPS endpoint configuration'
+            return { ok: false, status: 0, note }
+          }
 
           const checks = await Promise.all(
             candidates.map(async (target) => {
@@ -260,7 +253,7 @@ export const handler: Handler = async (event) => {
         label: 'Rent',
         type: 'dep',
         url: 'https://rent.magiccraft.io/',
-        note: 'not in current navigation; DNS repair required before relisting',
+        note: 'not in current navigation; Render service/custom-domain mapping requires repair before relisting',
       },
       {
         key: 'games',

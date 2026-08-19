@@ -258,11 +258,13 @@ describe('submit-grants fail-closed intake', () => {
 })
 
 describe('battle-pass proxy', () => {
-  it('uses the reachable legacy game-server port by default', async () => {
+  it('fails closed without a configured HTTPS endpoint', async () => {
+    vi.stubEnv('GAMESERVER_API_URL', '')
+    vi.stubEnv('GAMESERVER_API_URL_EUROPE', '')
+    vi.stubEnv('GAMESERVER_API_URL_ASIA', '')
+    vi.stubEnv('GAMESERVER_API_URL_AMERICA', '')
     vi.stubEnv('GAMESERVER_API_KEY', 'test-key')
-    const fetchMock = vi
-      .fn()
-      .mockResolvedValue(mockResponse({ name: 'Current season' }))
+    const fetchMock = vi.fn()
     vi.stubGlobal('fetch', fetchMock)
 
     const response = await battlepassHandler(
@@ -273,16 +275,15 @@ describe('battle-pass proxy', () => {
       {} as never
     )
 
-    expect(response?.statusCode).toBe(200)
-    expect(fetchMock).toHaveBeenCalledWith(
-      'http://5.9.111.150:8903/battlepass/active',
-      expect.objectContaining({
-        headers: expect.objectContaining({ 'X-API-Key': 'test-key' }),
-      })
-    )
+    expect(response?.statusCode).toBe(503)
+    expect(JSON.parse(response?.body || '{}')).toEqual({
+      error: 'Proxy unavailable',
+      code: 'gameserver_not_configured',
+    })
+    expect(fetchMock).not.toHaveBeenCalled()
   })
 
-  it('honors the configured game-server base URL', async () => {
+  it('honors the configured shared HTTPS fallback', async () => {
     vi.stubEnv('GAMESERVER_API_URL', 'https://game.example/api/')
     vi.stubEnv('GAMESERVER_API_KEY', 'test-key')
     const fetchMock = vi
@@ -301,6 +302,29 @@ describe('battle-pass proxy', () => {
       expect.objectContaining({
         headers: expect.objectContaining({ 'X-API-Key': 'test-key' }),
         signal: expect.any(AbortSignal),
+      })
+    )
+  })
+
+  it('prefers the selected regional HTTPS endpoint', async () => {
+    vi.stubEnv('GAMESERVER_API_URL', 'https://game.example/api')
+    vi.stubEnv('GAMESERVER_API_URL_ASIA', 'https://asia.game.example/api/')
+    vi.stubEnv('GAMESERVER_API_KEY', 'test-key')
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValue(mockResponse({ name: 'Regional season' }))
+    vi.stubGlobal('fetch', fetchMock)
+
+    const response = await battlepassHandler(
+      { httpMethod: 'GET', queryStringParameters: { region: 'asia' } } as never,
+      {} as never
+    )
+
+    expect(response?.statusCode).toBe(200)
+    expect(fetchMock).toHaveBeenCalledWith(
+      'https://asia.game.example/api/battlepass/active',
+      expect.objectContaining({
+        headers: expect.objectContaining({ 'X-API-Key': 'test-key' }),
       })
     )
   })
