@@ -123,6 +123,31 @@ describe('balanced game and AI homepage', () => {
     expect(screen.queryByText('SocialMM')).not.toBeInTheDocument()
     expect(screen.queryByText(/still building/i)).not.toBeInTheDocument()
 
+    const web3 = within(
+      screen.getByRole('region', {
+        name: 'Your character. Beyond the lobby.',
+      })
+    )
+    expect(
+      web3.getByRole('link', { name: 'Find a Web3 match' })
+    ).toHaveAttribute('href', '/lobbies')
+    expect(
+      web3.getByRole('link', { name: 'Explore NFT marketplace' })
+    ).toHaveAttribute('href', 'https://app.magiccraft.io/marketplace/explorer')
+    expect(
+      web3.getByRole('img', { name: /Karas Genesis NFT artwork/ })
+    ).toBeInTheDocument()
+    expect(
+      web3.getByRole('img', { name: /Official Karas character preview/ })
+    ).toBeInTheDocument()
+    expect(web3.getByLabelText('Genesis rarity tiers')).toHaveTextContent(
+      'RareEpicLegendary'
+    )
+    expect(
+      web3.getByText(/The free game needs no NFT or wallet/)
+    ).toBeInTheDocument()
+    expect(web3.getByText(/In supported Web3 matches/)).toBeInTheDocument()
+
     const publicCopy = container.textContent ?? ''
     expect(publicCopy).not.toMatch(
       /degraded|controlled authenticated testing|horizontal overflow|returns 404|fallback values|public surfaces checked|checked 13 july/i
@@ -143,6 +168,7 @@ describe('balanced game and AI homepage', () => {
     ).toEqual([
       'home',
       'game',
+      'web3-journey',
       'ai-products',
       'Live ecosystem stats',
       'systems',

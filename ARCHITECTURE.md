@@ -86,12 +86,15 @@ The homepage in `src/pages/Homepagemcrt.tsx` composes these active sections in o
 1. Header
 2. Hero with game and AI-suite entry paths
 3. Game experience with first-party gameplay media
-4. Six-product AI suite
-5. Live statistics with honest source states
-6. Grouped ecosystem systems
-7. Final game or product choice
-8. Mobile conversion bar
-9. Footer
+4. Optional Web3 journey: lobby discovery, NFT collection and trading, supported in-game character utility
+5. Six-product AI suite
+6. Live statistics with honest source states
+7. Grouped ecosystem systems
+8. Final game or product choice
+9. Mobile conversion bar
+10. Footer
+
+James requested the visible lobby-to-NFT-to-game story on 6 September 2026. `Web3JourneySection.tsx` presents official character artwork and a separately labelled game character preview, Genesis rarity tiers, and links to the existing lobby and marketplace. Preserve this product direction and its optional-wallet boundary; `AiHomepage.test.tsx` checks the mounted journey and handoffs. Character preview art must not be presented as proof of a particular NFT skin or glowing effect. Exact glow eligibility needs a current collection/client source. Official sources: [Genesis](https://docs.magiccraft.io/nft-collections/genesis-collection), [NFT utility](https://docs.magiccraft.io/nft-collections/nft-utilities), [Web3 lobby](https://docs.magiccraft.io/magiccraft-web3-integration-system/web3-lobby), and the public marketplace catalog. These document the product story, not a wallet transaction or game-client acceptance test.
 
 The page also emits Organization, ItemList, VideoGame, and VideoObject structured data.
 

@@ -6,6 +6,7 @@ import EcosystemSystemsSection from '@/components/Home/EcosystemSystemsSection'
 import FinalCtaSection from '@/components/Home/FinalCtaSection'
 import GameExperienceSection from '@/components/Home/GameExperienceSection'
 import HeroSection from '@/components/Home/HeroSection'
+import Web3JourneySection from '@/components/Home/Web3JourneySection'
 import MobileBottomBar from '@/components/Home/MobileBottomBar'
 import LiveStatsWidget from '@/components/LiveStats/LiveStatsWidget'
 import { AI_PRODUCTS } from '@/data/aiProducts'
@@ -96,6 +97,7 @@ function Homepagemcrt() {
         >
           <HeroSection />
           <GameExperienceSection />
+          <Web3JourneySection />
           <AiProductSuiteSection />
           <LiveStatsWidget />
           <EcosystemSystemsSection />
