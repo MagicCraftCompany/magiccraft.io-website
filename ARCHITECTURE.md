@@ -2,6 +2,8 @@
 
 Last reviewed: 24 July 2026, Bangkok time
 
+Website and public-service review: [6 September 2026](docs/MAGICCRAFT_REVIEW_2026-09-06.md). This follow-up records the current integration gap, ownership limits, verified design changes and release state.
+
 This document maps the system represented and integrated by the MagicCraft website. It distinguishes code owned by this repository from independent products and services. For day-to-day guardrails, read [AGENTS.md](AGENTS.md). For dated audit findings and unfinished work, read [the function sweep](docs/MAGICCRAFT_FUNCTION_SWEEP_TODO.md) and [the design plan](docs/MAGICCRAFT_DESIGN_CONCEPT_TODO.md).
 
 ## 1. Purpose and product model

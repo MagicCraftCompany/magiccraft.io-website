@@ -140,6 +140,8 @@ Before shipping a meaningful UI or route change, also verify:
 
 The canonical remote is `MagicCraftCompany/magiccraft.io-website`. Main-branch pushes run GitHub Actions and normally trigger the connected Netlify site. That tested Git path is the routine release path.
 
+If local GitHub CLI authentication is unavailable, check the exact repository through the connected GitHub app and an existing signed-in browser before asking for a new login. A filtered repository listing can omit an accessible repository, while repository permission metadata can describe the user's rights without proving the app's grant permits writes. Verify the actual operation. An existing browser session may support a coherent multi-file commit without accessing saved credentials. Preserve file paths, compare the resulting tree with the tested local tree, and retain all normal CI, Netlify and public-render checks. Do not copy or expose credentials to bridge clients.
+
 `npm run deploy:prod` is a recovery or explicitly chosen direct-deploy path, not the routine path. It increments tracked `src/version.ts`, builds whatever is in the working tree, and invokes an unpinned Netlify CLI through `npx`. Review and commit the revision change if this command is deliberately used.
 
 Normal release proof is:

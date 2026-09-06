@@ -25,7 +25,7 @@ export default function AiProductSuiteSection() {
           icon={Sparkles}
           eyebrow="The MagicCraft AI Suite"
           title="AI for the work in front of you."
-          description="Run work with Merlin, make films with Akyn, launch campaigns with MagicAds, coordinate marketing with MAGAS7, turn meetings into action with DragonList, or organize wellness questions with DocAI. Each opens as its own product with its own account and controls."
+          description="Choose a focused tool for your next task. Each opens as its own product with its own account and controls."
           headingId="ai-products-heading"
         >
           <div className="mt-5 flex flex-wrap items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.12em]">
@@ -41,7 +41,7 @@ export default function AiProductSuiteSection() {
           </div>
         </HomeSectionIntro>
 
-        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-8 grid gap-3 md:grid-cols-2 lg:mt-10 xl:grid-cols-3">
           {AI_PRODUCTS.map((product) => (
             <a
               key={product.name}
@@ -49,14 +49,14 @@ export default function AiProductSuiteSection() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label={`${product.cta}. Opens ${product.name} as a separate product in a new tab.`}
-              className={`${homeSurfaceClass} group relative flex min-h-[260px] flex-col overflow-hidden rounded-[26px] p-5 no-underline transition-[transform,background-color,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.055] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] motion-reduce:transform-none motion-reduce:transition-none sm:p-6`}
+              className={`${homeSurfaceClass} group relative flex flex-col overflow-hidden rounded-[22px] p-5 no-underline transition-[transform,background-color,border-color] duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.055] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] motion-reduce:transform-none motion-reduce:transition-none sm:p-6`}
             >
               <span
                 className="absolute inset-x-0 top-0 h-px"
                 style={{ backgroundColor: product.accent }}
               />
 
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
                 <span
                   className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[14px] border bg-black/20 p-2"
                   style={{ borderColor: `${product.accent}45` }}
@@ -69,6 +69,16 @@ export default function AiProductSuiteSection() {
                     decoding="async"
                   />
                 </span>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-sans text-2xl font-semibold leading-tight tracking-[-0.035em] text-white">
+                    {product.name}
+                  </h3>
+                  <p className="mt-1 text-xs leading-5 text-white/65">
+                    {product.category}
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4">
                 <span
                   className="rounded-full border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.14em]"
                   style={{
@@ -80,34 +90,24 @@ export default function AiProductSuiteSection() {
                   {product.status}
                 </span>
               </div>
-
-              <p
-                className="mt-5 text-[11px] font-semibold uppercase tracking-[0.14em]"
-                style={{ color: product.accent }}
-              >
-                {product.category}
-              </p>
-              <h3 className="mt-2 font-sans text-[28px] font-semibold leading-none tracking-[-0.035em] text-white">
-                {product.name}
-              </h3>
               <p className="mt-3 flex-1 text-sm leading-6 text-white/[0.65]">
                 {product.description}
               </p>
 
               {product.safetyNote ? (
-                <p className="mt-4 flex items-start gap-2 border-t border-white/[0.08] pt-4 text-xs leading-5 text-white/[0.48]">
+                <p className="mt-4 flex items-start gap-2 border-t border-white/[0.08] pt-3 text-xs leading-5 text-white/60">
                   <ShieldCheck
                     className="mt-0.5 h-3.5 w-3.5 shrink-0"
                     style={{ color: product.accent }}
                     aria-hidden="true"
                   />
-                  <span className="line-clamp-2">{product.safetyNote}</span>
+                  <span>{product.safetyNote}</span>
                 </p>
               ) : null}
 
               <span className="mt-4 flex items-center justify-between gap-3 text-sm font-semibold text-white">
                 <span>{product.cta}</span>
-                <span className="inline-flex items-center gap-1 text-xs font-medium text-white/[0.48]">
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-white/60">
                   Separate product
                   <ArrowUpRight
                     className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 motion-reduce:transform-none motion-reduce:transition-none"

@@ -53,7 +53,7 @@ export default function GameExperienceSection() {
                 className="h-full w-full object-contain"
                 controls
                 playsInline
-                preload="metadata"
+                preload="none"
                 poster={GAMEPLAY_VIDEO.poster}
               >
                 <source src={GAMEPLAY_VIDEO.src} type="video/mp4" />
@@ -143,26 +143,23 @@ export default function GameExperienceSection() {
           </div>
         </div>
 
-        <div className="mt-5 grid gap-4 sm:grid-cols-3">
+        <div className="mt-5 grid grid-cols-3 gap-2 sm:gap-4">
           {GAMEPLAY_GALLERY.map((item) => (
             <figure
               key={item.label}
-              className="group overflow-hidden rounded-[20px] border border-white/10 bg-white/[0.035]"
+              className="group overflow-hidden rounded-xl border border-white/10 bg-white/[0.035] sm:rounded-[20px]"
             >
               <div className="aspect-video overflow-hidden bg-[#020418]">
                 <img
                   src={item.src}
                   alt={item.alt}
-                  className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.035]"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.035] motion-reduce:transform-none motion-reduce:transition-none"
                   loading="lazy"
                   decoding="async"
                 />
               </div>
-              <figcaption className="flex items-center justify-between gap-3 px-4 py-3 text-sm font-bold text-white/80">
+              <figcaption className="px-2 py-2 text-[10px] font-medium leading-4 text-white/80 sm:px-4 sm:py-3 sm:text-sm sm:font-bold">
                 {item.label}
-                <span className="text-[#98FFF9]" aria-hidden="true">
-                  ●
-                </span>
               </figcaption>
             </figure>
           ))}

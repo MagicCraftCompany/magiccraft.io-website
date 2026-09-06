@@ -15,7 +15,6 @@ import {
   type EcosystemSystemGroupId,
   type EcosystemSystemStatus,
 } from '@/data/ecosystemSystems'
-import { homeSurfaceClass } from './homeStyles'
 import HomeSectionIntro from './ui/HomeSectionIntro'
 
 const GROUP_ICONS: Record<EcosystemSystemGroupId, LucideIcon> = {
@@ -29,7 +28,7 @@ const STATUS_STYLES: Record<EcosystemSystemStatus, string> = {
   'Live data': 'border-cyan-300/25 bg-cyan-300/10 text-cyan-100',
   'On Steam': 'border-violet-300/25 bg-violet-300/10 text-violet-100',
   'In development': 'border-sky-300/25 bg-sky-300/10 text-sky-100',
-  Optional: 'border-white/15 bg-white/5 text-white/65',
+  Optional: 'border-white/15 bg-white/5 text-white/[0.65]',
   Guide: 'border-violet-300/25 bg-violet-300/10 text-violet-100',
 }
 
@@ -52,49 +51,51 @@ export default function EcosystemSystemsSection() {
           icon={ShieldCheck}
           eyebrow="Connected systems"
           title="Every system has a clear job and a direct path."
-          description="Move from live game activity to optional Web3 tools and creator infrastructure. Each card explains what the system is for and where to begin."
+          description="Find game activity, optional Web3 tools and creator infrastructure, grouped by what you want to do."
           accent="#FFD18A"
           headingId="systems-heading"
         />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mt-8 lg:mt-10">
           {ECOSYSTEM_SYSTEM_GROUPS.map((group) => {
             const Icon = GROUP_ICONS[group.id]
             return (
               <article
                 key={group.id}
-                className={`${homeSurfaceClass} overflow-hidden rounded-[28px] bg-[#080a2a]`}
+                className="grid gap-5 border-t border-white/10 py-6 lg:grid-cols-[220px_1fr] lg:gap-8 lg:py-8"
               >
-                <div className="border-b border-white/10 p-6 sm:p-7">
-                  <span
-                    className="flex h-12 w-12 items-center justify-center rounded-2xl border bg-black/20"
-                    style={{
-                      borderColor: `${group.accent}55`,
-                      color: group.accent,
-                    }}
-                  >
-                    <Icon className="h-6 w-6" aria-hidden="true" />
-                  </span>
-                  <p
-                    className="mt-5 text-xs font-semibold uppercase tracking-[0.17em]"
-                    style={{ color: group.accent }}
-                  >
-                    {group.eyebrow}
-                  </p>
-                  <h3 className="mt-2 font-sans text-2xl font-semibold leading-tight tracking-[-0.025em] text-white">
+                <div className="min-w-0 lg:pt-4">
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border bg-black/20"
+                      style={{
+                        borderColor: `${group.accent}55`,
+                        color: group.accent,
+                      }}
+                    >
+                      <Icon className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                    <p
+                      className="text-[10px] font-semibold uppercase tracking-[0.14em]"
+                      style={{ color: group.accent }}
+                    >
+                      {group.eyebrow}
+                    </p>
+                  </div>
+                  <h3 className="mt-3 font-sans text-xl font-semibold leading-tight tracking-[-0.025em] text-white">
                     {group.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-6 text-white/60">
+                  <p className="mt-2 text-sm leading-6 text-white/60">
                     {group.description}
                   </p>
                 </div>
 
-                <div className="divide-y divide-white/[0.08]">
+                <div className="grid gap-2 sm:grid-cols-3">
                   {group.systems.map((system) => {
                     const isInternal = system.href.startsWith('/')
                     const content = (
                       <>
-                        <div className="flex items-start justify-between gap-3">
+                        <div className="flex flex-wrap items-center justify-between gap-2 sm:flex-col sm:items-start">
                           <h4 className="font-sans font-semibold text-white">
                             {system.name}
                           </h4>
@@ -105,13 +106,13 @@ export default function EcosystemSystemsSection() {
                             {system.status}
                           </span>
                         </div>
-                        <p className="mt-2 text-sm leading-6 text-white/70">
+                        <p className="mt-3 text-sm leading-6 text-white/70">
                           {system.purpose}
                         </p>
-                        <p className="mt-2 text-xs leading-5 text-white/55">
+                        <p className="mt-2 flex-1 text-xs leading-5 text-white/60">
                           {system.note}
                         </p>
-                        <span className="mt-4 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[#98FFF9]">
+                        <span className="mt-2 inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[#98FFF9]">
                           {system.cta}
                           {isInternal ? (
                             <ArrowUpRight
@@ -132,7 +133,7 @@ export default function EcosystemSystemsSection() {
                       <Link
                         key={system.id}
                         to={system.href}
-                        className="block p-5 no-underline transition-colors duration-200 hover:bg-white/[0.04] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#98FFF9] motion-reduce:transition-none sm:p-6"
+                        className="flex min-w-0 flex-col rounded-2xl bg-white/[0.025] p-4 no-underline transition-colors duration-200 hover:bg-white/[0.06] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#98FFF9] motion-reduce:transition-none"
                       >
                         {content}
                       </Link>
@@ -142,7 +143,7 @@ export default function EcosystemSystemsSection() {
                         href={system.href}
                         target="_blank"
                         rel="noreferrer noopener"
-                        className="block p-5 no-underline transition-colors duration-200 hover:bg-white/[0.04] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#98FFF9] motion-reduce:transition-none sm:p-6"
+                        className="flex min-w-0 flex-col rounded-2xl bg-white/[0.025] p-4 no-underline transition-colors duration-200 hover:bg-white/[0.06] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#98FFF9] motion-reduce:transition-none"
                       >
                         {content}
                       </a>
