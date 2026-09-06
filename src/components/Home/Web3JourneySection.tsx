@@ -1,6 +1,5 @@
 import { ArrowRight, ArrowUpRight, Gem, Swords } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import karasPreview from '@/assets/images/hero/karas (3).webp'
 import HomeSectionIntro from './ui/HomeSectionIntro'
 import {
   homePrimaryActionClass,
@@ -13,6 +12,7 @@ const genesisGuide =
   'https://docs.magiccraft.io/nft-collections/genesis-collection'
 const utilitiesGuide =
   'https://docs.magiccraft.io/nft-collections/nft-utilities'
+const glowingSkinSource = 'https://www.instagram.com/reel/DIlsE8Hqt7B/'
 // Official Karas Genesis artwork observed in the public marketplace.
 const karasNftArt =
   'https://gateway.pinata.cloud/ipfs/QmX8UUL4vE3NzRaXMivCoyL9TR6PR2A9GpvcVw9UdXB3Yb/3312.png'
@@ -81,7 +81,7 @@ export default function Web3JourneySection() {
         </ol>
 
         <div className="mt-9 grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-12">
-          <div className="grid min-w-0 grid-cols-[0.72fr_1.28fr] gap-3 sm:gap-4">
+          <div className="grid min-w-0 grid-cols-[0.85fr_1.15fr] items-center gap-3 sm:gap-4">
             <figure className="min-w-0 overflow-hidden rounded-2xl border border-white/15 bg-[#17162e]">
               <img
                 src={karasNftArt}
@@ -99,13 +99,13 @@ export default function Web3JourneySection() {
                 NFT collection artwork
               </figcaption>
             </figure>
-            <figure className="min-w-0 overflow-hidden rounded-2xl border border-white/15 bg-[#17162e]">
-              <div className="relative aspect-[1.78] overflow-hidden sm:aspect-[1.65]">
+            <figure className="min-w-0 overflow-hidden rounded-2xl border border-[#F5CF86]/35 bg-[#17162e]">
+              <div className="relative aspect-[36/43] overflow-hidden">
                 <img
-                  src={karasPreview}
-                  alt="Official Karas character preview inside MagicCraft"
-                  width={1600}
-                  height={633}
+                  src="/gameplay/doge-nft-glow.svg"
+                  alt="Gold Doge NFT skin glowing inside the MagicCraft game hero screen"
+                  width={360}
+                  height={430}
                   loading="lazy"
                   decoding="async"
                   className="h-full w-full object-cover"
@@ -114,9 +114,17 @@ export default function Web3JourneySection() {
               <figcaption className="p-3 text-xs leading-5 text-white/75 sm:p-4">
                 <span className="flex items-center gap-2 font-semibold text-white">
                   <Swords className="h-3.5 w-3.5" aria-hidden="true" />
-                  Karas in MagicCraft
+                  Glowing Doge NFT skin
                 </span>
-                Character preview • appearances vary
+                <a
+                  href={glowingSkinSource}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="mt-1 inline-flex min-h-6 items-center gap-1 text-[#F5CF86] underline decoration-[#F5CF86]/40 underline-offset-4 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F5CF86]"
+                >
+                  Official in-game preview
+                  <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                </a>
               </figcaption>
             </figure>
           </div>

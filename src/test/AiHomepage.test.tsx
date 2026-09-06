@@ -138,8 +138,11 @@ describe('balanced game and AI homepage', () => {
       web3.getByRole('img', { name: /Karas Genesis NFT artwork/ })
     ).toBeInTheDocument()
     expect(
-      web3.getByRole('img', { name: /Official Karas character preview/ })
-    ).toBeInTheDocument()
+      web3.getByRole('img', { name: /Gold Doge NFT skin glowing inside/ })
+    ).toHaveAttribute('src', '/gameplay/doge-nft-glow.svg')
+    expect(
+      web3.getByRole('link', { name: 'Official in-game preview' })
+    ).toHaveAttribute('href', 'https://www.instagram.com/reel/DIlsE8Hqt7B/')
     expect(web3.getByLabelText('Genesis rarity tiers')).toHaveTextContent(
       'RareEpicLegendary'
     )
