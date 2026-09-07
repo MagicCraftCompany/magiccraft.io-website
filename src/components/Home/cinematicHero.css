@@ -1,0 +1,291 @@
+.mc-cinema {
+  position: relative;
+  isolation: isolate;
+  min-height: min(960px, 100svh);
+  background: #080d18;
+  color: #fff;
+  display: flex;
+  overflow: hidden;
+}
+.mc-cinema-media,
+.mc-cinema-shade,
+.mc-cinema-poster,
+.mc-cinema-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.mc-cinema-media {
+  z-index: -3;
+}
+.mc-cinema-poster,
+.mc-cinema-video {
+  object-fit: cover;
+  object-position: 58% center;
+}
+.mc-cinema-video {
+  filter: saturate(0.8);
+}
+.mc-cinema-shade {
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(3, 8, 18, 0.75), rgba(3, 8, 18, 0.08) 85%),
+    linear-gradient(
+      0deg,
+      #03082f 0%,
+      rgba(3, 8, 18, 0.65) 17%,
+      transparent 74%,
+      rgba(3, 8, 18, 0.35)
+    );
+}
+.mc-cinema-content {
+  width: 100%;
+  max-width: 1600px;
+  margin: auto;
+  min-height: inherit;
+  padding: 156px 64px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.mc-cinema-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 10px;
+  letter-spacing: 0.19em;
+  color: #e0eae8;
+  margin-bottom: auto;
+  padding-bottom: 70px;
+}
+.mc-cinema-eyebrow > span:first-child {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #98fff9;
+  box-shadow: 0 0 15px #98fff9;
+}
+.mc-cinema-eyebrow-line {
+  width: 32px;
+  height: 1px;
+  background: #ffffff50;
+}
+.mc-cinema-main {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 35px;
+  padding-bottom: 54px;
+}
+.mc-cinema h1 {
+  font-size: clamp(52px, 6.5vw, 100px);
+  line-height: 1.01;
+  letter-spacing: -0.065em;
+  margin: 0;
+  text-wrap: balance;
+}
+.mc-cinema h1 span {
+  color: #d2e5e4;
+}
+.mc-cinema-intro {
+  font-size: 17px;
+  line-height: 1.65;
+  color: #d6dddd;
+  margin-top: 24px;
+}
+.mc-cinema-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.mc-cinema-primary,
+.mc-cinema-secondary {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border-radius: 8px;
+  padding: 0 22px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.mc-cinema-primary {
+  background: #b2f9e8;
+  color: #09251f;
+  box-shadow: 0 0 32px #91f4d51c;
+}
+.mc-cinema-primary:hover {
+  background: #d1fff4;
+}
+.mc-cinema-secondary {
+  background: #ffffff0d;
+  border: 1px solid #ffffff40;
+  color: white;
+  backdrop-filter: blur(16px);
+}
+.mc-cinema-secondary:hover {
+  background: #ffffff20;
+}
+.mc-cinema-caption {
+  padding-bottom: 3px;
+  flex-shrink: 0;
+}
+.mc-cinema-caption > span,
+.mc-cinema-label {
+  font-size: 9px;
+  letter-spacing: 0.17em;
+  color: #b5cfca;
+}
+.mc-cinema-caption p {
+  font-size: 22px;
+  line-height: 1.3;
+  margin: 14px 0;
+}
+.mc-cinema-caption > div {
+  font-size: 11px;
+  color: #c8d4d3;
+}
+.mc-cinema-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-top: 22px;
+  border-top: 1px solid #ffffff30;
+}
+.mc-cinema-bottom p {
+  font-size: 11px;
+  color: #bdc7cf;
+  margin-top: 7px;
+}
+.mc-cinema-discover {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 11px;
+  color: #dbe5e4;
+  text-decoration: none;
+}
+.mc-cinema-playback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid #ffffff30;
+  border-radius: 24px;
+  background: #ffffff08;
+  font-size: 11px;
+}
+.mc-cinema-playback:disabled {
+  opacity: 0.6;
+}
+.mc-cinema :is(button, a):focus-visible {
+  outline: 2px solid #98fff9;
+  outline-offset: 5px;
+}
+.mc-cinematic-home .site-header {
+  position: absolute;
+  top: 18px;
+  left: 24px;
+  width: calc(100% - 48px);
+  border: 1px solid #ffffff26;
+  border-radius: 16px;
+  background: #0b152a66;
+  backdrop-filter: blur(24px);
+  box-shadow: 0 12px 40px #0002;
+}
+.mc-cinematic-home {
+  position: relative;
+}
+.mc-cinematic-home #main-content {
+  margin-top: 0;
+}
+@media (min-width: 1800px) {
+  .mc-cinema-content {
+    padding-top: 170px;
+  }
+}
+@media (max-width: 767px) {
+  .mc-cinematic-home .site-header {
+    top: 12px;
+    left: 12px;
+    width: calc(100% - 24px);
+    border-radius: 12px;
+  }
+  .mc-cinema {
+    min-height: calc(100svh - 48px);
+  }
+  .mc-cinema-content {
+    padding: 106px 24px 24px;
+  }
+  .mc-cinema-eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    gap: 8px;
+    padding-bottom: 78px;
+  }
+  .mc-cinema-eyebrow-line {
+    width: 16px;
+  }
+  .mc-cinema-main {
+    padding-bottom: 30px;
+  }
+  .mc-cinema h1 {
+    font-size: clamp(44px, 11.9vw, 76px);
+  }
+  .mc-cinema-intro {
+    font-size: 14px;
+    margin-top: 19px;
+  }
+  .mc-cinema-caption,
+  .mc-cinema-discover {
+    display: none;
+  }
+  .mc-cinema-actions {
+    flex-direction: column;
+    margin-top: 24px;
+    gap: 10px;
+  }
+  .mc-cinema-primary,
+  .mc-cinema-secondary {
+    min-height: 48px;
+    width: 100%;
+  }
+  .mc-cinema-main > div:first-child {
+    width: 100%;
+  }
+  .mc-cinema-bottom {
+    gap: 12px;
+    padding-top: 17px;
+  }
+  .mc-cinema-label {
+    font-size: 8px;
+  }
+  .mc-cinema-playback {
+    padding: 0 12px;
+    flex-shrink: 0;
+  }
+  .mc-cinema-shade {
+    background: linear-gradient(
+      0deg,
+      #03082f,
+      rgba(3, 8, 18, 0.67) 38%,
+      rgba(3, 8, 18, 0.18) 100%
+    );
+  }
+  .mc-cinema-video,
+  .mc-cinema-poster {
+    object-position: 60% center;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mc-cinema * {
+    transition: none !important;
+  }
+}

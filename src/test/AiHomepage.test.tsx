@@ -47,18 +47,11 @@ describe('balanced game and AI homepage', () => {
       screen.getAllByRole('button', { name: 'Play MagicCraft' }).length
     ).toBeGreaterThan(0)
     expect(
-      screen.getByRole('button', {
-        name: /live game.*PvP and PvE across mobile and PC.*choose your platform/i,
-      })
-    ).toBeInTheDocument()
-    expect(
       screen.getByRole('link', { name: 'Explore 6 AI products' })
     ).toHaveAttribute('href', '#ai-products')
     expect(
-      screen.getByRole('link', {
-        name: /AI product suite.*Merlin AI.*Akyn.*MagicAds.*MAGAS7.*DragonList.*DocAI.*Find your product/i,
-      })
-    ).toHaveAttribute('href', '#ai-products')
+      screen.getByRole('button', { name: /background video/i })
+    ).toBeInTheDocument()
 
     expect(
       screen.getByRole('heading', { name: 'Established PvP. New PvE.' })

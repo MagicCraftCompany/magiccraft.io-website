@@ -82,7 +82,7 @@ function Homepagemcrt() {
         </script>
       </Helmet>
 
-      <div className="min-h-dvh w-full max-w-full overflow-x-hidden bg-[#03082f] text-white">
+      <div className="mc-cinematic-home min-h-dvh w-full max-w-full overflow-x-hidden bg-[#03082f] text-white">
         <a
           href="#main-content"
           className="fixed left-4 top-2 z-[300000] -translate-y-20 rounded-lg bg-white px-4 py-2 font-bold text-[#03082f] transition focus:translate-y-0 focus:outline-none focus:ring-2 focus:ring-[#98FFF9]"
