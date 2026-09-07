@@ -24,7 +24,7 @@ describe('canonical MCRT access route', () => {
       render(<App />)
 
       expect(await screen.findByTestId('buy-mcrt-page')).toBeInTheDocument()
-      expect(window.location.pathname).toBe('/buy-mcrt')
+      expect(window.location.pathname).toBe('/buy-mcrt/')
     }
   )
 

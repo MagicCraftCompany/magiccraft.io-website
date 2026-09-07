@@ -35,10 +35,10 @@ export default function Pricing() {
           name="description"
           content="See where MCRT is used across MagicCraft, check current product rules, verify the contract and compare the official Bybit and PancakeSwap access paths."
         />
-        <link rel="canonical" href="https://magiccraft.io/buy-mcrt" />
+        <link rel="canonical" href="https://magiccraft.io/buy-mcrt/" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://magiccraft.io/buy-mcrt" />
+        <meta property="og:url" content="https://magiccraft.io/buy-mcrt/" />
         <meta
           property="og:title"
           content="MCRT Utility and Buying Guide | MagicCraft"

@@ -35,6 +35,7 @@ const routeShells = [
   },
   {
     path: 'buy-mcrt',
+    canonical: 'https://magiccraft.io/buy-mcrt/',
     title: 'MCRT Utility and Buying Guide | MagicCraft',
     description:
       'See where MCRT is used across MagicCraft, check current product rules, verify the contract and compare the official access paths.',
@@ -146,7 +147,7 @@ function escapeHtml(value) {
 }
 
 function routeHtml(baseHtml, route) {
-  const canonical = `https://magiccraft.io/${route.path}`
+  const canonical = route.canonical ?? `https://magiccraft.io/${route.path}`
   let html = baseHtml
 
   html = replaceRequired(

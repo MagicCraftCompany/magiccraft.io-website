@@ -42,19 +42,19 @@
 
 [[redirects]]
   from = "/pricing"
-  to = "/buy-mcrt"
+  to = "/buy-mcrt/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/buy"
-  to = "/buy-mcrt"
+  to = "/buy-mcrt/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/get-mcrt"
-  to = "/buy-mcrt"
+  to = "/buy-mcrt/"
   status = 301
   force = true
 

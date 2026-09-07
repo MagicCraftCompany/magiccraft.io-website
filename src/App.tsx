@@ -79,15 +79,15 @@ function App() {
           <Route path="/whitepaper" element={<Whitepaper />} />
           <Route
             path="/pricing"
-            element={<Navigate to="/buy-mcrt" replace />}
+            element={<Navigate to="/buy-mcrt/" replace />}
           />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/lobbies" element={<Lobbies />} />
           <Route path="/buy-mcrt" element={<Pricing />} />
-          <Route path="/buy" element={<Navigate to="/buy-mcrt" replace />} />
+          <Route path="/buy" element={<Navigate to="/buy-mcrt/" replace />} />
           <Route
             path="/get-mcrt"
-            element={<Navigate to="/buy-mcrt" replace />}
+            element={<Navigate to="/buy-mcrt/" replace />}
           />
           <Route path="/admin/*" element={<SanityStudio />} />
           <Route path="*" element={<NotFound />} />

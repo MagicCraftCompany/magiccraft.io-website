@@ -20,7 +20,7 @@ describe('public route files', () => {
   it('publishes the canonical MCRT and lobby routes in the sitemap', () => {
     const sitemap = projectFile('public/sitemap.xml')
 
-    expect(sitemap).toContain('<loc>https://magiccraft.io/buy-mcrt</loc>')
+    expect(sitemap).toContain('<loc>https://magiccraft.io/buy-mcrt/</loc>')
     expect(sitemap).toContain('<loc>https://magiccraft.io/lobbies</loc>')
     expect(sitemap).not.toContain('<loc>https://magiccraft.io/pricing</loc>')
   })
@@ -29,7 +29,7 @@ describe('public route files', () => {
     const config = projectFile('netlify.toml')
 
     for (const alias of ['/pricing', '/buy', '/get-mcrt']) {
-      expect(config).toContain(`from = "${alias}"\n  to = "/buy-mcrt"`)
+      expect(config).toContain(`from = "${alias}"\n  to = "/buy-mcrt/"`)
     }
   })
 
@@ -40,6 +40,7 @@ describe('public route files', () => {
       expect(generator).toContain(`path: '${path}'`)
     }
     expect(generator).toContain("join(distRoot, '404.html')")
+    expect(generator).toContain("canonical: 'https://magiccraft.io/buy-mcrt/'")
   })
 
   it('lets Helmet own the base canonical and returns a real 404 shell', () => {

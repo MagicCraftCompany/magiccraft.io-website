@@ -176,7 +176,7 @@ export default function Web3JourneySection() {
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
           <Link
-            to="/buy-mcrt"
+            to="/buy-mcrt/"
             className={homeSecondaryActionClass}
             onClick={() =>
               trackCta({
