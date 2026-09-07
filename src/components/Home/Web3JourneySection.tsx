@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight, Gem, Swords } from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Coins, Gem, Swords } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import HomeSectionIntro from './ui/HomeSectionIntro'
 import {
@@ -6,6 +6,7 @@ import {
   homeQuietActionClass,
   homeSecondaryActionClass,
 } from './homeStyles'
+import { trackCta } from '@/lib/analytics'
 
 const marketplaceUrl = 'https://app.magiccraft.io/marketplace/explorer'
 const genesisGuide =
@@ -123,7 +124,10 @@ export default function Web3JourneySection() {
                   className="mt-1 inline-flex min-h-6 items-center gap-1 text-[#F5CF86] underline decoration-[#F5CF86]/40 underline-offset-4 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#F5CF86]"
                 >
                   Official in-game preview
-                  <ArrowUpRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                  <ArrowUpRight
+                    className="h-3.5 w-3.5 shrink-0"
+                    aria-hidden="true"
+                  />
                 </a>
               </figcaption>
             </figure>
@@ -171,11 +175,25 @@ export default function Web3JourneySection() {
             Find a Web3 match{' '}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </Link>
+          <Link
+            to="/buy-mcrt"
+            className={homeSecondaryActionClass}
+            onClick={() =>
+              trackCta({
+                cta: 'buy_mcrt',
+                location: 'web3_journey',
+                label: 'utility_and_access',
+              })
+            }
+          >
+            MCRT utility and access{' '}
+            <Coins className="h-4 w-4" aria-hidden="true" />
+          </Link>
           <a
             href={marketplaceUrl}
             target="_blank"
             rel="noreferrer noopener"
-            className={homeSecondaryActionClass}
+            className={homeQuietActionClass}
           >
             Explore NFT marketplace{' '}
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

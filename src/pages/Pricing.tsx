@@ -2,20 +2,38 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 import { ArrowDown, ArrowLeft, ExternalLink, Wallet } from 'lucide-react'
 import BuyStrip from '@/components/Buy/BuyStrip'
+import McrtUtilityGuide from '@/components/Buy/McrtUtilityGuide'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import { MCRT_CONTRACT_CHECKSUM } from '@/constants'
 
 const LOBBY_URL = 'https://lobby.magiccraft.io/'
 
+const mcrtFaq = [
+  {
+    question: 'Do I need MCRT to play MagicCraft?',
+    answer:
+      'No. The free MagicCraft game does not require MCRT, an NFT or a wallet. MCRT is used only in supported optional Web3 functions.',
+  },
+  {
+    question: 'Where can MCRT be used?',
+    answer:
+      'Current paths include eligible Web3 lobby matches, supported marketplace transactions and pledging pools. Each product shows its current rules and availability.',
+  },
+  {
+    question: 'Which MCRT contract should I verify?',
+    answer: `The verified BNB Smart Chain contract shown by MagicCraft is ${MCRT_CONTRACT_CHECKSUM}. Always compare the full address before using an external service.`,
+  },
+]
+
 export default function Pricing() {
   return (
     <div className="min-h-dvh w-full max-w-full bg-[#03082f] text-white">
       <Helmet>
-        <title>Pricing and Buy $MCRT | MagicCraft</title>
+        <title>MCRT Utility and Buying Guide | MagicCraft</title>
         <meta
           name="description"
-          content="Open the Bybit MCRT/USDT market or PancakeSwap MCRT/WBNB pool, then review supported MagicCraft Web3 functions and their risks."
+          content="See where MCRT is used across MagicCraft, check current product rules, verify the contract and compare the official Bybit and PancakeSwap access paths."
         />
         <link rel="canonical" href="https://magiccraft.io/buy-mcrt" />
         <meta name="robots" content="index, follow" />
@@ -23,17 +41,31 @@ export default function Pricing() {
         <meta property="og:url" content="https://magiccraft.io/buy-mcrt" />
         <meta
           property="og:title"
-          content="Pricing and Buy $MCRT | MagicCraft"
+          content="MCRT Utility and Buying Guide | MagicCraft"
         />
         <meta
           property="og:description"
-          content="Two direct MagicCraft MCRT routes: Bybit MCRT/USDT and the PancakeSwap MCRT/WBNB pool."
+          content="Choose an MCRT utility, check its current rules, verify the contract and compare the official Bybit and PancakeSwap access paths."
         />
         <meta
           property="og:image"
           content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
         />
         <meta name="twitter:card" content="summary_large_image" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: mcrtFaq.map((item) => ({
+              '@type': 'Question',
+              name: item.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: item.answer,
+              },
+            })),
+          })}
+        </script>
       </Helmet>
 
       <Header />
@@ -50,22 +82,28 @@ export default function Pricing() {
           <div>
             <div className="inline-flex items-center gap-2 rounded-lg border border-[#98FFF9]/25 bg-[#98FFF9]/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#98FFF9]">
               <Wallet className="h-4 w-4" aria-hidden="true" />
-              Live purchase paths
+              MCRT utility and access
             </div>
             <h1 className="mt-5 max-w-3xl text-4xl font-black leading-tight md:text-6xl">
-              Get MCRT for supported MagicCraft functions.
+              See where MCRT is used. Then choose your route.
             </h1>
             <p className="text-white/72 mt-5 max-w-2xl text-base leading-relaxed md:text-lg">
-              MCRT can be used in eligible lobby entries and rewards, supported
-              marketplace transactions, pledging, and referral functions. Each
-              product shows its current rules.
+              Start with the experience you want. Check its current rules, then
+              verify the contract and compare the available access paths.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <a
-                href="#buy-mcrt"
+                href="#mcrt-utility"
                 className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-[#98FFF9] px-5 text-sm font-black text-[#03082f] transition hover:bg-white"
               >
-                Compare buy routes
+                See MCRT utility
+                <ArrowDown className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a
+                href="#buy-mcrt"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-white/20 bg-white/[0.08] px-5 text-sm font-bold text-white transition hover:bg-white/15"
+              >
+                Compare access routes
                 <ArrowDown className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
@@ -93,6 +131,8 @@ export default function Pricing() {
             </p>
           </div>
         </section>
+
+        <McrtUtilityGuide />
 
         <BuyStrip />
 

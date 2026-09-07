@@ -135,6 +135,9 @@ describe('balanced game and AI homepage', () => {
       web3.getByRole('link', { name: 'Explore NFT marketplace' })
     ).toHaveAttribute('href', 'https://app.magiccraft.io/marketplace/explorer')
     expect(
+      web3.getByRole('link', { name: 'MCRT utility and access' })
+    ).toHaveAttribute('href', '/buy-mcrt')
+    expect(
       web3.getByRole('img', { name: /Karas Genesis NFT artwork/ })
     ).toBeInTheDocument()
     expect(

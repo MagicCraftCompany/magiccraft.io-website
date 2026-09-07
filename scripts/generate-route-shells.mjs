@@ -35,9 +35,9 @@ const routeShells = [
   },
   {
     path: 'buy-mcrt',
-    title: 'Buy MCRT Safely | MagicCraft',
+    title: 'MCRT Utility and Buying Guide | MagicCraft',
     description:
-      'Review official MCRT access paths, contract details, network requirements and external exchange risks before choosing a provider.',
+      'See where MCRT is used across MagicCraft, check current product rules, verify the contract and compare the official access paths.',
   },
   {
     path: 'chooseyourhero',

@@ -19,7 +19,7 @@ vi.mock('@/lib/useMcrtPrice', () => ({
 import Pricing from '@/pages/Pricing'
 
 describe('MCRT buyer guide', () => {
-  it('uses one comparison surface for the two primary market routes', () => {
+  it('leads with current utility before the two primary market routes', () => {
     render(
       <HelmetProvider>
         <MemoryRouter>
@@ -29,12 +29,35 @@ describe('MCRT buyer guide', () => {
     )
 
     expect(
-      screen.getByRole('link', { name: 'Compare buy routes' })
+      screen.getByRole('link', { name: 'See MCRT utility' })
+    ).toHaveAttribute('href', '#mcrt-utility')
+    expect(
+      screen.getByRole('link', { name: 'Compare access routes' })
     ).toHaveAttribute('href', '#buy-mcrt')
     expect(screen.getByRole('link', { name: 'Open Lobby' })).toHaveAttribute(
       'href',
       'https://lobby.magiccraft.io/'
     )
+
+    const utility = screen
+      .getByRole('heading', {
+        name: 'Choose what you want to do with MCRT.',
+      })
+      .closest('section')
+    expect(utility).not.toBeNull()
+    const utilityView = within(utility as HTMLElement)
+    expect(
+      utilityView.getByRole('link', { name: /Compete in eligible matches/i })
+    ).toHaveAttribute('href', '/lobbies')
+    expect(
+      utilityView.getByRole('link', { name: /Collect and trade game assets/i })
+    ).toHaveAttribute('href', 'https://app.magiccraft.io/marketplace/explorer')
+    expect(
+      utilityView.getByRole('link', { name: /Review current pledging pools/i })
+    ).toHaveAttribute('href', 'https://app.magiccraft.io/pledging')
+    expect(
+      utilityView.getByText(/free MagicCraft game does not require MCRT/i)
+    ).toBeInTheDocument()
 
     const comparison = screen
       .getByRole('heading', { name: 'Two direct routes to get MCRT' })
