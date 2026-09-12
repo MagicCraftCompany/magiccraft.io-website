@@ -1,845 +1,272 @@
-import { Suspense, lazy } from 'react'
-
-const Header = lazy(() => import('@/components/Header/Header'))
-const Footer = lazy(() => import('@/components/Footer/Footer'))
-
-import bulletIcon from '@/assets/icons/bullet.svg'
-
-import { Play, ArrowUpRight } from 'lucide-react'
-import { roadmapData } from '../data/roadmapData'
-import FaqAccordion from '../components/Accordion/FaqAccordion'
-import RoadmapCard from '../components/Cards/RoadmapCard'
-
-import { foundation } from '@/data/foundation'
-import strengths from '@/data/strengths'
-import { useNavigate } from 'react-router-dom'
-import GameCard from '@/components/ui/GameCard'
-import { Game, gamesData } from '@/data/game'
-import ContactForm from '@/components/ContactForm'
-import { ListedPartners } from '@/components/Partners/Partners'
+import {
+  ArrowDown,
+  ArrowUpRight,
+  Monitor,
+  Smartphone,
+  Swords,
+} from 'lucide-react'
 import { Helmet } from 'react-helmet-async'
+import { Link } from 'react-router-dom'
+import Header from '@/components/Header/Header'
+import Footer from '@/components/Footer/Footer'
+import GameExperienceSection from '@/components/Home/GameExperienceSection'
+import {
+  homePrimaryActionClass,
+  homeSecondaryActionClass,
+} from '@/components/Home/homeStyles'
+import { ANDROID_APP_URL, IOS_APP_URL, PC_GAME_URL } from '@/constants'
+import { GAMEPLAY_SCREENSHOTS } from '@/data/gameplayMedia'
+import { trackCta, type CtaEvent } from '@/lib/analytics'
 
-function Homepagegames() {
-  // const [isSubmitting, setIsSubmitting] = useState(false)
+const platforms: {
+  name: string
+  detail: string
+  href: string
+  event: CtaEvent['cta']
+  icon: typeof Monitor
+}[] = [
+  {
+    name: 'Steam',
+    detail: 'Play on PC',
+    href: PC_GAME_URL,
+    event: 'download_steam',
+    icon: Monitor,
+  },
+  {
+    name: 'App Store',
+    detail: 'iPhone & iPad',
+    href: IOS_APP_URL,
+    event: 'download_ios',
+    icon: Smartphone,
+  },
+  {
+    name: 'Google Play',
+    detail: 'Android',
+    href: ANDROID_APP_URL,
+    event: 'download_android',
+    icon: Smartphone,
+  },
+]
 
-  // async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
-  //   event.preventDefault()
-  //   setIsSubmitting(true)
-  //   // Add your form submission logic here
-  //   setIsSubmitting(false)
-  // }
-  const youtubeLink = () => {
-    window.location.href = 'https://lobby.magiccraft.io/register'
-  }
-  const navigate = useNavigate()
-
-  const magiccrafthandleClick = () => {
-    navigate('/magiccraft')
-  }
-  // const magicrunnerhandleClick = () => {
-  //   navigate('/magicrunner')
-  // }
-  // const magic8ballhandleClick = () => {
-  //   navigate('/magic8ball')
-  // }
-  const contactTeamhandleClick = () => {
-    window.location.hash = 'contact'
-  }
-
-  const filteredGames = gamesData.filter(
-    (game: { title: string }) =>
-      game.title === 'magicflutter' ||
-      game.title === 'magicchess' ||
-      game.title === 'tetrablox' ||
-      game.title === 'runescribes' ||
-      game.title === 'magicrunner'
-  )
-  const canonical = 'https://magiccraft.io/magiccraft'
+export default function HomePageGames() {
+  const canonical = 'https://magiccraft.io/magiccraft/'
   return (
-    <>
+    <div className="min-h-dvh bg-[#03082f] text-white">
       <Helmet>
-        <title>MagicCraft Game – Established PvP & New PvE</title>
+        <title>Play MagicCraft | Free Fantasy PvP & PvE Game</title>
         <meta
           name="description"
-          content="Play the live MagicCraft fantasy MOBA across PC, Steam, iOS and Android. Compete in established PvP modes or explore the new solo and co-op PvE system."
+          content="See real MagicCraft gameplay, discover PvP and PvE modes, and choose your platform. Free to play on Steam, iOS and Android. No wallet required."
         />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonical} />
         <meta
           property="og:title"
-          content="MagicCraft Game – Established PvP & New PvE"
+          content="Play MagicCraft | Free Fantasy PvP & PvE Game"
         />
         <meta
           property="og:description"
-          content="Play the live MagicCraft fantasy MOBA with established PvP and a new solo and co-op PvE system."
+          content="Your next battle starts here. Watch real gameplay and get MagicCraft on PC, iOS or Android."
         />
         <meta
           property="og:image"
-          content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp"
+          content={`https://magiccraft.io${GAMEPLAY_SCREENSHOTS.teamBattle.src}`}
         />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="MagicCraft Game – Established PvP & New PvE"
-        />
-        <meta
-          name="twitter:description"
-          content="Play the live MagicCraft fantasy MOBA with established PvP and a new solo and co-op PvE system."
-        />
-        <meta
-          name="twitter:image"
-          content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp"
-        />
       </Helmet>
-      <div className="min-h-dvh w-full text-white">
-        <Suspense
-          fallback={
-            <div className="flex h-24 items-center justify-center">
-              <span className="text-sm text-white/50">Loading…</span>
+      <Header />
+      <main>
+        <section className="mx-auto grid max-w-screen-xl items-center gap-9 px-4 py-10 sm:px-6 sm:py-16 lg:grid-cols-[0.9fr_1.1fr] lg:gap-12 lg:py-20">
+          <div>
+            <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#98FFF9]">
+              <Swords className="h-4 w-4" aria-hidden="true" />
+              MagicCraft · Free to play
+            </p>
+            <h1 className="mt-5 max-w-xl font-sans text-5xl font-semibold leading-[1.04] tracking-[-0.045em] sm:text-6xl lg:text-7xl">
+              Your next battle starts here.
+            </h1>
+            <p className="mt-5 max-w-lg text-base leading-7 text-white/70 sm:text-lg">
+              Pick your hero. Fight for the objective. Discover competitive team
+              battles and solo or co-op adventures on PC and mobile.
+            </p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a href="#play" className={homePrimaryActionClass}>
+                Choose your platform{' '}
+                <ArrowDown className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a href="#game" className={homeSecondaryActionClass}>
+                Watch gameplay{' '}
+                <ArrowDown className="h-4 w-4" aria-hidden="true" />
+              </a>
             </div>
-          }
-        >
-          <Header />
-        </Suspense>
-        <main className="scroll-smooth pb-32">
-          <section className="relative -mt-[120px] h-[700px] bg-hero bg-cover bg-center">
-            <div className="hero-bg-gradient absolute inset-0  h-full w-full"></div>
-            <div className="relative mx-auto w-11/12 max-w-screen-xl">
-              <div className="grid h-full w-full grid-cols-1 place-items-center gap-2  py-28 md:gap-4">
-                <div className="w-14 max-w-28 md:w-full">
-                  <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
-                    alt="MCRT Token"
-                  />
-                </div>
-                <h1 className="max-w-4xl text-balance text-center font-serif text-4xl text-white drop-shadow-lg  md:text-6xl">
-                  <span className="text-xl md:text-4xl"> MagicCraft Game:</span>{' '}
-                  <br />
-                  Established PvP. New PvE.{' '}
-                </h1>
-              </div>
-
-              <div className="-mt-[50px] rounded-4xl bg-custom-dark bg-opacity-70 p-4 px-10 pb-10 ">
-                <div className="text-center">
-                  <h3 className="mb-4 font-serif text-2xl font-bold">
-                    MAGICVERSE GAME TO PLAY{' '}
-                  </h3>
-                </div>
-
-                <div className=" hidden grid-cols-5 gap-4  lg:grid ">
-                  {filteredGames.map((game: Game) => (
-                    <div key={game.id} className="mx-4 min-w-[160px] flex-1 ">
-                      <GameCard game={game} />
-                    </div>
-                  ))}
-                </div>
-                <div className="overflow-x-auto pb-3 lg:hidden">
-                  <div className="flex snap-x snap-mandatory flex-nowrap pr-8">
-                    {filteredGames.map((game: Game) => (
-                      <div
-                        key={game.id}
-                        className="mx-2 min-w-[160px] flex-1 snap-start first:ml-0"
-                      >
-                        <GameCard game={game} />
-                      </div>
-                    ))}
-                  </div>
-                  <p className="mt-2 text-center text-xs uppercase tracking-[0.16em] text-white/55">
-                    Swipe to explore games
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <div className="space-y-28 md:mt-20  md:pt-60 lg:pt-48">
-            <section className="relative mx-auto mt-0 w-11/12 max-w-screen-xl">
-              <div className="flex flex-col-reverse items-start gap-0 md:flex-row md:gap-8">
-                <div className="w-full space-y-8 self-end md:w-1/2">
-                  <div>
-                    <div className="mt-[100px] flex min-w-0 items-center gap-1 md:mt-0">
-                      <p className="rotate-180 whitespace-nowrap text-lg leading-none tracking-widest text-[#bd6ae182] [writing-mode:vertical-lr]">
-                        Meet
-                      </p>
-                      <h2 className="min-w-0 text-4xl font-semibold leading-none sm:text-5xl md:text-[64px]">
-                        MagicCraft&apos;s
-                      </h2>
-                    </div>
-
-                    <p
-                      // className="font-outline text-7xl font-bold outline outline-red-500"#B591F299, #B591F278
-                      className="font-outline bg-gradient-to-b from-[#B591F299] to-[#B591F278] bg-clip-text py-1 text-5xl font-bold tracking-wide text-[#03082F] sm:text-6xl md:text-7xl md:tracking-wider"
-                    >
-                      Ecosystem
-                    </p>
-                  </div>
-                  <h4 className="text-balance text-2xl leading-9">
-                    In 2026, MagicCraft connects the live game with practical AI
-                    products and optional Web3 features. MCRT supports selected
-                    ecosystem utilities, while the core game remains available
-                    without treating play as an income product.
-                  </h4>
-                  <div className="flex cursor-pointer flex-wrap items-center gap-[10px]">
-                    {[
-                      'MagicCraft',
-                      // 'Magic8Ball',
-                      // 'MagicRunner',
-                      'Runescribe',
-                      'MagicTetra',
-                    ].map((val) => {
-                      let handleClick
-                      switch (val) {
-                        case 'MagicCraft':
-                          handleClick = magiccrafthandleClick
-                          break
-                        // case 'Magic8Ball':
-                        //   handleClick = magic8ballhandleClick
-                        //   break
-                        // case 'MagicRunner':
-                        //   handleClick = magicrunnerhandleClick
-                        //   break
-                        case 'Runescribe':
-                          handleClick = () =>
-                            (window.location.href =
-                              'https://games.magiccraft.io/gamepage/runescribes')
-                          break
-                        case 'TetraBlox':
-                          handleClick = () =>
-                            (window.location.href =
-                              'https://games.magiccraft.io/gamepage/tetrablox')
-                          break
-                        default:
-                          handleClick = () => {}
-                      }
-                      return (
-                        <div
-                          key={val}
-                          className="game-chips-bg grid w-fit place-items-center rounded-full px-4 py-3"
-                          onClick={handleClick}
-                        >
-                          <p>{val}</p>
-                        </div>
-                      )
-                    })}
-                  </div>
-
-                  <div className="flex flex-col items-center gap-8 pt-10 lg:flex-row">
-                    <div>
-                      <div
-                        className="cursor-pointer rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]"
-                        onClick={youtubeLink}
-                      >
-                        Join Our Ecosystem
-                      </div>
-                    </div>
-                    <div className="flex flex-row gap-[0.7em]">
-                      <a href="#faq">
-                        <div className="cursor-pointer rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]">
-                          FAQ
-                        </div>
-                      </a>
-                      <div className="hidden w-px self-stretch bg-gradient-to-b from-transparent via-[#98FFF9] to-transparent md:block" />
-                      <a
-                        className="flex flex-col items-center justify-center gap-1"
-                        href="/#game"
-                      >
-                        <div className="flex cursor-pointer flex-col items-center justify-center gap-1">
-                          <Play size={18} />
-                          <p>Watch Gameplay</p>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className=" relative mx-auto hidden w-full max-w-lg md:w-1/2 md:pt-0 lg:block"
-                  style={{
-                    width: '641px',
-                    height: '317.512px',
-                    flexShrink: '0',
-                  }}
-                >
-                  {/* <img
-                    src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717330280/ecosystem_y5ixdr.webp"
-                    alt="MagicCraft Ecosystem"
-                    className="ml-[0.5em]"
-                  /> */}
-                  {/* <div className="absolute left-0 top-0 z-10 h-full w-full bg-gradient-to-b from-transparent to-[#03082F] to-85% md:hidden" /> */}
-
-                  <video
-                    className="absolute  inset-0 h-full w-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                  >
-                    <source
-                      src="https://res.cloudinary.com/dfzcr2ch4/video/upload/v1717166775/video_gokp2f.mp4"
-                      type="video/mp4"
-                    />
-                  </video>
-                </div>
-              </div>
-
-              <div className="relative mt-[4em] w-full rounded-4xl bg-[#080420]">
-                <div className="space-y-5 px-8 pb-10 pt-5 md:px-10">
-                  <div className="grid grid-cols-1 place-items-stretch gap-[30px] md:grid-cols-2 lg:grid-cols-4">
-                    <h5 className="mx-auto  text-balance text-center font-serif text-base md:mt-[2em] md:text-[16px]">
-                      JOIN US IN SHAPING LIVE GAMES,
-                      <br />
-                      PRACTICAL AI PRODUCTS AND
-                      <br />
-                      OPTIONAL MCRT UTILITY.
-                    </h5>
-                    <div className="overflow-hidden rounded-[20px] bg-gradient-to-b from-[#B591F2] to-transparent p-px">
-                      <div className="relative h-full w-full rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-4 py-2 md:p-10 ">
-                        <h4 className="font-serif  text-lg md:text-[16px]">
-                          <span className="text-[#8EFF49]">
-                            OPTIONAL MCRT UTILITY:
-                          </span>{' '}
-                          <br /> REVIEW TERMS BEFORE USING WEB3 FEATURES.
-                        </h4>
-
-                        <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
-                          1
-                        </div>
-                      </div>
-                    </div>
-                    <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                      <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#2A0D4E] to-[#57186D] to-90% px-8 py-4 md:p-10  ">
-                        <h4 className="font-serif text-lg md:text-[16px]">
-                          <span className="text-[#C09AFF]">
-                            LIVE GAME UPDATES:
-                          </span>{' '}
-                          <br />
-                          CHECK OFFICIAL CHANNELS FOR CURRENT EVENTS.
-                        </h4>
-
-                        <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
-                          2
-                        </div>
-                      </div>
-                    </div>
-                    <div className="rounded-[20px] bg-gradient-to-b from-[#B591F2]  to-transparent p-px">
-                      <div className="relative h-full w-full overflow-hidden rounded-[20px]  bg-gradient-to-r from-[#3D186D] to-[#2A0D4E] to-90% px-8 py-4 md:p-10  ">
-                        <h4 className="font-serif text-lg md:text-[16px]">
-                          <span className="text-[#98FFF9]">PORTFOLIO:</span>{' '}
-                          <br />
-                          INDIE AND AA GAMES ONBOARDED.
-                        </h4>
-
-                        <div className="absolute -bottom-10 right-1 bg-gradient-to-b from-white/20 to-transparent bg-clip-text font-serif text-[170px] leading-none text-transparent md:text-[230px]">
-                          3
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="relative mx-auto w-11/12 max-w-screen-xl">
-              <div className="space-y-20">
-                <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
-                  THE LIVE MAGICCRAFT GAME
-                </h2>
-                <div className="flex flex-col items-center md:flex-row">
-                  <div className="w-4/5 md:w-2/5">
-                    <div className=" grid grid-cols-1 place-items-center gap-2 rounded-t-4xl border-x border-t border-[#3F3F7A] bg-[#11113A] p-10 shadow-lg md:rounded-l-4xl md:rounded-r-none md:border-y md:border-l md:border-r-0 ">
-                      <div className="max-w-10 md:max-w-20">
-                        <img
-                          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp"
-                          alt="MCRT"
-                        />
-                      </div>
-
-                      <div className="max-w-[350px]">
-                        <img
-                          src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717173067/magiccraft-text_yzqlug.webp"
-                          alt=""
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="w-full md:w-3/5">
-                    <div className="rounded-4xl bg-gradient-to-b from-[#B591F2] to-transparent p-px">
-                      <div className="rounded-4xl bg-gradient-to-r  from-[#2A0D4E] to-[#57186D] to-90%">
-                        <div className="bg-black/20 px-12 py-8">
-                          <h3 className="font-serif text-3xl">Features</h3>
-                        </div>
-
-                        <div className="space-y-6 px-12 py-10">
-                          <div>
-                            <p className="text-xl">
-                              Explore the live game modes and the newest
-                              expansion to the MagicCraft experience:
-                            </p>
-                          </div>
-
-                          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#C09AFF] to-transparent" />
-
-                          <div className="grid grid-cols-1 gap-x-3 gap-y-6 md:grid-cols-2">
-                            <div className="flex items-center gap-2">
-                              <img src={bulletIcon} alt="List item" />
-                              <p className="text-[22px] text-[#C09AFF]">
-                                <span className="font-bold text-[#ECE0FF]">
-                                  Elevated UI/UX:&nbsp;
-                                </span>
-                                Immerse yourself in an enhanced interface for a
-                                seamless gaming experience.
-                              </p>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <img src={bulletIcon} alt="List item" />
-                              <p className="text-[22px] text-[#C09AFF]">
-                                <span className="font-bold text-[#ECE0FF]">
-                                  New PvE System:&nbsp;
-                                </span>
-                                Play solo or co-op through explorable areas,
-                                quests, bosses, progression, and loot.
-                              </p>
-                            </div>{' '}
-                            <div className="flex items-center gap-2">
-                              <img src={bulletIcon} alt="List item" />
-                              <p className="text-[22px] text-[#C09AFF]">
-                                <span className="font-bold text-[#ECE0FF]">
-                                  Seasonal Progression:&nbsp;
-                                </span>
-                                New league system, daily tasks, and ranked play
-                                to enable progression.
-                              </p>
-                            </div>{' '}
-                            <div className="flex items-center gap-2">
-                              <img src={bulletIcon} alt="List item" />
-                              <p className="text-[22px] text-[#C09AFF]">
-                                <span className="font-bold text-[#ECE0FF]">
-                                  Dynamic In-game Market:&nbsp;
-                                </span>
-                                A new in-game store packed with utilities for
-                                MCRT.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
-              <div className="space-y-8">
-                <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
-                  Strengthening Our Foundation
-                </h2>
-
-                <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-                  {[
-                    'Industry-leading minds',
-                    'Comprehensive game development studio',
-                    'High-quality titles',
-                    'In-house team',
-                    'Groundbreaking games',
-                  ].map((val) => (
-                    <div
-                      key={val}
-                      className="flex items-center gap-3 whitespace-nowrap rounded-4xl bg-[#4312694D] px-5 py-2 backdrop-blur-md"
-                    >
-                      <img
-                        className="shrink-0 "
-                        src={bulletIcon}
-                        alt="List item "
-                      />
-                      <p className="text-lg md:text-2xl">{val}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-3">
-                {foundation.map((item, i) => {
-                  return (
-                    <div
-                      key={i}
-                      className="rounded-4xl bg-gradient-to-b  from-[#3F3F7A] to-transparent p-px"
-                    >
-                      <div className="rounded-4xl  bg-[#11113A] p-10">
-                        {/* <div>
-                            <p className="rotate-180 whitespace-nowrap text-lg uppercase leading-none tracking-widest text-[#bd6ae182] [writing-mode:vertical-lr]">
-                              Approach
-                            </p>
-                          </div> */}
-                        <div className="space-y-4">
-                          <h4 className="font-serif text-[21px] text-[#C09AFF]">
-                            {item.title}
-                          </h4>
-                          <p className="text-balance text-xl">{item.desc}</p>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-
-              <div className="text-center">
-                <button>
-                  <div
-                    className="rounded-md border border-[#98FFF9] px-9 py-4 text-[22px] text-[#98FFF9] transition hover:bg-[#98FFF9] hover:text-[#03082F]"
-                    onClick={contactTeamhandleClick}
-                  >
-                    Contact us
-                  </div>
-                </button>
-              </div>
-            </section>
-
-            {/* banner */}
-            <div className="w-full">
-              <div className="relative mx-auto w-full max-w-screen-xl">
-                <img
-                  src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1733160952/image_14_meffcp.webp"
-                  alt="Magiccraft banner showing a wizard character"
-                  className="h-auto w-full rounded-lg object-cover"
-                />
-
-                {/* Content overlay using flexbox */}
-                <div className="absolute inset-0 ml-4 flex flex-col justify-end p-6 sm:p-8 md:p-12 lg:p-16">
-                  <div className="space-y-2 sm:space-y-4">
-                    <h2 className="font-serif text-sm text-white sm:text-xl lg:text-2xl">
-                      MAGICCRAFT BROWSER GAMES
-                    </h2>
-                    <a
-                      href="https://games.magiccraft.io/"
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="group inline-flex items-center gap-2 text-sm text-[#98FFF9] transition-colors hover:text-white sm:text-base"
-                    >
-                      Read more
-                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <section
-              id="faq"
-              className="relative mx-auto w-11/12 max-w-screen-xl space-y-20"
-            >
-              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
-                Frequently Asked Questions
-              </h2>
-
-              <FaqAccordion />
-            </section>
-
-            {/* <section
-              className="relative hidden bg-cover bg-center py-4 md:block lg:h-[900px]"
-              style={{
-                backgroundImage:
-                  "url('https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717191953/bg-1_bx94ek.webp')",
-              }}
-            >
-              <div className="flex h-full flex-col items-center justify-center text-center ">
-                <h2 className=" text-balance font-serif text-lg text-white lg:mt-0 lg:text-4xl">
-                  UNLIMITED WAYS TO EARN MCRT
-                </h2>
-                <p className="text-xs text-white lg:mt-4 lg:text-xl">
-                  Explore unlimited ways to earn MCRT through our dynamic
-                  <br className="block lg:hidden" /> portfolio of games within
-                  the MagicCraft
-                  <br className="hidden lg:block" /> ecosystem. Each
-                  <br className="block lg:hidden" /> game offers unique
-                  opportunities to earn more MCRT and
-                  <br className="block lg:hidden" />
-                  enhance your overall <br className="hidden lg:block" /> gaming
-                  experience. Dive into <br className="block lg:hidden" />
-                  MagicRunner and Magic8Ball today and start earning!
-                </p>
-                <div className="mt-4 flex flex-col items-center  justify-center rounded-3xl text-center lg:grid lg:grid-cols-2">
-                  <div className="">
-                    <img
-                      src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717353441/crouserl_first_1_pehlcf.webp"
-                      className="md:h-[20em] md:w-[15em] lg:mt-5 lg:h-[30em] lg:w-[20em]"
-                    />
-                  </div>
-                  <div className="crousel-first relative -mt-[10em]  flex h-fit w-fit flex-col items-start rounded-lg bg-[rgba(10,9,23,0.60)] p-4 lg:-ml-[6em]">
-                    <div className="my-1 flex items-center justify-center rounded-[68.117px] bg-[#0B0F2E] p-2 px-4 text-lg text-[#98FFF9]">
-                      Patch update
-                    </div>
-                    <div className="text-left">
-                      <div className=" my-2 ml-2 text-2xl font-bold">
-                        MagicRunner
-                      </div>
-                      <p className="my-2 ml-2 text-lg">
-                        Web3 games utilize the blockchain to <br />
-                        provide players with a unique gaming <br />
-                        experience that is markedly different <br />
-                        from traditional games.
-                      </p>
-                    </div>
-                    {/* <button
-                      className="my-2 ml-2 flex flex-row rounded-lg border-2 border-[#98FFF9] px-4 py-1 text-[#98FFF9]"
-                      onClick={magicrunnerhandleClick}
-                    > 
-                      <img
-                        src="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717172991/Vector_Stroke_orbimh.webp"
-                        alt="Button Image"
-                        className="h-6 w-6 p-1"
-                      />
-                      Download MagicRunner Now
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </section> */}
-
-            <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-20">
-              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
-                our strengths
-              </h2>
-
-              <div className="grid snap-x snap-mandatory auto-cols-auto grid-flow-col items-stretch gap-6 overflow-x-auto overscroll-x-contain md:gap-8">
-                {strengths.map((item, i) => {
-                  return (
-                    <div
-                      key={i}
-                      className="min-w-80 snap-start rounded-4xl bg-gradient-to-b from-[#3F3F7A]  to-transparent p-px md:w-full "
-                    >
-                      <div className="relative gap-8 overflow-y-auto rounded-4xl bg-[#11113A] px-8 pb-8 pt-36 shadow-xl lg:px-10 lg:pb-10 lg:pt-52">
-                        <div className="absolute left-0 top-0 -z-0">
-                          <img src={item.image} alt={item.title} />
-                        </div>
-                        <div className="absolute left-0 top-0 h-full w-full bg-gradient-to-b from-transparent to-[#11113A] to-55%"></div>
-                        <div className="relative z-10 space-y-6 lg:space-y-8">
-                          <h3 className="bg-gradient-to-b from-white to-white/75 bg-clip-text font-serif text-[25px] text-transparent lg:text-[32px]">
-                            {item.title}
-                          </h3>
-
-                          <div className="h-px w-full bg-gradient-to-r from-transparent via-[#98FFF9] to-transparent" />
-
-                          <p className="text-balance text-2xl lg:text-3xl">
-                            {item.desc}
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-            </section>
-
-            <section className="relative mx-auto w-11/12 max-w-screen-xl space-y-10 md:space-y-20">
-              <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
-                Global Horizons
-              </h2>
-
-              <div className="space-y-20 md:space-y-8">
-                <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
-                  <div className="rounded-4xl bg-gradient-to-b  from-[#3F3F7A] to-transparent p-px ">
-                    <div className="relative gap-8 overflow-hidden rounded-4xl bg-[#11113A] px-10 pb-10 pt-20 shadow-xl">
-                      <div className="absolute left-5 top-5 z-10 rounded-full bg-black/60 px-4 py-[5px] text-[#98FFF9]">
-                        Step #1
-                      </div>
-                      <div className="space-y-4 md:space-y-[18px]">
-                        <h3 className="font-serif text-3xl text-[#C09AFF] md:text-[32px]">
-                          Strategic Partnerships
-                        </h3>
-                        <p className="text-base md:text-lg">
-                          We aim to forge alliances with regional influencers,
-                          gaming communities, and distribution platforms to
-                          amplify our presence.
-                        </p>
-
-                        <a
-                          className="flex cursor-pointer items-center gap-2 text-[#98FFF9]"
-                          rel="noreferrer noopener"
-                          href="mailto:contact@magiccraft.io?subject=MagicCraft%20Partnership"
-                        >
-                          <span>Become a partner</span>
-                          <ArrowUpRight size={18} />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="rounded-4xl bg-gradient-to-b  from-[#3F3F7A] to-transparent p-px ">
-                    <div className="relative gap-8 overflow-hidden rounded-4xl bg-[#11113A] px-10 pb-10 pt-20 shadow-xl">
-                      <div className="absolute left-5 top-5 z-10 rounded-full bg-black/60 px-4 py-[5px] text-[#98FFF9]">
-                        Step #2
-                      </div>
-                      <div className="space-y-4 md:space-y-[18px]">
-                        <h3 className="font-serif text-3xl text-[#C09AFF] md:text-[32px]">
-                          Focus on High-Growth Regions
-                        </h3>
-                        <p className="text-base md:text-lg">
-                          Our primary attention is on promising markets in Asia,
-                          South Asia, and South East Asia, aligning with our
-                          expansion strategy.
-                        </p>
-
-                        <a
-                          className="flex cursor-pointer items-center gap-2 text-[#98FFF9]"
-                          rel="noreferrer noopener"
-                          href="mailto:contact@magiccraft.io?subject=MagicCraft%20Partnership"
-                        >
-                          <span>Collaborate</span>
-                          <ArrowUpRight size={18} />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-8">
-                  {/* <h3 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl">
-                    Join them
-                  </h3>
-                  <div className="grid grid-cols-3 gap-5 md:grid-cols-4">
-                    {partners.map((item) => {
-                      return (
-                        <div
-                          key={item.name}
-                          className="grid h-20 place-items-center bg-[#161E4A]  md:h-36"
-                        >
-                          <img
-                            className="px-2 "
-                            src={item.icon}
-                            alt={item.name}
-                          />
-                        </div>
-                      )
-                    })}
-                  </div> */}
-                  <ListedPartners />
-                  <div className="block h-px w-full bg-gradient-to-r from-transparent via-[#9255E0] to-transparent md:hidden" />
-                </div>
-              </div>
-            </section>
-
-            <section className="relative">
-              <div className="absolute -top-40 left-0 right-0 -z-10 mx-auto aspect-square max-h-[700px] w-full max-w-[700px] rounded-full bg-[#1E025B] opacity-30 blur-[170px]" />
-
-              <div className="space-y-20">
-                <div className="space-y-8">
-                  <h2 className="text-balance bg-gradient-to-b from-white to-white/75 bg-clip-text text-center font-serif text-4xl text-transparent drop-shadow-xl md:text-[54px] md:leading-[3.5rem]">
-                    What&apos;s live and what&apos;s next
-                  </h2>
-                  <div className="mx-auto w-fit rounded-full bg-[#4457B84D] px-5 py-3 text-lg text-[#98FFF9] backdrop-blur">
-                    Game and ecosystem roadmap
-                  </div>
-                </div>
-                <div className="flex items-center justify-center ">
-                  <div className=" grid max-w-[100vw] touch-auto snap-x snap-mandatory auto-cols-auto grid-flow-col gap-8 overflow-x-auto overscroll-x-contain px-4 lg:max-w-screen-xl">
-                    {roadmapData.map((data) => (
-                      <RoadmapCard data={data} key={data.stage} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            {/* <section className="mx-auto w-full max-w-6xl px-4 py-12">
-              <div className="grid items-center gap-8 lg:grid-cols-2">
-                <div className="-mt-[5em]  h-[280px] rounded-3xl border-2 border-[#98FFF9] bg-gradient-to-r from-[#173B52]  to-[#557e91] to-80% px-8 py-10">
-                  <h2 className="mb-8 text-3xl font-bold text-white">
-                    QUESTIONS &<br />
-                    SUGGESTIONS
-                  </h2>
-                  <div className="space-y-2">
-                    <a
-                      href="mailto:contact@magiccraft.io"
-                      className="flex items-center text-cyan-400 transition-colors hover:text-cyan-300"
-                    >
-                      <span className="mr-2">✉</span>
-                      contact@magiccraft.io
-                    </a>
-                    <a
-                      href="mailto:contact@magiccraft.io"
-                      className="flex items-center text-cyan-400 transition-colors hover:text-cyan-300"
-                    >
-                      <span className="mr-2">✉</span>
-                      contact@magiccraft.io
-                    </a>
-                  </div>
-                </div>
-
-                <div className="rounded-3xl bg-[#11113A] p-8 lg:-ml-20 ">
-                  <form onSubmit={onSubmit} className="space-y-6">
-                    <div className="flex flex-col space-y-2">
-                      <label htmlFor="email" className="text-white">
-                        Your email
-                      </label>
-                      <input
-                        id="email"
-                        type="email"
-                        placeholder="Enter here your email"
-                        required
-                        className="rounded-md border border-[#202660] bg-[rgba(68,87,184,0.10)] px-4 py-2 text-[#98FFF9] backdrop-blur-sm"
-                      />
-                    </div>
-
-                    <div className="flex flex-col space-y-2">
-                      <label htmlFor="name" className="text-white">
-                        Your Name
-                      </label>
-                      <input
-                        id="name"
-                        placeholder="Enter here your Name"
-                        required
-                        className="rounded-md border border-[#202660] bg-[rgba(68,87,184,0.10)] px-4 py-2 text-[#98FFF9] backdrop-blur-sm"
-                      />
-                    </div>
-
-                    <div className="flex flex-col space-y-2 ">
-                      <label htmlFor="question" className="text-white">
-                        Your Question
-                      </label>
-                      <textarea
-                        id="question"
-                        placeholder="Enter here your questions or suggestions"
-                        required
-                        className="rounded-md border border-[#202660] bg-[rgba(68,87,184,0.10)] px-4 py-2 text-[#98FFF9] backdrop-blur-sm"
-                      />
-                    </div>
-
-                    <div className="flex items-center space-x-2">
-                      <input id="privacy" type="checkbox" required />
-                      <label
-                        htmlFor="privacy"
-                        className="text-sm text-gray-400"
-                      >
-                        I agree with Privacy Policy
-                      </label>
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="text-navy-900 w-full rounded-md bg-[#98FFF9] py-4 font-medium text-[#11113A] "
-                    >
-                      {isSubmitting ? 'Sending...' : 'Send'}
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </section> */}
-            <section id="contact">
-              <ContactForm />
-            </section>
+            <p className="mt-4 text-sm leading-6 text-white/55">
+              Start playing without MCRT, an NFT or a wallet.
+            </p>
           </div>
-        </main>
-        <Suspense
-          fallback={
-            <div className="flex h-24 items-center justify-center">
-              <span className="text-sm text-white/50">Loading…</span>
-            </div>
-          }
+          <figure className="overflow-hidden rounded-[24px] border border-white/10 bg-[#080a2a]">
+            <img
+              src={GAMEPLAY_SCREENSHOTS.teamBattle.src}
+              alt={GAMEPLAY_SCREENSHOTS.teamBattle.alt}
+              width="1280"
+              height="720"
+              className="aspect-video w-full object-cover"
+            />
+            <figcaption className="px-5 py-3 text-xs text-white/60">
+              Real MagicCraft gameplay. Team fights built around the objective.
+            </figcaption>
+          </figure>
+        </section>
+        <section
+          id="play"
+          aria-labelledby="platform-heading"
+          className="mx-auto max-w-screen-xl scroll-mt-24 px-4 pb-12 sm:px-6 sm:pb-16"
         >
-          <Footer />
-        </Suspense>
-      </div>
-    </>
+          <h2
+            id="platform-heading"
+            className="font-sans text-2xl font-semibold tracking-tight sm:text-3xl"
+          >
+            One game. Choose your platform.
+          </h2>
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            {platforms.map((platform) => {
+              const Icon = platform.icon
+              return (
+                <a
+                  key={platform.name}
+                  href={platform.href}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  onClick={() =>
+                    trackCta({
+                      cta: platform.event,
+                      location: 'game_platforms',
+                      label: platform.name,
+                    })
+                  }
+                  className="group flex min-h-24 items-center gap-4 rounded-2xl border border-white/15 bg-white/[0.04] p-5 no-underline transition-colors hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] motion-reduce:transition-none"
+                >
+                  <Icon
+                    className="h-6 w-6 shrink-0 text-[#98FFF9]"
+                    aria-hidden="true"
+                  />
+                  <span className="flex-1">
+                    <span className="block text-lg font-semibold">
+                      {platform.name}
+                    </span>
+                    <span className="mt-1 block text-sm text-white/60">
+                      {platform.detail}
+                    </span>
+                  </span>
+                  <ArrowUpRight
+                    className="h-5 w-5 text-white/60"
+                    aria-hidden="true"
+                  />
+                  <span className="sr-only">
+                    Opens the official store in a new tab
+                  </span>
+                </a>
+              )
+            })}
+          </div>
+        </section>
+        <GameExperienceSection />
+        <section
+          aria-labelledby="start-heading"
+          className="mx-auto max-w-screen-xl px-4 py-14 sm:px-6 sm:py-20"
+        >
+          <h2
+            id="start-heading"
+            className="font-sans text-3xl font-semibold tracking-[-0.03em] sm:text-4xl"
+          >
+            From download to your first battle.
+          </h2>
+          <ol className="mt-8 grid gap-7 sm:grid-cols-3">
+            {[
+              [
+                'Install the game',
+                'Choose the official store for your device and install the latest version.',
+              ],
+              [
+                'Find your hero',
+                'Explore the roster and pick the abilities that suit your play style.',
+              ],
+              [
+                'Choose your mode',
+                'Follow the in-game introduction, then try a PvP match or a PvE adventure.',
+              ],
+            ].map(([title, description], index) => (
+              <li key={title} className="border-t border-white/15 pt-5">
+                <span className="text-sm font-semibold text-[#98FFF9]">
+                  0{index + 1}
+                </span>
+                <h3 className="mt-3 font-sans text-xl font-semibold">
+                  {title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-white/65">
+                  {description}
+                </p>
+              </li>
+            ))}
+          </ol>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link to="/chooseyourhero/" className={homePrimaryActionClass}>
+              Explore the heroes{' '}
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link to="/patch/" className={homeSecondaryActionClass}>
+              Latest game updates{' '}
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          </div>
+        </section>
+        <section
+          aria-labelledby="more-heading"
+          className="border-t border-white/10 bg-[#05051f] px-4 py-10 sm:px-6"
+        >
+          <div className="mx-auto grid max-w-screen-xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div>
+              <h2 id="more-heading" className="font-sans text-xl font-semibold">
+                More ways to explore.
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-white/60">
+                Keep playing, get help, or explore optional Web3 features at
+                your own pace.
+              </p>
+            </div>
+            <div className="flex flex-col items-start gap-3">
+              <a
+                href="https://games.magiccraft.io/"
+                target="_blank"
+                rel="noreferrer noopener"
+                className="rounded py-2 text-sm font-semibold text-[#98FFF9] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9]"
+              >
+                Explore browser games ↗
+              </a>
+              <Link
+                to="/faq/"
+                className="rounded py-2 text-sm font-semibold text-[#98FFF9] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9]"
+              >
+                Game help and FAQs
+              </Link>
+            </div>
+            <div>
+              <Link
+                to="/lobbies/"
+                className="inline-flex min-h-11 items-center rounded text-sm font-semibold text-[#98FFF9] underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9]"
+              >
+                Explore optional Web3 lobbies{' '}
+                <ArrowUpRight className="ml-2 h-4 w-4" aria-hidden="true" />
+              </Link>
+              <p className="mt-1 text-xs leading-6 text-white/55">
+                Review current entry and reward rules. Web3 features are
+                separate from free gameplay.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
   )
 }
-
-export default Homepagegames

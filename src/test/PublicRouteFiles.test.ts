@@ -17,11 +17,13 @@ describe('public route files', () => {
     )
   })
 
-  it('publishes the canonical MCRT and lobby routes in the sitemap', () => {
+  it('publishes trailing-slash fixed routes that match their crawler shells', () => {
     const sitemap = projectFile('public/sitemap.xml')
 
     expect(sitemap).toContain('<loc>https://magiccraft.io/buy-mcrt/</loc>')
-    expect(sitemap).toContain('<loc>https://magiccraft.io/lobbies</loc>')
+    expect(sitemap).toContain('<loc>https://magiccraft.io/lobbies/</loc>')
+    expect(sitemap).toContain('<loc>https://magiccraft.io/magiccraft/</loc>')
+    expect(sitemap).toContain('<loc>https://magiccraft.io/terms/</loc>')
     expect(sitemap).not.toContain('<loc>https://magiccraft.io/pricing</loc>')
   })
 
@@ -41,6 +43,19 @@ describe('public route files', () => {
     }
     expect(generator).toContain("join(distRoot, '404.html')")
     expect(generator).toContain("canonical: 'https://magiccraft.io/buy-mcrt/'")
+    expect(generator).toContain('`https://magiccraft.io/${route.path}/`')
+  })
+
+  it('matches the player page metadata in the MagicCraft crawler shell', () => {
+    const generator = projectFile('scripts/generate-route-shells.mjs')
+
+    expect(generator).toContain("path: 'magiccraft'")
+    expect(generator).toContain(
+      "title: 'Play MagicCraft | Free Fantasy PvP & PvE Game'"
+    )
+    expect(generator).toContain(
+      'See real MagicCraft gameplay, discover PvP and PvE modes, and choose your platform. Free to play on Steam, iOS and Android. No wallet required.'
+    )
   })
 
   it('lets Helmet own the base canonical and returns a real 404 shell', () => {

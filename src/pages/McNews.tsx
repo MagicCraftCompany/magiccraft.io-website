@@ -22,7 +22,7 @@ const officialChannels = [
 ]
 
 export default function NewsPage() {
-  const canonical = 'https://magiccraft.io/news'
+  const canonical = 'https://magiccraft.io/news/'
 
   return (
     <>

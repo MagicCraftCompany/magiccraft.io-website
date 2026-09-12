@@ -64,7 +64,7 @@ const BackButton = styled(Link)`
 `
 
 export default function TermsAndConditions() {
-  const canonical = 'https://magiccraft.io/terms'
+  const canonical = 'https://magiccraft.io/terms/'
 
   useEffect(() => {
     window.scrollTo(0, 0)

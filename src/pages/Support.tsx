@@ -102,9 +102,9 @@ export default function FAQ() {
           name="description"
           content="Get help and support for MagicCraft. Find answers to frequently asked questions and contact our team."
         />
-        <link rel="canonical" href="https://magiccraft.io/faq" />
+        <link rel="canonical" href="https://magiccraft.io/faq/" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://magiccraft.io/faq" />
+        <meta property="og:url" content="https://magiccraft.io/faq/" />
         <meta property="og:title" content="Support - MagicCraft" />
         <meta
           property="og:description"

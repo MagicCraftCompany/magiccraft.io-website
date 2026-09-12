@@ -26,7 +26,7 @@ const renderWhitepaper = () =>
     </HelmetProvider>
   )
 
-describe('Whitepaper v3.3', () => {
+describe('Whitepaper v3.4', () => {
   it('presents a navigable product and function guide', () => {
     renderWhitepaper()
 
@@ -36,7 +36,7 @@ describe('Whitepaper v3.3', () => {
         name: /living guide to MagicCraft products/i,
       })
     ).toBeInTheDocument()
-    expect(screen.getByText('Whitepaper v3.3')).toBeInTheDocument()
+    expect(screen.getByText('Whitepaper v3.4')).toBeInTheDocument()
     expect(screen.queryByText(/Verified 13 July 2026/i)).not.toBeInTheDocument()
 
     const toc = screen.getByRole('navigation', {

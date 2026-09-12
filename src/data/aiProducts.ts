@@ -28,13 +28,13 @@ export const AI_PRODUCTS: AiProduct[] = [
     category: 'Assistant and operations',
     status: 'Live',
     description:
-      'Work across chat, voice, images, translation, markets, memory, and connected messaging workflows with a multi-persona AI assistant.',
+      'Ask, create and get work done with chat, voice, images and connected tools in one AI assistant.',
     href: 'https://merlintheai.com/',
     cta: 'Open Merlin',
     accent: '#98FFF9',
     navIcon: '/ai-logos/merlin.svg',
     safetyNote:
-      'Connected accounts, memory, and messaging remain separate Merlin workflows and should be enabled only with the user’s permission.',
+      'Enable connected accounts, memory and messaging only with your permission inside Merlin.',
   },
   {
     id: 'akyn',
@@ -42,13 +42,13 @@ export const AI_PRODUCTS: AiProduct[] = [
     category: 'AI film production',
     status: 'Live',
     description:
-      'Move from script and reusable characters to generated scenes, editing, and finished video inside one creator workspace.',
+      'Turn a script into scenes and an edited film with reusable characters in one creator workspace.',
     href: 'https://akyn.pro/',
     cta: 'Open Akyn',
     accent: '#B591F2',
     navIcon: '/ai-logos/akyn.png',
     safetyNote:
-      'Uploads, generated media, credits, and publishing are governed by Akyn’s own account and product terms.',
+      'Media, credits and publishing follow Akyn’s own account and product terms.',
   },
   {
     id: 'magicads',
@@ -56,13 +56,13 @@ export const AI_PRODUCTS: AiProduct[] = [
     category: 'Advertising network',
     status: 'Live',
     description:
-      'Launch campaigns or connect publisher inventory through an agent-native advertising network with manual and API workflows.',
+      'Run ad campaigns or connect your site as a publisher, with dashboard and API controls.',
     href: 'https://magicads.dev/',
     cta: 'Open MagicAds',
     accent: '#FFB649',
     navIcon: '/ai-logos/magicads.svg',
     safetyNote:
-      'Campaign spend, targeting, publisher inventory, and distribution require review inside MagicAds before activation.',
+      'Review budget, targeting and distribution in MagicAds before activating a campaign.',
   },
   {
     id: 'magas7',
@@ -70,13 +70,13 @@ export const AI_PRODUCTS: AiProduct[] = [
     category: 'Agentic marketing',
     status: 'Early access',
     description:
-      'Coordinate specialist agents across research, writing, design, scheduling, publishing, analytics, and brand quality.',
+      'Bring marketing research, content, scheduling and analytics into one agent workspace.',
     href: 'https://magas7.com/',
     cta: 'Open MAGAS7',
     accent: '#B1FF5A',
     navIcon: '/ai-logos/magas7.svg',
     safetyNote:
-      'Early-access agent output should be reviewed before scheduling or publishing to a live brand channel.',
+      'Early access. Review agent output before scheduling or publishing.',
   },
   {
     id: 'dragonlist',
@@ -84,13 +84,13 @@ export const AI_PRODUCTS: AiProduct[] = [
     category: 'Meeting productivity',
     status: 'Beta',
     description:
-      'Transcribe meetings, turn action items into assigned tasks, and keep a searchable meeting record for follow-up.',
+      'Turn meeting conversations into assigned tasks and a searchable record for follow-up.',
     href: 'https://dragonlist.ai/',
     cta: 'Open DragonList',
     accent: '#60A5FA',
     navIcon: '/ai-logos/dragonlist.svg',
     safetyNote:
-      'Record or upload meetings only with the required participant notice, consent, and organizational permission.',
+      'Get required participant consent and organizational permission before recording or uploading.',
   },
   {
     id: 'docai',
@@ -98,12 +98,12 @@ export const AI_PRODUCTS: AiProduct[] = [
     category: 'Wellness information',
     status: 'Live',
     description:
-      'Organize symptoms, uploaded reports, possible patterns, and next-step questions with an integrative AI wellness guide.',
+      'Organize symptoms and reports into a clearer set of questions for your next care conversation.',
     href: 'https://docai.live/',
     cta: 'Open DocAI',
     accent: '#10B981',
     navIcon: '/ai-logos/docai.svg',
     safetyNote:
-      'Educational guidance only. It is not a diagnosis, emergency service, or substitute for a qualified clinician.',
+      'Educational guidance, not diagnosis, emergency care or a substitute for a qualified clinician.',
   },
 ]

@@ -136,10 +136,10 @@ function Guilds() {
           name="description"
           content="Find official MagicCraft community, leaderboard, lobby, marketplace, and guild-building resources."
         />
-        <link rel="canonical" href="https://magiccraft.io/guilds" />
+        <link rel="canonical" href="https://magiccraft.io/guilds/" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://magiccraft.io/guilds" />
+        <meta property="og:url" content="https://magiccraft.io/guilds/" />
         <meta property="og:title" content="Guilds | MagicCraft" />
         <meta
           property="og:description"

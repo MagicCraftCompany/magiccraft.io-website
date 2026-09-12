@@ -78,10 +78,10 @@ function Careers() {
           name="description"
           content="Join the MagicCraft team. Explore open roles in game development, AI, and Web3 across the MagicCraft ecosystem."
         />
-        <link rel="canonical" href="https://magiccraft.io/careers" />
+        <link rel="canonical" href="https://magiccraft.io/careers/" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://magiccraft.io/careers" />
+        <meta property="og:url" content="https://magiccraft.io/careers/" />
         <meta property="og:title" content="Careers | MagicCraft" />
         <meta
           property="og:description"

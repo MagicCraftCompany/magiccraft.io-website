@@ -15,7 +15,7 @@ import { AI_PRODUCTS, type AiProductStatus } from '@/data/aiProducts'
 import { BYBIT_URL, MCRT_CONTRACT_CHECKSUM, PANCAKESWAP_URL } from '@/constants'
 import { openGameByDevice } from '@/lib/gameActions'
 
-const WHITEPAPER_VERSION = '3.3'
+const WHITEPAPER_VERSION = '3.4'
 
 const printStyles = [
   '@media print {',
@@ -209,6 +209,22 @@ const allocations = [
 ]
 
 const sources: Source[] = [
+  {
+    title: 'MCRTPay integration guide',
+    href: 'https://mcrtpay.com/docs',
+    supports:
+      'Merchant checkout widget and BNB Chain verification documentation',
+  },
+  {
+    title: 'MagicAds payment options',
+    href: 'https://magicads.dev/pricing',
+    supports: 'Published campaign plans and payment options',
+  },
+  {
+    title: 'DocAI payment options',
+    href: 'https://docai.live/pricing',
+    supports: 'Published wellness plans and MCRT payment option',
+  },
   {
     title: 'MagicCraft product offerings',
     href: 'https://docs.magiccraft.io/executive-summary/product-offerings-magiccraft-games',
@@ -716,6 +732,8 @@ export default function Whitepaper() {
                 'Pledging under the current term and reward rules',
                 'Eligible referral-program rewards',
                 'MagicAds campaign funding where that option is shown',
+                'DocAI plans where MCRT payment is offered on the pricing page',
+                'Merchant integrations using the documented MCRTPay widget',
                 'External exchange and wallet transfers on BNB Chain',
               ].map((utility) => (
                 <div
@@ -738,9 +756,11 @@ export default function Whitepaper() {
                   aria-hidden="true"
                 />
                 <p className="text-sm leading-6 text-amber-50/80">
-                  This paper does not claim that Merlin, Akyn, MAGAS7,
-                  DragonList or DocAI accept MCRT. Their public plans and
-                  payment methods are governed by each product.
+                  This paper does not claim that Merlin, Akyn, MAGAS7, or
+                  DragonList accept MCRT. MagicAds and DocAI publish MCRT
+                  payment options; the selected plan, final quote and access
+                  terms must be checked in each product. Public payment
+                  documentation is not a guarantee of transaction completion.
                 </p>
               </div>
             </div>

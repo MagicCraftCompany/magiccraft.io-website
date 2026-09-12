@@ -1,8 +1,14 @@
-import { render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
+
+vi.mock('@/lib/analytics', () => ({
+  trackCta: vi.fn(),
+}))
+
 import EcosystemSystemsSection from '@/components/Home/EcosystemSystemsSection'
 import { ECOSYSTEM_SYSTEM_GROUPS } from '@/data/ecosystemSystems'
+import { trackCta } from '@/lib/analytics'
 
 describe('ecosystem system map', () => {
   it('renders every current system once with its truthful status and path', () => {
@@ -61,5 +67,24 @@ describe('ecosystem system map', () => {
     expect(document.body.textContent).not.toMatch(
       /degraded|returns 404|preloading reports|fallback values|not exercised|not rendering reliably/i
     )
+  })
+
+  it('attributes each system-card click once with a non-personal system id', () => {
+    render(
+      <MemoryRouter>
+        <EcosystemSystemsSection />
+      </MemoryRouter>
+    )
+
+    fireEvent.click(
+      screen.getByRole('heading', { name: 'Game Stats' }).closest('a')!
+    )
+
+    expect(trackCta).toHaveBeenCalledTimes(1)
+    expect(trackCta).toHaveBeenCalledWith({
+      cta: 'open_ecosystem_system',
+      location: 'ecosystem_systems',
+      label: 'stats',
+    })
   })
 })

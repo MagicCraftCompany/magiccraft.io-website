@@ -11,9 +11,9 @@ const newsMetadata = JSON.parse(
 const routeShells = [
   {
     path: 'magiccraft',
-    title: 'MagicCraft Game | Free PvP & PvE on Mobile and PC',
+    title: 'Play MagicCraft | Free Fantasy PvP & PvE Game',
     description:
-      'Play MagicCraft free across mobile and PC. Explore established team PvP, the newer PvE adventure system, heroes and official platform links.',
+      'See real MagicCraft gameplay, discover PvP and PvE modes, and choose your platform. Free to play on Steam, iOS and Android. No wallet required.',
   },
   {
     path: 'stats',
@@ -23,7 +23,7 @@ const routeShells = [
   },
   {
     path: 'whitepaper',
-    title: 'MagicCraft Whitepaper v3.3 | Product & System Guide',
+    title: 'MagicCraft Whitepaper v3.4 | Product & System Guide',
     description:
       'Read the dated MagicCraft guide to the live game, AI products, Web3 functions, builder systems, MCRT utility and current limitations.',
   },
@@ -147,7 +147,8 @@ function escapeHtml(value) {
 }
 
 function routeHtml(baseHtml, route) {
-  const canonical = route.canonical ?? `https://magiccraft.io/${route.path}`
+  const canonical =
+    route.canonical ?? `https://magiccraft.io/${route.path}/`
   let html = baseHtml
 
   html = replaceRequired(

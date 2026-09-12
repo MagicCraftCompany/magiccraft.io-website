@@ -1,5 +1,6 @@
 import { ArrowUpRight, ShieldCheck, Sparkles } from 'lucide-react'
 import { AI_PRODUCTS } from '@/data/aiProducts'
+import { trackCta } from '@/lib/analytics'
 import { homeSurfaceClass } from './homeStyles'
 import HomeSectionIntro from './ui/HomeSectionIntro'
 
@@ -48,6 +49,13 @@ export default function AiProductSuiteSection() {
               href={product.href}
               target="_blank"
               rel="noreferrer noopener"
+              onClick={() =>
+                trackCta({
+                  cta: 'open_ai_product',
+                  location: 'ai_product_suite',
+                  label: product.id,
+                })
+              }
               aria-label={`${product.cta}. Opens ${product.name} as a separate product in a new tab.`}
               className={`${homeSurfaceClass} group relative flex flex-col overflow-hidden rounded-[22px] p-5 no-underline transition-[transform,background-color,border-color] duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-white/[0.055] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] motion-reduce:transform-none motion-reduce:transition-none sm:p-6`}
             >

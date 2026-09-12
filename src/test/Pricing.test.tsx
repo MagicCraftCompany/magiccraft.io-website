@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import { HelmetProvider } from 'react-helmet-async'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
@@ -16,7 +16,11 @@ vi.mock('@/lib/useMcrtPrice', () => ({
     status: 'unavailable',
   }),
 }))
+vi.mock('@/lib/analytics', () => ({
+  trackCta: vi.fn(),
+}))
 import Pricing from '@/pages/Pricing'
+import { trackCta } from '@/lib/analytics'
 
 describe('MCRT buyer guide', () => {
   it('leads with current utility before the two primary market routes', () => {
@@ -76,5 +80,46 @@ describe('MCRT buyer guide', () => {
     expect(
       screen.queryByRole('heading', { name: 'Fund the Lobby' })
     ).not.toBeInTheDocument()
+  })
+
+  it('uses safe, tracked handoffs for product and builder utility', () => {
+    render(
+      <HelmetProvider>
+        <MemoryRouter>
+          <Pricing />
+        </MemoryRouter>
+      </HelmetProvider>
+    )
+
+    const destinations = [
+      ['MagicAds', 'https://magicads.dev/pricing', 'open_ai_product'],
+      ['DocAI', 'https://docai.live/pricing', 'open_ai_product'],
+      ['MCRTPay', 'https://mcrtpay.com/docs', 'open_mcrt_integration'],
+    ] as const
+
+    for (const [label, href, cta] of destinations) {
+      const handoff = screen.getByText(label, { exact: true }).closest('a')
+      expect(handoff).not.toBeNull()
+      expect(handoff).toHaveAttribute('href', href)
+      expect(handoff).toHaveAttribute('target', '_blank')
+      expect(handoff).toHaveAttribute('rel', expect.stringContaining('noopener'))
+      expect(handoff).toHaveAttribute(
+        'rel',
+        expect.stringContaining('noreferrer')
+      )
+      fireEvent.click(handoff as HTMLAnchorElement)
+      expect(trackCta).toHaveBeenCalledWith({
+        cta,
+        location: 'mcrt_product_guide',
+        label: label.toLowerCase(),
+      })
+    }
+
+    expect(
+      screen.getByText(/Buying MCRT does not activate a plan/i)
+    ).toBeInTheDocument()
+    expect(
+      screen.getByText(/Check the selected plan, final quote, network fees/i)
+    ).toBeInTheDocument()
   })
 })

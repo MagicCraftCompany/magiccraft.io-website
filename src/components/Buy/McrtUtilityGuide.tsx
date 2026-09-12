@@ -1,8 +1,11 @@
 import {
   ArrowRight,
   ArrowUpRight,
+  Code2,
   Gem,
+  Heart,
   LockKeyhole,
+  Megaphone,
   Swords,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
@@ -51,6 +54,39 @@ const utilityPaths: UtilityPath[] = [
     event: 'review_pledging',
     icon: LockKeyhole,
     external: true,
+  },
+]
+
+const productPaths: UtilityPath[] = [
+  {
+    title: 'Fund an ad campaign',
+    label: 'MagicAds',
+    description:
+      'Compare campaign plans and payment options, including MCRT, before adding a budget.',
+    href: 'https://magicads.dev/pricing',
+    cta: 'See campaign options',
+    event: 'open_ai_product',
+    icon: Megaphone,
+  },
+  {
+    title: 'Explore a wellness plan',
+    label: 'DocAI',
+    description:
+      'Compare educational wellness plans and review the MCRT payment option offered on the pricing page.',
+    href: 'https://docai.live/pricing',
+    cta: 'Compare DocAI plans',
+    event: 'open_ai_product',
+    icon: Heart,
+  },
+  {
+    title: 'Accept MCRT on your site',
+    label: 'MCRTPay',
+    description:
+      'Explore the checkout widget and BNB Chain payment verification in the integration guide.',
+    href: 'https://mcrtpay.com/docs',
+    cta: 'Read the integration guide',
+    event: 'open_mcrt_integration',
+    icon: Code2,
   },
 ]
 
@@ -141,6 +177,61 @@ export default function McrtUtilityGuide() {
             </Link>
           )
         })}
+      </div>
+
+      <div className="mt-9 border-t border-white/15 pt-8">
+        <h3 className="font-sans text-2xl font-semibold tracking-tight">
+          For products and builders.
+        </h3>
+        <p className="mt-3 max-w-3xl text-sm leading-6 text-white/65">
+          Explore the published MCRT options below. Each product has its own
+          account, plans and payment terms. Buying MCRT does not activate a
+          plan.
+        </p>
+        <div className="mt-5 grid gap-3 lg:grid-cols-3">
+          {productPaths.map((path) => {
+            const Icon = path.icon
+            return (
+              <a
+                key={path.label}
+                href={path.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                onClick={() =>
+                  trackCta({
+                    cta: path.event,
+                    location: 'mcrt_product_guide',
+                    label: path.label.toLowerCase(),
+                  })
+                }
+                className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-5 no-underline transition-colors hover:bg-white/[0.07] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#98FFF9] motion-reduce:transition-none"
+              >
+                <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.12em] text-[#98FFF9]">
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                  {path.label}
+                </p>
+                <h4 className="mt-4 font-sans text-xl font-semibold">
+                  {path.title}
+                </h4>
+                <p className="mt-3 flex-1 text-sm leading-6 text-white/65">
+                  {path.description}
+                </p>
+                <span className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[#98FFF9]">
+                  {path.cta}
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+                </span>
+                <span className="sr-only">
+                  Opens a separate product in a new tab.
+                </span>
+              </a>
+            )
+          })}
+        </div>
+        <p className="mt-4 text-xs leading-6 text-white/55">
+          Check the selected plan, final quote, network fees and access terms in
+          the product before paying. DocAI provides educational guidance, not
+          diagnosis or emergency care.
+        </p>
       </div>
 
       <p className="mb-0 mt-6 text-xs leading-6 text-white/55">

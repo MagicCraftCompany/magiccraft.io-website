@@ -257,10 +257,10 @@ export default function Bounties() {
           name="description"
           content="Earn $MCRT by completing MagicCraft bounties — content, code, and community challenges for the ecosystem."
         />
-        <link rel="canonical" href="https://magiccraft.io/bounties" />
+        <link rel="canonical" href="https://magiccraft.io/bounties/" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://magiccraft.io/bounties" />
+        <meta property="og:url" content="https://magiccraft.io/bounties/" />
         <meta property="og:title" content="Bounties | MagicCraft" />
         <meta
           property="og:description"
@@ -285,7 +285,7 @@ export default function Bounties() {
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
             name: 'MagicCraft Bounties',
-            url: 'https://magiccraft.io/bounties',
+            url: 'https://magiccraft.io/bounties/',
             description:
               'Open bounties for developers, creators, designers, and growth operators in the MagicCraft ecosystem.',
           })}

@@ -37,7 +37,7 @@ export default function Server() {
           name="description"
           content="Open MagicCraft's public lobby, marketplace, leaderboard and statistics services."
         />
-        <link rel="canonical" href="https://magiccraft.io/server" />
+        <link rel="canonical" href="https://magiccraft.io/server/" />
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
 

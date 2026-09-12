@@ -264,7 +264,7 @@ export default function Lobbies() {
           name="description"
           content="Browse the live MagicCraft Web3 lobby schedule without connecting a wallet, then review the official entry and reward terms before joining."
         />
-        <link rel="canonical" href="https://magiccraft.io/lobbies" />
+        <link rel="canonical" href="https://magiccraft.io/lobbies/" />
         <meta
           property="og:title"
           content="Live Match Schedule | MagicCraft Lobbies"
@@ -273,7 +273,7 @@ export default function Lobbies() {
           property="og:description"
           content="Find an upcoming MagicCraft match by token, mode, map, region and start time."
         />
-        <meta property="og:url" content="https://magiccraft.io/lobbies" />
+        <meta property="og:url" content="https://magiccraft.io/lobbies/" />
         <meta
           property="og:image"
           content="https://magiccraft.io/magiccraft-social-preview.webp"

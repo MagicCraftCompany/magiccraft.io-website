@@ -101,7 +101,7 @@ const systemLinks: FooterLink[] = [
     .map((id) => systemLookup.get(id))
     .filter((system): system is NonNullable<typeof system> => Boolean(system))
     .map((system) => ({ title: system.name, href: system.href })),
-  { title: 'Whitepaper v3.3', href: '/whitepaper' },
+  { title: 'Whitepaper v3.4', href: '/whitepaper' },
   { title: 'FAQ', href: '/faq' },
   { title: 'Contact', href: '/contact-us' },
 ]

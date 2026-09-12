@@ -15,6 +15,7 @@ import {
   type EcosystemSystemGroupId,
   type EcosystemSystemStatus,
 } from '@/data/ecosystemSystems'
+import { trackCta } from '@/lib/analytics'
 import HomeSectionIntro from './ui/HomeSectionIntro'
 
 const GROUP_ICONS: Record<EcosystemSystemGroupId, LucideIcon> = {
@@ -133,6 +134,13 @@ export default function EcosystemSystemsSection() {
                       <Link
                         key={system.id}
                         to={system.href}
+                        onClick={() =>
+                          trackCta({
+                            cta: 'open_ecosystem_system',
+                            location: 'ecosystem_systems',
+                            label: system.id,
+                          })
+                        }
                         className="flex min-w-0 flex-col rounded-2xl bg-white/[0.025] p-4 no-underline transition-colors duration-200 hover:bg-white/[0.06] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#98FFF9] motion-reduce:transition-none"
                       >
                         {content}
@@ -143,6 +151,13 @@ export default function EcosystemSystemsSection() {
                         href={system.href}
                         target="_blank"
                         rel="noreferrer noopener"
+                        onClick={() =>
+                          trackCta({
+                            cta: 'open_ecosystem_system',
+                            location: 'ecosystem_systems',
+                            label: system.id,
+                          })
+                        }
                         className="flex min-w-0 flex-col rounded-2xl bg-white/[0.025] p-4 no-underline transition-colors duration-200 hover:bg-white/[0.06] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#98FFF9] motion-reduce:transition-none"
                       >
                         {content}

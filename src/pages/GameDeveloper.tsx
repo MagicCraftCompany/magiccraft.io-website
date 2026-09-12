@@ -19,6 +19,10 @@ function GameDeveloper() {
           name="keywords"
           content="MagicCraft, Game Maker, $MCRT, game development, Web3, MOBA, build games, create maps, developer program"
         />
+        <link
+          rel="canonical"
+          href="https://magiccraft.io/build-on-magiccraft/"
+        />
         <meta
           property="og:title"
           content="Build on MagicCraft | Developer Program"
@@ -30,7 +34,7 @@ function GameDeveloper() {
         <meta property="og:type" content="website" />
         <meta
           property="og:url"
-          content="https://magiccraft.io/build-on-magiccraft"
+          content="https://magiccraft.io/build-on-magiccraft/"
         />
         <meta
           property="og:image"
@@ -45,7 +49,7 @@ function GameDeveloper() {
             name: 'Game Developer - MagicCraft',
             description:
               'Explore MagicCraft developer resources and submit a map or integration project for review.',
-            url: 'https://magiccraft.io/build-on-magiccraft',
+            url: 'https://magiccraft.io/build-on-magiccraft/',
           })}
         </script>
       </Helmet>

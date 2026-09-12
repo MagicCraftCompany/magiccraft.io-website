@@ -64,7 +64,7 @@ const BackButton = styled(Link)`
 `
 
 function PrivacyPolicy() {
-  const canonical = 'https://magiccraft.io/privacypolicy'
+  const canonical = 'https://magiccraft.io/privacypolicy/'
 
   useEffect(() => {
     window.scrollTo(0, 0)

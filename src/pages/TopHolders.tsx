@@ -15,7 +15,7 @@ export default function HoldersPage() {
           name="description"
           content="Use the BNB Chain explorer to inspect the current MCRT holder distribution from the token contract."
         />
-        <link rel="canonical" href="https://magiccraft.io/topholders" />
+        <link rel="canonical" href="https://magiccraft.io/topholders/" />
         <meta name="robots" content="noindex, follow" />
       </Helmet>
 

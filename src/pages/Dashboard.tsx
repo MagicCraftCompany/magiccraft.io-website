@@ -83,7 +83,7 @@ export default function Dashboard() {
           content="View current MagicCraft lobby activity, season information and $MCRT market statistics."
         />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://magiccraft.io/stats" />
+        <link rel="canonical" href="https://magiccraft.io/stats/" />
       </Helmet>
       <Header />
 

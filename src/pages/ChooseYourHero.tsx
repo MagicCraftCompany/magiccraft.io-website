@@ -74,10 +74,10 @@ export default function ChooseYourHero() {
       <Helmet>
         <title>Choose Your Hero | MagicCraft</title>
         <meta name="description" content="Browse all MagicCraft heroes, their roles, abilities, and stats. Find your perfect match for PvP lobbies." />
-        <link rel="canonical" href="https://magiccraft.io/chooseyourhero" />
+        <link rel="canonical" href="https://magiccraft.io/chooseyourhero/" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://magiccraft.io/chooseyourhero" />
+        <meta property="og:url" content="https://magiccraft.io/chooseyourhero/" />
         <meta property="og:title" content="Choose Your Hero | MagicCraft" />
         <meta property="og:description" content="Browse all MagicCraft heroes, their roles, abilities, and stats. Find your perfect match for PvP lobbies." />
         <meta property="og:image" content="https://res.cloudinary.com/dfzcr2ch4/image/upload/v1717331155/mcrt-icon_oewidv.webp" />
@@ -90,7 +90,7 @@ export default function ChooseYourHero() {
             '@context': 'https://schema.org',
             '@type': 'CollectionPage',
             name: 'MagicCraft Hero Roster',
-            url: 'https://magiccraft.io/chooseyourhero',
+            url: 'https://magiccraft.io/chooseyourhero/',
             description: 'Directory of MagicCraft heroes with role and character pages.',
             mainEntity: {
               '@type': 'ItemList',

@@ -24,6 +24,8 @@ export type CtaEvent = {
     | 'download_steam'
     | 'explore_ai_suite'
     | 'open_ai_product'
+    | 'open_ecosystem_system'
+    | 'open_mcrt_integration'
     | 'browse_lobbies'
     | 'browse_marketplace'
     | 'review_pledging'

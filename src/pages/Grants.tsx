@@ -17,10 +17,10 @@ const Grants = () => {
           name="description"
           content="Request support from the MagicCraft Grants Program for a working game, Web3/AI product, or crypto tool. Applications are reviewed case by case."
         />
-        <link rel="canonical" href="https://magiccraft.io/grants" />
+        <link rel="canonical" href="https://magiccraft.io/grants/" />
         <meta name="robots" content="index, follow" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://magiccraft.io/grants" />
+        <meta property="og:url" content="https://magiccraft.io/grants/" />
         <meta property="og:title" content="MagicCraft Grants Program" />
         <meta
           property="og:description"

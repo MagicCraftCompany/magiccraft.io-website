@@ -18,7 +18,7 @@ const mcrtFaq = [
   {
     question: 'Where can MCRT be used?',
     answer:
-      'Current paths include eligible Web3 lobby matches, supported marketplace transactions and pledging pools. Each product shows its current rules and availability.',
+      'Paths include eligible Web3 lobby matches, supported marketplace transactions and pledging pools. MagicAds and DocAI publish MCRT payment options, and MCRTPay provides a merchant integration guide. Check the selected product for current availability, pricing and access terms.',
   },
   {
     question: 'Which MCRT contract should I verify?',
