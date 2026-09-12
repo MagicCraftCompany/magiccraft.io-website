@@ -383,7 +383,7 @@ Never map all non-200 responses to `down`. Never map one successful dependency t
 10. Deep status checks can produce false negatives from anti-bot protection or regional network behavior.
 11. A successful redirect to a result page does not prove an external form, wallet, or product operation completed.
 12. The dated todo ledgers contain historical states. They are evidence, not a replacement for fresh production verification.
-13. The active homepage is `Homepagemcrt.tsx`; `/magiccraft` uses the separate long-form `HomePageGames.tsx`. Several unused homepage concepts remain under `src/components/Home/` and can contain stale claims.
+13. The active homepage is `Homepagemcrt.tsx`; `/magiccraft` is the separate player journey for choosing an official platform, viewing real gameplay, and finding game help or optional Web3 features. Several unused homepage concepts remain under `src/components/Home/` and can contain stale claims.
 14. The local `src/components/LeaderBoard/leaderboard.tsx`, `TopHoldersTable.tsx`, and portions of `HomePageCard.tsx` are legacy placeholders. The current public routes intentionally use attributable external handoffs instead.
 15. The FAQ source is `src/data/accordian.ts`. It also feeds live-support context and contains time-sensitive language that needs truth review.
 16. The live-support function hardcodes some ecosystem knowledge separately from the typed catalogs, which creates a product-copy drift risk.

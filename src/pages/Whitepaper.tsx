@@ -423,6 +423,7 @@ export default function Whitepaper() {
           name="description"
           content="A practical guide to the MagicCraft game, Web3 functions, AI products and MCRT utility."
         />
+        <link rel="canonical" href="https://magiccraft.io/whitepaper/" />
         <style>{printStyles}</style>
       </Helmet>
 

@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react'
+import { render, screen, waitFor, within } from '@testing-library/react'
 import { HelmetProvider } from 'react-helmet-async'
 import { MemoryRouter } from 'react-router-dom'
 import { describe, expect, it, vi } from 'vitest'
@@ -27,6 +27,18 @@ const renderWhitepaper = () =>
   )
 
 describe('Whitepaper v3.4', () => {
+  it('keeps its trailing-slash canonical after Helmet updates the document head', async () => {
+    renderWhitepaper()
+
+    await waitFor(() => {
+      expect(
+        document.head.querySelector(
+          'link[rel="canonical"][href="https://magiccraft.io/whitepaper/"]'
+        )
+      ).toBeInTheDocument()
+    })
+  })
+
   it('presents a navigable product and function guide', () => {
     renderWhitepaper()
 
