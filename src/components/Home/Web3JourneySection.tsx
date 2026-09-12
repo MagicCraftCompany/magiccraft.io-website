@@ -170,7 +170,7 @@ export default function Web3JourneySection() {
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:max-w-2xl">
           <Link to="/lobbies" className={homePrimaryActionClass}>
             Find a Web3 match{' '}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -189,22 +189,29 @@ export default function Web3JourneySection() {
             MCRT utility and access{' '}
             <Coins className="h-4 w-4" aria-hidden="true" />
           </Link>
+        </div>
+        <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-1">
+          <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-white/45">
+            Explore first
+          </span>
           <a
             href={marketplaceUrl}
             target="_blank"
             rel="noreferrer noopener"
-            className={homeQuietActionClass}
+            aria-label="Explore NFT marketplace"
+            className="inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-white/75 no-underline transition-colors hover:text-[#F5CF86] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5CF86] motion-reduce:transition-none"
           >
-            Explore NFT marketplace{' '}
+            NFT marketplace{' '}
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </a>
           <a
             href={utilitiesGuide}
             target="_blank"
             rel="noreferrer noopener"
-            className={homeQuietActionClass}
+            aria-label="How NFT utility works"
+            className="inline-flex min-h-10 items-center gap-1.5 text-sm font-semibold text-white/75 no-underline transition-colors hover:text-[#F5CF86] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#F5CF86] motion-reduce:transition-none"
           >
-            How NFT utility works{' '}
+            NFT utility guide{' '}
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
